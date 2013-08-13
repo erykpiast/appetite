@@ -1,0 +1,1529 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sc",
+				"scripts"
+			],
+			[
+				"sand",
+				"sandboxDocument"
+			],
+			[
+				"eve",
+				"eventHandler"
+			],
+			[
+				"pos",
+				"pos:a	position:absolute"
+			],
+			[
+				"av",
+				"avatar-margin"
+			],
+			[
+				"ava",
+				"avatar-border-color"
+			],
+			[
+				"bor",
+				"border-box"
+			],
+			[
+				"box-s",
+				"box-sizing"
+			],
+			[
+				"avata",
+				"avatar-border"
+			],
+			[
+				"comm",
+				"comments-bg-color"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"blo",
+				"blogConfig"
+			],
+			[
+				"$roo",
+				"$rootScope"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"art",
+				"articlesRest"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"re",
+				"rest"
+			],
+			[
+				"ar",
+				"articles"
+			],
+			[
+				"data",
+				"dataType"
+			],
+			[
+				"artic",
+				"article"
+			],
+			[
+				"b",
+				"border"
+			],
+			[
+				"la",
+				"label"
+			],
+			[
+				"SI",
+				"sufixes"
+			],
+			[
+				"file",
+				"filepath"
+			],
+			[
+				"su",
+				"sufixes"
+			],
+			[
+				"suf",
+				"sufix"
+			],
+			[
+				"str",
+				"strip-unit"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"dec",
+				"decPlaces"
+			],
+			[
+				"round",
+				"roundTo"
+			],
+			[
+				"st",
+				"steps"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"anim",
+				"animation"
+			],
+			[
+				"sec",
+				"secondary-color"
+			],
+			[
+				"tra",
+				"transform"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"ease",
+				"ease-out"
+			],
+			[
+				"trans",
+				"transition"
+			],
+			[
+				"tran",
+				"transition"
+			],
+			[
+				"no",
+				"none"
+			],
+			[
+				"mon",
+				"month"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"pr",
+				"progress"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"se",
+				"secondary-color"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"full",
+				"fullHd"
+			],
+			[
+				"li",
+				"linkList"
+			],
+			[
+				"po",
+				"pos:r	position:relative"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"box-",
+				"box-sizing"
+			],
+			[
+				"transi",
+				"transition"
+			],
+			[
+				"d",
+				"digit"
+			],
+			[
+				"to",
+				"tokens"
+			],
+			[
+				"for",
+				"format"
+			],
+			[
+				"fo",
+				"format"
+			],
+			[
+				"en",
+				"ends"
+			],
+			[
+				"pe",
+				"period"
+			],
+			[
+				"max",
+				"maxValue"
+			],
+			[
+				"t",
+				"timestamp"
+			],
+			[
+				"un",
+				"unit"
+			],
+			[
+				"per",
+				"period"
+			],
+			[
+				"y",
+				"year"
+			],
+			[
+				"h",
+				"hour"
+			],
+			[
+				"period",
+				"periodM"
+			],
+			[
+				"last",
+				"lastPeriod"
+			],
+			[
+				"las",
+				"lastPeriod"
+			],
+			[
+				"fi",
+				"Filters"
+			],
+			[
+				"ex",
+				"expect"
+			],
+			[
+				"ha",
+				"half"
+			],
+			[
+				"_get",
+				"_getLabel"
+			],
+			[
+				"n",
+				"number"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
+				"ti",
+				"timestamp"
+			],
+			[
+				"com",
+				"components"
+			],
+			[
+				"log",
+				"log	console.log"
+			],
+			[
+				"res",
+				"resolve"
+			],
+			[
+				"usr",
+				"userInfo"
+			],
+			[
+				"use",
+				"userId"
+			],
+			[
+				"dir",
+				"directive"
+			],
+			[
+				"_res",
+				"_resAuthorizations"
+			],
+			[
+				"aut",
+				"auth"
+			],
+			[
+				"clien",
+				"client_id"
+			],
+			[
+				"auth",
+				"authData"
+			],
+			[
+				"ser",
+				"serviceName"
+			],
+			[
+				"us",
+				"userInfo"
+			],
+			[
+				"au",
+				"auth"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"lo",
+				"log	console.log"
+			],
+			[
+				"ini",
+				"initialized"
+			],
+			[
+				"get",
+				"_getScopeUrl"
+			],
+			[
+				"fa",
+				"facebook"
+			],
+			[
+				"auto",
+				"autoLogin"
+			],
+			[
+				"cli",
+				"clientId"
+			],
+			[
+				"goo",
+				"google"
+			],
+			[
+				"s",
+				"scopes"
+			],
+			[
+				"user",
+				"userInfo"
+			],
+			[
+				"pro",
+				"promise"
+			],
+			[
+				"def",
+				"deffered"
+			],
+			[
+				"new",
+				"newVal"
+			],
+			[
+				"app",
+				"appData"
+			],
+			[
+				"loca",
+				"localStorage"
+			],
+			[
+				"loc",
+				"localStorage"
+			],
+			[
+				"pre",
+				"prefix"
+			],
+			[
+				"pref",
+				"prefLen"
+			],
+			[
+				"gi",
+				"github"
+			],
+			[
+				"bu",
+				"button"
+			],
+			[
+				"gith",
+				"githubUserInfo"
+			],
+			[
+				"access",
+				"accessToken"
+			],
+			[
+				"login",
+				"loginHandler"
+			],
+			[
+				"ge",
+				"gender"
+			],
+			[
+				"g",
+				"google"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"em",
+				"emCalc"
+			],
+			[
+				"lef",
+				"left-margin"
+			],
+			[
+				"hea",
+				"header	Tag"
+			],
+			[
+				"ang",
+				"angular"
+			],
+			[
+				"max-",
+				"max-width"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public/app/scripts/controllers/all.js",
+			"settings":
+			{
+				"buffer_size": 248,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/app/scripts/controllers/footer.js",
+			"settings":
+			{
+				"buffer_size": 238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/app/scripts/controllers/header.js",
+			"settings":
+			{
+				"buffer_size": 234,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/app/scripts/controllers/main.js",
+			"settings":
+			{
+				"buffer_size": 274,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/app/scripts/controllers/test.js",
+			"settings":
+			{
+				"buffer_size": 273,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 285.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"bea",
+				"Javascript Beautify"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"zurb",
+				"Snippet: Zurb Foundation - New Page"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"html",
+				"Snippet: html"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			],
+			[
+				"htm",
+				"Snippet: html"
+			],
+			[
+				"task",
+				"Tasks: Cancel"
+			],
+			[
+				"new",
+				"Tasks: New"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"lo",
+				"Lorem Text"
+			],
+			[
+				"zfp",
+				"Snippet: Zurb Foundation - New Page"
+			],
+			[
+				"zfpa",
+				"Snippet: Zurb Foundation - New Page"
+			],
+			[
+				"show",
+				"Show TODOs: Project and open files"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"disc",
+				"Package Control: Discover Packages"
+			],
+			[
+				"dic",
+				"Package Control: Discover Packages"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"IN",
+				"Package Control: Install Package"
+			],
+			[
+				"br",
+				"Preferences: Browse Packages"
+			],
+			[
+				"enag",
+				"Package Control: Enable Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"list pac",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: Discover Packages"
+			],
+			[
+				"packagec",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Discover Packages"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"mark",
+				"Mark And Move: Next"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: lo",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"save",
+				"Project: Save As"
+			]
+		],
+		"width": 503.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/appetite-express/public/app/index.html",
+		"/var/www/appetite-express/Gruntfile.js",
+		"/var/www/appetite-express/app.js",
+		"/var/www/appetite-express/public/Gruntfile.js",
+		"/var/www/appetite-express/routes/index.js",
+		"/var/www/appetite-express/public/app/scripts/app.js",
+		"/var/www/appetite-express/public/app/config.rb",
+		"/var/www/views",
+		"/var/www/appetite-express/views/index.jade",
+		"/var/www/appetite-express/public/index.html",
+		"/var/www/appetite-express/public/stylesheets/style.css",
+		"/var/www/appetite/api/controllers/MainController.js",
+		"/var/www/appetite/node_modules/grunt-express/lib/util.js",
+		"/var/www/appetite/webapp/Gruntfile.js",
+		"/var/www/appetite/Gruntfile.js",
+		"/var/www/appetite/app.js",
+		"/var/www/appetite/node_modules/sails/lib/sails.js",
+		"/var/www/appetite/webapp/app/scripts/app.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/playback.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/progress.js",
+		"/var/www/blog/Gruntfile.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/lib/overlord.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/vis/vmouse.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/helpers/canvashelper.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/vis/vdom.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/vis/velem.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/commChannel.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/dombuilder.js",
+		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/show.js",
+		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/var/www/blog/app/scripts/controllers/article.js",
+		"/var/www/blog/app/sass/article.scss",
+		"/var/www/blog/app/sass/mixins.scss",
+		"/media/MAGAZYN/Filmy/0 - do obejrzenia/Drowning by Numbers/Drowning by numbers-en.sub",
+		"/media/MAGAZYN/Filmy/0 - do obejrzenia/Drowning by Numbers/Drowning by numbers-pl.txt",
+		"/var/www/blog/app/scripts/directives/submit-text.js",
+		"/var/www/blog/app/scripts/modules/blog.js",
+		"/var/www/blog/app/scripts/services/auth-google.js",
+		"/var/www/blog/app/scripts/modules/auth.js",
+		"/var/www/blog/app/fakerest/comments/001.php",
+		"/var/www/blog/app/scripts/services/fake-rest.js",
+		"/var/www/blog/app/templates/pages/article.tpl",
+		"/var/www/blog/app/scripts/services/auth-facebook.js",
+		"/var/www/blog/app/scripts/loader.js",
+		"/var/www/blog/app/scripts/directives/loader.js",
+		"/var/www/blog/app/scripts/directives/sign-buttons.js",
+		"/var/www/blog/app/scripts/directives/show-hide.js",
+		"/var/www/blog/app/fakerest/article/001.json",
+		"/var/www/blog/app/scripts/services/auth-autologin.js",
+		"/var/www/blog/app/scripts/services/auth-github.js",
+		"/var/www/blog/app/scripts/services/drupal-rest.js",
+		"/var/www/blog/app/scripts/controllers/articles.js",
+		"/var/www/blog/app/scripts/services/rest.js",
+		"/var/www/blog/app/fakerest/articles/articles.json",
+		"/var/www/permissions",
+		"/var/www/permissions.sh",
+		"/var/www/blog/app/scripts/services/resource-enchanced.js",
+		"/var/www/blog/app/sass/vars.scss",
+		"/var/www/blog/drupal/core/lib/Drupal.php",
+		"/home/eryk/Desktop/2013-06-05_-_intel_desktop_roadmap_2014/gallery-generator.sh",
+		"/home/eryk/Desktop/2013-06-05_-_intel_desktop_roadmap_2014/gallery.html",
+		"/home/eryk/Desktop/2013-06-05_-_intel_desktop_roadmap_2014/gallery-generator-2.sh",
+		"/var/www/blog/app/sass/math.scss",
+		"/home/eryk/Dropbox/Public/codepen-gkiDd-anim.css",
+		"/var/www/blog/app/sass/_settings.scss",
+		"/home/eryk/Desktop/anim.css",
+		"/home/eryk/Dropbox/Backup/snippets.html",
+		"/home/eryk/Documents/PCLab/gallery-generator-2.sh",
+		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.sh",
+		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.txt",
+		"/home/eryk/Desktop/Antymonach.html",
+		"/var/www/blog/node_modules/generator-foundation/app/templates/sass/app.scss",
+		"/home/eryk/Desktop/2013-06-01_-_gigabyte_z87/pyty.html",
+		"/home/eryk/Desktop/lotto.js",
+		"/var/www/blog/karma.conf.js",
+		"/home/eryk/Desktop/2013-05-29_-_richland_ceny/tabela.html",
+		"/home/eryk/Desktop/apps.todo",
+		"/home/eryk/.mozilla/firefox/q5zbsck2.default/scriptish_scripts/pclabpl-f11d6e64-4049-450b-82ff-2eeab1f16d52@scriptish/pclabpl-f11d6e64-4049-450b-82ff-2eeab1f16d52@scriptish.user.js",
+		"/home/eryk/.mozilla/firefox/q5zbsck2.default/scriptish_scripts/pclabpl-dd9ed0f9-5f82-46c2-9c9d-b002f55143d4@scriptish/pclabpl-dd9ed0f9-5f82-46c2-9c9d-b002f55143d4@scriptish.user.js",
+		"/home/eryk/Desktop/pclabpl-dd9ed0f9-5f82-46c2-9c9d-b002f55143d4@scriptish.user.js",
+		"/home/eryk/Desktop/scripts.js",
+		"/var/www/blog/app/sass/main.scss",
+		"/var/www/blog/test/filters/for-now.spec.js",
+		"/var/www/blog/app/scripts/filters/for-now.js",
+		"/var/www/noc/index.html",
+		"/var/www/blog/test/init.js",
+		"/var/www/blog/test/init.spec.js",
+		"/var/www/blog/test/main.js",
+		"/var/www/blog/test/runner.html",
+		"/var/www/blog/app/scripts/main.js",
+		"/var/www/blog/app/styles/article.css",
+		"/var/www/blog/app/scripts/modules/filters.js",
+		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabele-full.html",
+		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabela-full.html",
+		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabela-redquasar.html",
+		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabela-chinadaily.html",
+		"/var/www/blog/app/github-disconnect.html",
+		"/var/www/blog/app/google-disconnect.php",
+		"/var/www/blog/app/scripts/services/local-storage.js",
+		"/var/www/blog/app/scripts/services/auth.js",
+		"/var/www/blog/app/scripts/services/facebook-rest.js",
+		"/var/www/blog/app/scripts/services/google-plus-rest.js",
+		"/var/www/blog/app/scripts/directives/misc.js",
+		"/var/www/blog/app/templates/snippets/sign-buttons.tpl",
+		"/var/www/blog/app/scripts/services/github-rest.js",
+		"/var/www/blog/app/index.html",
+		"/var/www/blog/app/github-token.php",
+		"/var/www/blog/app/github-code.html",
+		"/var/www/blog/github-code.html",
+		"/var/www/blog/github-token.php",
+		"/var/www/blog/app/templates/main.tpl",
+		"/var/www/blog/app/sass/angular.scss",
+		"/var/www/blog/app/scripts/services/route-provider-enchanced.js",
+		"/var/www/blog/app/scripts/services/config.js",
+		"/var/www/blog/app/scripts/services/resourceEnchanced.js",
+		"/var/www/blog/app/templates/pages/articles.tpl",
+		"/var/www/blog/app/scripts/app.js",
+		"/var/www/blog/app/scripts/directives/show.js",
+		"/var/www/blog/app/scripts/directives/signbuttons.js",
+		"/var/www/blog/app/templates/snippets/google_sign.tpl",
+		"/var/www/blog/app/sass/articles.scss",
+		"/home/eryk/Desktop/2013-05-02_-_amd_obnizki/tabela.html",
+		"/home/eryk/Desktop/2012-04-29_-_Internet/2012-04-29_-_Internet.html",
+		"/home/eryk/Desktop/2013-04-25_-_ivy_bridge-e_test/tabela.html",
+		"/home/eryk/Desktop/2013-04-23_-_opinie/2013-04-23_-_opinie.html",
+		"/home/eryk/Desktop/2013-04-09_-_gtx_titan_le_gpu-z/tabela.html",
+		"/var/www/blog/app/fakerest/users/user.json",
+		"/var/www/blog/app/scripts/services/fakeRest.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/var/www/appetite/node_modules/grunt-express/lib",
+			"/home/eryk/UTC/usabilitytools/nuvr/recording/shower",
+			"",
+			"<open folders>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"css",
+			"html",
+			"jade",
+			"test:",
+			"localhost",
+			"[",
+			"dev",
+			"devel",
+			"T}",
+			"develop",
+			"reloadPort",
+			"serverreload",
+			"express",
+			"copy:dev",
+			"cssFilesToInject",
+			"scss",
+			"sass",
+			"scss",
+			"sass",
+			"play",
+			"play()",
+			"su",
+			"clear()",
+			"play",
+			"what",
+			"subscribe('event",
+			"subscirbe('event",
+			"real",
+			"#{$color}",
+			"toInt",
+			"$i",
+			"px",
+			"strip",
+			"text-stroke",
+			"$width",
+			"#{$color}",
+			" #{$",
+			"5px",
+			"$res",
+			"shadow",
+			"stroke",
+			"shadow",
+			" ",
+			"\n",
+			"}",
+			"\n",
+			"1\n2",
+			"\n",
+			"after",
+			"$avatar-border-width",
+			"$avatar-border",
+			"dNie",
+			"\n",
+			"auth",
+			"emit",
+			",",
+			"body",
+			"rest",
+			"type",
+			"& > ",
+			".'",
+			"'.",
+			"query",
+			"__service",
+			"logoutEventName",
+			"logoutE",
+			"fake",
+			"'application/vnd.drupal.ld+json'",
+			"articlesRest",
+			"\"",
+			"array",
+			"filepath",
+			"images",
+			"img",
+			"list.html",
+			"5",
+			"3",
+			"deg",
+			"  /* line 105, /var/www/blog/app/sass/mixins.scss */\n",
+			"  ",
+			"$curAngle",
+			"pi",
+			"@return",
+			"p",
+			"$degrees",
+			"$cos",
+			"$n",
+			"val",
+			"$s",
+			"20px",
+			"1em",
+			"\n",
+			"	",
+			"z87-g43",
+			"02",
+			"\n",
+			"_0",
+			"z87_mpowerddddddddd2",
+			"_0",
+			"e33_01",
+			"01",
+			"[^\\n]*03-m.jpg",
+			".",
+			"<br/>",
+			"h2/",
+			"secondary-color",
+			"translateX",
+			"left",
+			"$width",
+			"h",
+			"multipler",
+			" $",
+			"m",
+			"($progress / 25)",
+			"30",
+			"rotateX",
+			"@import \"settings\"",
+			"80px",
+			"_force",
+			"g1-sniper_m5",
+			"_5",
+			"Z87N-WIFI",
+			"Z87ddd",
+			"P-D3",
+			"MX-D3H",
+			"M-HD3",
+			"D3H",
+			"-HD3"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"> ",
+			"{k}",
+			"&#x000A;",
+			"&#x2028;",
+			"&#x000A;",
+			"&#x2028;",
+			"&#x2028",
+			"&#x000A",
+			"\\u000A",
+			"/h2",
+			"@import \"_settings\"",
+			"122",
+			"552",
+			"forNow",
+			"for-now",
+			"for-today",
+			"#page",
+			"000\",\n000\",\n		\"comments\": 10,\n",
+			"\"id\": \"",
+			"\"",
+			";",
+			"<p style=\"color: {{textColor}}\">",
+			"<p style=\"color: red\">",
+			"$('#main_view')",
+			").appendTo(document.body);",
+			"",
+			"</p>\\n<p>",
+			"|",
+			";",
+			"",
+			" }}\"",
+			"\"{{ ",
+			"",
+			"window.modules",
+			"'",
+			"\\t",
+			"",
+			"	",
+			"\\t",
+			"</p>\n</span></p>",
+			"</p>\n",
+			"<p class=\"_ed_content\">",
+			"Node.proto",
+			"el;",
+			"el.",
+			"<ul class=\"x-mark\"",
+			"first",
+			"ul"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public/app/scripts/controllers/all.js",
+					"settings":
+					{
+						"buffer_size": 248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"buffer_scroll_name": "a49e7e13",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/app/scripts/controllers/footer.js",
+					"settings":
+					{
+						"buffer_size": 238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"buffer_scroll_name": "321efb80",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/app/scripts/controllers/header.js",
+					"settings":
+					{
+						"buffer_size": 234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"buffer_scroll_name": "3f50a5c5",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/app/scripts/controllers/main.js",
+					"settings":
+					{
+						"buffer_size": 274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"buffer_scroll_name": "996690ce",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/app/scripts/controllers/test.js",
+					"settings":
+					{
+						"buffer_size": 273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"buffer_scroll_name": "ecc5c7e5",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 36.0
+	},
+	"output.find_results":
+	{
+		"height": 193.0
+	},
+	"output.gjslint_result_view":
+	{
+		"height": 47.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"art",
+				"app/scripts/controllers/article.js"
+			],
+			[
+				"article.s",
+				"app/sass/article.scss"
+			],
+			[
+				"mixi",
+				"app/sass/mixins.scss"
+			],
+			[
+				"001",
+				"app/fakerest/comments/001.php"
+			],
+			[
+				"mix",
+				"app/sass/mixins.scss"
+			],
+			[
+				"001.p",
+				"app/fakerest/comments/001.php"
+			],
+			[
+				"article.js",
+				"app/scripts/controllers/article.js"
+			],
+			[
+				"blog.js",
+				"app/scripts/modules/blog.js"
+			],
+			[
+				"auth-fa",
+				"app/scripts/services/auth-facebook.js"
+			],
+			[
+				"blog",
+				"app/scripts/modules/blog.js"
+			],
+			[
+				"auth.",
+				"app/scripts/modules/auth.js"
+			],
+			[
+				"001.",
+				"app/fakerest/article/001.json"
+			],
+			[
+				"fake",
+				"app/scripts/services/fake-rest.js"
+			],
+			[
+				"rest",
+				"app/scripts/services/rest.js"
+			],
+			[
+				"artic",
+				"app/scripts/controllers/articles.js"
+			],
+			[
+				"res",
+				"app/scripts/services/resource-enchanced.js"
+			],
+			[
+				"resou",
+				"app/scripts/services/resource-enchanced.js"
+			],
+			[
+				"loader",
+				"app/scripts/loader.js"
+			],
+			[
+				"resource",
+				"app/scripts/services/resource-enchanced.js"
+			],
+			[
+				"articles",
+				"app/scripts/controllers/articles.js"
+			],
+			[
+				"dru",
+				"app/scripts/services/drupal-rest.js"
+			],
+			[
+				"var",
+				"app/sass/vars.scss"
+			],
+			[
+				"vars",
+				"app/sass/vars.scss"
+			],
+			[
+				"_set",
+				"app/sass/_settings.scss"
+			],
+			[
+				"math.",
+				"app/sass/math.scss"
+			],
+			[
+				"math",
+				"app/sass/math.scss"
+			],
+			[
+				"setting",
+				"app/sass/_settings.scss"
+			],
+			[
+				"for-",
+				"app/scripts/filters/for-now.js"
+			],
+			[
+				"auth-goo",
+				"app/scripts/services/auth-google.js"
+			],
+			[
+				"blog.",
+				"app/scripts/modules/blog.js"
+			],
+			[
+				"articles.s",
+				"app/sass/articles.scss"
+			],
+			[
+				"main.sc",
+				"app/sass/main.scss"
+			],
+			[
+				"main.s",
+				"app/sass/main.scss"
+			],
+			[
+				"article.tp",
+				"app/templates/pages/article.tpl"
+			],
+			[
+				"arti",
+				"app/templates/pages/articles.tpl"
+			],
+			[
+				"articles.t",
+				"app/templates/pages/articles.tpl"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"article.t",
+				"app/templates/pages/article.tpl"
+			],
+			[
+				"main",
+				"app/templates/main.tpl"
+			],
+			[
+				"drup",
+				"app/scripts/services/drupalRest.js"
+			],
+			[
+				"angu",
+				"app/components/angular/angular.js"
+			],
+			[
+				"loa",
+				"app/scripts/loader.js"
+			],
+			[
+				"scss",
+				"like_button.scss"
+			],
+			[
+				"rame",
+				"remote/frame.php"
+			],
+			[
+				"a",
+				"app_auth.scss"
+			],
+			[
+				"test",
+				"test.php"
+			],
+			[
+				"f",
+				"frame.php"
+			],
+			[
+				"index",
+				"index2.html"
+			],
+			[
+				"jug",
+				"JuggleCode.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 256.0,
+	"status_bar_visible": true
+}
