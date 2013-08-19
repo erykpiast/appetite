@@ -1,0 +1,93 @@
+ -- requests
+ // requests templates, may be assigned to multiple users
+ 	* id | longint, autoincrement
+ 	title | string
+ 	desription | long string
+ 	summary | string (sliced `description`)
+	creationTime | timestamp
+	placeId | longing, external field
+	authorId | longint, external field
+	recipeId | longint, external field
+
+ -- actualRequests
+// request assigned to users
+	* id | longint, autoincrement
+	requestId |  longint, external field
+	userId | longint, external field
+	creationTime | timestamp
+	endTime | timestamp
+
+ -- requestsResponses
+ 	* id | longint, autoincrement
+ 	actualRequestId | longint, external field
+ 	userId | longint, external fields
+ 	creationTime | timestamp
+ 	endTime | timestamp
+
+ -- requestsImages
+ 	* imageId | longint, autoincrement
+ 	* requestId | longint, external field
+
+
+ -- offers
+ // offers templates, may be used multiple times by author
+ 	* id | longint, autoincrement
+ 	title | string
+ 	desription | long string
+ 	summary | string (sliced `description`)
+	creationTime | timestamp
+	authorId | longint, external field
+	recipeId | longint, external field
+
+ -- actualOffers
+// actual offers
+	* id | longint, autoincrement
+	offerId |  longint, external field
+	placeId | longing, external field
+	creationTime | timestamp
+	endTime | timestamp
+
+ -- offersResponses
+ 	* id | longint, autoincrement
+ 	actualOfferId | longint, external field
+ 	userId | longint, external fields
+ 	creationTime | timestamp
+ 	endTime | timestamp
+
+  -- offersImages
+ 	* imageId | longint, autoincrement
+ 	* offerId | longint, external field
+
+
+ -- users
+	* id | string
+	* service | enum
+	name | string
+	gender | enum
+	avatar | longint external field
+	placeId | longing, external field
+
+ -- likes
+ 	* offerId |  longint, external field
+ 	* userId |  longint, external field
+	creationTime | timestamp
+
+ -- recipes
+ 	* id | longint, autoincrement
+ 	url | string, URL
+ 	domain | string (sliced `url`)
+ 	creationTime | timestamp
+ 	authorId | longint, external field
+ 
+ -- places
+ 	* id | longint, autoincrement
+ 	coords | string
+ 	name | string
+ 	creationTime | timestamp
+ 	authorId | longint, external field
+
+  -- images
+ 	* id | longint, autoincrement
+ 	url | string, URL
+ 	creationTime | timestamp
+ 	authorId | longint, external field

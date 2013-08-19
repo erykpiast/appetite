@@ -11,19 +11,29 @@ var express = require('express'),
 
 var app = express();
 
-app.configure(function() {
+app
+.configure(function() {
 	app
 		.set('port', process.env.PORT || 3000)
-		.use(express.favicon())
-		.use(express.logger('dev'))
+        .set('db', require(__dirname + '/modules/db')) // make db connection once
 		.use(express.bodyParser())
 		.use(express.methodOverride())
 		.use(app.router)
 		.use(express.static(__dirname + '/public/app'));
-});
 
-app.configure('development', function(){
+    // add all routes definitions from dir
+    require('fs').readdir(__dirname + '/routes', function(err, files) {
+        files.filter(function(filename){
+            return (/.js$/).test(filename);
+        })
+        .forEach(function(route) {
+            require(__dirname + '/routes/' + route)(app);
+        });
+    });
+})
+.configure('development', function() {
 	app
+        .use(express.logger('dev'))
 		.use(express.errorHandler());
 });
 

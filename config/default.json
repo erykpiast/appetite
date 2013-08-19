@@ -1,0 +1,9 @@
+{
+    "database" : {
+        "host" : "127.0.0.1",
+        "name" : "appetite",
+        "username" : "appetite",
+        "password" : "appetite"
+    },
+    "restUrl" : "/rest"
+}
