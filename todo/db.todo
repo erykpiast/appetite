@@ -78,7 +78,7 @@
  	domain | string (sliced `url`)
  	creationTime | timestamp
  	authorId | longint, external field
- 
+
  -- places
  	* id | longint, autoincrement
  	coords | string
@@ -88,6 +88,12 @@
 
   -- images
  	* id | longint, autoincrement
+ 	url | string, URL
+ 	creationTime | timestamp
+ 	authorId | longint, external field
+
+ -- avatars
+     * id | longint, autoincrement
  	url | string, URL
  	creationTime | timestamp
  	authorId | longint, external field
