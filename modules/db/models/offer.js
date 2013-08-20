@@ -3,7 +3,7 @@ var _ = require('../../../libs/underscore');
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Offer', {
 		id: {
-			type: DataTypes.BIGINT,
+			type: DataTypes.BIGINT.UNSIGNED,
 			primaryKey: true,
 			autoIncrement: true
 		},

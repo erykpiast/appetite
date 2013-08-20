@@ -18,7 +18,7 @@ var _format = (function() {
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Image', {
 		id: {
-			type: DataTypes.BIGINT,
+			type: DataTypes.BIGINT.UNSIGNED,
 			primaryKey: true,
 			autoIncrement: true
 		},

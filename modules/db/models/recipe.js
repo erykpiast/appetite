@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Recipe', {
 		id: {
-			type: DataTypes.BIGINT,
+			type: DataTypes.BIGINT.UNSIGNED,
 			primaryKey: true,
 			autoIncrement: true
 		},

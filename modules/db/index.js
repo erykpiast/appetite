@@ -27,55 +27,61 @@ require('fs').readdir(__dirname + '/models', function(err, files) {
 
 	// describe relationships
 	(function(m) {
-		m.ActualRequest.hasOne(m.Request, { foreignKeyConstraint: true });
+		m.ActualRequest.hasOne(m.Request);
 
-		m.Request.hasOne(m.Recipe, { foreignKeyConstraint: true });
-		m.Request.belongsTo(m.User, { foreignKeyConstraint: true });
+    	m.Request.hasOne(m.Recipe);
+		m.Request.belongsTo(m.User);
 
-		m.Request.hasMany(m.Image, { foreignKeyConstraint: true });
-		m.Image.hasMany(m.Request, { foreignKeyConstraint: true });
+		m.Request.hasMany(m.Image);
+		m.Image.hasMany(m.Request);
 
-		m.ActualRequest.hasMany(m.RequestResponse, { foreignKeyConstraint: true });
-		m.RequestResponse.hasOne(m.ActualRequest, { foreignKeyConstraint: true });
-		m.RequestResponse.belongsTo(m.User, { foreignKeyConstraint: true });
+		m.ActualRequest.hasMany(m.RequestResponse);
+		// m.RequestResponse.hasOne(m.ActualRequest);
+		m.RequestResponse.belongsTo(m.User);
 
-		m.ActualRequest.hasOne(m.Place, { foreignKeyConstraint: true });
-
-		/* -- */
-
-		m.ActualOffer.hasOne(m.Offer, { foreignKeyConstraint: true });
-
-		m.Offer.hasOne(m.Recipe, { foreignKeyConstraint: true });
-		m.Offer.belongsTo(m.User, { foreignKeyConstraint: true });
-
-		m.Offer.hasMany(m.Image, { foreignKeyConstraint: true });
-		m.Image.hasMany(m.Offer, { foreignKeyConstraint: true });
-
-		m.ActualOffer.hasMany(m.OfferResponse, { foreignKeyConstraint: true });
-		m.OfferResponse.hasOne(m.ActualOffer, { foreignKeyConstraint: true });
-		m.OfferResponse.belongsTo(m.User, { foreignKeyConstraint: true });
-
-		m.ActualOffer.hasOne(m.Place, { foreignKeyConstraint: true });
+		m.ActualRequest.hasOne(m.Place);
 
 		/* -- */
 
-		m.User.hasOne(m.Avatar, { foreignKeyConstraint: true });
-		m.User.hasOne(m.Place, { foreignKeyConstraint: true });
+		m.ActualOffer.hasOne(m.Offer);
 
-		m.Like.belongsTo(m.User, { foreignKeyConstraint: true });
-		m.Offer.hasMany(m.Like, { foreignKeyConstraint: true });
+		m.Offer.hasOne(m.Recipe);
+		m.Offer.belongsTo(m.User);
+
+		m.Offer.hasMany(m.Image);
+		m.Image.hasMany(m.Offer);
+
+		m.ActualOffer.hasMany(m.OfferResponse);
+		// m.OfferResponse.hasOne(m.ActualOffer);
+		m.OfferResponse.belongsTo(m.User);
+
+		m.ActualOffer.hasOne(m.Place);
 
 		/* -- */
 
-		m.Recipe.belongsTo(m.User, { as: 'author', foreignKeyConstraint: true });
-		m.Place.belongsTo(m.User, { as: 'author', foreignKeyConstraint: true })
-		m.Image.belongsTo(m.User, { as: 'author', foreignKeyConstraint: true })
-		m.Avatar.belongsTo(m.User, { as: 'author', foreignKeyConstraint: true })
+		m.User.hasOne(m.Avatar);
+		m.User.hasOne(m.Place);
+
+		m.Like.belongsTo(m.User);
+		m.Offer.hasMany(m.Like);
+
+		/* -- */
+
+		m.Recipe.belongsTo(m.User, { as: 'author' });
+		m.Place.belongsTo(m.User, { as: 'author' });
+		m.Image.belongsTo(m.User, { as: 'author' });
+		m.Avatar.belongsTo(m.User, { as: 'author' });
+
+        sequelize.sync()
+            .success(function(err) {
+                console.log('All models created in database!');
+            })
+            .error(function(err) {
+                console.error(err);
+            });
 
 	})(module.exports);
 });
-
-sequelize.sync();
 
 // export connection
 module.exports.sequelize = sequelize;

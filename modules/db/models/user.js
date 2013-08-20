@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('User', {
 		id: {
-			type: DataTypes.BIGINT,
+			type: DataTypes.BIGINT.UNSIGNED,
 			primaryKey: true,
 			autoIncrement: true
 		},
@@ -14,7 +14,8 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false
 		},
 		gender: {
-			type: DataTypes.ENUM('male', 'female'),
+			type: DataTypes.ENUM,
+            values: [ 'male', 'female' ],
 			allowNull: true
 		}
 		// avatar - foreign key from Avatar
