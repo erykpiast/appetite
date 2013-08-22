@@ -1,9 +1,19 @@
 {
-    "database" : {
-        "host" : "127.0.0.1",
-        "name" : "appetite",
-        "username" : "appetite",
-        "password" : "appetite"
-    },
-    "restUrl" : "/rest"
+	"database" : {
+		"host" : "127.0.0.1",
+		"name" : "appetite",
+		"username" : "appetite",
+		"password" : "appetite"
+	},
+	"auth" : {
+		"facebook" : {
+			"id" : "",
+			"secret" : ""
+		},
+		"google" : {
+			"id" : "",
+			"secret" : ""
+		}
+	},
+	"restUrl" : "/rest"
 }

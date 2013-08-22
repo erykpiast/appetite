@@ -1,6 +1,6 @@
-var Sequelize = require('sequelize'),
-	_ = require('../../libs/underscore'),
-	config = require('config').database;
+var Sequelize = $require('sequelize'),
+	_ = $require('/libs/underscore'),
+	config = $require('config').database;
 
 // initialize database connection
 var sequelize = new Sequelize(
@@ -17,11 +17,11 @@ var sequelize = new Sequelize(
 
 
 // load models
-require('fs').readdir(__dirname + '/models', function(err, files) {
+$require('fs').readdir(__dirname + '/models', function(err, files) {
 	files.filter(function(filename) { // all files except index.js
 		return (/.js$/).test(filename) && (filename !== 'index.js');
 	}).forEach(function(filename) {
-		var modelname = _.capitalize(_.camelize(filename)).slice(0, -3); // actual-request -> ActualRequest
+		var modelname = _.capitalize(_.camelize(filename)).slice(0, -3); // actual-request.js -> ActualRequest
 		module.exports[modelname] = sequelize.import(__dirname + '/models/' + filename);
 	});
 
@@ -67,17 +67,18 @@ require('fs').readdir(__dirname + '/models', function(err, files) {
 
 		/* -- */
 
-		m.Recipe.belongsTo(m.User, { as: 'author' });
-		m.Place.belongsTo(m.User, { as: 'author' });
-		m.Image.belongsTo(m.User, { as: 'author' });
-		m.Avatar.belongsTo(m.User, { as: 'author' });
+		m.Recipe.belongsTo(m.User);
+		m.Place.belongsTo(m.User);
+		m.Image.belongsTo(m.User);
+		m.Avatar.belongsTo(m.User);
 
-        sequelize.sync()
+		console.log('Database initialization...');
+        sequelize.sync() // try create models in db
             .success(function(err) {
                 console.log('All models created in database!');
             })
             .error(function(err) {
-                console.error(err);
+            	throw new Error('Database initialization failed! ' + err);
             });
 
 	})(module.exports);

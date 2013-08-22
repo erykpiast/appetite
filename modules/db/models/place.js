@@ -1,5 +1,5 @@
 var _format = (function() {
-		var Math = require('mathjs'),
+		var Math = $require('mathjs'),
 			units = [ '°', '\'', '"' ];
 
 		return function (seconds) {

@@ -1,4 +1,4 @@
-var _ = require('../../../libs/underscore');
+var _ = $require('/libs/underscore');
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Offer', {

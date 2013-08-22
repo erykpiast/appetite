@@ -1,13 +1,44 @@
+(function() {
+// enchance standard require with function recognizing app.js dir as root path (started with '/')
+	var _require = require;
 
-/**
- * Module dependencies.
- */
+	$require = (function(rootPath) {
+		console.log('');
 
-var express = require('express'),
-// routes = require('./routes'),
-// user = require('./routes/user'),
-	http = require('http'),
-	path = require('path');
+		var _r = function(resource) {
+			if((resource !== null) && (resource !== undefined)) {
+				resource = resource.toString();
+
+				if(resource[0] === '/') {
+					if(resource.indexOf(rootPath) !== 0) {
+						resource = rootPath + resource;
+					} else {
+						console.log(resource);
+						console.log(rootPath);
+					}
+				}
+			}
+
+			return _require(resource);
+		};
+
+		for (var prop in _require) {
+			if(_require.hasOwnProperty(prop)) {
+				_r[prop] = _require[prop];
+			}
+		}
+
+		return _r;
+
+	})(__dirname);
+})();
+
+
+var express = $require('express'),
+// routes = $require('./routes'),
+// user = $require('./routes/user'),
+	http = $require('http'),
+	path = $require('path');
 
 var app = express();
 
@@ -15,29 +46,28 @@ app
 .configure(function() {
 	app
 		.set('port', process.env.PORT || 3000)
-        .set('db', require(__dirname + '/modules/db')) // make db connection once
+		.set('db', $require('/modules/db')) // make db connection once
 		.use(express.bodyParser())
 		.use(express.methodOverride())
 		.use(app.router)
 		.use(express.static(__dirname + '/public/app'));
 
-    // add all routes definitions from dir
-    require('fs').readdir(__dirname + '/routes', function(err, files) {
-        files.filter(function(filename){
-            return (/.js$/).test(filename);
-        })
-        .forEach(function(route) {
-            require(__dirname + '/routes/' + route)(app);
-        });
-    });
+	// add all routes definitions from dir
+	$require('fs').readdir(__dirname + '/routes', function(err, files) {
+		files.filter(function(filename){
+			return (/.js$/).test(filename);
+		})
+		.forEach(function(route) {
+			$require('/routes/' + route)(app);
+		});
+	});
 })
 .configure('development', function() {
 	app
-        .use(express.logger('dev'))
+		.use(express.logger('dev'))
 		.use(express.errorHandler());
 });
 
-// app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log("Express server listening on port " + app.get('port'));

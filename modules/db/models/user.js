@@ -5,6 +5,15 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
+		service: {
+			type: DataTypes.ENUM,
+			values: [ 'facebook', 'google' ],
+			allowNull: false
+		},
+		serviceId: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
 		firstName: {
 			type: DataTypes.STRING,
 			allowNull: false
@@ -17,6 +26,10 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.ENUM,
             values: [ 'male', 'female' ],
 			allowNull: true
+		},
+		site: {
+			type: DataTypes.STRING, // URL (protocol + domain)
+			allowNull: true
 		}
 		// avatar - foreign key from Avatar
 		// place - foreign key from Place
@@ -25,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
 		paranoid: true, // add deletedAt instead of real deleting
 		getterMethods: {
 			fullName: function() {
-					return [ this.firstName, this.lastName ].join(' ');
+				return [ this.firstName, this.lastName ].join(' ');
 			}
 		}
 	});
