@@ -1,3 +1,5 @@
+var auth = $require('/modules/auth');
+
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('User', {
 		id: {
@@ -7,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		service: {
 			type: DataTypes.ENUM,
-			values: [ 'facebook', 'google' ],
+			values: auth.services,
 			allowNull: false
 		},
 		serviceId: {

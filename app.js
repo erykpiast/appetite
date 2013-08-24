@@ -35,8 +35,6 @@
 
 
 var express = $require('express'),
-// routes = $require('./routes'),
-// user = $require('./routes/user'),
 	http = $require('http'),
 	path = $require('path');
 
@@ -50,7 +48,24 @@ app
 		.use(express.bodyParser())
 		.use(express.methodOverride())
 		.use(app.router)
-		.use(express.static(__dirname + '/public/app'));
+		.use(express.static(__dirname + '/public/app'))
+	// configure route parameters
+        .param(function(name, handler){
+            if (handler instanceof RegExp) {
+                return function(req, res, next, val) {
+                    var captures = handler.exec(new String(val));
+
+                    if (!!captures) {
+                        req.params[name] = captures;
+
+                        next();
+                    } else {
+                        next('route');
+                    }
+                };
+            }
+        })
+        .param('id', /^\d+$/);
 
 	// add all routes definitions from dir
 	$require('fs').readdir(__dirname + '/routes', function(err, files) {

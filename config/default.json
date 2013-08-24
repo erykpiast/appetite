@@ -7,12 +7,13 @@
 	},
 	"auth" : {
 		"facebook" : {
-			"id" : "",
-			"secret" : ""
+			"id" : "467246670041226",
+			"secret" : "568b76787c37918d3f14f6dbcfd3be2c",
+			"token" : "71b3dcc7dddca54dec1b2a442727f6a3"
 		},
 		"google" : {
-			"id" : "",
-			"secret" : ""
+			"id" : "360035444878-9jdh2tf1hrqs07tknm2quqto60d83p07.apps.googleusercontent.com",
+			"secret" : "7WxgEkdzrQkHNW4eL2rMKuHL"
 		}
 	},
 	"restUrl" : "/rest"
