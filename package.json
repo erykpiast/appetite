@@ -7,20 +7,18 @@
   },
   "dependencies": {
     "express": "~3.3.4",
-    "jade": "*"
+    "config": "~0.4.29",
+    "sequelize": "~2.0.0",
+    "mysql": "~2.0.0",
+    "underscore": "~1.5.1",
+    "underscore.string":"~2.3.3",
+    "mathjs": "~0.11.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-develop": "~0.1.1",
     "grunt-contrib-watch": "~0.4.4",
     "bower": "~1.1.1",
-    "request": "~2.22.0",
-    "config": "~0.4.29",
-    "express": "~3.3.4",
-    "sequelize": "~2.0.0",
-    "mysql": "~2.0.0",
-    "underscore": "~1.5.1",
-    "underscore.string":"~2.3.3",
-    "mathjs": "~0.11.1"
+    "request": "~2.22.0"
   }
 }
