@@ -45,6 +45,8 @@ app
 	app
 		.set('port', process.env.PORT || 3000)
 		.set('db', $require('/modules/db')) // make db connection once
+		.set('rest', $require('/modules/rest')(app))
+		.set('routes', $require('/routes')(app))
 		.use(express.bodyParser())
 		.use(express.methodOverride())
 		.use(app.router)
@@ -66,16 +68,6 @@ app
             }
         })
         .param('id', /^\d+$/);
-
-	// add all routes definitions from dir
-	$require('fs').readdir(__dirname + '/routes', function(err, files) {
-		files.filter(function(filename){
-			return (/.js$/).test(filename);
-		})
-		.forEach(function(route) {
-			$require('/routes/' + route)(app);
-		});
-	});
 })
 .configure('development', function() {
 	app
