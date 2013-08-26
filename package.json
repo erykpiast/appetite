@@ -8,11 +8,14 @@
   "dependencies": {
     "express": "~3.3.4",
     "config": "~0.4.29",
+    "mysql": "~2.0.0",
     "sequelize": "~2.0.0",
     "mysql": "~2.0.0",
     "underscore": "~1.5.1",
-    "underscore.string":"~2.3.3",
-    "mathjs": "~0.11.1"
+    "underscore.string": "~2.3.3",
+    "mathjs": "~0.11.1",
+    "Faker": "~0.5.11",
+    "q": "~0.9.6"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

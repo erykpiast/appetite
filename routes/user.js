@@ -7,32 +7,46 @@ module.exports = function(app) {
 	app
 		.post(restUrl + '/user', function(req, res) {
 			rest.create(req.body).then(
-                function(user) {
-    				res.json(user);
-    			},
-                function(err) {
-    				res
-    					.status(err.httpStatus)
-    					.json({
-    						msg: err.message
-    					});
-    			});
+				function(user) {
+					if(!user.existed) {
+						res.status(201);
+					}
+
+					res.json(user.resource);
+				},
+				function(err) {
+					res
+						.status(err.httpStatus)
+						.json({
+							msg: err.message
+						});
+				});
 		})
 		.get(restUrl + '/user/:id', function(req, res) {
-			rest.read({ id: req.params.id }).then(
-                function(user) {
-        		    res.json(user);
-    			},
-                function(err) {
-        		    res
-                        .status(err.httpStatus)
-                        .json({
-                            msg: err.message
-                        });
-    			});
+			rest.retrieve({ id: req.params.id }).then(
+				function(user) {
+					res.json(user.resource);
+				},
+				function(err) {
+					res
+						.status(err.httpStatus)
+						.json({
+							msg: err.message
+						});
+				});
 		})
 		.put(restUrl + '/user/:id', function(req, res) {
-
+			rest.update(req.body).then(
+				function(user) {
+					res.json(user.resource);
+				},
+				function(err) {
+					res
+						.status(err.httpStatus)
+						.json({
+							msg: err.message
+						});
+				});
 		})
 		.delete(restUrl + '/user/:id', function(req, res) {
 
