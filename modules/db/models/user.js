@@ -27,11 +27,13 @@ module.exports = function(sequelize, DataTypes) {
 		gender: {
 			type: DataTypes.ENUM,
             values: [ 'male', 'female' ],
-			allowNull: true
+			allowNull: true,
+			defaultValue: null
 		},
 		site: {
 			type: DataTypes.STRING, // URL (protocol + domain)
-			allowNull: true
+			allowNull: true,
+			defaultValue: null
 		}
 		// avatar - foreign key from Avatar
 		// place - foreign key from Place

@@ -7,17 +7,17 @@ var Q = $require('q'),
 		createSearch: [ 'authService', 'serviceId' ],
 		update: [ 'firstName', 'lastName', 'gender', 'site' ],
 		search: 'id'
-	});
+	}, 'public' );
 
 var User;
 
 function create(proto) {
 	var deffered = Q.defer();
-    
-    var serviceId = auth(proto.authService, proto.accessToken);
+	
+	var serviceId = auth(proto.authService, proto.accessToken);
 
 	if(serviceId) {
-        proto.serviceId = serviceId;
+		proto.serviceId = serviceId;
 		var search = restrict.createSearch(proto)
 			proto = restrict.create(proto);
 
@@ -25,7 +25,7 @@ function create(proto) {
 				if(!user) {
 					User.create(proto).success(function(user) {
 							deffered.resolve({
-								resource: restrict.public(user)
+								resource: restrict.public(user.values)
 							});
 						}).fail(function() {
 							deffered.reject(new Errors.Database());
@@ -75,25 +75,36 @@ function retrieve(proto) {
 function update(proto) {
 	var deffered = Q.defer();
 
-	var serviceId = auth(proto.authService, proto.accessToken);
+	var search = restrict.search(proto);
 
-    if(serviceId) {
-        proto.serviceId = serviceId;
-		var search = restrict.search(proto),
-			proto = restrict.update(proto);
+	User.find({ where: search })
+		.success(function(user) {
+			if(!!user) {
+				var serviceId = auth(user.authService, proto.accessToken);
 
-		User.update(proto, search)
-			.success(function(user) {
-				deffered.resolve({
-						resource: restrict.public(user)
-					});
-			})
-			.fail(function() {
-				deffered.reject(new Errors.Database());
-			});
-	} else {
-		deffered.reject(new Errors.Authentication());
-	}
+				if(serviceId /*&& (serviceId == user.serviceId)*/) {
+					proto = restrict.update(proto);
+
+					user.updateAttributes(proto)
+						.success(function() {
+							deffered.resolve({
+									resource: restrict.public(user)
+								});
+						})
+						.fail(function() {
+							deffered.reject(new Errors.Database());
+						});
+				} else {
+					deffered.reject(new Errors.Authentication());
+				}
+			} else {
+				console.log(user);
+				deffered.reject(new Errors.NotFound());
+			}
+		})
+		.fail(function() {
+			deffered.reject(new Errors.Database());
+		});
 
 	return deffered.promise;
 }
@@ -104,8 +115,8 @@ function destroy(proto) {
 
 	var serviceId = auth(proto.authService, proto.accessToken);
 
-    if(serviceId) {
-        proto.serviceId = serviceId;
+	if(serviceId) {
+		proto.serviceId = serviceId;
 		var search = restric.search(proto);
 
 		User.destroy(search)

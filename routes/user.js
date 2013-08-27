@@ -1,5 +1,5 @@
-var restUrl = $require('config').restUrl,
-	auth = $require('/modules/auth');
+var extend = $require('extend'),
+	restUrl = $require('config').restUrl;
 
 module.exports = function(app) {
 	var rest = app.get('rest').User;
@@ -36,7 +36,9 @@ module.exports = function(app) {
 				});
 		})
 		.put(restUrl + '/user/:id', function(req, res) {
-			rest.update(req.body).then(
+			var proto = extend({ id: req.params.id }, req.body);
+
+			rest.update(proto).then(
 				function(user) {
 					res.json(user.resource);
 				},

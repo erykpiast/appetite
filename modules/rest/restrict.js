@@ -2,23 +2,30 @@ $require('/libs/std'); // Array helpers
 
 var keys = { };
 
-function _restrict(allowedKeys, o) {
+function _restrict(allowedKeys, requireValue, o) {
 	var r = { };
 
 	allowedKeys.forEach(function(key) {
 		r[key] = o[key];
+
+		if(!!requireValue && (r[key] === undefined)) {
+			r[key] = null;
+		}
 	})
 
 	return r;
 }
 
 
-module.exports = function(keys) {
+module.exports = function(keys, requireValue) {
 	var exports = { };
+
+	requireValue = Array.create(requireValue);
 
 	for(var prop in keys) {
 		if(keys.hasOwnProperty(prop)) {
-			exports[prop] = _restrict.bind(null, Array.create(keys[prop]));
+			exports[prop] = _restrict.bind(null, Array.create(keys[prop]),
+				(requireValue.indexOf(prop) !== -1));
 		}
 	}
 
