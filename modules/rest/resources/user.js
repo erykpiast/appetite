@@ -1,4 +1,4 @@
-var Faker = $require('Faker'), Q = $require('q'), extend = $require('extend'),
+var Q = $require('q'),
 	auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
