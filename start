@@ -1,4 +1,5 @@
 #!/bin/sh
 
 ./stop
+service mysql start
 grunt &

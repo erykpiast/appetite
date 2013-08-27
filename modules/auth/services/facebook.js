@@ -1,4 +1,5 @@
-var config = $require('config').auth.facebook;
+var Math = $require('mathjs'),
+    config = $require('config').auth.facebook;
 
 
 function _connect() {
@@ -8,7 +9,7 @@ function _connect() {
 
 function auth(accessToken) {
 
-	return 123;
+	return Math.floor(Math.random(100000, 1000000));
 }
 
 module.exports = auth;
