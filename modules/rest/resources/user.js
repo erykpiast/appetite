@@ -78,13 +78,9 @@ function update(proto) {
 
 		User.update(proto, search)
 			.success(function(user) {
-				if(!!user) {
-					deffered.resolve({
-							resource: restrict.public(user)
-						});
-				} else {
-					deffered.reject(new Errors.NotFound());
-				}
+				deffered.resolve({
+						resource: restrict.public(user)
+					});
 			})
 			.fail(function() {
 				deffered.reject(new Errors.Database());
