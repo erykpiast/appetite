@@ -9,11 +9,11 @@ $require('fs').readdirSync(__dirname + '/services')
 		authServices[servicename] = $require(__dirname + '/services/' + filename);
 	});
 
-module.exports = function(servicename, id) {
+module.exports = function(servicename, accessToken) {
 	servicename = _.capitalize(servicename);
 
 	if(authServices.hasOwnProperty(servicename)) {
-		return authServices[servicename](id);
+		return authServices[servicename](accessToken);
 	} else {
 		return false;
 	}

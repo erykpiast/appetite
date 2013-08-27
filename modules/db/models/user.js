@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		service: {
+		authService: {
 			type: DataTypes.ENUM,
 			values: auth.services,
 			allowNull: false

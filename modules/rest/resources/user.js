@@ -2,9 +2,9 @@ var Q = $require('q'),
 	auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
-		public: [ 'id', 'service', 'serviceId', 'firstName', 'lastName', 'gender', 'site' ],
-		create: [ 'service', 'serviceId', 'firstName', 'lastName', 'gender', 'site' ],
-		createSearch: [ 'service', 'serviceId' ],
+		public: [ 'id', 'authService', 'firstName', 'lastName', 'gender', 'site' ],
+		create: [ 'authService', 'serviceId', 'firstName', 'lastName', 'gender', 'site' ],
+		createSearch: [ 'authService', 'serviceId' ],
 		update: [ 'firstName', 'lastName', 'gender', 'site' ],
 		search: 'id'
 	});
@@ -13,8 +13,11 @@ var User;
 
 function create(proto) {
 	var deffered = Q.defer();
+    
+    var serviceId = auth(proto.authService, proto.accessToken);
 
-	if(auth(proto.service, proto.serviceId)) {
+	if(serviceId) {
+        proto.serviceId = serviceId;
 		var search = restrict.createSearch(proto)
 			proto = restrict.create(proto);
 
@@ -72,7 +75,10 @@ function retrieve(proto) {
 function update(proto) {
 	var deffered = Q.defer();
 
-	if(auth(proto.service, proto.serviceId)) {
+	var serviceId = auth(proto.authService, proto.accessToken);
+
+    if(serviceId) {
+        proto.serviceId = serviceId;
 		var search = restrict.search(proto),
 			proto = restrict.update(proto);
 
@@ -96,7 +102,10 @@ function update(proto) {
 function destroy(proto) {
 	var deffered = Q.defer();
 
-	if(auth(proto.service, proto.serviceId)) {
+	var serviceId = auth(proto.authService, proto.accessToken);
+
+    if(serviceId) {
+        proto.serviceId = serviceId;
 		var search = restric.search(proto);
 
 		User.destroy(search)
