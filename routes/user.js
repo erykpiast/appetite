@@ -51,6 +51,18 @@ module.exports = function(app) {
 				});
 		})
 		.delete(restUrl + '/user/:id', function(req, res) {
+			var proto = extend({ id: req.params.id }, req.body);
 
+			rest.destroy(proto).then(
+				function(user) {
+					res.json(user.resource);
+				},
+				function(err) {
+					res
+						.status(err.httpStatus)
+						.json({
+							msg: err.message
+						});
+				});
 		});
 };

@@ -6,9 +6,9 @@ function _restrict(allowedKeys, requireValue, o) {
 	var r = { };
 
 	allowedKeys.forEach(function(key) {
-		r[key] = o[key];
-
-		if(!!requireValue && (r[key] === undefined)) {
+		if(o[key] !== undefined) {
+			r[key] = o[key];
+		} else if(!!requireValue) {
 			r[key] = null;
 		}
 	})

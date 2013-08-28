@@ -1,5 +1,7 @@
-var _ = $require('/libs/underscore'),
-	authServices = { };
+var Q = $require('q'),
+	_ = $require('/libs/underscore');
+	
+var authServices = { };
 
 $require('fs').readdirSync(__dirname + '/services')
     .filter(function(filename) { // all files except index.js
@@ -10,13 +12,17 @@ $require('fs').readdirSync(__dirname + '/services')
 	});
 
 module.exports = function(servicename, accessToken) {
+	var deffered = Q.defer();
+
 	servicename = _.capitalize(servicename);
 
 	if(authServices.hasOwnProperty(servicename)) {
-		return authServices[servicename](accessToken);
+		authServices[servicename](accessToken, deffered);
 	} else {
-		return false;
+		deffered.reject(false);
 	}
+
+	return deffered.promise;
 };
 
 module.exports.services = Object.keys(authServices);
