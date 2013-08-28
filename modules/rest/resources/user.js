@@ -85,7 +85,7 @@ function update(proto) {
 				if(serviceId /*&& (serviceId == user.serviceId)*/) {
 					proto = restrict.update(proto);
 
-					user.updateAttributes(proto)
+					User.update(search, proto)
 						.success(function() {
 							deffered.resolve({
 									resource: restrict.public(user)
