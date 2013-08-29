@@ -1,5 +1,5 @@
 var Q = $require('q'),
-	auth = $require('/modules/auth'),
+    auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'authService', 'firstName', 'lastName', 'gender', 'site' ],
@@ -9,7 +9,7 @@ var Q = $require('q'),
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
-var User;
+var Offer;
 
 function create(proto) {
 	var deffered = Q.defer();
@@ -21,13 +21,13 @@ function create(proto) {
 			var search = restrict.createSearch(proto)
 				proto = restrict.create(proto);
 
-			User.find({ where: search }).then(
-				function(user) {
-					if(!user) {
-						User.create(proto).then(
-							function(user) {
+			Offer.find({ where: search }).then(
+				function(offer) {
+					if(!offer) {
+						Offer.create(proto).then(
+							function(offer) {
 								deffered.resolve({
-										resource: restrict.public(user.values)
+										resource: restrict.public(offer.values)
 									}
 								);
 							},
@@ -37,7 +37,7 @@ function create(proto) {
 						);
 					} else {
 						deffered.resolve({
-								resource: restrict.public(user),
+								resource: restrict.public(offer),
 								existed: true
 							}
 						);
@@ -62,11 +62,11 @@ function retrieve(proto) {
 
 	var search = restrict.search(proto);
 
-	User.find({ where: search }).then(
-		function(user) {
-			if(!!user) {
+	Offer.find({ where: search }).then(
+		function(offer) {
+			if(!!offer) {
 				deffered.resolve({
-						resource: restrict.public(user)
+						resource: restrict.public(offer)
 					}
 				);
 			} else {
@@ -87,18 +87,18 @@ function update(proto) {
 
 	var search = restrict.search(proto);
 
-	User.find({ where: search }).then(
-		function(user) {
-			if(!!user) {
+	Offer.find({ where: search }).then(
+		function(offer) {
+			if(!!offer) {
 				auth(proto.authService, proto.accessToken).then(
 					function(serviceId) {
-						if(serviceId && (serviceId === user.serviceId)) {
+						if(serviceId && (serviceId === offer.serviceId)) {
 							proto = restrict.update(proto);
 			
-							user.updateAttributes(proto).then(
+							offer.updateAttributes(proto).then(
 								function() {
 									deffered.resolve({
-											resource: restrict.public(user)
+											resource: restrict.public(offer)
 										}
 									);
 								},
@@ -133,16 +133,16 @@ function destroy(proto) {
 
 	var search = restrict.search(proto);
 
-	User.find({ where: search }).then(
-		function(user) {
-			if(!!user) {
-				auth(user.authService, proto.accessToken).then(
+	Offer.find({ where: search }).then(
+		function(offer) {
+			if(!!offer) {
+				auth(offer.authService, proto.accessToken).then(
 					function(serviceId) {
-						if(serviceId && (serviceId === user.serviceId)) {
-							user.destroy().then(
+						if(serviceId && (serviceId === offer.serviceId)) {
+							offer.destroy().then(
 								function() {
 									deffered.resolve({
-											resource: restrict.public(user)
+											resource: restrict.public(offer)
 										}
 									);
 								},
@@ -172,7 +172,7 @@ function destroy(proto) {
 
 
 module.exports = function(app) {
-	User = app.get('db').User;
+	Offer = app.get('db').ActualOffer;
 
 	return {
 		create: create,
