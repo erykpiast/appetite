@@ -21,41 +21,41 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 	files.filter(function(filename) { // all files except index.js
 		return (/.js$/).test(filename) && (filename !== 'index.js');
 	}).forEach(function(filename) {
-		var modelname = _.capitalize(_.camelize(filename)).slice(0, -3); // actual-request.js -> ActualRequest
+		var modelname = _.capitalize(_.camelize(filename)).slice(0, -3); // request-template.js -> RequestTemplate
 		module.exports[modelname] = sequelize.import(__dirname + '/models/' + filename);
 	});
 
 	// describe relationships
 	(function(m) {
-		m.ActualRequest.hasOne(m.Request);
+		m.Request.hasOne(m.RequestTemplate);
 
-    	m.Request.hasOne(m.Recipe);
-		m.Request.belongsTo(m.User);
+    	m.RequestTemplate.hasOne(m.Recipe);
+		m.RequestTemplate.belongsTo(m.User);
 
-		m.Request.hasMany(m.Image);
-		m.Image.hasMany(m.Request);
+		m.RequestTemplate.hasMany(m.Image);
+		m.Image.hasMany(m.RequestTemplate);
 
-		m.ActualRequest.hasMany(m.RequestResponse);
-		// m.RequestResponse.hasOne(m.ActualRequest);
+		m.Request.hasMany(m.RequestResponse);
+		// m.RequestTemplateResponse.hasOne(m.Request);
 		m.RequestResponse.belongsTo(m.User);
 
-		m.ActualRequest.hasOne(m.Place);
+		m.Request.hasOne(m.Place);
 
 		/* -- */
 
-		m.ActualOffer.hasOne(m.Offer);
+		m.Offer.hasOne(m.OfferTemplate);
 
-		m.Offer.hasOne(m.Recipe);
-		m.Offer.belongsTo(m.User);
+		m.OfferTemplate.hasOne(m.Recipe);
+		m.OfferTemplate.belongsTo(m.User);
 
-		m.Offer.hasMany(m.Image);
-		m.Image.hasMany(m.Offer);
+		m.OfferTemplate.hasMany(m.Image);
+		m.Image.hasMany(m.OfferTemplate);
 
-		m.ActualOffer.hasMany(m.OfferResponse);
-		// m.OfferResponse.hasOne(m.ActualOffer);
+		m.Offer.hasMany(m.OfferResponse);
+		// m.OfferTemplateResponse.hasOne(m.Offer);
 		m.OfferResponse.belongsTo(m.User);
 
-		m.ActualOffer.hasOne(m.Place);
+		m.Offer.hasOne(m.Place);
 
 		/* -- */
 
@@ -63,7 +63,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 		m.User.hasOne(m.Place);
 
 		m.Like.belongsTo(m.User);
-		m.Offer.hasMany(m.Like);
+		m.OfferTemplate.hasMany(m.Like);
 
 		/* -- */
 

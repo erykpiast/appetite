@@ -1,5 +1,3 @@
-var _ = $require('/libs/underscore');
-
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Offer', {
 		id: {
@@ -7,24 +5,38 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		title: {
-			type: DataTypes.STRING,
-			allowNull: false
+		startedAt: {
+			type: DataTypes.DATE,
+			allowNull: true,
+			defaultValue: null,
+			validate: {
+				isWithEnd: function(value) {
+					if(value !== null) {
+						if((this.endAt === null) || (value <= this.endAt)) {
+							throw new Error('Started time must be set with end time!');
+						}
+					}
+				}
+			}
 		},
-		description: {
-			type: DataTypes.TEXT,
-			allowNull: false
+		endAt: {
+			type: DataTypes.DATE,
+			allowNull: true,
+			defaultValue: null,
+			validate: {
+				isAfterStart: function(value) {
+					if(value !== null) {
+						if((this.startedAt === null) || (value <= this.startedAt)) {
+							throw new Error('End time must be after started time!');
+						}
+					}
+				}
+			}
 		}
-		// author - foreign key from User
+		// offer - foreign key from Offer
 		// place - foreign key from Place
-		// recipe - foreign key from Recipe
 	}, {
 		timestamps: true, // add createdAt, updatedAt
 		paranoid: true, // add deletedAt instead of real deleting
-		getterMethods: {
-			summary: function() {
-				return _.prune(this.description, 255, '...');
-			}
-		}
 	});
 };

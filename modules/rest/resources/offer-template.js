@@ -2,39 +2,41 @@ var Q = $require('q'),
     auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
-		public: [ 'id', 'place', 'author' ],
-		create: [ 'template', 'place', 'startedAt', 'endAt' ],
+		public: [ 'id', 'title', 'description', 'recipe' ],
+		create: [ 'title', 'description', 'recipe' ],
 		createSearch: [ 'id' ],
 		update: [ 'startedAt', 'endAt' ],
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
-var Offer, OfferTemplate;
+var OfferTemplate, Recipe;
 
 function create(proto) {
 	var deffered = Q.defer();
-	
+
 	auth(proto.authService, proto.accessToken).then(
 		function(serviceId) {
+			
 			var userSearch = { serviceId: serviceId };
 			User.find({ where: userSearch }).then(
 				function(user) {
 					var search = restrict.createSearch(proto);
 
-					Offer.find({ where: search }).then(
-						function(offer) {
-							if(!offer) {
-								var templateSearch = { id: proto.template };
+					OfferTemplate.find({ where: search }).then(
+						function(template) {
+							if(!template) {
+								var recipeSearch = { url: proto.recipe };
 
-								OfferTemplate.find({ where: templateSearch }).then(
-									function(template) {
+								Recipe.findOrCreate({ where: recipeSearch }).then(
+									function(recipe) {
 										proto = restrict.create(proto);
 										proto.author = user.id;
+										proto.recipe = recipe.id;
 
-										Offer.create(proto).then(
-											function(offer) {
+										OfferTemplate.create(proto).then(
+											function(template) {
 												deffered.resolve({
-														resource: restrict.public(offer.values)
+														resource: restrict.public(template.values)
 													}
 												);
 											},
@@ -49,7 +51,7 @@ function create(proto) {
 								);
 							} else {
 								deffered.resolve({
-										resource: restrict.public(offer),
+										resource: restrict.public(template),
 										existed: true
 									}
 								);
@@ -79,11 +81,11 @@ function retrieve(proto) {
 
 	var search = restrict.search(proto);
 
-	Offer.find({ where: search }).then(
-		function(offer) {
-			if(!!offer) {
+	OfferTemplate.find({ where: search }).then(
+		function(template) {
+			if(!!template) {
 				deffered.resolve({
-						resource: restrict.public(offer)
+						resource: restrict.public(template)
 					}
 				);
 			} else {
@@ -104,18 +106,18 @@ function update(proto) {
 
 	var search = restrict.search(proto);
 
-	Offer.find({ where: search }).then(
-		function(offer) {
-			if(!!offer) {
+	OfferTemplate.find({ where: search }).then(
+		function(template) {
+			if(!!template) {
 				auth(proto.authService, proto.accessToken).then(
 					function(serviceId) {
-						if(serviceId && (serviceId === offer.serviceId)) {
+						if(serviceId && (serviceId === template.serviceId)) {
 							proto = restrict.update(proto);
 			
-							offer.updateAttributes(proto).then(
+							template.updateAttributes(proto).then(
 								function() {
 									deffered.resolve({
-											resource: restrict.public(offer)
+											resource: restrict.public(template)
 										}
 									);
 								},
@@ -150,16 +152,16 @@ function destroy(proto) {
 
 	var search = restrict.search(proto);
 
-	Offer.find({ where: search }).then(
-		function(offer) {
-			if(!!offer) {
-				auth(offer.authService, proto.accessToken).then(
+	OfferTemplate.find({ where: search }).then(
+		function(template) {
+			if(!!template) {
+				auth(template.authService, proto.accessToken).then(
 					function(serviceId) {
-						if(serviceId && (serviceId === offer.serviceId)) {
-							offer.destroy().then(
+						if(serviceId && (serviceId === template.serviceId)) {
+							template.destroy().then(
 								function() {
 									deffered.resolve({
-											resource: restrict.public(offer)
+											resource: restrict.public(template)
 										}
 									);
 								},
@@ -189,8 +191,8 @@ function destroy(proto) {
 
 
 module.exports = function(app) {
-	Offer = app.get('db').Offer;
 	OfferTemplate = app.get('db').OfferTemplate;
+	Recipe = app.get('db').Recipe;
 
 	return {
 		create: create,
