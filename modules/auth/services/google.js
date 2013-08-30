@@ -9,7 +9,7 @@ function _connect() {
 
 function auth(accessToken, deffered) {
 	
-	deffered.resolve(crypto.createHash('md5').update(accessToken).digest('hex'));
+	deffered.resolve(accessToken);
 }
 
 module.exports = auth;

@@ -17,7 +17,7 @@ function create(proto) {
 	auth(proto.authService, proto.accessToken).then(
 		function(serviceId) {
 			
-			var userSearch = { serviceId: serviceId };
+			var userSearch = { serviceId: serviceId, authService: proto.authService };
 			User.find({ where: userSearch }).then(
 				function(user) {
 					var search = restrict.createSearch(proto);

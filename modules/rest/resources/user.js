@@ -24,6 +24,7 @@ function create(proto) {
 			User.find({ where: search }).then(
 				function(user) {
 					if(!user) {
+                        console.log(proto);
 						User.create(proto).then(
 							function(user) {
 								deffered.resolve({
