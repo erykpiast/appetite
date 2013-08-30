@@ -24,8 +24,7 @@ function create(proto) {
 			User.find({ where: search }).then(
 				function(user) {
 					if(!user) {
-                        console.log(proto);
-						User.create(proto).then(
+						User.create(proto, Object.keys(proto)).then(
 							function(user) {
 								deffered.resolve({
 										resource: restrict.public(user.values)
@@ -93,6 +92,7 @@ function update(proto) {
 			if(!!user) {
 				auth(proto.authService, proto.accessToken).then(
 					function(serviceId) {
+				
 						if(serviceId && (serviceId === user.serviceId)) {
 							proto = restrict.update(proto);
 			

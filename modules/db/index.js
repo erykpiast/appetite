@@ -73,7 +73,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 		m.Avatar.belongsTo(m.User);
 
 		console.log('Database initialization...');
-        sequelize.sync({ force: true }) // try create models in db
+        sequelize.sync({ force: false }) // try create models in db
             .success(function(err) {
                 console.log('All models created in database!');
             })
