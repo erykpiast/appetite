@@ -9,7 +9,7 @@ var Q = $require('q'),
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
-var OfferTemplate, Recipe;
+var OfferTemplate, Recipe, User;
 
 function create(proto) {
 	var deffered = Q.defer();
@@ -21,10 +21,9 @@ function create(proto) {
     			    authService: proto.authService,
     			    deletedAt: null
 			    };
-			    
+
 			User.find({ where: userSearch }).then(
 				function(user) {
-				    console.log(user);
 					var search = restrict.createSearch(proto);
 
 					OfferTemplate.find({ where: search }).then(
@@ -38,11 +37,12 @@ function create(proto) {
     								Recipe.findOrCreate(recipeProto).then(
     									function(recipe) {
     										proto = restrict.create(proto);
-    										proto.author = user.id;
-    										proto.recipe = recipe.id;
+    										proto.userId = user.id;
+    										proto.recipeId = recipe.id;
     
     										OfferTemplate.create(proto, Object.keys(proto)).then(
     											function(template) {
+    												console.log(template.values);
     												deffered.resolve({
     														resource: restrict.public(template.values)
     													}
@@ -74,7 +74,7 @@ function create(proto) {
 				function() {
 					deffered.reject(new Errors.Authentication());
 				}
-			)
+			);
 		},
 		function() {
 			deffered.reject(new Errors.Authentication());
@@ -202,6 +202,7 @@ function destroy(proto) {
 module.exports = function(app) {
 	OfferTemplate = app.get('db').OfferTemplate;
 	Recipe = app.get('db').Recipe;
+	User = app.get('db').User;
 
 	return {
 		create: create,

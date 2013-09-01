@@ -29,7 +29,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 	(function(m) {
 		m.Request.hasOne(m.RequestTemplate);
 
-    	m.RequestTemplate.hasOne(m.Recipe);
+    	m.Recipe.hasMany(m.RequestTemplate);
 		m.RequestTemplate.belongsTo(m.User);
 
 		m.RequestTemplate.hasMany(m.Image);
@@ -45,7 +45,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
 		m.Offer.hasOne(m.OfferTemplate);
 
-		m.OfferTemplate.hasOne(m.Recipe);
+		m.Recipe.hasMany(m.OfferTemplate);
 		m.OfferTemplate.belongsTo(m.User);
 
 		m.OfferTemplate.hasMany(m.Image);
@@ -74,7 +74,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
 		console.log('Database initialization...');
 		console.log('===========================================================');
-        sequelize.sync({ force: false }) // try create models in db
+        sequelize.sync({ force: true }) // try create models in db
             .success(function(err) {
                 console.log('===========================================================');
                 console.log('All models created in database!');
