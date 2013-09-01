@@ -9,6 +9,10 @@ var protos = {
 			status: 401,
 			msg: 'Authentication failed'
 		},
+		'WrongData' : {
+			status: 400,
+			msg: 'Wrong data format'
+		},
 		'NotFound' : {
 			status: 404,
 			msg: 'Not found'

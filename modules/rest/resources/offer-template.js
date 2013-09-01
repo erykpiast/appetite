@@ -16,39 +16,48 @@ function create(proto) {
 
 	auth(proto.authService, proto.accessToken).then(
 		function(serviceId) {
-			
-			var userSearch = { serviceId: serviceId, authService: proto.authService };
+			var userSearch = {
+    			    serviceId: serviceId,
+    			    authService: proto.authService,
+    			    deletedAt: null
+			    };
+			    
 			User.find({ where: userSearch }).then(
 				function(user) {
+				    console.log(user);
 					var search = restrict.createSearch(proto);
 
 					OfferTemplate.find({ where: search }).then(
 						function(template) {
 							if(!template) {
-								var recipeSearch = { url: proto.recipe };
-
-								Recipe.findOrCreate({ where: recipeSearch }).then(
-									function(recipe) {
-										proto = restrict.create(proto);
-										proto.author = user.id;
-										proto.recipe = recipe.id;
-
-										OfferTemplate.create(proto).then(
-											function(template) {
-												deffered.resolve({
-														resource: restrict.public(template.values)
-													}
-												);
-											},
-											function() {
-												deffered.reject(new Errors.Database());
-											}
-										);
-									},
-									function() {
-										deffered.reject(new Errors.Database());
-									}
-								);
+							    if(!proto.recipe) {
+							        deffered.reject(new Errors.WrongData());
+							    } else {
+    								var recipeProto = { url: proto.recipe };
+    
+    								Recipe.findOrCreate(recipeProto).then(
+    									function(recipe) {
+    										proto = restrict.create(proto);
+    										proto.author = user.id;
+    										proto.recipe = recipe.id;
+    
+    										OfferTemplate.create(proto, Object.keys(proto)).then(
+    											function(template) {
+    												deffered.resolve({
+    														resource: restrict.public(template.values)
+    													}
+    												);
+    											},
+    											function() {
+    												deffered.reject(new Errors.Database());
+    											}
+    										);
+    									},
+    									function() {
+    										deffered.reject(new Errors.Database());
+    									}
+    								);
+							    }
 							} else {
 								deffered.resolve({
 										resource: restrict.public(template),
