@@ -1,5 +1,5 @@
 var Q = $require('q'),
-    auth = $require('/modules/auth'),
+	auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'title', 'description', 'recipe' ],
@@ -9,7 +9,7 @@ var Q = $require('q'),
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
-var OfferTemplate, Recipe, User;
+var OfferTemplate, Recipe;
 
 function create(proto) {
 	var deffered = Q.defer();
@@ -17,11 +17,11 @@ function create(proto) {
 	auth(proto.authService, proto.accessToken).then(
 		function(serviceId) {
 			var userSearch = {
-    			    serviceId: serviceId,
-    			    authService: proto.authService,
-    			    deletedAt: null
-			    };
-
+					serviceId: serviceId,
+					authService: proto.authService,
+					deletedAt: null
+				};
+				
 			User.find({ where: userSearch }).then(
 				function(user) {
 					var search = restrict.createSearch(proto);
@@ -29,35 +29,36 @@ function create(proto) {
 					OfferTemplate.find({ where: search }).then(
 						function(template) {
 							if(!template) {
-							    if(!proto.recipe) {
-							        deffered.reject(new Errors.WrongData());
-							    } else {
-    								var recipeProto = { url: proto.recipe };
-    
-    								Recipe.findOrCreate(recipeProto).then(
-    									function(recipe) {
-    										proto = restrict.create(proto);
-    										proto.userId = user.id;
-    										proto.recipeId = recipe.id;
-    
-    										OfferTemplate.create(proto, Object.keys(proto)).then(
-    											function(template) {
-    												console.log(template.values);
-    												deffered.resolve({
-    														resource: restrict.public(template.values)
-    													}
-    												);
-    											},
-    											function() {
-    												deffered.reject(new Errors.Database());
-    											}
-    										);
-    									},
-    									function() {
-    										deffered.reject(new Errors.Database());
-    									}
-    								);
-							    }
+								if(!proto.recipe) {
+									deffered.reject(new Errors.WrongData());
+								} else {
+									var recipeProto = { url: proto.recipe };
+	
+									Recipe.findOrCreate(recipeProto).then(
+										function(recipe) {
+											proto = restrict.create(proto);
+	
+											 var template = OfferTemplate.build(proto);
+											 template.setAuthor(user);
+											 template.setRecipe(recipe);
+											 
+											template.save().then(
+												function() {
+													deffered.resolve({
+															resource: restrict.public(template.values)
+														}
+													);
+												},
+												function() {
+													deffered.reject(new Errors.Database());
+												}
+											);
+										},
+										function() {
+											deffered.reject(new Errors.Database());
+										}
+									);
+								}
 							} else {
 								deffered.resolve({
 										resource: restrict.public(template),
@@ -74,7 +75,7 @@ function create(proto) {
 				function() {
 					deffered.reject(new Errors.Authentication());
 				}
-			);
+			)
 		},
 		function() {
 			deffered.reject(new Errors.Authentication());
@@ -202,7 +203,6 @@ function destroy(proto) {
 module.exports = function(app) {
 	OfferTemplate = app.get('db').OfferTemplate;
 	Recipe = app.get('db').Recipe;
-	User = app.get('db').User;
 
 	return {
 		create: create,
