@@ -4,6 +4,98 @@
 		"selected_items":
 		[
 			[
+				"Offer",
+				"m.OfferTemplate"
+			],
+			[
+				"use",
+				"userSearch"
+			],
+			[
+				"us",
+				"userSearch"
+			],
+			[
+				"de",
+				"description"
+			],
+			[
+				"se",
+				"serviceId"
+			],
+			[
+				"tem",
+				"template"
+			],
+			[
+				"f",
+				"function"
+			],
+			[
+				"re",
+				"requireValue"
+			],
+			[
+				"cr",
+				"createSearch"
+			],
+			[
+				"res",
+				"restrict"
+			],
+			[
+				"s",
+				"search"
+			],
+			[
+				"pub",
+				"publicKeys"
+			],
+			[
+				"pro",
+				"protoKeys"
+			],
+			[
+				"_pu",
+				"_publicKeys"
+			],
+			[
+				"proto",
+				"protoKeys"
+			],
+			[
+				"ser",
+				"service"
+			],
+			[
+				"fi",
+				"find"
+			],
+			[
+				"pu",
+				"publicKeys"
+			],
+			[
+				"roo",
+				"rootPath"
+			],
+			[
+				"ro",
+				"rootPath"
+			],
+			[
+				"Use",
+				"UserModel"
+			],
+			[
+				"mo",
+				"modelname"
+			],
+			[
+				"control",
+				"controllers"
+			],
+			[
 				"sc",
 				"scripts"
 			],
@@ -66,10 +158,6 @@
 			[
 				"fu",
 				"function"
-			],
-			[
-				"re",
-				"rest"
 			],
 			[
 				"ar",
@@ -200,10 +288,6 @@
 				"margin-top"
 			],
 			[
-				"se",
-				"secondary-color"
-			],
-			[
 				"line",
 				"line-height"
 			],
@@ -308,10 +392,6 @@
 				"lastPeriod"
 			],
 			[
-				"fi",
-				"Filters"
-			],
-			[
 				"ex",
 				"expect"
 			],
@@ -344,16 +424,8 @@
 				"log	console.log"
 			],
 			[
-				"res",
-				"resolve"
-			],
-			[
 				"usr",
 				"userInfo"
-			],
-			[
-				"use",
-				"userId"
 			],
 			[
 				"dir",
@@ -374,14 +446,6 @@
 			[
 				"auth",
 				"authData"
-			],
-			[
-				"ser",
-				"serviceName"
-			],
-			[
-				"us",
-				"userInfo"
 			],
 			[
 				"au",
@@ -420,16 +484,8 @@
 				"google"
 			],
 			[
-				"s",
-				"scopes"
-			],
-			[
 				"user",
 				"userInfo"
-			],
-			[
-				"pro",
-				"promise"
 			],
 			[
 				"def",
@@ -458,104 +514,16 @@
 			[
 				"pref",
 				"prefLen"
-			],
-			[
-				"gi",
-				"github"
-			],
-			[
-				"bu",
-				"button"
-			],
-			[
-				"gith",
-				"githubUserInfo"
-			],
-			[
-				"access",
-				"accessToken"
-			],
-			[
-				"login",
-				"loginHandler"
-			],
-			[
-				"ge",
-				"gender"
-			],
-			[
-				"g",
-				"google"
-			],
-			[
-				"padd",
-				"padding-left"
-			],
-			[
-				"a",
-				"auto"
-			],
-			[
-				"em",
-				"emCalc"
-			],
-			[
-				"lef",
-				"left-margin"
-			],
-			[
-				"hea",
-				"header	Tag"
-			],
-			[
-				"ang",
-				"angular"
-			],
-			[
-				"max-",
-				"max-width"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "public/app/scripts/controllers/all.js",
+			"file": "todo/db.todo",
 			"settings":
 			{
-				"buffer_size": 248,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/app/scripts/controllers/footer.js",
-			"settings":
-			{
-				"buffer_size": 238,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/app/scripts/controllers/header.js",
-			"settings":
-			{
-				"buffer_size": 234,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/app/scripts/controllers/main.js",
-			"settings":
-			{
-				"buffer_size": 274,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/app/scripts/controllers/test.js",
-			"settings":
-			{
-				"buffer_size": 273,
+				"buffer_size": 2369,
 				"line_ending": "Unix"
 			}
 		}
@@ -563,7 +531,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 285.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -759,7 +727,7 @@
 				"Project: Save As"
 			]
 		],
-		"width": 503.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -776,6 +744,66 @@
 	},
 	"file_history":
 	[
+		"/var/www/appetite/modules/db/index.js",
+		"/var/www/appetite/modules/rest/resources/offer-template.js",
+		"/var/www/appetite/modules/rest/resources/user.js",
+		"/var/www/appetite/public/app/templates/main.tpl",
+		"/var/www/appetite/modules/auth/services/facebook.js",
+		"/var/www/appetite/modules/auth/services/google.js",
+		"/var/www/appetite/routes/offer.js",
+		"/var/www/appetite/routes/offer-template.js",
+		"/var/www/appetite/modules/rest/resources/offer.js",
+		"/var/www/appetite/modules/auth/index.js",
+		"/var/www/appetite/modules/db/models/offer-template.js",
+		"/var/www/appetite/modules/db/models/offer.js",
+		"/var/www/appetite/modules/db/models/request.js",
+		"/var/www/appetite/modules/db/models/offerTemplate.js",
+		"/var/www/appetite/modules/db/models/requestTemplate.js",
+		"/var/www/appetite/routes/user.js",
+		"/var/www/appetite/modules/rest/restrict.js",
+		"/var/www/appetite/modules/db/models/user.js",
+		"/var/www/appetite/libs/std.js",
+		"/var/www/lib/libstd.js",
+		"/var/www/appetite/modules/rest/index.js",
+		"/var/www/appetite/modules/rest/errors.js",
+		"/var/www/appetite/app.js",
+		"/var/www/appetite/modules/rest/user.js",
+		"/var/www/appetite/routes/index.js",
+		"/var/www/appetite/config/default.json",
+		"/var/www/appetite/modules/auth/facebook.js",
+		"/var/www/appetite/modules/auth/google.js",
+		"/var/www/appetite/modules/db/models/place.js",
+		"/var/www/appetite/modules/db/models/actual-request.js",
+		"/var/www/appetite/modules/db/models/actual-offer.js",
+		"/var/www/appetite/Gruntfile.js",
+		"/var/www/appetite/modules/index.js",
+		"/var/www/appetite/modules/db/models/recipe.js",
+		"/var/www/appetite/modules/db/models/offer-response.js",
+		"/var/www/appetite/modules/db/models/avatar.js",
+		"/var/www/appetite/modules/db/models/image.js",
+		"/var/www/appetite/modules/db/models/like.js",
+		"/var/www/appetite/modules/db/models/request-response.js",
+		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/var/www/appetite/todo/db.todo",
+		"/var/www/appetite/modules/db/recipe.js",
+		"/var/www/appetite/modules/db/place.js",
+		"/var/www/appetite/modules/db/user.js",
+		"/var/www/appetite/modules/db/like.js",
+		"/var/www/appetite/modules/db/offer.js",
+		"/var/www/appetite/modules/db/avatar.js",
+		"/var/www/appetite/modules/db/image.js",
+		"/var/www/appetite/modules/db/request.js",
+		"/var/www/appetite/public/app/templates/test.tpl",
+		"/var/www/appetite/public/app/scripts/modules/appetite.js",
+		"/var/www/appetite/public/app/scripts/app.js",
+		"/var/www/appetite/public/app/scripts/controllers/test.js",
+		"/var/www/appetite/public/app/scripts/controllers/main.js",
+		"/var/www/appetite/public/app/scripts/controllers/header.js",
+		"/var/www/appetite/public/app/scripts/controllers/footer.js",
+		"/var/www/appetite/public/app/scripts/controllers/all.js",
+		"/var/www/appetite/public/app/bower_components/angular/bower.json",
+		"/var/www/appetite/appetite.sublime-project",
+		"/var/www/blog/blog.sublime-project",
 		"/var/www/appetite-express/public/app/index.html",
 		"/var/www/appetite-express/Gruntfile.js",
 		"/var/www/appetite-express/app.js",
@@ -790,8 +818,6 @@
 		"/var/www/appetite/api/controllers/MainController.js",
 		"/var/www/appetite/node_modules/grunt-express/lib/util.js",
 		"/var/www/appetite/webapp/Gruntfile.js",
-		"/var/www/appetite/Gruntfile.js",
-		"/var/www/appetite/app.js",
 		"/var/www/appetite/node_modules/sails/lib/sails.js",
 		"/var/www/appetite/webapp/app/scripts/app.js",
 		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/playback.js",
@@ -805,7 +831,6 @@
 		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/commChannel.js",
 		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/dombuilder.js",
 		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/show.js",
-		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/var/www/blog/app/scripts/controllers/article.js",
 		"/var/www/blog/app/sass/article.scss",
 		"/var/www/blog/app/sass/mixins.scss",
@@ -846,64 +871,7 @@
 		"/home/eryk/Documents/PCLab/gallery-generator-2.sh",
 		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.sh",
 		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.txt",
-		"/home/eryk/Desktop/Antymonach.html",
-		"/var/www/blog/node_modules/generator-foundation/app/templates/sass/app.scss",
-		"/home/eryk/Desktop/2013-06-01_-_gigabyte_z87/pyty.html",
-		"/home/eryk/Desktop/lotto.js",
-		"/var/www/blog/karma.conf.js",
-		"/home/eryk/Desktop/2013-05-29_-_richland_ceny/tabela.html",
-		"/home/eryk/Desktop/apps.todo",
-		"/home/eryk/.mozilla/firefox/q5zbsck2.default/scriptish_scripts/pclabpl-f11d6e64-4049-450b-82ff-2eeab1f16d52@scriptish/pclabpl-f11d6e64-4049-450b-82ff-2eeab1f16d52@scriptish.user.js",
-		"/home/eryk/.mozilla/firefox/q5zbsck2.default/scriptish_scripts/pclabpl-dd9ed0f9-5f82-46c2-9c9d-b002f55143d4@scriptish/pclabpl-dd9ed0f9-5f82-46c2-9c9d-b002f55143d4@scriptish.user.js",
-		"/home/eryk/Desktop/pclabpl-dd9ed0f9-5f82-46c2-9c9d-b002f55143d4@scriptish.user.js",
-		"/home/eryk/Desktop/scripts.js",
-		"/var/www/blog/app/sass/main.scss",
-		"/var/www/blog/test/filters/for-now.spec.js",
-		"/var/www/blog/app/scripts/filters/for-now.js",
-		"/var/www/noc/index.html",
-		"/var/www/blog/test/init.js",
-		"/var/www/blog/test/init.spec.js",
-		"/var/www/blog/test/main.js",
-		"/var/www/blog/test/runner.html",
-		"/var/www/blog/app/scripts/main.js",
-		"/var/www/blog/app/styles/article.css",
-		"/var/www/blog/app/scripts/modules/filters.js",
-		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabele-full.html",
-		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabela-full.html",
-		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabela-redquasar.html",
-		"/home/eryk/Desktop/2013-05-13_-_haswell_test/tabela-chinadaily.html",
-		"/var/www/blog/app/github-disconnect.html",
-		"/var/www/blog/app/google-disconnect.php",
-		"/var/www/blog/app/scripts/services/local-storage.js",
-		"/var/www/blog/app/scripts/services/auth.js",
-		"/var/www/blog/app/scripts/services/facebook-rest.js",
-		"/var/www/blog/app/scripts/services/google-plus-rest.js",
-		"/var/www/blog/app/scripts/directives/misc.js",
-		"/var/www/blog/app/templates/snippets/sign-buttons.tpl",
-		"/var/www/blog/app/scripts/services/github-rest.js",
-		"/var/www/blog/app/index.html",
-		"/var/www/blog/app/github-token.php",
-		"/var/www/blog/app/github-code.html",
-		"/var/www/blog/github-code.html",
-		"/var/www/blog/github-token.php",
-		"/var/www/blog/app/templates/main.tpl",
-		"/var/www/blog/app/sass/angular.scss",
-		"/var/www/blog/app/scripts/services/route-provider-enchanced.js",
-		"/var/www/blog/app/scripts/services/config.js",
-		"/var/www/blog/app/scripts/services/resourceEnchanced.js",
-		"/var/www/blog/app/templates/pages/articles.tpl",
-		"/var/www/blog/app/scripts/app.js",
-		"/var/www/blog/app/scripts/directives/show.js",
-		"/var/www/blog/app/scripts/directives/signbuttons.js",
-		"/var/www/blog/app/templates/snippets/google_sign.tpl",
-		"/var/www/blog/app/sass/articles.scss",
-		"/home/eryk/Desktop/2013-05-02_-_amd_obnizki/tabela.html",
-		"/home/eryk/Desktop/2012-04-29_-_Internet/2012-04-29_-_Internet.html",
-		"/home/eryk/Desktop/2013-04-25_-_ivy_bridge-e_test/tabela.html",
-		"/home/eryk/Desktop/2013-04-23_-_opinie/2013-04-23_-_opinie.html",
-		"/home/eryk/Desktop/2013-04-09_-_gtx_titan_le_gpu-z/tabela.html",
-		"/var/www/blog/app/fakerest/users/user.json",
-		"/var/www/blog/app/scripts/services/fakeRest.js"
+		"/home/eryk/Desktop/Antymonach.html"
 	],
 	"find":
 	{
@@ -914,6 +882,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/var/www/appetite",
 			"/var/www/appetite/node_modules/grunt-express/lib",
 			"/home/eryk/UTC/usabilitytools/nuvr/recording/shower",
 			"",
@@ -923,9 +892,79 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"Recipe",
+			"offer",
+			"Offer",
+			"/template",
+			"offer",
+			"Offer",
+			"user",
+			"User",
+			"Offer",
+			"defaultValue",
+			"started",
+			"Actual",
+			".Offer",
+			".Request",
+			"Actual",
+			"\n							.success",
+			")\n								.fail(",
+			"\n								.success",
+			"});",
+			"\n		.success(",
+			")\n		.fail(",
+			")\n				.fail(",
+			".error(",
+			".fail",
+			"();",
+			"math",
+			"Math",
+			"resolve",
+			"allowed",
+			"proto",
+			"protify",
+			"Object.is",
+			".isString =",
+			".isString",
+			".isString =",
+			"Object.isString =",
+			"_publish",
+			"this",
+			"_protify",
+			"bind(",
+			"_",
+			"proto",
+			"exports",
+			"search",
+			"public",
+			"d",
+			"proto",
+			"retriv",
+			"read",
+			"user",
+			"false",
+			"promise",
+			"db",
+			"routename",
+			"route",
+			"modelname",
+			"publish",
+			"fn",
+			"require",
+			"r",
+			"root",
+			"modelname",
+			", { as: 'Author' }",
+			"author",
+			"Sequelize",
+			"Math",
+			"ForHumans",
+			"commonParts",
+			"controller:",
+			"controllers.",
 			"css",
 			"html",
 			"jade",
@@ -983,77 +1022,7 @@
 			"emit",
 			",",
 			"body",
-			"rest",
-			"type",
-			"& > ",
-			".'",
-			"'.",
-			"query",
-			"__service",
-			"logoutEventName",
-			"logoutE",
-			"fake",
-			"'application/vnd.drupal.ld+json'",
-			"articlesRest",
-			"\"",
-			"array",
-			"filepath",
-			"images",
-			"img",
-			"list.html",
-			"5",
-			"3",
-			"deg",
-			"  /* line 105, /var/www/blog/app/sass/mixins.scss */\n",
-			"  ",
-			"$curAngle",
-			"pi",
-			"@return",
-			"p",
-			"$degrees",
-			"$cos",
-			"$n",
-			"val",
-			"$s",
-			"20px",
-			"1em",
-			"\n",
-			"	",
-			"z87-g43",
-			"02",
-			"\n",
-			"_0",
-			"z87_mpowerddddddddd2",
-			"_0",
-			"e33_01",
-			"01",
-			"[^\\n]*03-m.jpg",
-			".",
-			"<br/>",
-			"h2/",
-			"secondary-color",
-			"translateX",
-			"left",
-			"$width",
-			"h",
-			"multipler",
-			" $",
-			"m",
-			"($progress / 25)",
-			"30",
-			"rotateX",
-			"@import \"settings\"",
-			"80px",
-			"_force",
-			"g1-sniper_m5",
-			"_5",
-			"Z87N-WIFI",
-			"Z87ddd",
-			"P-D3",
-			"MX-D3H",
-			"M-HD3",
-			"D3H",
-			"-HD3"
+			"rest"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1061,6 +1030,14 @@
 		"regex": false,
 		"replace_history":
 		[
+			"template",
+			"OfferTemplate",
+			"template",
+			"OfferTemplate",
+			"offer",
+			"Offer",
+			".on('error', ",
+			".error",
 			"> ",
 			"{k}",
 			"&#x000A;",
@@ -1119,137 +1096,30 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/app/scripts/controllers/all.js",
+					"file": "todo/db.todo",
 					"settings":
 					{
-						"buffer_size": 248,
+						"buffer_size": 2369,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								427,
+								427
 							]
 						],
 						"settings":
 						{
-							"buffer_scroll_name": "a49e7e13",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public/app/scripts/controllers/footer.js",
-					"settings":
-					{
-						"buffer_size": 238,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"buffer_scroll_name": "321efb80",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/app/scripts/controllers/header.js",
-					"settings":
-					{
-						"buffer_size": 234,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"buffer_scroll_name": "3f50a5c5",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/app/scripts/controllers/main.js",
-					"settings":
-					{
-						"buffer_size": 274,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"buffer_scroll_name": "996690ce",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/app/scripts/controllers/test.js",
-					"settings":
-					{
-						"buffer_size": 273,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"buffer_scroll_name": "ecc5c7e5",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"buffer_scroll_name": "45a1957f",
+							"syntax": "Packages/PlainTasks/PlainTasks.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1314,6 +1184,54 @@
 		"selected_items":
 		[
 			[
+				"user",
+				"modules/rest/resources/user.js"
+			],
+			[
+				"actu",
+				"modules/db/models/actual-offer.js"
+			],
+			[
+				"off",
+				"modules/db/models/offer.js"
+			],
+			[
+				"offer",
+				"modules/rest/resources/offer.js"
+			],
+			[
+				"index",
+				"modules/auth/index.js"
+			],
+			[
+				"inde",
+				"modules/auth/index.js"
+			],
+			[
+				"face",
+				"modules/auth/services/facebook.js"
+			],
+			[
+				"googl",
+				"modules/auth/services/google.js"
+			],
+			[
+				"rest",
+				"modules/rest/restrict.js"
+			],
+			[
+				"index.js",
+				"modules/db/index.js"
+			],
+			[
+				"goo",
+				"modules/auth/services/google.js"
+			],
+			[
+				"db.",
+				"todo/db.todo"
+			],
+			[
 				"art",
 				"app/scripts/controllers/article.js"
 			],
@@ -1364,10 +1282,6 @@
 			[
 				"fake",
 				"app/scripts/services/fake-rest.js"
-			],
-			[
-				"rest",
-				"app/scripts/services/rest.js"
 			],
 			[
 				"artic",
@@ -1458,10 +1372,6 @@
 				"app/templates/pages/articles.tpl"
 			],
 			[
-				"inde",
-				"app/index.html"
-			],
-			[
 				"article.t",
 				"app/templates/pages/article.tpl"
 			],
@@ -1502,10 +1412,6 @@
 				"frame.php"
 			],
 			[
-				"index",
-				"index2.html"
-			],
-			[
 				"jug",
 				"JuggleCode.php"
 			]
@@ -1521,7 +1427,7 @@
 		"width": 380.0
 	},
 	"show_minimap": true,
-	"show_open_files": true,
+	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 256.0,

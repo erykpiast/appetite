@@ -1,15 +1,15 @@
 var Q = $require('q'),
+	extend = $require('extend'),
 	auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'title', 'description', 'recipe' ],
-		create: [ 'title', 'description', 'recipe' ],
-		createSearch: [ 'id' ],
-		update: [ 'startedAt', 'endAt' ],
+		create: [ 'title', 'description' ],
+		update: [ 'title', 'description' ],
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
-var OfferTemplate, Recipe;
+var OfferTemplate, Recipe, User;
 
 function create(proto) {
 	var deffered = Q.defer();
@@ -24,53 +24,36 @@ function create(proto) {
 				
 			User.find({ where: userSearch }).then(
 				function(user) {
-					var search = restrict.createSearch(proto);
+					if(!proto.recipe) {
+						deffered.reject(new Errors.WrongData());
+					} else {
+						var recipeProto = { url: proto.recipe };
 
-					OfferTemplate.find({ where: search }).then(
-						function(template) {
-							if(!template) {
-								if(!proto.recipe) {
-									deffered.reject(new Errors.WrongData());
-								} else {
-									var recipeProto = { url: proto.recipe };
-	
-									Recipe.findOrCreate(recipeProto).then(
-										function(recipe) {
-											proto = restrict.create(proto);
-	
-											 var template = OfferTemplate.build(proto);
-											 template.setAuthor(user);
-											 template.setRecipe(recipe);
-											 
-											template.save().then(
-												function() {
-													deffered.resolve({
-															resource: restrict.public(template.values)
-														}
-													);
-												},
-												function() {
-													deffered.reject(new Errors.Database());
-												}
-											);
-										},
-										function() {
-											deffered.reject(new Errors.Database());
-										}
-									);
-								}
-							} else {
-								deffered.resolve({
-										resource: restrict.public(template),
-										existed: true
+						Recipe.findOrCreate(recipeProto, { UserId: user.id }).then(
+							function(recipe) {
+								proto = restrict.create(proto);
+
+								proto.UserId = user.id;
+								proto.RecipeId = recipe.id;
+
+								OfferTemplate.create(proto).then(
+									function(template) {
+										deffered.resolve({
+												resource: restrict.public(extend({ recipe: recipe.url }, template.values)
+												)
+											}
+										);
+									},
+									function() {
+										deffered.reject(new Errors.Database());
 									}
 								);
+							},
+							function() {
+								deffered.reject(new Errors.Database());
 							}
-						},
-						function() {
-							deffered.reject(new Errors.Database());
-						}
-					);
+						);
+					}
 				},
 				function() {
 					deffered.reject(new Errors.Authentication());
@@ -90,6 +73,8 @@ function retrieve(proto) {
 	var deffered = Q.defer();
 
 	var search = restrict.search(proto);
+
+	search.include = [ Recipe ];
 
 	OfferTemplate.find({ where: search }).then(
 		function(template) {
@@ -203,6 +188,7 @@ function destroy(proto) {
 module.exports = function(app) {
 	OfferTemplate = app.get('db').OfferTemplate;
 	Recipe = app.get('db').Recipe;
+	User = app.get('db').User;
 
 	return {
 		create: create,
