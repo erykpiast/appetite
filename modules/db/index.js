@@ -1,5 +1,4 @@
 var Sequelize = $require('sequelize'),
-    _ = $require('/libs/underscore'),
     config = $require('config').database;
 
 // initialize database connection
@@ -8,6 +7,7 @@ var sequelize = new Sequelize(
     config.username,
     config.password,
     {
+        pool: { maxConnections: 5, maxIdleTime: 30 },
         define: {
             charset: 'utf8',
             collate: 'utf8_general_ci'
@@ -28,37 +28,37 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
     // describe relationships
     (function(m) {
         
-        m.RequestTemplate.belongsTo(m.User, { as: 'Author' });
+        m.RequestTemplate.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.RequestTemplate.belongsTo(m.Recipe);
         
         m.RequestTemplate.hasMany(m.Image);
         m.Image.hasMany(m.RequestTemplate);
         
 
-        m.Request.belongsTo(m.RequestTemplate, { as: 'Template' });
+        m.Request.belongsTo(m.RequestTemplate, { as: 'Template', foreignKey: 'TemplateId' });
         m.Request.belongsTo(m.Place);
-        m.Request.belongsTo(m.User);
+        m.Request.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         
         
         m.RequestResponse.belongsTo(m.Request);
-        m.RequestResponse.belongsTo(m.User);
+        m.RequestResponse.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
 
         /* -- */
 
-        m.OfferTemplate.belongsTo(m.User, { as: 'Author' });
+        m.OfferTemplate.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.OfferTemplate.belongsTo(m.Recipe);
         
         m.OfferTemplate.hasMany(m.Image);
         m.Image.hasMany(m.OfferTemplate);
         
 
-        m.Offer.belongsTo(m.OfferTemplate, { as: 'Template' });
+        m.Offer.belongsTo(m.OfferTemplate, { as: 'Template', foreignKey: 'TemplateId' });
         m.Offer.belongsTo(m.Place);
-        m.Offer.belongsTo(m.User);
+        m.Offer.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         
         
         m.OfferResponse.belongsTo(m.Offer);
-        m.OfferResponse.belongsTo(m.User);
+        m.OfferResponse.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
 
         /* -- */
 
@@ -70,10 +70,10 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
         /* -- */
 
-        m.Recipe.belongsTo(m.User, { as: 'Author' });
-        m.Place.belongsTo(m.User, { as: 'Author' });
-        m.Image.belongsTo(m.User, { as: 'Author' });
-        m.Avatar.belongsTo(m.User, { as: 'Author' });
+        m.Recipe.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
+        m.Place.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
+        m.Image.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
+        m.Avatar.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
 
         console.log('Database initialization...');
         console.log('===========================================================');

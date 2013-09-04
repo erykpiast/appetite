@@ -16,7 +16,6 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false
 		}
 		// author - foreign key from User
-		// place - foreign key from Place
 		// recipe - foreign key from Recipe
 	}, {
 		timestamps: true, // add createdAt, updatedAt

@@ -1,6 +1,4 @@
-var Q = $require('q'),
-	extend = $require('extend'),
-	auth = $require('/modules/auth'),
+var auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'title', 'description', 'recipe' ],
@@ -30,11 +28,11 @@ function create(proto) {
 					} else {
 						var recipeProto = { url: proto.recipe };
 
-						Recipe.findOrCreate(recipeProto, { UserId: user.id }).then(
+						Recipe.findOrCreate(recipeProto, { AuthorId: user.id }).then(
 							function(recipe) {
 								proto = restrict.create(proto);
 
-								proto.UserId = user.id;
+								proto.AuthorId = user.id;
 								proto.RecipeId = recipe.id;
 
 								OfferTemplate.create(proto).then(

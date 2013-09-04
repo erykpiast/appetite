@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
 				}
 			}
 		}
-		// offer - foreign key from Offer
+		// template - foreign key from OfferTemplate
 		// place - foreign key from Place
 	}, {
 		timestamps: true, // add createdAt, updatedAt

@@ -1,37 +1,12 @@
-(function() {
-// enchance standard require with function recognizing app.js dir as root path (started with '/')
-	var _require = require;
+// defining global modules >>
+global.$require = require(__dirname + '/modules/$require')(__dirname); // first and last call of 'normal' require
+global.extend = $require('extend');
+global.Q = $require('q');
+global.MathJs = $require('mathjs');
+global._ = $require('/libs/underscore');
 
-	$require = (function(rootPath) {
-		console.log('');
-
-		var _r = function(resource) {
-			if((resource !== null) && (resource !== undefined)) {
-				resource = resource.toString();
-
-				if(resource[0] === '/') {
-					if(resource.indexOf(rootPath) !== 0) {
-						resource = rootPath + resource;
-					} else {
-						console.log(resource);
-						console.log(rootPath);
-					}
-				}
-			}
-
-			return _require(resource);
-		};
-
-		for (var prop in _require) {
-			if(_require.hasOwnProperty(prop)) {
-				_r[prop] = _require[prop];
-			}
-		}
-
-		return _r;
-
-	})(__dirname);
-})();
+$require('/libs/std');
+// << defining global modules
 
 
 var express = $require('express'),

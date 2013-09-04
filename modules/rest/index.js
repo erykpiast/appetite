@@ -1,5 +1,3 @@
-var _ = $require('/libs/underscore');
-
 module.exports = function(app) {
 	var exports = { };
 

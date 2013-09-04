@@ -1,5 +1,4 @@
-var Q = $require('q'),
-	auth = $require('/modules/auth'),
+var auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'authService', 'firstName', 'lastName', 'gender', 'site' ],

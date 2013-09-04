@@ -1,6 +1,3 @@
-var Q = $require('q'),
-	_ = $require('/libs/underscore');
-	
 var authServices = { };
 
 $require('fs').readdirSync(__dirname + '/services')

@@ -1,5 +1,3 @@
-$require('/libs/std'); // Array helpers
-
 var keys = { };
 
 function _restrict(allowedKeys, requireValue, o) {
