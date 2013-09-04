@@ -35,7 +35,7 @@
  	title | string
  	desription | long string
  	summary | string (sliced `description`)
-	creationTime | timestamp
+	crea`tionTime | timestamp
 	authorId | longint, external field
 	recipeId | longint, external field
 

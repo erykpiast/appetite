@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		validate: {
 			bothCoordsOrNone: function() {
-				if ((this.latitude === null) === (this.longitude === null)) {
+				if ((this.latitude === null) !== (this.longitude === null)) {
 					throw new Error('Require either both latitude and longitude or neither')
 				}
 			}
