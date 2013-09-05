@@ -11,163 +11,122 @@ var auth = $require('/modules/auth'),
 var User;
 
 function create(proto) {
-	var deffered = Q.defer();
-	
-	auth(proto.authService, proto.accessToken).then(
+	return auth(proto.authService, proto.accessToken).then(
 		function(serviceId) {
 			proto.serviceId = serviceId;
-
-			var search = restrict.createSearch(proto)
-				proto = restrict.create(proto);
-
-			User.find({ where: search }).then(
-				function(user) {
-					if(!user) {
-						User.create(proto, Object.keys(proto)).then(
-							function(user) {
-								deffered.resolve({
-										resource: restrict.public(user.values)
-									}
-								);
-							},
-							function() {
-								deffered.reject(new Errors.Database());
-							}
-						);
-					} else {
-						deffered.resolve({
-								resource: restrict.public(user),
-								existed: true
-							}
-						);
-					}
-				},
-				function() {
-					deffered.reject(new Errors.Database());
-				}
-			);
+			
+			return User.find({ where: restrict.createSearch(proto) });
 		},
 		function(err) {
-			deffered.reject(new Errors.Authentication());
+			throw new Errors.Authentication();
+		}
+	).then(
+	    function(user) {
+    		if(!user) {
+    		    proto = restrict.create(proto);
+    		    
+    		    return User.create(proto, Object.keys(proto));
+    		} else {
+    		    return { resource: restrict.public(user), existed: true };
+    		}
+	    },
+	    function(err) {
+    		throw new Errors.Database();
+    	}
+    ).then(
+		function(user) {
+			return { resource: restrict.public(user.values) };
+		},
+		function(err) {
+			return new Errors.Database();
 		}
 	);
-
-	return deffered.promise;
 }
 
 
 function retrieve(proto) {
-	var deffered = Q.defer();
-
 	var search = restrict.search(proto);
 
-	User.find({ where: search }).then(
+	return User.find({ where: search }).then(
 		function(user) {
-			if(!!user) {
-				deffered.resolve({
-						resource: restrict.public(user)
-					}
-				);
+			if(!user) {
+				throw new Errors.NotFound();
 			} else {
-				deffered.reject(new Errors.NotFound());
+			    return { resource: restrict.public(user) };
 			}
 		},
-		function() {
-			deffered.reject(new Errors.Database());
+		function(err) {
+		    throw new Errors.Database();
 		}
 	);
-
-	return deffered.promise;
 }
 
 
 function update(proto) {
-	var deffered = Q.defer();
-
-	var search = restrict.search(proto);
-
-	User.find({ where: search }).then(
+	return User.find({ where: restrict.search(proto) }).then(
 		function(user) {
 			if(!!user) {
-				auth(proto.authService, proto.accessToken).then(
-					function(serviceId) {
-				
-						if(serviceId && (serviceId === user.serviceId)) {
-							proto = restrict.update(proto);
-			
-							user.updateAttributes(proto).then(
-								function() {
-									deffered.resolve({
-											resource: restrict.public(user)
-										}
-									);
-								},
-								function() {
-									deffered.reject(new Errors.Database());
-								}
-							);
-
-						} else {
-							deffered.reject(new Errors.Authentication());	
-						}
-					},
-					function(err) {
-						deffered.reject(new Errors.Authentication());
-					}
-				);
+			    return auth(proto.authService, proto.accessToken)
 			} else {
-				deffered.reject(new Errors.NotFound());
+				throw new Errors.NotFound();   
 			}
 		},
-		function() {
-			deffered.reject(new Errors.Database());
+		function(err) {
+			return new Errors.Database();
+		}
+	).then(
+		function(serviceId) {
+			if(serviceId && (serviceId === user.serviceId)) {
+				return user.updateAttributes(restrict.update(proto)).then(
+					function(user) {
+						return { resource: restrict.public(user.values) };
+					},
+					function(err) {
+						throw new Errors.Database();
+					}
+				);	
+			} else {
+			     throw new Errors.Authentication();
+			}
+		},
+		function(err) {
+			return new Errors.Authentication();
 		}
 	);
-
-	return deffered.promise;
 }
 
 
 function destroy(proto) {
-	var deffered = Q.defer();
-
-	var search = restrict.search(proto);
-
-	User.find({ where: search }).then(
+	return User.find({ where: restrict.search(proto) }).then(
 		function(user) {
 			if(!!user) {
-				auth(user.authService, proto.accessToken).then(
-					function(serviceId) {
-						if(serviceId && (serviceId === user.serviceId)) {
-							user.destroy().then(
-								function() {
-									deffered.resolve({
-											resource: restrict.public(user)
-										}
-									);
-								},
-								function() {
-									deffered.reject(new Errors.Database());
-								}
-							);
-						} else {
-							deffered.reject(new Errors.Authentication());	
-						}
-					},
-					function(err) {
-						deffered.reject(new Errors.Authentication());
-					}
-				);
+				return auth(user.authService, proto.accessToken);
 			} else {
-				deffered.reject(new Errors.NotFound());
+				throw new Errors.NotFound();
 			}
 		},
 		function() {
-			deffered.reject(new Errors.Database());
+		    throw new Errors.Database();
+		}
+	).then(
+		function(serviceId) {
+			if(serviceId && (serviceId === user.serviceId)) {
+				return user.destroy();
+		    } else {
+		        throw new Errors.Authentication();    
+		    }
+		},
+		function(err) {
+			throw new Errors.Authentication();
+		}
+    ).then(
+		function(user) {
+			return { resource: restrict.public(user) };
+		},
+		function(err) {
+			throw new Errors.Database();
 		}
 	);
-
-	return deffered.promise;
 }
 
 

@@ -40,6 +40,7 @@ function create(proto) {
                                                         name: place.name
                                                     };
 
+setTimeout(function() {
                                                 Place.findOrCreate(placeProto, { AuthorId: user.id }).then(
                                                     function(place) {
                                                         proto = restrict.create(proto);
@@ -62,6 +63,7 @@ function create(proto) {
                                                         deffered.reject(new Errors.Database());
                                                     }
                                                 );
+}, 0);
                                             },
                                             function() {
                                                 deffered.reject(new Errors.WrongData());
