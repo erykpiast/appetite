@@ -33,7 +33,7 @@ app
                     var captures = handler.exec(new String(val));
 
                     if (!!captures) {
-                        req.params[name] = captures;
+                        req.params[name] = captures[0];
 
                         next();
                     } else {

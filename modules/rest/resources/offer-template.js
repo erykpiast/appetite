@@ -29,35 +29,49 @@ function create(proto) {
 		function(_user) {
 		    user = _user;
 		    
-			if(!proto.recipe) {
+		    if(!user) {
+		        throw new Errors.Authentication();
+			} else if(!proto.recipe) {
 				throw new Errors.WrongData();
 			} else {
-				return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.id });
+				return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.values.id });
 			}
 		},
 		function() {
-			throw new Errors.Authentication();
+			if(!(err instanceof Errors.Generic)) {
+                return new Errors.Authentication();
+            } else {
+                throw err;
+            }
 		}
 	).then(
 		function(_recipe) {
 		    recipe = _recipe;
 		    
-			proto = restrict.create(proto);
-
-			proto.AuthorId = user.id;
-			proto.RecipeId = recipe.id;
-
-			return OfferTemplate.create(proto);
+			return OfferTemplate.create(
+    			    extend(restrict.create(proto), {
+    			        AuthorId: user.id,
+    			        RecipeId: recipe.id
+    			    })
+    	        );
 		},
-		function() {
-			throw new Errors.Database();
+		function(err) {
+		    if(!(err instanceof Errors.Generic)) {
+			    throw new Errors.Database();
+		    } else {
+                throw err;
+            }
 		}
 	).then(
 		function(template) {
 			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(recipe.values) }) };
 		},
-		function() {
-			throw new Errors.Database();
+		function(err) {
+		    if(!(err instanceof Errors.Generic)) {
+			    throw new Errors.Database();
+		    } else {
+                throw err;
+            }
 		}
 	);
 }
@@ -66,7 +80,7 @@ function create(proto) {
 function retrieve(proto) {
 	return OfferTemplate.find({ where: restrict.search(proto), include: [ Recipe ] }).then(
 		function(template) {
-			if(!template) {
+			if(template) {
 				return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.recipe.values) }) };
 			} else {
 				throw new Errors.NotFound();
