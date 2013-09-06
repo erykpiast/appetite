@@ -23,6 +23,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
     }).forEach(function(filename) {
         var modelname = _.capitalize(_.camelize(filename)).slice(0, -3); // request-template.js -> RequestTemplate
         module.exports[modelname] = sequelize.import(__dirname + '/models/' + filename);
+        module.exports[modelname].sync();
     });
 
     // describe relationships

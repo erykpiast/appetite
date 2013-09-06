@@ -10,195 +10,158 @@ var auth = $require('/modules/auth'),
 
 var OfferTemplate, Recipe, User;
 
-function create(proto) {
-	var deffered = Q.defer();
 
-	auth(proto.authService, proto.accessToken).then(
+function create(proto) {
+    var user, recipe;
+    
+	return auth(proto.authService, proto.accessToken).then(
 		function(serviceId) {
-			var userSearch = {
+		    return User.find({ where: {
 					serviceId: serviceId,
 					authService: proto.authService,
 					deletedAt: null
-				};
-				
-			User.find({ where: userSearch }).then(
-				function(user) {
-					if(!proto.recipe) {
-						deffered.reject(new Errors.WrongData());
-					} else {
-						var recipeProto = { url: proto.recipe };
-
-						Recipe.findOrCreate(recipeProto, { AuthorId: user.id }).then(
-							function(recipe) {
-								proto = restrict.create(proto);
-
-								proto.AuthorId = user.id;
-								proto.RecipeId = recipe.id;
-
-								OfferTemplate.create(proto).then(
-									function(template) {
-										template = restrict.public(template);
-										template.recipe = restrict.recipePublic(recipe.values);
-
-										deffered.resolve({ resource: template } );
-									},
-									function() {
-										deffered.reject(new Errors.Database());
-									}
-								);
-							},
-							function() {
-								deffered.reject(new Errors.Database());
-							}
-						);
-					}
-				},
-				function() {
-					deffered.reject(new Errors.Authentication());
-				}
-			)
+				} });
+		},
+		function(err) {
+		    throw new Errors.Authentication();
+		}
+	).then(
+		function(_user) {
+		    user = _user;
+		    
+			if(!proto.recipe) {
+				throw new Errors.WrongData();
+			} else {
+				return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.id });
+			}
 		},
 		function() {
-			deffered.reject(new Errors.Authentication());
+			throw new Errors.Authentication();
+		}
+	).then(
+		function(_recipe) {
+		    recipe = _recipe;
+		    
+			proto = restrict.create(proto);
+
+			proto.AuthorId = user.id;
+			proto.RecipeId = recipe.id;
+
+			return OfferTemplate.create(proto);
+		},
+		function() {
+			throw new Errors.Database();
+		}
+	).then(
+		function(template) {
+			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(recipe.values) }) };
+		},
+		function() {
+			throw new Errors.Database();
 		}
 	);
-
-	return deffered.promise;
 }
 
 
 function retrieve(proto) {
-	var deffered = Q.defer();
-
-	var search = restrict.search(proto);
-
-	OfferTemplate.find({ where: search, include: [ Recipe ] }).then(
+	return OfferTemplate.find({ where: restrict.search(proto), include: [ Recipe ] }).then(
 		function(template) {
-			if(!!template) {
-				template = restrict.public(template);
-				template.recipe = restrict.recipePublic(template.recipe);
-
-				deffered.resolve({
-						resource: template
-					}
-				);
+			if(!template) {
+				return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.recipe.values) }) };
 			} else {
-				deffered.reject(new Errors.NotFound());
+				throw new Errors.NotFound();
 			}
 		},
 		function() {
-			deffered.reject(new Errors.Database());
+			throw new Errors.Database();
 		}
 	);
-
-	return deffered.promise;
 }
 
 
 function update(proto) {
-	var deffered = Q.defer();
-
-	var search = restrict.search(proto);
-
-	OfferTemplate.find({ where: search, include: [ { model: User, as: 'Author' } ] }).then(
-		function(template) {
-			if(!!template) {
-				auth(proto.authService, proto.accessToken).then(
-					function(serviceId) {
-						var templateOwnerServiceId = template.values.author.values.serviceId;
-
-						if(serviceId && (serviceId === templateOwnerServiceId)) {
-							proto = restrict.update(proto);
-			
-							template.updateAttributes(proto).then(
-								function(template) {
-									template.getRecipe().then(
-										function(recipe) {
-											template = restrict.public(template.values);
-											template.recipe = restrict.recipePublic(recipe.values);
-
-											deffered.resolve({ resource: template });
-										},
-										function() {
-											deffered.reject(new Errors.Database());
-										}
-									);
-								},
-								function() {
-									deffered.reject(new Errors.Database());
-								}
-							);
-
-						} else {
-							deffered.reject(new Errors.Authentication());	
-						}
-					},
-					function(err) {
-						deffered.reject(new Errors.Authentication());
-					}
-				);
+    var serviceId;
+    
+	return auth(proto.authService, proto.accessToken).then(
+		function(_serviceId) {
+		    serviceId = _serviceId;
+		    
+			if(!!serviceId) {
+				return OfferTemplate.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Recipe ] });
 			} else {
-				deffered.reject(new Errors.NotFound());
+				throw new Errors.Authentication();
 			}
 		},
 		function() {
-			deffered.reject(new Errors.Database());
+			throw new Errors.Authentication();
+		}
+	).then(
+		function(template) {
+			if(!template) {
+			    throw new Errors.NotFound();	
+			} else if(serviceId === template.values.author.values.serviceId) {
+                var newAttrs = restrict.update(proto);
+                
+                extend(template, newAttrs);
+                
+                return template.save(Object.keys(newAttrs));
+			} else {
+				throw new Errors.Authentication();
+			}
+		},
+		function(err) {
+		    throw new Errors.Database();
+		}
+	).then(
+		function(template) {
+			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
+		},
+		function() {
+			throw new Errors.Database();
 		}
 	);
-
-	return deffered.promise;
 }
 
 
 function destroy(proto) {
-	var deffered = Q.defer();
-
-	var search = restrict.search(proto);
-
-	OfferTemplate.find({ where: search, include: [ { model: User, as: 'Author' } ] }).then(
-		function(template) {
-			if(!!template) {
-				auth(proto.authService, proto.accessToken).then(
-					function(serviceId) {
-						var templateOwnerServiceId = template.values.author.values.serviceId;
-
-						if(serviceId && (serviceId === templateOwnerServiceId)) {
-							template.getRecipe().then(
-								function(recipe) {
-									template.destroy().then(
-										function() {
-											template = restrict.public(template.values);
-											template.recipe = restrict.recipePublic(recipe.values);
-
-											deffered.resolve({ resource: template });
-										},
-										function() {
-											deffered.reject(new Errors.Database());
-										}
-									);
-								},
-								function() {
-									deffered.reject(new Errors.Database());
-								}
-							);
-						} else {
-							deffered.reject(new Errors.Authentication());	
-						}
-					},
-					function(err) {
-						deffered.reject(new Errors.Authentication());
-					}
-				);
+    var template, serviceId;
+    
+	return auth(proto.authService, proto.accessToken).then(
+		function(_serviceId) {
+		    serviceId = _serviceId;
+		    
+			if(!!serviceId) {
+				return OfferTemplate.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Recipe ] });
 			} else {
-				deffered.reject(new Errors.NotFound());
+				throw new Errors.Authentication();
 			}
 		},
 		function() {
-			deffered.reject(new Errors.Database());
+			throw new Errors.Authentication();
+		}
+	).then(
+		function(_template) {
+		    template = _template;
+		    
+			if(!template) {
+			    throw new Errors.NotFound();	
+			} else if(serviceId === template.values.author.values.serviceId) {
+                return template.destroy();
+			} else {
+				throw new Errors.Authentication();
+			}
+		},
+		function(err) {
+		    throw new Errors.Database();
+		}
+	).then(
+		function() {
+			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
+		},
+		function() {
+			throw new Errors.Database();
 		}
 	);
-
-	return deffered.promise;
 }
 
 

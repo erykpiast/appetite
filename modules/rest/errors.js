@@ -26,6 +26,7 @@ function AbstractError(msg, constr) {
 Util.inherits(AbstractError, Error);
 AbstractError.prototype.name = 'Abstract Error';
 
+module.exports['Generic'] = AbstractError;
 Object.keys(protos).forEach(function(errorName) {
 	var error = module.exports[errorName] = function(msg) {
 		this.httpStatus = protos[errorName].status;

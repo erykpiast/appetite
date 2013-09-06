@@ -7,12 +7,12 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		startedAt: {
 			type: DataTypes.DATE,
-			allowNull: true,
-			defaultValue: null,
+			allowNull: false,
+			defaultValue: 0,
 			validate: {
 				isWithEnd: function(value) {
-					if(value !== null) {
-						if((this.endAt === null) || (value <= this.endAt)) {
+					if(value !== 0) {
+						if((this.endAt === 0) || (value <= this.endAt)) {
 							throw new Error('Started time must be set with end time!');
 						}
 					}
@@ -21,12 +21,12 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		endAt: {
 			type: DataTypes.DATE,
-			allowNull: true,
-			defaultValue: null,
+			allowNull: false,
+			defaultValue: 0,
 			validate: {
 				isAfterStart: function(value) {
-					if(value !== null) {
-						if((this.startedAt === null) || (value <= this.startedAt)) {
+					if(value !== 0) {
+						if((this.startedAt === 0) || (value <= this.startedAt)) {
 							throw new Error('End time must be after started time!');
 						}
 					}
