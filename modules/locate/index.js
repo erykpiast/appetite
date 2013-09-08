@@ -3,7 +3,8 @@ module.exports = function(id) {
 
 	setTimeout(function() {
 		deffered.resolve({
-			name: id
+		    id: id,
+			name: 'place' + id
 		});
 	}, 0);
 

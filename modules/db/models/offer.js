@@ -1,3 +1,5 @@
+var emptyDate = new Date(0);
+
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Offer', {
 		id: {
@@ -5,14 +7,14 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		startedAt: {
+		startAt: {
 			type: DataTypes.DATE,
 			allowNull: false,
-			defaultValue: 0,
+			defaultValue: emptyDate,
 			validate: {
 				isWithEnd: function(value) {
-					if(value !== 0) {
-						if((this.endAt === 0) || (value <= this.endAt)) {
+					if(value !== emptyDate) {
+						if((this.endAt === emptyDate) || (value <= this.endAt)) {
 							throw new Error('Started time must be set with end time!');
 						}
 					}
@@ -22,11 +24,11 @@ module.exports = function(sequelize, DataTypes) {
 		endAt: {
 			type: DataTypes.DATE,
 			allowNull: false,
-			defaultValue: 0,
+			defaultValue: emptyDate,
 			validate: {
 				isAfterStart: function(value) {
-					if(value !== 0) {
-						if((this.startedAt === 0) || (value <= this.startedAt)) {
+					if(value !== emptyDate) {
+						if((this.startedAt === emptyDate) || (value <= this.startedAt)) {
 							throw new Error('End time must be after started time!');
 						}
 					}

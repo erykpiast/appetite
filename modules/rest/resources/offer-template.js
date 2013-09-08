@@ -48,12 +48,12 @@ function create(proto) {
 		function(_recipe) {
 		    recipe = _recipe;
 		    
-			return OfferTemplate.create(
-    			    extend(restrict.create(proto), {
+		    var p = extend(restrict.create(proto), {
     			        AuthorId: user.id,
     			        RecipeId: recipe.id
-    			    })
-    	        );
+    			    });
+		    
+			return OfferTemplate.create(p, Object.keys(p));
 		},
 		function(err) {
 		    if(!(err instanceof Errors.Generic)) {
@@ -80,7 +80,7 @@ function create(proto) {
 function retrieve(proto) {
 	return OfferTemplate.find({ where: restrict.search(proto), include: [ Recipe ] }).then(
 		function(template) {
-			if(template) {
+			if(!!template) {
 				return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.recipe.values) }) };
 			} else {
 				throw new Errors.NotFound();
