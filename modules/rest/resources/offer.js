@@ -3,8 +3,9 @@ var auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'place', 'template', 'startAt', 'endAt' ],
-		create: [ 'startedAt', 'endAt' ],
-		update: [ 'startedAt', 'endAt' ],
+		placePublic: [ 'id', 'serviceId' ],
+		create: [ 'startAt', 'endAt' ],
+		update: [ 'startAt', 'endAt' ],
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
@@ -12,7 +13,7 @@ var Offer, Template, Place, User;
 
 
 function create(proto) {
-    var user, template;
+    var user, template, place;
     
 	return auth(proto.authService, proto.accessToken).then(
 		function(serviceId) {
@@ -37,7 +38,7 @@ function create(proto) {
 				return Template.find({ where: { id: proto.template } });
 			}
 		},
-		function() {
+		function(err) {
 			if(!(err instanceof Errors.Generic)) {
                 return new Errors.Authentication();
             } else {
@@ -54,7 +55,7 @@ function create(proto) {
 			    return locate(proto.place);
 			}
 		},
-		function() {
+		function(err) {
 			if(!(err instanceof Errors.Generic)) {
                 return new Errors.Authentication();
             } else {
@@ -69,7 +70,7 @@ function create(proto) {
 				return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
 			}
 		},
-		function() {
+		function(err) {
 			if(!(err instanceof Errors.Generic)) {
                 throw new Errors.Database();
             } else {
@@ -77,13 +78,23 @@ function create(proto) {
             }
 		}
 	).then(
-		function(place) {
+		function(_place) {
+			place = _place;
+
 		    var p = extend(restrict.create(proto), {
     			        AuthorId: user.values.id,
     			        PlaceId: place.values.id,
     			        TemplateId: template.values.id
     			    });
-		    
+
+		    if(parseInt0(proto.startAt) !== 0) {
+		    	p.startAt = new Date(proto.startAt);
+		    }
+
+		    if(parseInt0(proto.endAt) !== 0) {
+		    	p.endAt = new Date(proto.endAt);
+		    }
+
 			return Offer.create(p, Object.keys(p));
 		},
 		function(err) {
@@ -95,7 +106,10 @@ function create(proto) {
 		}
 	).then(
 		function(offer) {
-			return { resource: restrict.public(offer.values) };
+			return { resource: extend(restrict.public(offer.values), {
+					place: restrict.placePublic(place.values),
+					template: template.values.id
+				}) };
 		},
 		function(err) {
 		    if(!(err instanceof Errors.Generic)) {
@@ -117,7 +131,7 @@ function retrieve(proto) {
 				throw new Errors.NotFound();
 			}
 		},
-		function() {
+		function(err) {
 			throw new Errors.Database();
 		}
 	);

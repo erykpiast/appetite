@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"pla",
+				"place"
+			],
+			[
+				"place",
+				"placeProto"
+			],
+			[
+				"temp",
+				"templateOwnerServiceId"
+			],
+			[
+				"re",
+				"recipe"
+			],
+			[
+				"se",
+				"search"
+			],
+			[
 				"Offer",
 				"m.OfferTemplate"
 			],
@@ -20,20 +40,12 @@
 				"description"
 			],
 			[
-				"se",
-				"serviceId"
-			],
-			[
 				"tem",
 				"template"
 			],
 			[
 				"f",
 				"function"
-			],
-			[
-				"re",
-				"requireValue"
 			],
 			[
 				"cr",
@@ -502,18 +514,6 @@
 			[
 				"loca",
 				"localStorage"
-			],
-			[
-				"loc",
-				"localStorage"
-			],
-			[
-				"pre",
-				"prefix"
-			],
-			[
-				"pref",
-				"prefLen"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "todo/db.todo",
 			"settings":
 			{
-				"buffer_size": 2369,
+				"buffer_size": 2370,
 				"line_ending": "Unix"
 			}
 		}
@@ -727,7 +727,7 @@
 				"Project: Save As"
 			]
 		],
-		"width": 392.0
+		"width": 503.0
 	},
 	"console":
 	{
@@ -744,6 +744,11 @@
 	},
 	"file_history":
 	[
+		"/var/www/appetite/modules/locate/index.js",
+		"/var/www/appetite/modules/rest/resources/offer.js",
+		"/var/www/appetite/modules/db/models/place.js",
+		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/eryk/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/var/www/appetite/modules/db/index.js",
 		"/var/www/appetite/modules/rest/resources/offer-template.js",
 		"/var/www/appetite/modules/rest/resources/user.js",
@@ -752,7 +757,6 @@
 		"/var/www/appetite/modules/auth/services/google.js",
 		"/var/www/appetite/routes/offer.js",
 		"/var/www/appetite/routes/offer-template.js",
-		"/var/www/appetite/modules/rest/resources/offer.js",
 		"/var/www/appetite/modules/auth/index.js",
 		"/var/www/appetite/modules/db/models/offer-template.js",
 		"/var/www/appetite/modules/db/models/offer.js",
@@ -772,7 +776,6 @@
 		"/var/www/appetite/config/default.json",
 		"/var/www/appetite/modules/auth/facebook.js",
 		"/var/www/appetite/modules/auth/google.js",
-		"/var/www/appetite/modules/db/models/place.js",
 		"/var/www/appetite/modules/db/models/actual-request.js",
 		"/var/www/appetite/modules/db/models/actual-offer.js",
 		"/var/www/appetite/Gruntfile.js",
@@ -783,7 +786,6 @@
 		"/var/www/appetite/modules/db/models/image.js",
 		"/var/www/appetite/modules/db/models/like.js",
 		"/var/www/appetite/modules/db/models/request-response.js",
-		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/var/www/appetite/todo/db.todo",
 		"/var/www/appetite/modules/db/recipe.js",
 		"/var/www/appetite/modules/db/place.js",
@@ -869,9 +871,7 @@
 		"/home/eryk/Desktop/anim.css",
 		"/home/eryk/Dropbox/Backup/snippets.html",
 		"/home/eryk/Documents/PCLab/gallery-generator-2.sh",
-		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.sh",
-		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.txt",
-		"/home/eryk/Desktop/Antymonach.html"
+		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.sh"
 	],
 	"find":
 	{
@@ -895,6 +895,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"`",
+			"include",
 			"Recipe",
 			"offer",
 			"Offer",
@@ -1020,9 +1022,7 @@
 			"\n",
 			"auth",
 			"emit",
-			",",
-			"body",
-			"rest"
+			","
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1104,15 +1104,15 @@
 					"file": "todo/db.todo",
 					"settings":
 					{
-						"buffer_size": 2369,
+						"buffer_size": 2370,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								599,
+								599
 							]
 						],
 						"settings":

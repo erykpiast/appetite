@@ -36,3 +36,17 @@ Array.prototype.removeDuplicates = function() {
 Object.isString = function(o) {
 	return ((typeof(o) === 'string') || (o instanceof String));
 };
+
+
+global.parseInt0 = function(o) {
+	var parsed = parseInt(o);
+
+	return (isNaN(parsed) ? 0 : parsed);
+}
+
+
+global.parseFloat0 = function(o) {
+	var parsed = parseFloat(o);
+
+	return (isNaN(parsed) ? 0.00 : parsed);
+}
