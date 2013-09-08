@@ -123,10 +123,10 @@ function create(proto) {
 
 
 function retrieve(proto) {
-	return OfferTemplate.find({ where: restrict.search(proto), include: [ Recipe ] }).then(
-		function(template) {
-			if(!!template) {
-				return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.recipe.values) }) };
+	return Offer.find({ where: restrict.search(proto), include: [ Place ] }).then(
+		function(offer) {
+			if(!!offer) {
+				return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.place.values) }) };
 			} else {
 				throw new Errors.NotFound();
 			}
