@@ -12,6 +12,32 @@ var auth = $require('/modules/auth'),
 var Offer, Template, Place, User;
 
 
+function _setTimestamps(target, src) {
+    var startAt = parseInt0(src.startAt),
+        endAt = parseInt0(src.endAt);
+    
+    if(startAt !== 0) {
+    	startAt = new Date(src.startAt);
+    }
+
+    if(endAt !== 0) {
+    	endAt = new Date(src.endAt);
+    }
+    
+    if(((!startAt) !== (!endAt)) || ((!!startAt && !!endAt) && (startAt >= endAt))) {
+        delete target.startAt;
+        delete target.endAt;
+        
+        return false;
+    } else {
+        target.startAt = startAt;
+        target.endAt = endAt;
+        
+        return true;
+    }
+}
+
+
 function create(proto) {
     var user, template, place;
     
@@ -87,12 +113,9 @@ function create(proto) {
     			        TemplateId: template.values.id
     			    });
 
-		    if(parseInt0(proto.startAt) !== 0) {
-		    	p.startAt = new Date(proto.startAt);
-		    }
-
-		    if(parseInt0(proto.endAt) !== 0) {
-		    	p.endAt = new Date(proto.endAt);
+            var res = _setTimestamps(p, proto);
+		    if(!res) {
+		        throw new Errors.WrongData();
 		    }
 
 			return Offer.create(p, Object.keys(p));
@@ -126,7 +149,7 @@ function retrieve(proto) {
 	return Offer.find({ where: restrict.search(proto), include: [ Place ] }).then(
 		function(offer) {
 			if(!!offer) {
-				return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.place.values) }) };
+				return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
 			} else {
 				throw new Errors.NotFound();
 			}
@@ -146,79 +169,104 @@ function update(proto) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return OfferTemplate.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Recipe ] });
-			} else {
-				throw new Errors.Authentication();
-			}
-		},
-		function() {
-			throw new Errors.Authentication();
-		}
-	).then(
-		function(template) {
-			if(!template) {
-			    throw new Errors.NotFound();	
-			} else if(serviceId === template.values.author.values.serviceId) {
-                var newAttrs = restrict.update(proto);
-                
-                extend(template, newAttrs);
-                
-                return template.save(Object.keys(newAttrs));
+				return Offer.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Place ] });
 			} else {
 				throw new Errors.Authentication();
 			}
 		},
 		function(err) {
-		    throw new Errors.Database();
+			throw new Errors.Authentication();
 		}
 	).then(
-		function(template) {
-			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
+		function(offer) {
+			if(!offer) {
+			    throw new Errors.NotFound();	
+			} else if(serviceId === offer.values.author.values.serviceId) {
+                var newAttrs = restrict.update(proto);
+                
+                var res = _setTimestamps(newAttrs, proto);
+    		    if(!res) {
+    		        throw new Errors.WrongData();
+    		    }
+                
+                if(!isNaN(Date.parse(offer.values.startAt))) {
+                    throw new Errors.Database();
+                }
+                
+                extend(offer, newAttrs);
+                
+                return offer.save(Object.keys(newAttrs));
+			} else {
+				throw new Errors.Authentication();
+			}
 		},
-		function() {
-			throw new Errors.Database();
+		function(err) {
+		    if(!(err instanceof Errors.Generic)) {
+			    throw new Errors.Database();
+		    } else {
+                throw err;
+            }
+		}
+	).then(
+		function(offer) {
+			return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
+		},
+		function(err) {
+			if(!(err instanceof Errors.Generic)) {
+			    throw new Errors.Database();
+		    } else {
+                throw err;
+            }
 		}
 	);
 }
 
 
 function destroy(proto) {
-    var template, serviceId;
+    var offer, serviceId;
     
 	return auth(proto.authService, proto.accessToken).then(
 		function(_serviceId) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return OfferTemplate.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Recipe ] });
-			} else {
-				throw new Errors.Authentication();
-			}
-		},
-		function() {
-			throw new Errors.Authentication();
-		}
-	).then(
-		function(_template) {
-		    template = _template;
-		    
-			if(!template) {
-			    throw new Errors.NotFound();	
-			} else if(serviceId === template.values.author.values.serviceId) {
-                return template.destroy();
+				return Offer.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Place ] });
 			} else {
 				throw new Errors.Authentication();
 			}
 		},
 		function(err) {
-		    throw new Errors.Database();
+			throw new Errors.Authentication();
+		}
+	).then(
+		function(_offer) {
+		    offer = _offer;
+		    
+			if(!offer) {
+			    throw new Errors.NotFound();	
+			} else if(serviceId === offer.values.author.values.serviceId) {
+                return offer.destroy();
+			} else {
+				throw new Errors.Authentication();
+			}
+		},
+		function(err) {
+			if(!(err instanceof Errors.Generic)) {
+			    throw new Errors.Database();
+		    } else {
+                throw err;
+            }
 		}
 	).then(
 		function() {
-			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
+			return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
 		},
-		function() {
-			throw new Errors.Database();
+		function(err) {
+			if(!(err instanceof Errors.Generic)) {
+			    throw new Errors.Database();
+		    } else {
+                throw err;
+            }
 		}
 	);
 }
