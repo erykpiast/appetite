@@ -78,7 +78,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
         console.log('Database initialization...');
         console.log('===========================================================');
-        sequelize.sync({ force: false }) // try create models in db
+        sequelize.sync({ force: !!config.recreate }) // try create models in db
             .success(function(err) {
                 console.log('===========================================================');
                 console.log('All models created in database!');

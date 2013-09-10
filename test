@@ -1,0 +1,6 @@
+#!/bin/sh
+
+./stop
+service mysql start
+export NODE_ENV=test
+grunt test &

@@ -1,5 +1,6 @@
 #!/bin/sh
 
 ./stop
+export NODE_ENV=devel
 node --debug-brk app.js &
 node-inspector & 

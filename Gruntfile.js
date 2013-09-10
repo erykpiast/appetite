@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 					'app.js',
 					'routes/*.js'
 				],
-				tasks: ['develop', 'delayed-livereload']
+				tasks: ['develop', 'delayed-livereload', 'karma:integration:run' ]
 			},
 			js: {
 				files: ['public/app/scripts/{,*/}*.js'],
@@ -48,6 +48,11 @@ module.exports = function (grunt) {
 				files: ['public/app/index.html'],
 				options: { livereload: LIVEREOAD_PORT },
 			}
+		},
+		karma: {
+		    integration: {
+		        configFile: 'karma.conf.js'
+		    }
 		}
 	});
 
@@ -71,9 +76,16 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-develop');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', [
 		'develop',
 		'watch'
+	]);
+	
+	grunt.registerTask('test', [
+	   'develop',
+	   'watch',
+	   'karma:integration:run'
 	]);
 };
