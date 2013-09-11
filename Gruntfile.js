@@ -53,6 +53,12 @@ module.exports = function (grunt) {
 		    integration: {
 		        configFile: 'karma.conf.js'
 		    }
+		},
+		jasmine_node: {
+			specNameMatcher: "**/*.server.spec.js",
+		    projectRoot: ".",
+		    requirejs: false,
+		    forceExit: true
 		}
 	});
 
@@ -76,6 +82,7 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-develop');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-jasmine-node');
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', [
@@ -86,6 +93,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 	   'develop',
 	   'watch',
+	   'jasmine_node',
 	   'karma:integration:run'
 	]);
 };

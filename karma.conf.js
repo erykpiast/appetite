@@ -1,21 +1,15 @@
-basePath = '';
+module.exports = function(config) {
+	config.set({
+		files: [
+		    'public/app/bower_components/jquery/jquery.min.js',
+		    { pattern: '**/*.browser.spec.js' }
+		],
+		frameworks: [ 'jasmine' ],
+		browsers: [ 'PhantomJS' ],
+		singleRun: true,
+		reporters: [ 'progress' ],
+		colors: true,
+		background: true
+	});
+}
 
-files = [
-    JASMINE,
-    JASMINE_ADAPTER,
-    'public/app/bower_components/jquery/jquery.min.js',
-    { pattern: '**/*.spec.js' }
-];
-
-browsers = [ 'PhantomJS' ];
-singleRun = true;
-
-reporters = ['progress'];
-
-port = 9876;
-runnerPort = 9100;
-
-colors = true;
-logLevel = LOG_INFO;
-
-background = true;
