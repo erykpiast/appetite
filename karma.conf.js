@@ -8,8 +8,7 @@ module.exports = function(config) {
 		browsers: [ 'PhantomJS' ],
 		singleRun: true,
 		reporters: [ 'progress' ],
-		colors: true,
-		background: true
+		colors: true
 	});
 }
 

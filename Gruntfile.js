@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 					'app.js',
 					'routes/*.js'
 				],
-				tasks: ['develop', 'delayed-livereload', 'karma:integration:run' ]
+				tasks: [ 'develop'/*, 'karma:integration:run'*/ ]
 			},
 			js: {
 				files: ['public/app/scripts/{,*/}*.js'],
@@ -55,30 +55,30 @@ module.exports = function (grunt) {
 		    }
 		},
 		jasmine_node: {
-			specNameMatcher: "**/*.server.spec.js",
+			specNameMatcher: "server.spec.js",
 		    projectRoot: ".",
 		    requirejs: false,
 		    forceExit: true
 		}
 	});
 
-	grunt.config.requires('watch.server.files');
-	files = grunt.file.expand(grunt.config('watch.server.files'));
+// 	grunt.config.requires('watch.server.files');
+// 	files = grunt.file.expand(grunt.config('watch.server.files'));
 
-	grunt.registerTask('delayed-livereload', 'Live reload after the node server has restarted.', function () {
-		var done = this.async();
-		setTimeout(function () {
-			request.get('http://localhost:' + LIVEREOAD_PORT + '/changed?files=' + files.join(','),  function(err, res) {
-					var reloaded = !err && res.statusCode === 200;
-					if (reloaded) {
-						grunt.log.ok('Delayed live reload successful.');
-					} else {
-						grunt.log.error('Unable to make delayed live reload.');
-					}
-					done(reloaded);
-				});
-		}, 500);
-	});
+// 	grunt.registerTask('delayed-livereload', 'Live reload after the node server has restarted', function () {
+// 		var done = this.async();
+// 		setTimeout(function () {
+// 			request.get('http://localhost:' + LIVEREOAD_PORT + '/changed?files=' + files.join(','),  function(err, res) {
+// 					var reloaded = !err && res.statusCode === 200;
+// 					if (reloaded) {
+// 						grunt.log.ok('Delayed live reload successful.');
+// 					} else {
+// 						grunt.log.error('Unable to make delayed live reload.');
+// 					}
+// 					done(reloaded);
+// 				});
+// 		}, 500);
+// 	});
 
 	grunt.loadNpmTasks('grunt-develop');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -92,8 +92,8 @@ module.exports = function (grunt) {
 	
 	grunt.registerTask('test', [
 	   'develop',
-	   'watch',
 	   'jasmine_node',
-	   'karma:integration:run'
+	   'karma:integration:run',
+	   'watch'
 	]);
 };
