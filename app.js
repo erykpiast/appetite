@@ -26,6 +26,13 @@ app
 		.use(express.methodOverride())
 		.use(app.router)
 		.use(express.static(__dirname + '/public/app'))
+		.use(function(req, res, next) {
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+            res.header('Access-Control-Allow-Headers', 'Content-Type');
+        
+            next();
+        })
 	// configure route parameters
         .param(function(name, handler){
             if (handler instanceof RegExp) {

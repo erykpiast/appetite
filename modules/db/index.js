@@ -8,6 +8,7 @@ var sequelize = new Sequelize(
     config.password,
     {
         pool: { maxConnections: 5, maxIdleTime: 30 },
+        logging: config.logging,
         define: {
             charset: 'utf8',
             collate: 'utf8_general_ci'

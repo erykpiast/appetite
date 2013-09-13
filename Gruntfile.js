@@ -17,12 +17,26 @@ module.exports = function (grunt) {
 				nospawn: true,
 				livereload: LIVEREOAD_PORT
 			},
-			server: {
+			develop: {
 				files: [
 					'app.js',
-					'routes/*.js'
+					'modules/*.js',
+					'routes/*.js',
+					'public/app/*'
 				],
-				tasks: [ 'develop'/*, 'karma:integration:run'*/ ]
+				tasks: [ 'develop' ]
+			},
+			karma: {
+			    files: [
+					'app.js',
+					'modules/*.js',
+					'routes/*.js',
+					'spec/*.js',
+					'public/app/index.html',
+					'public/app/scripts/{,*/}*.js',
+					'public/app/{,*/}*.tpl'
+				],
+				tasks: [ 'develop', 'karma:integration:run' ]
 			},
 			js: {
 				files: ['public/app/scripts/{,*/}*.js'],
@@ -55,8 +69,8 @@ module.exports = function (grunt) {
 		    }
 		},
 		jasmine_node: {
-			specNameMatcher: "server.spec.js",
-		    projectRoot: ".",
+			matchall: true,
+		    projectRoot: "./spec/server",
 		    requirejs: false,
 		    forceExit: true
 		}
@@ -87,13 +101,13 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', [
 		'develop',
-		'watch'
+		'watch:develop'
 	]);
 	
 	grunt.registerTask('test', [
 	   'develop',
 	   'jasmine_node',
 	   'karma:integration:run',
-	   'watch'
+	   'watch:karma'
 	]);
 };
