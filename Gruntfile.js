@@ -107,7 +107,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 	   'develop',
 	   'jasmine_node',
-	   'karma:integration:run',
+	   'karma:integration',
 	   'watch:karma'
 	]);
 };

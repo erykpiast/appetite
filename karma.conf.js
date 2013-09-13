@@ -7,8 +7,6 @@ module.exports = function(config) {
 		frameworks: [ 'jasmine' ],
 		browsers: [ 'PhantomJS' ],
 		singleRun: true,
-		port: 9876,
-		runnerPort: 3000,
 		background: true,
 		reporters: [ 'progress' ],
 		colors: true
