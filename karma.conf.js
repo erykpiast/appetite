@@ -7,7 +7,7 @@ module.exports = function(config) {
 		frameworks: [ 'jasmine' ],
 		browsers: [ 'PhantomJS' ],
 		singleRun: true,
-		background: true,
+// 		background: true,
 		reporters: [ 'progress' ],
 		colors: true
 	});
