@@ -39,7 +39,7 @@ function create(proto) {
         }
     ).then(
         function(user) {
-            if(user.values) {
+            if(user) {
                 return { resource: restrict.public(user.values) };
             } else {
                 return user;
