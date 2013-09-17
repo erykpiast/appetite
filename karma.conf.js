@@ -17,7 +17,7 @@ module.exports = function(config) {
 		],
 		frameworks: [ 'jasmine' ],
 		browsers: [ 'PhantomJS_Unsecure' ],
-		singleRun: true,
+		// singleRun: true,
 		background: true,
 		reporters: [ 'progress' ],
 		colors: true

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+./stop
+export NODE_ENV=devel
+node --debug-brk $(which grunt) "$1" &
+node-inspector & 

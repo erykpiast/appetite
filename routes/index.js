@@ -5,7 +5,7 @@ module.exports = function(app) {
 
 	$require('fs').readdir(__dirname + '/', function(err, files) {
 		files.filter(function(filename){
-			return (/.js$/).test(filename) && (filename !== 'index.js');
+			return (/.js$/).test(filename) && ([ 'index.js', 'get-auth-data.js' ].indexOf(filename) === -1);
 		})
 		.forEach(function(filename) {
 			var routename = _.capitalize(_.camelize(filename)).slice(0, -3); // actual-request.js -> ActualRequest

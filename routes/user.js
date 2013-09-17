@@ -1,5 +1,5 @@
 var extend = $require('extend'),
-    getAuthData = $require('/modules/rest/get-auth-data'),
+    getAuthData = $require('./get-auth-data'),
 	restUrl = $require('config').restUrl;
 
 module.exports = function(app) {
@@ -7,7 +7,7 @@ module.exports = function(app) {
 
 	app
 		.post(restUrl + '/user', function(req, res) {
-			rest.create(req.body, getAuthData(req)).then(
+			rest.create(getAuthData(req), req.body).then(
 				function(user) {
 					if(!user.existed) {
 						res.status(201);
@@ -37,10 +37,7 @@ module.exports = function(app) {
 				});
 		})
 		.put(restUrl + '/user/:id', function(req, res) {
-			var proto = extend({ id: req.params.id }, req.body),
-			    authData = getAuthData(req);
-
-			rest.update(proto, authData).then(
+			rest.update({ id: req.params.id }, getAuthData(req), req.body).then(
 				function(user) {
 					res.json(user.resource);
 				},

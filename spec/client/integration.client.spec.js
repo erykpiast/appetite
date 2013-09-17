@@ -1,4 +1,5 @@
 var serviceDomain = window.location.hostname + ':' + 3000;
+console.log(serviceDomain);
 
 var rest = (function(pathPrefix) {
         
@@ -98,7 +99,7 @@ var rest = (function(pathPrefix) {
        });
        
        return exports;
-    })('//' + serviceUrl + '/rest');
+    })('//' + serviceDomain + '/rest');
 
 var proto = {
         'authService' : 'facebook',
@@ -108,7 +109,7 @@ var proto = {
     token = 'a1';
 
 $.cookie.json = true;
-$.cookie('auth', { service: proto.authService, accessToken: token }, { path: '/', domain: serviceDomain });
+$.cookie('auth', { service: proto.authService, accessToken: token }, { path: '/' });
 
 describe('REST integration test', function() {
     

@@ -10,7 +10,7 @@ var auth = $require('/modules/auth'),
 
 var User;
 
-function create(proto, auth) {
+function create(auth, proto) {
     return auth(auth.service, auth.accessToken).then(
         function(serviceId) {
             proto.serviceId = serviceId;
@@ -72,7 +72,7 @@ function retrieve(params, auth) {
 }
 
 
-function update(proto, auth) {
+function update(params, auth, proto) {
     var serviceId;
     
     return auth(auth.service, auth.accessToken).then(
@@ -80,7 +80,7 @@ function update(proto, auth) {
             serviceId = _serviceId;
             
             if(!!serviceId) {
-                return User.find({ where: restrict.search(proto) });
+                return User.find({ where: restrict.search(params) });
             } else {
                 throw new Errors.Authentication();
             }
