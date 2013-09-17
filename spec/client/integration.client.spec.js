@@ -1,6 +1,6 @@
-describe('REST integration test', function() {
- 
-    var rest = (function(pathPrefix) {
+var serviceDomain = window.location.hostname + ':' + 3000;
+
+var rest = (function(pathPrefix) {
         
         function _prefix(path) {
            return (pathPrefix + path);
@@ -79,7 +79,7 @@ describe('REST integration test', function() {
            
             waitsFor(function() {
                 return (successCallback.callCount > 0) || (errorCallback.callCount > 0);
-            }, 'The Ajax call timed out', 2000);
+            }, 'The Ajax call timed out', 10000);
            
             runs(function() {
                 tests.call(null, successCallback, errorCallback);
@@ -98,8 +98,20 @@ describe('REST integration test', function() {
        });
        
        return exports;
-    })('//localhost:3000/rest');
-   
+    })('//' + serviceUrl + '/rest');
+
+var proto = {
+        'authService' : 'facebook',
+        'firstName' : 'a',
+        'lastName' : '1'
+    },
+    token = 'a1';
+
+$.cookie.json = true;
+$.cookie('auth', { service: proto.authService, accessToken: token }, { path: '/', domain: serviceDomain });
+
+describe('REST integration test', function() {
+    
     it('should be user GET rest with no first user', function() { 
         rest.retrieve('/user/1',
            function(successCallback, errorCallback) {
@@ -112,27 +124,19 @@ describe('REST integration test', function() {
            });
     });
    
-    it('should be user POST rest which creates user entry', function() {
-        rest.create('/user', {
-                'authService' : 'facebook',
-                'accessToken' : 'a1',
-                'firstName' : 'a',
-                'lastName' : '1'
-            },
+    it('should be user POST rest which creates first user entry', function() {
+        rest.create('/user', proto,
            function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
               
+                proto.id = 1;
+                proto.gender = 'unknown';
+                proto.site = '';
+              
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
-                expect(response).toEqual({
-                    'id' : 1,
-                    'authService' : 'facebook',
-                    'firstName' : 'a',
-                    'lastName' : '1',
-                    'gender' : 'unknown',
-                    'site' : ''
-                });
+                expect(response).toEqual(proto);
            });
     });
     
@@ -144,14 +148,46 @@ describe('REST integration test', function() {
               
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
-                expect(response).toEqual({
-                    'id' : 1,
-                    'authService' : 'facebook',
-                    'firstName' : 'a',
-                    'lastName' : '1',
-                    'gender' : 'unknown',
-                    'site' : ''
-                });
+                expect(response).toEqual(proto);
+           });
+    });
+    
+    it('should be user UPDATE rest allows change entry properties', function() {
+        proto.gender = 'male';
+        proto.site = 'http://example.com/';
+        
+        rest.update('/user/1', proto,
+            function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+           });
+    });
+   
+    it('should be user DELETE rest which deletes first user entry', function() {
+        rest.destroy('/user/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+           });
+    });
+    
+    it('should be user GET rest with no first user', function() { 
+        rest.retrieve('/user/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
            });
     });
     

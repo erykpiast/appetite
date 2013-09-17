@@ -66,7 +66,7 @@ function create(proto) {
 		},
 		function(err) {
 			if(!(err instanceof Errors.Generic)) {
-                return new Errors.Authentication();
+                throw new Errors.Authentication();
             } else {
                 throw err;
             }
@@ -83,7 +83,7 @@ function create(proto) {
 		},
 		function(err) {
 			if(!(err instanceof Errors.Generic)) {
-                return new Errors.Authentication();
+                throw new Errors.Authentication();
             } else {
                 throw err;
             }

@@ -12,6 +12,7 @@ module.exports = function(config) {
         },
 		files: [
 		    'public/app/bower_components/jquery/jquery.min.js',
+		    'public/app/bower_components/jquery.cookie/jquery.cookie.js',
 		    { pattern: '**/*.client.spec.js' }
 		],
 		frameworks: [ 'jasmine' ],

@@ -78,11 +78,11 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
         m.Avatar.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
 
         console.log('Database initialization...');
-        sequelize.sync({ force: !!config.recreate }) // try create models in db
-            .success(function(err) {
+        sequelize.sync({ force: !!config.recreate }).then( // try create models in db
+            function() {
                 console.log('All models created in database!');
-            })
-            .error(function(err) {
+            },
+            function(err) {
                 throw new Error('Database initialization failed! ' + err);
             });
 

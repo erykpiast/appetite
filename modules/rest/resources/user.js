@@ -10,8 +10,8 @@ var auth = $require('/modules/auth'),
 
 var User;
 
-function create(proto) {
-    return auth(proto.authService, proto.accessToken).then(
+function create(proto, auth) {
+    return auth(auth.service, auth.accessToken).then(
         function(serviceId) {
             proto.serviceId = serviceId;
             
@@ -47,7 +47,7 @@ function create(proto) {
         },
         function(err) {
             if(!(err instanceof Errors.Generic)) {
-                return new Errors.Database();
+                throw new Errors.Database();
             } else {
                 throw err;
             }
@@ -56,10 +56,8 @@ function create(proto) {
 }
 
 
-function retrieve(proto) {
-    var search = restrict.search(proto);
-
-    return User.find({ where: search }).then(
+function retrieve(params, auth) {
+    return User.find({ where: restrict.search(params) }).then(
         function(user) {
             if(!user) {
                 throw new Errors.NotFound();
@@ -74,10 +72,10 @@ function retrieve(proto) {
 }
 
 
-function update(proto) {
+function update(proto, auth) {
     var serviceId;
     
-    return auth(proto.authService, proto.accessToken).then(
+    return auth(auth.service, auth.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             
@@ -89,7 +87,7 @@ function update(proto) {
         },
         function(err) {
             if(!(err instanceof Errors.Generic)) {
-                return new Errors.Authentication();
+                throw new Errors.Authentication();
             } else {
                 throw err;
             }
@@ -105,12 +103,12 @@ function update(proto) {
                 
                 return user.save(Object.keys(newAttrs));
             } else {
-                return new Errors.Authentication();
+                throw new Errors.Authentication();
             }
         },
         function(err) {
             if(!(err instanceof Errors.Generic)) {
-                return new Errors.Database();
+                throw new Errors.Database();
             } else {
                 throw err;
             }
@@ -130,22 +128,22 @@ function update(proto) {
 }
 
 
-function destroy(proto) {
+function destroy(params, auth) {
     var user, serviceId;
     
-    return auth(proto.authService, proto.accessToken).then(
+    return auth(auth.service, auth.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             
-            if(!!serviceId) {
-                return User.find({ where: restrict.search(proto) });
+            if(serviceId) {
+                return User.find({ where: restrict.search(params) });
             } else {
                 throw new Errors.Authentication();
             }
         },
         function(err) {
             if(!(err instanceof Errors.Generic)) {
-                return new Errors.Authentication();
+                throw new Errors.Authentication();
             } else {
                 throw err;
             }
@@ -156,21 +154,21 @@ function destroy(proto) {
             
             if(!user) {
                 throw new Errors.NotFound();
-            } else if(serviceId === user.serviceId) {
+            } else if(serviceId === user.values.serviceId) {
                 return user.destroy();
             } else {
-                return new Errors.Authentication();
+                throw new Errors.Authentication();
             }
         },
         function(err) {
             if(!(err instanceof Errors.Generic)) {
-                return new Errors.Database();
+                throw new Errors.Database();
             } else {
                 throw err;
             }
         }
     ).then(
-        function(user) {
+        function(_user) {
             return { resource: restrict.public(user.values) };
         },
         function(err) {

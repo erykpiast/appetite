@@ -23,6 +23,7 @@ app
 		.set('rest', $require('/modules/rest')(app))
 		.set('routes', $require('/routes')(app))
 		.use(express.bodyParser())
+		.use(express.cookieParser())
 		.use(express.methodOverride())
 		.use(app.router)
 		.use(express.static(__dirname + '/public/app'))

@@ -39,7 +39,7 @@ function create(proto) {
 		},
 		function() {
 			if(!(err instanceof Errors.Generic)) {
-                return new Errors.Authentication();
+                throw new Errors.Authentication();
             } else {
                 throw err;
             }
