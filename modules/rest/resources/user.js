@@ -10,15 +10,16 @@ var auth = $require('/modules/auth'),
 
 var User;
 
-function create(auth, proto) {
-    return auth(auth.service, auth.accessToken).then(
+function create(authData, proto) {
+    return auth(authData.service, authData.accessToken).then(
         function(serviceId) {
+            proto.authService = authData.service;
             proto.serviceId = serviceId;
-            
+
             return User.find({ where: restrict.createSearch(proto) });
         },
         function(err) {
-            throw new Errors.Authentication();
+            throw new Errors.authDataentication();
         }
     ).then(
         function(user) {
@@ -56,7 +57,7 @@ function create(auth, proto) {
 }
 
 
-function retrieve(params, auth) {
+function retrieve(params, authData) {
     return User.find({ where: restrict.search(params) }).then(
         function(user) {
             if(!user) {
@@ -72,22 +73,22 @@ function retrieve(params, auth) {
 }
 
 
-function update(params, auth, proto) {
+function update(params, authData, proto) {
     var serviceId;
     
-    return auth(auth.service, auth.accessToken).then(
+    return auth(authData.service, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             
             if(!!serviceId) {
                 return User.find({ where: restrict.search(params) });
             } else {
-                throw new Errors.Authentication();
+                throw new Errors.authDataentication();
             }
         },
         function(err) {
             if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Authentication();
+                throw new Errors.authDataentication();
             } else {
                 throw err;
             }
@@ -103,7 +104,7 @@ function update(params, auth, proto) {
                 
                 return user.save(Object.keys(newAttrs));
             } else {
-                throw new Errors.Authentication();
+                throw new Errors.authDataentication();
             }
         },
         function(err) {
@@ -128,22 +129,22 @@ function update(params, auth, proto) {
 }
 
 
-function destroy(params, auth) {
+function destroy(params, authData) {
     var user, serviceId;
     
-    return auth(auth.service, auth.accessToken).then(
+    return auth(authData.service, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             
             if(serviceId) {
                 return User.find({ where: restrict.search(params) });
             } else {
-                throw new Errors.Authentication();
+                throw new Errors.authDataentication();
             }
         },
         function(err) {
             if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Authentication();
+                throw new Errors.authDataentication();
             } else {
                 throw err;
             }
@@ -157,7 +158,7 @@ function destroy(params, auth) {
             } else if(serviceId === user.values.serviceId) {
                 return user.destroy();
             } else {
-                throw new Errors.Authentication();
+                throw new Errors.authDataentication();
             }
         },
         function(err) {

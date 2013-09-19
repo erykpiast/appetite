@@ -1,5 +1,4 @@
 var serviceDomain = window.location.hostname + ':' + 3000;
-console.log(serviceDomain);
 
 var rest = (function(pathPrefix) {
         
@@ -69,22 +68,22 @@ var rest = (function(pathPrefix) {
        }
        
         function _request(url, conf, tests) {
-            var successCallback = jasmine.createSpy(),
-                errorCallback = jasmine.createSpy();
-           
             conf = (conf || {});
-            conf.success = successCallback;
-            conf.error = errorCallback;
            
+            if(tests) {
+                var successCallback = conf.success = jasmine.createSpy();
+                var errorCallback = conf.error = jasmine.createSpy();
+                
+                waitsFor(function() {
+                    return (successCallback.callCount > 0) || (errorCallback.callCount > 0);
+                }, 'The Ajax call timed out', 10000);
+               
+                runs(function() {
+                    tests.call(null, successCallback, errorCallback);
+                });
+            }
+            
             _ajax(url, $.extend({ dataType: 'json', contentType: 'application/json; charset=UTF-8' }, conf));
-           
-            waitsFor(function() {
-                return (successCallback.callCount > 0) || (errorCallback.callCount > 0);
-            }, 'The Ajax call timed out', 10000);
-           
-            runs(function() {
-                tests.call(null, successCallback, errorCallback);
-            });
        }
        
         var exports = { };
@@ -101,20 +100,24 @@ var rest = (function(pathPrefix) {
        return exports;
     })('//' + serviceDomain + '/rest');
 
-var proto = {
-        'authService' : 'facebook',
-        'firstName' : 'a',
-        'lastName' : '1'
-    },
-    token = 'a1';
-
+var authData = {
+        'service' : 'facebook',
+        'accessToken' : 'a1'
+    };
 $.cookie.json = true;
-$.cookie('auth', { service: proto.authService, accessToken: token }, { path: '/' });
+$.cookie('auth', { service: authData.service, token: authData.accessToken }, { path: '/' });
 
-describe('REST integration test', function() {
+describe('user REST integration test', function() {
     
-    it('should be user GET rest with no first user', function() { 
-        rest.retrieve('/user/1',
+    var proto = {
+            'authService' : authData.service,
+            'firstName' : 'a',
+            'lastName' : '1'
+        },
+        currentRest = '/user';
+    
+    it('should be GET rest with does not return any user entry', function() { 
+        rest.retrieve(currentRest + '/1',
            function(successCallback, errorCallback) {
                 expect(successCallback).not.toHaveBeenCalled();
                 expect(errorCallback).toHaveBeenCalled();
@@ -125,8 +128,8 @@ describe('REST integration test', function() {
            });
     });
    
-    it('should be user POST rest which creates first user entry', function() {
-        rest.create('/user', proto,
+    it('should be POST rest which creates first user entry', function() {
+        rest.create(currentRest, proto,
            function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
@@ -141,8 +144,8 @@ describe('REST integration test', function() {
            });
     });
     
-    it('should be user GET rest with first user', function() { 
-        rest.retrieve('/user/1',
+    it('should be GET rest with returns first user entry', function() { 
+        rest.retrieve(currentRest + '/1',
            function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
@@ -153,11 +156,11 @@ describe('REST integration test', function() {
            });
     });
     
-    it('should be user UPDATE rest allows change entry properties', function() {
+    it('should be UPDATE rest allows change user entry properties', function() {
         proto.gender = 'male';
         proto.site = 'http://example.com/';
         
-        rest.update('/user/1', proto,
+        rest.update(currentRest + '/1', proto,
             function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
@@ -168,8 +171,8 @@ describe('REST integration test', function() {
            });
     });
    
-    it('should be user DELETE rest which deletes first user entry', function() {
-        rest.destroy('/user/1',
+    it('should be DELETE rest deletes user entry', function() {
+        rest.destroy(currentRest + '/1',
            function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
@@ -180,8 +183,101 @@ describe('REST integration test', function() {
            });
     });
     
-    it('should be user GET rest with no first user', function() { 
-        rest.retrieve('/user/1',
+    it('should be GET rest with does not return any user entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+           });
+    });
+    
+});
+
+describe('offer template REST integration test', function() {
+
+    var proto = {
+            'title' : 'test title',
+            'description' : 'lorem ipsum dolor sit amet',
+            'recipe' : 'http://xxx.aaa.com/test-title'
+        },
+        currentRest = '/offer-template';
+        
+    rest.create(currentRest + '', {
+        'firstName' : 'a',
+        'lastName' : 'b'
+    });
+    
+    it('should be GET rest with does not return any template entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+           });
+    });
+   
+    it('should be POST rest which creates first template entry', function() {
+        rest.create(currentRest, proto,
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                proto.id = 1;
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+           });
+    });
+    
+    it('should be GET rest with returns first template entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+           });
+    });
+    
+    it('should be UPDATE rest allows change template entry properties', function() {
+        proto.gender = 'male';
+        proto.site = 'http://example.com/';
+        
+        rest.update(currentRest + '/1', proto,
+            function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+           });
+    });
+   
+    it('should be DELETE rest deletes template entry', function() {
+        rest.destroy(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+           });
+    });
+    
+    it('should be GET rest with does not return any template entry', function() { 
+        rest.retrieve(currentRest + '/1',
            function(successCallback, errorCallback) {
                 expect(successCallback).not.toHaveBeenCalled();
                 expect(errorCallback).toHaveBeenCalled();
