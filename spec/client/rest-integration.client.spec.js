@@ -238,6 +238,11 @@ describe('user REST integration test', function() {
     
 });
 
+rest.create('/user', {
+        'firstName' : 'a',
+        'lastName' : 'b'
+    });
+
 describe('offer template REST integration test', function() {
 
     it('should be POST rest which prepares user entry', function() {
