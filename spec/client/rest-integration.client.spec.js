@@ -197,6 +197,11 @@ describe('user REST integration test', function() {
     
 });
 
+rest.create('/user', {
+        'firstName' : 'a',
+        'lastName' : 'b'
+    });
+
 describe('offer template REST integration test', function() {
 
     var proto = {
@@ -205,11 +210,6 @@ describe('offer template REST integration test', function() {
             'recipe' : 'http://xxx.aaa.com/test-title'
         },
         currentRest = '/offer-template';
-        
-    rest.create(currentRest + '', {
-        'firstName' : 'a',
-        'lastName' : 'b'
-    });
     
     it('should be GET rest with does not return any template entry', function() { 
         rest.retrieve(currentRest + '/1',
