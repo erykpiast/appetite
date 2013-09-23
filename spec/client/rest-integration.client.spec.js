@@ -1,6 +1,15 @@
 var serviceDomain = window.location.hostname + ':' + 3000;
 
-var rest = (function(pathPrefix) {
+var rest = (function(_pathPrefix, _httpCodes, _waitingTime, _log) {
+
+        var pathPrefix = _pathPrefix || '/rest',
+            httpCodes = _httpCodes || {
+                notFound: 404,
+                ok: 200,
+                created: 201
+            },
+            waitingTime = _waitingTime || 20 * 1000,
+            log = _log || false;
         
         function _prefix(path) {
            return (pathPrefix + path);
@@ -23,10 +32,18 @@ var rest = (function(pathPrefix) {
                     }
                     
                     if((req.status >= 200) && (req.status < 400)) {
+                        if(log) {
+                            console.log(url, req.status, req.responseText);
+                        }
+
                         if(options.success) {
                             options.success(res, req.status, req);
                         }
                     } else if(req.status >= 400) {
+                        if(log) {
+                            console.error(url, req.status, req.responseText);
+                        }
+
                         if(options.error) {
                             options.error(res, req.status, req);
                         }
@@ -65,28 +82,28 @@ var rest = (function(pathPrefix) {
             }
             
             req.send(options.data);
-       }
+        }
        
         function _request(url, conf, tests) {
             conf = (conf || {});
            
-            if(tests) {
-                var successCallback = conf.success = jasmine.createSpy();
-                var errorCallback = conf.error = jasmine.createSpy();
-                
-                waitsFor(function() {
-                    return (successCallback.callCount > 0) || (errorCallback.callCount > 0);
-                }, 'The Ajax call timed out', 10000);
-               
-                runs(function() {
+            var successCallback = conf.success = jasmine.createSpy();
+            var errorCallback = conf.error = jasmine.createSpy();
+            
+            waitsFor(function() {
+                return (successCallback.callCount > 0) || (errorCallback.callCount > 0);
+            }, 'The Ajax call timed out', waitingTime);
+           
+            runs(function() {
+                if(tests) {
                     tests.call(null, successCallback, errorCallback);
-                });
-            }
+                }
+            });
             
             _ajax(url, $.extend({ dataType: 'json', contentType: 'application/json; charset=UTF-8' }, conf));
        }
        
-        var exports = { };
+        var exports = { codes: httpCodes };
         [ [ 'create', 'POST' ], [ 'retrieve', 'GET' ], [ 'update', 'PUT' ], [ 'destroy', 'DELETE' ] ].forEach(function(proto) {
            exports[proto[0]] = function(/* path, [data], tests */) {
                var path = arguments[0],
@@ -98,21 +115,26 @@ var rest = (function(pathPrefix) {
        });
        
        return exports;
-    })('//' + serviceDomain + '/rest');
+    })('//' + serviceDomain + '/rest', {
+        notFound: 404,
+        ok: 200,
+        created: 201
+    }, 20 * 1000);
+
 
 var authData = {
         'service' : 'facebook',
         'accessToken' : 'a1'
     };
+
 $.cookie.json = true;
-$.cookie('auth', { service: authData.service, token: authData.accessToken }, { path: '/' });
+$.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
 
 describe('user REST integration test', function() {
     
     var proto = {
-            'authService' : authData.service,
             'firstName' : 'a',
-            'lastName' : '1'
+            'lastName' : 'b'
         },
         currentRest = '/user';
     
@@ -125,6 +147,9 @@ describe('user REST integration test', function() {
                 var response = errorCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
            });
     });
    
@@ -137,10 +162,14 @@ describe('user REST integration test', function() {
                 proto.id = 1;
                 proto.gender = 'unknown';
                 proto.site = '';
+                proto.authService = authData.service;
               
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.created);
            });
     });
     
@@ -153,6 +182,9 @@ describe('user REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
            });
     });
     
@@ -168,6 +200,9 @@ describe('user REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
            });
     });
    
@@ -180,6 +215,9 @@ describe('user REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
            });
     });
     
@@ -192,6 +230,9 @@ describe('user REST integration test', function() {
                 var response = errorCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
            });
     });
     
@@ -199,17 +240,19 @@ describe('user REST integration test', function() {
 
 describe('offer template REST integration test', function() {
 
+    it('should be POST rest which prepares user entry', function() {
+        rest.create('/user', {
+            'firstName' : 'c',
+            'lastName' : 'd'
+        });
+    });
+
     var proto = {
             'title' : 'test title',
             'description' : 'lorem ipsum dolor sit amet',
             'recipe' : 'http://xxx.aaa.com/test-title'
         },
         currentRest = '/offer-template';
-        
-    rest.create(currentRest + '', {
-        'firstName' : 'a',
-        'lastName' : 'b'
-    });
     
     it('should be GET rest with does not return any template entry', function() { 
         rest.retrieve(currentRest + '/1',
@@ -220,6 +263,9 @@ describe('offer template REST integration test', function() {
                 var response = errorCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
            });
     });
    
@@ -234,6 +280,9 @@ describe('offer template REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
            });
     });
     
@@ -246,6 +295,9 @@ describe('offer template REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
            });
     });
     
@@ -261,6 +313,9 @@ describe('offer template REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
            });
     });
    
@@ -273,6 +328,9 @@ describe('offer template REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
            });
     });
     
@@ -285,6 +343,9 @@ describe('offer template REST integration test', function() {
                 var response = errorCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
            });
     });
     

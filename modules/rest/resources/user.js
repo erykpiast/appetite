@@ -97,7 +97,7 @@ function update(params, authData, proto) {
         function(user) {
             if(!user) {
                 throw new Errors.NotFound();
-            } else if(serviceId === user.serviceId) {
+            } else if(serviceId === user.values.serviceId) {
                 var newAttrs = restrict.update(proto);
                 
                 extend(user, newAttrs);
