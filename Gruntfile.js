@@ -40,27 +40,27 @@ module.exports = function (grunt) {
 			},
 			js: {
 				files: ['public/app/scripts/{,*/}*.js'],
-				options: { livereload: LIVEREOAD_PORT },
+				options: { livereload: true },
 			},
 			css: {
 				files: ['public/app/styles/{,*/}*.css'],
-				options: { livereload: LIVEREOAD_PORT },
+				options: { livereload: true },
 			},
 			fonts: {
 				files: ['public/app/fonts/{,*/}*.{woff,ttf,svg}'],
-				options: { livereload: LIVEREOAD_PORT },
+				options: { livereload: true },
 			},
 			images: {
 				files: ['public/app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'],
-				options: { livereload: LIVEREOAD_PORT },
+				options: { livereload: true },
 			},
 			templates: {
 				files: ['public/app/{,*/}*.tpl'],
-				options: { livereload: LIVEREOAD_PORT },
+				options: { livereload: true },
 			},
 			html: {
 				files: ['public/app/index.html'],
-				options: { livereload: LIVEREOAD_PORT },
+				options: { livereload: true },
 			}
 		},
 		karma: {
@@ -75,24 +75,6 @@ module.exports = function (grunt) {
 		    forceExit: true
 		}
 	});
-
-// 	grunt.config.requires('watch.server.files');
-// 	files = grunt.file.expand(grunt.config('watch.server.files'));
-
-// 	grunt.registerTask('delayed-livereload', 'Live reload after the node server has restarted', function () {
-// 		var done = this.async();
-// 		setTimeout(function () {
-// 			request.get('http://localhost:' + LIVEREOAD_PORT + '/changed?files=' + files.join(','),  function(err, res) {
-// 					var reloaded = !err && res.statusCode === 200;
-// 					if (reloaded) {
-// 						grunt.log.ok('Delayed live reload successful.');
-// 					} else {
-// 						grunt.log.error('Unable to make delayed live reload.');
-// 					}
-// 					done(reloaded);
-// 				});
-// 		}, 500);
-// 	});
 
 	grunt.loadNpmTasks('grunt-develop');
 	grunt.loadNpmTasks('grunt-contrib-watch');
