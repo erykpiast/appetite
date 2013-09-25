@@ -31,19 +31,15 @@ var rest = (function(_pathPrefix, _httpCodes, _waitingTime, _log) {
                         res = req.responseXML;
                     }
                     
+                    if(log) {
+                        console.log(options.method + ':' + url, req.status, req.responseText);
+                    }
+                    
                     if((req.status >= 200) && (req.status < 400)) {
-                        if(log) {
-                            console.log(url, req.status, req.responseText);
-                        }
-
                         if(options.success) {
                             options.success(res, req.status, req);
                         }
                     } else if(req.status >= 400) {
-                        if(log) {
-                            console.error(url, req.status, req.responseText);
-                        }
-
                         if(options.error) {
                             options.error(res, req.status, req);
                         }
@@ -119,7 +115,7 @@ var rest = (function(_pathPrefix, _httpCodes, _waitingTime, _log) {
         notFound: 404,
         ok: 200,
         created: 201
-    }, 20 * 1000);
+    }, 20 * 1000, true);
 
 
 var authData = {
@@ -244,6 +240,25 @@ describe('offer template REST integration test', function() {
         rest.create('/user', {
             'firstName' : 'c',
             'lastName' : 'd'
+        }, function(successCallback, errorCallback) {
+            expect(errorCallback).not.toHaveBeenCalled();
+            expect(successCallback).toHaveBeenCalled();
+
+            var proto = {          
+                id : 2,
+                firstName: 'c',
+                lastName: 'd',
+                gender : 'unknown',
+                site : '',
+                authService : authData.service
+            }
+          
+            var response = successCallback.mostRecentCall.args[0];
+            expect(response).toBeDefined();
+            expect(response).toEqual(proto);
+
+            var status = successCallback.mostRecentCall.args[1];
+            expect(status).toEqual(rest.codes.created);
         });
     });
 

@@ -7,6 +7,8 @@ module.exports = function(app) {
 
 	app
 		.post(restUrl + '/offer-template', function(req, res) {
+		    console.log('------authData:', getAuthData(req));
+		    
 			rest.create(getAuthData(req), req.body).then(
 				function(template) {
 					if(!template.existed) {
@@ -37,9 +39,7 @@ module.exports = function(app) {
 				});
 		})
 		.put(restUrl + '/offer-template/:id', function(req, res) {
-			var proto = extend({ id: req.params.id }, getAuthData(req), req.body);
-
-			rest.update(proto).then(
+			rest.update({ id: req.params.id }, getAuthData(req), req.body).then(
 				function(template) {
 					res.json(template.resource);
 				},
@@ -52,9 +52,7 @@ module.exports = function(app) {
 				});
 		})
 		.delete(restUrl + '/offer-template/:id', function(req, res) {
-			var proto = extend({ id: req.params.id }, getAuthData(req));
-
-			rest.destroy(proto).then(
+			rest.destroy({ id: req.params.id }, getAuthData(req)).then(
 				function(template) {
 					res.json(template.resource);
 				},

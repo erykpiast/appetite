@@ -18,9 +18,7 @@ function create(authData, proto) {
 
             return User.find({ where: restrict.createSearch(proto) });
         },
-        function(err) {
-            throw new Errors.authDataentication();
-        }
+        Errors.report('Authentication')
     ).then(
         function(user) {
             if(!user) {
@@ -31,13 +29,7 @@ function create(authData, proto) {
                 return { resource: restrict.public(user.values), existed: true };
             }
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Database();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Database')
     ).then(
         function(user) {
             if(user) {
@@ -46,13 +38,7 @@ function create(authData, proto) {
                 return user;
             }
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Database();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Database')
     );
 }
 
@@ -66,9 +52,7 @@ function retrieve(params, authData) {
                 return { resource: restrict.public(user) };
             }
         },
-        function(err) {
-            throw new Errors.Database();
-        }
+        Errors.report('Database')
     );
 }
 
@@ -86,13 +70,7 @@ function update(params, authData, proto) {
                 throw new Errors.authDataentication();
             }
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.authDataentication();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Authentication')
     ).then(
         function(user) {
             if(!user) {
@@ -107,24 +85,12 @@ function update(params, authData, proto) {
                 throw new Errors.authDataentication();
             }
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Database();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Database')
     ).then(
         function(user) {
             return { resource: restrict.public(user.values) };
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Database();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Database')
     );
 }
 
@@ -142,13 +108,7 @@ function destroy(params, authData) {
                 throw new Errors.authDataentication();
             }
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.authDataentication();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Authentication')
     ).then(
         function(_user) {
             user = _user;
@@ -161,24 +121,12 @@ function destroy(params, authData) {
                 throw new Errors.authDataentication();
             }
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Database();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Database')
     ).then(
         function(_user) {
             return { resource: restrict.public(user.values) };
         },
-        function(err) {
-            if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Database();
-            } else {
-                throw err;
-            }
-        }
+        Errors.report('Database')
     );
 }
 

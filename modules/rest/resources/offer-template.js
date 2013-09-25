@@ -11,20 +11,20 @@ var auth = $require('/modules/auth'),
 var OfferTemplate, Recipe, User;
 
 
-function create(proto) {
+function create(authData, proto) {
     var user, recipe;
     
-	return auth(proto.authService, proto.accessToken).then(
+    console.log('------authData:', authData);
+    
+	return auth(authData.service, authData.accessToken).then(
 		function(serviceId) {
 		    return User.find({ where: {
 					serviceId: serviceId,
-					authService: proto.authService,
+					authService: authData.service,
 					deletedAt: null
 				} });
 		},
-		function(err) {
-		    throw new Errors.Authentication();
-		}
+		Errors.report('Authentication')
 	).then(
 		function(_user) {
 		    user = _user;
@@ -37,13 +37,7 @@ function create(proto) {
 				return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.values.id });
 			}
 		},
-		function() {
-			if(!(err instanceof Errors.Generic)) {
-                throw new Errors.Authentication();
-            } else {
-                throw err;
-            }
-		}
+		Errors.report('Authentication')
 	).then(
 		function(_recipe) {
 		    recipe = _recipe;
@@ -55,30 +49,18 @@ function create(proto) {
 		    
 			return OfferTemplate.create(p, Object.keys(p));
 		},
-		function(err) {
-		    if(!(err instanceof Errors.Generic)) {
-			    throw new Errors.Database();
-		    } else {
-                throw err;
-            }
-		}
+		Errors.report('Database')
 	).then(
 		function(template) {
 			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(recipe.values) }) };
 		},
-		function(err) {
-		    if(!(err instanceof Errors.Generic)) {
-			    throw new Errors.Database();
-		    } else {
-                throw err;
-            }
-		}
+		Errors.report('Database')
 	);
 }
 
 
-function retrieve(proto) {
-	return OfferTemplate.find({ where: restrict.search(proto), include: [ Recipe ] }).then(
+function retrieve(params, authData) {
+	return OfferTemplate.find({ where: restrict.search(params), include: [ Recipe ] }).then(
 		function(template) {
 			if(!!template) {
 				return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.recipe.values) }) };
@@ -86,29 +68,25 @@ function retrieve(proto) {
 				throw new Errors.NotFound();
 			}
 		},
-		function() {
-			throw new Errors.Database();
-		}
+		Errors.report('Database')
 	);
 }
 
 
-function update(proto) {
+function update(params, authData, proto) {
     var serviceId;
     
-	return auth(proto.authService, proto.accessToken).then(
+	return auth(authData.service, authData.accessToken).then(
 		function(_serviceId) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return OfferTemplate.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Recipe ] });
+				return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Recipe ] });
 			} else {
 				throw new Errors.Authentication();
 			}
 		},
-		function() {
-			throw new Errors.Authentication();
-		}
+		Errors.report('Authentication')
 	).then(
 		function(template) {
 			if(!template) {
@@ -123,36 +101,30 @@ function update(proto) {
 				throw new Errors.Authentication();
 			}
 		},
-		function(err) {
-		    throw new Errors.Database();
-		}
+		Errors.report('Database')
 	).then(
 		function(template) {
 			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
 		},
-		function() {
-			throw new Errors.Database();
-		}
+		Errors.report('Database')
 	);
 }
 
 
-function destroy(proto) {
+function destroy(params, authData) {
     var template, serviceId;
     
-	return auth(proto.authService, proto.accessToken).then(
+	return auth(authData.service, authData.accessToken).then(
 		function(_serviceId) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return OfferTemplate.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Recipe ] });
+				return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Recipe ] });
 			} else {
 				throw new Errors.Authentication();
 			}
 		},
-		function() {
-			throw new Errors.Authentication();
-		}
+		Errors.report('Authentication')
 	).then(
 		function(_template) {
 		    template = _template;
@@ -165,16 +137,12 @@ function destroy(proto) {
 				throw new Errors.Authentication();
 			}
 		},
-		function(err) {
-		    throw new Errors.Database();
-		}
+		Errors.report('Database')
 	).then(
 		function() {
 			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
 		},
-		function() {
-			throw new Errors.Database();
-		}
+		Errors.report('Database')
 	);
 }
 

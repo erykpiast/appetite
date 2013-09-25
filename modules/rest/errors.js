@@ -35,3 +35,13 @@ Object.keys(protos).forEach(function(errorName) {
 	Util.inherits(error, AbstractError);
 	error.prototype.name = errorName;
 });
+
+module.exports.report = function(errName) {
+    return function(prevErr) {
+        if(module.exports[errName] && !(prevErr instanceof module.exports.Generic)) {
+            throw new module.exports[errName]();
+        } else {
+            throw prevErr;
+        }
+    };
+};
