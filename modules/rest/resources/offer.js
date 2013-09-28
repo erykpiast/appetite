@@ -38,14 +38,14 @@ function _setTimestamps(target, src) {
 }
 
 
-function create(proto) {
+function create(authData, proto) {
     var user, template, place;
     
-	return auth(proto.authService, proto.accessToken).then(
+	return auth(authData.service, authData.accessToken).then(
 		function(serviceId) {
 		    return User.find({ where: {
 					serviceId: serviceId,
-					authService: proto.authService,
+					authService: authData.service,
 					deletedAt: null
 				} });
 		},
@@ -145,8 +145,8 @@ function create(proto) {
 }
 
 
-function retrieve(proto) {
-	return Offer.find({ where: restrict.search(proto), include: [ Place ] }).then(
+function retrieve(params, authData) {
+	return Offer.find({ where: restrict.search(params), include: [ Place ] }).then(
 		function(offer) {
 			if(!!offer) {
 				return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
@@ -161,15 +161,15 @@ function retrieve(proto) {
 }
 
 
-function update(proto) {
+function update(params, authData, proto) {
     var serviceId;
     
-	return auth(proto.authService, proto.accessToken).then(
+	return auth(authData.service, authData.accessToken).then(
 		function(_serviceId) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return Offer.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Place ] });
+				return Offer.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Place ] });
 			} else {
 				throw new Errors.Authentication();
 			}
@@ -222,15 +222,15 @@ function update(proto) {
 }
 
 
-function destroy(proto) {
+function destroy(params, authData) {
     var offer, serviceId;
     
-	return auth(proto.authService, proto.accessToken).then(
+	return auth(authData.service, authData.accessToken).then(
 		function(_serviceId) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return Offer.find({ where: restrict.search(proto), include: [ { model: User, as: 'Author' }, Place ] });
+				return Offer.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Place ] });
 			} else {
 				throw new Errors.Authentication();
 			}

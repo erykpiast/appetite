@@ -14,8 +14,6 @@ var OfferTemplate, Recipe, User;
 function create(authData, proto) {
     var user, recipe;
     
-    console.log('------authData:', authData);
-    
 	return auth(authData.service, authData.accessToken).then(
 		function(serviceId) {
 		    return User.find({ where: {

@@ -1,4 +1,5 @@
 var extend = $require('extend'),
+	getAuthData = $require(__dirname + '/get-auth-data'),
 	restUrl = $require('config').restUrl;
 
 module.exports = function(app) {
@@ -6,7 +7,7 @@ module.exports = function(app) {
 
 	app
 		.post(restUrl + '/offer', function(req, res) {
-			rest.create(req.body).then(
+			rest.create(getAuthData(req), req.body).then(
 				function(offer) {
 					if(!offer.existed) {
 						res.status(201);
@@ -23,7 +24,7 @@ module.exports = function(app) {
 				});
 		})
 		.get(restUrl + '/offer/:id', function(req, res) {
-			rest.retrieve({ id: req.params.id }).then(
+			rest.retrieve({ id: req.params.id }, getAuthData(req)).then(
 				function(offer) {
 					res.json(offer.resource);
 				},
@@ -36,9 +37,7 @@ module.exports = function(app) {
 				});
 		})
 		.put(restUrl + '/offer/:id', function(req, res) {
-			var proto = extend({ id: req.params.id }, req.body);
-
-			rest.update(proto).then(
+			rest.update({ id: req.params.id }, getAuthData(req), req.body).then(
 				function(offer) {
 					res.json(offer.resource);
 				},
@@ -51,9 +50,7 @@ module.exports = function(app) {
 				});
 		})
 		.delete(restUrl + '/offer/:id', function(req, res) {
-			var proto = extend({ id: req.params.id }, req.body);
-
-			rest.destroy(proto).then(
+			rest.destroy({ id: req.params.id }, getAuthData(req)).then(
 				function(offer) {
 					res.json(offer.resource);
 				},

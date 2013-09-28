@@ -7,8 +7,6 @@ module.exports = function(app) {
 
 	app
 		.post(restUrl + '/offer-template', function(req, res) {
-		    console.log('------authData:', getAuthData(req));
-		    
 			rest.create(getAuthData(req), req.body).then(
 				function(template) {
 					if(!template.existed) {

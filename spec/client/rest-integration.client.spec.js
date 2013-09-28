@@ -236,6 +236,7 @@ describe('user REST integration test', function() {
     
 });
 
+
 describe('offer template REST integration test', function() {
 
     var authData = {
@@ -349,6 +350,132 @@ describe('offer template REST integration test', function() {
     });
     
     it('should be GET rest with does not return any template entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
+           });
+    });
+    
+});
+
+
+describe('offer REST integration test', function() {
+
+
+    it('should be POST rest which prepares offer template entry', function() {
+        rest.create('/offer-template', {
+            'title' : 'dadadadad',
+            'description' : 'ada adada adwaha adaedsfg adfga dfa',
+            'recipe' : 'http://xxx.aaa.com/test-title'
+        });
+    });
+
+    var proto = {
+            'place' : 'p1',
+            'template' : 2
+        },
+        currentRest = '/offer';
+    
+    it('should be GET rest with does not return any offer entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
+           });
+    });
+   
+    it('should be POST rest which creates first offer entry', function() {
+        rest.create(currentRest, proto,
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                proto = $.extend(proto, {
+                    id: 1,
+                    place: {
+                        id: 1,
+                        serviceId: proto.place
+                    },
+                    startAt: 0,
+                    endAt: 0
+                });
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.created);
+           });
+    });
+    
+    it('should be GET rest with returns first offer entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+    
+    it('should be UPDATE rest allows change offer entry properties', function() {
+        
+        proto = $.extend(proto, {
+            startAt: 123,
+            endAt: 234
+        });
+        
+        rest.update(currentRest + '/1', proto,
+            function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+   
+    it('should be DELETE rest deletes offer entry', function() {
+        rest.destroy(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+    
+    it('should be GET rest with does not return any offer entry', function() { 
         rest.retrieve(currentRest + '/1',
            function(successCallback, errorCallback) {
                 expect(successCallback).not.toHaveBeenCalled();
