@@ -126,8 +126,6 @@ describe('user REST integration test', function() {
             'accessToken' : 'a1'
         };
     
-    $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
-    
     var proto = {
             'firstName' : 'a',
             'lastName' : 'b'
@@ -135,6 +133,8 @@ describe('user REST integration test', function() {
         currentRest = '/user';
     
     it('should be GET rest with does not return any user entry', function() { 
+        $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
         rest.retrieve(currentRest + '/1',
            function(successCallback, errorCallback) {
                 expect(successCallback).not.toHaveBeenCalled();
@@ -155,10 +155,12 @@ describe('user REST integration test', function() {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
               
-                proto.id = 1;
-                proto.gender = 'unknown';
-                proto.site = '';
-                proto.authService = authData.service;
+                proto = $.extend(proto, {
+                    id: 1,
+                    gender: 'unknown',
+                    site: '',
+                    authService: authData.service
+                });
               
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
@@ -240,10 +242,10 @@ describe('offer template REST integration test', function() {
             'service' : 'facebook',
             'accessToken' : 'a2'
         };
-    
-    $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
 
     it('should be POST rest which prepares user entry', function() {
+        $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
         rest.create('/user', {
             'firstName' : 'c',
             'lastName' : 'd'
@@ -278,14 +280,20 @@ describe('offer template REST integration test', function() {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
               
-                proto.id = 1;
+                proto = $.extend(proto, {
+                    id: 1,
+                    recipe: {
+                        id: 1,
+                        url: proto.recipe
+                    }
+                });
               
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
 
                 var status = successCallback.mostRecentCall.args[1];
-                expect(status).toEqual(rest.codes.ok);
+                expect(status).toEqual(rest.codes.created);
            });
     });
     
@@ -305,8 +313,11 @@ describe('offer template REST integration test', function() {
     });
     
     it('should be UPDATE rest allows change template entry properties', function() {
-        proto.gender = 'male';
-        proto.site = 'http://example.com/';
+        
+        proto = $.extend(proto, {
+            title: 'ccc',
+            description: 'tra la la tra la la'
+        });
         
         rest.update(currentRest + '/1', proto,
             function(successCallback, errorCallback) {
