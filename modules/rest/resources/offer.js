@@ -1,4 +1,5 @@
-var auth = $require('/modules/auth'),
+var moment = $require('moment'),
+    auth = $require('/modules/auth'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/rest/errors'),
     restrict = $require('/modules/rest/restrict')({
@@ -15,11 +16,8 @@ var Offer, Template, Place, User;
 function _setTimestamps(target, src) {
     var startAt = src.startAt ? Date.parse(src.startAt) : null,
         endAt = src.endAt ? Date.parse(src.endAt) : null;
-
-    console.warn('startAt', startAt);
-    console.warn('endAt', endAt);
     
-    if(((!startAt) !== (!endAt)) || ((startAt && endAt) && (startAt >= endAt))) {
+    if((isNaN(startAt) || isNaN(endAt)) || (!startAt !== !endAt) || ((startAt && endAt) && (startAt >= endAt))) {
         delete target.startAt;
         delete target.endAt;
         
@@ -29,8 +27,8 @@ function _setTimestamps(target, src) {
             delete target.startAt;
             delete target.endAt;    
         } else {
-            target.startAt = startAt.toISOString();
-            target.endAt = endAt.toISOString();
+            target.startAt = moment(startAt).toISOString();
+            target.endAt = moment(endAt).toISOString();
         }
         
         return true;
@@ -153,8 +151,7 @@ function update(params, authData, proto) {
                     throw new Errors.WrongData();
                 }
                 
-                if(Date.parse(offer.values.startAt) != (new Date(0))) {
-                    console.warn('--------------------------------');
+                if(Date.parse(offer.values.startAt) != 0) {
                     throw new Errors.Database();
                 }
                 
@@ -204,6 +201,8 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function() {
+            console.log('startAt', offer.values.startAt);
+            
             return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
         },
         Errors.report('Database')

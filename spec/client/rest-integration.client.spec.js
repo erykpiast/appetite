@@ -115,7 +115,7 @@ var rest = (function(_pathPrefix, _httpCodes, _waitingTime, _log) {
         notFound: 404,
         ok: 200,
         created: 201
-    }, 20 * 1000, true);
+    }, 20 * 1000, !true);
 
 $.cookie.json = true;
 
@@ -442,8 +442,8 @@ describe('offer REST integration test', function() {
     it('should be UPDATE rest allows change offer entry properties', function() {
         
         proto = $.extend(proto, {
-            startAt: (new Date(123)).toISOString(),
-            endAt: (new Date(234)).toISOString()
+            startAt: (new Date(123000)).toISOString(),
+            endAt: (new Date(234000)).toISOString()
         });
         
         rest.update(currentRest + '/1', proto,
@@ -454,11 +454,6 @@ describe('offer REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
-
-                proto = $.extend(proto, {
-                    startAt: 123,
-                    endAt: 234
-                });
 
                 var status = successCallback.mostRecentCall.args[1];
                 expect(status).toEqual(rest.codes.ok);

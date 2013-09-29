@@ -15,7 +15,8 @@
     "underscore": "~1.5",
     "underscore.string": "~2.3",
     "q": "~0.9",
-    "mathjs": "~0.13"
+    "mathjs": "~0.13",
+    "moment": "~2.2.1"
   },
   "devDependencies": {
     "grunt": "~0.4",
