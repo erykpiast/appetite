@@ -10,30 +10,18 @@ module.exports = function(sequelize, DataTypes) {
 		startAt: {
 			type: DataTypes.DATE,
 			allowNull: false,
-			defaultValue: emptyDate/*, // validation for dates doesn't work dates for some reason
+			defaultValue: emptyDate,
 			validate: {
-				isWithEnd: function(value) {
-					if(value !== emptyDate) {
-						if((this.values.endAt === emptyDate) || (value >= this.values.endAt)) {
-							throw new Error('Start time must be set with end time!');
-						}
-					}
-				}
-			}*/
+				isDate: true
+			}
 		},
 		endAt: {
 			type: DataTypes.DATE,
 			allowNull: false,
-			defaultValue: emptyDate/*, // validation for dates doesn't work dates for some reason
+			defaultValue: emptyDate,
 			validate: {
-				isAfterStart: function(value) {
-					if(value !== emptyDate) {
-						if((this.values.startAt === emptyDate) || (value <= this.values.startAt)) {
-							throw new Error('End time must be after start time!');
-						}
-					}
-				}
-			}*/
+				isDate: true
+			}
 		}
 		// template - foreign key from OfferTemplate
 		// place - foreign key from Place

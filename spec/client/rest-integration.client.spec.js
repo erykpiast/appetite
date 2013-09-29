@@ -411,8 +411,8 @@ describe('offer REST integration test', function() {
                         id: 1,
                         serviceId: proto.place
                     },
-                    startAt: 0,
-                    endAt: 0
+                    startAt: (new Date(0)).toISOString(),
+                    endAt: (new Date(0)).toISOString()
                 });
               
                 var response = successCallback.mostRecentCall.args[0];
@@ -442,8 +442,8 @@ describe('offer REST integration test', function() {
     it('should be UPDATE rest allows change offer entry properties', function() {
         
         proto = $.extend(proto, {
-            startAt: 123,
-            endAt: 234
+            startAt: (new Date(123)).toISOString(),
+            endAt: (new Date(234)).toISOString()
         });
         
         rest.update(currentRest + '/1', proto,
@@ -454,6 +454,11 @@ describe('offer REST integration test', function() {
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
+
+                proto = $.extend(proto, {
+                    startAt: 123,
+                    endAt: 234
+                });
 
                 var status = successCallback.mostRecentCall.args[1];
                 expect(status).toEqual(rest.codes.ok);
