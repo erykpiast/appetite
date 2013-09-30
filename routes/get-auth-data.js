@@ -13,6 +13,9 @@ module.exports = function(req) {
         } catch(e) {
             console.warn('Somebody send malversed auth cookie! ' + req.cookies.auth);
         }
+    } else {
+        data.service = req.body.authService;
+        data.accessToken = req.body.accessToken;
     }
     
     return data;

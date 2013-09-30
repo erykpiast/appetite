@@ -1,6 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 ./stop
-export NODE_ENV=devel
+
+ENV="devel"
+
+if [[ "$1" == "test" ]]; then
+	ENV="test"
+fi
+
+export NODE_ENV="$ENV"
+
 node --debug-brk $(which grunt) "$1" &
 node-inspector & 

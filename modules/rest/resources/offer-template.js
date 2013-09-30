@@ -50,7 +50,8 @@ function create(authData, proto) {
 		Errors.report('Database')
 	).then(
 		function(template) {
-			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(recipe.values) }) };
+			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(recipe.values),
+				author: user.values.id }) };
 		},
 		Errors.report('Database')
 	);
@@ -61,7 +62,8 @@ function retrieve(params, authData) {
 	return OfferTemplate.find({ where: restrict.search(params), include: [ Recipe ] }).then(
 		function(template) {
 			if(!!template) {
-				return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.recipe.values) }) };
+				return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values),
+					author: template.values.AuthorId }) };
 			} else {
 				throw new Errors.NotFound();
 			}
@@ -102,7 +104,8 @@ function update(params, authData, proto) {
 		Errors.report('Database')
 	).then(
 		function(template) {
-			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
+			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values),
+				author: template.values.AuthorId }) };
 		},
 		Errors.report('Database')
 	);
@@ -138,7 +141,8 @@ function destroy(params, authData) {
 		Errors.report('Database')
 	).then(
 		function() {
-			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values) }) };
+			return { resource: extend(restrict.public(template.values), { recipe: restrict.recipePublic(template.values.recipe.values),
+				author: template.values.AuthorId }) };
 		},
 		Errors.report('Database')
 	);

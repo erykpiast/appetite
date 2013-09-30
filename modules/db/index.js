@@ -28,27 +28,11 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
     // describe relationships
     (function(m) {
-        
-        m.RequestTemplate.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
-        m.RequestTemplate.belongsTo(m.Recipe);
-        
-        m.RequestTemplate.hasMany(m.Image);
-        m.Image.hasMany(m.RequestTemplate);
-        
-
-        m.Request.belongsTo(m.RequestTemplate, { as: 'Template', foreignKey: 'TemplateId' });
-        m.Request.belongsTo(m.Place);
-        m.Request.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
-        
-        
-        m.RequestResponse.belongsTo(m.Request);
-        m.RequestResponse.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
-
-        /* -- */
 
         m.OfferTemplate.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.OfferTemplate.belongsTo(m.Recipe);
         
+
         m.OfferTemplate.hasMany(m.Image);
         m.Image.hasMany(m.OfferTemplate);
         
@@ -58,8 +42,8 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
         m.Offer.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         
         
-        m.OfferResponse.belongsTo(m.Offer);
-        m.OfferResponse.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
+        m.Response.belongsTo(m.Offer);
+        m.Response.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
 
         /* -- */
 

@@ -3,9 +3,9 @@ var moment = $require('moment'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/rest/errors'),
     restrict = $require('/modules/rest/restrict')({
-        public: [ 'id', 'place', 'template', 'startAt', 'endAt' ],
+        public: [ 'id', 'type', 'place', 'template', 'startAt', 'endAt' ],
         placePublic: [ 'id', 'serviceId' ],
-        create: [ 'startAt', 'endAt' ],
+        create: [ 'type', 'startAt', 'endAt' ],
         update: [ 'startAt', 'endAt' ],
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
@@ -103,7 +103,8 @@ function create(authData, proto) {
         function(offer) {
             return { resource: extend(restrict.public(offer.values), {
                     place: restrict.placePublic(place.values),
-                    template: template.values.id
+                    template: template.values.id,
+                    author: user.values.id
                 }) };
         },
         Errors.report('Database')
@@ -115,7 +116,8 @@ function retrieve(params, authData) {
     return Offer.find({ where: restrict.search(params), include: [ Place ] }).then(
         function(offer) {
             if(!!offer) {
-                return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
+                return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId,
+                    author: offer.values.AuthorId }) };
             } else {
                 throw new Errors.NotFound();
             }
@@ -165,7 +167,8 @@ function update(params, authData, proto) {
         Errors.report('Database')
     ).then(
         function(offer) {
-            return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
+            return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId,
+                author: offer.values.AuthorId }) };
         },
         Errors.report('Database')
     );
@@ -201,9 +204,8 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function() {
-            console.log('startAt', offer.values.startAt);
-            
-            return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId }) };
+            return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId,
+                author: offer.values.AuthorId }) };
         },
         Errors.report('Database')
     );

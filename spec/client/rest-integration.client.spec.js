@@ -115,7 +115,7 @@ var rest = (function(_pathPrefix, _httpCodes, _waitingTime, _log) {
         notFound: 404,
         ok: 200,
         created: 201
-    }, 20 * 1000, !true);
+    }, 20 * 1000, true);
 
 $.cookie.json = true;
 
@@ -274,6 +274,7 @@ describe('offer template REST integration test', function() {
                 expect(status).toEqual(rest.codes.notFound);
            });
     });
+
    
     it('should be POST rest which creates first template entry', function() {
         rest.create(currentRest, proto,
@@ -286,7 +287,8 @@ describe('offer template REST integration test', function() {
                     recipe: {
                         id: 1,
                         url: proto.recipe
-                    }
+                    },
+                    author: 2
                 });
               
                 var response = successCallback.mostRecentCall.args[0];
@@ -297,6 +299,7 @@ describe('offer template REST integration test', function() {
                 expect(status).toEqual(rest.codes.created);
            });
     });
+
     
     it('should be GET rest with returns first template entry', function() { 
         rest.retrieve(currentRest + '/1',
@@ -312,6 +315,7 @@ describe('offer template REST integration test', function() {
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+
     
     it('should be UPDATE rest allows change template entry properties', function() {
         
@@ -333,6 +337,7 @@ describe('offer template REST integration test', function() {
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+
    
     it('should be DELETE rest deletes template entry', function() {
         rest.destroy(currentRest + '/1',
@@ -348,6 +353,7 @@ describe('offer template REST integration test', function() {
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+    
     
     it('should be GET rest with does not return any template entry', function() { 
         rest.retrieve(currentRest + '/1',
@@ -378,9 +384,11 @@ describe('offer REST integration test', function() {
         });
     });
 
+
     var proto = {
             'place' : 'p1',
-            'template' : 2
+            'template' : 2,
+            'type' : 'offer'
         },
         currentRest = '/offer';
     
@@ -398,6 +406,7 @@ describe('offer REST integration test', function() {
                 expect(status).toEqual(rest.codes.notFound);
            });
     });
+
    
     it('should be POST rest which creates first offer entry', function() {
         rest.create(currentRest, proto,
@@ -411,6 +420,7 @@ describe('offer REST integration test', function() {
                         id: 1,
                         serviceId: proto.place
                     },
+                    author: 2,
                     startAt: (new Date(0)).toISOString(),
                     endAt: (new Date(0)).toISOString()
                 });
@@ -423,6 +433,7 @@ describe('offer REST integration test', function() {
                 expect(status).toEqual(rest.codes.created);
            });
     });
+
     
     it('should be GET rest with returns first offer entry', function() { 
         rest.retrieve(currentRest + '/1',
@@ -438,6 +449,7 @@ describe('offer REST integration test', function() {
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+
     
     it('should be UPDATE rest allows change offer entry properties', function() {
         
@@ -459,6 +471,7 @@ describe('offer REST integration test', function() {
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+
    
     it('should be DELETE rest deletes offer entry', function() {
         rest.destroy(currentRest + '/1',
@@ -474,8 +487,171 @@ describe('offer REST integration test', function() {
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+
     
     it('should be GET rest with does not return any offer entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
+           });
+    });
+    
+});
+
+
+describe('response REST integration test', function() {
+
+
+    it('should be POST rest which prepares offer entry', function() {
+        var authData = { // response can't be created by offer owner
+                'service' : 'facebook',
+                'accessToken' : 'a2'
+            };
+
+        $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
+        rest.create('/offer', {
+            'place' : 'p1',
+            'template' : 2,
+            'type' : 'offer'
+        });
+    });
+
+    
+
+    it('should be POST rest which prepares user entry', function() {
+        var authData = { // response can't be created by offer owner
+                'service' : 'facebook',
+                'accessToken' : 'a3'
+            };
+
+        $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
+        rest.create('/user', {
+            'firstName' : 'e',
+            'lastName' : 'f'
+        });
+    });
+
+    var proto = {
+            'offer' : 2
+        },
+        currentRest = '/response';
+
+    
+    it('should be GET rest with does not return any response entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
+           });
+    });
+
+   
+    it('should be POST rest which creates first response entry', function() {
+        rest.create(currentRest, proto,
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                proto = $.extend(proto, {
+                    id: 1,
+                    accepted: false,
+                    author: 3
+                });
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.created);
+           });
+    });
+
+    
+    it('should be GET rest with returns first response entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+
+    
+    it('should be UPDATE rest allows change response entry properties', function() {
+        var authData = {
+                'service' : 'facebook',
+                'accessToken' : 'a2'
+            };
+
+        $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' }); // only offer owner can accept response
+        
+        proto = $.extend(proto, {
+            accepted: true
+        });
+        
+        rest.update(currentRest + '/1', proto,
+            function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+
+   
+    it('should be DELETE rest deletes response entry', function() {
+        var authData = { // only response owner can destroy entry
+                'service' : 'facebook',
+                'accessToken' : 'a3'
+            };
+
+        $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
+        rest.destroy(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+
+    
+    it('should be GET rest with does not return any response entry', function() { 
         rest.retrieve(currentRest + '/1',
            function(successCallback, errorCallback) {
                 expect(successCallback).not.toHaveBeenCalled();

@@ -1,24 +1,19 @@
+var emptyDate = new Date(0);
+
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('Request', {
+	return sequelize.define('Response', {
 		id: {
 			type: DataTypes.BIGINT.UNSIGNED,
 			primaryKey: true,
 			autoIncrement: true
 		},
-		endAt: {
-			type: DataTypes.DATE,
+		accepted: {
+			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			validate: {
-				isAfterStart: function(value) {
-					if(value <= this.createdAt) {
-						throw new Error('End time must be after creation time!');
-					}
-				}
-			}
+			defaultValue: false
 		}
 		// offer - foreign key from Offer
-		// user - foreign key from User
-		// place - foreign key from Place
+		// author - foreign key from User
 	}, {
 		timestamps: true, // add createdAt, updatedAt
 		paranoid: true, // add deletedAt instead of real deleting

@@ -22,6 +22,12 @@ module.exports = function(sequelize, DataTypes) {
 			validate: {
 				isDate: true
 			}
+		},
+		type: {
+			type: DataTypes.ENUM,
+            values: [ 'offer', 'request', 'unknown' ],
+			allowNull: false,
+			defaultValue: 'unknown'
 		}
 		// template - foreign key from OfferTemplate
 		// place - foreign key from Place
