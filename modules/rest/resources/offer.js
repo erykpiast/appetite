@@ -10,7 +10,7 @@ var moment = $require('moment'),
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
 
-var Offer, Template, Place, User;
+var DB, REST, Offer, Template, Place, User;
 
 
 function _setTimestamps(target, src) {
@@ -112,12 +112,35 @@ function create(authData, proto) {
 }
 
 
-function retrieve(params, authData) {
+function retrieve(params, authData) {// one
     return Offer.find({ where: restrict.search(params), include: [ Place ] }).then(
         function(offer) {
             if(!!offer) {
                 return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId,
                     author: offer.values.AuthorId }) };
+            } else {
+                throw new Errors.NotFound();
+            }
+        },
+        Errors.report('Database')
+    );
+}
+
+
+function retrieveAll(params, authData) {
+    var offset = parseInt0(params.offset),
+        limit = parseInt0(params.limit) || 10,
+        include = [ { model: OfferTemplate, as: 'Template' } ];
+
+    return Offer.findAll({ where: restrict.search(params), offset: offset, limit: limit, include: include }).then(
+        function(offers) {
+            if(offers && offers.length) {
+                return { resource: offers.map(function(offer) {
+                    return extend(restrict.public(offer.values), {
+                        template: REST.OfferTemplate.public(offer.values.Template.values),
+                        author: offer.values.AuthorId
+                        });
+                    }) };
             } else {
                 throw new Errors.NotFound();
             }
@@ -213,6 +236,8 @@ function destroy(params, authData) {
 
 
 module.exports = function(app) {
+    DB = app.get('db');
+    REST = app.get('rest');
     Offer = app.get('db').Offer;
     Template = app.get('db').OfferTemplate;
     Place = app.get('db').Place;
@@ -221,6 +246,7 @@ module.exports = function(app) {
     return {
         create: create,
         retrieve: retrieve,
+        retrieveAll: retrieveAll,
         update: update,
         destroy: destroy
     }

@@ -24,7 +24,7 @@ module.exports = function(app) {
 				});
 		})
 		.get(restUrl + '/offer-template/:id', function(req, res) {
-			rest.retrieve({ id: req.params.id }, getAuthData(req)).then(
+			rest.retrieve(req.params, getAuthData(req)).then(
 				function(template) {
 					res.json(template.resource);
 				},

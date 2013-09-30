@@ -36,6 +36,19 @@ module.exports = function(app) {
 						});
 				});
 		})
+		.get(restUrl + '/offer/', function(req, res) {
+			rest.retrieveAll({ limit: req.params.limit, offset: req.params.offset }, getAuthData(req)).then(
+				function(offer) {
+					res.json(offer.resource);
+				},
+				function(err) {
+					res
+						.status(err.httpStatus)
+						.json({
+							msg: err.message
+						});
+				});
+		})
 		.put(restUrl + '/offer/:id', function(req, res) {
 			rest.update({ id: req.params.id }, getAuthData(req), req.body).then(
 				function(offer) {

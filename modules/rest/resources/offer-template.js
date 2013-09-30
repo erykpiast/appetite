@@ -161,3 +161,5 @@ module.exports = function(app) {
 		destroy: destroy
 	}
 };
+
+module.exports['public'] = restrict.public;
