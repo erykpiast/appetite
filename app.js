@@ -26,7 +26,7 @@ app
 		.use(express.cookieParser())
 		.use(express.methodOverride())
 		.use(app.router)
-		.use(express.static(__dirname + '/public/app'))
+		.use(express.static(__dirname + '/public'))
 		.use(function(req, res, next) {
             res.header('Access-Control-Allow-Origin', '*');
             res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

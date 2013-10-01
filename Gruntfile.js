@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 					'app.js',
 					'modules/*.js',
 					'routes/*.js',
-					'public/app/*'
+					'public/*'
 				],
 				tasks: [ 'develop' ]
 			},
@@ -32,35 +32,11 @@ module.exports = function (grunt) {
 					'modules/*.js',
 					'routes/*.js',
 					'spec/*.js',
-					'public/app/index.html',
-					'public/app/scripts/{,*/}*.js',
-					'public/app/{,*/}*.tpl'
+					'public/index.html',
+					'public/scripts/{,*/}*.js',
+					'public/{,*/}*.tpl'
 				],
 				tasks: [ 'develop', 'karma:integration:run' ]
-			},
-			js: {
-				files: ['public/app/scripts/{,*/}*.js'],
-				options: { livereload: true },
-			},
-			css: {
-				files: ['public/app/styles/{,*/}*.css'],
-				options: { livereload: true },
-			},
-			fonts: {
-				files: ['public/app/fonts/{,*/}*.{woff,ttf,svg}'],
-				options: { livereload: true },
-			},
-			images: {
-				files: ['public/app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'],
-				options: { livereload: true },
-			},
-			templates: {
-				files: ['public/app/{,*/}*.tpl'],
-				options: { livereload: true },
-			},
-			html: {
-				files: ['public/app/index.html'],
-				options: { livereload: true },
 			}
 		},
 		karma: {
