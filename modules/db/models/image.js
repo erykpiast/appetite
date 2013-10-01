@@ -5,7 +5,11 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		url: {
+		filename: {
+		    type: DataTypes.STRING, // guessing...
+			allowNull: false
+		},
+		originalUrl: {
 			type: DataTypes.STRING(1024), // guessing...
 			allowNull: false
 		}

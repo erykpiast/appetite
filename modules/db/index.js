@@ -33,7 +33,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
         m.OfferTemplate.belongsTo(m.Recipe);
         
 
-        m.OfferTemplate.hasMany(m.Image);
+        m.OfferTemplate.hasMany(m.Image, { as: 'Pictures' });
         m.Image.hasMany(m.OfferTemplate);
         
 

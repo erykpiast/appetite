@@ -256,7 +256,12 @@ describe('offer template REST integration test', function() {
     var proto = {
             'title' : 'test title',
             'description' : 'lorem ipsum dolor sit amet',
-            'recipe' : 'http://xxx.aaa.com/test-title'
+            'recipe' : 'http://xxx.aaa.com/test-title',
+            'pictures' : [
+                    'http://xxx.aaa.com/test-title/image_001.jpg',
+                    'http://xxx.aaa.com/test-title/image_002.jpg',
+                    'http://xxx.aaa.com/test-title/image_003.jpg'
+                ]
         },
         currentRest = '/offer-template';
     
@@ -288,7 +293,12 @@ describe('offer template REST integration test', function() {
                         id: 1,
                         url: proto.recipe
                     },
-                    author: 2
+                    author: 2,
+                    pictures: [
+                            { id: 1, filename: 'image_001.jpg' },
+                            { id: 2, filename: 'image_002.jpg' },
+                            { id: 3, filename: 'image_003.jpg' }
+                        ]
                 });
               
                 var response = successCallback.mostRecentCall.args[0];
@@ -319,15 +329,17 @@ describe('offer template REST integration test', function() {
     
     it('should be UPDATE rest allows change template entry properties', function() {
         
-        proto = $.extend(proto, {
+        var newAttrs = {
             title: 'ccc',
             description: 'tra la la tra la la'
-        });
+        };
         
-        rest.update(currentRest + '/1', proto,
+        rest.update(currentRest + '/1', newAttrs,
             function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
+              
+                proto = $.extend(proto, newAttrs);
               
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();

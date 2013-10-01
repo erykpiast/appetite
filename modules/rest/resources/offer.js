@@ -238,10 +238,10 @@ function destroy(params, authData) {
 module.exports = function(app) {
     DB = app.get('db');
     REST = app.get('rest');
-    Offer = app.get('db').Offer;
-    Template = app.get('db').OfferTemplate;
-    Place = app.get('db').Place;
-    User = app.get('db').User;
+    Offer = DB.Offer;
+    Template = DB.OfferTemplate;
+    Place = DB.Place;
+    User = DB.User;
 
     return {
         create: create,
