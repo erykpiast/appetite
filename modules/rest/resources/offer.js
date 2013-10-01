@@ -10,7 +10,7 @@ var moment = $require('moment'),
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
 
-var DB, REST, Offer, Template, Place, User;
+var app, DB, Offer, Template, Place, User;
 
 
 function _setTimestamps(target, src) {
@@ -57,15 +57,15 @@ function create(authData, proto) {
             } else if(!proto.template) {
                 throw new Errors.WrongData();
             } else {
-                return Template.find({ where: { id: proto.template } });
+                return app.get('rest').OfferTemplate.retrieve({ id: proto.template }, authData);
             }
         },
         Errors.report('Authentication')
     ).then(
         function(_template) {
-            template = _template;
+            template = _template.resource;
             
-            if(!template || (template.values.AuthorId !== user.values.id) || !proto.place) {
+            if(!template || (template.author !== user.values.id) || !proto.place) {
                 throw new Errors.WrongData();
             } else {
                 return locate(proto.place);
@@ -88,7 +88,7 @@ function create(authData, proto) {
             var p = extend(restrict.create(proto), {
                         AuthorId: user.values.id,
                         PlaceId: place.values.id,
-                        TemplateId: template.values.id
+                        TemplateId: template.id
                     });
 
             var res = _setTimestamps(p, proto);
@@ -103,7 +103,7 @@ function create(authData, proto) {
         function(offer) {
             return { resource: extend(restrict.public(offer.values), {
                     place: restrict.placePublic(place.values),
-                    template: template.values.id,
+                    template: template,
                     author: user.values.id
                 }) };
         },
@@ -112,15 +112,28 @@ function create(authData, proto) {
 }
 
 
-function retrieve(params, authData) {// one
+function retrieve(params, authData) {
+    var offer;
+    
     return Offer.find({ where: restrict.search(params), include: [ Place ] }).then(
-        function(offer) {
-            if(!!offer) {
-                return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId,
-                    author: offer.values.AuthorId }) };
-            } else {
+        function(_offer) {
+            offer = _offer;
+            
+            if(!offer) {
                 throw new Errors.NotFound();
+            } else {
+                return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
             }
+        },
+        Errors.report('Database')
+    ).then(
+        function(template) {
+            return { resource: extend(restrict.public(offer.values), {
+                            place: restrict.placePublic(offer.values.place.values),
+                            template: template.resource,
+                            author: offer.values.AuthorId
+                        })
+                    };
         },
         Errors.report('Database')
     );
@@ -151,7 +164,7 @@ function retrieveAll(params, authData) {
 
 
 function update(params, authData, proto) {
-    var serviceId;
+    var serviceId, offer;
     
     return auth(authData.service, authData.accessToken).then(
         function(_serviceId) {
@@ -189,11 +202,21 @@ function update(params, authData, proto) {
         },
         Errors.report('Database')
     ).then(
-        function(offer) {
-            return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId,
-                author: offer.values.AuthorId }) };
+        function(_offer) {
+            offer = _offer;
+            
+            return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
         },
         Errors.report('Database')
+    ).then(
+        function(template) {
+            return { resource: extend(restrict.public(offer.values), {
+                            place: restrict.placePublic(offer.values.place.values),
+                            template: template.resource,
+                            author: offer.values.AuthorId
+                        })
+                    };
+        }    
     );
 }
 
@@ -227,17 +250,26 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function() {
-            return { resource: extend(restrict.public(offer.values), { place: restrict.placePublic(offer.values.place.values), template: offer.values.TemplateId,
-                author: offer.values.AuthorId }) };
+            return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
+        },
+        Errors.report('Database')
+    ).then(
+        function(template) {
+            return { resource: extend(restrict.public(offer.values), {
+                            place: restrict.placePublic(offer.values.place.values),
+                            template: template.resource,
+                            author: offer.values.AuthorId
+                        })
+                    };
         },
         Errors.report('Database')
     );
 }
 
 
-module.exports = function(app) {
+module.exports = function(_app) {
+    app = _app;
     DB = app.get('db');
-    REST = app.get('rest');
     Offer = DB.Offer;
     Template = DB.OfferTemplate;
     Place = DB.Place;

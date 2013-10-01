@@ -434,7 +434,18 @@ describe('offer REST integration test', function() {
                     },
                     author: 2,
                     startAt: (new Date(0)).toISOString(),
-                    endAt: (new Date(0)).toISOString()
+                    endAt: (new Date(0)).toISOString(),
+                    template: {
+                        id: 2,
+                        author: 2,
+                        title: 'dadadadad',
+                        description: 'ada adada adwaha adaedsfg adfga dfa',
+                        recipe: {
+                            id: 1,
+                            url: 'http://xxx.aaa.com/test-title'
+                        },
+                        pictures: [ ]
+                    }
                 });
               
                 var response = successCallback.mostRecentCall.args[0];
