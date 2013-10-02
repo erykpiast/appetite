@@ -1,17 +1,17 @@
-define([ 'libs/angular', 'libs/angular-ui-router', 'controllers', 'directives' ], function(angular, undefined, controllers) {
+define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'controllers', 'templates' ], function(angular, undefined, undefined, controllers, templates) {
 
 	angular.module('appetite',
-		[ 'ui.state' ])
+		[ 'ngResource', 'ui.state' ])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$urlRouterProvider.otherwise('/');
 
 			var common = {
 					'header': {
-						templateUrl: 'templates/header.tpl',
+						template: templates.header,
 						controller: controllers.header
 					},
 					'footer': {
-						templateUrl: 'templates/footer.tpl',
+						template: templates.footer.tpl,
 						controller: controllers.footer
 					}
 				};
@@ -21,7 +21,7 @@ define([ 'libs/angular', 'libs/angular-ui-router', 'controllers', 'directives' ]
 					url: '/',
 					views: angular.extend({
 						'main': {
-							templateUrl: 'templates/main.tpl',
+							template: templates.main,
 							controller: controllers.main
 						}
 					}, common)
@@ -30,7 +30,7 @@ define([ 'libs/angular', 'libs/angular-ui-router', 'controllers', 'directives' ]
 					url: '/test1',
 					views: angular.extend({
 						'main': {
-							templateUrl: 'templates/main.tpl',
+							template: templates.main,
 							controller: controllers.test
 						}
 					}, common)
@@ -39,7 +39,7 @@ define([ 'libs/angular', 'libs/angular-ui-router', 'controllers', 'directives' ]
 					url: '/test2',
 					views: angular.extend({
 						'main': {
-							templateUrl: 'templates/test.tpl',
+							template: templates.test,
 							controller: controllers.main
 						}
 					}, common)

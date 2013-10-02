@@ -1,8 +1,8 @@
-define([ 'directives/offer-thumbnail.js' ],
-function(offerTemplate) {
+define([ 'directives/offer-thumbnail' ],
+function(offerThumbnail) {
 
    return {
-       'offerTemplate': offerTemplate
+       'offerThumbnail': offerThumbnail
    };
 
 });
