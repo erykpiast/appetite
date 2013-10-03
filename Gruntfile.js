@@ -20,9 +20,9 @@ module.exports = function (grunt) {
 			develop: {
 				files: [
 					'app.js',
-					'modules/*.js',
-					'routes/*.js',
-					'public/*'
+					'modules/{,*/}*.js',
+					'routes/{,*/}*.js',
+					'public/{,*/}*'
 				],
 				tasks: [ 'develop' ]
 			},

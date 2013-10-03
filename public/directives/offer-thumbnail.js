@@ -7,22 +7,23 @@ function(angular, appetite, template) {
 			    template: template,
 			    replace: true,
 			    restrict: 'E',
-			    scope: false,
+			    scope: true,
 			    controller: function($scope, $element, $attrs, $transclude) {
-			    	console.warn($element);
+			    	$scope.els = [ 'a', 'b', 'c' ];
+
+			    	console.warn('controller: ', $element.find('li').length);
 			    },
 			    compile: function compile(tElement, tAttrs, transclude) {
+			    	console.warn('compile: ', tElement.find('li').length);
+
 			    	return {
 			    		pre: function preLink(scope, iElement, iAttrs, controller) {
-			    			console.warn(iElement);
+			    			console.warn('pre link: ', iElement.find('li').length);
 			    		},
 			        	post: function postLink(scope, iElement, iAttrs, controller) {
-			        		console.warn(iElement);
+			        		console.warn('post link: ', iElement.find('li').length);
 			        	}
 			    	}
-			    },
-			    link: function postLink(scope, iElement, iAttrs) {
-			    	console.warn(iElement);
 			    }
 			};
 		});

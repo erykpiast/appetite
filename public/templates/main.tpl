@@ -1,6 +1,6 @@
 <div>
 	{{ message }}
 
-	<app-offer-template></app-offer-template>
+	<app-offer-thumbnail></app-offer-thumbnail>
 	
 </div>

@@ -6,4 +6,6 @@
 		
 	</div>
 
+	<li ng-repeat="i in els">{{ i }}</li>
+
 </div>

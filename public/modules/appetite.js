@@ -11,7 +11,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 						controller: controllers.header
 					},
 					'footer': {
-						template: templates.footer.tpl,
+						template: templates.footer,
 						controller: controllers.footer
 					}
 				};
