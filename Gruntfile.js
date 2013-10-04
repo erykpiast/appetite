@@ -3,10 +3,21 @@
 var request = require('request');
 
 module.exports = function (grunt) {
-	var LIVEREOAD_PORT = 35729, files;
+	var LIVEREOAD_PORT = 35729,
+	    appDir = '/public';
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		compass: {
+		    dev: {
+    		    basePath: appDir,
+    		    sassDir: 'sass',
+    		    cssDir: 'styles',
+    		  //  specify: '^[^_]*.scss$',
+    		    require: 'compass-inuit',
+    		    relativeAssets: true
+    		},
+		},
 		develop: {
 			server: {
 				file: 'app.js'
@@ -22,9 +33,15 @@ module.exports = function (grunt) {
 					'app.js',
 					'modules/{,*/}*.js',
 					'routes/{,*/}*.js',
-					'public/{,*/}*'
+					appDir + '/{,*/}*'
 				],
 				tasks: [ 'develop' ]
+			},
+			sass: {
+			    files: [
+					appDir + '/sass/{,*/}*'
+				],
+				tasks: [ 'compass' ]
 			},
 			karma: {
 			    files: [
@@ -32,11 +49,11 @@ module.exports = function (grunt) {
 					'modules/*.js',
 					'routes/*.js',
 					'spec/*.js',
-					'public/index.html',
-					'public/scripts/{,*/}*.js',
-					'public/{,*/}*.tpl'
+					appDir + '/index.html',
+					appDir + '/scripts/{,*/}*.js',
+					appDir + '/{,*/}*.tpl'
 				],
-				tasks: [ 'develop', 'karma:integration:run' ]
+				tasks: [ 'develop', 'compass:dev', 'karma:integration:run' ]
 			}
 		},
 		karma: {
@@ -56,14 +73,19 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-jasmine-node');
 	grunt.loadNpmTasks('grunt-karma');
+	
+	grunt.loadNpmTasks('grunt-contrib-compass');
 
 	grunt.registerTask('default', [
 		'develop',
-		'watch:develop'
+		'compass:dev',
+		'watch:develop',
+		'watch:sass'
 	]);
 	
 	grunt.registerTask('test', [
 	   'develop',
+	   'compass:dev',
 	   'jasmine_node',
 	   'karma:integration',
 	   'watch:karma'
