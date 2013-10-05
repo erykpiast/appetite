@@ -16,6 +16,7 @@ module.exports = function (grunt) {
         		    cssDir: 'styles',
         		    specify: appDir + '/sass/style.scss',
         		    require: 'compass-inuit',
+        		    force: true,
         		    relativeAssets: true
         		}
         	}
@@ -35,21 +36,22 @@ module.exports = function (grunt) {
 					'app.js',
 					'modules/{,*/}*.js',
 					'routes/{,*/}*.js',
-					appDir + '/{,*/}*'
+					'libs/{,*/}*.js'
 				],
 				tasks: [ 'develop' ]
 			},
 			sass: {
 			    files: [
-					appDir + '/sass/{,*/}*'
+					appDir + '/sass/{,*/}*.scss'
 				],
-				tasks: [ 'compass' ]
+				tasks: [ 'compass:dev' ]
 			},
 			karma: {
 			    files: [
 					'app.js',
 					'modules/*.js',
 					'routes/*.js',
+					'libs/{,*/}*.js',
 					'spec/*.js',
 					appDir + '/index.html',
 					appDir + '/scripts/{,*/}*.js',
@@ -81,8 +83,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', [
 		'develop',
 		'compass:dev',
-		'watch:develop',
-		'watch:sass'
+		'watch:sass',
+		'watch:develop'
 	]);
 	
 	grunt.registerTask('test', [
