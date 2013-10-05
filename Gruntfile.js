@@ -4,19 +4,21 @@ var request = require('request');
 
 module.exports = function (grunt) {
 	var LIVEREOAD_PORT = 35729,
-	    appDir = '/public';
+	    appDir = 'public';
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		compass: {
 		    dev: {
-    		    basePath: appDir,
-    		    sassDir: 'sass',
-    		    cssDir: 'styles',
-    		  //  specify: '^[^_]*.scss$',
-    		    require: 'compass-inuit',
-    		    relativeAssets: true
-    		},
+		        options: {
+        		    basePath: appDir,
+        		    sassDir: 'sass',
+        		    cssDir: 'styles',
+        		    specify: appDir + '/sass/style.scss',
+        		    require: 'compass-inuit',
+        		    relativeAssets: true
+        		}
+        	}
 		},
 		develop: {
 			server: {
