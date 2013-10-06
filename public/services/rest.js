@@ -1,34 +1,13 @@
-define([ 'libs/angular', 'modules/appetite' ], function(angular, appetite) {
+define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function(angular, undefined, appetite) {
     
     angular.module('appetite')
-        .factory('drupal', function($resource) {
+        .factory('rest', function(nodeRest, fakreRest) {
+            var rest = fakeRest;
+            
             return {
-                user: $resource('/user/:id', { }, {
-                    get: {
-                        method: 'GET'
-                    }
-                }),
-                offer: $resource('/offer/:id', { }, {
-                    get: {
-                        method: 'GET'
-                    },
-                    getAll: {
-                        method: 'GET',
-                        isArray: true
-                    }
-                }),
-                offerTemplate: $resource('/offer-template/:id', { id: '@id' }, {
-                    create: {
-                        method: 'POST'
-                    },
-                    update: {
-                        method: 'PUT'
-                    },
-                    destroy: {
-                        method: 'DELETE'
-                    }
-                })
+                user: rest.user,
+                offer: rest.offer,
+                offerTemplate: rest.offerTemplate
             };
         });
-    
 });
