@@ -1,9 +1,9 @@
 define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appetite) {
     
     angular.module('appetite')
-        .factory('i18n', function($rootScope) {
+        .factory('i18n', function() {
             
-            $rootScope.i18n = {
+            return {
                 common: {
                     lastestOffers: 'Ostatnie oferty'
                 }  

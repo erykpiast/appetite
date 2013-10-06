@@ -2,8 +2,16 @@
 	
 	<img class="thumbnail--background" ng-src="" />
 
-	<div class="thumbnail--foreground">
+	<section class="thumbnail--text">
 		
-	</div>
+		<header class="thumbnail--text--top">
+			<h3>{{ offer.template.title }}</h3>
+		</header>
+
+		<footer class="thumbnail--text--bottom">
+			<p>{{ offer.template.description }}</p>
+		</footer>
+
+	</section>
 
 </div>

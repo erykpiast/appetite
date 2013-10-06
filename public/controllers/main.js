@@ -2,10 +2,10 @@
 
 define([ 'libs/angular' ], function(angular) {
 
-	return function($scope, rest) {
-	    
-		$scope.offers = rest.offer.getAll().success(function(offers) {
-		    
+	return function($rootScope, $scope, rest) {
+
+		rest.offer.getAll().$then(function(offers) {
+		    $scope.offers = offers.data;
 		});
 		
 	};

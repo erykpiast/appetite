@@ -7,9 +7,9 @@ function(angular, appetite, template) {
 			    template: template,
 			    replace: true,
 			    restrict: 'E',
-			    scope: { offer: '@model' },
+			    scope: { offer: '=model' },
 			    link: function(scope, element, attrs) {
-			    	
+			    	// console.log(scope.offer);
 			    }
 			};
 		});

@@ -1,55 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>inuit.css Example Project</title>
-    <link rel="stylesheet" href="style.css"/>
-  </head>
-  <body>
-    <div class="island  greybox  greybox--medium  header">Header</div>
+    <head>
+        <meta charset="utf-8"/>
 
-        <div class="wrapper">
-        
-            <ul class="nav  nav--fit  nav--block  greybox">
-                <li><a href=#>Home</a></li>
-                <li><a href=#>About</a></li>
-                <li><a href=#>Portfolio</a></li>
-                <li><a href=#>Contact</a></li>
-            </ul>
-        
-            <div class="island  greybox  greybox--large">Masthead</div>
-        
-            <div class="grid">
-            
-                <div class="grid__item  two-thirds  content">
-                    <div class="island  greybox  greybox--gigantic">Content</div>
-                </div><!-- /content
-            
-                --><div class="grid__item  one-third  sub-content">
-                    <div class="island  greybox">
-                    
-                        <div class="grid">
-                            <div class="grid__item  one-half">
-                                <div class="islet  greybox">Ad</div>
-                            </div>
-                            <div class="grid__item  one-half">
-                                <div class="islet  greybox">Ad</div>
-                            </div>
-                        </div>
-                    
-                        <div class="island  greybox  greybox--huge">Sub content</div>
-                    
-                    
-                        <div class="islet  greybox">Ad</div>
-                    
-                    </div>
-                </div><!-- /sub-content -->
-            
-            </div>
-        
-        </div><!-- /wrapper -->
-        
-        <div class="island  greybox  greybox--medium  footer">Footer</div>​
+        <title>Appetite</title>
+
+        <link rel="stylesheet" href="styles/style.css"/>
+
+        <script src="bower_components/requirejs/require.js" data-main="app.js"></script>
+
+    </head>
+
+    <body>
+    
+        <section id="page">
+
+            <header id="header" ui-view="header"></header>
+
+            <div id="header" ui-view="content"></div>
+
+            <footer id="footer" ui-view="footer"></footer>    
+
+        </section>
+
     </body>
 </html>
-    

@@ -1,7 +1,7 @@
 define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function(angular, undefined, appetite) {
     
     angular.module('appetite')
-        .factory('nodeRest', function($resource) {
+        .factory('fakeRest', function($resource) {
             function _rest(path) {
                 return '/fake-rest/' + path.replace(/^\//, '');
             }
