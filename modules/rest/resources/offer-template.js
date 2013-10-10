@@ -5,96 +5,83 @@ var Sequelize = $require('sequelize'),
 		public: [ 'id', 'title', 'description', 'recipe' ],
 		recipePublic: [ 'id', 'url' ],
 		imagePublic: [ 'id', 'filename' ],
+		imageSearch: [ 'filename' ],
+		tagPublic: [ 'id', 'text' ],
+		tagSearch: [ 'text' ],
 		create: [ 'title', 'description' ],
 		update: [ 'title', 'description', 'pictures' ],
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
-var DB, OfferTemplate, Recipe, Image, User;
+var DB, OfferTemplate, Recipe, Image, Tag, User;
 
 
-function _setPictures(proto, authorId) {
-    if(proto.pictures) {
-        if((proto.pictures instanceof Array) && proto.pictures.length) {
-            var chainer = new Sequelize.Utils.QueryChainer;
-            
-            var pictures = proto.pictures.map(function(proto) {
-                if(!proto) {
-                    return null;
-                } else {
-                    proto = proto.toString();
-                    
-	                proto = {
-	                    originalUrl: proto,
-	                    filename: new RegExp('^(.*/)([^/]*)$').exec(proto)[2]
-	                };
-	                
-	                var img = Image.findOrCreate({ originalUrl: proto.originalUrl }, { filename: proto.filename, AuthorId: authorId });
-	                
-	                chainer.add(img);
-	                
-	                return img;
-                }
-            }).filter(function(img) {
-                return !!img;
-            });
-            
-            if(pictures.length) {
-	            return chainer.run();
-            } else {
-                throw Errors.WrongData();
-            }
-        } else {
-            throw Errors.WrongData();
-        }
-    } else {
-        delete proto.pictures;
-        
-        return true;
-    }
+function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) {
+	return function(proto, authorId) {
+		if(proto[propName]) {
+	        if((proto[propName] instanceof Array) && proto[propName].length) {
+	            var chainer = new Sequelize.Utils.QueryChainer;
+	            
+	            var props = proto[propName].map(function(proto) {
+	                if(!proto) {
+	                    return null;
+	                } else {
+	                	proto = protoProcessingFn(proto);
+
+	                	var search = searchRestrictFn(proto);
+
+		                var prop = chainer.add(DB[modelName], 'findOrCreate', [ search, extend({ AuthorId: authorId }, proto) ]);
+		                
+		                return prop;
+	                }
+	            }).filter(function(prop) {
+	                return !!prop;
+	            });
+	            
+	            if(props.length) {
+	            	 // tests need this sequence for correct ids :(
+		            return chainer.runSerially();
+	            } else {
+	                throw Errors.WrongData();
+	            }
+	        } else {
+	            throw Errors.WrongData();
+	        }
+	    } else {
+	        delete proto[propName];
+	        
+	        return true;
+	    }
+	}
 }
 
 
-function _setTags(proto, authorId) {
-    if(proto.pictures) {
-        if((proto.pictures instanceof Array) && proto.pictures.length) {
-            var chainer = new Sequelize.Utils.QueryChainer;
-            
-            var pictures = proto.pictures.map(function(proto) {
-                if(!proto) {
-                    return null;
-                } else {
-                    proto = proto.toString();
-                    
-	                proto = {
-	                    originalUrl: proto,
-	                    filename: new RegExp('^(.*/)([^/]*)$').exec(proto)[2]
-	                };
-	                
-	                var img = Image.findOrCreate({ originalUrl: proto.originalUrl }, { filename: proto.filename, AuthorId: authorId });
-	                
-	                chainer.add(img);
-	                
-	                return img;
-                }
-            }).filter(function(img) {
-                return !!img;
-            });
-            
-            if(pictures.length) {
-	            return chainer.run();
-            } else {
-                throw Errors.WrongData();
-            }
-        } else {
-            throw Errors.WrongData();
-        }
-    } else {
-        delete proto.pictures;
-        
-        return true;
-    }
+function _createPublishFn(prop, restrictFn) {
+	return function(source1, source2) {
+		var source = source1[prop] ? source1[prop] : (source2[prop] ? source2[prop] : [ ]);
+
+		return source.map(function(obj) {
+			return restrictFn(obj.values);
+		});// function factory
+	}
 }
+
+
+var _publishPictures = _createPublishFn('pictures', restrict.imagePublic),
+	_publishTags = _createPublishFn('tags', restrict.tagPublic),
+	_setPictures = _createSetFn('pictures', 'Image', restrict.imageSearch, function(proto) {
+			proto = proto.toString();
+
+			return {
+                originalUrl: proto,
+                filename: new RegExp('^(.*/)([^/]*)$').exec(proto)[2]
+            };
+		}),
+	_setTags = _createSetFn('tags', 'Tag', restrict.tagSearch, function(proto) {
+			return {
+				text: proto.toString()
+			};
+		});
 
 
 function create(authData, proto) {
@@ -124,16 +111,8 @@ function create(authData, proto) {
 		Errors.report('Authentication')
 	).then(
 		function(_recipe) {
-		    recipe = _recipe;
+			recipe = _recipe;
 		    
-		    return _setPictures(proto, user.values.id);
-		},
-		Errors.report('Database')
-	).then(
-		function(pictures) {
-		    if(pictures instanceof Array) {
-		        proto.pictures = pictures;
-		    }
 		    
 		    var p = extend(restrict.create(proto), {
 			        AuthorId: user.values.id,
@@ -147,8 +126,35 @@ function create(authData, proto) {
 		function(_template) {
 		    template = _template;
 		    
-		    if(proto.pictures) {
+		    return _setPictures(proto, user.values.id);
+		},
+		Errors.report('Database')
+	).then(
+		function(pictures) {
+			if(pictures instanceof Array) {
+		        proto.pictures = pictures;
+		    }
+
+			if(proto.pictures) {
 		        return template.setPictures(proto.pictures);
+		    } else {
+		        return true;
+		    }
+		},
+		Errors.report('Database')
+	).then(
+		function(pictures) {
+		    return _setTags(proto, user.values.id);
+		},
+		Errors.report('Database')
+	).then(
+		function(tags) {
+		    if(tags instanceof Array) {
+		        proto.tags = tags;
+		    }
+		    
+		    if(proto.tags) {
+		        return template.setTags(proto.tags);
 		    } else {
 		        return true;
 		    }
@@ -159,7 +165,8 @@ function create(authData, proto) {
 			return { resource: extend(restrict.public(template.values), {
             			    recipe: restrict.recipePublic(recipe.values),
             				author: user.values.id,
-            				pictures: (proto.pictures ? proto.pictures.map(function(image) { return restrict.imagePublic(image.values); }) : [ ])
+            				pictures: _publishPictures(proto),
+            				tags: _publishTags(proto)
         				})
     				};
 		},
@@ -169,13 +176,14 @@ function create(authData, proto) {
 
 
 function retrieve(params, authData) {
-	return OfferTemplate.find({ where: restrict.search(params), include: [ Recipe, { model: Image, as: 'Pictures' } ] }).then(
+	return OfferTemplate.find({ where: restrict.search(params), include: [ Recipe, Tag, { model: Image, as: 'Pictures' } ] }).then(
 		function(template) {
 			if(!!template) {
 				return { resource: extend(restrict.public(template.values), {
 				                recipe: restrict.recipePublic(template.values.recipe.values),
 					            author: template.values.AuthorId,
-					            pictures: template.pictures.map(function(image) { return restrict.imagePublic(image.values); })
+					            pictures: _publishPictures(template.values),
+            					tags: _publishTags(template.values)
 					        })
 					   };
 			} else {
@@ -195,7 +203,7 @@ function update(params, authData, proto) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, { model: Image, as: 'Pictures' }, Recipe ] });
+				return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, { model: Image, as: 'Pictures' }, Tag, Recipe ] });
 			} else {
 				throw new Errors.Authentication();
 			}
@@ -238,10 +246,29 @@ function update(params, authData, proto) {
 		Errors.report('Database')
 	).then(
 		function() {
+		    return _setTags(proto, template.values.author.values.id);
+		},
+		Errors.report('Database')
+	).then(
+		function(tags) {
+		    if(tags instanceof Array) {
+		        proto.tags = tags;
+		    }
+		    
+		    if(proto.tags) {
+		        return template.setTags(proto.tags);
+		    } else {
+		        return true;
+		    }
+		},
+		Errors.report('Database')
+	).then(
+		function() {
 			return { resource: extend(restrict.public(template.values), {
 			                recipe: restrict.recipePublic(template.values.recipe.values),
 				            author: template.values.AuthorId,
-				            pictures: (proto.pictures ? proto.pictures : template.pictures).map(function(image) { return restrict.imagePublic(image.values); })
+				            pictures: _publishPictures(proto, template.values),
+				            tags: _publishTags(proto, template.values)
 				        })
 				    };
 		},
@@ -258,7 +285,7 @@ function destroy(params, authData) {
 		    serviceId = _serviceId;
 		    
 			if(!!serviceId) {
-				return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, { model: Image, as: 'Pictures' }, Recipe ] });
+				return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, { model: Image, as: 'Pictures' }, Tag, Recipe ] });
 			} else {
 				throw new Errors.Authentication();
 			}
@@ -282,7 +309,8 @@ function destroy(params, authData) {
 			return { resource: extend(restrict.public(template.values), {
 			                recipe: restrict.recipePublic(template.values.recipe.values),
 				            author: template.values.AuthorId,
-				            pictures: template.pictures.map(function(image) { return restrict.imagePublic(image.values); })
+				            pictures: _publishPictures(template.values),
+            				tags: _publishTags(template.values)
 				        })
 				   };
 		},
@@ -297,6 +325,7 @@ module.exports = function(app) {
 	Recipe = DB.Recipe;
 	User = DB.User;
 	Image = DB.Image;
+	Tag = DB.Tag;
 
 	return {
 		create: create,

@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		tag: {
+		text: {
 		    type: DataTypes.STRING,
 			allowNull: false
 		}

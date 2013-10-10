@@ -3127,8 +3127,12 @@ label,
 /**
  * She’s all yours, cap’n... Begin importing your stuff here.
  */
-/* line 2, ../sass/thumbnail.scss */
-.thumbnail .thumbnail-background {
+/* line 1, ../sass/thumbnail.scss */
+.thumbnail {
+  position: relative;
+}
+/* line 3, ../sass/thumbnail.scss */
+.thumbnail .thumbnail--background {
   height: 100%;
   left: 50%;
   margin-left: -25%;

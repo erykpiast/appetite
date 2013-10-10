@@ -261,7 +261,8 @@ describe('offer template REST integration test', function() {
                     'http://xxx.aaa.com/test-title/image_001.jpg',
                     'http://xxx.aaa.com/test-title/image_002.jpg',
                     'http://xxx.aaa.com/test-title/image_003.jpg'
-                ]
+                ],
+            'tags' : [ 'tag1', 'tag2', 'tag3' ]
         },
         currentRest = '/offer-template';
     
@@ -298,6 +299,11 @@ describe('offer template REST integration test', function() {
                             { id: 1, filename: 'image_001.jpg' },
                             { id: 2, filename: 'image_002.jpg' },
                             { id: 3, filename: 'image_003.jpg' }
+                        ],
+                    tags: [
+                            { id: 1, text: 'tag1' },
+                            { id: 2, text: 'tag2' },
+                            { id: 3, text: 'tag3' }
                         ]
                 });
               
