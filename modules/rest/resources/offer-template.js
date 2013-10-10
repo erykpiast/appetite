@@ -55,6 +55,48 @@ function _setPictures(proto, authorId) {
 }
 
 
+function _setTags(proto, authorId) {
+    if(proto.pictures) {
+        if((proto.pictures instanceof Array) && proto.pictures.length) {
+            var chainer = new Sequelize.Utils.QueryChainer;
+            
+            var pictures = proto.pictures.map(function(proto) {
+                if(!proto) {
+                    return null;
+                } else {
+                    proto = proto.toString();
+                    
+	                proto = {
+	                    originalUrl: proto,
+	                    filename: new RegExp('^(.*/)([^/]*)$').exec(proto)[2]
+	                };
+	                
+	                var img = Image.findOrCreate({ originalUrl: proto.originalUrl }, { filename: proto.filename, AuthorId: authorId });
+	                
+	                chainer.add(img);
+	                
+	                return img;
+                }
+            }).filter(function(img) {
+                return !!img;
+            });
+            
+            if(pictures.length) {
+	            return chainer.run();
+            } else {
+                throw Errors.WrongData();
+            }
+        } else {
+            throw Errors.WrongData();
+        }
+    } else {
+        delete proto.pictures;
+        
+        return true;
+    }
+}
+
+
 function create(authData, proto) {
     var user, recipe, template;
     
@@ -253,7 +295,7 @@ module.exports = function(app) {
     DB = app.get('db');
 	OfferTemplate = DB.OfferTemplate;
 	Recipe = DB.Recipe;
-	User = DB.User,
+	User = DB.User;
 	Image = DB.Image;
 
 	return {

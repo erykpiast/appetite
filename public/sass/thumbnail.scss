@@ -1,5 +1,6 @@
 .thumbnail {
-    .thumbnail-background {
+    position: relative;
+    .thumbnail--background {
         height: 100%;
         left: 50%
         margin-left: -25%;
@@ -7,7 +8,7 @@
         top: 0;
         width: auto;
     }
-    .thumbnail-foreground {
+    .thumbnail--foreground {
     
     }
 }

@@ -36,6 +36,9 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
         m.OfferTemplate.hasMany(m.Image, { as: 'Pictures' });
         m.Image.hasMany(m.OfferTemplate);
         
+        m.OfferTemplate.hasMany(m.Tag);
+        m.Tag.hasMany(m.OfferTemplate);
+        
 
         m.Offer.belongsTo(m.OfferTemplate, { as: 'Template', foreignKey: 'TemplateId' });
         m.Offer.belongsTo(m.Place);
@@ -55,6 +58,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
         /* -- */
 
+        m.Tag.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Recipe.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Place.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Image.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
