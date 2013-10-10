@@ -6,8 +6,8 @@
         </header>
     
         <ul>
-    	    <li>
-    	        <app-offer-thumbnail ng-repeat="offer in offers" model="offer"></app-offer-thumbnail>
+    	    <li ng-repeat="offer in offers">
+    	        <app-offer-thumbnail model="offer"></app-offer-thumbnail>
     	    </li>
     	</ul>
     	

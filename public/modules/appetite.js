@@ -20,7 +20,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 				.state('index', {
 					url: '/',
 					views: angular.extend({
-						'main': {
+						'content': {
 							template: templates.main,
 							controller: controllers.main
 						}
@@ -29,7 +29,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 				.state('test1', {
 					url: '/test1',
 					views: angular.extend({
-						'main': {
+						'content': {
 							template: templates.main,
 							controller: controllers.test
 						}
@@ -38,12 +38,17 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 				.state('test2', {
 					url: '/test2',
 					views: angular.extend({
-						'main': {
+						'content': {
 							template: templates.test,
 							controller: controllers.main
 						}
 					}, common)
 				});
+		})
+		.run(function($rootScope, i18n) {
+
+			$rootScope.i18n = i18n;
+
 		});
 
 	return angular.module('appetite');

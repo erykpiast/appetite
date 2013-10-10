@@ -48,7 +48,7 @@ requirejs.config({
 	}
 });
 
-require([ 'libs/angular', 'modules/appetite', 'directives' ], function(angular) {
+require([ 'libs/angular', 'modules/appetite', 'directives', 'services' ], function(angular) {
 
     angular.bootstrap(document, [ 'appetite' ]);
 
