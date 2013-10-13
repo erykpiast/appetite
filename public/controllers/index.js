@@ -1,13 +1,21 @@
-define([ 'controllers/footer', 'controllers/header', 'controllers/main', 'controllers/test' ],
-function(footer, header, main, test) {
+(function() {
+    
+    var controllers = [ 'header', 'footer',
+        'test', 'main', 'offer' ];
+    
+    define(controllers.map(function(controller) {
+    	return 'controllers/' + controller;
+    }), function() {
+    
+        var o = { },
+            args = arguments;
+        
+        controllers.forEach(function(controller, index) {
+            o[controller] = args[index];
+        });
+    
+        return o;
+    
+    });
 
-	// angular ui router accepts only functions, not simply names of controllers
-
-   return {
-       'footer': footer,
-       'header': header,
-       'main': main,
-       'test': test
-   };
-
-});
+})();

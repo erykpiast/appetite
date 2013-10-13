@@ -1,4 +1,4 @@
-<section class="thumbnail offer-thumbnail" ng-click="goTo(offer.url)">
+<section class="thumbnail offer-thumbnail" ng-click="goTo('offer', { id: {{ offer.id }} })">
 		
 	<header class="thumbnail--text__top">
 		<h3>{{ offer.template.title }}</h3>

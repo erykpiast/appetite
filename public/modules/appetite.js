@@ -2,7 +2,9 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 
 	angular.module('appetite',
 		[ 'ngResource', 'ui.state' ])
-		.config(function($stateProvider, $urlRouterProvider) {
+		.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+			$locationProvider.html5Mode(true);
+
 			$urlRouterProvider.otherwise('/');
 
 			var common = {
@@ -26,12 +28,12 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 						}
 					}, common)
 				})
-				.state('test1', {
-					url: '/test1',
+				.state('offer', {
+					url: '/offer/:id',
 					views: angular.extend({
 						'content': {
-							template: templates.main,
-							controller: controllers.test
+							template: templates.offer,
+							controller: controllers.offer
 						}
 					}, common)
 				})
@@ -45,10 +47,15 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 					}, common)
 				});
 		})
-		.run(function($rootScope, i18n) {
+		.run(function($rootScope, $state, i18n) {
 
 			$rootScope.i18n = i18n;
 
+			$rootScope.goTo = function(state, params) {
+				var params = Array.prototype.slice.call(arguments, 1);
+
+				$state.transitionTo(state, params);
+			}
 		});
 
 	return angular.module('appetite');

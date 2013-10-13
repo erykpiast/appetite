@@ -4079,15 +4079,15 @@ ol.horizontal > li {
 /* line 37, ../sass/partials/offer-thumbnail.scss */
 
 .offer-thumbnail p {
-  font-size: 1rem;
+  font-size: .9rem;
 }
 
 /* line 41, ../sass/partials/offer-thumbnail.scss */
 
 .offer-thumbnail h3,
 .offer-thumbnail p {
-  margin-bottom: 0.6em;
-  margin-top: 0.4em;
-  margin-left: 0.6em;
-  margin-right: 0.4em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }

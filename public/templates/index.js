@@ -1,6 +1,8 @@
 (function() {
     
-    var templates = [ 'main', 'header', 'footer', 'test', 'offer-thumbnail' ];
+    var templates = [ 'header', 'footer',
+        'test', 'main', 'offer',
+        'offer-thumbnail' ];
     
     define(templates.map(function(template) { return 'text!templates/' + template + '.tpl'; }),
     function() {

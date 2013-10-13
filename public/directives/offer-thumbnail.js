@@ -9,6 +9,7 @@ function(angular, appetite, template) {
 			    restrict: 'E',
 			    scope: { offer: '=model' },
 			    link: function(scope, element, attrs) {
+			    	scope.goTo = $rootScope.goTo;
 			    	// console.log(scope.offer);
 			    }
 			};
