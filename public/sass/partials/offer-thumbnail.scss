@@ -1,0 +1,44 @@
+.offer-thumbnail {
+    $size: 15em;
+	$h-margin: 1em;
+	$border-radius: 0.25em;
+
+    border: 1px solid #888 {
+		radius: $border-radius;
+    };
+    height: $size;
+    margin: {
+        bottom: 1em;
+        right: $h-margin;
+    };
+    width: $size;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:after {
+    	background-color: $main-light-color;
+    	bottom: 0;
+    	content: "";
+    	display: block;
+    	height: .25em;
+		@include stretch-x();
+    }
+
+    &:first-child {
+    	margin-left: $h-margin;
+    }
+
+	h3 {
+		font-size: 1.2rem;
+    }
+
+    p {
+    	font-size: 1rem;
+    }
+
+    h3, p {
+    	@include spacing();
+    }
+}

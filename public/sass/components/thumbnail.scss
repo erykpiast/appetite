@@ -1,0 +1,54 @@
+.thumbnail {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+  
+    .thumbnail--background {
+        $maxBgWidth: 1000px; 
+        height: 100%;
+        left: 50%;
+        margin-left: -($maxBgWidth / 2);
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: $maxBgWidth;
+        z-index: 0;
+        img {
+            display: inline-block;
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    .thumbnail--text {
+        $animDuration: .5s;
+        $animEasing: ease-in;
+
+        background-color: rgba(255, 255, 255, 1);
+        box-sizing: border-box;
+        left: 0;
+        position: absolute;
+        text-align: left;
+        right: 0;
+        z-index: 1;
+    }
+
+    .thumbnail--text__top,
+    .thumbnail--text__bottom {
+        @extend .thumbnail--text;
+    }
+    .thumbnail--text__top {
+        top: 0;
+    }
+    .thumbnail--text__bottom {
+        bottom: -100%;
+        transition: bottom linear .15s;
+    }
+  
+    &:hover {
+        .thumbnail--text__bottom {
+            bottom: 0;
+            transition: bottom ease-out .3s;
+        }
+    }
+}

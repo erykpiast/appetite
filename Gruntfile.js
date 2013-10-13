@@ -15,11 +15,22 @@ module.exports = function (grunt) {
         		    sassDir: 'sass',
         		    cssDir: 'styles',
         		    specify: appDir + '/sass/style.scss',
-        		    require: 'compass-inuit',
+        		    require: [ 'compass', 'compass-inuit' ],
         		    force: true,
         		    relativeAssets: true
         		}
         	}
+		},
+		autoprefixer: {
+			options: {
+				browsers: [ '> 1%', 'last 2 version' ]
+			},
+			multiple_files: {
+				expand: true,
+				flatten: true,
+				src: appDir + '/styles/*.css',
+				dest: appDir + '/styles/'
+			}
 		},
 		develop: {
 			server: {
@@ -44,7 +55,7 @@ module.exports = function (grunt) {
 			    files: [
 					appDir + '/sass/{,*/}*.scss'
 				],
-				tasks: [ 'compass:dev' ]
+				tasks: [ 'compass:dev', 'autoprefixer' ]
 			},
 			karma: {
 			    files: [
@@ -57,7 +68,7 @@ module.exports = function (grunt) {
 					appDir + '/scripts/{,*/}*.js',
 					appDir + '/{,*/}*.tpl'
 				],
-				tasks: [ 'develop', 'compass:dev', 'karma:integration:run' ]
+				tasks: [ 'develop', 'compass:dev', 'autoprefixer', 'karma:integration:run' ]
 			}
 		},
 		karma: {
@@ -73,16 +84,21 @@ module.exports = function (grunt) {
 		}
 	});
 
+
 	grunt.loadNpmTasks('grunt-develop');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+
 	grunt.loadNpmTasks('grunt-jasmine-node');
 	grunt.loadNpmTasks('grunt-karma');
 	
 	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-autoprefixer');
+
 
 	grunt.registerTask('default', [
 		'develop',
 		'compass:dev',
+		'autoprefixer',
 		'watch:sass',
 		'watch:develop'
 	]);
@@ -90,6 +106,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 	   'develop',
 	   'compass:dev',
+	   'autoprefixer',
 	   'jasmine_node',
 	   'karma:integration',
 	   'watch:karma'

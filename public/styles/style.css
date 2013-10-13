@@ -1,150 +1,142 @@
 @charset "UTF-8";
-/*------------------------------------*\
-    YOUR-PROJECT.CSS
-\*------------------------------------*/
+
+
 /**
- *
- * compass watch
- *
- * Here we set up some variables, include the inuit.css framework, then add our
- * project-specific components afterwards.
+ * Generic utility styles etc.
  */
-/**
- * Setup
- */
-/*------------------------------------*\
-    VARS.SCSS
-\*------------------------------------*/
-/**
- * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
- * keep, simply redefine here. This means that if inuit.css, for example, sets
- * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
- * that variable in this file. inuit.css ignores its own variables in favour of
- * using your own, so you can completely modify how inuit.css works without ever
- * having to alter the framework itself.
- */
-/*------------------------------------*\
-    $OBJECTS-AND-ABSTRACTIONS
-\*------------------------------------*/
-/**
- * All of inuit.css’ objects and abstractions are initially turned off by
- * default. This means that you start any project with as little as possible,
- * and introducing objects and abstractions is as simple as switching the
- * following variables to `true`.
- */
-/*------------------------------------*\
-    $OVERRIDES
-\*------------------------------------*/
-/**
- * Place any variables that should override inuit.css’ defaults here.
- */
-/*------------------------------------*\
-    $CUSTOM
-\*------------------------------------*/
-/**
- * Place any of your own variables that sit on top of inuit.css here.
- */
+
 /*------------------------------------*\
     $DEFAULTS
 \*------------------------------------*/
+
 /**
  * inuit.css’ default variables. Redefine these in your `_vars.scss` file (found
  * in the inuit.css-web-template) to override them.
  */
+
 /*------------------------------------*\
     $DEBUG
 \*------------------------------------*/
+
 /**
  * Debug mode will visually highlight any potential markup/accessibility quirks
  * in the browser. Set to `true` or `false`.
  */
+
 /*------------------------------------*\
     $BORDER-BOX
 \*------------------------------------*/
+
 /**
  * Do you want all elements to adopt `box-sizing:border-box;` as per
  * paulirish.com/2012/box-sizing-border-box-ftw ?
  */
+
 /*------------------------------------*\
     $BASE
 \*------------------------------------*/
+
 /**
  * Base stuff
  */
+
 /**
  * Base font-family.
  */
+
 /**
  * Default colour for objects’ borders etc.
  */
+
 /*------------------------------------*\
     $RESPONSIVE
 \*------------------------------------*/
+
 /**
  * Responsiveness?
  */
+
 /**
  * Responsiveness for widescreen/high resolution desktop monitors and beyond?
  * Note: `$responsive` variable above must be set to true before enabling this.
  */
+
 /**
  * Responsive push and pull produce a LOT of code, only turn them on if you
  * definitely need them.
  */
+
 /**
  * Note: `$push` variable above must be set to true before enabling these.
  */
+
 /**
  * Note: `$pull` variable above must be set to true before enabling these.
  */
+
 /**
  * Tell inuit.css when breakpoints start.
  */
+
 /*------------------------------------*\
     $FONT-SIZES
 \*------------------------------------*/
+
 /**
  * Font-sizes (in pixels). Refer to relevant sections for their implementations.
  */
+
 /*------------------------------------*\
     $QUOTES
 \*------------------------------------*/
+
 /**
  * English quote marks?
  */
+
 /**
  * If you want English quotes then please do not edit these; they’re only here
  * because Sass needs them.
  */
+
 /**
  * If you need non-English quotes, please alter the following values accordingly:
  */
+
 /*------------------------------------*\
     $BRAND
 \*------------------------------------*/
+
 /**
  * Brand stuff
  */
+
 /**
  * How big would you like round corners to be by default?
  */
+
 /*------------------------------------*\
     $OBJECTS AND ABSTRACTIONS
 \*------------------------------------*/
+
 /**
  * Which objects and abstractions would you like to use?
  */
+
 /*------------------------------------*\
     $FRAMEWORK
 \*------------------------------------*/
+
 /**
  * inuit.css will work these next ones out for use within the framework.
  *
  * Assign our `$base-line-height` to a new spacing var for more transparency.
  */
+
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
+
 /**
  * Create a fully formed type style (sizing and vertical rhythm) by passing in a
  * single value, e.g.:
@@ -154,6 +146,7 @@
  * Thanks to @redclov3r for the `line-height` Sass:
  * twitter.com/redclov3r/status/250301539321798657
  */
+
 /**
  * Style any number of headings in one fell swoop, e.g.:
  *
@@ -166,12 +159,14 @@
  * With thanks to @lar_zzz, @paranoida, @rowanmanning and ultimately
  * @thierrylemoulec for refining and improving my initial mixin.
  */
+
 /**
  * Create vendor-prefixed CSS in one go, e.g.
  *
    `@include vendor(border-radius, 4px);`
  *
  */
+
 /**
  * Create CSS keyframe animations for all vendors in one go, e.g.:
  *
@@ -187,6 +182,7 @@
  *
  * Courtesy of @integralist: twitter.com/integralist/status/260484115315437569
  */
+
 /**
  * Force overly long spans of text to truncate, e.g.:
  *
@@ -194,6 +190,7 @@
  *
  * Where `$truncation-boundary` is a united measurement.
  */
+
 /**
  * CSS arrows!!! But... before you read on, you might want to grab a coffee...
  *
@@ -229,6 +226,7 @@
    }
  *
  */
+
 /**
  * Media query mixin.
  *
@@ -255,14 +253,19 @@
  *
  * We work out your end points for you:
  */
+
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
+
 /*
  * Correct `block` display not defined in IE 8/9.
  */
+
 /* line 22, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 article,
 aside,
 details,
@@ -281,7 +284,9 @@ summary {
 /*
  * Correct `inline-block` display not defined in IE 8/9.
  */
+
 /* line 32, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 audio,
 canvas,
 video {
@@ -292,7 +297,9 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
+
 /* line 41, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -301,7 +308,9 @@ audio:not([controls]) {
 /*
  * Address styling not present in IE 8/9.
  */
+
 /* line 50, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 [hidden] {
   display: none;
 }
@@ -309,12 +318,15 @@ audio:not([controls]) {
 /* ==========================================================================
    Base
    ========================================================================== */
+
 /*
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+
 /* line 64, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 html {
   font-family: sans-serif;
   /* 1 */
@@ -327,7 +339,9 @@ html {
 /*
  * Remove default margin.
  */
+
 /* line 74, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 body {
   margin: 0;
 }
@@ -335,10 +349,13 @@ body {
 /* ==========================================================================
    Links
    ========================================================================== */
+
 /*
  * Address `outline` inconsistency between Chrome and other browsers.
  */
+
 /* line 86, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 a:focus {
   outline: thin dotted;
 }
@@ -346,7 +363,9 @@ a:focus {
 /*
  * Improve readability when focused and also mouse hovered in all browsers.
  */
+
 /* line 95, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 a:active,
 a:hover {
   outline: 0;
@@ -355,11 +374,14 @@ a:hover {
 /* ==========================================================================
    Typography
    ========================================================================== */
+
 /*
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
+
 /* line 108, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -368,7 +390,9 @@ h1 {
 /*
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
+
 /* line 117, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -376,7 +400,9 @@ abbr[title] {
 /*
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
+
 /* line 126, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 b,
 strong {
   font-weight: bold;
@@ -385,7 +411,9 @@ strong {
 /*
  * Address styling not present in Safari 5 and Chrome.
  */
+
 /* line 134, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 dfn {
   font-style: italic;
 }
@@ -393,9 +421,12 @@ dfn {
 /*
  * Address differences between Firefox and other browsers.
  */
+
 /* line 142, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 hr {
   -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -403,7 +434,9 @@ hr {
 /*
  * Address styling not present in IE 8/9.
  */
+
 /* line 152, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 mark {
   background: #ff0;
   color: #000;
@@ -412,7 +445,9 @@ mark {
 /*
  * Correct font family set oddly in Safari 5 and Chrome.
  */
+
 /* line 164, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 code,
 kbd,
 pre,
@@ -424,7 +459,9 @@ samp {
 /*
  * Improve readability of pre-formatted text in all browsers.
  */
+
 /* line 173, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 pre {
   white-space: pre-wrap;
 }
@@ -432,7 +469,9 @@ pre {
 /*
  * Set consistent quote types.
  */
+
 /* line 181, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
@@ -440,7 +479,9 @@ q {
 /*
  * Address inconsistent and variable font size in all browsers.
  */
+
 /* line 189, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 small {
   font-size: 80%;
 }
@@ -448,7 +489,9 @@ small {
 /*
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
+
 /* line 198, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 sub,
 sup {
   font-size: 75%;
@@ -458,11 +501,13 @@ sup {
 }
 
 /* line 205, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 sup {
   top: -0.5em;
 }
 
 /* line 209, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 sub {
   bottom: -0.25em;
 }
@@ -470,10 +515,13 @@ sub {
 /* ==========================================================================
    Embedded content
    ========================================================================== */
+
 /*
  * Remove border when inside `a` element in IE 8/9.
  */
+
 /* line 221, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 img {
   border: 0;
 }
@@ -481,7 +529,9 @@ img {
 /*
  * Correct overflow displayed oddly in IE 9.
  */
+
 /* line 229, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 svg:not(:root) {
   overflow: hidden;
 }
@@ -489,10 +539,13 @@ svg:not(:root) {
 /* ==========================================================================
    Figures
    ========================================================================== */
+
 /*
  * Address margin not present in IE 8/9 and Safari 5.
  */
+
 /* line 241, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 figure {
   margin: 0;
 }
@@ -500,10 +553,13 @@ figure {
 /* ==========================================================================
    Forms
    ========================================================================== */
+
 /*
  * Define consistent border, margin, and padding.
  */
+
 /* line 253, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -514,7 +570,9 @@ fieldset {
  * 1. Correct `color` not being inherited in IE 8/9.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
+
 /* line 264, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 legend {
   border: 0;
   /* 1 */
@@ -527,7 +585,9 @@ legend {
  * 2. Correct font size not being inherited in all browsers.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
+
 /* line 278, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 button,
 input,
 select,
@@ -544,7 +604,9 @@ textarea {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
+
 /* line 290, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 button,
 input {
   line-height: normal;
@@ -556,7 +618,9 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
+
 /* line 302, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 button,
 select {
   text-transform: none;
@@ -569,7 +633,9 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
+
 /* line 317, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 button,
 html input[type="button"],
 input[type="reset"],
@@ -583,7 +649,9 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements.
  */
+
 /* line 327, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -593,9 +661,13 @@ html input[disabled] {
  * 1. Address box sizing set to `content-box` in IE 8/9.
  * 2. Remove excess padding in IE 8/9.
  */
+
 /* line 337, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -607,7 +679,9 @@ input[type="radio"] {
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
+
 /* line 348, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -621,7 +695,9 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
+
 /* line 361, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -630,7 +706,9 @@ input[type="search"]::-webkit-search-decoration {
 /*
  * Remove inner padding and border in Firefox 4+.
  */
+
 /* line 370, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -641,7 +719,9 @@ input::-moz-focus-inner {
  * 1. Remove default vertical scrollbar in IE 8/9.
  * 2. Improve readability and alignment in all browsers.
  */
+
 /* line 380, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 textarea {
   overflow: auto;
   /* 1 */
@@ -652,10 +732,13 @@ textarea {
 /* ==========================================================================
    Tables
    ========================================================================== */
+
 /*
  * Remove most spacing between table cells.
  */
+
 /* line 393, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_normalize.scss */
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -664,15 +747,21 @@ table {
 /*------------------------------------*\
     $RESET
 \*------------------------------------*/
+
 /**
  * A more considered reset; more of a restart...
  * As per: csswizardry.com/2011/10/reset-restarted
  */
+
 /**
 * Let’s make the box model all nice, shall we...?
 */
+
 /* line 16, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -683,12 +772,29 @@ table {
 /**
  * The usual...
  */
+
 /* line 30, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-dl, dd, ol, ul,
-form, fieldset, legend,
-table, th, td, caption,
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+form,
+fieldset,
+legend,
+table,
+th,
+td,
+caption,
 hr {
   margin: 0;
   padding: 0;
@@ -697,23 +803,31 @@ hr {
 /**
  * Give a help cursor to elements that give extra info on `:hover`.
  */
+
 /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
-abbr[title], dfn[title] {
+
+abbr[title],
+dfn[title] {
   cursor: help;
 }
 
 /**
  * Remove underlines from potentially troublesome elements.
  */
+
 /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
-u, ins {
+
+u,
+ins {
   text-decoration: none;
 }
 
 /**
  * Apply faux underline via `border-bottom`.
  */
+
 /* line 52, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
+
 ins {
   border-bottom: 1px solid;
 }
@@ -721,7 +835,9 @@ ins {
 /**
  * So that `alt` text is visually offset if images don’t load.
  */
+
 /* line 59, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
+
 img {
   font-style: italic;
 }
@@ -729,7 +845,9 @@ img {
 /**
  * Give form elements some cursor interactions...
  */
+
 /* line 71, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
+
 label,
 input,
 textarea,
@@ -740,6 +858,7 @@ option {
 }
 
 /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_reset.scss */
+
 .text-input:active,
 .text-input:focus,
 textarea:active,
@@ -751,12 +870,15 @@ textarea:focus {
 /*------------------------------------*\
     $CLEARFIX
 \*------------------------------------*/
+
 /**
  * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
  * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
  * and over in your markup.
  */
+
 /* line 10, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_clearfix.scss */
+
 .cf:after {
   content: "";
   display: table;
@@ -766,20 +888,35 @@ textarea:focus {
 /*------------------------------------*\
     $SHARED
 \*------------------------------------*/
+
 /**
  * Where `margin-bottom` is concerned, this value will be the same as the
  * base line-height. This allows us to keep a consistent vertical rhythm.
  * As per: csswizardry.com/2012/06/single-direction-margin-declarations
  */
+
 /**
  * Base elements
  */
+
 /* line 24, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_shared.scss */
-h1, h2, h3, h4, h5, h6, hgroup,
-ul, ol, dl,
-blockquote, p, address,
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
 table,
-fieldset, figure,
+fieldset,
+figure,
 pre,
 .form-fields > li,
 .media,
@@ -788,15 +925,37 @@ pre,
   margin-bottom: 24px;
   margin-bottom: 1.5rem;
 }
+
 /* line 28, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_shared.scss */
-.islet h1, .islet h2, .islet h3, .islet h4, .islet h5, .islet h6, .islet hgroup, .islet
-ul, .islet ol, .islet dl, .islet
-blockquote, .islet p, .islet address, .islet
-table, .islet
-fieldset, .islet figure, .islet
-pre, .islet .form-fields > li, .islet
-.media, .islet
-.island, .islet
+
+.islet h1,
+.islet h2,
+.islet h3,
+.islet h4,
+.islet h5,
+.islet h6,
+.islet hgroup,
+.islet
+ul,
+.islet ol,
+.islet dl,
+.islet
+blockquote,
+.islet p,
+.islet address,
+.islet
+table,
+.islet
+fieldset,
+.islet figure,
+.islet
+pre,
+.islet .form-fields > li,
+.islet
+.media,
+.islet
+.island,
+.islet
 .islet {
   margin-bottom: 12px;
   margin-bottom: 0.75rem;
@@ -805,7 +964,9 @@ pre, .islet .form-fields > li, .islet
 /**
  * Doubled up `margin-bottom` helper class.
  */
+
 /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_shared.scss */
+
 .landmark {
   margin-bottom: 48px;
   margin-bottom: 3rem;
@@ -815,7 +976,9 @@ pre, .islet .form-fields > li, .islet
  * `hr` elements only take up a few pixels, so we need to give them special
  * treatment regarding vertical rhythm.
  */
+
 /* line 48, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_shared.scss */
+
 hr {
   margin-bottom: 22px;
   margin-bottom: 1.375rem;
@@ -825,16 +988,26 @@ hr {
  * Where `margin-left` is concerned we want to try and indent certain elements
  * by a consistent amount. Define that amount once, here.
  */
+
 /* line 58, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_shared.scss */
-ul, ol, dd {
+
+ul,
+ol,
+dd {
   margin-left: 48px;
   margin-left: 3rem;
 }
 
+/**
+ * Base styles; unclassed HTML elements etc.
+ */
+
 /*------------------------------------*\
     $MAIN
 \*------------------------------------*/
+
 /* line 4, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_main.scss */
+
 html {
   font: 1em/1.5 sans-serif;
   overflow-y: scroll;
@@ -844,6 +1017,7 @@ html {
 /*------------------------------------*\
     $HEADINGS
 \*------------------------------------*/
+
 /**
  * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
  *
@@ -851,43 +1025,56 @@ html {
  * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
  * heading hierarchy.
  */
+
 /* line 11, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
-h1, .alpha {
+
+h1,
+.alpha {
   font-size: 36px;
   font-size: 2.25rem;
   line-height: 1.33333;
 }
 
 /* line 14, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
-h2, .beta {
+
+h2,
+.beta {
   font-size: 30px;
   font-size: 1.875rem;
   line-height: 1.6;
 }
 
 /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
-h3, .gamma {
+
+h3,
+.gamma {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1;
 }
 
 /* line 20, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
-h4, .delta {
+
+h4,
+.delta {
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.2;
 }
 
 /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
-h5, .epsilon {
+
+h5,
+.epsilon {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
 }
 
 /* line 26, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
-h6, .zeta {
+
+h6,
+.zeta {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.71429;
@@ -903,7 +1090,9 @@ h6, .zeta {
    </hgroup>
  *
  */
+
 /* line 43, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
+
 hgroup .hN {
   margin-bottom: 0;
 }
@@ -912,7 +1101,9 @@ hgroup .hN {
  * A series of classes for setting massive type; for use in heroes, mastheads,
  * promos, etc.
  */
+
 /* line 52, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
+
 .giga {
   font-size: 96px;
   font-size: 6rem;
@@ -920,6 +1111,7 @@ hgroup .hN {
 }
 
 /* line 55, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
+
 .mega {
   font-size: 72px;
   font-size: 4.5rem;
@@ -927,6 +1119,7 @@ hgroup .hN {
 }
 
 /* line 58, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_headings.scss */
+
 .kilo {
   font-size: 48px;
   font-size: 3rem;
@@ -936,11 +1129,14 @@ hgroup .hN {
 /*------------------------------------*\
     $PARAGRAPHS
 \*------------------------------------*/
+
 /**
  * The `.lede` class is used to make the introductory text (usually a paragraph)
  * of a document slightly larger.
  */
+
 /* line 9, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_paragraphs.scss */
+
 .lede,
 .lead {
   font-size: 18px;
@@ -951,10 +1147,13 @@ hgroup .hN {
 /*------------------------------------*\
     $SMALLPRINT
 \*------------------------------------*/
+
 /**
  * A series of classes for setting tiny type; for use in smallprint etc.
  */
+
 /* line 8, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_smallprint.scss */
+
 .smallprint,
 .milli {
   font-size: 12px;
@@ -963,6 +1162,7 @@ hgroup .hN {
 }
 
 /* line 11, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_smallprint.scss */
+
 .micro {
   font-size: 10px;
   font-size: 0.625rem;
@@ -972,65 +1172,89 @@ hgroup .hN {
 /*------------------------------------*\
     $QUOTES
 \*------------------------------------*/
+
 /**
  * If English quotes are set in `_vars.scss`, define them here.
  */
+
 /**
  * Big up @boblet: html5doctor.com/blockquote-q-cite
  */
+
 /**
  * Inline quotes.
  */
+
 /* line 20, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 q {
   quotes: "\2018" "\2019" "\201C" "\201D";
 }
+
 /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 q:before {
   content: "\2018";
   content: open-quote;
 }
+
 /* line 27, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 q:after {
   content: "\2019";
   content: close-quote;
 }
+
 /* line 32, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 q q:before {
   content: "\201C";
   content: open-quote;
 }
+
 /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 q q:after {
   content: "\201D";
   content: close-quote;
 }
 
 /* line 42, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote {
   quotes: "\201C" "\201D";
 }
+
 /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote p:before {
   content: "\201C";
   content: open-quote;
 }
+
 /* line 49, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote p:after {
   content: "";
   content: no-close-quote;
 }
+
 /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote p:last-of-type:after {
   content: "\201D";
   content: close-quote;
 }
+
 /* line 58, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote q:before {
   content: "\2018";
   content: open-quote;
 }
+
 /* line 62, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote q:after {
   content: "\2019";
   content: close-quote;
@@ -1045,24 +1269,31 @@ blockquote q:after {
    </blockquote>
  *
  */
+
 /* line 78, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote {
   /**
    * .4em is roughly equal to the width of the opening “ that we wish to hang.
    */
   text-indent: -0.41em;
 }
+
 /* line 84, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 blockquote p:last-of-type {
   margin-bottom: 0;
 }
 
 /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 .source {
   display: block;
   text-indent: 0;
 }
+
 /* line 93, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_quotes.scss */
+
 .source:before {
   content: "\2014";
 }
@@ -1070,15 +1301,19 @@ blockquote p:last-of-type {
 /*------------------------------------*\
     $CODE
 \*------------------------------------*/
+
 /**
  * Use an explicit font stack to ensure browsers render correct `line-height`.
  */
+
 /* line 7, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_code.scss */
+
 pre {
   overflow: auto;
 }
 
 /* line 10, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_code.scss */
+
 pre mark {
   background: none;
   border-bottom: 1px solid;
@@ -1091,7 +1326,9 @@ pre mark {
    <code>&lt;/div&gt;<span class=code-comment>&lt;!-- /wrapper --&gt;</span></code>
  *
  */
+
 /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_code.scss */
+
 .code-comment {
   /**
    * Override this setting in your theme stylesheet
@@ -1122,7 +1359,9 @@ pre mark {
  * 3. Make sure lines of code don’t wrap.
  * 4. Give the code form by forcing the `code` to honour white-space.
  */
+
 /* line 54, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_code.scss */
+
 .line-numbers {
   font-family: monospace, serif;
   /* [1] */
@@ -1136,6 +1375,7 @@ pre mark {
 }
 
 /* line 61, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_code.scss */
+
 .line-numbers code {
   white-space: pre;
   /* [4] */
@@ -1144,13 +1384,17 @@ pre mark {
 /*------------------------------------*\
     $IMAGES
 \*------------------------------------*/
+
 /**
  * Demo: jsfiddle.net/inuitcss/yMtur
  */
+
 /**
  * Fluid images.
  */
+
 /* line 10, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 img {
   max-width: 100%;
 }
@@ -1158,7 +1402,9 @@ img {
 /**
  * Non-fluid images if you specify `width` and/or `height` attributes.
  */
+
 /* line 19, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 img[width],
 img[height] {
   max-width: none;
@@ -1167,7 +1413,9 @@ img[height] {
 /**
  * Rounded images.
  */
+
 /* line 27, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 .img--round {
   border-radius: 4px;
 }
@@ -1175,7 +1423,9 @@ img[height] {
 /**
  * Image placement variations.
  */
+
 /* line 33, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 .img--right {
   float: right;
   margin-bottom: 24px;
@@ -1183,6 +1433,7 @@ img[height] {
 }
 
 /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 .img--left {
   float: left;
   margin-right: 24px;
@@ -1190,6 +1441,7 @@ img[height] {
 }
 
 /* line 43, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 .img--center {
   display: block;
   margin-right: auto;
@@ -1203,17 +1455,21 @@ img[height] {
  * Please note, these will not work too nicely with fluid images and will
  * distort when resized below a certain width. Use with caution.
  */
+
 /* line 57, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 .img--short {
   height: 120px;
 }
 
 /* line 60, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 .img--medium {
   height: 240px;
 }
 
 /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 .img--tall {
   height: 360px;
 }
@@ -1221,7 +1477,9 @@ img[height] {
 /**
  * Images in `figure` elements.
  */
+
 /* line 71, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_images.scss */
+
 figure > img {
   display: block;
 }
@@ -1229,10 +1487,13 @@ figure > img {
 /*------------------------------------*\
     $LISTS
 \*------------------------------------*/
+
 /**
  * Remove vertical spacing from nested lists.
  */
+
 /* line 9, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_lists.scss */
+
 li > ul,
 li > ol {
   margin-bottom: 0;
@@ -1241,8 +1502,11 @@ li > ol {
 /**
  * Have a numbered `ul` without the semantics implied by using an `ol`.
  */
+
 /*ul*/
+
 /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_lists.scss */
+
 .numbered-list {
   list-style-type: decimal;
 }
@@ -1250,6 +1514,7 @@ li > ol {
 /*------------------------------------*\
     $TABLES
 \*------------------------------------*/
+
 /**
  * We have a lot at our disposal for making very complex table constructs, e.g.:
  *
@@ -1304,19 +1569,24 @@ li > ol {
    </table>
  *
  */
+
 /* line 58, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 table {
   width: 100%;
 }
 
 /* line 62, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 th,
 td {
   padding: 6px;
   text-align: left;
 }
+
 @media screen and (min-width: 480px) {
   /* line 62, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
   th,
   td {
     padding: 12px;
@@ -1326,27 +1596,33 @@ td {
 /**
  * Cell alignments
  */
+
 /* line 74, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 [colspan] {
   text-align: center;
 }
 
 /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 [colspan="1"] {
   text-align: left;
 }
 
 /* line 80, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 [rowspan] {
   vertical-align: middle;
 }
 
 /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 [rowspan="1"] {
   vertical-align: top;
 }
 
 /* line 86, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .numerical {
   text-align: right;
 }
@@ -1357,136 +1633,171 @@ td {
  * class so that column can soak up the effects of any accidental breakage in
  * the table.
  */
+
 /* line 96, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t5 {
   width: 5%;
 }
 
 /* line 97, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t10 {
   width: 10%;
 }
 
 /* line 98, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t12 {
   width: 12.5%;
 }
 
 /* 1/8 */
+
 /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t15 {
   width: 15%;
 }
 
 /* line 100, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t20 {
   width: 20%;
 }
 
 /* line 101, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t25 {
   width: 25%;
 }
 
 /* 1/4 */
+
 /* line 102, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t30 {
   width: 30%;
 }
 
 /* line 103, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t33 {
   width: 33.333%;
 }
 
 /* 1/3 */
+
 /* line 104, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t35 {
   width: 35%;
 }
 
 /* line 105, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t37 {
   width: 37.5%;
 }
 
 /* 3/8 */
+
 /* line 106, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t40 {
   width: 40%;
 }
 
 /* line 107, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t45 {
   width: 45%;
 }
 
 /* line 108, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t50 {
   width: 50%;
 }
 
 /* 1/2 */
+
 /* line 109, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t55 {
   width: 55%;
 }
 
 /* line 110, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t60 {
   width: 60%;
 }
 
 /* line 111, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t62 {
   width: 62.5%;
 }
 
 /* 5/8 */
+
 /* line 112, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t65 {
   width: 65%;
 }
 
 /* line 113, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t66 {
   width: 66.666%;
 }
 
 /* 2/3 */
+
 /* line 114, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t70 {
   width: 70%;
 }
 
 /* line 115, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t75 {
   width: 75%;
 }
 
 /* 3/4*/
+
 /* line 116, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t80 {
   width: 80%;
 }
 
 /* line 117, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t85 {
   width: 85%;
 }
 
 /* line 118, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t87 {
   width: 87.5%;
 }
 
 /* 7/8 */
+
 /* line 119, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t90 {
   width: 90%;
 }
 
 /* line 120, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .t95 {
   width: 95%;
 }
@@ -1494,21 +1805,29 @@ td {
 /**
  * Bordered tables
  */
+
 /* line 129, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .table--bordered th,
 .table--bordered td {
   border: 1px solid #cccccc;
 }
+
 /* line 132, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .table--bordered th:empty,
 .table--bordered td:empty {
   border: none;
 }
+
 /* line 137, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .table--bordered thead tr:last-child th {
   border-bottom-width: 2px;
 }
+
 /* line 141, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .table--bordered tbody tr th:last-of-type {
   border-right-width: 2px;
 }
@@ -1516,7 +1835,9 @@ td {
 /**
  * Striped tables
  */
+
 /* line 152, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .table--striped tbody tr:nth-of-type(odd) {
   background-color: #ffc;
   /* Override this color in your theme stylesheet */
@@ -1525,7 +1846,9 @@ td {
 /**
  * Data table
  */
+
 /* line 161, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_tables.scss */
+
 .table--data {
   font: 12px/1.5 sans-serif;
 }
@@ -1533,12 +1856,15 @@ td {
 /*------------------------------------*\
     $FORMS
 \*------------------------------------*/
+
 /**
  *
  * Demo: jsfiddle.net/inuitcss/MhHHU
  *
  */
+
 /* line 9, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 fieldset {
   padding: 24px;
 }
@@ -1553,7 +1879,9 @@ fieldset {
    <input type=password class=text-input>
  *
  */
+
 /* line 25, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .text-input,
 textarea {
   /**
@@ -1580,13 +1908,16 @@ textarea {
    </ul>
  *
  */
+
 /* line 51, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .form-fields {
   list-style: none;
   margin: 0;
 }
 
 /* line 58, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .form-fields > li:last-child {
   margin-bottom: 0;
 }
@@ -1617,7 +1948,9 @@ textarea {
    </li>
  *
  */
+
 /* line 90, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 label,
 .label {
   display: block;
@@ -1629,7 +1962,9 @@ label,
    <label>Card number <small class=additional>No spaces</small></label>
  *
  */
+
 /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .additional {
   display: block;
   font-weight: normal;
@@ -1650,7 +1985,9 @@ label,
    </li>
  *
  */
+
 /* line 120, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .check-list {
   list-style: none;
   margin: 0;
@@ -1659,7 +1996,9 @@ label,
 /*
  * Labels in check-lists
  */
+
 /* line 129, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .check-label,
 .check-list label,
 .check-list .label {
@@ -1681,7 +2020,9 @@ label,
    </li>
  *
  */
+
 /* line 149, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .spoken-form label {
   display: inline-block;
   font: inherit;
@@ -1699,22 +2040,35 @@ label,
  * it reappears.
  *
  */
+
 /*small*/
+
 /* line 167, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .extra-help {
   display: inline-block;
   visibility: hidden;
 }
 
 /* line 172, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/base/_forms.scss */
+
 .text-input:active + .extra-help,
 .text-input:focus + .extra-help {
   visibility: visible;
 }
 
+/**
+ * Objects and abstractions
+ */
+
+/**
+ * Style trumps; helper and brand classes
+ */
+
 /*------------------------------------*\
     $WIDTHS
 \*------------------------------------*/
+
 /**
  * Sizes in human readable format. These are used in conjunction with other
  * objects and abstractions found in inuit.css, most commonly the grid system
@@ -1723,10 +2077,13 @@ label,
  * We have a mixin to generate our widths and their breakpoint-specific
  * variations.
  */
+
 /**
 * Whole
 */
+
 /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .one-whole {
   width: 100%;
 }
@@ -1734,92 +2091,132 @@ label,
 /**
 * Halves
 */
+
 /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths {
+
+.one-half,
+.two-quarters,
+.three-sixths,
+.four-eighths,
+.five-tenths,
+.six-twelfths {
   width: 50%;
 }
 
 /**
 * Thirds
 */
+
 /* line 29, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.one-third, .two-sixths, .four-twelfths {
+
+.one-third,
+.two-sixths,
+.four-twelfths {
   width: 33.333%;
 }
 
 /* line 30, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.two-thirds, .four-sixths, .eight-twelfths {
+
+.two-thirds,
+.four-sixths,
+.eight-twelfths {
   width: 66.666%;
 }
 
 /**
 * Quarters
 */
+
 /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.one-quarter, .two-eighths, .three-twelfths {
+
+.one-quarter,
+.two-eighths,
+.three-twelfths {
   width: 25%;
 }
 
 /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.three-quarters, .six-eighths, .nine-twelfths {
+
+.three-quarters,
+.six-eighths,
+.nine-twelfths {
   width: 75%;
 }
 
 /**
 * Fifths
 */
+
 /* line 44, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.one-fifth, .two-tenths {
+
+.one-fifth,
+.two-tenths {
   width: 20%;
 }
 
 /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.two-fifths, .four-tenths {
+
+.two-fifths,
+.four-tenths {
   width: 40%;
 }
 
 /* line 46, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.three-fifths, .six-tenths {
+
+.three-fifths,
+.six-tenths {
   width: 60%;
 }
 
 /* line 47, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.four-fifths, .eight-tenths {
+
+.four-fifths,
+.eight-tenths {
   width: 80%;
 }
 
 /**
 * Sixths
 */
+
 /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.one-sixth, .two-twelfths {
+
+.one-sixth,
+.two-twelfths {
   width: 16.666%;
 }
 
 /* line 57, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-.five-sixths, .ten-twelfths {
+
+.five-sixths,
+.ten-twelfths {
   width: 83.333%;
 }
 
 /**
 * Eighths
 */
+
 /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .one-eighth {
   width: 12.5%;
 }
 
 /* line 65, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .three-eighths {
   width: 37.5%;
 }
 
 /* line 67, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .five-eighths {
   width: 62.5%;
 }
 
 /* line 69, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .seven-eighths {
   width: 87.5%;
 }
@@ -1827,22 +2224,27 @@ label,
 /**
 * Tenths
 */
+
 /* line 75, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .one-tenth {
   width: 10%;
 }
 
 /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .three-tenths {
   width: 30%;
 }
 
 /* line 81, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .seven-tenths {
   width: 70%;
 }
 
 /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .nine-tenths {
   width: 90%;
 }
@@ -1850,22 +2252,27 @@ label,
 /**
 * Twelfths
 */
+
 /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .one-twelfth {
   width: 8.333%;
 }
 
 /* line 93, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .five-twelfths {
   width: 41.666%;
 }
 
 /* line 95, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .seven-twelfths {
   width: 58.333%;
 }
 
 /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
 .eleven-twelfths {
   width: 91.666%;
 }
@@ -1884,11 +2291,14 @@ label,
  * Demo: jsfiddle.net/inuitcss/WS4Ge
  *
  */
+
 @media only screen and (max-width: 480px) {
   /**
   * Whole
   */
+
   /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-one-whole {
     width: 100%;
   }
@@ -1896,92 +2306,132 @@ label,
   /**
   * Halves
   */
+
   /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-one-half, .palm-two-quarters, .palm-three-sixths, .palm-four-eighths, .palm-five-tenths, .palm-six-twelfths {
+
+  .palm-one-half,
+  .palm-two-quarters,
+  .palm-three-sixths,
+  .palm-four-eighths,
+  .palm-five-tenths,
+  .palm-six-twelfths {
     width: 50%;
   }
 
   /**
   * Thirds
   */
+
   /* line 29, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-one-third, .palm-two-sixths, .palm-four-twelfths {
+
+  .palm-one-third,
+  .palm-two-sixths,
+  .palm-four-twelfths {
     width: 33.333%;
   }
 
   /* line 30, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-two-thirds, .palm-four-sixths, .palm-eight-twelfths {
+
+  .palm-two-thirds,
+  .palm-four-sixths,
+  .palm-eight-twelfths {
     width: 66.666%;
   }
 
   /**
   * Quarters
   */
+
   /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-one-quarter, .palm-two-eighths, .palm-three-twelfths {
+
+  .palm-one-quarter,
+  .palm-two-eighths,
+  .palm-three-twelfths {
     width: 25%;
   }
 
   /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-three-quarters, .palm-six-eighths, .palm-nine-twelfths {
+
+  .palm-three-quarters,
+  .palm-six-eighths,
+  .palm-nine-twelfths {
     width: 75%;
   }
 
   /**
   * Fifths
   */
+
   /* line 44, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-one-fifth, .palm-two-tenths {
+
+  .palm-one-fifth,
+  .palm-two-tenths {
     width: 20%;
   }
 
   /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-two-fifths, .palm-four-tenths {
+
+  .palm-two-fifths,
+  .palm-four-tenths {
     width: 40%;
   }
 
   /* line 46, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-three-fifths, .palm-six-tenths {
+
+  .palm-three-fifths,
+  .palm-six-tenths {
     width: 60%;
   }
 
   /* line 47, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-four-fifths, .palm-eight-tenths {
+
+  .palm-four-fifths,
+  .palm-eight-tenths {
     width: 80%;
   }
 
   /**
   * Sixths
   */
+
   /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-one-sixth, .palm-two-twelfths {
+
+  .palm-one-sixth,
+  .palm-two-twelfths {
     width: 16.666%;
   }
 
   /* line 57, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .palm-five-sixths, .palm-ten-twelfths {
+
+  .palm-five-sixths,
+  .palm-ten-twelfths {
     width: 83.333%;
   }
 
   /**
   * Eighths
   */
+
   /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-one-eighth {
     width: 12.5%;
   }
 
   /* line 65, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-three-eighths {
     width: 37.5%;
   }
 
   /* line 67, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-five-eighths {
     width: 62.5%;
   }
 
   /* line 69, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-seven-eighths {
     width: 87.5%;
   }
@@ -1989,22 +2439,27 @@ label,
   /**
   * Tenths
   */
+
   /* line 75, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-one-tenth {
     width: 10%;
   }
 
   /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-three-tenths {
     width: 30%;
   }
 
   /* line 81, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-seven-tenths {
     width: 70%;
   }
 
   /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-nine-tenths {
     width: 90%;
   }
@@ -2012,31 +2467,39 @@ label,
   /**
   * Twelfths
   */
+
   /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-one-twelfth {
     width: 8.333%;
   }
 
   /* line 93, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-five-twelfths {
     width: 41.666%;
   }
 
   /* line 95, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-seven-twelfths {
     width: 58.333%;
   }
 
   /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .palm-eleven-twelfths {
     width: 91.666%;
   }
 }
+
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
   /**
   * Whole
   */
+
   /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-one-whole {
     width: 100%;
   }
@@ -2044,92 +2507,132 @@ label,
   /**
   * Halves
   */
+
   /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-one-half, .lap-two-quarters, .lap-three-sixths, .lap-four-eighths, .lap-five-tenths, .lap-six-twelfths {
+
+  .lap-one-half,
+  .lap-two-quarters,
+  .lap-three-sixths,
+  .lap-four-eighths,
+  .lap-five-tenths,
+  .lap-six-twelfths {
     width: 50%;
   }
 
   /**
   * Thirds
   */
+
   /* line 29, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-one-third, .lap-two-sixths, .lap-four-twelfths {
+
+  .lap-one-third,
+  .lap-two-sixths,
+  .lap-four-twelfths {
     width: 33.333%;
   }
 
   /* line 30, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-two-thirds, .lap-four-sixths, .lap-eight-twelfths {
+
+  .lap-two-thirds,
+  .lap-four-sixths,
+  .lap-eight-twelfths {
     width: 66.666%;
   }
 
   /**
   * Quarters
   */
+
   /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-one-quarter, .lap-two-eighths, .lap-three-twelfths {
+
+  .lap-one-quarter,
+  .lap-two-eighths,
+  .lap-three-twelfths {
     width: 25%;
   }
 
   /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-three-quarters, .lap-six-eighths, .lap-nine-twelfths {
+
+  .lap-three-quarters,
+  .lap-six-eighths,
+  .lap-nine-twelfths {
     width: 75%;
   }
 
   /**
   * Fifths
   */
+
   /* line 44, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-one-fifth, .lap-two-tenths {
+
+  .lap-one-fifth,
+  .lap-two-tenths {
     width: 20%;
   }
 
   /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-two-fifths, .lap-four-tenths {
+
+  .lap-two-fifths,
+  .lap-four-tenths {
     width: 40%;
   }
 
   /* line 46, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-three-fifths, .lap-six-tenths {
+
+  .lap-three-fifths,
+  .lap-six-tenths {
     width: 60%;
   }
 
   /* line 47, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-four-fifths, .lap-eight-tenths {
+
+  .lap-four-fifths,
+  .lap-eight-tenths {
     width: 80%;
   }
 
   /**
   * Sixths
   */
+
   /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-one-sixth, .lap-two-twelfths {
+
+  .lap-one-sixth,
+  .lap-two-twelfths {
     width: 16.666%;
   }
 
   /* line 57, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-five-sixths, .lap-ten-twelfths {
+
+  .lap-five-sixths,
+  .lap-ten-twelfths {
     width: 83.333%;
   }
 
   /**
   * Eighths
   */
+
   /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-one-eighth {
     width: 12.5%;
   }
 
   /* line 65, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-three-eighths {
     width: 37.5%;
   }
 
   /* line 67, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-five-eighths {
     width: 62.5%;
   }
 
   /* line 69, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-seven-eighths {
     width: 87.5%;
   }
@@ -2137,22 +2640,27 @@ label,
   /**
   * Tenths
   */
+
   /* line 75, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-one-tenth {
     width: 10%;
   }
 
   /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-three-tenths {
     width: 30%;
   }
 
   /* line 81, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-seven-tenths {
     width: 70%;
   }
 
   /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-nine-tenths {
     width: 90%;
   }
@@ -2160,31 +2668,39 @@ label,
   /**
   * Twelfths
   */
+
   /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-one-twelfth {
     width: 8.333%;
   }
 
   /* line 93, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-five-twelfths {
     width: 41.666%;
   }
 
   /* line 95, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-seven-twelfths {
     width: 58.333%;
   }
 
   /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-eleven-twelfths {
     width: 91.666%;
   }
 }
+
 @media only screen and (min-width: 481px) {
   /**
   * Whole
   */
+
   /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-one-whole {
     width: 100%;
   }
@@ -2192,92 +2708,132 @@ label,
   /**
   * Halves
   */
+
   /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-one-half, .lap-and-up-two-quarters, .lap-and-up-three-sixths, .lap-and-up-four-eighths, .lap-and-up-five-tenths, .lap-and-up-six-twelfths {
+
+  .lap-and-up-one-half,
+  .lap-and-up-two-quarters,
+  .lap-and-up-three-sixths,
+  .lap-and-up-four-eighths,
+  .lap-and-up-five-tenths,
+  .lap-and-up-six-twelfths {
     width: 50%;
   }
 
   /**
   * Thirds
   */
+
   /* line 29, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-one-third, .lap-and-up-two-sixths, .lap-and-up-four-twelfths {
+
+  .lap-and-up-one-third,
+  .lap-and-up-two-sixths,
+  .lap-and-up-four-twelfths {
     width: 33.333%;
   }
 
   /* line 30, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-two-thirds, .lap-and-up-four-sixths, .lap-and-up-eight-twelfths {
+
+  .lap-and-up-two-thirds,
+  .lap-and-up-four-sixths,
+  .lap-and-up-eight-twelfths {
     width: 66.666%;
   }
 
   /**
   * Quarters
   */
+
   /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-one-quarter, .lap-and-up-two-eighths, .lap-and-up-three-twelfths {
+
+  .lap-and-up-one-quarter,
+  .lap-and-up-two-eighths,
+  .lap-and-up-three-twelfths {
     width: 25%;
   }
 
   /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-three-quarters, .lap-and-up-six-eighths, .lap-and-up-nine-twelfths {
+
+  .lap-and-up-three-quarters,
+  .lap-and-up-six-eighths,
+  .lap-and-up-nine-twelfths {
     width: 75%;
   }
 
   /**
   * Fifths
   */
+
   /* line 44, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-one-fifth, .lap-and-up-two-tenths {
+
+  .lap-and-up-one-fifth,
+  .lap-and-up-two-tenths {
     width: 20%;
   }
 
   /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-two-fifths, .lap-and-up-four-tenths {
+
+  .lap-and-up-two-fifths,
+  .lap-and-up-four-tenths {
     width: 40%;
   }
 
   /* line 46, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-three-fifths, .lap-and-up-six-tenths {
+
+  .lap-and-up-three-fifths,
+  .lap-and-up-six-tenths {
     width: 60%;
   }
 
   /* line 47, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-four-fifths, .lap-and-up-eight-tenths {
+
+  .lap-and-up-four-fifths,
+  .lap-and-up-eight-tenths {
     width: 80%;
   }
 
   /**
   * Sixths
   */
+
   /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-one-sixth, .lap-and-up-two-twelfths {
+
+  .lap-and-up-one-sixth,
+  .lap-and-up-two-twelfths {
     width: 16.666%;
   }
 
   /* line 57, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .lap-and-up-five-sixths, .lap-and-up-ten-twelfths {
+
+  .lap-and-up-five-sixths,
+  .lap-and-up-ten-twelfths {
     width: 83.333%;
   }
 
   /**
   * Eighths
   */
+
   /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-one-eighth {
     width: 12.5%;
   }
 
   /* line 65, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-three-eighths {
     width: 37.5%;
   }
 
   /* line 67, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-five-eighths {
     width: 62.5%;
   }
 
   /* line 69, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-seven-eighths {
     width: 87.5%;
   }
@@ -2285,22 +2841,27 @@ label,
   /**
   * Tenths
   */
+
   /* line 75, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-one-tenth {
     width: 10%;
   }
 
   /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-three-tenths {
     width: 30%;
   }
 
   /* line 81, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-seven-tenths {
     width: 70%;
   }
 
   /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-nine-tenths {
     width: 90%;
   }
@@ -2308,31 +2869,39 @@ label,
   /**
   * Twelfths
   */
+
   /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-one-twelfth {
     width: 8.333%;
   }
 
   /* line 93, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-five-twelfths {
     width: 41.666%;
   }
 
   /* line 95, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-seven-twelfths {
     width: 58.333%;
   }
 
   /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .lap-and-up-eleven-twelfths {
     width: 91.666%;
   }
 }
+
 @media only screen and (max-width: 1023px) {
   /**
   * Whole
   */
+
   /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-one-whole {
     width: 100%;
   }
@@ -2340,92 +2909,132 @@ label,
   /**
   * Halves
   */
+
   /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-one-half, .portable-two-quarters, .portable-three-sixths, .portable-four-eighths, .portable-five-tenths, .portable-six-twelfths {
+
+  .portable-one-half,
+  .portable-two-quarters,
+  .portable-three-sixths,
+  .portable-four-eighths,
+  .portable-five-tenths,
+  .portable-six-twelfths {
     width: 50%;
   }
 
   /**
   * Thirds
   */
+
   /* line 29, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-one-third, .portable-two-sixths, .portable-four-twelfths {
+
+  .portable-one-third,
+  .portable-two-sixths,
+  .portable-four-twelfths {
     width: 33.333%;
   }
 
   /* line 30, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-two-thirds, .portable-four-sixths, .portable-eight-twelfths {
+
+  .portable-two-thirds,
+  .portable-four-sixths,
+  .portable-eight-twelfths {
     width: 66.666%;
   }
 
   /**
   * Quarters
   */
+
   /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-one-quarter, .portable-two-eighths, .portable-three-twelfths {
+
+  .portable-one-quarter,
+  .portable-two-eighths,
+  .portable-three-twelfths {
     width: 25%;
   }
 
   /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-three-quarters, .portable-six-eighths, .portable-nine-twelfths {
+
+  .portable-three-quarters,
+  .portable-six-eighths,
+  .portable-nine-twelfths {
     width: 75%;
   }
 
   /**
   * Fifths
   */
+
   /* line 44, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-one-fifth, .portable-two-tenths {
+
+  .portable-one-fifth,
+  .portable-two-tenths {
     width: 20%;
   }
 
   /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-two-fifths, .portable-four-tenths {
+
+  .portable-two-fifths,
+  .portable-four-tenths {
     width: 40%;
   }
 
   /* line 46, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-three-fifths, .portable-six-tenths {
+
+  .portable-three-fifths,
+  .portable-six-tenths {
     width: 60%;
   }
 
   /* line 47, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-four-fifths, .portable-eight-tenths {
+
+  .portable-four-fifths,
+  .portable-eight-tenths {
     width: 80%;
   }
 
   /**
   * Sixths
   */
+
   /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-one-sixth, .portable-two-twelfths {
+
+  .portable-one-sixth,
+  .portable-two-twelfths {
     width: 16.666%;
   }
 
   /* line 57, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .portable-five-sixths, .portable-ten-twelfths {
+
+  .portable-five-sixths,
+  .portable-ten-twelfths {
     width: 83.333%;
   }
 
   /**
   * Eighths
   */
+
   /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-one-eighth {
     width: 12.5%;
   }
 
   /* line 65, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-three-eighths {
     width: 37.5%;
   }
 
   /* line 67, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-five-eighths {
     width: 62.5%;
   }
 
   /* line 69, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-seven-eighths {
     width: 87.5%;
   }
@@ -2433,22 +3042,27 @@ label,
   /**
   * Tenths
   */
+
   /* line 75, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-one-tenth {
     width: 10%;
   }
 
   /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-three-tenths {
     width: 30%;
   }
 
   /* line 81, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-seven-tenths {
     width: 70%;
   }
 
   /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-nine-tenths {
     width: 90%;
   }
@@ -2456,31 +3070,39 @@ label,
   /**
   * Twelfths
   */
+
   /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-one-twelfth {
     width: 8.333%;
   }
 
   /* line 93, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-five-twelfths {
     width: 41.666%;
   }
 
   /* line 95, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-seven-twelfths {
     width: 58.333%;
   }
 
   /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .portable-eleven-twelfths {
     width: 91.666%;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   /**
   * Whole
   */
+
   /* line 17, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-one-whole {
     width: 100%;
   }
@@ -2488,92 +3110,132 @@ label,
   /**
   * Halves
   */
+
   /* line 23, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-one-half, .desk-two-quarters, .desk-three-sixths, .desk-four-eighths, .desk-five-tenths, .desk-six-twelfths {
+
+  .desk-one-half,
+  .desk-two-quarters,
+  .desk-three-sixths,
+  .desk-four-eighths,
+  .desk-five-tenths,
+  .desk-six-twelfths {
     width: 50%;
   }
 
   /**
   * Thirds
   */
+
   /* line 29, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-one-third, .desk-two-sixths, .desk-four-twelfths {
+
+  .desk-one-third,
+  .desk-two-sixths,
+  .desk-four-twelfths {
     width: 33.333%;
   }
 
   /* line 30, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-two-thirds, .desk-four-sixths, .desk-eight-twelfths {
+
+  .desk-two-thirds,
+  .desk-four-sixths,
+  .desk-eight-twelfths {
     width: 66.666%;
   }
 
   /**
   * Quarters
   */
+
   /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-one-quarter, .desk-two-eighths, .desk-three-twelfths {
+
+  .desk-one-quarter,
+  .desk-two-eighths,
+  .desk-three-twelfths {
     width: 25%;
   }
 
   /* line 38, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-three-quarters, .desk-six-eighths, .desk-nine-twelfths {
+
+  .desk-three-quarters,
+  .desk-six-eighths,
+  .desk-nine-twelfths {
     width: 75%;
   }
 
   /**
   * Fifths
   */
+
   /* line 44, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-one-fifth, .desk-two-tenths {
+
+  .desk-one-fifth,
+  .desk-two-tenths {
     width: 20%;
   }
 
   /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-two-fifths, .desk-four-tenths {
+
+  .desk-two-fifths,
+  .desk-four-tenths {
     width: 40%;
   }
 
   /* line 46, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-three-fifths, .desk-six-tenths {
+
+  .desk-three-fifths,
+  .desk-six-tenths {
     width: 60%;
   }
 
   /* line 47, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-four-fifths, .desk-eight-tenths {
+
+  .desk-four-fifths,
+  .desk-eight-tenths {
     width: 80%;
   }
 
   /**
   * Sixths
   */
+
   /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-one-sixth, .desk-two-twelfths {
+
+  .desk-one-sixth,
+  .desk-two-twelfths {
     width: 16.666%;
   }
 
   /* line 57, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
-  .desk-five-sixths, .desk-ten-twelfths {
+
+  .desk-five-sixths,
+  .desk-ten-twelfths {
     width: 83.333%;
   }
 
   /**
   * Eighths
   */
+
   /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-one-eighth {
     width: 12.5%;
   }
 
   /* line 65, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-three-eighths {
     width: 37.5%;
   }
 
   /* line 67, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-five-eighths {
     width: 62.5%;
   }
 
   /* line 69, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-seven-eighths {
     width: 87.5%;
   }
@@ -2581,22 +3243,27 @@ label,
   /**
   * Tenths
   */
+
   /* line 75, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-one-tenth {
     width: 10%;
   }
 
   /* line 77, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-three-tenths {
     width: 30%;
   }
 
   /* line 81, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-seven-tenths {
     width: 70%;
   }
 
   /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-nine-tenths {
     width: 90%;
   }
@@ -2604,63 +3271,80 @@ label,
   /**
   * Twelfths
   */
+
   /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-one-twelfth {
     width: 8.333%;
   }
 
   /* line 93, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-five-twelfths {
     width: 41.666%;
   }
 
   /* line 95, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-seven-twelfths {
     width: 58.333%;
   }
 
   /* line 99, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_widths.scss */
+
   .desk-eleven-twelfths {
     width: 91.666%;
   }
 }
+
 /**
  * If you have set the additional `$responsive-extra` variable to ‘true’ in
  * `_vars.scss` then you now have access to the following class available to
  * accomodate much larger screen resolutions.
  */
+
 /* endif */
+
 /*------------------------------------*\
     $PUSH
 \*------------------------------------*/
+
 /**
  * Push classes, to move grid items over to the right by certain amounts.
  */
+
 /*------------------------------------*\
     $PULL
 \*------------------------------------*/
+
 /**
  * Pull classes, to move grid items over to the right by certain amounts.
  */
+
 /*------------------------------------*\
     $BRAND
 \*------------------------------------*/
+
 /**
  * `.brand` is a quick and simple way to apply your brand face and/or color to
  * any element using a handy helper class.
  */
+
 /* line 8, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_brand.scss */
+
 .brand {
   font-family: "Helvetica Neue", sans-serif!important;
   color: #4a8ec2!important;
 }
 
 /* line 12, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_brand.scss */
+
 .brand-face {
   font-family: "Helvetica Neue", sans-serif!important;
 }
 
 /* line 16, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_brand.scss */
+
 .brand-color,
 .brand-colour {
   color: #4a8ec2!important;
@@ -2669,6 +3353,7 @@ label,
 /*------------------------------------*\
     $HELPER
 \*------------------------------------*/
+
 /**
  * A series of helper classes to use arbitrarily. Only use a helper class if an
  * element/component doesn’t already have a class to which you could apply this
@@ -2678,20 +3363,25 @@ label,
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
+
 /**
  * Add/remove floats
  */
+
 /* line 18, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .float--right {
   float: right !important;
 }
 
 /* line 19, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .float--left {
   float: left !important;
 }
 
 /* line 20, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .float--none {
   float: none !important;
 }
@@ -2699,17 +3389,21 @@ label,
 /**
  * Text alignment
  */
+
 /* line 26, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .text--left {
   text-align: left  !important;
 }
 
 /* line 27, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .text--center {
   text-align: center !important;
 }
 
 /* line 28, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .text--right {
   text-align: right !important;
 }
@@ -2717,17 +3411,21 @@ label,
 /**
  * Font weights
  */
+
 /* line 34, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .weight--light {
   font-weight: 300 !important;
 }
 
 /* line 35, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .weight--normal {
   font-weight: 400 !important;
 }
 
 /* line 36, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .weight--semibold {
   font-weight: 600 !important;
 }
@@ -2735,112 +3433,134 @@ label,
 /**
  * Add/remove margins
  */
+
 /* line 42, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push {
   margin: 24px !important;
 }
 
 /* line 43, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push--top {
   margin-top: 24px !important;
 }
 
 /* line 44, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push--right {
   margin-right: 24px !important;
 }
 
 /* line 45, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push--bottom {
   margin-bottom: 24px !important;
 }
 
 /* line 46, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push--left {
   margin-left: 24px !important;
 }
 
 /* line 47, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push--ends {
   margin-top: 24px !important;
   margin-bottom: 24px !important;
 }
 
 /* line 48, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push--sides {
   margin-right: 24px !important;
   margin-left: 24px !important;
 }
 
 /* line 50, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push-half {
   margin: 12px !important;
 }
 
 /* line 51, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push-half--top {
   margin-top: 12px !important;
 }
 
 /* line 52, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push-half--right {
   margin-right: 12px !important;
 }
 
 /* line 53, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push-half--bottom {
   margin-bottom: 12px !important;
 }
 
 /* line 54, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push-half--left {
   margin-left: 12px !important;
 }
 
 /* line 55, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push-half--ends {
   margin-top: 12px !important;
   margin-bottom: 12px !important;
 }
 
 /* line 56, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .push-half--sides {
   margin-right: 12px !important;
   margin-left: 12px !important;
 }
 
 /* line 58, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .flush {
   margin: 0 !important;
 }
 
 /* line 59, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .flush--top {
   margin-top: 0 !important;
 }
 
 /* line 60, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .flush--right {
   margin-right: 0 !important;
 }
 
 /* line 61, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .flush--bottom {
   margin-bottom: 0 !important;
 }
 
 /* line 62, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .flush--left {
   margin-left: 0 !important;
 }
 
 /* line 63, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .flush--ends {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
 /* line 64, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .flush--sides {
   margin-right: 0 !important;
   margin-left: 0 !important;
@@ -2849,112 +3569,134 @@ label,
 /**
  * Add/remove paddings
  */
+
 /* line 70, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft {
   padding: 24px !important;
 }
 
 /* line 71, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft--top {
   padding-top: 24px !important;
 }
 
 /* line 72, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft--right {
   padding-right: 24px !important;
 }
 
 /* line 73, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft--bottom {
   padding-bottom: 24px !important;
 }
 
 /* line 74, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft--left {
   padding-left: 24px !important;
 }
 
 /* line 75, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft--ends {
   padding-top: 24px !important;
   padding-bottom: 24px !important;
 }
 
 /* line 76, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft--sides {
   padding-right: 24px !important;
   padding-left: 24px !important;
 }
 
 /* line 78, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft-half {
   padding: 12px !important;
 }
 
 /* line 79, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft-half--top {
   padding-top: 12px !important;
 }
 
 /* line 80, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft-half--right {
   padding-right: 12px !important;
 }
 
 /* line 81, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft-half--bottom {
   padding-bottom: 12px !important;
 }
 
 /* line 82, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft-half--left {
   padding-left: 12px !important;
 }
 
 /* line 83, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft-half--ends {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
 }
 
 /* line 84, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .soft-half--sides {
   padding-right: 12px !important;
   padding-left: 12px !important;
 }
 
 /* line 86, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .hard {
   padding: 0 !important;
 }
 
 /* line 87, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .hard--top {
   padding-top: 0 !important;
 }
 
 /* line 88, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .hard--right {
   padding-right: 0 !important;
 }
 
 /* line 89, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .hard--bottom {
   padding-bottom: 0 !important;
 }
 
 /* line 90, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .hard--left {
   padding-left: 0 !important;
 }
 
 /* line 91, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .hard--ends {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
 /* line 92, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .hard--sides {
   padding-right: 0 !important;
   padding-left: 0 !important;
@@ -2963,12 +3705,16 @@ label,
 /**
  * Pull items full width of `.island` parents.
  */
+
 /* line 98, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .full-bleed {
   margin-right: -24px !important;
   margin-left: -24px !important;
 }
+
 /* line 102, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .islet .full-bleed {
   margin-right: -12px !important;
   margin-left: -12px !important;
@@ -2978,7 +3724,9 @@ label,
  * Add a help cursor to any element that gives the user extra information on
  * `:hover`.
  */
+
 /* line 113, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .informative {
   cursor: help !important;
 }
@@ -2986,7 +3734,9 @@ label,
 /**
  * Mute an object by reducing its opacity.
  */
+
 /* line 121, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .muted {
   opacity: 0.5 !important;
   filter: alpha(opacity=50) !important;
@@ -2998,7 +3748,9 @@ label,
    <p class=proceed><a href=#>Read more...</a></p>
  *
  */
+
 /* line 133, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .proceed {
   text-align: right !important;
 }
@@ -3009,7 +3761,9 @@ label,
    <a href=# class=go>Read more</a>
  *
  */
+
 /* line 144, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .go:after {
   content: "\00A0" "\00BB" !important;
 }
@@ -3017,7 +3771,9 @@ label,
 /**
  * Apply capital case to an element (usually a `strong`).
  */
+
 /* line 152, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .caps {
   text-transform: uppercase !important;
 }
@@ -3026,7 +3782,9 @@ label,
  * Hide content off-screen without resorting to `display:none;`, also provide
  * breakpoint specific hidden elements.
  */
+
 /* line 172, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
 .accessibility,
 .visuallyhidden {
   border: 0 !important;
@@ -3041,6 +3799,7 @@ label,
 
 @media only screen and (max-width: 480px) {
   /* line 179, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
   .accessibility--palm,
   .visuallyhidden--palm {
     border: 0 !important;
@@ -3053,8 +3812,10 @@ label,
     width: 1px !important;
   }
 }
+
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
   /* line 179, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
   .accessibility--lap,
   .visuallyhidden--lap {
     border: 0 !important;
@@ -3067,8 +3828,10 @@ label,
     width: 1px !important;
   }
 }
+
 @media only screen and (min-width: 481px) {
   /* line 179, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
   .accessibility--lap-and-up,
   .visuallyhidden--lap-and-up {
     border: 0 !important;
@@ -3081,8 +3844,10 @@ label,
     width: 1px !important;
   }
 }
+
 @media only screen and (max-width: 1023px) {
   /* line 179, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
   .accessibility--portable,
   .visuallyhidden--portable {
     border: 0 !important;
@@ -3095,8 +3860,10 @@ label,
     width: 1px !important;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   /* line 179, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
   .accessibility--desk,
   .visuallyhidden--desk {
     border: 0 !important;
@@ -3109,8 +3876,10 @@ label,
     width: 1px !important;
   }
 }
+
 @media only screen and (min-width: 1200px) {
   /* line 179, ../../../../lib/gems/1.9.1/gems/compass-inuit-5.0.2/stylesheets/compass-inuit/generic/_helper.scss */
+
   .accessibility--desk-wide,
   .visuallyhidden--desk-wide {
     border: 0 !important;
@@ -3123,38 +3892,202 @@ label,
     width: 1px !important;
   }
 }
+
 /* endif */
+
+/*------------------------------------*\
+    VARS.SCSS
+\*------------------------------------*/
+
 /**
- * She’s all yours, cap’n... Begin importing your stuff here.
+ * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
  */
-/* line 1, ../sass/thumbnail.scss */
+
+/*------------------------------------*\
+    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+
+/**
+ * All of inuit.css’ objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+
+/*------------------------------------*\
+    $OVERRIDES
+\*------------------------------------*/
+
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+
+/*------------------------------------*\
+    $CUSTOM
+\*------------------------------------*/
+
+/**
+ * Place any of your own variables that sit on top of inuit.css here.
+ */
+
+/* line 1, ../sass/components/thumbnail.scss */
+
 .thumbnail {
+  overflow: hidden;
   position: relative;
+  text-align: center;
 }
-/* line 3, ../sass/thumbnail.scss */
+
+/* line 6, ../sass/components/thumbnail.scss */
+
 .thumbnail .thumbnail--background {
   height: 100%;
   left: 50%;
-  margin-left: -25%;
+  margin-left: -500px;
   position: absolute;
+  text-align: center;
   top: 0;
+  width: 1000px;
+  z-index: 0;
+}
+
+/* line 16, ../sass/components/thumbnail.scss */
+
+.thumbnail .thumbnail--background img {
+  display: inline-block;
+  height: 100%;
   width: auto;
 }
 
-/* line 3, ../sass/main.scss */
-html {
-  background-color: #fff;
-  color: #333;
+/* line 23, ../sass/components/thumbnail.scss */
+
+.thumbnail .thumbnail--text,
+.thumbnail .thumbnail--text__top,
+.thumbnail .thumbnail--text__bottom {
+  background-color: white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  left: 0;
+  position: absolute;
+  text-align: left;
+  right: 0;
+  z-index: 1;
 }
 
-/* line 8, ../sass/main.scss */
-.wrapper {
-  max-width: 960px;
-  padding: 0 24px;
-  margin: 0 auto;
+/* line 40, ../sass/components/thumbnail.scss */
+
+.thumbnail .thumbnail--text__top {
+  top: 0;
 }
 
-/* line 14, ../sass/main.scss */
-.footer {
-  margin-bottom: 0;
+/* line 43, ../sass/components/thumbnail.scss */
+
+.thumbnail .thumbnail--text__bottom {
+  bottom: -100%;
+  -webkit-transition: bottom linear .15s;
+  transition: bottom linear .15s;
+}
+
+/* line 49, ../sass/components/thumbnail.scss */
+
+.thumbnail:hover .thumbnail--text__bottom {
+  bottom: 0;
+  -webkit-transition: bottom ease-out .3s;
+  transition: bottom ease-out .3s;
+}
+
+/* line 3, ../sass/components/lists.scss */
+
+ul.no-bullets,
+ul.horizontal,
+ul.no-bullets > li,
+ul.horizontal > li,
+ol.no-bullets,
+ol.horizontal,
+ol.no-bullets > li,
+ol.horizontal > li {
+  list-style: none;
+}
+
+/* line 9, ../sass/components/lists.scss */
+
+ul.horizontal,
+ol.horizontal {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* line 16, ../sass/components/lists.scss */
+
+ul.horizontal,
+ul.horizontal > li,
+ol.horizontal,
+ol.horizontal > li {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 1, ../sass/partials/offer-thumbnail.scss */
+
+.offer-thumbnail {
+  border: 1px solid #888888;
+  border-radius: 0.25em;
+  height: 15em;
+  margin-bottom: 1em;
+  margin-right: 1em;
+  width: 15em;
+}
+
+/* line 16, ../sass/partials/offer-thumbnail.scss */
+
+.offer-thumbnail:hover {
+  cursor: pointer;
+}
+
+/* line 20, ../sass/partials/offer-thumbnail.scss */
+
+.offer-thumbnail:after {
+  background-color: white;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: .25em;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+/* line 29, ../sass/partials/offer-thumbnail.scss */
+
+.offer-thumbnail:first-child {
+  margin-left: 1em;
+}
+
+/* line 33, ../sass/partials/offer-thumbnail.scss */
+
+.offer-thumbnail h3 {
+  font-size: 1.2rem;
+}
+
+/* line 37, ../sass/partials/offer-thumbnail.scss */
+
+.offer-thumbnail p {
+  font-size: 1rem;
+}
+
+/* line 41, ../sass/partials/offer-thumbnail.scss */
+
+.offer-thumbnail h3,
+.offer-thumbnail p {
+  margin-bottom: 0.6em;
+  margin-top: 0.4em;
+  margin-left: 0.6em;
+  margin-right: 0.4em;
 }

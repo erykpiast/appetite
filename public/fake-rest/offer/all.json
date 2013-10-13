@@ -25,6 +25,23 @@
                     "id" : 2,
                     "filename" : "0002.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 1,
+                    "text" : "tag1"
+                }, {
+                    "id" : 2,
+                    "text" : "tag2"
+                }, {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 5,
+                    "text" : "tag5"
+                }
             ]
         }
     },
@@ -54,11 +71,25 @@
                     "id" : 4,
                     "filename" : "0004.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 6,
+                    "text" : "tag6"
+                }, {
+                    "id" : 7,
+                    "text" : "tag7"
+                }
             ]
         }
     },
     {
-        "id" : 1,
+        "id" : 3,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -83,11 +114,28 @@
                     "id" : 2,
                     "filename" : "0002.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 1,
+                    "text" : "tag1"
+                }, {
+                    "id" : 2,
+                    "text" : "tag2"
+                }, {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 5,
+                    "text" : "tag5"
+                }
             ]
         }
     },
     {
-        "id" : 2,
+        "id" : 4,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -112,11 +160,25 @@
                     "id" : 4,
                     "filename" : "0004.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 6,
+                    "text" : "tag6"
+                }, {
+                    "id" : 7,
+                    "text" : "tag7"
+                }
             ]
         }
     },
     {
-        "id" : 1,
+        "id" : 5,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -141,11 +203,28 @@
                     "id" : 2,
                     "filename" : "0002.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 1,
+                    "text" : "tag1"
+                }, {
+                    "id" : 2,
+                    "text" : "tag2"
+                }, {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 5,
+                    "text" : "tag5"
+                }
             ]
         }
     },
     {
-        "id" : 2,
+        "id" : 6,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -170,11 +249,25 @@
                     "id" : 4,
                     "filename" : "0004.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 6,
+                    "text" : "tag6"
+                }, {
+                    "id" : 7,
+                    "text" : "tag7"
+                }
             ]
         }
     },
     {
-        "id" : 1,
+        "id" : 7,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -199,11 +292,28 @@
                     "id" : 2,
                     "filename" : "0002.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 1,
+                    "text" : "tag1"
+                }, {
+                    "id" : 2,
+                    "text" : "tag2"
+                }, {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 5,
+                    "text" : "tag5"
+                }
             ]
         }
     },
     {
-        "id" : 2,
+        "id" : 8,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -228,11 +338,25 @@
                     "id" : 4,
                     "filename" : "0004.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 6,
+                    "text" : "tag6"
+                }, {
+                    "id" : 7,
+                    "text" : "tag7"
+                }
             ]
         }
     },
     {
-        "id" : 1,
+        "id" : 9,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -257,11 +381,28 @@
                     "id" : 2,
                     "filename" : "0002.jpg"
                 }
+            ],
+            "tags" : [ {
+                    "id" : 1,
+                    "text" : "tag1"
+                }, {
+                    "id" : 2,
+                    "text" : "tag2"
+                }, {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 5,
+                    "text" : "tag5"
+                }
             ]
         }
     },
     {
-        "id" : 2,
+        "id" : 10,
         "type" : "offer",
         "author" : 1,
         "startAt" : "1970-01-05T13:00:00.000Z",
@@ -285,6 +426,20 @@
                 }, {
                     "id" : 4,
                     "filename" : "0004.jpg"
+                }
+            ],
+            "tags" : [ {
+                    "id" : 3,
+                    "text" : "tag3"
+                }, {
+                    "id" : 4,
+                    "text" : "tag4"
+                }, {
+                    "id" : 6,
+                    "text" : "tag6"
+                }, {
+                    "id" : 7,
+                    "text" : "tag7"
                 }
             ]
         }

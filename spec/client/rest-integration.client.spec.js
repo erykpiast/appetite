@@ -115,7 +115,7 @@ var rest = (function(_pathPrefix, _httpCodes, _waitingTime, _log) {
         notFound: 404,
         ok: 200,
         created: 201
-    }, 20 * 1000, true);
+    }, 20 * 1000, !true);
 
 $.cookie.json = true;
 

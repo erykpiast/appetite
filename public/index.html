@@ -13,13 +13,13 @@
 
     <body>
     
-        <section id="page">
+        <section id="page" class="page">
 
-            <header id="header" ui-view="header"></header>
+            <header id="header" class="page--header row" ui-view="header"></header>
 
-            <div id="header" ui-view="content"></div>
+            <div id="content" class="page--content row" ui-view="content"></div>
 
-            <footer id="footer" ui-view="footer"></footer>    
+            <footer id="footer" class="page--footer row" ui-view="footer"></footer>    
 
         </section>
 
