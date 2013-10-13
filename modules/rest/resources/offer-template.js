@@ -16,7 +16,7 @@ var Sequelize = $require('sequelize'),
 var DB, OfferTemplate, Recipe, Image, Tag, User;
 
 
-function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) {
+function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) {  // function factory
 	return function(proto, authorId) {
 		if(proto[propName]) {
 	        if((proto[propName] instanceof Array) && proto[propName].length) {
@@ -56,13 +56,15 @@ function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) 
 }
 
 
-function _createPublishFn(prop, restrictFn) {
+function _createPublishFn(prop, restrictFn) { // function factory
 	return function(source1, source2) {
-		var source = source1[prop] ? source1[prop] : (source2[prop] ? source2[prop] : [ ]);
+		var source = Array.create(source1[prop] ? source1[prop] : (source2 && source2[prop] ? source2[prop] : [ ]));
 
-		return source.map(function(obj) {
-			return restrictFn(obj.values);
-		});// function factory
+		return source
+			.map(function(obj) {
+				return restrictFn(obj.values);
+			})
+			.unique(true); // required until Sequelize returns duplicated objects in collections of pictures and tags
 	}
 }
 
@@ -143,7 +145,7 @@ function create(authData, proto) {
 		},
 		Errors.report('Database')
 	).then(
-		function(pictures) {
+		function() {
 		    return _setTags(proto, user.values.id);
 		},
 		Errors.report('Database')

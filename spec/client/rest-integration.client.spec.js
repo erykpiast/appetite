@@ -450,7 +450,8 @@ describe('offer REST integration test', function() {
                             id: 1,
                             url: 'http://xxx.aaa.com/test-title'
                         },
-                        pictures: [ ]
+                        pictures: [ ],
+                        tags: [ ]
                     }
                 });
               
