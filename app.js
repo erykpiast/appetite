@@ -13,6 +13,8 @@ var express = $require('express'),
 	http = $require('http'),
 	path = $require('path');
 
+var appDir = (__dirname + '/public');
+
 var app = express();
 
 app
@@ -24,29 +26,15 @@ app
 		.set('routes', $require('/routes')(app))
 		.use(express.bodyParser())
 		.use(express.cookieParser())
-		.use(express.methodOverride())
-		.use(app.router)
-		.use(express.static(__dirname + '/public/styles'))
-		.use(express.static(__dirname + '/public/images'))
-		.use(express.static(__dirname + '/public/templates'))
-		.use(express.static(__dirname + '/public/services'))
-		.use(express.static(__dirname + '/public/modules'))
-		.use(express.static(__dirname + '/public/controllers'))
-		.use(express.static(__dirname + '/public/directives'))
-		.use(express.static(__dirname + '/public/filters'))
-		.use(express.static(__dirname + '/public/bower_components'))
-		.use(express.static(__dirname + '/public/fake-rest'))
-		.use(function(req, res, next) {
+		.use('/static', express.static(appDir))
+		.use('/rest/*', function(req, res, next) {
             res.header('Access-Control-Allow-Origin', '*');
             res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
             res.header('Access-Control-Allow-Headers', 'Content-Type');
         
             next();
         })
-        .get('/*', function(req, res) {
-            res.sendfile('index.html', { root: __dirname + '/public' });
-        })
-	// configure route parameters
+        // configure route parameters
         .param(function(name, handler){
             if (handler instanceof RegExp) {
                 return function(req, res, next, val) {
@@ -62,7 +50,11 @@ app
                 };
             }
         })
-        .param('id', /^\d+$/);
+        .param('id', /^\d+$/)
+		.use(app.router)
+        .all('/*', function(req, res) {
+            res.sendfile('index.html', { root: appDir });
+        });
 })
 .configure('development', function() {
 	app

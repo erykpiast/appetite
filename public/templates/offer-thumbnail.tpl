@@ -5,7 +5,7 @@
 	</header>
 
 	<div class="thumbnail--background">
-		<img ng-src="/images/{{ offer.template.pictures[0].filename }}" />
+		<img ng-src="/static/images/{{ offer.template.pictures[0].filename }}" />
 	</div>
 
 	<footer class="thumbnail--text__bottom">

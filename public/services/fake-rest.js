@@ -3,7 +3,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
     angular.module('appetite')
         .factory('fakeRest', function($resource) {
             function _rest(path) {
-                return '/fake-rest/' + path.replace(/^\//, '');
+                return '/static/fake-rest/' + path.replace(/^\//, '');
             }
             
             return {
