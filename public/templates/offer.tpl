@@ -5,6 +5,8 @@
     </header>
 
     <div class="page--content">
+		<app-gallery model="offer.template.pictures"></app-gallery>
+
         <p>{{ offer.template.description }}</p>
     </div>
 

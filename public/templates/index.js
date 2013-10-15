@@ -2,16 +2,19 @@
     
     var templates = [ 'header', 'footer',
         'test', 'main', 'offer',
-        'offer-thumbnail' ];
+        'offer-thumbnail', 'gallery' ];
     
-    define(templates.map(function(template) { return 'text!templates/' + template + '.tpl'; }),
+    define([ 'libs/underscore' ].concat(templates.map(function(template) {
+        return 'text!templates/' + template + '.tpl';
+    })),
     function() {
     
         var o = { },
-            args = arguments;
+            _ = arguments[0],
+            args = Array.prototype.slice.call(arguments, 1);
         
         templates.forEach(function(template, index) {
-            o[template] = args[index];
+            o[_.camelize(template)] = args[index];
         });
     
         return o;

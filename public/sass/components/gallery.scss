@@ -1,0 +1,23 @@
+.gallery {
+
+	.gallery--pictures {
+
+		&,
+		.gallery--picture {
+			height: 100%;
+		}
+
+		.gallery--picture {
+			margin: 0 .5em;
+			overflow: hidden;
+
+			& > img {
+				box-sizing: border-box;
+				border: 1px solid #444;
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+}

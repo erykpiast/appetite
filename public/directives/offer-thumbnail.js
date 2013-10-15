@@ -1,10 +1,10 @@
-define([ 'libs/angular', 'modules/appetite', 'text!templates/offer-thumbnail.tpl' ],
-function(angular, appetite, template) {
+define([ 'libs/angular', 'modules/appetite', 'templates' ],
+function(angular, appetite, templates) {
 
 	return appetite
 		.directive('appOfferThumbnail', function($rootScope) {
 			return {
-			    template: template,
+			    template: templates.offerThumbnail,
 			    replace: true,
 			    restrict: 'E',
 			    scope: { offer: '=model' },

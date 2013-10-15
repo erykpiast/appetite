@@ -3,15 +3,16 @@
     var controllers = [ 'header', 'footer',
         'test', 'main', 'offer' ];
     
-    define(controllers.map(function(controller) {
+    define([ 'libs/underscore' ].concat(controllers.map(function(controller) {
     	return 'controllers/' + controller;
-    }), function() {
+    })), function() {
     
         var o = { },
-            args = arguments;
+            _ = arguments[0],
+            args = Array.prototype.slice.call(arguments, 1);
         
         controllers.forEach(function(controller, index) {
-            o[controller] = args[index];
+            o[_.camelize(controller)] = args[index];
         });
     
         return o;

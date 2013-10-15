@@ -4,6 +4,166 @@
 		"selected_items":
 		[
 			[
+				"pos",
+				"pos-a	position: absolute;"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"sty",
+				"styles"
+			],
+			[
+				"_cre",
+				"_createSetFn"
+			],
+			[
+				"image",
+				"imageSearch"
+			],
+			[
+				"fi",
+				"filename"
+			],
+			[
+				"autho",
+				"authorId"
+			],
+			[
+				"model",
+				"modelKey"
+			],
+			[
+				"s",
+				"search"
+			],
+			[
+				"imag",
+				"imagePublic"
+			],
+			[
+				"_u",
+				"_publishImages"
+			],
+			[
+				"source",
+				"source1"
+			],
+			[
+				"_publish",
+				"_publishImages"
+			],
+			[
+				"im",
+				"image"
+			],
+			[
+				"$r",
+				"$rootScop"
+			],
+			[
+				"$root",
+				"$rootScope"
+			],
+			[
+				"co",
+				"console.	console.log()"
+			],
+			[
+				"se",
+				"section	Tag"
+			],
+			[
+				"of",
+				"offerTemplate"
+			],
+			[
+				"o",
+				"offerTemplate"
+			],
+			[
+				"acc",
+				"accepted"
+			],
+			[
+				"Offer",
+				"OfferId"
+			],
+			[
+				"Autho",
+				"AuthorId"
+			],
+			[
+				"auth",
+				"author"
+			],
+			[
+				"aut",
+				"author"
+			],
+			[
+				"au",
+				"author"
+			],
+			[
+				"ser",
+				"serviceId"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"star",
+				"startAt"
+			],
+			[
+				"offer",
+				"offer-template"
+			],
+			[
+				"de",
+				"describe"
+			],
+			[
+				"desc",
+				"description"
+			],
+			[
+				"c",
+				"console.	console.warn()"
+			],
+			[
+				"path",
+				"pathPrefix"
+			],
+			[
+				"ht",
+				"httpCodes"
+			],
+			[
+				"wai",
+				"waitingTime"
+			],
+			[
+				"not",
+				"notFound"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"Ab",
+				"AbstractError"
+			],
+			[
 				"pla",
 				"place"
 			],
@@ -16,28 +176,12 @@
 				"templateOwnerServiceId"
 			],
 			[
-				"re",
-				"recipe"
-			],
-			[
-				"se",
-				"search"
-			],
-			[
-				"Offer",
-				"m.OfferTemplate"
-			],
-			[
 				"use",
 				"userSearch"
 			],
 			[
 				"us",
 				"userSearch"
-			],
-			[
-				"de",
-				"description"
 			],
 			[
 				"tem",
@@ -50,14 +194,6 @@
 			[
 				"cr",
 				"createSearch"
-			],
-			[
-				"res",
-				"restrict"
-			],
-			[
-				"s",
-				"search"
 			],
 			[
 				"pub",
@@ -74,14 +210,6 @@
 			[
 				"proto",
 				"protoKeys"
-			],
-			[
-				"ser",
-				"service"
-			],
-			[
-				"fi",
-				"find"
 			],
 			[
 				"pu",
@@ -118,10 +246,6 @@
 			[
 				"eve",
 				"eventHandler"
-			],
-			[
-				"pos",
-				"pos:a	position:absolute"
 			],
 			[
 				"av",
@@ -296,10 +420,6 @@
 				"font-weight"
 			],
 			[
-				"mar",
-				"margin-top"
-			],
-			[
 				"line",
 				"line-height"
 			],
@@ -394,146 +514,42 @@
 			[
 				"period",
 				"periodM"
-			],
-			[
-				"last",
-				"lastPeriod"
-			],
-			[
-				"las",
-				"lastPeriod"
-			],
-			[
-				"ex",
-				"expect"
-			],
-			[
-				"ha",
-				"half"
-			],
-			[
-				"_get",
-				"_getLabel"
-			],
-			[
-				"n",
-				"number"
-			],
-			[
-				"tim",
-				"timestamp"
-			],
-			[
-				"ti",
-				"timestamp"
-			],
-			[
-				"com",
-				"components"
-			],
-			[
-				"log",
-				"log	console.log"
-			],
-			[
-				"usr",
-				"userInfo"
-			],
-			[
-				"dir",
-				"directive"
-			],
-			[
-				"_res",
-				"_resAuthorizations"
-			],
-			[
-				"aut",
-				"auth"
-			],
-			[
-				"clien",
-				"client_id"
-			],
-			[
-				"auth",
-				"authData"
-			],
-			[
-				"au",
-				"auth"
-			],
-			[
-				"tr",
-				"true"
-			],
-			[
-				"lo",
-				"log	console.log"
-			],
-			[
-				"ini",
-				"initialized"
-			],
-			[
-				"get",
-				"_getScopeUrl"
-			],
-			[
-				"fa",
-				"facebook"
-			],
-			[
-				"auto",
-				"autoLogin"
-			],
-			[
-				"cli",
-				"clientId"
-			],
-			[
-				"goo",
-				"google"
-			],
-			[
-				"user",
-				"userInfo"
-			],
-			[
-				"def",
-				"deffered"
-			],
-			[
-				"new",
-				"newVal"
-			],
-			[
-				"app",
-				"appData"
-			],
-			[
-				"loca",
-				"localStorage"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "todo/db.todo",
-			"settings":
-			{
-				"buffer_size": 2370,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 180.0,
 		"selected_items":
 		[
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"angular",
+				"Set Syntax: HTML (Angular.js)"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -541,10 +557,6 @@
 			[
 				"bea",
 				"Javascript Beautify"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"enab",
@@ -629,10 +641,6 @@
 			[
 				"brows",
 				"Preferences: Browse Packages"
-			],
-			[
-				"disa",
-				"Package Control: Disable Package"
 			],
 			[
 				"disc",
@@ -727,7 +735,7 @@
 				"Project: Save As"
 			]
 		],
-		"width": 503.0
+		"width": 584.0
 	},
 	"console":
 	{
@@ -744,49 +752,109 @@
 	},
 	"file_history":
 	[
-		"/var/www/appetite/modules/locate/index.js",
+		"/var/www/appetite/public/templates/offer-thumbnail.tpl",
+		"/var/www/appetite/app.js",
+		"/var/www/appetite/public/app.js",
+		"/var/www/appetite/public/index.html",
+		"/var/www/appetite/public/services/fake-rest.js",
+		"/home/eryk/.bashrc",
+		"/home/eryk/bin/ap",
+		"/var/www/appetite/public/directives/offer-thumbnail.js",
+		"/var/www/appetite/public/controllers/main.js",
+		"/var/www/appetite/public/controllers/offer.js",
+		"/var/www/appetite/public/templates/offer.tpl",
+		"/var/www/appetite/public/sass/partials/offer.scss",
+		"/var/www/appetite/public/modules/appetite.js",
+		"/var/www/appetite/public/controllers/index.js",
+		"/var/www/appetite/public/templates/index.js",
+		"/var/www/appetite/public/templates/main.tpl",
+		"/var/www/appetite/public/sass/style.scss",
+		"/var/www/appetite/public/sass/_vars.scss",
+		"/var/www/appetite/public/sass/partials/offer-thumbnail.scss",
+		"/var/www/appetite/public/sass/components/thumbnail.scss",
+		"/var/www/appetite/public/sass/components/rhythm.scss",
+		"/var/www/appetite/public/sass/components/lists.scss",
+		"/var/www/appetite/public/sass/partials/main.scss",
+		"/var/www/appetite/public/sass/components/page.scss",
+		"/var/www/appetite/Gruntfile.js",
+		"/var/www/appetite/public/styles/style.css",
+		"/var/www/appetite/public/sass/main.scss",
+		"/var/www/appetite/public/sass/offer-thumbnail.scss",
+		"/var/www/appetite/public/sass/thumbnail.scss",
+		"/var/www/appetite/public/fake-rest/offer/all.json",
+		"/var/www/appetite/modules/rest/resources/offer-template.js",
+		"/var/www/appetite/spec/client/rest-integration.client.spec.js",
+		"/var/www/appetite/libs/std.js",
+		"/var/www/lib/libstd.js",
+		"/var/www/appetite/karma.conf.js",
+		"/var/www/appetite/modules/db/index.js",
+		"/var/www/appetite/modules/db/models/tag.js",
+		"/var/www/appetite/public/services/rest.js",
+		"/var/www/appetite/public/services/i18n.js",
+		"/var/www/appetite/public/services/index.js",
+		"/var/www/appetite/public/directives/index.js",
+		"/var/www/appetite/public/bower_components/angular/bower.json",
+		"/var/www/appetite/public/bower_components/requirejs/require.js",
+		"/var/www/appetite/routes/response.js",
+		"/var/www/appetite/modules/rest/resources/response.js",
 		"/var/www/appetite/modules/rest/resources/offer.js",
+		"/var/www/appetite/routes/get-auth-data.js",
+		"/var/www/appetite/debug-grunt",
+		"/var/www/appetite/modules/db/models/offer.js",
+		"/var/www/appetite/modules/db/models/response.js",
+		"/var/www/appetite/routes/answer.js",
+		"/var/www/appetite/modules/db/models/offer-response.js",
+		"/var/www/appetite/modules/db/models/request-response.js",
+		"/var/www/appetite/modules/db/models/request-template.js",
+		"/var/www/appetite/modules/db/models/request.js",
+		"/var/www/appetite/modules/db/models/offer-template.js",
+		"/var/www/appetite/routes/offer.js",
+		"/home/eryk/bin/at",
+		"/var/www/appetite/routes/offer-template.js",
+		"/var/www/appetite/routes/user.js",
+		"/var/www/appetite/todo/db.todo",
+		"/var/www/appetite/modules/rest/resources/user.js",
+		"/var/www/appetite/toremove.txt",
+		"/var/www/appetite/stop",
+		"/var/www/appetite/test",
+		"/var/www/appetite/node_modules/karma-phantomjs-launcher/index.js",
+		"/var/www/appetite/package.json",
+		"/var/www/appetite/.gitignore",
+		"/var/www/appetite/.git/config",
+		"/var/www/appetite/.git/info/exclude",
+		"/var/www/appetite/routes/index.js",
+		"/var/www/appetite/spec/client/integration.client.spec.js",
+		"/var/www/appetite/node_modules/phantomjs/lib/location.js",
+		"/var/www/appetite/debug",
+		"/var/www/appetite/start",
+		"/var/www/appetite/spec/integration.browser.spec.js",
+		"/var/www/appetite/appetite.sublime-project",
+		"/var/www/appetite/spec/rest.server.spec.js",
+		"/var/www/appetite/modules/rest/errors.js",
+		"/var/www/appetite/modules/locate/index.js",
 		"/var/www/appetite/modules/db/models/place.js",
 		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/eryk/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/var/www/appetite/modules/db/index.js",
-		"/var/www/appetite/modules/rest/resources/offer-template.js",
-		"/var/www/appetite/modules/rest/resources/user.js",
 		"/var/www/appetite/public/app/templates/main.tpl",
 		"/var/www/appetite/modules/auth/services/facebook.js",
 		"/var/www/appetite/modules/auth/services/google.js",
-		"/var/www/appetite/routes/offer.js",
-		"/var/www/appetite/routes/offer-template.js",
 		"/var/www/appetite/modules/auth/index.js",
-		"/var/www/appetite/modules/db/models/offer-template.js",
-		"/var/www/appetite/modules/db/models/offer.js",
-		"/var/www/appetite/modules/db/models/request.js",
 		"/var/www/appetite/modules/db/models/offerTemplate.js",
 		"/var/www/appetite/modules/db/models/requestTemplate.js",
-		"/var/www/appetite/routes/user.js",
 		"/var/www/appetite/modules/rest/restrict.js",
 		"/var/www/appetite/modules/db/models/user.js",
-		"/var/www/appetite/libs/std.js",
-		"/var/www/lib/libstd.js",
 		"/var/www/appetite/modules/rest/index.js",
-		"/var/www/appetite/modules/rest/errors.js",
-		"/var/www/appetite/app.js",
 		"/var/www/appetite/modules/rest/user.js",
-		"/var/www/appetite/routes/index.js",
 		"/var/www/appetite/config/default.json",
 		"/var/www/appetite/modules/auth/facebook.js",
 		"/var/www/appetite/modules/auth/google.js",
 		"/var/www/appetite/modules/db/models/actual-request.js",
 		"/var/www/appetite/modules/db/models/actual-offer.js",
-		"/var/www/appetite/Gruntfile.js",
 		"/var/www/appetite/modules/index.js",
 		"/var/www/appetite/modules/db/models/recipe.js",
-		"/var/www/appetite/modules/db/models/offer-response.js",
 		"/var/www/appetite/modules/db/models/avatar.js",
 		"/var/www/appetite/modules/db/models/image.js",
 		"/var/www/appetite/modules/db/models/like.js",
-		"/var/www/appetite/modules/db/models/request-response.js",
-		"/var/www/appetite/todo/db.todo",
 		"/var/www/appetite/modules/db/recipe.js",
 		"/var/www/appetite/modules/db/place.js",
 		"/var/www/appetite/modules/db/user.js",
@@ -804,7 +872,6 @@
 		"/var/www/appetite/public/app/scripts/controllers/footer.js",
 		"/var/www/appetite/public/app/scripts/controllers/all.js",
 		"/var/www/appetite/public/app/bower_components/angular/bower.json",
-		"/var/www/appetite/appetite.sublime-project",
 		"/var/www/blog/blog.sublime-project",
 		"/var/www/appetite-express/public/app/index.html",
 		"/var/www/appetite-express/Gruntfile.js",
@@ -812,70 +879,11 @@
 		"/var/www/appetite-express/public/Gruntfile.js",
 		"/var/www/appetite-express/routes/index.js",
 		"/var/www/appetite-express/public/app/scripts/app.js",
-		"/var/www/appetite-express/public/app/config.rb",
-		"/var/www/views",
-		"/var/www/appetite-express/views/index.jade",
-		"/var/www/appetite-express/public/index.html",
-		"/var/www/appetite-express/public/stylesheets/style.css",
-		"/var/www/appetite/api/controllers/MainController.js",
-		"/var/www/appetite/node_modules/grunt-express/lib/util.js",
-		"/var/www/appetite/webapp/Gruntfile.js",
-		"/var/www/appetite/node_modules/sails/lib/sails.js",
-		"/var/www/appetite/webapp/app/scripts/app.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/playback.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/progress.js",
-		"/var/www/blog/Gruntfile.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/lib/overlord.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/vis/vmouse.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/helpers/canvashelper.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/vis/vdom.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/vis/velem.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/commChannel.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/dombuilder.js",
-		"/home/eryk/UTC/usabilitytools/nuvr/recording/shower/show.js",
-		"/var/www/blog/app/scripts/controllers/article.js",
-		"/var/www/blog/app/sass/article.scss",
-		"/var/www/blog/app/sass/mixins.scss",
-		"/media/MAGAZYN/Filmy/0 - do obejrzenia/Drowning by Numbers/Drowning by numbers-en.sub",
-		"/media/MAGAZYN/Filmy/0 - do obejrzenia/Drowning by Numbers/Drowning by numbers-pl.txt",
-		"/var/www/blog/app/scripts/directives/submit-text.js",
-		"/var/www/blog/app/scripts/modules/blog.js",
-		"/var/www/blog/app/scripts/services/auth-google.js",
-		"/var/www/blog/app/scripts/modules/auth.js",
-		"/var/www/blog/app/fakerest/comments/001.php",
-		"/var/www/blog/app/scripts/services/fake-rest.js",
-		"/var/www/blog/app/templates/pages/article.tpl",
-		"/var/www/blog/app/scripts/services/auth-facebook.js",
-		"/var/www/blog/app/scripts/loader.js",
-		"/var/www/blog/app/scripts/directives/loader.js",
-		"/var/www/blog/app/scripts/directives/sign-buttons.js",
-		"/var/www/blog/app/scripts/directives/show-hide.js",
-		"/var/www/blog/app/fakerest/article/001.json",
-		"/var/www/blog/app/scripts/services/auth-autologin.js",
-		"/var/www/blog/app/scripts/services/auth-github.js",
-		"/var/www/blog/app/scripts/services/drupal-rest.js",
-		"/var/www/blog/app/scripts/controllers/articles.js",
-		"/var/www/blog/app/scripts/services/rest.js",
-		"/var/www/blog/app/fakerest/articles/articles.json",
-		"/var/www/permissions",
-		"/var/www/permissions.sh",
-		"/var/www/blog/app/scripts/services/resource-enchanced.js",
-		"/var/www/blog/app/sass/vars.scss",
-		"/var/www/blog/drupal/core/lib/Drupal.php",
-		"/home/eryk/Desktop/2013-06-05_-_intel_desktop_roadmap_2014/gallery-generator.sh",
-		"/home/eryk/Desktop/2013-06-05_-_intel_desktop_roadmap_2014/gallery.html",
-		"/home/eryk/Desktop/2013-06-05_-_intel_desktop_roadmap_2014/gallery-generator-2.sh",
-		"/var/www/blog/app/sass/math.scss",
-		"/home/eryk/Dropbox/Public/codepen-gkiDd-anim.css",
-		"/var/www/blog/app/sass/_settings.scss",
-		"/home/eryk/Desktop/anim.css",
-		"/home/eryk/Dropbox/Backup/snippets.html",
-		"/home/eryk/Documents/PCLab/gallery-generator-2.sh",
-		"/home/eryk/Desktop/2013-06-03_-_msi_z87/list.sh"
+		"/var/www/appetite-express/public/app/config.rb"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -892,9 +900,90 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"__dirname + '/public'",
+			"template",
+			"templates",
+			"1.5rem",
+			"line-height",
+			"left",
+			"autoprefixer:dev",
+			"this",
+			"tags",
+			"Model",
+			"Image",
+			"property",
+			"prop",
+			"tag",
+			".tags",
+			"Pictures",
+			"pictures",
+			"source1[prop]",
+			"_publishImages",
+			"img",
+			"pictures",
+			"'main'",
+			"header",
+			"nav",
+			" $element",
+			"template",
+			"angular-",
+			"}, {",
+			"name: ",
+			"{\n    		name: ",
+			"location: ",
+			",\n			main: 'index.js'",
+			"\n		{",
+			"\n		",
+			"'main'",
+			"main.js",
+			"scripts/",
+			"public/app",
+			"author: response.values.AuthorId",
+			"} }",
+			"recipe: restrict.recipePublic(recipe.values)",
+			"template: offer.values.TemplateId",
+			"} };",
+			"restrict.public(response.values)",
+			"restrict.public(response.values) ",
+			"restrict.public(response.values)",
+			"offer",
+			"{\n",
+			"offer",
+			"template",
+			"/offer",
+			"start",
+			"=== emptyDate",
+			"_setTimestamps",
+			"start",
+			".toISOString()",
+			"search(proto)",
+			"proto.accessToken",
+			"proto.authService",
+			"template entry",
+			"offer template",
+			"proto.",
+			"=",
+			"proto.",
+			";",
+			"= ",
+			"	",
+			"rest.codes",
+			"httpCodes",
+			"errorCodes",
+			"status",
+			"/home/erykpiast/Applications/appetite/node_modules/phantomjs/lib/phantom/bin/phantomjs",
+			",\n",
+			";",
+			"=",
+			"recipe",
+			"template",
+			"for d",
+			"startAt",
+			"this.",
+			"Started",
 			"`",
 			"include",
 			"Recipe",
@@ -941,88 +1030,7 @@
 			"proto",
 			"exports",
 			"search",
-			"public",
-			"d",
-			"proto",
-			"retriv",
-			"read",
-			"user",
-			"false",
-			"promise",
-			"db",
-			"routename",
-			"route",
-			"modelname",
-			"publish",
-			"fn",
-			"require",
-			"r",
-			"root",
-			"modelname",
-			", { as: 'Author' }",
-			"author",
-			"Sequelize",
-			"Math",
-			"ForHumans",
-			"commonParts",
-			"controller:",
-			"controllers.",
-			"css",
-			"html",
-			"jade",
-			"test:",
-			"localhost",
-			"[",
-			"dev",
-			"devel",
-			"T}",
-			"develop",
-			"reloadPort",
-			"serverreload",
-			"express",
-			"copy:dev",
-			"cssFilesToInject",
-			"scss",
-			"sass",
-			"scss",
-			"sass",
-			"play",
-			"play()",
-			"su",
-			"clear()",
-			"play",
-			"what",
-			"subscribe('event",
-			"subscirbe('event",
-			"real",
-			"#{$color}",
-			"toInt",
-			"$i",
-			"px",
-			"strip",
-			"text-stroke",
-			"$width",
-			"#{$color}",
-			" #{$",
-			"5px",
-			"$res",
-			"shadow",
-			"stroke",
-			"shadow",
-			" ",
-			"\n",
-			"}",
-			"\n",
-			"1\n2",
-			"\n",
-			"after",
-			"$avatar-border-width",
-			"$avatar-border",
-			"dNie",
-			"\n",
-			"auth",
-			"emit",
-			","
+			"public"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1030,6 +1038,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"autoprefixer",
 			"template",
 			"OfferTemplate",
 			"template",
@@ -1096,37 +1105,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "todo/db.todo",
-					"settings":
-					{
-						"buffer_size": 2370,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								599,
-								599
-							]
-						],
-						"settings":
-						{
-							"buffer_scroll_name": "45a1957f",
-							"syntax": "Packages/PlainTasks/PlainTasks.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

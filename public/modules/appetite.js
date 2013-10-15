@@ -45,7 +45,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'con
 					}, common)
 				});
 				
-		    $locationProvider.html5Mode(true);
+		    // $locationProvider.html5Mode(true);
 		})
 		.run(function($rootScope, $state, i18n) {
 
