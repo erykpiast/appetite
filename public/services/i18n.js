@@ -6,7 +6,10 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
             return {
                 common: {
                     lastestOffers: 'Ostatnie oferty'
-                }  
+                },
+                offer: {
+                	recipeFrom: 'Przepis pochodzi z'
+                }
             };
             
         });

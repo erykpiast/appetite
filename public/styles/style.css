@@ -4059,6 +4059,13 @@ ol.horizontal > li {
   margin-right: 0;
 }
 
+/* line 1, ../sass/components/text-block.scss */
+
+.text-block {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
 /* line 3, ../sass/partials/offer.scss */
 
 .page__offer .gallery {

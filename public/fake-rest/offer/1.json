@@ -15,6 +15,7 @@
         "description" : "Proste ciasto z ciemnym kruchym spodem i kremem śmietankowo-limonkowym. Bardzo orzeźwiające, wyśmienite na upalne dni!",
         "recipe" : {
             "id" : 1,
+            "domain" : "xxx.aaa.com",
             "url" : "http://xxx.aaa.com/test-title"
         },
         "pictures" : [ {

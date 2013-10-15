@@ -15,7 +15,8 @@
         "description" : "Ciasto mleczne wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne.",
         "recipe" : {
             "id" : 2,
-            "url" : "http://www.mojewypieki.com/przepis/ciasto-tres-leches-czyli-ciasto-mlecznee"
+            "domain" : "mojewypieki.com",
+            "url" : "http://www.mojewypieki.com/przepis/ciasto-tres-leches-czyli-ciasto-mleczne"
         },
         "pictures" : [ {
                 "id" : 3,

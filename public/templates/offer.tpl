@@ -7,7 +7,11 @@
     <div class="page--content">
 		<app-gallery model="offer.template.pictures"></app-gallery>
 
-        <p>{{ offer.template.description }}</p>
+        <div class="description text-block">
+        	<p>{{ offer.template.description }}</p>
+
+        	<p>{{ i18n.offer.recipeFrom }}: <a ng-href="{{ offer.template.recipe.url }}">{{ offer.template.recipe.domain }}</p>
+        </div>
     </div>
 
 </section>
