@@ -8,15 +8,15 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
             
             return {
                 user: $resource(_rest('/user/:id.json'), { }, {
-                    get: {
+                    retrieve: {
                         method: 'GET'
                     }
                 }),
                 offer: $resource(_rest('/offer/:id.json'), { id: 'all' }, {
-                    get: {
+                    retrieve: {
                         method: 'GET'
                     },
-                    getAll: {
+                    retrieveAll: {
                         method: 'GET',
                         isArray: true
                     }
