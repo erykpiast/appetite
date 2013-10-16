@@ -1,8 +1,12 @@
 {
     "id" : 1,
-    "authService" : "facebook",
-    "firstName" : "xxx",
-    "lastName" : "yyy",
-    "gender" : "unknown",
+    "firstName" : "Olga",
+    "lastName" : "K.",
+    "fullName" : "Olga K.",
+    "picture" : {
+    	"id": 1001,
+    	"filename": "1001.jpg" 
+    },
+    "gender" : "female",
     "site" : ""
 }

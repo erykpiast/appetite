@@ -3935,6 +3935,28 @@ label,
  * Place any of your own variables that sit on top of inuit.css here.
  */
 
+/* line 1, ../sass/components/page.scss */
+
+.page {
+  min-width: 960px;
+  width: 50em;
+  margin: 0 auto;
+}
+
+/* line 10, ../sass/components/page.scss */
+
+.page .page--content {
+  float: left;
+  width: auto;
+}
+
+/* line 15, ../sass/components/page.scss */
+
+.page .page--aside {
+  float: right;
+  width: 20%;
+}
+
 /* line 1, ../sass/components/thumbnail.scss */
 
 .thumbnail {

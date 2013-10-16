@@ -1,10 +1,20 @@
 .page {
+	min-width: 960px;
+	width: 50em;
+	margin: 0 auto;
+
 	.page--header {
 
 	}
 
 	.page--content {
-		
+		float: left;
+		width: auto;
+	}
+
+	.page--aside {
+		float: right;
+		width: 20%;
 	}
 
 	.page--footer {

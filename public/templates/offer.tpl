@@ -10,8 +10,13 @@
         <div class="description text-block">
         	<p>{{ offer.template.description }}</p>
 
-        	<p>{{ i18n.offer.recipeFrom }}: <a ng-href="{{ offer.template.recipe.url }}">{{ offer.template.recipe.domain }}</p>
+        	<p>{{ i18n.offer.recipeFrom }}: <a ng-href="{{ offer.template.recipe.url }}">{{ offer.template.recipe.domain }}</a>
+            </p>
         </div>
     </div>
+
+    <aside class="page--aside">
+        <app-offer-author model="offer.author"></app-offer-author>
+    </aside>
 
 </section>
