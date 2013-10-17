@@ -4,6 +4,10 @@
         <h2>{{ offer.template.title }}</h2>
     </header>
 
+    <aside class="page--aside">
+        <app-offer-author model="offer.author"></app-offer-author>
+    </aside>
+
     <div class="page--content">
 		<app-gallery model="offer.template.pictures"></app-gallery>
 
@@ -14,9 +18,5 @@
             </p>
         </div>
     </div>
-
-    <aside class="page--aside">
-        <app-offer-author model="offer.author"></app-offer-author>
-    </aside>
 
 </section>

@@ -1,23 +1,34 @@
 .page {
+    @extend .grid;
+    
 	min-width: 960px;
 	width: 50em;
 	margin: 0 auto;
 
-	.page--header {
+    .page--header,
+    .page--content,
+    .page--aside,
+    .page--footer {
+        @extend .grid__item;
+    }
 
+	.page--header {
+        @extend .one-whole;
 	}
 
 	.page--content {
-		float: left;
-		width: auto;
+	    @extend .one-whole;
+	    
+	    .page--aside ~ & {
+	        @extend .four-fifths;
+	    }
 	}
 
 	.page--aside {
-		float: right;
-		width: 20%;
+	    @extend .one-fifths;
 	}
 
 	.page--footer {
-		
+		@extend .one-whole;
 	}
 }

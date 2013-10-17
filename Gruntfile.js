@@ -17,7 +17,8 @@ module.exports = function (grunt) {
         		    specify: appDir + '/sass/style.scss',
         		    require: [ 'compass', 'compass-inuit' ],
         		    force: true,
-        		    relativeAssets: true
+        		    relativeAssets: true,
+        		    noLineComments: true
         		}
         	}
 		},
@@ -99,8 +100,7 @@ module.exports = function (grunt) {
 		'develop',
 		'compass:dev',
 		'autoprefixer',
-		'watch:sass',
-		'watch:develop'
+		'watch'
 	]);
 	
 	grunt.registerTask('test', [

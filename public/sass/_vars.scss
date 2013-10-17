@@ -23,8 +23,8 @@
  * and introducing objects and abstractions is as simple as switching the
  * following variables to `true`.
  */
-$use-grids:         false;
-$use-flexbox:       true;
+$use-grids:         true;
+$use-flexbox:       false;
 $use-columns:       false;
 $use-nav:           false;
 $use-options:       false;
