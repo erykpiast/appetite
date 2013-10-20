@@ -1,34 +1,32 @@
 .page {
-    @extend .grid;
-    
-	min-width: 960px;
-	width: 50em;
+
 	margin: 0 auto;
+	width: 960px;
 
-    .page--header,
-    .page--content,
-    .page--aside,
-    .page--footer {
-        @extend .grid__item;
-    }
-
-	.page--header {
-        @extend .one-whole;
+	.page__part {
+		@extend .grid;
 	}
 
-	.page--content {
-	    @extend .one-whole;
-	    
-	    .page--aside ~ & {
-	        @extend .four-fifths;
-	    }
+	.page__part__header,
+	.page__part__content,
+	.page__part__aside,
+	.page__part__footer {
+		@extend .grid__item;
 	}
 
-	.page--aside {
-	    @extend .one-fifths;
+	.page__part__header {
+    	@extend .one-whole;
 	}
 
-	.page--footer {
-		@extend .one-whole;
+	.page__part__content {
+		@extend .four-fifths;
+	}
+
+	.page__part__aside {
+		@extend .one-fifth;
+	}
+
+	.page__part__footer {
+		@extend .one-whole;	
 	}
 }

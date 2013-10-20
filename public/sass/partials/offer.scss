@@ -1,6 +1,6 @@
-.page__offer {
-    @extend .page;
-	
+.page__part__offer {
+	@extend .page__part;
+
 	.gallery {
 		height: 15em;
 	}

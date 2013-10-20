@@ -3,7 +3,7 @@
     position: relative;
     text-align: center;
   
-    .thumbnail--background {
+    .thumbnail__background {
         $maxBgWidth: 1000px; 
         height: 100%;
         left: 50%;
@@ -20,7 +20,7 @@
         }
     }
 
-    .thumbnail--text {
+    .thumbnail__text {
         $animDuration: .5s;
         $animEasing: ease-in;
 
@@ -33,20 +33,20 @@
         z-index: 1;
     }
 
-    .thumbnail--text__top,
-    .thumbnail--text__bottom {
-        @extend .thumbnail--text;
+    .thumbnail__text--top,
+    .thumbnail__text--bottom {
+        @extend .thumbnail__text;
     }
-    .thumbnail--text__top {
+    .thumbnail__text--top {
         top: 0;
     }
-    .thumbnail--text__bottom {
+    .thumbnail__text--bottom {
         bottom: -100%;
         transition: bottom linear .15s;
     }
   
     &:hover {
-        .thumbnail--text__bottom {
+        .thumbnail__text--bottom {
             bottom: 0;
             transition: bottom ease-out .3s;
         }

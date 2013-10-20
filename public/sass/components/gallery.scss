@@ -1,13 +1,12 @@
 .gallery {
 
-	.gallery--pictures {
+	.gallery__pictures {
 
-		&,
-		.gallery--picture {
+		&, .gallery__picture {
 			height: 100%;
 		}
 
-		.gallery--picture {
+		.gallery__picture {
 			margin: 0 .5em;
 			overflow: hidden;
 

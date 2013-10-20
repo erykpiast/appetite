@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+// Variables - must come first !!!
+@import "_vars.scss";
+
+
 // Frameworks
 @import "compass";
 @import "compass/layout";
@@ -7,13 +11,10 @@
 
 @import "compass-inuit";
 
-
-// Variables
-@import "_vars.scss";
-
-
 // Components
 @import "components/page.scss";
+@import "components/grid.scss";
+
 @import "components/rhythm.scss";
 @import "components/thumbnail.scss";
 @import "components/gallery.scss";
@@ -24,6 +25,3 @@
 // Partials
 @import "partials/main.scss";
 @import "partials/offer.scss";
-
-@import "partials/offer-thumbnail.scss";
-@import "partials/offer-author.scss";

@@ -31,6 +31,14 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
                     destroy: {
                         method: 'DELETE'
                     }
+                }),
+                comments: $resource(_rest('/comment/:offerId.json'), { }, {
+                    retrieve: {
+                        method: 'GET'
+                    },
+                    create: {
+                        method: 'POST'
+                    }
                 })
             };
         });

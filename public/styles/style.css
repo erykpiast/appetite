@@ -1,6 +1,46 @@
 @charset "UTF-8";
 
 
+/*------------------------------------*\
+    VARS.SCSS
+\*------------------------------------*/
+
+/**
+ * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
+ */
+
+/*------------------------------------*\
+    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+
+/**
+ * All of inuit.css’ objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+
+/*------------------------------------*\
+    $OVERRIDES
+\*------------------------------------*/
+
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+
+/*------------------------------------*\
+    $CUSTOM
+\*------------------------------------*/
+
+/**
+ * Place any of your own variables that sit on top of inuit.css here.
+ */
+
 /**
  * Generic utility styles etc.
  */
@@ -787,7 +827,8 @@ textarea:focus {
  * and over in your markup.
  */
 
-.cf:after {
+.cf:after,
+.media:after {
   content: "";
   display: table;
   clear: both;
@@ -828,8 +869,8 @@ pre,
 .media,
 .island,
 .islet {
-  margin-bottom: 24px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .islet h1,
@@ -861,8 +902,8 @@ pre,
 .island,
 .islet
 .islet {
-  margin-bottom: 12px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 /**
@@ -870,8 +911,8 @@ pre,
  */
 
 .landmark {
-  margin-bottom: 48px;
-  margin-bottom: 3rem;
+  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 /**
@@ -880,8 +921,8 @@ pre,
  */
 
 hr {
-  margin-bottom: 22px;
-  margin-bottom: 1.375rem;
+  margin-bottom: 18px;
+  margin-bottom: 1.125rem;
 }
 
 /**
@@ -892,8 +933,8 @@ hr {
 ul,
 ol,
 dd {
-  margin-left: 48px;
-  margin-left: 3rem;
+  margin-left: 40px;
+  margin-left: 2.5rem;
 }
 
 /**
@@ -924,9 +965,9 @@ html {
 
 h1,
 .alpha {
-  font-size: 36px;
-  font-size: 2.25rem;
-  line-height: 1.33333;
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.5;
 }
 
 h2,
@@ -1250,20 +1291,20 @@ img[height] {
 
 .img--right {
   float: right;
-  margin-bottom: 24px;
-  margin-left: 24px;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .img--left {
   float: left;
-  margin-right: 24px;
-  margin-bottom: 24px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .img--center {
   display: block;
   margin-right: auto;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   margin-left: auto;
 }
 
@@ -1275,15 +1316,15 @@ img[height] {
  */
 
 .img--short {
-  height: 120px;
+  height: 100px;
 }
 
 .img--medium {
-  height: 240px;
+  height: 200px;
 }
 
 .img--tall {
-  height: 360px;
+  height: 300px;
 }
 
 /**
@@ -1382,14 +1423,14 @@ table {
 
 th,
 td {
-  padding: 6px;
+  padding: 5px;
   text-align: left;
 }
 
 @media screen and (min-width: 480px) {
   th,
   td {
-    padding: 12px;
+    padding: 10px;
   }
 }
 
@@ -1592,7 +1633,7 @@ td {
  */
 
 fieldset {
-  padding: 24px;
+  padding: 20px;
 }
 
 /**
@@ -1767,6 +1808,155 @@ label,
  * Objects and abstractions
  */
 
+/*------------------------------------*\
+    $GRIDS
+\*------------------------------------*/
+
+/**
+ * Fluid and nestable grid system, e.g.:
+ *
+   <div class="grid">
+
+       <div class="grid__item  one-third">
+           <p>One third grid</p>
+       </div><!--
+
+    --><div class="grid__item  two-thirds">
+           <p>Two thirds grid</p>
+       </div><!--
+
+    --><div class="grid__item  one-half">
+           <p>One half grid</p>
+       </div><!--
+
+    --><div class="grid__item  one-quarter">
+           <p>One quarter grid</p>
+       </div><!--
+
+    --><div class="grid__item  one-quarter">
+           <p>One quarter grid</p>
+       </div>
+
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/CLYUC
+ *
+ */
+
+/**
+ * Grid wrapper
+ */
+
+.grid,
+.page .page__part,
+.page .page__part--main,
+.page .page__part__offer {
+  margin-left: -20px;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+/**
+ * Very infrequently occuring grid wrappers as children of grid wrappers.
+ */
+
+.grid > .grid,
+.page .page__part > .grid,
+.page .page__part--main > .grid,
+.page .page__part__offer > .grid,
+.page .grid > .page__part,
+.page .page__part > .page__part,
+.page .page__part--main > .page__part,
+.page .page__part__offer > .page__part,
+.page .grid > .page__part--main,
+.page .page__part > .page__part--main,
+.page .page__part--main > .page__part--main,
+.page .page__part__offer > .page__part--main,
+.page .grid > .page__part__offer,
+.page .page__part > .page__part__offer,
+.page .page__part--main > .page__part__offer,
+.page .page__part__offer > .page__part__offer {
+  margin-left: 0;
+}
+
+/**
+ * Grid
+ */
+
+.grid__item,
+.page .page__part__header,
+.page .page__part__content,
+.page .page__part__aside,
+.page .page__part__footer {
+  display: inline-block;
+  width: 100%;
+  padding-left: 20px;
+  vertical-align: top;
+}
+
+/*------------------------------------*\
+    $MEDIA
+\*------------------------------------*/
+
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ * E.g.:
+ *
+   <div class=media>
+       <img src=http://placekitten.com/200/300 alt="" class=media__img>
+       <p class=media__body>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/cf4Qs
+ *
+ */
+
+.media {
+  display: block;
+}
+
+.media__img {
+  float: left;
+  margin-right: 20px;
+}
+
+/**
+ * Reversed image location (right instead of left).
+ */
+
+.media__img--rev {
+  float: right;
+  margin-left: 20px;
+}
+
+.media__img img,
+.media__img--rev img {
+  display: block;
+}
+
+.media__body {
+  overflow: hidden;
+}
+
+.media__body,
+.media__body > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * `.img`s in `.islet`s need an appropriately sized margin.
+ */
+
+.islet .media__img {
+  margin-right: 10px;
+}
+
+.islet .media__img--rev {
+  margin-left: 10px;
+}
+
 /**
  * Style trumps; helper and brand classes
  */
@@ -1789,12 +1979,8 @@ label,
 */
 
 .one-whole,
-.page .page--header,
-.page__offer .page--header,
-.page .page--content,
-.page__offer .page--content,
-.page .page--footer,
-.page__offer .page--footer {
+.page .page__part__header,
+.page .page__part__footer {
   width: 100%;
 }
 
@@ -1848,7 +2034,8 @@ label,
 */
 
 .one-fifth,
-.two-tenths {
+.two-tenths,
+.page .page__part__aside {
   width: 20%;
 }
 
@@ -1864,8 +2051,7 @@ label,
 
 .four-fifths,
 .eight-tenths,
-.page--aside ~ .page .page--content,
-.page--aside ~ .page__offer .page--content {
+.page .page__part__content {
   width: 80%;
 }
 
@@ -2837,63 +3023,63 @@ label,
  */
 
 .push {
-  margin: 24px !important;
+  margin: 20px !important;
 }
 
 .push--top {
-  margin-top: 24px !important;
+  margin-top: 20px !important;
 }
 
 .push--right {
-  margin-right: 24px !important;
+  margin-right: 20px !important;
 }
 
 .push--bottom {
-  margin-bottom: 24px !important;
+  margin-bottom: 20px !important;
 }
 
 .push--left {
-  margin-left: 24px !important;
+  margin-left: 20px !important;
 }
 
 .push--ends {
-  margin-top: 24px !important;
-  margin-bottom: 24px !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }
 
 .push--sides {
-  margin-right: 24px !important;
-  margin-left: 24px !important;
+  margin-right: 20px !important;
+  margin-left: 20px !important;
 }
 
 .push-half {
-  margin: 12px !important;
+  margin: 10px !important;
 }
 
 .push-half--top {
-  margin-top: 12px !important;
+  margin-top: 10px !important;
 }
 
 .push-half--right {
-  margin-right: 12px !important;
+  margin-right: 10px !important;
 }
 
 .push-half--bottom {
-  margin-bottom: 12px !important;
+  margin-bottom: 10px !important;
 }
 
 .push-half--left {
-  margin-left: 12px !important;
+  margin-left: 10px !important;
 }
 
 .push-half--ends {
-  margin-top: 12px !important;
-  margin-bottom: 12px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .push-half--sides {
-  margin-right: 12px !important;
-  margin-left: 12px !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
 }
 
 .flush {
@@ -2931,63 +3117,63 @@ label,
  */
 
 .soft {
-  padding: 24px !important;
+  padding: 20px !important;
 }
 
 .soft--top {
-  padding-top: 24px !important;
+  padding-top: 20px !important;
 }
 
 .soft--right {
-  padding-right: 24px !important;
+  padding-right: 20px !important;
 }
 
 .soft--bottom {
-  padding-bottom: 24px !important;
+  padding-bottom: 20px !important;
 }
 
 .soft--left {
-  padding-left: 24px !important;
+  padding-left: 20px !important;
 }
 
 .soft--ends {
-  padding-top: 24px !important;
-  padding-bottom: 24px !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
 }
 
 .soft--sides {
-  padding-right: 24px !important;
-  padding-left: 24px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
 }
 
 .soft-half {
-  padding: 12px !important;
+  padding: 10px !important;
 }
 
 .soft-half--top {
-  padding-top: 12px !important;
+  padding-top: 10px !important;
 }
 
 .soft-half--right {
-  padding-right: 12px !important;
+  padding-right: 10px !important;
 }
 
 .soft-half--bottom {
-  padding-bottom: 12px !important;
+  padding-bottom: 10px !important;
 }
 
 .soft-half--left {
-  padding-left: 12px !important;
+  padding-left: 10px !important;
 }
 
 .soft-half--ends {
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .soft-half--sides {
-  padding-right: 12px !important;
-  padding-left: 12px !important;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
 }
 
 .hard {
@@ -3025,13 +3211,13 @@ label,
  */
 
 .full-bleed {
-  margin-right: -24px !important;
-  margin-left: -24px !important;
+  margin-right: -20px !important;
+  margin-left: -20px !important;
 }
 
 .islet .full-bleed {
-  margin-right: -12px !important;
-  margin-left: -12px !important;
+  margin-right: -10px !important;
+  margin-left: -10px !important;
 }
 
 /**
@@ -3185,51 +3371,43 @@ label,
 
 /* endif */
 
-/*------------------------------------*\
-    VARS.SCSS
-\*------------------------------------*/
-
-/**
- * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
- * keep, simply redefine here. This means that if inuit.css, for example, sets
- * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
- * that variable in this file. inuit.css ignores its own variables in favour of
- * using your own, so you can completely modify how inuit.css works without ever
- * having to alter the framework itself.
- */
-
-/*------------------------------------*\
-    $OBJECTS-AND-ABSTRACTIONS
-\*------------------------------------*/
-
-/**
- * All of inuit.css’ objects and abstractions are initially turned off by
- * default. This means that you start any project with as little as possible,
- * and introducing objects and abstractions is as simple as switching the
- * following variables to `true`.
- */
-
-/*------------------------------------*\
-    $OVERRIDES
-\*------------------------------------*/
-
-/**
- * Place any variables that should override inuit.css’ defaults here.
- */
-
-/*------------------------------------*\
-    $CUSTOM
-\*------------------------------------*/
-
-/**
- * Place any of your own variables that sit on top of inuit.css here.
- */
-
-.page,
-.page__offer {
-  min-width: 960px;
-  width: 50em;
+.page {
   margin: 0 auto;
+  width: 960px;
+}
+
+.grid,
+.page .page__part,
+.page .page__part--main,
+.page .page__part__offer {
+  font-size: 0;
+}
+
+.grid .grid__item,
+.page .page__part .grid__item,
+.page .page__part--main .grid__item,
+.page .page__part__offer .grid__item,
+.grid .page .page__part__header,
+.page .grid .page__part__header,
+.page .page__part .page__part__header,
+.page .page__part--main .page__part__header,
+.page .page__part__offer .page__part__header,
+.grid .page .page__part__content,
+.page .grid .page__part__content,
+.page .page__part .page__part__content,
+.page .page__part--main .page__part__content,
+.page .page__part__offer .page__part__content,
+.grid .page .page__part__aside,
+.page .grid .page__part__aside,
+.page .page__part .page__part__aside,
+.page .page__part--main .page__part__aside,
+.page .page__part__offer .page__part__aside,
+.grid .page .page__part__footer,
+.page .grid .page__part__footer,
+.page .page__part .page__part__footer,
+.page .page__part--main .page__part__footer,
+.page .page__part__offer .page__part__footer {
+  font-size: 16px;
 }
 
 .thumbnail {
@@ -3238,7 +3416,7 @@ label,
   text-align: center;
 }
 
-.thumbnail .thumbnail--background {
+.thumbnail .thumbnail__background {
   height: 100%;
   left: 50%;
   margin-left: -500px;
@@ -3249,15 +3427,15 @@ label,
   z-index: 0;
 }
 
-.thumbnail .thumbnail--background img {
+.thumbnail .thumbnail__background img {
   display: inline-block;
   height: 100%;
   width: auto;
 }
 
-.thumbnail .thumbnail--text,
-.thumbnail .thumbnail--text__top,
-.thumbnail .thumbnail--text__bottom {
+.thumbnail .thumbnail__text,
+.thumbnail .thumbnail__text--top,
+.thumbnail .thumbnail__text--bottom {
   background-color: white;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3269,33 +3447,33 @@ label,
   z-index: 1;
 }
 
-.thumbnail .thumbnail--text__top {
+.thumbnail .thumbnail__text--top {
   top: 0;
 }
 
-.thumbnail .thumbnail--text__bottom {
+.thumbnail .thumbnail__text--bottom {
   bottom: -100%;
   -webkit-transition: bottom linear .15s;
   transition: bottom linear .15s;
 }
 
-.thumbnail:hover .thumbnail--text__bottom {
+.thumbnail:hover .thumbnail__text--bottom {
   bottom: 0;
   -webkit-transition: bottom ease-out .3s;
   transition: bottom ease-out .3s;
 }
 
-.gallery .gallery--pictures,
-.gallery .gallery--pictures .gallery--picture {
+.gallery .gallery__pictures,
+.gallery .gallery__pictures .gallery__picture {
   height: 100%;
 }
 
-.gallery .gallery--pictures .gallery--picture {
+.gallery .gallery__pictures .gallery__picture {
   margin: 0 .5em;
   overflow: hidden;
 }
 
-.gallery .gallery--pictures .gallery--picture > img {
+.gallery .gallery__pictures .gallery__picture > img {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3331,28 +3509,75 @@ ol.horizontal > li {
 }
 
 .text-block {
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.page__offer .gallery {
-  height: 15em;
+.page__part--main .offers.grid,
+.page__part--main .page .offers.page__part,
+.page .page__part--main .offers.page__part,
+.page__part--main .page .offers.page__part--main,
+.page .page__part--main .offers.page__part--main,
+.page__part--main .page .offers.page__part__offer,
+.page .page__part--main .offers.page__part__offer {
+  margin-bottom: -20px;
 }
 
-.offer-thumbnail {
+.page__part--main .offers.grid .grid__item,
+.page__part--main .page .offers.page__part .grid__item,
+.page .page__part--main .offers.page__part .grid__item,
+.page__part--main .page .offers.page__part--main .grid__item,
+.page .page__part--main .offers.page__part--main .grid__item,
+.page__part--main .page .offers.page__part__offer .grid__item,
+.page .page__part--main .offers.page__part__offer .grid__item,
+.page__part--main .offers.grid .page .page__part__header,
+.page .page__part--main .offers.grid .page__part__header,
+.page__part--main .page .offers.page__part .page__part__header,
+.page .page__part--main .offers.page__part .page__part__header,
+.page__part--main .page .offers.page__part--main .page__part__header,
+.page .page__part--main .offers.page__part--main .page__part__header,
+.page__part--main .page .offers.page__part__offer .page__part__header,
+.page .page__part--main .offers.page__part__offer .page__part__header,
+.page__part--main .offers.grid .page .page__part__content,
+.page .page__part--main .offers.grid .page__part__content,
+.page__part--main .page .offers.page__part .page__part__content,
+.page .page__part--main .offers.page__part .page__part__content,
+.page__part--main .page .offers.page__part--main .page__part__content,
+.page .page__part--main .offers.page__part--main .page__part__content,
+.page__part--main .page .offers.page__part__offer .page__part__content,
+.page .page__part--main .offers.page__part__offer .page__part__content,
+.page__part--main .offers.grid .page .page__part__aside,
+.page .page__part--main .offers.grid .page__part__aside,
+.page__part--main .page .offers.page__part .page__part__aside,
+.page .page__part--main .offers.page__part .page__part__aside,
+.page__part--main .page .offers.page__part--main .page__part__aside,
+.page .page__part--main .offers.page__part--main .page__part__aside,
+.page__part--main .page .offers.page__part__offer .page__part__aside,
+.page .page__part--main .offers.page__part__offer .page__part__aside,
+.page__part--main .offers.grid .page .page__part__footer,
+.page .page__part--main .offers.grid .page__part__footer,
+.page__part--main .page .offers.page__part .page__part__footer,
+.page .page__part--main .offers.page__part .page__part__footer,
+.page__part--main .page .offers.page__part--main .page__part__footer,
+.page .page__part--main .offers.page__part--main .page__part__footer,
+.page__part--main .page .offers.page__part__offer .page__part__footer,
+.page .page__part--main .offers.page__part__offer .page__part__footer {
+  padding-bottom: 20px;
+}
+
+.page__part--main .offers .offer-thumbnail {
   border: 1px solid #888888;
   border-radius: 0.25em;
-  height: 15em;
-  margin-bottom: 1em;
-  margin-right: 1em;
-  width: 15em;
+  padding-bottom: -webkit-calc(100% - 2px);
+  padding-bottom: calc(100% - 2px);
+  width: 100%;
 }
 
-.offer-thumbnail:hover {
+.page__part--main .offers .offer-thumbnail:hover {
   cursor: pointer;
 }
 
-.offer-thumbnail:after {
+.page__part--main .offers .offer-thumbnail:after {
   background-color: white;
   bottom: 0;
   content: "";
@@ -3363,22 +3588,22 @@ ol.horizontal > li {
   right: 0;
 }
 
-.offer-thumbnail:first-child {
-  margin-left: 1em;
-}
-
-.offer-thumbnail h3 {
+.page__part--main .offers .offer-thumbnail h3 {
   font-size: 1.2rem;
 }
 
-.offer-thumbnail p {
+.page__part--main .offers .offer-thumbnail p {
   font-size: .9rem;
 }
 
-.offer-thumbnail h3,
-.offer-thumbnail p {
+.page__part--main .offers .offer-thumbnail h3,
+.page__part--main .offers .offer-thumbnail p {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
   margin-left: 0.5em;
   margin-right: 0.5em;
+}
+
+.page__part__offer .gallery {
+  height: 15em;
 }

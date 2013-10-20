@@ -1,14 +1,10 @@
-<section class="page__offer">
+<section class="page__part__offer grid">
 
-	<header class="page--header">
+	<header class="page__part__header">
         <h2>{{ offer.template.title }}</h2>
     </header>
 
-    <aside class="page--aside">
-        <app-offer-author model="offer.author"></app-offer-author>
-    </aside>
-
-    <div class="page--content">
+    <div class="page__part__content four-fifths">
 		<app-gallery model="offer.template.pictures"></app-gallery>
 
         <div class="description text-block">
@@ -18,5 +14,9 @@
             </p>
         </div>
     </div>
+
+    <aside class="page__part__aside one-fifth">
+        <app-offer-author model="offer.author"></app-offer-author>
+    </aside>
 
 </section>
