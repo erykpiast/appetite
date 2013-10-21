@@ -1,7 +1,7 @@
-define([ 'libs/angular', 'libs/angular-resource', 'libs/angular-ui-router', 'controllers', 'templates' ], function(angular, undefined, undefined, controllers, templates) {
+define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angular-ui-router', 'controllers', 'templates' ], function(angular, filters, undefined, undefined, controllers, templates) {
 
 	angular.module('appetite',
-		[ 'ngResource', 'ui.state' ])
+		[ 'ngResource', 'ui.state', 'filters' ])
 		.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		    $urlRouterProvider.otherwise('/');
 
