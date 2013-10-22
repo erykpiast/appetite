@@ -16,7 +16,7 @@
         
         <ul class="offer__comments">
             <li class="offer__comment" ng-repeat="comment in offer.comments">
-                <app-comment model="comment"></app-comment>
+                <app-comments model="comment"></app-comments>
             </li>
         </ul>
     </div>
