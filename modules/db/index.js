@@ -43,8 +43,11 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
         m.Offer.belongsTo(m.OfferTemplate, { as: 'Template', foreignKey: 'TemplateId' });
         m.Offer.belongsTo(m.Place);
         m.Offer.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
-        
-        
+        m.Offer.hasMany(m.Comment);
+
+        m.Comment.belongsTo(m.Response);
+        m.Comment.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
+
         m.Response.belongsTo(m.Offer);
         m.Response.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
 

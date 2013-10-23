@@ -1,16 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('Response', {
+	return sequelize.define('Comment', {
 		id: {
 			type: DataTypes.BIGINT.UNSIGNED,
 			primaryKey: true,
 			autoIncrement: true
 		},
-		accepted: {
-			type: DataTypes.BOOLEAN,
-			allowNull: false,
-			defaultValue: false
+		content: {
+			type: DataTypes.TEXT,
+			allowNull: false
 		}
-		// offer - foreign key from Offer
+		// response - foreign key from Response
 		// author - foreign key from User
 	}, {
 		timestamps: true, // add createdAt, updatedAt
