@@ -12,7 +12,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
                         method: 'GET'
                     }
                 }),
-                offer: $resource(_rest('/offer/:id.json'), { id: 'all' }, {
+                offer: angular.extend($resource(_rest('/offer/:id.json'), { id: 'all' }, {
                     retrieve: {
                         method: 'GET'
                     },
@@ -20,7 +20,12 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
                         method: 'GET',
                         isArray: true
                     }
-                }),
+                }), { comments: $resource(_rest('/offer/:offerId/comments.json'), { }, {
+                    retrieveAll: {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }) }),
                 offerTemplate: $resource(_rest('/offer-template/:id.json'), { id: '@id' }, {
                     create: {
                         method: 'POST'
@@ -32,7 +37,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
                         method: 'DELETE'
                     }
                 }),
-                comments: $resource(_rest('/comment/:offerId.json'), { }, {
+                comment: $resource(_rest('/comment/:id.json'), { }, {
                     retrieve: {
                         method: 'GET'
                     },

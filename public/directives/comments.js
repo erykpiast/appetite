@@ -13,7 +13,8 @@ function(angular, appetite, templates) {
 			    	scope.i18n = $rootScope.i18n;
 			    
 			    	if (angular.isArray(scope.comment.children)) {
-			    		var $list = $('<ul>').appendTo($element);
+			    		var $list = angular.element('<ul class="comment__answers no-bullets">');
+			    		$element.append($list);
 
 				    	$compile('<li ng-repeat="comment in comment.children"><app-comments model="comment"></app-comments></li>')(scope, function(cloned, scope) {
 				    		$list.append(cloned);

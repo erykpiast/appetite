@@ -14,7 +14,7 @@
             </p>
         </div>
         
-        <ul class="offer__comments">
+        <ul class="offer__comments no-bullets">
             <li class="offer__comment" ng-repeat="comment in offer.comments">
                 <app-comments model="comment"></app-comments>
             </li>

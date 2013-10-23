@@ -1,4 +1,4 @@
-define([ 'angular', 'filters', 'libs/std' ], function() {
+define([ 'libs/angular', 'libs/std', 'modules/filters' ], function(angular, undefined, filters) {
 
 	angular.module('filters')
 	.filter('forNow', function(){

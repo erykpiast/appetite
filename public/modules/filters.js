@@ -1,9 +1,10 @@
-define([ 'angular' ], function() {
+define([ 'libs/angular' ], function(angular) {
 
-	return
-		angular.module('filters', [ ])
+	angular.module('filters', [ ])
 		.config(function() {
 			return true;
 		});
+
+	return angular.module('filters');
 
 });
