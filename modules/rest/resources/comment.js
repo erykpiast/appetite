@@ -87,17 +87,18 @@ function retrieve(params, authData) {
             
             if(!comment) {
                 throw new Errors.NotFound();
-            } else {
+            } else if(comment.values.ResponseId) {
                 return app.get('rest').response.retrieve({ id: comment.values.ResponseId }, authData);
+            } else {
+                return true;
             }
         },
         Errors.report('Database')
     ).then(
         function(response) {
             return { resource: extend(restrict.public(comment.values), {
-                            response: response.resource,
                             author: comment.values.AuthorId
-                        })
+                        }, (response.resource ? { response: response.resource } : { }))
                     };
         },
         Errors.report('Database')
@@ -115,9 +116,8 @@ function retrieveAllForOffer(params, authData) {
             if(comments && comments.length) {
                 return { resource: comments.map(function(comment) {
                     return extend(restrict.public(comment.values), {
-                        response: REST.response.public(comment.values.Response.values),
                         author: comment.values.AuthorId
-                        });
+                        }, (comment.values.response ? { response: REST.response.public(comment.values.response.values) } : { }));
                     }) };
             } else {
                 throw new Errors.NotFound();
@@ -176,8 +176,7 @@ function update(params, authData, proto) {
     ).then(
         function(template) {
             return { resource: extend(restrict.public(offer.values), {
-                            place: restrict.placePublic(offer.values.place.values),
-                            template: template.resource,
+                            response: REST.response.public(comment.values.Response.values),
                             author: offer.values.AuthorId
                         })
                     };
@@ -194,20 +193,20 @@ function destroy(params, authData) {
             serviceId = _serviceId;
             
             if(!!serviceId) {
-                return Offer.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Place ] });
+                return Comment.find({ where: restrict.search(params), include: [ Response, { model: User, as: 'Author' } ]);
             } else {
                 throw new Errors.Authentication();
             }
         },
         Errors.report('Authentication')
     ).then(
-        function(_offer) {
-            offer = _offer;
+        function(_comment) {
+            comment = _comment;
             
-            if(!offer) {
+            if(!comment) {
                 throw new Errors.NotFound();    
-            } else if(serviceId === offer.values.author.values.serviceId) {
-                return offer.destroy();
+            } else if(serviceId === comment.values.author.values.serviceId) {
+                return comment.destroy();
             } else {
                 throw new Errors.Authentication();
             }
@@ -215,16 +214,9 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function() {
-            return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
-        },
-        Errors.report('Database')
-    ).then(
-        function(template) {
-            return { resource: extend(restrict.public(offer.values), {
-                            place: restrict.placePublic(offer.values.place.values),
-                            template: template.resource,
-                            author: offer.values.AuthorId
-                        })
+            return { resource: extend(restrict.public(comment.values), {,
+                            author: comment.values.AuthorId
+                        }, (comment.values.response ? { response: REST.response.public(comment.values.response.values) } : { }))
                     };
         },
         Errors.report('Database')
@@ -243,7 +235,7 @@ module.exports = function(_app) {
     return {
         create: create,
         retrieve: retrieve,
-        retrieveAll: retrieveAll,
+        retrieveAllForOffer: retrieveAllForOffer,
         update: update,
         destroy: destroy
     }

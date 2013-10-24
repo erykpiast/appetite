@@ -697,3 +697,132 @@ describe('response REST integration test', function() {
     });
     
 });
+
+
+describe('comment REST integration test', function() {
+
+
+    it('should be POST rest which prepares response entry', function() {
+        rest.create('/response', {
+            'offer' : 2
+        });
+    });
+
+
+    var proto = {
+            'content' : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, tempora, accusamus minima excepturi quaerat minus laudantium nostrum itaque? Voluptates cumque temporibus repellendus modi nisi vel quam exercitationem totam impedit deleniti.',
+            'offer' : 2
+        },
+        currentRest = '/comment';
+    
+    it('should be GET rest with does not return any comment entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
+           });
+    });
+
+   
+    it('should be POST rest which creates first comment entry', function() {
+        rest.create(currentRest, proto,
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                proto = $.extend(proto, {
+                    id: 1,
+                    response: {
+                        id: 2,
+                        offer: 2,
+                        accepted: false,
+                        author: 3
+                    }
+                });
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.created);
+           });
+    });
+
+    
+    it('should be GET rest with returns first comment entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+
+    
+    it('should be UPDATE rest allows change comment entry properties', function() {
+        
+        proto = $.extend(proto, {
+            content: 'Lorem ipsum!'
+        });
+        
+        rest.update(currentRest + '/1', proto,
+            function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+
+   
+    it('should be DELETE rest deletes comment entry', function() {
+        rest.destroy(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
+              
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+
+    
+    it('should be GET rest with does not return any comment entry', function() { 
+        rest.retrieve(currentRest + '/1',
+           function(successCallback, errorCallback) {
+                expect(successCallback).not.toHaveBeenCalled();
+                expect(errorCallback).toHaveBeenCalled();
+              
+                var response = errorCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+                expect(response.msg).toBeDefined();
+
+                var status = errorCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.notFound);
+           });
+    });
+    
+});
