@@ -111,7 +111,7 @@ function retrieveAllForOffer(params, authData) {
         limit = parseInt0(params.limit) || 10,
         include = [ Response ];
 
-    return Comment.findAll({ where: { OfferId: params.offerId, deletedAt: null }), offset: offset, limit: limit, include: include }).then(
+    return Comment.findAll({ where: { OfferId: params.offerId, deletedAt: null }, offset: offset, limit: limit, include: include }).then(
         function(comments) {
             if(comments && comments.length) {
                 return { resource: comments.map(function(comment) {

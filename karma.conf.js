@@ -13,9 +13,10 @@ module.exports = function(config) {
 		files: [
 		    'public/bower_components/jquery/jquery.min.js',
 		    'public/bower_components/jquery.cookie/jquery.cookie.js',
-		    { pattern: '**/*.client.spec.js' }
+		    { pattern: '**/*.client.spec.js', included: false },
+		    '/spec/client/index.js'
 		],
-		frameworks: [ 'jasmine' ],
+		frameworks: [ 'jasmine', 'requirejs' ],
 		browsers: [ 'PhantomJS_Unsecure' ],
 		singleRun: true,
 		background: true,
