@@ -11,10 +11,11 @@ module.exports = function(config) {
             }
         },
 		files: [
-		    'public/bower_components/jquery/jquery.min.js',
-		    'public/bower_components/jquery.cookie/jquery.cookie.js',
+			{ pattern: 'public/bower_components/jquery/jquery.js', included: false },
+			{ pattern: 'public/bower_components/jquery.cookie/jquery.cookie.js', included: false },
+			{ pattern: 'spec/client/rest.js', included: false },
 		    { pattern: '**/*.client.spec.js', included: false },
-		    '/spec/client/index.js'
+		    'spec/client/index.js'
 		],
 		frameworks: [ 'jasmine', 'requirejs' ],
 		browsers: [ 'PhantomJS_Unsecure' ],

@@ -1,4 +1,6 @@
 define([], function() {
+
+  var serviceDomain = window.location.hostname + ':' + 3000;
   
   return (function(_pathPrefix, _httpCodes, _waitingTime, _log) {
 
