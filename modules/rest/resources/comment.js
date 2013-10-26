@@ -193,7 +193,7 @@ function destroy(params, authData) {
             serviceId = _serviceId;
             
             if(!!serviceId) {
-                return Comment.find({ where: restrict.search(params), include: [ Response, { model: User, as: 'Author' } ]);
+                return Comment.find({ where: restrict.search(params), include: [ Response, { model: User, as: 'Author' } ] });
             } else {
                 throw new Errors.Authentication();
             }
@@ -214,7 +214,7 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function() {
-            return { resource: extend(restrict.public(comment.values), {,
+            return { resource: extend(restrict.public(comment.values), {
                             author: comment.values.AuthorId
                         }, (comment.values.response ? { response: REST.response.public(comment.values.response.values) } : { }))
                     };
