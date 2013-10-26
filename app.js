@@ -1,5 +1,5 @@
 // defining global modules >>
-global.$require = require(__dirname + '/modules/$require')(__dirname); // first and last call of 'normal' require
+global.$require = require(__dirname + '/libs/$require')(__dirname); // first and last call of 'normal' require
 global.extend = $require('extend');
 global.Q = $require('q');
 global.MathJs = $require('mathjs');
