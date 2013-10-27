@@ -2,23 +2,45 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
 
     $.cookie.json = true;
 
-	describe('user REST integration test', function() {
-    
+	describe('offer template REST integration test', function() {
+
     var authData = {
             'service' : 'facebook',
-            'accessToken' : 'a1'
-        };
-    
-    var proto = {
-            'firstName' : 'a',
-            'lastName' : 'b'
+            'accessToken' : 'a2'
         },
-        currentRest = '/user';
-    
-    it('should be GET rest with does not return any user entry', function() { 
+        proto = {
+            'title' : 'test title',
+            'description' : 'lorem ipsum dolor sit amet',
+            'recipe' : 'http://xxx.aaa.com/test-title',
+            'pictures' : [
+                    'http://xxx.aaa.com/test-title/image_001.jpg',
+                    'http://xxx.aaa.com/test-title/image_002.jpg',
+                    'http://xxx.aaa.com/test-title/image_003.jpg'
+                ],
+            'tags' : [ 'tag1', 'tag2', 'tag3' ]
+        },
+        currentRest = '/offer-template',
+        user;
+
+    it('should be POST rest which prepares user entry', function() {
         $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
 
-        rest.retrieve(currentRest + '/1',
+        rest.create('/user', {
+            'firstName' : 'c',
+            'lastName' : 'd'
+        }, function(successCallback) {
+            expect(successCallback).toHaveBeenCalled();
+            
+            var response = successCallback.mostRecentCall.args[0];
+            
+            expect(response).toBeDefined();
+                
+            user = response;
+        });
+    });
+    
+    it('should be GET rest with does not return any template entry', function() { 
+        rest.retrieve(currentRest + '/1000',
            function(successCallback, errorCallback) {
                 expect(successCallback).not.toHaveBeenCalled();
                 expect(errorCallback).toHaveBeenCalled();
@@ -31,31 +53,46 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                 expect(status).toEqual(rest.codes.notFound);
            });
     });
+
    
-    it('should be POST rest which creates first user entry', function() {
+    it('should be POST rest which creates first template entry', function() {
         rest.create(currentRest, proto,
            function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
               
-                proto = $.extend(proto, {
-                    id: 1,
-                    gender: 'unknown',
-                    site: '',
-                    authService: authData.service
-                });
-              
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
+              
+                proto = $.extend(proto, {
+                    id: response.id,
+                    recipe: {
+                        id: response.recipe.id,
+                        url: proto.recipe
+                    },
+                    author: user.id,
+                    pictures: [
+                            { id: response.pictures[0].id, filename: 'image_001.jpg' },
+                            { id: response.pictures[1].id, filename: 'image_002.jpg' },
+                            { id: response.pictures[2].id, filename: 'image_003.jpg' }
+                        ],
+                    tags: [
+                            { id: response.tags[0].id, text: 'tag1' },
+                            { id: response.tags[1].id, text: 'tag2' },
+                            { id: response.tags[2].id, text: 'tag3' }
+                        ]
+                });
+              
                 expect(response).toEqual(proto);
 
                 var status = successCallback.mostRecentCall.args[1];
                 expect(status).toEqual(rest.codes.created);
            });
     });
+
     
-    it('should be GET rest with returns first user entry', function() { 
-        rest.retrieve(currentRest + '/1',
+    it('should be GET rest with returns first template entry', function() { 
+        rest.retrieve(currentRest + '/' + proto.id,
            function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
@@ -68,16 +105,22 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+
     
-    it('should be UPDATE rest allows change user entry properties', function() {
-        proto.gender = 'male';
-        proto.site = 'http://example.com/';
+    it('should be UPDATE rest allows change template entry properties', function() {
         
-        rest.update(currentRest + '/1', proto,
+        var newAttrs = {
+            title: 'ccc',
+            description: 'tra la la tra la la'
+        };
+        
+        rest.update(currentRest + '/' + proto.id, newAttrs,
             function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
               
+                proto = $.extend(proto, newAttrs);
+              
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();
                 expect(response).toEqual(proto);
@@ -86,9 +129,10 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                 expect(status).toEqual(rest.codes.ok);
            });
     });
+
    
-    it('should be DELETE rest deletes user entry', function() {
-        rest.destroy(currentRest + '/1',
+    it('should be DELETE rest deletes template entry', function() {
+        rest.destroy(currentRest + '/' + proto.id,
            function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
@@ -102,8 +146,9 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
            });
     });
     
-    it('should be GET rest with does not return any user entry', function() { 
-        rest.retrieve(currentRest + '/1',
+    
+    it('should be GET rest with does not return any template entry', function() { 
+        rest.retrieve(currentRest + '/' + proto.id,
            function(successCallback, errorCallback) {
                 expect(successCallback).not.toHaveBeenCalled();
                 expect(errorCallback).toHaveBeenCalled();
