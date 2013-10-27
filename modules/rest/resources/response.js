@@ -190,6 +190,7 @@ module.exports = function(app) {
         create: create,
         retrieve: retrieve,
         update: update,
-        destroy: destroy
+        destroy: destroy,
+        public: restrict.public
     }
 };

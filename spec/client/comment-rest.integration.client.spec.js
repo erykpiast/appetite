@@ -140,6 +140,9 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                   
                     proto = $.extend(proto, {
                         id: _response.id,
+                        author: user2.id,
+                        createdAt: _response.createdAt,
+                        updatedAt: _response.updatedAt,
                         response: response
                     });
                     
@@ -172,6 +175,10 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             proto = $.extend(proto, {
                 content: 'Lorem ipsum!'
             });
+
+            // TEMP
+            delete proto.response.author;
+            delete proto.response.offer;
             
             rest.update(currentRest + '/' + proto.id, proto,
                 function(successCallback, errorCallback) {

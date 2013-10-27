@@ -3,8 +3,8 @@ var moment = $require('moment'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/rest/errors'),
     restrict = $require('/modules/rest/restrict')({
-        public: [ 'id', 'content', 'createdAt' ],
-        create: [ 'content', 'offer', 'response' ],
+        public: [ 'id', 'content', 'createdAt', 'updatedAt' ],
+        create: [ 'content' ],
         update: [ 'content' ],
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
@@ -30,9 +30,11 @@ function create(authData, proto) {
             
             if(!user) {
                 throw new Errors.Authentication();
-            } else if(!proto.offer) {
+            } else if(!proto.offer || !proto.content) {
                 throw new Errors.WrongData();
             } else {
+                proto.content = proto.content.toString();
+
                 return app.get('rest').Offer.retrieve({ id: proto.offer }, authData);
             }
         },
@@ -57,21 +59,33 @@ function create(authData, proto) {
 
                 if(!response) {
                     throw new Errors.WrongData();
+                } else if(response.author !== user.values.id) {
+                    throw new Errors.Authentication();
                 }
             }
 
-            return Comment.create(extend(restrict.create(proto), {
-                AuthorId: user.values.id,
-                OfferId: offer.id,
-            }, (response ? { ResponseId: response.id } : { })));
+            if(response) {
+                return Comment.findOrCreate({
+                        AuthorId: user.values.id,
+                        OfferId: offer.id,
+                        ResponseId: response.id,
+                        deletedAt: null
+                    }, restrict.create(proto));
+            } else {
+                return Comment.create(extend(restrict.create(proto), {
+                    AuthorId: user.values.id,
+                    OfferId: offer.id
+                }, (response ? { ResponseId: response.id } : { })));
+            }
         },
         Errors.report('Database')
     ).then(
-        function(comment) {
-            return { resource: extend(restrict.public(comment.values), {
-                    response: (response ? response.id : null),
+        function(comment, created) {
+            return extend({ resource: extend(restrict.public(comment.values), {
+                    response: (response ? response : 0),
+                    offer: offer.id,
                     author: user.values.id
-                }) };
+                }) }, (created === false ? { existed: true } : { }));
         },
         Errors.report('Database')
     );
@@ -88,7 +102,7 @@ function retrieve(params, authData) {
             if(!comment) {
                 throw new Errors.NotFound();
             } else if(comment.values.ResponseId) {
-                return app.get('rest').response.retrieve({ id: comment.values.ResponseId }, authData);
+                return app.get('rest').Response.retrieve({ id: comment.values.ResponseId }, authData);
             } else {
                 return true;
             }
@@ -97,8 +111,10 @@ function retrieve(params, authData) {
     ).then(
         function(response) {
             return { resource: extend(restrict.public(comment.values), {
-                            author: comment.values.AuthorId
-                        }, (response.resource ? { response: response.resource } : { }))
+                            offer: comment.values.OfferId,
+                            author: comment.values.AuthorId,
+                            response: (response.resource || 0)
+                        })
                     };
         },
         Errors.report('Database')
@@ -116,8 +132,10 @@ function retrieveAllForOffer(params, authData) {
             if(comments && comments.length) {
                 return { resource: comments.map(function(comment) {
                     return extend(restrict.public(comment.values), {
-                        author: comment.values.AuthorId
-                        }, (comment.values.response ? { response: REST.response.public(comment.values.response.values) } : { }));
+                        offer: comment.values.OfferId,
+                        author: comment.values.AuthorId,
+                        response: (comment.values.response ? app.get('rest').Response.public(comment.values.response.values) : 0)
+                        });
                     }) };
             } else {
                 throw new Errors.NotFound();
@@ -129,55 +147,42 @@ function retrieveAllForOffer(params, authData) {
 
 
 function update(params, authData, proto) {
-    var serviceId, offer;
+    var serviceId, comment;
     
     return auth(authData.service, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             
             if(!!serviceId) {
-                return Offer.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Place ] });
+                return Comment.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Response ] });
             } else {
                 throw new Errors.Authentication();
             }
         },
         Errors.report('Authentication')
     ).then(
-        function(offer) {
-            if(!offer) {
+        function(comment) {
+            if(!comment) {
                 throw new Errors.NotFound();    
-            } else if(serviceId === offer.values.author.values.serviceId) {
+            } else if(serviceId === comment.values.author.values.serviceId) {
                 var newAttrs = restrict.update(proto);
                 
-                var res = _setTimestamps(newAttrs, proto);
-                if(!res) {
-                    throw new Errors.WrongData();
-                }
+                extend(comment, newAttrs);
                 
-                if(Date.parse(offer.values.startAt) != 0) {
-                    throw new Errors.Database();
-                }
-                
-                extend(offer, newAttrs);
-                
-                return offer.save(Object.keys(newAttrs));
+                return comment.save(Object.keys(newAttrs));
             } else {
                 throw new Errors.Authentication();
             }
         },
         Errors.report('Database')
     ).then(
-        function(_offer) {
-            offer = _offer;
-            
-            return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
-        },
-        Errors.report('Database')
-    ).then(
-        function(template) {
-            return { resource: extend(restrict.public(offer.values), {
-                            response: REST.response.public(comment.values.Response.values),
-                            author: offer.values.AuthorId
+        function(_comment) {
+            comment = _comment;
+
+            return { resource: extend(restrict.public(comment.values), {
+                            offer: comment.values.OfferId,
+                            author: comment.values.AuthorId,
+                            response: (comment.values.response ? app.get('rest').Response.public(comment.values.response.values) : 0)
                         })
                     };
         }    
@@ -214,9 +219,13 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function() {
+            
+
             return { resource: extend(restrict.public(comment.values), {
-                            author: comment.values.AuthorId
-                        }, (comment.values.response ? { response: REST.response.public(comment.values.response.values) } : { }))
+                            offer: comment.values.OfferId,
+                            author: comment.values.AuthorId,
+                            response: (comment.values.response ? app.get('rest').Response.public(comment.values.response.values) : 0)
+                        })
                     };
         },
         Errors.report('Database')

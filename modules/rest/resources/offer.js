@@ -150,7 +150,7 @@ function retrieveAll(params, authData) {
             if(offers && offers.length) {
                 return { resource: offers.map(function(offer) {
                     return extend(restrict.public(offer.values), {
-                        template: REST.OfferTemplate.public(offer.values.Template.values),
+                        template: app.get('rest').OfferTemplate.public(offer.values.Template.values),
                         author: offer.values.AuthorId
                         });
                     }) };
