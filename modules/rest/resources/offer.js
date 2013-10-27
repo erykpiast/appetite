@@ -14,10 +14,10 @@ var app, DB, Offer, Template, Place, User;
 
 
 function _setTimestamps(target, src) {
-    var startAt = src.startAt ? Date.parse(src.startAt) : null,
-        endAt = src.endAt ? Date.parse(src.endAt) : null;
+    var startAt = src.startAt ? new Date(src.startAt) : null,
+        endAt = src.endAt ? new Date(src.endAt) : null;
     
-    if((isNaN(startAt) || isNaN(endAt)) || (!startAt !== !endAt) || ((startAt && endAt) && (startAt >= endAt))) {
+    if((isNaN(startAt) || isNaN(endAt)) || (!startAt !== !endAt) || ((startAt && endAt) && (startAt.getTime() > endAt.getTime()))) {
         delete target.startAt;
         delete target.endAt;
         

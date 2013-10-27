@@ -43,8 +43,10 @@ function create(authData, proto) {
         function(_offer) {
             offer = _offer;
             
-            if(!offer || (offer.values.AuthorId === user.values.id)) {
+            if(!offer || ((new Date(offer.values.endAt)).getTime() === (new Date(0)).getTime()) || ((new Date(offer.values.endAt)).getTime() < Date.now())) {
                 throw new Errors.WrongData();
+            } else if(offer.values.AuthorId === user.values.id) {
+                throw new Errors.Authentication();
             } else {
                 proto = extend(restrict.create(proto), {
                     OfferId: proto.offer,

@@ -58,7 +58,9 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             rest.create('/offer', {
                 'place' : 'p1',
                 'template' : offerTemplate.id,
-                'type' : 'offer'
+                'type' : 'offer',
+                'startAt' : Date.now(),
+                'endAt' : Date.now() + (3 * 24 * 60 * 60 * 1000)
             }, function(successCallback, errorCallback) {
                     expect(successCallback).toHaveBeenCalled();
                   
