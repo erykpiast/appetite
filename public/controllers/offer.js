@@ -1,6 +1,5 @@
-'use strict';
-
 define([ 'libs/angular' ], function(angular) {
+	'use strict';
 
 	return function($rootScope, $scope, $stateParams, rest) {
 
@@ -35,6 +34,22 @@ define([ 'libs/angular' ], function(angular) {
 					});
 			});
 		
+		angular.extend($scope, {
+			addComment: function(comment) {
+				$scope.offer.comments.push(comment);
+
+				rest.comment.create(comment)
+					.$then(function(res) {
+						console.log('ok!');
+					});
+			},
+			response: function(comment) {
+				rest.response.create({ offer: $scope.offer.id })
+					.$then(function(res) {
+						$scope.addComment(angular.extend(comment, { offer: res.resource.id }));
+					});
+			}
+		});
 	};
 
 });

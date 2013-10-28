@@ -1,6 +1,6 @@
 (function() {
     
-    var directives = [ 'offer-thumbnail', 'offer-author', 'comments', 'gallery' ];
+    var directives = [ 'offer-thumbnail', 'offer-author', 'comments', 'add-comment', 'gallery' ];
     
     define([ 'libs/underscore' ].concat(directives.map(function(directive) {
     	return 'directives/' + directive;

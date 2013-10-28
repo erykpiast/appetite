@@ -2,12 +2,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite', 'services/
     
     angular.module('appetite')
         .factory('rest', function(nodeRest, fakeRest) {
-            var rest = fakeRest;
             
-            return {
-                user: rest.user,
-                offer: rest.offer,
-                offerTemplate: rest.offerTemplate
-            };
+            return angular.extend({ }, fakeRest);
         });
 });

@@ -44,6 +44,14 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
                     create: {
                         method: 'POST'
                     }
+                }),
+                response: $resource(_rest('/response/:id.json'), { }, {
+                    retrieve: {
+                        method: 'GET'
+                    },
+                    create: {
+                        method: 'POST'
+                    }
                 })
             };
         });

@@ -5,6 +5,7 @@ requirejs.config({
     waitSeconds: 60,
     paths: {
 		'text': 'bower_components/requirejs-text/text',
+		'libs/jquery': 'bower_components/jquery/jquery',
 		'libs/angular': 'bower_components/angular-unstable/angular',
 		'libs/angular-resource': 'bower_components/angular-resource-unstable/angular-resource',
 		'libs/angular-sanitize': 'bower_components/angular-sanitize-unstable/angular-sanitize',
@@ -48,7 +49,7 @@ requirejs.config({
 	}
 });
 
-require([ 'libs/angular', 'modules/appetite', 'directives', 'services', 'filters', 'templates' ], function(angular) {
+require([ 'libs/jquery', 'libs/angular', 'modules/appetite', 'directives', 'services', 'filters', 'templates' ], function($, angular) {
 
     angular.bootstrap(document, [ 'appetite' ]);
 

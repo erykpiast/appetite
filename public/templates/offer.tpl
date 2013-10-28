@@ -19,6 +19,8 @@
                 <app-comments model="comment"></app-comments>
             </li>
         </ul>
+
+        <app-add-comment onsubmit="addComment(comment)" onresponse="response(comment)"></app-add-comment>
     </div>
 
     <aside class="page__part__aside one-fifth">

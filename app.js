@@ -52,9 +52,9 @@ app
         })
         .param('id', /^\d+$/)
 		.use(app.router)
-        /*.all('/*', function(req, res) {
+        .get('/', function(req, res) {
             res.sendfile('index.html', { root: appDir });
-        })*/;
+        });
 })
 .configure('development', function() {
 	app
