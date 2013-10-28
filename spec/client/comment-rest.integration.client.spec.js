@@ -177,8 +177,8 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             });
 
             // TEMP
-            delete proto.response.author;
-            delete proto.response.offer;
+            // delete proto.response.author;
+            // delete proto.response.offer;
             
             rest.update(currentRest + '/' + proto.id, proto,
                 function(successCallback, errorCallback) {

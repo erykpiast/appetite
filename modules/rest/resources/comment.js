@@ -82,7 +82,10 @@ function create(authData, proto) {
     ).then(
         function(comment, created) {
             return extend({ resource: extend(restrict.public(comment.values), {
-                    response: (response ? response : 0),
+                    response: (response ? extend({ 
+                            offer: offer.id,
+                            author: user.values.id
+                        }, response) : 0),
                     offer: offer.id,
                     author: user.values.id
                 }) }, (created === false ? { existed: true } : { }));
@@ -113,7 +116,10 @@ function retrieve(params, authData) {
             return { resource: extend(restrict.public(comment.values), {
                             offer: comment.values.OfferId,
                             author: comment.values.AuthorId,
-                            response: (response.resource || 0)
+                            response: (response.resource ? extend({ 
+                                    offer: comment.values.OfferId,
+                                    author: comment.values.AuthorId
+                                }, response.resource) : 0)
                         })
                     };
         },
@@ -134,7 +140,10 @@ function retrieveAllForOffer(params, authData) {
                     return extend(restrict.public(comment.values), {
                         offer: comment.values.OfferId,
                         author: comment.values.AuthorId,
-                        response: (comment.values.response ? app.get('rest').Response.public(comment.values.response.values) : 0)
+                        response: (comment.values.response ? extend({ 
+                                    offer: comment.values.OfferId,
+                                    author: comment.values.AuthorId
+                                }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         });
                     }) };
             } else {
@@ -181,8 +190,11 @@ function update(params, authData, proto) {
 
             return { resource: extend(restrict.public(comment.values), {
                             offer: comment.values.OfferId,
-                            author: comment.values.AuthorId,
-                            response: (comment.values.response ? app.get('rest').Response.public(comment.values.response.values) : 0)
+                            author: comment.values.author.values.id,
+                            response: (comment.values.response ? extend({ 
+                                    offer: comment.values.OfferId,
+                                    author: comment.values.author.values.id
+                                }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         })
                     };
         }    
@@ -219,12 +231,13 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function() {
-            
-
             return { resource: extend(restrict.public(comment.values), {
                             offer: comment.values.OfferId,
-                            author: comment.values.AuthorId,
-                            response: (comment.values.response ? app.get('rest').Response.public(comment.values.response.values) : 0)
+                            author: comment.values.author.values.id,
+                            response: (comment.values.response ? extend({ 
+                                    offer: comment.values.OfferId,
+                                    author: comment.values.author.values.id
+                                }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         })
                     };
         },
