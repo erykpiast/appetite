@@ -33,6 +33,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             });
         });
 
+
         it('should be POST rest which prepares offer template entry', function() {
             rest.create('/offer-template', {
                 'title' : 'dadadadad',
@@ -166,6 +167,56 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                });
         });
         
+        
+        it('should be POST rest which prepares offer entry', function() {
+            rest.create(currentRest, {
+                    'template': offerTemplate.id,
+                    'place' : 'p1',
+                    'type' : 'offer',
+                    'startAt' : Date.now(),
+                    'endAt' : Date.now() + (3 * 24 * 60 * 60 * 1000),
+                }, function(successCallback, errorCallback) {
+                    expect(successCallback).toHaveBeenCalled();
+                
+                    var response = successCallback.mostRecentCall.args[0];
+                    
+                    expect(response).toBeDefined();
+               });
+        });
+
+
+        it('should be POST rest which prepares offer entry', function() {
+            rest.create(currentRest, {
+                    'template': offerTemplate.id,
+                    'place' : 'p2',
+                    'type' : 'offer',
+                    'startAt' : Date.now() + (1 * 24 * 60 * 60 * 1000),
+                    'endAt' : Date.now() + (4 * 24 * 60 * 60 * 1000),
+                }, function(successCallback, errorCallback) {
+                    expect(successCallback).toHaveBeenCalled();
+                
+                    var response = successCallback.mostRecentCall.args[0];
+                    
+                    expect(response).toBeDefined();
+               });
+        });
+
+
+        it('should be GET rest which returns all offer entries', function() { 
+            rest.retrieve(currentRest,
+               function(successCallback, errorCallback) {
+                    expect(successCallback).not.toHaveBeenCalled();
+                    expect(errorCallback).toHaveBeenCalled();
+                  
+                    var response = errorCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+                    expect(response.length).toBeGreaterThan(0);
+    
+                    var status = errorCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.notFound);
+               });
+        });
+
     });
 
 })

@@ -7,8 +7,9 @@ var moment = $require('moment'),
         placePublic: [ 'id', 'serviceId' ],
         create: [ 'type', 'startAt', 'endAt' ],
         update: [ 'startAt', 'endAt' ],
-        search: [ 'id', 'deletedAt' ]
-    }, [ 'public', 'search' ] );
+        search: [ 'id', 'deletedAt' ],
+        searchAll: [ 'deletedAt' ]
+    }, [ 'public', 'search', 'searchAll' ] );
 
 var app, DB, Offer, Template, Place, User;
 
@@ -143,9 +144,9 @@ function retrieve(params, authData) {
 function retrieveAll(params, authData) {
     var offset = parseInt0(params.offset),
         limit = parseInt0(params.limit) || 10,
-        include = [ { model: OfferTemplate, as: 'Template' } ];
+        include = [ { model: Template, as: 'Template' } ];
 
-    return Offer.findAll({ where: restrict.search(params), offset: offset, limit: limit, include: include }).then(
+    return Offer.findAll({ where: restrict.searchAll(params), offset: offset, limit: limit, include: include }).then(
         function(offers) {
             if(offers && offers.length) {
                 return { resource: offers.map(function(offer) {
