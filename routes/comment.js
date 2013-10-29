@@ -61,5 +61,18 @@ module.exports = function(app) {
 							msg: err.message
 						});
 				});
+		})
+		.get(restUrl + '/offer/:offerId/comments', function(req, res) {
+			rest.retrieveAllForOffer(extend({ }, req.params, req.query), getAuthData(req)).then(
+				function(comment) {
+					res.json(comment.resource);
+				},
+				function(err) {
+					res
+						.status(err.httpStatus)
+						.json({
+							msg: err.message
+						});
+				});
 		});
 };

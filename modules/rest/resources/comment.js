@@ -135,7 +135,7 @@ function retrieveAllForOffer(params, authData) {
 
     return Comment.findAll({ where: { OfferId: params.offerId, deletedAt: null }, offset: offset, limit: limit, include: include }).then(
         function(comments) {
-            if(comments && comments.length) {
+            if(comments) {
                 return { resource: comments.map(function(comment) {
                     return extend(restrict.public(comment.values), {
                         offer: comment.values.OfferId,

@@ -225,6 +225,58 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     expect(status).toEqual(rest.codes.notFound);
                });
         });
+
+
+        it('should be POST rest which prepares comment entry', function() {
+            rest.create(currentRest, {
+                    offer: offer.id,
+                    content: 'Lorem ipsum dolor sit amet...'
+                },
+                function(successCallback, errorCallback) {
+                    expect(errorCallback).not.toHaveBeenCalled();
+                    expect(successCallback).toHaveBeenCalled();
+                  
+                    var response = successCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+    
+                    var status = successCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.created);
+                });
+        });
+
+
+        it('should be POST rest which prepares comment entry', function() {
+            rest.create(currentRest, {
+                    offer: offer.id,
+                    content: 'Sit amet! Lorem ipsum.'
+                },
+                function(successCallback, errorCallback) {
+                    expect(errorCallback).not.toHaveBeenCalled();
+                    expect(successCallback).toHaveBeenCalled();
+                  
+                    var response = successCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+    
+                    var status = successCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.created);
+                });
+        });
+
+
+        it('should be GET rest with returns all comment entries for the offer', function() { 
+            rest.retrieve('/offer/' + offer.id + '/comments',
+               function(successCallback, errorCallback) {
+                    expect(errorCallback).not.toHaveBeenCalled();
+                    expect(successCallback).toHaveBeenCalled();
+                  
+                    var response = successCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+                    expect(response.length).toBeGreaterThan(0);
+    
+                    var status = successCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.ok);
+               });
+        });
         
     });
 
