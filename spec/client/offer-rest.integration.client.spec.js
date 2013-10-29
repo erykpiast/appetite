@@ -205,15 +205,15 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         it('should be GET rest which returns all offer entries', function() { 
             rest.retrieve(currentRest,
                function(successCallback, errorCallback) {
-                    expect(successCallback).not.toHaveBeenCalled();
-                    expect(errorCallback).toHaveBeenCalled();
+                    expect(successCallback).toHaveBeenCalled();
+                    expect(errorCallback).not.toHaveBeenCalled();
                   
-                    var response = errorCallback.mostRecentCall.args[0];
+                    var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
                     expect(response.length).toBeGreaterThan(0);
     
-                    var status = errorCallback.mostRecentCall.args[1];
-                    expect(status).toEqual(rest.codes.notFound);
+                    var status = successCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.ok);
                });
         });
 

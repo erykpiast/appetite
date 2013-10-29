@@ -37,7 +37,7 @@ module.exports = function(app) {
 				});
 		})
 		.get(restUrl + '/offer', function(req, res) {
-			rest.retrieveAll({ limit: req.params.limit, offset: req.params.offset }, getAuthData(req)).then(
+			rest.retrieveAll({ limit: req.query.limit, offset: req.query.offset }, getAuthData(req)).then(
 				function(offer) {
 					res.json(offer.resource);
 				},

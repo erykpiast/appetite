@@ -1,4 +1,5 @@
-var moment = $require('moment'),
+var Q = $require('q'),
+    moment = $require('moment'),
     auth = $require('/modules/auth'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/rest/errors'),
@@ -144,20 +145,42 @@ function retrieve(params, authData) {
 function retrieveAll(params, authData) {
     var offset = parseInt0(params.offset),
         limit = parseInt0(params.limit) || 10,
-        include = [ { model: Template, as: 'Template' } ];
+        params = {
+            deletedAt: null/*,
+            endAt: {
+                ne: 0,
+                lt: Date.now()
+            }*/
+        };
+        
+    var offers;
 
-    return Offer.findAll({ where: restrict.searchAll(params), offset: offset, limit: limit, include: include }).then(
-        function(offers) {
-            if(offers && offers.length) {
-                return { resource: offers.map(function(offer) {
+    return Offer.findAll({ where: params, offset: offset, limit: limit }).then(
+        function(_offers) {
+            if(_offers) {
+                var promises = [ ];
+                
+                offers = _offers.map(function(offer) {
+                    promises.push(app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData));
+                    
                     return extend(restrict.public(offer.values), {
-                        template: app.get('rest').OfferTemplate.public(offer.values.Template.values),
                         author: offer.values.AuthorId
                         });
-                    }) };
+                    });
+                    
+                return Q.all(promises);
             } else {
                 throw new Errors.NotFound();
             }
+        },
+        Errors.report('Database')
+    ).then(
+        function(templates) {
+            templates.forEach(function(template, index) {
+                offers[index].template = template;
+            });
+            
+            return { resource: offers };
         },
         Errors.report('Database')
     );
