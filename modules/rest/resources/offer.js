@@ -177,7 +177,7 @@ function retrieveAll(params, authData) {
     ).then(
         function(templates) {
             templates.forEach(function(template, index) {
-                offers[index].template = template;
+                offers[index].template = template.resource;
             });
             
             return { resource: offers };

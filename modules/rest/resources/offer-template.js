@@ -3,7 +3,7 @@ var Sequelize = $require('sequelize'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'title', 'description', 'recipe' ],
-		recipePublic: [ 'id', 'url' ],
+		recipePublic: [ 'id', 'url', 'domain' ],
 		imagePublic: [ 'id', 'filename' ],
 		imageSearch: [ 'filename' ],
 		tagPublic: [ 'id', 'text' ],
@@ -165,7 +165,7 @@ function create(authData, proto) {
 	).then(
 		function() {
 			return { resource: extend(restrict.public(template.values), {
-            			    recipe: restrict.recipePublic(recipe.values),
+            			    recipe: restrict.recipePublic(recipe),
             				author: user.values.id,
             				pictures: _publishPictures(proto),
             				tags: _publishTags(proto)
@@ -182,7 +182,7 @@ function retrieve(params, authData) {
 		function(template) {
 			if(!!template) {
 				return { resource: extend(restrict.public(template.values), {
-				                recipe: restrict.recipePublic(template.values.recipe.values),
+				                recipe: restrict.recipePublic(template.values.recipe),
 					            author: template.values.AuthorId,
 					            pictures: _publishPictures(template.values),
             					tags: _publishTags(template.values)
@@ -267,7 +267,7 @@ function update(params, authData, proto) {
 	).then(
 		function() {
 			return { resource: extend(restrict.public(template.values), {
-			                recipe: restrict.recipePublic(template.values.recipe.values),
+			                recipe: restrict.recipePublic(template.values.recipe),
 				            author: template.values.AuthorId,
 				            pictures: _publishPictures(proto, template.values),
 				            tags: _publishTags(proto, template.values)
@@ -309,7 +309,7 @@ function destroy(params, authData) {
 	).then(
 		function() {
 			return { resource: extend(restrict.public(template.values), {
-			                recipe: restrict.recipePublic(template.values.recipe.values),
+			                recipe: restrict.recipePublic(template.values.recipe),
 				            author: template.values.AuthorId,
 				            pictures: _publishPictures(template.values),
             				tags: _publishTags(template.values)

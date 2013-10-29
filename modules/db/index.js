@@ -47,6 +47,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
         m.Comment.belongsTo(m.Response);
         m.Comment.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
+        m.Comment.belongsTo(m.Comment, { as: 'Parent', foreignKey: 'ParentId' });
 
         m.Response.belongsTo(m.Offer);
         m.Response.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });

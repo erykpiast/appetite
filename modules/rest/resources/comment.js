@@ -4,7 +4,7 @@ var moment = $require('moment'),
     Errors = $require('/modules/rest/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'content', 'createdAt', 'updatedAt' ],
-        create: [ 'content' ],
+        create: [ 'content', 'parent' ],
         update: [ 'content' ],
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
@@ -87,7 +87,8 @@ function create(authData, proto) {
                             author: user.values.id
                         }, response) : 0),
                     offer: offer.id,
-                    author: user.values.id
+                    author: user.values.id,
+                    parent: comment.values.ParentId || 0
                 }) }, (created === false ? { existed: true } : { }));
         },
         Errors.report('Database')
@@ -116,6 +117,7 @@ function retrieve(params, authData) {
             return { resource: extend(restrict.public(comment.values), {
                             offer: comment.values.OfferId,
                             author: comment.values.AuthorId,
+                            parent: comment.values.ParentId || 0,
                             response: (response.resource ? extend({ 
                                     offer: comment.values.OfferId,
                                     author: comment.values.AuthorId
@@ -140,9 +142,10 @@ function retrieveAllForOffer(params, authData) {
                     return extend(restrict.public(comment.values), {
                         offer: comment.values.OfferId,
                         author: comment.values.AuthorId,
+                        parent: comment.values.ParentId || 0,
                         response: (comment.values.response ? extend({ 
                                     offer: comment.values.OfferId,
-                                    author: comment.values.AuthorId
+                                    author: comment.values.AuthorId,
                                 }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         });
                     }) };
@@ -193,7 +196,8 @@ function update(params, authData, proto) {
                             author: comment.values.author.values.id,
                             response: (comment.values.response ? extend({ 
                                     offer: comment.values.OfferId,
-                                    author: comment.values.author.values.id
+                                    author: comment.values.author.values.id,
+                                    parent: comment.values.ParentId || 0,
                                 }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         })
                     };
@@ -236,7 +240,8 @@ function destroy(params, authData) {
                             author: comment.values.author.values.id,
                             response: (comment.values.response ? extend({ 
                                     offer: comment.values.OfferId,
-                                    author: comment.values.author.values.id
+                                    author: comment.values.author.values.id,
+                                    parent: comment.values.ParentId || 0,
                                 }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         })
                     };
