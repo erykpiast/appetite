@@ -54,7 +54,7 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
         /* -- */
 
-        m.User.belongsTo(m.Avatar);
+        m.User.belongsTo(m.Image, { as: 'Avatar', foreignKey: 'AvatarId' });
         m.User.belongsTo(m.Place);
 
         m.Like.belongsTo(m.User);
@@ -66,7 +66,6 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
         m.Recipe.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Place.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Image.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
-        m.Avatar.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
 
         console.log('Database initialization...');
         sequelize.sync({ force: !!config.recreate }).then( // try create models in db
