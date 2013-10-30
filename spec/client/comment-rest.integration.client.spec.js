@@ -143,7 +143,8 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                         author: user2.id,
                         createdAt: _response.createdAt,
                         updatedAt: _response.updatedAt,
-                        response: response
+                        response: response,
+                        parent: 0
                     });
                     
                     expect(_response).toEqual(proto);

@@ -194,10 +194,10 @@ function update(params, authData, proto) {
             return { resource: extend(restrict.public(comment.values), {
                             offer: comment.values.OfferId,
                             author: comment.values.author.values.id,
+                            parent: comment.values.ParentId || 0,
                             response: (comment.values.response ? extend({ 
                                     offer: comment.values.OfferId,
-                                    author: comment.values.author.values.id,
-                                    parent: comment.values.ParentId || 0,
+                                    author: comment.values.author.values.id
                                 }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         })
                     };
@@ -238,10 +238,10 @@ function destroy(params, authData) {
             return { resource: extend(restrict.public(comment.values), {
                             offer: comment.values.OfferId,
                             author: comment.values.author.values.id,
+                            parent: comment.values.ParentId || 0,
                             response: (comment.values.response ? extend({ 
                                     offer: comment.values.OfferId,
-                                    author: comment.values.author.values.id,
-                                    parent: comment.values.ParentId || 0,
+                                    author: comment.values.author.values.id
                                 }, app.get('rest').Response.public(comment.values.response.values)) : 0)
                         })
                     };

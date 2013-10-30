@@ -68,7 +68,8 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     id: response.id,
                     recipe: {
                         id: response.recipe.id,
-                        url: proto.recipe
+                        url: proto.recipe,
+                        domain: 'xxx.aaa.com'
                     },
                     author: user.id,
                     pictures: [

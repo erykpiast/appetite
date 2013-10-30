@@ -146,11 +146,10 @@ function retrieveAll(params, authData) {
     var offset = parseInt0(params.offset),
         limit = parseInt0(params.limit) || 10,
         params = {
-            deletedAt: null/*,
+            deletedAt: null,
             endAt: {
-                ne: 0,
-                lt: Date.now()
-            }*/
+                gt: Date.now()
+            }
         };
         
     var offers;

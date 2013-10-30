@@ -10,7 +10,8 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             },
             proto = {
                 'firstName' : 'a',
-                'lastName' : 'b'
+                'lastName' : 'b',
+                'place' : 'p1'
             },
             currentRest = '/user';
         
@@ -39,12 +40,20 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                   
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
-                  
+
+                    delete proto.firstName;
+                    delete proto.lastName;
                     proto = $.extend(proto, {
                         id: response.id,
+                        fullName: 'a b',
                         gender: 'unknown',
                         site: '',
-                        authService: authData.service
+                        authService: authData.service,
+                        place: {
+                            id: response.place.id,
+                            serviceId: proto.place
+                        },
+                        avatar: 0
                     });
                   
                     expect(response).toEqual(proto);
@@ -70,14 +79,19 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         });
         
         it('should be UPDATE rest allows change user entry properties', function() {
-            proto.gender = 'male';
-            proto.site = 'http://example.com/';
             
-            rest.update(currentRest + '/' + proto.id, proto,
-                function(successCallback, errorCallback) {
+            rest.update(currentRest + '/' + proto.id, {
+                    gender: 'male',
+                    site: 'http://example.com/'
+                }, function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
                   
+                    proto = $.extend(proto, {
+                        gender: 'male',
+                        site: 'http://example.com/'
+                    });
+
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
                     expect(response).toEqual(proto);

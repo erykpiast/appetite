@@ -6,10 +6,10 @@ var auth = $require('/modules/auth'),
         avatarPublic: [ 'id', 'filename' ],
         placePublic: [ 'id', 'serviceId' ],
         create: [ 'authService', 'serviceId', 'firstName', 'lastName', 'gender', 'site' ],
-        createSearch: [ 'authService', 'serviceId' ],
-        update: [ 'firstName', 'lastName', 'gender', 'site', 'avatar', 'place' ],
+        createSearch: [ 'authService', 'serviceId', 'deletedAt' ],
+        update: [ 'firstName', 'lastName', 'gender', 'site' ],
         search: [ 'id', 'deletedAt' ]
-    }, [ 'public', 'search' ] );
+    }, [ 'public', 'search', 'createSearch' ] );
 
 var app, DB, User, Place, Image;
 
@@ -21,13 +21,124 @@ function create(authData, proto) {
             proto.authService = authData.service;
             proto.serviceId = serviceId;
 
-            return User.findOrCreate(restrict.createSearch(proto), restrict.create(proto));
+            return User.find({ where: restrict.createSearch(proto), include: [ Place, { model: Image, as: 'Avatar' } ] });
         },
         Errors.report('Authentication')
     ).then(
-        function(_user, _created) {
+        function(_user) {
+            if(_user) {
+                return _user;
+            } else {
+                var p = restrict.create(proto);
+
+                created = true;
+
+                return User.create(p, Object.keys(p));
+            }
+        },
+        Errors.report('Database')
+    ).then(
+        function(_user) {
+            if(!!_user && (_user !== true)) {
+                user = _user;
+            }
+
+            if(proto.place) {
+                return locate(proto.place);
+            } else {
+                return true;
+            }
+        },
+        Errors.report('Database')
+    ).then(
+        function(place) {
+            if(!place) {
+                throw Errors.WrongData();
+            } else if(place !== true) {
+                return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
+            } else {
+                return true;
+            }
+        },
+        Errors.report('Database')
+    ).then(
+        function(_place) {
+            if((_place !== true) && !!_place) {
+                place = _place;
+                user.PlaceId = place.values.id;
+                
+                updateProps.push('PlaceId');
+            }
+            
+            if(proto.avatar) {
+                return Image.findOrCreate({ originalUrl: proto.avatar }, { filename: new RegExp('^(.*/)([^/]*)$').exec(proto.avatar)[2], AuthorId: user.id });
+            } else {
+                return true;
+            }
+        },
+        Errors.report('Database')
+    ).then(
+        function(_avatar) {
+            if((_avatar !== true) && !!_avatar) {
+                avatar = _avatar;
+                user.AvatarId = avatar.values.id;
+                
+                updateProps.push('AvatarId');
+            }
+            
+            if(updateProps.length) {
+                return user.save(updateProps);
+            } else {
+                return true;
+            }
+        },
+        Errors.report('Database')
+    ).then(
+        function() {
+            return { resource: extend(restrict.public(user), {
+                            avatar: (avatar ? restrict.avatarPublic(avatar.values) : (user.values.avatar ? restrict.avatarPublic(user.values.avatar.values) : 0)),
+                            place: (place ? restrict.placePublic(place.values) : (user.values.place ? restrict.placePublic(user.values.place.values) : 0))
+                        }),
+                    existed: !created
+                };
+        },
+        Errors.report('Database')
+    );
+}
+
+
+function retrieve(params, authData) {
+    return User.find({ where: restrict.search(params), include: [ Place, { model: Image, as: 'Avatar' } ] }).then(
+        function(user) {
+            if(!user) {
+                throw new Errors.NotFound();
+            } else {
+                return { resource: extend(restrict.public(user), {
+                            avatar: (user.values.avatar ? restrict.avatarPublic(user.values.avatar.values) : 0),
+                            place: (user.values.place ? restrict.placePublic(user.values.place.values) : 0)
+                        })
+                };
+            }
+        },
+        Errors.report('Database')
+    );
+}
+
+
+function update(params, authData, proto) {
+    var user, place, avatar, updateProps = [ ];
+    
+    return auth(authData.service, authData.accessToken).then(
+        function(serviceId) {
+            proto.authService = authData.service;
+            proto.serviceId = serviceId;
+
+            return User.find({ where: restrict.createSearch(proto), include: [ Place, { model: Image, as: 'Avatar' } ] });
+        },
+        Errors.report('Authentication')
+    ).then(
+        function(_user) {
             user = _user;
-            created = _created;
             
             if(proto.place) {
                 return locate(proto.place);
@@ -57,7 +168,7 @@ function create(authData, proto) {
             }
             
             if(proto.avatar) {
-                return Image.findOrCreate({ originalUrl: proto.avatar }, { AuthorId: user.id });
+                return Image.findOrCreate({ originalUrl: proto.avatar }, { filename: new RegExp('^(.*/)([^/]*)$').exec(proto.avatar)[2], AuthorId: user.id });
             } else {
                 return true;
             }
@@ -71,79 +182,25 @@ function create(authData, proto) {
                 
                 updateProps.push('AvatarId');
             }
+
+            updateProps = updateProps.concat(Object.keys(restrict.update(proto)));
+
+            extend(user, restrict.update(proto));
             
             if(updateProps.length) {
-                return user.update(updateProps);
+                return user.save(updateProps);
             } else {
                 return true;
             }
         },
         Errors.report('Database')
     ).then(
-        function(_user) {
-            if((_user !== true) && !!_user) {
-                user = _user;
-            }
-            
-            return {
-                    resource: extend(restrict.public(user), {
-                        avatar: (avatar ? restrict.avatarPublic(avatar.values) : 0),
-                        place: (place ? restrict.placePublic(place.values) : 0)
-                    }),
-                    existed: !created
+        function() {
+            return { resource: extend(restrict.public(user), {
+                            avatar: (avatar ? restrict.avatarPublic(avatar.values) : (user.values.avatar ? restrict.avatarPublic(user.values.avatar.values) : 0)),
+                            place: (place ? restrict.placePublic(place.values) : (user.values.place ? restrict.placePublic(user.values.place.values) : 0))
+                        })
                 };
-        },
-        Errors.report('Database')
-    );
-}
-
-
-function retrieve(params, authData) {
-    return User.find({ where: restrict.search(params) }).then(
-        function(user) {
-            if(!user) {
-                throw new Errors.NotFound();
-            } else {
-                return { resource: restrict.public(user) };
-            }
-        },
-        Errors.report('Database')
-    );
-}
-
-
-function update(params, authData, proto) {
-    var serviceId;
-    
-    return auth(authData.service, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
-            
-            if(!!serviceId) {
-                return User.find({ where: restrict.search(params) });
-            } else {
-                throw new Errors.authDataentication();
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(user) {
-            if(!user) {
-                throw new Errors.NotFound();
-            } else if(serviceId === user.values.serviceId) {
-                var newAttrs = restrict.update(proto);
-                
-                extend(user, newAttrs);
-                
-                return user.save(Object.keys(newAttrs));
-            } else {
-                throw new Errors.authDataentication();
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function(user) {
-            return { resource: restrict.public(user.values) };
         },
         Errors.report('Database')
     );
@@ -158,9 +215,9 @@ function destroy(params, authData) {
             serviceId = _serviceId;
             
             if(serviceId) {
-                return User.find({ where: restrict.search(params) });
+                return User.find({ where: restrict.search(params), include: [ Place, { model: Image, as: 'Avatar' } ] });
             } else {
-                throw new Errors.authDataentication();
+                throw new Errors.Authentication();
             }
         },
         Errors.report('Authentication')
@@ -173,13 +230,17 @@ function destroy(params, authData) {
             } else if(serviceId === user.values.serviceId) {
                 return user.destroy();
             } else {
-                throw new Errors.authDataentication();
+                throw new Errors.Authentication();
             }
         },
         Errors.report('Database')
     ).then(
-        function(_user) {
-            return { resource: restrict.public(user.values) };
+        function() {
+            return { resource: extend(restrict.public(user), {
+                            avatar: (user.values.avatar ? restrict.avatarPublic(user.values.avatar.values) : 0),
+                            place: (user.values.place ? restrict.placePublic(user.values.place.values) : 0)
+                        })
+                };
         },
         Errors.report('Database')
     );
