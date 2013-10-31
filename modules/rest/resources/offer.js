@@ -4,7 +4,7 @@ var Q = $require('q'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/rest/errors'),
     restrict = $require('/modules/rest/restrict')({
-        public: [ 'id', 'type', 'place', 'template', 'startAt', 'endAt' ],
+        public: [ 'id', 'type', 'place', 'template', 'startAt', 'endAt', 'started', 'ended' ],
         placePublic: [ 'id', 'serviceId' ],
         create: [ 'type', 'startAt', 'endAt' ],
         update: [ 'startAt', 'endAt' ],
@@ -103,7 +103,7 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(offer) {
-            return { resource: extend(restrict.public(offer.values), {
+            return { resource: extend(restrict.public(offer), {
                     place: restrict.placePublic(place.values),
                     template: template,
                     author: user.values.id
@@ -130,7 +130,7 @@ function retrieve(params, authData) {
         Errors.report('Database')
     ).then(
         function(template) {
-            return { resource: extend(restrict.public(offer.values), {
+            return { resource: extend(restrict.public(offer), {
                             place: restrict.placePublic(offer.values.place.values),
                             template: template.resource,
                             author: offer.values.AuthorId
@@ -162,7 +162,7 @@ function retrieveAll(params, authData) {
                 offers = _offers.map(function(offer) {
                     promises.push(app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData));
                     
-                    return extend(restrict.public(offer.values), {
+                    return extend(restrict.public(offer), {
                         author: offer.values.AuthorId
                         });
                     });
@@ -233,7 +233,7 @@ function update(params, authData, proto) {
         Errors.report('Database')
     ).then(
         function(template) {
-            return { resource: extend(restrict.public(offer.values), {
+            return { resource: extend(restrict.public(offer), {
                             place: restrict.placePublic(offer.values.place.values),
                             template: template.resource,
                             author: offer.values.AuthorId
@@ -278,7 +278,7 @@ function destroy(params, authData) {
         Errors.report('Database')
     ).then(
         function(template) {
-            return { resource: extend(restrict.public(offer.values), {
+            return { resource: extend(restrict.public(offer), {
                             place: restrict.placePublic(offer.values.place.values),
                             template: template.resource,
                             author: offer.values.AuthorId

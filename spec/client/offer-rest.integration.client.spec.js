@@ -87,7 +87,9 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                         author: user.id,
                         startAt: (new Date(0)).toISOString(),
                         endAt: (new Date(0)).toISOString(),
-                        template: offerTemplate
+                        template: offerTemplate,
+                        started: false,
+                        ended: false
                     });
                     
                     expect(response).toEqual(proto);
@@ -116,16 +118,20 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         
         it('should be UPDATE rest allows change offer entry properties', function() {
             
-            proto = $.extend(proto, {
-                startAt: (new Date(123000)).toISOString(),
-                endAt: (new Date(234000)).toISOString()
-            });
-            
-            rest.update(currentRest + '/' + proto.id, proto,
-                function(successCallback, errorCallback) {
+            rest.update(currentRest + '/' + proto.id, {
+                    startAt: (new Date(123000)).toISOString(),
+                    endAt: (new Date(234000)).toISOString()
+                }, function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
                   
+                    proto = $.extend(proto, {
+                        startAt: (new Date(123000)).toISOString(),
+                        endAt: (new Date(234000)).toISOString(),
+                        started: true,
+                        ended: true
+                    });
+
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
                     expect(response).toEqual(proto);

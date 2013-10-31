@@ -1,38 +1,52 @@
 [
 	{
 		"id": 1,
-		"author": {
-		    "id" : 1,
-		    "firstName" : "Olga",
-		    "lastName" : "K.",
-		    "fullName" : "Olga K.",
-		    "picture" : {
-		    	"id": 1001,
-		    	"filename": "1001.jpg" 
-		    },
-		    "gender" : "female",
-		    "site" : ""
-		},
+		"author": 1,
 		"content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, explicabo, fugit itaque sequi nisi hic ipsam alias sit praesentium perferendis ipsa quisquam. Incidunt, veniam, eveniet porro velit aspernatur impedit aliquam?",
-		"creationTime" : "1382121448082",
-		"response" : 0
+		"createdAt" : "1382121448082",
+		"updatedAt" : "1382121448082",
+		"response" : 0,
+		"parent" : 0,
+		"offer" : 1
 	},
 	{
 		"id": 2,
-		"author": {
-		    "id" : 1,
-		    "firstName" : "Eryk",
-		    "lastName" : "N.",
-		    "fullName" : "Eryk N.",
-		    "picture" : {
-		    	"id": 1002,
-		    	"filename": "1002.jpg" 
-		    },
-		    "gender" : "male",
-		    "site" : ""
-		},
+		"author": 2,
 		"content": "Consectetur adipisicing elit. Tempora, explicabo, fugit itaque sequi nisi hic ipsam alias sit praesentium perferendis ipsa quisquam.",
-		"creationTime" : "1382121408082",
-		"response" : 0
+		"createdAt" : "1382121400053",
+		"updatedAt" : "1382121400053",
+		"response" : 0,
+		"parent" : 0,
+		"offer" : 1
+	},
+	{
+		"id": 3,
+		"author": 2,
+		"content": "Nisi ipsa!",
+		"createdAt" : "1383621448082",
+		"updatedAt" : "1383621448082",
+		"response" : 0,
+		"parent" : 1,
+		"offer" : 1
+	},
+	{
+		"id": 4,
+		"author": 2,
+		"content": "Ispa ne ipsa.",
+		"createdAt" : "1383621548082",
+		"updatedAt" : "1383621548082",
+		"response" : 0,
+		"parent" : 1,
+		"offer" : 1
+	},
+	{
+		"id": 5,
+		"author": 1,
+		"content": "Hhic alias sit porro...",
+		"createdAt" : "1383621648082",
+		"updatedAt" : "1383621648082",
+		"response" : 0,
+		"parent" : 4,
+		"offer" : 1
 	}
 ]

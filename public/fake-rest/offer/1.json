@@ -1,47 +1,42 @@
 {
-    "id" : 1,
-    "type" : "offer",
-    "author" : 1,
-    "startAt" : "1970-01-05T13:00:00.000Z",
-    "endAt" : "1970-01-01T13:00:00.000Z",
-    "place" : {
-        "id" : 1,
-        "serviceId" : "p1"
+    "id": 1,
+    "type": "offer",
+    "place": {
+        "id": 1,
+        "serviceId": "Poznań, Rataje"
     },
-    "template" : {
-        "id" : 1,
-        "author" : 1,
-        "title" : "Tarta czekoladowo-limonkowa",
-        "description" : "Proste ciasto z ciemnym kruchym spodem i kremem śmietankowo-limonkowym. Bardzo orzeźwiające, wyśmienite na upalne dni!",
-        "recipe" : {
-            "id" : 1,
-            "domain" : "xxx.aaa.com",
-            "url" : "http://xxx.aaa.com/test-title"
+    "template": {
+        "id": 1,
+        "title": "Ciasto 'tres leches' czyli ciasto mleczne",
+        "description": "Ciasto wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne. Niesamowite; jedno z najlepszych ciast, jakie ostatnio piekłam, bardzo smakuje również dzieciom!",
+        "recipe": {
+            "id": 1,
+            "url": "http://olgagotuje.pl/przepisy/ciasto-tres-leches",
+            "domain": "olgagotuje.pl"
         },
-        "pictures" : [ {
-                "id" : 1,
-                "filename" : "0001.jpg"
-            }, {
-                "id" : 2,
-                "filename" : "0002.jpg"
-            }
-        ],
-        "tags" : [ {
-                "id" : 1,
-                "text" : "tag1"
-            }, {
-                "id" : 2,
-                "text" : "tag2"
-            }, {
-                "id" : 3,
-                "text" : "tag3"
-            }, {
-                "id" : 4,
-                "text" : "tag4"
-            }, {
-                "id" : 5,
-                "text" : "tag5"
-            }
-        ]
-    }
+        "author": 1,
+        "pictures": [{
+            "id": 3,
+            "filename": "0001.jpg"
+        }, {
+            "id": 4,
+            "filename": "0002.jpg"
+        }, {
+            "id": 5,
+            "filename": "0003.jpg"
+        }],
+        "tags": [{
+            "id": 1,
+            "text": "ciasto mleczne"
+        }, {
+            "id": 2,
+            "text": "migdały"
+        }, {
+            "id": 3,
+            "text": "tres-leches"
+        }]
+    },
+    "startAt": "2013-10-27T19:28:10.398Z",
+    "endAt": "2013-11-11T12:18:29.442Z",
+    "author": 1
 }

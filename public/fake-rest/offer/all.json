@@ -1,447 +1,83 @@
-[
-    {
-        "id" : 1,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 1,
-            "author" : 1,
-            "title" : "Tarta czekoladowo-limonkowa",
-            "description" : "Proste ciasto z ciemnym kruchym spodem i kremem śmietankowo-limonkowym. Bardzo orzeźwiające, wyśmienite na upalne dni!",
-            "recipe" : {
-                "id" : 1,
-                "url" : "http://xxx.aaa.com/test-title"
-            },
-            "pictures" : [ {
-                    "id" : 1,
-                    "filename" : "0001.jpg"
-                }, {
-                    "id" : 2,
-                    "filename" : "0002.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 1,
-                    "text" : "tag1"
-                }, {
-                    "id" : 2,
-                    "text" : "tag2"
-                }, {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 5,
-                    "text" : "tag5"
-                }
-            ]
-        }
+[{
+    "id": 1,
+    "type": "offer",
+    "place": {
+        "id": 1,
+        "serviceId": "Poznań, Rataje"
     },
-    {
-        "id" : 2,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
+    "template": {
+        "id": 1,
+        "title": "Ciasto 'tres leches' czyli ciasto mleczne",
+        "description": "Ciasto wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne. Niesamowite; jedno z najlepszych ciast, jakie ostatnio piekłam, bardzo smakuje również dzieciom!",
+        "recipe": {
+            "id": 1,
+            "url": "http://olgagotuje.pl/przepisy/ciasto-tres-leches",
+            "domain": "olgagotuje.pl"
         },
-        "template" : {
-            "id" : 2,
-            "author" : 1,
-            "title" : "Ciasto 'tres leches'",
-            "description" : "Ciasto mleczne wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne.",
-            "recipe" : {
-                "id" : 2,
-                "url" : "http://www.mojewypieki.com/przepis/ciasto-tres-leches-czyli-ciasto-mlecznee"
-            },
-            "pictures" : [ {
-                    "id" : 3,
-                    "filename" : "0003.jpg"
-                }, {
-                    "id" : 4,
-                    "filename" : "0004.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 6,
-                    "text" : "tag6"
-                }, {
-                    "id" : 7,
-                    "text" : "tag7"
-                }
-            ]
-        }
+        "author": 1,
+        "pictures": [{
+            "id": 3,
+            "filename": "0001.jpg"
+        }, {
+            "id": 4,
+            "filename": "0002.jpg"
+        }, {
+            "id": 5,
+            "filename": "0003.jpg"
+        }],
+        "tags": [{
+            "id": 1,
+            "text": "ciasto mleczne"
+        }, {
+            "id": 2,
+            "text": "migdały"
+        }, {
+            "id": 3,
+            "text": "tres-leches"
+        }]
     },
-    {
-        "id" : 3,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 1,
-            "author" : 1,
-            "title" : "Tarta czekoladowo-limonkowa",
-            "description" : "Proste ciasto z ciemnym kruchym spodem i kremem śmietankowo-limonkowym. Bardzo orzeźwiające, wyśmienite na upalne dni!",
-            "recipe" : {
-                "id" : 1,
-                "url" : "http://xxx.aaa.com/test-title"
-            },
-            "pictures" : [ {
-                    "id" : 1,
-                    "filename" : "0001.jpg"
-                }, {
-                    "id" : 2,
-                    "filename" : "0002.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 1,
-                    "text" : "tag1"
-                }, {
-                    "id" : 2,
-                    "text" : "tag2"
-                }, {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 5,
-                    "text" : "tag5"
-                }
-            ]
-        }
+    "startAt": "2013-10-27T19:28:10.398Z",
+    "endAt": "2013-11-11T12:18:29.442Z",
+    "author": 1
+}, {
+    "id": 2,
+    "type": "offer",
+    "place": {
+        "id": 2,
+        "serviceId": "Poznań, Centrum"
     },
-    {
-        "id" : 4,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
+    "template": {
+        "id": 2,
+        "title": "Pani Walewska (Pychotka)",
+        "description": "Pyszne kruche ciasto, słodziutka beza, krem i dla przełamania słodyczy dżem porzeczkowy... Nic dziwnego, że ktoś je nazwał pychotką ;-)",
+        "recipe": {
+            "id": 2,
+            "url": "http://www.mojewypieki.com/przepis/pani-walewska-pychotka",
+            "domain": "mojewypieki.com"
         },
-        "template" : {
-            "id" : 2,
-            "author" : 1,
-            "title" : "Ciasto 'tres leches'",
-            "description" : "Ciasto mleczne wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne.",
-            "recipe" : {
-                "id" : 2,
-                "url" : "http://www.mojewypieki.com/przepis/ciasto-tres-leches-czyli-ciasto-mlecznee"
-            },
-            "pictures" : [ {
-                    "id" : 3,
-                    "filename" : "0003.jpg"
-                }, {
-                    "id" : 4,
-                    "filename" : "0004.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 6,
-                    "text" : "tag6"
-                }, {
-                    "id" : 7,
-                    "text" : "tag7"
-                }
-            ]
-        }
+        "author": 2,
+        "pictures": [{
+            "id": 3,
+            "filename": "0004.jpg"
+        }, {
+            "id": 7,
+            "filename": "0005.jpg"
+        }],
+        "tags": [{
+            "id": 4,
+            "text": "beza"
+        }, {
+            "id": 2,
+            "text": "migdały"
+        }, {
+            "id": 5,
+            "text": "porzeczki"
+        }, {
+            "id": 6,
+            "text": "ciasto kruche"
+        }]
     },
-    {
-        "id" : 5,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 1,
-            "author" : 1,
-            "title" : "Tarta czekoladowo-limonkowa",
-            "description" : "Proste ciasto z ciemnym kruchym spodem i kremem śmietankowo-limonkowym. Bardzo orzeźwiające, wyśmienite na upalne dni!",
-            "recipe" : {
-                "id" : 1,
-                "url" : "http://xxx.aaa.com/test-title"
-            },
-            "pictures" : [ {
-                    "id" : 1,
-                    "filename" : "0001.jpg"
-                }, {
-                    "id" : 2,
-                    "filename" : "0002.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 1,
-                    "text" : "tag1"
-                }, {
-                    "id" : 2,
-                    "text" : "tag2"
-                }, {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 5,
-                    "text" : "tag5"
-                }
-            ]
-        }
-    },
-    {
-        "id" : 6,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 2,
-            "author" : 1,
-            "title" : "Ciasto 'tres leches'",
-            "description" : "Ciasto mleczne wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne.",
-            "recipe" : {
-                "id" : 2,
-                "url" : "http://www.mojewypieki.com/przepis/ciasto-tres-leches-czyli-ciasto-mlecznee"
-            },
-            "pictures" : [ {
-                    "id" : 3,
-                    "filename" : "0003.jpg"
-                }, {
-                    "id" : 4,
-                    "filename" : "0004.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 6,
-                    "text" : "tag6"
-                }, {
-                    "id" : 7,
-                    "text" : "tag7"
-                }
-            ]
-        }
-    },
-    {
-        "id" : 7,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 1,
-            "author" : 1,
-            "title" : "Tarta czekoladowo-limonkowa",
-            "description" : "Proste ciasto z ciemnym kruchym spodem i kremem śmietankowo-limonkowym. Bardzo orzeźwiające, wyśmienite na upalne dni!",
-            "recipe" : {
-                "id" : 1,
-                "url" : "http://xxx.aaa.com/test-title"
-            },
-            "pictures" : [ {
-                    "id" : 1,
-                    "filename" : "0001.jpg"
-                }, {
-                    "id" : 2,
-                    "filename" : "0002.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 1,
-                    "text" : "tag1"
-                }, {
-                    "id" : 2,
-                    "text" : "tag2"
-                }, {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 5,
-                    "text" : "tag5"
-                }
-            ]
-        }
-    },
-    {
-        "id" : 8,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 2,
-            "author" : 1,
-            "title" : "Ciasto 'tres leches'",
-            "description" : "Ciasto mleczne wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne.",
-            "recipe" : {
-                "id" : 2,
-                "url" : "http://www.mojewypieki.com/przepis/ciasto-tres-leches-czyli-ciasto-mlecznee"
-            },
-            "pictures" : [ {
-                    "id" : 3,
-                    "filename" : "0003.jpg"
-                }, {
-                    "id" : 4,
-                    "filename" : "0004.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 6,
-                    "text" : "tag6"
-                }, {
-                    "id" : 7,
-                    "text" : "tag7"
-                }
-            ]
-        }
-    },
-    {
-        "id" : 9,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 1,
-            "author" : 1,
-            "title" : "Tarta czekoladowo-limonkowa",
-            "description" : "Proste ciasto z ciemnym kruchym spodem i kremem śmietankowo-limonkowym. Bardzo orzeźwiające, wyśmienite na upalne dni!",
-            "recipe" : {
-                "id" : 1,
-                "url" : "http://xxx.aaa.com/test-title"
-            },
-            "pictures" : [ {
-                    "id" : 1,
-                    "filename" : "0001.jpg"
-                }, {
-                    "id" : 2,
-                    "filename" : "0002.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 1,
-                    "text" : "tag1"
-                }, {
-                    "id" : 2,
-                    "text" : "tag2"
-                }, {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 5,
-                    "text" : "tag5"
-                }
-            ]
-        }
-    },
-    {
-        "id" : 10,
-        "type" : "offer",
-        "author" : 1,
-        "startAt" : "1970-01-05T13:00:00.000Z",
-        "endAt" : "1970-01-01T13:00:00.000Z",
-        "place" : {
-            "id" : 1,
-            "serviceId" : "p1"
-        },
-        "template" : {
-            "id" : 2,
-            "author" : 1,
-            "title" : "Ciasto 'tres leches'",
-            "description" : "Ciasto mleczne wywodzące się z Ameryki Łacińskiej. Proste do wykonania i bardzo wilgotne.",
-            "recipe" : {
-                "id" : 2,
-                "url" : "http://www.mojewypieki.com/przepis/ciasto-tres-leches-czyli-ciasto-mlecznee"
-            },
-            "pictures" : [ {
-                    "id" : 3,
-                    "filename" : "0003.jpg"
-                }, {
-                    "id" : 4,
-                    "filename" : "0004.jpg"
-                }
-            ],
-            "tags" : [ {
-                    "id" : 3,
-                    "text" : "tag3"
-                }, {
-                    "id" : 4,
-                    "text" : "tag4"
-                }, {
-                    "id" : 6,
-                    "text" : "tag6"
-                }, {
-                    "id" : 7,
-                    "text" : "tag7"
-                }
-            ]
-        }
-    }
-]
+    "startAt": "2013-10-30T17:24:00.143Z",
+    "endAt": "2013-11-05T12:00:43.980Z",
+    "author": 2
+}]

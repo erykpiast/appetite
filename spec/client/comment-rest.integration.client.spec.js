@@ -173,21 +173,20 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         
         it('should be UPDATE rest allows change comment entry properties', function() {
             
-            proto = $.extend(proto, {
-                content: 'Lorem ipsum!'
-            });
-
-            // TEMP
-            // delete proto.response.author;
-            // delete proto.response.offer;
-            
-            rest.update(currentRest + '/' + proto.id, proto,
-                function(successCallback, errorCallback) {
+            rest.update(currentRest + '/' + proto.id, {
+                    content: 'Lorem ipsum!'
+                }, function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
                   
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
+
+                    proto = $.extend(proto, {
+                        content: 'Lorem ipsum!',
+                        updatedAt: response.updatedAt
+                    });
+
                     expect(response).toEqual(proto);
     
                     var status = successCallback.mostRecentCall.args[1];

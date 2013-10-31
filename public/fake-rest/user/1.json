@@ -1,12 +1,15 @@
 {
-    "id" : 1,
-    "firstName" : "Olga",
-    "lastName" : "K.",
-    "fullName" : "Olga K.",
-    "picture" : {
-    	"id": 1001,
-    	"filename": "1001.jpg" 
+    "id": 1,
+    "authService": "facebook",
+    "fullName": "Olga Krysztofiak",
+    "gender": "female",
+    "site": "http://olgagotuje.pl/",
+    "avatar": {
+        "id": 1,
+        "filename": "1001.jpg"
     },
-    "gender" : "female",
-    "site" : ""
+    "place": {
+        "id": 1,
+        "serviceId": "Poznań, Rataje"
+    }
 }
