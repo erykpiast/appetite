@@ -1,9 +1,9 @@
 define([ 'libs/angular' ], function(angular) {
 	'use strict';
 
-	var relatedEntities = { };
+	var relatedEntities = { }, users = [ ];
 
-	function retrieveAuthorInfo(rest, users, entity) {
+	function retrieveAuthorInfo(rest, entity) {
 		if(!entity.author) {
 			return false;
 		} else {
@@ -38,8 +38,9 @@ define([ 'libs/angular' ], function(angular) {
 
 
 	return function($rootScope, $scope, $stateParams, rest) {
+		$scope.users = users;
 
-		var _expandAuthor = retrieveAuthorInfo.bind(null, rest, $scope.users = [ ]);
+		var _expandAuthor = retrieveAuthorInfo.bind(null, rest);
 
 
 		angular.extend($scope, {

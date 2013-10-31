@@ -1,4 +1,4 @@
-<section ng-class="comment {{ comment.response !== 0 ? 'response' : '' }}">
+<section class="comment" ng-class="{ 'response' : comment.response !== 0, 'response--accepted': !!comment.response.accepted }">
 	
 	<header class="comment__header">
 		
