@@ -5,10 +5,13 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
             
             return {
                 common: {
-                    lastestOffers: 'Ostatnie oferty'
+                    lastestOffers: 'Ostatnie oferty',
+                    ago: 'temu'
                 },
                 offer: {
-                	recipeFrom: 'Przepis pochodzi z'
+                	recipeFrom: 'Przepis pochodzi z',
+                    acceptResponse: 'Zaakceptuj odpowiedź',
+                    remainingTime: 'Czas do końca'
                 },
                 addComment: {
                     header: 'Dodaj komentarz',

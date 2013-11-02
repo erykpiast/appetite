@@ -1,7 +1,7 @@
 define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angular-ui-router', 'controllers', 'templates' ], function(angular, filters, undefined, undefined, controllers, templates) {
 
 	angular.module('appetite',
-		[ 'ngResource', 'ui.state', 'filters' ])
+		[ 'ngResource', 'ngCookies', 'ui.state', 'filters' ])
 		.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		    $urlRouterProvider.otherwise('/');
 
@@ -47,9 +47,10 @@ define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angul
 				
 		    // $locationProvider.html5Mode(true);
 		})
-		.run(function($rootScope, $state, i18n) {
+		.run(function($rootScope, $state, i18n, auth) {
 
 			$rootScope.i18n = i18n;
+			$rootScope.currentUser = auth.currentUser;
 
 			$rootScope.goTo = function(state, params) {
 				$state.transitionTo(state, params);

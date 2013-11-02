@@ -45,18 +45,33 @@ define([ 'libs/angular' ], function(angular) {
 
 		angular.extend($scope, {
 			addComment: function(comment) {
-				$scope.offer.comments.push(comment);
+				angular.extend(comment, {
+					offer: $scope.offer.id
+				});
 
 				rest.comment.create(comment)
 					.$then(function(res) {
-						console.log('ok!');
+						var comment = res.data;
+
+						_expandAuthor(comment);
+
+						$scope.offer.comments.push(comment);
 					});
 			},
 			response: function(comment) {
 				rest.response.create({ offer: $scope.offer.id })
 					.$then(function(res) {
-						$scope.addComment(angular.extend(comment, { offer: res.resource.id }));
+						$scope.addComment(angular.extend(comment, { response: res.resource.id }));
 					});
+			},
+			showOwnerFeatures: function() {
+				return ($rootScope.currentUser.id === $scope.offer.author.id);
+			},
+			acceptResponse: function(response) {
+				rest.response.update({ id: response.id }, { accepted: true })
+					.$then(function(res) {
+						response.accepted = true;
+					});	
 			}
 		});
 

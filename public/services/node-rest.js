@@ -51,6 +51,9 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
                     },
                     create: {
                         method: 'POST'
+                    },
+                    update: {
+                        method: 'PUT'
                     }
                 })
             };

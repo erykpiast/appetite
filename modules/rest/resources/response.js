@@ -43,7 +43,7 @@ function create(authData, proto) {
         function(_offer) {
             offer = _offer;
             
-            if(!offer || ((new Date(offer.values.endAt)).getTime() === (new Date(0)).getTime()) || ((new Date(offer.values.endAt)).getTime() < Date.now())) {
+            if(!offer || !offer.started || offer.ended) {
                 throw new Errors.WrongData();
             } else if(offer.values.AuthorId === user.values.id) {
                 throw new Errors.Authentication();
@@ -133,7 +133,7 @@ function update(params, authData, proto) {
     ).then(
         function(response) {
             return { resource: extend(restrict.public(response.values), {
-                    offer: response.values.OfferId,
+                    offer: response.values.offer.values.id,
                     author: response.values.AuthorId
                 }) };
         },

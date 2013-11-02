@@ -128,4 +128,26 @@ define([ ], function() {
 		return (isNaN(parsed) ? 0.00 : parsed);
 	}
 
+
+	var tMathRound = Math.round;
+	Math.round = function(n /*, [dec places]*/) {
+		var dec = parseInt0(arguments[1]);
+
+		return (tMathRound(n * Math.pow(10, dec)) / Math.pow(10, dec));
+	}
+	
+	var tMathFloor = Math.floor;
+	Math.floor = function(n /*, [dec places]*/) {
+		var dec = parseInt0(arguments[1]);
+
+		return (tMathFloor(n * Math.pow(10, dec)) / Math.pow(10, dec));
+	}
+	
+	var tMathCeil = Math.ceil;
+	Math.ceil = function(n /*, [dec places]*/) {
+		var dec = parseInt0(arguments[1]);
+
+		return (tMathCeil(n * Math.pow(10, dec)) / Math.pow(10, dec));
+	}
+
 })

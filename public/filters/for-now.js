@@ -249,31 +249,29 @@ define([ 'libs/angular', 'libs/std', 'modules/filters' ], function(angular, unde
 		};
 
 		return function(timestamp, format) {
-			timestamp = parseInt0(timestamp);
+			if(!!timestamp && (timestamp = (new Date(timestamp)).getTime() || parseInt0(timestamp))) {
+				if(!!format) {
+					var tokens = /([Vv]?)([Hh]*)([Ii]*)([^Uu]+)([Uu]?)/.exec(format);
 
-			if(!!format) {
-				var tokens = /([Vv]?)([Hh]*)([Ii]*)([^Uu]+)([Uu]?)/.exec(format);
+					format = {
+						word: (tokens[1] == 'V'),
+						half: (tokens[2].toLowerCase() == 'h'),
+						oneAndHalf: (tokens[2] == 'H'),
+						ignoreOne: (tokens[3].toLowerCase() == 'i'),
+						separator: tokens[4],
+						accusativ: (tokens[5] == 'U')
+					};
+				} else {
+					format = {
+						word: true,
+						half: true,
+						oneAndHalf: true,
+						separator: ' ',
+						accusativ: false
+					};
+				}
 
-				format = {
-					word: (tokens[1] == 'V'),
-					half: (tokens[2].toLowerCase() == 'h'),
-					oneAndHalf: (tokens[2] == 'H'),
-					ignoreOne: (tokens[3].toLowerCase() == 'i'),
-					separator: tokens[4],
-					accusativ: (tokens[5] == 'U')
-				};
-			} else {
-				format = {
-					word: true,
-					half: true,
-					oneAndHalf: true,
-					separator: ' ',
-					accusativ: false
-				};
-			}
-
-			if(timestamp > 0) {
-				var newValue = _getValue(Date.now() - timestamp, format.half),
+				var newValue = _getValue(Math.abs(Date.now() - timestamp), format.half),
 					period = dict[newValue.unit];
 
 				return (_getNumber(newValue.number, format.word, period.feminine, (period.accusativ && format.accusativ), (period.half && format.half), (period.half && format.oneAndHalf), (period.ignoreOne && format.ignoreOne))
@@ -282,8 +280,6 @@ define([ 'libs/angular', 'libs/std', 'modules/filters' ], function(angular, unde
 			} else {
 				return 0;
 			}
-
-			return value;
 		};
 	});
 });

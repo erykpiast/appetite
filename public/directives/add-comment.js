@@ -7,7 +7,7 @@ function(angular, appetite, templates) {
 			    template: templates.addComment,
 			    replace: true,
 			    restrict: 'E',
-			    scope: { addHandler: '&onsubmit', responseHandler: '&onresponse' },
+			    scope: { addHandler: '&onsubmit', responseHandler: '&onresponse', showOwnerFeatures: '&' },
 			    link: function(scope, $element, attrs) {
 			    	scope.goTo = $rootScope.goTo;
 			    	scope.i18n = $rootScope.i18n;
@@ -18,13 +18,15 @@ function(angular, appetite, templates) {
 			    		},
 			    		addComment: function() {
 				    		if(scope.comment.content.length) {
-				    			scope.addHandler({ comment: scope.comment });
+				    			scope.addHandler({ comment: angular.copy(scope.comment) });
 
 				    			scope.comment.content = '';
 				    		}
 				    	},
 				    	response: function() {
-				    		scope.responseHandler({ comment: scope.comment });
+				    		scope.responseHandler({ comment: angular.copy(scope.comment) });
+
+				    			scope.comment.content = '';
 				    	}
 			    	});
 			    }

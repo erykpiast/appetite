@@ -4,6 +4,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite', 'services/
         .factory('rest', function(nodeRest, fakeRest) {
             
             return angular.extend(fakeRest, {
+            	response: nodeRest.response,
                 comment: {
                     retrieve: fakeRest.comment.retrieve,
                     create: nodeRest.comment.create

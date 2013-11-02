@@ -1850,7 +1850,7 @@ label,
 .grid,
 .page .page__part,
 .page .page__part--main,
-.page .page__part__offer {
+.page .page__part--offer {
   margin-left: -20px;
   list-style: none;
   margin-bottom: 0;
@@ -1863,19 +1863,19 @@ label,
 .grid > .grid,
 .page .page__part > .grid,
 .page .page__part--main > .grid,
-.page .page__part__offer > .grid,
+.page .page__part--offer > .grid,
 .page .grid > .page__part,
 .page .page__part > .page__part,
 .page .page__part--main > .page__part,
-.page .page__part__offer > .page__part,
+.page .page__part--offer > .page__part,
 .page .grid > .page__part--main,
 .page .page__part > .page__part--main,
 .page .page__part--main > .page__part--main,
-.page .page__part__offer > .page__part--main,
-.page .grid > .page__part__offer,
-.page .page__part > .page__part__offer,
-.page .page__part--main > .page__part__offer,
-.page .page__part__offer > .page__part__offer {
+.page .page__part--offer > .page__part--main,
+.page .grid > .page__part--offer,
+.page .page__part > .page__part--offer,
+.page .page__part--main > .page__part--offer,
+.page .page__part--offer > .page__part--offer {
   margin-left: 0;
 }
 
@@ -3379,34 +3379,34 @@ label,
 .grid,
 .page .page__part,
 .page .page__part--main,
-.page .page__part__offer {
+.page .page__part--offer {
   font-size: 0;
 }
 
 .grid .grid__item,
 .page .page__part .grid__item,
 .page .page__part--main .grid__item,
-.page .page__part__offer .grid__item,
+.page .page__part--offer .grid__item,
 .grid .page .page__part__header,
 .page .grid .page__part__header,
 .page .page__part .page__part__header,
 .page .page__part--main .page__part__header,
-.page .page__part__offer .page__part__header,
+.page .page__part--offer .page__part__header,
 .grid .page .page__part__content,
 .page .grid .page__part__content,
 .page .page__part .page__part__content,
 .page .page__part--main .page__part__content,
-.page .page__part__offer .page__part__content,
+.page .page__part--offer .page__part__content,
 .grid .page .page__part__aside,
 .page .grid .page__part__aside,
 .page .page__part .page__part__aside,
 .page .page__part--main .page__part__aside,
-.page .page__part__offer .page__part__aside,
+.page .page__part--offer .page__part__aside,
 .grid .page .page__part__footer,
 .page .grid .page__part__footer,
 .page .page__part .page__part__footer,
 .page .page__part--main .page__part__footer,
-.page .page__part__offer .page__part__footer {
+.page .page__part--offer .page__part__footer {
   font-size: 16px;
 }
 
@@ -3518,8 +3518,8 @@ ol.horizontal > li {
 .page .page__part--main .offers.page__part,
 .page__part--main .page .offers.page__part--main,
 .page .page__part--main .offers.page__part--main,
-.page__part--main .page .offers.page__part__offer,
-.page .page__part--main .offers.page__part__offer {
+.page__part--main .page .offers.page__part--offer,
+.page .page__part--main .offers.page__part--offer {
   margin-bottom: -20px;
 }
 
@@ -3528,40 +3528,40 @@ ol.horizontal > li {
 .page .page__part--main .offers.page__part .grid__item,
 .page__part--main .page .offers.page__part--main .grid__item,
 .page .page__part--main .offers.page__part--main .grid__item,
-.page__part--main .page .offers.page__part__offer .grid__item,
-.page .page__part--main .offers.page__part__offer .grid__item,
+.page__part--main .page .offers.page__part--offer .grid__item,
+.page .page__part--main .offers.page__part--offer .grid__item,
 .page__part--main .offers.grid .page .page__part__header,
 .page .page__part--main .offers.grid .page__part__header,
 .page__part--main .page .offers.page__part .page__part__header,
 .page .page__part--main .offers.page__part .page__part__header,
 .page__part--main .page .offers.page__part--main .page__part__header,
 .page .page__part--main .offers.page__part--main .page__part__header,
-.page__part--main .page .offers.page__part__offer .page__part__header,
-.page .page__part--main .offers.page__part__offer .page__part__header,
+.page__part--main .page .offers.page__part--offer .page__part__header,
+.page .page__part--main .offers.page__part--offer .page__part__header,
 .page__part--main .offers.grid .page .page__part__content,
 .page .page__part--main .offers.grid .page__part__content,
 .page__part--main .page .offers.page__part .page__part__content,
 .page .page__part--main .offers.page__part .page__part__content,
 .page__part--main .page .offers.page__part--main .page__part__content,
 .page .page__part--main .offers.page__part--main .page__part__content,
-.page__part--main .page .offers.page__part__offer .page__part__content,
-.page .page__part--main .offers.page__part__offer .page__part__content,
+.page__part--main .page .offers.page__part--offer .page__part__content,
+.page .page__part--main .offers.page__part--offer .page__part__content,
 .page__part--main .offers.grid .page .page__part__aside,
 .page .page__part--main .offers.grid .page__part__aside,
 .page__part--main .page .offers.page__part .page__part__aside,
 .page .page__part--main .offers.page__part .page__part__aside,
 .page__part--main .page .offers.page__part--main .page__part__aside,
 .page .page__part--main .offers.page__part--main .page__part__aside,
-.page__part--main .page .offers.page__part__offer .page__part__aside,
-.page .page__part--main .offers.page__part__offer .page__part__aside,
+.page__part--main .page .offers.page__part--offer .page__part__aside,
+.page .page__part--main .offers.page__part--offer .page__part__aside,
 .page__part--main .offers.grid .page .page__part__footer,
 .page .page__part--main .offers.grid .page__part__footer,
 .page__part--main .page .offers.page__part .page__part__footer,
 .page .page__part--main .offers.page__part .page__part__footer,
 .page__part--main .page .offers.page__part--main .page__part__footer,
 .page .page__part--main .offers.page__part--main .page__part__footer,
-.page__part--main .page .offers.page__part__offer .page__part__footer,
-.page .page__part--main .offers.page__part__offer .page__part__footer {
+.page__part--main .page .offers.page__part--offer .page__part__footer,
+.page .page__part--main .offers.page__part--offer .page__part__footer {
   padding-bottom: 20px;
 }
 
@@ -3604,6 +3604,15 @@ ol.horizontal > li {
   margin-right: 0.5em;
 }
 
-.page__part__offer .gallery {
+.page__part--offer .gallery {
   height: 15em;
+}
+
+.page__part--offer .offer__comment--response,
+.page__part--offer .offer__comment--response--accepted {
+  background-color: #FEF;
+}
+
+.page__part--offer .offer__comment--response--accepted {
+  background-color: #EFF;
 }
