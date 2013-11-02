@@ -7,7 +7,7 @@ function(angular, appetite, templates) {
 			    template: templates.addComment,
 			    replace: true,
 			    restrict: 'E',
-			    scope: { addHandler: '&onadd', responseHandler: '&onresponse' },
+			    scope: { addHandler: '&onsubmit', responseHandler: '&onresponse' },
 			    link: function(scope, $element, attrs) {
 			    	scope.goTo = $rootScope.goTo;
 			    	scope.i18n = $rootScope.i18n;

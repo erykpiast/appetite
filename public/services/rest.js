@@ -3,6 +3,11 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite', 'services/
     angular.module('appetite')
         .factory('rest', function(nodeRest, fakeRest) {
             
-            return angular.extend({ }, fakeRest);
+            return angular.extend(fakeRest, {
+                comment: {
+                    retrieve: fakeRest.comment.retrieve,
+                    create: nodeRest.comment.create
+                }
+            });
         });
 });
