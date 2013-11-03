@@ -4,7 +4,7 @@ var moment = $require('moment'),
     Errors = $require('/modules/rest/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'content', 'createdAt', 'updatedAt' ],
-        create: [ 'content', 'parent' ],
+        create: [ 'content' ],
         update: [ 'content' ],
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
@@ -13,7 +13,7 @@ var app, DB, Comment, Offer, User;
 
 
 function create(authData, proto) {
-    var user, offer, response;
+    var user, offer, parent, response;
     
     return auth(authData.service, authData.accessToken).then(
         function(serviceId) {
@@ -45,7 +45,24 @@ function create(authData, proto) {
             
             if(!offer) {
                 throw new Errors.WrongData();
-            } else if(proto.response) {
+            } else if(proto.parent) {
+                return Comment.find({ where: { id: parseInt0(proto.parent) } });
+            } else {
+                return true;
+            }
+        },
+        Errors.report('Authentication')
+    ).then(
+        function(_parent) {
+            if(_parent && _parent.values) {
+                parent = _parent;
+
+                if(!parent) {
+                    throw new Errors.WrongData();
+                }
+            }
+            
+            if(proto.response) {
                 return app.get('rest').Response.retrieve({ id: proto.response }, authData);
             } else {
                 return true;
@@ -54,7 +71,7 @@ function create(authData, proto) {
         Errors.report('Authentication')
     ).then(
         function(_response) {
-            if(_response && (_response.resource)) {
+            if(_response && _response.resource) {
                 response = _response.resource;
 
                 if(!response) {
@@ -65,17 +82,19 @@ function create(authData, proto) {
             }
 
             if(response) {
-                return Comment.findOrCreate({
+                return Comment.findOrCreate(extend({
                         AuthorId: user.values.id,
                         OfferId: offer.id,
                         ResponseId: response.id,
                         deletedAt: null
-                    }, restrict.create(proto));
+                    }, (parent ? { ParentId: parent.values.id } : { })), restrict.create(proto));
             } else {
-                return Comment.create(extend(restrict.create(proto), {
+                proto = extend(restrict.create(proto), {
                     AuthorId: user.values.id,
-                    OfferId: offer.id
-                }, (response ? { ResponseId: response.id } : { })));
+                    OfferId: offer.id,
+                }, (response ? { ResponseId: response.id } : { }), (parent ? { ParentId: parent.values.id } : { }));
+
+                return Comment.create(proto, Object.keys(proto));
             }
         },
         Errors.report('Database')
@@ -88,7 +107,7 @@ function create(authData, proto) {
                         }, response) : 0),
                     offer: offer.id,
                     author: user.values.id,
-                    parent: comment.values.ParentId || 0
+                    parent: (parent ?  parent.values.id : 0)
                 }) }, (created === false ? { existed: true } : { }));
         },
         Errors.report('Database')

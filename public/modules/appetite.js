@@ -1,8 +1,8 @@
-define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angular-ui-router', 'controllers', 'templates' ], function(angular, filters, undefined, undefined, controllers, templates) {
+define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angular-cookies', 'libs/angular-ui-router', 'controllers', 'templates' ], function(angular, filters, undefined, undefined, undefined, controllers, templates) {
 
 	angular.module('appetite',
 		[ 'ngResource', 'ngCookies', 'ui.state', 'filters' ])
-		.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+		.config(function($stateProvider, $urlRouterProvider, $locationProvider, $cookieStoreProvider) {
 		    $urlRouterProvider.otherwise('/');
 
 			var common = {
@@ -46,6 +46,11 @@ define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angul
 				});
 				
 		    // $locationProvider.html5Mode(true);
+
+		    $cookieStoreProvider.setDefaultOptions({
+		    	path: '/',
+		    	expires: new Date(60 * 365 * 24 * 60 * 60 * 1000) // cookie 'never' expires
+		    });
 		})
 		.run(function($rootScope, $state, i18n, auth) {
 

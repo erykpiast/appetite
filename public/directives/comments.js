@@ -9,10 +9,13 @@ function(angular, appetite, templates) {
 			    restrict: 'E',
 			    scope: { comment: '=model', showOwnerFeatures: '&', responseAcceptHandler: '&' },
 			    link: function(scope, $element, attrs) {
-			    	scope.goTo = $rootScope.goTo;
-			    	scope.i18n = $rootScope.i18n;
-
-			    	scope.showOwnerFeatures();
+			    	angular.extend(scope, {
+			    		goTo: $rootScope.goTo,
+			    		i18n: $rootScope.i18n,
+			    		answerTo: function(comment) {
+			    			$rootScope.$broadcast('comment.answerTo', comment);
+			    		}
+			    	});
 			    
 			    	if (angular.isArray(scope.comment.children)) {
 			    		var $list = angular.element('<ul class="comment__answers no-bullets">');

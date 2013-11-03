@@ -6,6 +6,7 @@ requirejs.config({
     paths: {
 		'text': 'bower_components/requirejs-text/text',
 		'libs/jquery': 'bower_components/jquery/jquery',
+		'libs/jquery-cookie': 'bower_components/jquery.cookie/jquery.cookie',
 		'libs/angular': 'bower_components/angular-unstable/angular',
 		'libs/angular-resource': 'bower_components/angular-resource-unstable/angular-resource',
 		'libs/angular-sanitize': 'bower_components/angular-sanitize-unstable/angular-sanitize',
@@ -45,11 +46,14 @@ requirejs.config({
 		},
 		'libs/angular-ui-router': {
 			deps: [ 'libs/angular-ui' ]
+		},
+		'libs/jquery-cookie': {
+			deps: [ 'libs/jquery' ]
 		}
 	}
 });
 
-require([ 'libs/jquery', 'libs/angular', 'modules/appetite', 'directives', 'services', 'filters', 'templates' ], function($, angular) {
+require([ 'libs/angular', 'modules/appetite', 'directives', 'services', 'filters', 'templates' ], function(angular) {
 
     angular.bootstrap(document, [ 'appetite' ]);
 

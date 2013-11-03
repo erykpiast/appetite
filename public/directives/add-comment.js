@@ -7,7 +7,7 @@ function(angular, appetite, templates) {
 			    template: templates.addComment,
 			    replace: true,
 			    restrict: 'E',
-			    scope: { addHandler: '&onsubmit', responseHandler: '&onresponse', showOwnerFeatures: '&' },
+			    scope: { addHandler: '&onSubmit', responseHandler: '&onResponse', showOwnerFeatures: '&', answerTo: '@referenceCommentId' },
 			    link: function(scope, $element, attrs) {
 			    	scope.goTo = $rootScope.goTo;
 			    	scope.i18n = $rootScope.i18n;
@@ -18,8 +18,12 @@ function(angular, appetite, templates) {
 			    		},
 			    		addComment: function() {
 				    		if(scope.comment.content.length) {
-				    			scope.addHandler({ comment: angular.copy(scope.comment) });
+				    			scope.addHandler({ comment: {
+				    				content: scope.comment.content,
+				    				parent: (scope.comment.parent ? scope.comment.parent.id : undefined)
+				    			} });
 
+				    			delete scope.comment.parent;
 				    			scope.comment.content = '';
 				    		}
 				    	},
@@ -27,7 +31,19 @@ function(angular, appetite, templates) {
 				    		scope.responseHandler({ comment: angular.copy(scope.comment) });
 
 				    			scope.comment.content = '';
+				    	},
+				    	clearAnswer: function() {
+							delete scope.comment.parent;
 				    	}
+			    	});
+
+			    	scope.$on('comment.answerTo', function(e, comment) {
+		    			if(scope.comment.content.length && confirm(scope.i18n.offer.comment.discardConfirmation)) {
+		    				scope.comment.content = '';
+		    			}
+
+			    		scope.comment.parent = comment;
+			    		scope.comment.content = scope.comment.content;
 			    	});
 			    }
 			};

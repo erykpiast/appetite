@@ -1,9 +1,9 @@
-define([ 'libs/angular', 'libs/angular-cookies', 'modules/appetite' ], function(angular, undefined, appetite) {
+define([ 'libs/angular', 'libs/cookie-store', 'modules/appetite' ], function(angular, undefined, appetite) {
     
-    angular.module('appetite')
-        .factory('auth', function($cookies) {
+    return angular.module('appetite')
+        .factory('auth', function($cookieStore) {
 
-            $cookies.auth = angular.toJson({ service: 'facebook', accessToken: 'a1' });
+            $cookieStore.put('auth', { service: 'facebook', accessToken: 'a1' });
             
             return {
                 currentUser: {

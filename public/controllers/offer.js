@@ -37,10 +37,31 @@ define([ 'libs/angular' ], function(angular) {
 	}
 
 
+	function appendToParent(mainCollection, collection, entity) {
+		if(entity.parent) {
+			var parent = collection.filter(function(ent) { return (ent.id === entity.parent); })[0];
+
+			if(parent) {
+				parent.children = parent.children || [ ];
+
+				parent.children.push(entity);
+			}
+		} else {
+			mainCollection.push(entity);
+		}
+	}
+
+
 	return function($rootScope, $scope, $stateParams, rest) {
 		$scope.users = users;
 
-		var _expandAuthor = retrieveAuthorInfo.bind(null, rest);
+		var _expandAuthor = retrieveAuthorInfo.bind(null, rest),
+			_appendToParent,
+			_addComment = function(comment, comments) {
+				_appendToParent(comments, comment);
+
+				_expandAuthor(comment);
+			};
 
 
 		angular.extend($scope, {
@@ -51,11 +72,7 @@ define([ 'libs/angular' ], function(angular) {
 
 				rest.comment.create(comment)
 					.$then(function(res) {
-						var comment = res.data;
-
-						_expandAuthor(comment);
-
-						$scope.offer.comments.push(comment);
+						_addComment(res.data, $scope.offer.comments);
 					});
 			},
 			response: function(comment) {
@@ -65,7 +82,7 @@ define([ 'libs/angular' ], function(angular) {
 					});
 			},
 			showOwnerFeatures: function() {
-				return ($rootScope.currentUser.id === $scope.offer.author.id);
+				return ($scope.offer && $scope.offer.author && ($rootScope.currentUser.id === $scope.offer.author.id));
 			},
 			acceptResponse: function(response) {
 				rest.response.update({ id: response.id }, { accepted: true })
@@ -79,26 +96,15 @@ define([ 'libs/angular' ], function(angular) {
 		rest.offer.retrieve({ id: $stateParams.id })
 			.$then(function(res) {
 				$scope.offer = res.data;
+
 				_expandAuthor($scope.offer);
 
-				$scope.offer.comments = [ ];
-					
+				$scope.offer.comments = [ ];		
+				_appendToParent =  appendToParent.bind(null, $scope.offer.comments);
 				rest.offer.comments.retrieveAll({ offerId: $scope.offer.id })
 					.$then(function(res) {
 						res.data.forEach(function(comment, index, comments) {
-							if(comment.parent) {
-								var parent = comments.filter(function(c) { return (c.id === comment.parent); })[0];
-
-								if(parent) {
-									parent.children = parent.children || [ ];
-
-									parent.children.push(comment);
-								}
-							} else {
-								$scope.offer.comments.push(comment);
-							}
-
-							_expandAuthor(comment);
+							_addComment(comment, comments);
 						});
 					});
 			});

@@ -18,4 +18,8 @@
 
 	</div>
 
+	<div class="comment__nav">
+		<button class="comment__answer" ng-hide="hideAnswerButton" ng-click="answerTo(comment)">{{ i18n.offer.comment.answerTo }}</button>
+	</div>
+
 </section>

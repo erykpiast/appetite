@@ -23,7 +23,7 @@
             </li>
         </ul>
 
-        <app-add-comment onsubmit="addComment(comment)" onresponse="response(comment)" show-owner-features="showOwnerFeatures()"></app-add-comment>
+        <app-add-comment on-submit="addComment(comment)" on-response="response(comment)" show-owner-features="showOwnerFeatures()"></app-add-comment>
     </div>
 
     <aside class="page__part__aside one-fifth">
