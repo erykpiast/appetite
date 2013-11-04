@@ -37,9 +37,9 @@ define([ 'libs/angular' ], function(angular) {
 	}
 
 
-	function appendToParent(mainCollection, collection, entity) {
+	function appendToParent(mainCollection, buffer, entity) {
 		if(entity.parent) {
-			var parent = collection.filter(function(ent) { return (ent.id === entity.parent); })[0];
+			var parent = buffer.filter(function(ent) { return (ent.id === entity.parent); })[0];
 
 			if(parent) {
 				parent.children = parent.children || [ ];
@@ -54,15 +54,18 @@ define([ 'libs/angular' ], function(angular) {
 
 	return function($rootScope, $scope, $stateParams, rest) {
 		$scope.users = users;
+		$scope.offer = {
+			comments: [ ]
+		};
 
-		var _expandAuthor = retrieveAuthorInfo.bind(null, rest),
-			_appendToParent,
-			_addComment = function(comment, comments) {
-				_appendToParent(comments, comment);
+		var commentsBuffer = [ ], // flat list of all comments
+			_expandAuthor = retrieveAuthorInfo.bind(null, rest),
+			_appendToParent = appendToParent.bind(null, $scope.offer.comments, commentsBuffer),
+			_addComment = function(comment) {
+				_appendToParent(comment);
 
 				_expandAuthor(comment);
 			};
-
 
 		angular.extend($scope, {
 			addComment: function(comment) {
@@ -72,7 +75,9 @@ define([ 'libs/angular' ], function(angular) {
 
 				rest.comment.create(comment)
 					.$then(function(res) {
-						_addComment(res.data, $scope.offer.comments);
+						commentsBuffer.push(res.data);
+
+						_addComment(res.data);
 					});
 			},
 			response: function(comment) {
@@ -95,17 +100,15 @@ define([ 'libs/angular' ], function(angular) {
 
 		rest.offer.retrieve({ id: $stateParams.id })
 			.$then(function(res) {
-				$scope.offer = res.data;
+				angular.extend($scope.offer, res.data);
 
 				_expandAuthor($scope.offer);
 
-				$scope.offer.comments = [ ];		
-				_appendToParent =  appendToParent.bind(null, $scope.offer.comments);
 				rest.offer.comments.retrieveAll({ offerId: $scope.offer.id })
 					.$then(function(res) {
-						res.data.forEach(function(comment, index, comments) {
-							_addComment(comment, comments);
-						});
+						commentsBuffer.append(res.data);
+
+						res.data.forEach(_addComment);
 					});
 			});
 	};

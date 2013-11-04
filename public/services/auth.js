@@ -9,6 +9,7 @@ define([ 'libs/angular', 'libs/cookie-store', 'modules/appetite' ], function(ang
                 currentUser: {
                     "id": 1,
                     "authService": "facebook",
+                    "accessToken": "a1",
                     "fullName": "Olga Krysztofiak",
                     "gender": "female",
                     "site": "http://olgagotuje.pl/",

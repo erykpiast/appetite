@@ -17,14 +17,19 @@ function(angular, appetite, templates) {
 			    		}
 			    	});
 			    
-			    	if (angular.isArray(scope.comment.children)) {
-			    		var $list = angular.element('<ul class="comment__answers no-bullets">');
-			    		$element.append($list);
+			    	var $answers;
+			    	scope.$watch('comment.children', function(answers) {
+						if (!$answers && angular.isArray(answers)) {
+				    		var $answers = angular.element('<ul class="comment__answers no-bullets">');
+				    		$element.append($answers);
 
-				    	$compile('<li ng-repeat="comment in comment.children"><app-comments model="comment" show-owner-features="showOwnerFeatures()" response-accept-handler="responseAcceptHandler(response)"></app-comments></li>')(scope, function(cloned, scope) {
-				    		$list.append(cloned);
-				    	});
-				    }
+					    	$compile('<li ng-repeat="comment in comment.children"><app-comments model="comment" show-owner-features="showOwnerFeatures()" response-accept-handler="responseAcceptHandler(response)"></app-comments></li>')(scope, function(cloned, scope) {
+					    		$answers.append(cloned);
+					    	});
+					    }
+
+					    // !!! no support for removing comments !!!
+					});
 			    }
 			};
 		});

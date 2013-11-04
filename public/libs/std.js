@@ -110,6 +110,15 @@ define([ ], function() {
 	};
 
 
+	Array.prototype.append = function() {
+		for(var i = 0, maxi = arguments.length; i < maxi; i++) {
+			Array.prototype.push.apply(this, Array.create(arguments[i]));
+		}
+
+		return this.length;
+	};
+
+
 	Object.isString = function(o) {
 		return ((typeof(o) === 'string') || (o instanceof String));
 	};
