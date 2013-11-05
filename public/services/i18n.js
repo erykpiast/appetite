@@ -9,15 +9,29 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
                     ago: 'temu'
                 },
                 offer: {
-                	recipeFrom: 'Przepis pochodzi z',
                     acceptResponse: 'Zaakceptuj odpowiedź',
-                    remainingTime: 'Czas do końca',
+                    add: 'Dodaj własną ofertę',
                     comment: {
-                        answerTo: 'Odpowiedz na komentarz',
-                        discardConfirmation: 'Jesteś w trakcie edycji komentarza. Czy chcesz skasować wpisany tekst przed rozpoczęciem odpowiadania na post?',
                         answerPrelude: 'To jest odpowiedź na komentarz użytkownika',
-                        clearAnswer: 'Skomentuj ofertę'
-                    }
+                        answerTo: 'Odpowiedz na komentarz',
+                        clearAnswer: 'Skomentuj ofertę',
+                        discardConfirmation: 'Jesteś w trakcie edycji komentarza. Czy chcesz skasować wpisany tekst przed rozpoczęciem odpowiadania na post?'
+                    },
+                    create: {
+                        description: 'Krótki opis',
+                        end: 'Zakończenie oferty',
+                        example: {
+                            description: 'np. "Pyszny placek ze świeżymi wiśniami na kruchym cieście"',
+                            tags: 'np. "wiśnie, ciasto kruche, świeże owoce, kruszaniec"',
+                            title: 'np. "Wiśniowy kruszaniec"'
+                        },
+                        start: 'Rozpoczęcie oferty',
+                        submit: 'Dodaj ofertę',
+                        tags: 'Słowa kluczowe',
+                        title: 'Tytuł oferty'
+                    },
+                	recipeFrom: 'Przepis pochodzi z',
+                    remainingTime: 'Czas do końca'
                 },
                 addComment: {
                     header: 'Dodaj komentarz',

@@ -1,1 +1,1 @@
-<h1>Hej ho!</h1>
+<h1 ng-click="goTo('index')">Hej ho!</h1>

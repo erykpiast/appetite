@@ -6,11 +6,11 @@ define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angul
 		    $urlRouterProvider.otherwise('/');
 
 			var common = {
-					'header': {
+					'header@': {
 						template: templates.header,
 						controller: controllers.header
 					},
-					'footer': {
+					'footer@': {
 						template: templates.footer,
 						controller: controllers.footer
 					}
@@ -18,29 +18,38 @@ define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angul
 
 			$stateProvider
 				.state('index', {
-					url: '^/',
+					url: '/',
 					views: angular.extend({
-						'content': {
+						'content@': {
 							template: templates.main,
 							controller: controllers.main
 						}
 					}, common)
 				})
 				.state('offer', {
-					url: '^/offer/:id',
+					url: '/offer',
 					views: angular.extend({
-						'content': {
+						'content@': {
+							template: templates.offers,
+							controller: controllers.offers
+						}
+					}, common)
+				})
+				.state('offer.details', {
+					url: '/{id:[0-9]{1,8}}',
+					views: angular.extend({
+						'content@': {
 							template: templates.offer,
 							controller: controllers.offer
 						}
 					}, common)
 				})
-				.state('test2', {
-					url: '^/test2',
+				.state('offer.create', {
+					url: '/create',
 					views: angular.extend({
-						'content': {
-							template: templates.test,
-							controller: controllers.main
+						'content@': {
+							template: templates.offerCreate,
+							controller: controllers.offerCreate
 						}
 					}, common)
 				});
@@ -58,7 +67,7 @@ define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angul
 			$rootScope.currentUser = auth.currentUser;
 
 			$rootScope.goTo = function(state, params) {
-				$state.transitionTo(state, params);
+				$state.transitionTo(state, params, { location: true, inherit: true, relative: $state.$current, notify: true });
 			}
 		});
 

@@ -1,7 +1,7 @@
 (function() {
     
     var templates = [ 'header', 'footer',
-        'test', 'main', 'offer',
+        'test', 'main', 'offers', 'offer', 'offer-create',
         'offer-thumbnail', 'offer-author', 'comment', 'gallery', 'add-comment' ];
     
     define([ 'libs/underscore' ].concat(templates.map(function(template) {

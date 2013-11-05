@@ -1,7 +1,8 @@
 (function() {
     
     var controllers = [ 'header', 'footer',
-        'test', 'main', 'offer' ];
+        'test', 'main',
+        'offers', 'offer', 'offer-create' ];
     
     define([ 'libs/underscore' ].concat(controllers.map(function(controller) {
     	return 'controllers/' + controller;
