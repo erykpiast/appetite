@@ -22,9 +22,13 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
                         end: 'Zakończenie oferty',
                         example: {
                             description: 'np. "Pyszny placek ze świeżymi wiśniami na kruchym cieście"',
+                            place: 'np. "Poznań, Stare Miasto"',
+                            recipe: 'np. "http://www.mojeulubioneprzepisy/ciasta/kruszaniec-z-wisniami-87912.html"',
                             tags: 'np. "wiśnie, ciasto kruche, świeże owoce, kruszaniec"',
                             title: 'np. "Wiśniowy kruszaniec"'
                         },
+                        place: 'Przybliżone miejsce odbioru',
+                        recipe: 'Źródło przepisu',
                         start: 'Rozpoczęcie oferty',
                         submit: 'Dodaj ofertę',
                         tags: 'Słowa kluczowe',

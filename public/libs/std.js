@@ -1,5 +1,22 @@
 define([ ], function() {
-	
+
+// globals >>
+	window.parseInt0 = function(o) {
+		var parsed = parseInt(o);
+
+		return (isNaN(parsed) ? 0 : parsed);
+	}
+
+
+	window.parseFloat0 = function(o) {
+		var parsed = parseFloat(o);
+
+		return (isNaN(parsed) ? 0.00 : parsed);
+	}
+ // << globals
+
+
+// Array >>	
 	Array.create = function(pseudo) {
 		if((pseudo === null) || pseudo === undefined) {
 			return [ ];
@@ -17,7 +34,6 @@ define([ ], function() {
 	};
 
 
-	// filters array and leave only unique values
 	Array.prototype.unique = function(similarityIsEnough) {
 		var arr = this.slice(0);
 
@@ -117,27 +133,10 @@ define([ ], function() {
 
 		return this.length;
 	};
+// << Array
 
 
-	Object.isString = function(o) {
-		return ((typeof(o) === 'string') || (o instanceof String));
-	};
-
-
-	window.parseInt0 = function(o) {
-		var parsed = parseInt(o);
-
-		return (isNaN(parsed) ? 0 : parsed);
-	}
-
-
-	window.parseFloat0 = function(o) {
-		var parsed = parseFloat(o);
-
-		return (isNaN(parsed) ? 0.00 : parsed);
-	}
-
-
+// Math >>
 	var tMathRound = Math.round;
 	Math.round = function(n /*, [dec places]*/) {
 		var dec = parseInt0(arguments[1]);
@@ -158,5 +157,20 @@ define([ ], function() {
 
 		return (tMathCeil(n * Math.pow(10, dec)) / Math.pow(10, dec));
 	}
+// << Math
+
+
+// Object >>
+	Object.isString = function(o) {
+		return ((typeof(o) === 'string') || (o instanceof String));
+	};
+// << Object
+
+
+// String >>
+	String.isUrl = function(str) {
+		return (str = str + '') && (str.length > 3) && str.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/);
+	};
+// << String
 
 })

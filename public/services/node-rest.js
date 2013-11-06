@@ -13,6 +13,9 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
                     }
                 }),
                 offer: angular.extend($resource(_rest('/offer/:id'), { }, {
+                    create: {
+                        method: 'POST'
+                    },
                     retrieve: {
                         method: 'GET'
                     },

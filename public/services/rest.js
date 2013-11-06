@@ -8,6 +8,12 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite', 'services/
                 comment: {
                     retrieve: fakeRest.comment.retrieve,
                     create: nodeRest.comment.create
+                },
+                offerTemplate: {
+                    create: nodeRest.offerTemplate.create
+                },
+                offer: {
+                    create: nodeRest.offer.create
                 }
             });
         });
