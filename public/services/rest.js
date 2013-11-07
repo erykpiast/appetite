@@ -3,7 +3,7 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite', 'services/
     angular.module('appetite')
         .factory('rest', function(nodeRest, fakeRest) {
             
-            return angular.extend(fakeRest, {
+            return angular.extend({ }, fakeRest, {
             	response: nodeRest.response,
                 comment: {
                     retrieve: fakeRest.comment.retrieve,
@@ -12,9 +12,9 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite', 'services/
                 offerTemplate: {
                     create: nodeRest.offerTemplate.create
                 },
-                offer: {
+                offer: angular.extend({ }, fakeRest.offer, {
                     create: nodeRest.offer.create
-                }
+                })
             });
         });
 });
