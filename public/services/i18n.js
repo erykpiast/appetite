@@ -4,9 +4,23 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
         .factory('i18n', function() {
             
             return {
+                addComment: {
+                    header: 'Dodaj komentarz',
+                    placeholder: 'Twój komentarz',
+                    submit: 'Dodaj komentarz',
+                    response: 'Odpowiedz na ofertę'
+                },
                 common: {
-                    lastestOffers: 'Ostatnie oferty',
-                    ago: 'temu'
+                    ago: 'temu',
+                    apply: 'Zatwierdź',
+                    lastestOffers: 'Ostatnie oferty'
+                },
+                imagePicker: {
+                    addNext: 'Dodaj kolejne zdjęcie',
+                    adderHeader: 'Dodawanie zdjecia',
+                    header: 'Dodaj zdjęcia',
+                    pasteUrl: 'Wklej adres zdjęcia',
+                    urlExample: 'np. "http://static.mojeulubioneprzepisy/images/87912_01.jpg"'
                 },
                 offer: {
                     acceptResponse: 'Zaakceptuj odpowiedź',
@@ -19,6 +33,7 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
                     },
                     create: {
                         description: 'Krótki opis',
+                        detailsHeader: 'Informacje szczegółowe (możesz wypełnić później)',
                         end: 'Zakończenie oferty',
                         example: {
                             description: 'np. "Pyszny placek ze świeżymi wiśniami na kruchym cieście"',
@@ -29,19 +44,16 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
                         },
                         place: 'Przybliżone miejsce odbioru',
                         recipe: 'Źródło przepisu',
+                        saveOrStart: 'Zapisz na później lub opublikuj teraz',
                         start: 'Rozpoczęcie oferty',
-                        submit: 'Dodaj ofertę',
+                        startOffer: 'Wystartuj ofertę (uwaga, nie ma odwrotu! :)',
+                        submitTemplate: 'Zapisz ofertę',
                         tags: 'Słowa kluczowe',
+                        templateHeader: 'Dodawanie oferty',
                         title: 'Tytuł oferty'
                     },
                 	recipeFrom: 'Przepis pochodzi z',
                     remainingTime: 'Czas do końca'
-                },
-                addComment: {
-                    header: 'Dodaj komentarz',
-                    placeholder: 'Twój komentarz',
-                    submit: 'Dodaj komentarz',
-                    response: 'Odpowiedz na ofertę'
                 }
             };
             

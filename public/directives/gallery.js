@@ -9,7 +9,7 @@ function(angular, appetite, templates) {
 			    restrict: 'E',
 			    scope: { pictures: '=model' },
 			    link: function(scope, element, attrs) {
-			    	scope.i18n = $rootScope.i18n;
+			    	// scope.i18n = $rootScope.i18n;
 			    }
 			};
 		});

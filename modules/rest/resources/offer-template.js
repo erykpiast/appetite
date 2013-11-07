@@ -104,7 +104,7 @@ function create(authData, proto) {
 		    
 		    if(!user) {
 		        throw new Errors.Authentication();
-			} else if(!proto.recipe) {
+			} else if(!proto.recipe || !String.isUrl(proto.recipe)) {
 				throw new Errors.WrongData();
 			} else {
 				return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.values.id });

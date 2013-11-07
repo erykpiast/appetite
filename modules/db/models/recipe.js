@@ -7,14 +7,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		url: {
 			type: DataTypes.STRING(2048),
-			allowNull: false,
-			validate: {
-				isUrl: function(value) {
-					if(!String.isUrl(value)) {
-						throw new Error('url field must be valid URL');
-					};
-				}
-			}
+			allowNull: false
 		}
 		// author - foreign key from User
 		// createdAt - auto
