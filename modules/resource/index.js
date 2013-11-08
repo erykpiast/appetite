@@ -85,15 +85,18 @@ extend(Resource.prototype, {
 		var deferred = new q.defer();
 
 		if(this.data) {
-			var filename = name + '.' + this._getExtension(this.data.mimeType);
+			var filename = name + '.' + this._getExtension(this.data.mimeType),
+			    fullPath = this.savePath + '/' + filename;
 
-			fs.writeFile(this.savePath + '/' + filename, this.data, 'binary', function(err) {
-				if(err) {
-					deferred.reject(null);
-				} else {
-					deferred.resolve(filename);
-				}
-			});
+            fs.unlink(fullPath, function() {
+    			fs.writeFile(fullPath, this.data, function(err) {
+    				if(err) {
+    					deferred.reject(null);
+    				} else {
+    					deferred.resolve(filename);
+    				}
+    			});
+            });
 		}
 
 		return deferred.promise;
