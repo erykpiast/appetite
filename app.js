@@ -20,6 +20,7 @@ var app = express();
 app
 .configure(function() {
 	app
+        .set('root', __dirname)
 		.set('port', process.env.PORT || 3000)
 		.set('db', $require('/modules/db')) // make db connection once
 		.set('rest', $require('/modules/rest')(app))

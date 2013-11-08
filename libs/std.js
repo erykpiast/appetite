@@ -14,7 +14,7 @@
  // << globals
 
 
-// Array >>	
+// Array >>
 	Array.create = function(pseudo) {
 		if((pseudo === null) || pseudo === undefined) {
 			return [ ];
@@ -29,6 +29,16 @@
 				return a;
 			}
 		}
+	};
+
+
+	Array.prototype.contains = function(/* values ... */) {
+		var values = Array.create(arguments),
+			arr = this;
+
+		return values.every(function(value) {
+			return arr.indexOf(value) !== -1;
+		});
 	};
 
 

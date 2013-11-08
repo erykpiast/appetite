@@ -34,6 +34,16 @@ define([ ], function() {
 	};
 
 
+	Array.prototype.contains = function(/* values ... */) {
+		var values = Array.create(arguments),
+			arr = this;
+
+		return values.every(function(value) {
+			return arr.indexOf(value) !== -1;
+		});
+	};
+
+
 	Array.prototype.unique = function(similarityIsEnough) {
 		var arr = this.slice(0);
 

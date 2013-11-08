@@ -1,4 +1,7 @@
 var Sequelize = $require('sequelize'),
+	Resource = $require('/modules/resource'),
+	md5 = $require('MD5'),
+	q = $require('q'),
     auth = $require('/modules/auth'),
 	Errors = $require('/modules/rest/errors'),
 	restrict = $require('/modules/rest/restrict')({
@@ -13,7 +16,7 @@ var Sequelize = $require('sequelize'),
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
-var DB, OfferTemplate, Recipe, Image, Tag, User;
+var DB, OfferTemplate, Recipe, Image, Tag, User, rootDir, r;
 
 
 function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) {  // function factory
@@ -76,7 +79,7 @@ var _publishPictures = _createPublishFn('pictures', restrict.imagePublic),
 
 			return {
                 originalUrl: proto,
-                filename: new RegExp('^(.*/)([^/]*)$').exec(proto)[2]
+                filename: md5(proto)
             };
 		}),
 	_setTags = _createSetFn('tags', 'Tag', restrict.tagSearch, function(proto) {
@@ -135,8 +138,23 @@ function create(authData, proto) {
 		function(pictures) {
 			if(pictures instanceof Array) {
 		        proto.pictures = pictures;
-		    }
 
+		        return q.all(proto.pictures.map(function(picture) {
+		    		var p1 = r.fetch(picture.originalUrl);
+
+		    		var p2 = p1.then(function() {
+		    				return r.save(picture.filename);
+		    			});
+
+		    		return p2;
+		    		}));
+		    } else {
+		    	return true;
+		    }
+		},
+		Errors.report('Database')
+	).then(
+		function() {
 			if(proto.pictures) {
 		        return template.setPictures(proto.pictures);
 		    } else {
@@ -328,6 +346,8 @@ module.exports = function(app) {
 	User = DB.User;
 	Image = DB.Image;
 	Tag = DB.Tag;
+
+	r = new Resource([ 'image/jpeg', 'image/png' ], app.get('root') + '/public/images');
 
 	return {
 		create: create,
