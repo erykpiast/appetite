@@ -2,5 +2,5 @@
 
 ./stop
 export NODE_ENV=devel
-node-inspector & 
-node --debug-brk app.js
+node --debug-brk app.js &
+node-inspector --web-port=8081 &

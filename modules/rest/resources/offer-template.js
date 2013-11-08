@@ -43,7 +43,7 @@ function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) 
 	            
 	            if(props.length) {
 	            	 // tests need this sequence for correct ids :(
-		            return chainer.runSerially();
+		            return chainer.run();
 	            } else {
 	                throw Errors.WrongData();
 	            }
@@ -118,7 +118,6 @@ function create(authData, proto) {
 		function(_recipe) {
 			recipe = _recipe;
 		    
-		    
 		    var p = extend(restrict.create(proto), {
 			        AuthorId: user.values.id,
 			        RecipeId: recipe.values.id
@@ -140,16 +139,25 @@ function create(authData, proto) {
 		        proto.pictures = pictures;
 
 		        return q.all(proto.pictures.map(function(picture) {
-		    		var p1 = r.fetch(picture.originalUrl);
-
-		    		var p2 = p1.then(function() {
-		    				return r.save(picture.filename);
-		    			});
-
-		    		return p2;
+		    		return r.fetch(picture.originalUrl).then(function(data) {
+	    				    return r.save(picture.filename);
+	    			    });
 		    		}));
 		    } else {
 		    	return true;
+		    }
+		},
+		Errors.report('Database')
+	).then(
+		function(savingResults) {
+			if(proto.pictures) {
+			    return q.all(savingResults.map(function(file, index) {
+			        proto.pictures[index].filename = file;
+			        
+			        return proto.pictures[index].save([ 'filename' ]);
+			    }));
+		    } else {
+		        return true;
 		    }
 		},
 		Errors.report('Database')
@@ -253,10 +261,34 @@ function update(params, authData, proto) {
 		Errors.report('Database')
 	).then(
 		function(pictures) {
-		    if(pictures instanceof Array) {
+			if(pictures instanceof Array) {
 		        proto.pictures = pictures;
+
+		        return q.all(proto.pictures.map(function(picture) {
+		    		return r.fetch(picture.originalUrl).then(function() {
+	    				    return r.save(picture.filename);
+	    			    });
+		    		}));
+		    } else {
+		    	return true;
 		    }
-		    
+		},
+		Errors.report('Database')
+	).then(
+		function(savingResults) {
+			if(proto.pictures) {
+			    return q.all(savingResults.map(function(file, index) {
+			        proto.pictures[index].filename = file;
+			        
+			        return proto.pictures[index].save([ 'filename' ]);
+			    }));
+		    } else {
+		        return true;
+		    }
+		},
+		Errors.report('Database')
+	).then(
+		function(savingResults) {
 		    if(proto.pictures) {
 		        return template.setPictures(proto.pictures);
 		    } else {

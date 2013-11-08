@@ -52,6 +52,15 @@ module.exports = function (grunt) {
 				],
 				tasks: [ 'develop' ]
 			},
+			debug: {
+				files: [
+					'app.js',
+					'modules/{,*/}*.js',
+					'routes/{,*/}*.js',
+					'libs/{,*/}*.js'
+				],
+				tasks: [ 'shell:debug' ]
+			},
 			sass: {
 			    files: [
 					appDir + '/sass/{,*/}*.scss'
@@ -77,6 +86,24 @@ module.exports = function (grunt) {
 		        configFile: 'karma.conf.js'
 		    }
 		},
+		'node-inspector': {
+            dev: {
+                options: {
+                    'web-port': 8081,
+                    'web-host': '127.0.0.1',
+                    'debug-port': 5858,
+                    'save-live-edit': true
+                }
+            }
+        },
+        shell: {
+            debug: {
+                options: {
+                    stdout: true
+                },
+                command: 'node --debug-brk $(which grunt) develop'
+            }
+        },
 		jasmine_node: {
 			matchall: true,
 		    projectRoot: "./spec/server",
@@ -88,6 +115,9 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-develop');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	
+	grunt.loadNpmTasks('grunt-node-inspector');
+	grunt.loadNpmTasks('grunt-shell');
 
 	grunt.loadNpmTasks('grunt-jasmine-node');
 	grunt.loadNpmTasks('grunt-karma');
@@ -101,6 +131,12 @@ module.exports = function (grunt) {
 		'compass:dev',
 		'autoprefixer',
 		'watch'
+	]);
+	
+	grunt.registerTask('debug', [
+	    'node-inspector:dev',
+		'shell:debug',
+		'watch:debug'
 	]);
 	
 	grunt.registerTask('test', [

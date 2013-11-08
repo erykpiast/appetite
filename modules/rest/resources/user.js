@@ -81,11 +81,32 @@ function create(authData, proto) {
         function(_avatar) {
             if((_avatar !== true) && !!_avatar) {
                 avatar = _avatar;
+                
                 user.AvatarId = avatar.values.id;
                 
                 updateProps.push('AvatarId');
+                
+                return r.fetch(avatar.originalUrl).then(function() {
+	    				    return r.save(avatar.filename);
+	    			    });
+		    } else {
+		    	return true;
+		    }
+		},
+		Errors.report('Database')
+	).then(
+        function(savingResult) {
+            if(savingResult !== true) {
+                avatar.filename = savingResult;
+                
+                return avatar.save([ 'filename ']);
+            } else {
+                return true;
             }
-            
+        },
+		Errors.report('Database')
+	).then(
+        function(savingResult) {
             if(updateProps.length) {
                 return user.save(updateProps);
             } else {
@@ -178,11 +199,31 @@ function update(params, authData, proto) {
         function(_avatar) {
             if((_avatar !== true) && !!_avatar) {
                 avatar = _avatar;
+                
                 user.AvatarId = avatar.values.id;
                 
                 updateProps.push('AvatarId');
+                
+                return r.fetch(avatar.originalUrl).then(function() {
+	    				    return r.save(avatar.filename);
+	    			    });
+		    } else {
+		    	return true;
+		    }
+		},
+		Errors.report('Database')
+	).then(
+        function(savingResult) {
+            if(savingResult !== true) {
+                avatar.filename = savingResult;
+                
+                return avatar.save([ 'filename ']);
+            } else {
+                return true;
             }
-
+        },
+		Errors.report('Database')
+	).then(function() {
             updateProps = updateProps.concat(Object.keys(restrict.update(proto)));
 
             extend(user, restrict.update(proto));

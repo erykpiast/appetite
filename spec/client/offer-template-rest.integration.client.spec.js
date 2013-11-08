@@ -8,14 +8,15 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             'service' : 'facebook',
             'accessToken' : 'a2'
         },
+        prefix = window.location.protocol + '//' + window.location.hostname + ':' + 3000 + '/static/images',
         proto = {
             'title' : 'test title',
             'description' : 'lorem ipsum dolor sit amet',
             'recipe' : 'http://xxx.aaa.com/test-title',
             'pictures' : [
-                    'http://xxx.aaa.com/test-title/image_001.jpg',
-                    'http://xxx.aaa.com/test-title/image_002.jpg',
-                    'http://xxx.aaa.com/test-title/image_003.jpg'
+                    prefix + '/0001.jpg',
+                    prefix + '/0002.jpg',
+                    prefix + '/0003.jpg'
                 ],
             'tags' : [ 'tag1', 'tag2', 'tag3' ]
         },
@@ -73,9 +74,9 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     },
                     author: user.id,
                     pictures: [
-                            { id: response.pictures[0].id, filename: 'image_001.jpg' },
-                            { id: response.pictures[1].id, filename: 'image_002.jpg' },
-                            { id: response.pictures[2].id, filename: 'image_003.jpg' }
+                            { id: response.pictures[0].id, filename: '0001.jpg' },
+                            { id: response.pictures[1].id, filename: '0002.jpg' },
+                            { id: response.pictures[2].id, filename: '0003.jpg' }
                         ],
                     tags: [
                             { id: response.tags[0].id, text: 'tag1' },

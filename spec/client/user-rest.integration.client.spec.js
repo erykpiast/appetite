@@ -11,7 +11,8 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             proto = {
                 'firstName' : 'a',
                 'lastName' : 'b',
-                'place' : 'p1'
+                'place' : 'p1',
+                'avatar' : window.location.protocol + '//' + window.location.hostname + ':' + 3000 + '/static/images/1001.jpg'
             },
             currentRest = '/user';
         
@@ -53,7 +54,10 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                             id: response.place.id,
                             serviceId: proto.place
                         },
-                        avatar: 0
+                        avatar: {
+                            id: response.avatar.id,
+                            filename: '.jpg'
+                        }
                     });
                   
                     expect(response).toEqual(proto);
