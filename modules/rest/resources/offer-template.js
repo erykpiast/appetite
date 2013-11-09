@@ -12,7 +12,7 @@ var Sequelize = $require('sequelize'),
 		tagPublic: [ 'id', 'text' ],
 		tagSearch: [ 'text' ],
 		create: [ 'title', 'description' ],
-		update: [ 'title', 'description', 'pictures' ],
+		update: [ 'title', 'description' ],
 		search: [ 'id', 'deletedAt' ]
 	}, [ 'public', 'search' ] );
 
@@ -20,41 +20,45 @@ var DB, OfferTemplate, Recipe, Image, Tag, User, rootDir, r;
 
 
 function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) {  // function factory
-	return function(proto, authorId) {
+	return function(proto, authorId, dontIgnoreEmpty) {
 		if(proto[propName]) {
-	        if((proto[propName] instanceof Array) && proto[propName].length) {
-	            var chainer = new Sequelize.Utils.QueryChainer;
-	            
-	            var props = proto[propName].map(function(proto) {
-	                if(!proto) {
-	                    return null;
-	                } else {
-	                	proto = protoProcessingFn(proto);
+	        if((proto[propName] instanceof Array)) {
+	        	if(proto[propName].length) {
+		            var chainer = new Sequelize.Utils.QueryChainer;
+		            
+		            var props = proto[propName].map(function(proto) {
+		                if(!proto) {
+		                    return null;
+		                } else {
+		                	proto = protoProcessingFn(proto);
 
-	                	var search = searchRestrictFn(proto);
+		                	var search = searchRestrictFn(proto);
 
-		                var prop = chainer.add(DB[modelName], 'findOrCreate', [ search, extend({ AuthorId: authorId }, proto) ]);
-		                
-		                return prop;
-	                }
-	            }).filter(function(prop) {
-	                return !!prop;
-	            });
-	            
-	            if(props.length) {
-	            	 // tests need this sequence for correct ids :(
-		            return chainer.run();
-	            } else {
-	                throw Errors.WrongData();
-	            }
+			                var prop = chainer.add(DB[modelName], 'findOrCreate', [ search, extend({ AuthorId: authorId }, proto) ]);
+			                
+			                return prop;
+		                }
+		            }).filter(function(prop) {
+		                return !!prop;
+		            });
+		            
+		            if(props.length) {
+		            	 // tests need this sequence for correct ids :(
+			            return chainer.runSerially();
+		            } else {
+		                throw Errors.WrongData();
+		            }
+		        } else if(dontIgnoreEmpty) {
+		        	return true;
+		        }
 	        } else {
 	            throw Errors.WrongData();
 	        }
-	    } else {
-	        delete proto[propName];
-	        
-	        return true;
 	    }
+	    
+        delete proto[propName];
+        
+        return true;
 	}
 }
 
@@ -139,7 +143,7 @@ function create(authData, proto) {
 		        proto.pictures = pictures;
 
 		        return q.all(proto.pictures.map(function(picture) {
-		    		return r.fetch(picture.originalUrl).then(function(data) {
+		    		return r.fetch(picture.originalUrl).then(function() {
 	    				    return r.save(picture.filename);
 	    			    });
 		    		}));
@@ -150,7 +154,7 @@ function create(authData, proto) {
 		Errors.report('Database')
 	).then(
 		function(savingResults) {
-			if(proto.pictures) {
+			if(savingResults instanceof Array) {
 			    return q.all(savingResults.map(function(file, index) {
 			        proto.pictures[index].filename = file;
 			        
@@ -256,7 +260,7 @@ function update(params, authData, proto) {
 		function(_template) {
 		    template = _template;
 		    
-			return _setPictures(proto, template.values.author.values.id);
+			return _setPictures(proto, template.values.author.values.id, !!"don't ignore empty");
 		},
 		Errors.report('Database')
 	).then(
@@ -276,7 +280,7 @@ function update(params, authData, proto) {
 		Errors.report('Database')
 	).then(
 		function(savingResults) {
-			if(proto.pictures) {
+			if(savingResults instanceof Array) {
 			    return q.all(savingResults.map(function(file, index) {
 			        proto.pictures[index].filename = file;
 			        
@@ -298,7 +302,7 @@ function update(params, authData, proto) {
 		Errors.report('Database')
 	).then(
 		function() {
-		    return _setTags(proto, template.values.author.values.id);
+		    return _setTags(proto, template.values.author.values.id, !!"don't ignore empty");
 		},
 		Errors.report('Database')
 	).then(

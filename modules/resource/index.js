@@ -69,10 +69,12 @@ extend(Resource.prototype, {
 			        	that.data = body;
 			        	that.data.mimeType = mimeType;
 
-			        	deferred.resolve(this.data);
+			        	deferred.resolve(that.data);
+			      	} else {
+			      		deferred.reject(that.data);
 			      	}
 			    } else {
-					deferred.reject(this.data);    	
+					deferred.reject(that.data);
 			    }
 			});
 		} else {
@@ -84,12 +86,14 @@ extend(Resource.prototype, {
 	save: function(name) {
 		var deferred = new q.defer();
 
-		if(this.data) {
+		var data = this.data;
+
+		if(data) {
 			var filename = name + '.' + this._getExtension(this.data.mimeType),
 			    fullPath = this.savePath + '/' + filename;
 
-            fs.unlink(fullPath, function() {
-    			fs.writeFile(fullPath, this.data, function(err) {
+            fs.unlink(fullPath, function(error) {
+    			fs.writeFile(fullPath, data, function(err) {
     				if(err) {
     					deferred.reject(null);
     				} else {
