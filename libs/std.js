@@ -42,6 +42,21 @@
 	};
 
 
+	Array.prototype.diff = function(array, similarityIsEnough) {
+		var that = this,
+			compareFn = (!!similarityIsEnough ? 'indexOfObjectWith' : 'indexOf'),
+			diff = [ ];
+
+		array.forEach(function(el) {
+			if(that[compareFn](el) === -1) {
+				diff.push(el);
+			}
+		});
+
+		return diff.unique(similarityIsEnough);
+	};
+
+
 	Array.prototype.unique = function(similarityIsEnough) {
 		var arr = this.slice(0);
 

@@ -8,15 +8,15 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             'service' : 'facebook',
             'accessToken' : 'a2'
         },
-        prefix = window.location.protocol + '//' + window.location.hostname + ':' + 3000 + '/static/images',
+        imagePrefix = window.location.protocol + '//' + window.location.hostname + ':' + 3000 + '/static/images',
         proto = {
             'title' : 'test title',
             'description' : 'lorem ipsum dolor sit amet',
             'recipe' : 'http://xxx.aaa.com/test-title',
             'pictures' : [
-                    prefix + '/0001.jpg',
-                    prefix + '/0002.jpg',
-                    prefix + '/0003.jpg'
+                    imagePrefix + '/0001.jpg',
+                    imagePrefix + '/0002.jpg',
+                    imagePrefix + '/0003.jpg'
                 ],
             'tags' : [ 'tag1', 'tag2', 'tag3' ]
         },
@@ -74,9 +74,9 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     },
                     author: user.id,
                     pictures: [
-                            { id: response.pictures[0].id, filename: '0001.jpg' },
-                            { id: response.pictures[1].id, filename: '0002.jpg' },
-                            { id: response.pictures[2].id, filename: '0003.jpg' }
+                            { id: response.pictures[0].id, filename: '8492a1a763364b2ca2d7b12ba1a50ead.jpg' },
+                            { id: response.pictures[1].id, filename: 'a2d9b84f20a59a3d76b5e2029825121c.jpg' },
+                            { id: response.pictures[2].id, filename: 'b4c614c77768557c937c68e2435f2c71.jpg' }
                         ],
                     tags: [
                             { id: response.tags[0].id, text: 'tag1' },
@@ -111,17 +111,52 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
     
     it('should be UPDATE rest allows change template entry properties', function() {
         
-        var newAttrs = {
-            title: 'ccc',
-            description: 'tra la la tra la la'
-        };
-        
-        rest.update(currentRest + '/' + proto.id, newAttrs,
-            function(successCallback, errorCallback) {
+        rest.update(currentRest + '/' + proto.id, {
+                title: 'ccc',
+                description: 'tra la la tra la la',
+                pictures : [
+                        imagePrefix + '/0001.jpg',
+                        imagePrefix + '/0002.jpg',
+                        imagePrefix + '/0004.jpg',
+                        imagePrefix + '/0005.jpg'
+                    ],
+                'tags' : [ 'tag1', 'tag4', 'tag5' ]
+            }, function(successCallback, errorCallback) {
                 expect(errorCallback).not.toHaveBeenCalled();
                 expect(successCallback).toHaveBeenCalled();
               
-                proto = $.extend(proto, newAttrs);
+                var response = successCallback.mostRecentCall.args[0];
+                expect(response).toBeDefined();
+
+                proto = $.extend(proto, {
+                    title: 'ccc',
+                    description: 'tra la la tra la la',
+                    pictures: [
+                        { id: response.pictures[0].id, filename: '8492a1a763364b2ca2d7b12ba1a50ead.jpg' },
+                        { id: response.pictures[1].id, filename: 'a2d9b84f20a59a3d76b5e2029825121c.jpg' },
+                        { id: response.pictures[2].id, filename: '07a4525b1365727efcd8dfe07d02c43d.jpg' },
+                        { id: response.pictures[3].id, filename: '638441e1fb13d67dd57e040413bace59.jpg' }
+                    ],
+                    tags: [
+                        { id: response.tags[0].id, text: 'tag1' },
+                        { id: response.tags[1].id, text: 'tag4' },
+                        { id: response.tags[2].id, text: 'tag5' }
+                    ]
+                });
+              
+                expect(response).toEqual(proto);
+
+                var status = successCallback.mostRecentCall.args[1];
+                expect(status).toEqual(rest.codes.ok);
+           });
+    });
+
+
+    it('should be GET rest with returns first template entry', function() { 
+        rest.retrieve(currentRest + '/' + proto.id,
+           function(successCallback, errorCallback) {
+                expect(errorCallback).not.toHaveBeenCalled();
+                expect(successCallback).toHaveBeenCalled();
               
                 var response = successCallback.mostRecentCall.args[0];
                 expect(response).toBeDefined();

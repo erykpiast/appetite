@@ -4,6 +4,66 @@
 		"selected_items":
 		[
 			[
+				"res",
+				"resourcePath"
+			],
+			[
+				"in",
+				"instanceof"
+			],
+			[
+				"Re",
+				"Resource"
+			],
+			[
+				"roo",
+				"rootDir"
+			],
+			[
+				"pic",
+				"picture"
+			],
+			[
+				"pi",
+				"picture"
+			],
+			[
+				"md",
+				"md5sum"
+			],
+			[
+				"mim",
+				"mimeType"
+			],
+			[
+				"va",
+				"values"
+			],
+			[
+				"sav",
+				"savePath"
+			],
+			[
+				"_fet",
+				"this._fetchingFinished"
+			],
+			[
+				"p",
+				"pictures"
+			],
+			[
+				"defe",
+				"deferred"
+			],
+			[
+				"consoe",
+				"console.	console.log()"
+			],
+			[
+				"kr",
+				"kruszaniec"
+			],
+			[
 				"com",
 				"commentsBuffer"
 			],
@@ -26,10 +86,6 @@
 			[
 				"tim",
 				"timestamp"
-			],
-			[
-				"res",
-				"responseAcceptHandler"
 			],
 			[
 				"pos",
@@ -288,10 +344,6 @@
 				"publicKeys"
 			],
 			[
-				"roo",
-				"rootPath"
-			],
-			[
 				"ro",
 				"rootPath"
 			],
@@ -462,68 +514,16 @@
 			[
 				"no",
 				"none"
-			],
-			[
-				"mon",
-				"month"
-			],
-			[
-				"margin-",
-				"margin-left"
-			],
-			[
-				"pr",
-				"progress"
-			],
-			[
-				"in",
-				"include"
-			],
-			[
-				"fon",
-				"font-weight"
-			],
-			[
-				"line",
-				"line-height"
-			],
-			[
-				"he",
-				"height"
-			],
-			[
-				"full",
-				"fullHd"
-			],
-			[
-				"li",
-				"linkList"
-			],
-			[
-				"po",
-				"pos:r	position:relative"
-			],
-			[
-				"wid",
-				"width"
-			],
-			[
-				"pad",
-				"padding"
-			],
-			[
-				"inl",
-				"inline-block"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "todo/main.todo",
+			"file": "modules/rest/resources/offer-template.js",
 			"settings":
 			{
-				"buffer_size": 1003,
+				"buffer_size": 10884,
 				"line_ending": "Unix"
 			}
 		}
@@ -531,9 +531,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 54.0,
 		"selected_items":
 		[
+			[
+				"forma",
+				"Format Code"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"TASL",
 				"Tasks: Open Link"
@@ -544,10 +552,6 @@
 			],
 			[
 				"fo",
-				"Format: Javascript"
-			],
-			[
-				"forma",
 				"Format: Javascript"
 			],
 			[
@@ -565,10 +569,6 @@
 			[
 				"disa",
 				"Package Control: Disable Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"css",
@@ -784,27 +784,52 @@
 	},
 	"file_history":
 	[
+		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/var/www/appetite/modules/rest/resources/offer-template.js",
+		"/var/www/appetite/modules/resource/index.js",
+		"/var/www/appetite/app.js",
+		"/var/www/appetite/libs/md5.js",
+		"/var/www/appetite/libs/simplehash.js",
+		"/var/www/appetite/modules/rest/resources/comment.js",
+		"/var/www/appetite/libs/std.js",
 		"/var/www/appetite/public/libs/std.js",
-		"/var/www/appetite/public/directives/comments.js",
+		"/var/www/appetite/public/services/i18n.js",
+		"/var/www/appetite/public/templates/image-picker.tpl",
+		"/var/www/appetite/public/directives/image-picker.js",
+		"/var/www/appetite/public/templates/offer-create.tpl",
+		"/var/www/appetite/public/controllers/offer-create.js",
+		"/var/www/appetite/public/directives/gallery.js",
+		"/var/www/appetite/public/directives/index.js",
+		"/var/www/appetite/public/templates/index.js",
+		"/var/www/appetite/modules/db/models/recipe.js",
+		"/var/www/appetite/modules/rest/resources/offer.js",
+		"/var/www/appetite/public/services/node-rest.js",
+		"/var/www/appetite/node_modules/grunt/node_modules/glob/test/00-setup.js",
 		"/var/www/appetite/public/controllers/offer.js",
+		"/var/www/appetite/public/services/rest.js",
+		"/var/www/appetite/public/templates/header.tpl",
+		"/var/www/appetite/public/templates/offer_create.tpl",
+		"/var/www/appetite/public/modules/appetite.js",
+		"/var/www/appetite/public/templates/main.tpl",
+		"/var/www/appetite/public/templates/offer-thumbnail.tpl",
+		"/var/www/appetite/public/controllers/offers.js",
+		"/var/www/appetite/public/templates/offers.tpl",
+		"/var/www/appetite/public/controllers/index.js",
+		"/var/www/appetite/todo/main.todo",
+		"/var/www/appetite/public/directives/comments.js",
 		"/var/www/appetite/public/directives/add-comment.js",
 		"/var/www/appetite/public/services/auth.js",
-		"/var/www/appetite/public/services/node-rest.js",
 		"/var/www/appetite/public/templates/comment.tpl",
-		"/var/www/appetite/modules/rest/resources/comment.js",
 		"/var/www/appetite/routes/get-auth-data.js",
 		"/var/www/appetite/public/libs/cookie-store.js",
-		"/var/www/appetite/public/modules/appetite.js",
 		"/var/www/appetite/public/app.js",
 		"/var/www/appetite/modules/rest/resources/response.js",
 		"/var/www/appetite/public/templates/offer.tpl",
-		"/var/www/appetite/public/services/i18n.js",
 		"/var/www/appetite/public/templates/add-comment.tpl",
 		"/var/www/appetite/public/sass/partials/offer.scss",
 		"/var/www/appetite/modules/db/models/response.js",
 		"/var/www/appetite/public/filters/for-now.js",
 		"/var/www/blog/app/components/libstd/libstd.js",
-		"/var/www/appetite/public/services/rest.js",
 		"/var/www/appetite/public/fake-rest/offer/1/comments.json",
 		"/var/www/appetite/public/services/index.js",
 		"/var/www/appetite/public/templates/offer-author.tpl",
@@ -812,7 +837,6 @@
 		"/var/www/appetite/spec/client/comment-rest.integration.client.spec.js",
 		"/var/www/appetite/spec/client/offer-rest.integration.client.spec.js",
 		"/var/www/appetite/modules/db/models/offer.js",
-		"/var/www/appetite/modules/rest/resources/offer.js",
 		"/var/www/appetite/public/templates/gallery.tpl",
 		"/var/www/appetite/public/services/fake-rest.js",
 		"/var/www/appetite/public/fake-rest/user/2.json",
@@ -825,12 +849,8 @@
 		"/var/www/appetite/spec/client/user-rest.integration.client.spec.js",
 		"/var/www/appetite/modules/db/index.js",
 		"/var/www/appetite/modules/db/models/comment.js",
-		"/var/www/appetite/modules/rest/resources/offer-template.js",
 		"/var/www/appetite/routes/comment.js",
 		"/var/www/appetite/routes/offer.js",
-		"/var/www/appetite/app.js",
-		"/var/www/appetite/public/templates/index.js",
-		"/var/www/appetite/public/directives/index.js",
 		"/var/www/appetite/karma.conf.js",
 		"/var/www/appetite/spec/client/rest-integration.client.spec.js",
 		"/var/www/appetite/spec/client/rest.js",
@@ -844,7 +864,6 @@
 		"/var/www/appetite/public/fake-rest/comment/1.json",
 		"/var/www/appetite/public/sass/_vars.scss",
 		"/var/www/appetite/public/index.html",
-		"/var/www/appetite/public/templates/main.tpl",
 		"/var/www/appetite/public/sass/partials/main.scss",
 		"/var/www/appetite/public/sass/components/grid.scss",
 		"/var/www/appetite/public/sass/style.scss",
@@ -852,14 +871,11 @@
 		"/var/www/appetite/public/sass/components/text-block.scss",
 		"/var/www/appetite/public/sass/partials/offer-thumbnail.scss",
 		"/var/www/appetite/public/sass/components/thumbnail.scss",
-		"/var/www/appetite/public/templates/offer-thumbnail.tpl",
 		"/var/www/appetite/public/styles/style.css",
 		"/var/www/appetite/public/directives/offer-author.js",
 		"/var/www/appetite/public/sass/components/offer-author.scss",
 		"/var/www/appetite/public/directives/offer-thumbnail.js",
-		"/var/www/appetite/public/directives/gallery.js",
 		"/var/www/appetite/public/libs/underscore.js",
-		"/var/www/appetite/public/controllers/index.js",
 		"/var/www/appetite/public/bower_components/underscore/underscore.js",
 		"/var/www/appetite/public/bower_components/underscore.string/lib/underscore.string.js",
 		"/home/eryk/.bashrc",
@@ -871,7 +887,6 @@
 		"/var/www/appetite/public/sass/main.scss",
 		"/var/www/appetite/public/sass/offer-thumbnail.scss",
 		"/var/www/appetite/public/sass/thumbnail.scss",
-		"/var/www/appetite/libs/std.js",
 		"/var/www/lib/libstd.js",
 		"/var/www/appetite/modules/db/models/tag.js",
 		"/var/www/appetite/public/bower_components/angular/bower.json",
@@ -896,22 +911,7 @@
 		"/var/www/appetite/.gitignore",
 		"/var/www/appetite/.git/config",
 		"/var/www/appetite/.git/info/exclude",
-		"/var/www/appetite/routes/index.js",
-		"/var/www/appetite/spec/client/integration.client.spec.js",
-		"/var/www/appetite/node_modules/phantomjs/lib/location.js",
-		"/var/www/appetite/debug",
-		"/var/www/appetite/start",
-		"/var/www/appetite/spec/integration.browser.spec.js",
-		"/var/www/appetite/appetite.sublime-project",
-		"/var/www/appetite/spec/rest.server.spec.js",
-		"/var/www/appetite/modules/rest/errors.js",
-		"/var/www/appetite/modules/locate/index.js",
-		"/var/www/appetite/modules/db/models/place.js",
-		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/home/eryk/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/var/www/appetite/public/app/templates/main.tpl",
-		"/var/www/appetite/modules/auth/services/facebook.js",
-		"/var/www/appetite/modules/auth/services/google.js"
+		"/var/www/appetite/routes/index.js"
 	],
 	"find":
 	{
@@ -935,6 +935,30 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"this",
+			"type=\"date\"",
+			"offer.",
+			"/>",
+			"$scope.offer",
+			"startAt",
+			"recipe",
+			"globals",
+			"window",
+			"this.url",
+			"proto",
+			"this",
+			"title",
+			"template",
+			"start",
+			"template",
+			"ng-model",
+			"start",
+			"create.",
+			"title",
+			"create__description",
+			"title",
+			"ul",
+			"div",
 			"list",
 			"response",
 			"offer",
@@ -1038,31 +1062,7 @@
 			"pictures",
 			"'main'",
 			"header",
-			"nav",
-			" $element",
-			"template",
-			"angular-",
-			"}, {",
-			"name: ",
-			"{\n    		name: ",
-			"location: ",
-			",\n			main: 'index.js'",
-			"\n		{",
-			"\n		",
-			"'main'",
-			"main.js",
-			"scripts/",
-			"public/app",
-			"author: response.values.AuthorId",
-			"} }",
-			"recipe: restrict.recipePublic(recipe.values)",
-			"template: offer.values.TemplateId",
-			"} };",
-			"restrict.public(response.values)",
-			"restrict.public(response.values) ",
-			"restrict.public(response.values)",
-			"offer",
-			"{\n"
+			"nav"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1144,28 +1144,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "todo/main.todo",
+					"file": "modules/rest/resources/offer-template.js",
 					"settings":
 					{
-						"buffer_size": 1003,
+						"buffer_size": 10884,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								593,
-								593
+								7331,
+								7331
 							]
 						],
 						"settings":
 						{
-							"buffer_scroll_name": "34b4d461",
-							"syntax": "Packages/PlainTasks/PlainTasks.tmLanguage",
-							"word_wrap": true
+							"buffer_scroll_name": "77c5929b",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2660.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1227,6 +1228,38 @@
 		"selected_items":
 		[
 			[
+				"offer-t",
+				"modules/rest/resources/offer-template.js"
+			],
+			[
+				"offer.js",
+				"modules/rest/resources/offer.js"
+			],
+			[
+				"node-re",
+				"public/services/node-rest.js"
+			],
+			[
+				"node0",
+				"node_modules/grunt/node_modules/glob/test/00-setup.js"
+			],
+			[
+				"offer.",
+				"modules/rest/resources/offer.js"
+			],
+			[
+				"rest",
+				"public/services/rest.js"
+			],
+			[
+				"offer",
+				"public/controllers/offer.js"
+			],
+			[
+				"i18",
+				"public/services/i18n.js"
+			],
+			[
 				"comm",
 				"modules/rest/resources/comment.js"
 			],
@@ -1271,20 +1304,12 @@
 				"modules/rest/resources/offer-template.js"
 			],
 			[
-				"offer",
-				"modules/rest/resources/offer.js"
-			],
-			[
 				"offer-te",
 				"modules/rest/resources/offer-template.js"
 			],
 			[
 				"offerte",
 				"modules/rest/resources/offer-template.js"
-			],
-			[
-				"offer.js",
-				"modules/rest/resources/offer.js"
 			],
 			[
 				"user.",
@@ -1333,10 +1358,6 @@
 			[
 				"googl",
 				"modules/auth/services/google.js"
-			],
-			[
-				"rest",
-				"modules/rest/restrict.js"
 			],
 			[
 				"index.js",
@@ -1549,6 +1570,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 262.0,
+	"side_bar_width": 280.0,
 	"status_bar_visible": true
 }

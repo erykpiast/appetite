@@ -56,7 +56,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                         },
                         avatar: {
                             id: response.avatar.id,
-                            filename: '.jpg'
+                            filename: '266694f8c6f6a9aa9612cdc24a91f488.jpg'
                         }
                     });
                   
@@ -86,18 +86,24 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             
             rest.update(currentRest + '/' + proto.id, {
                     gender: 'male',
+                    avatar: window.location.protocol + '//' + window.location.hostname + ':' + 3000 + '/static/images/1002.jpg',
                     site: 'http://example.com/'
                 }, function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
-                  
-                    proto = $.extend(proto, {
-                        gender: 'male',
-                        site: 'http://example.com/'
-                    });
 
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
+                  
+                    proto = $.extend(proto, {
+                        gender: 'male',
+                        site: 'http://example.com/',
+                        avatar: {
+                            id: response.avatar.id,
+                            filename: 'afc7b4188d014e56fe8c202e5a67ff72.jpg'
+                        }
+                    });
+
                     expect(response).toEqual(proto);
     
                     var status = successCallback.mostRecentCall.args[1];

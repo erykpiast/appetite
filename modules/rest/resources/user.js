@@ -1,6 +1,8 @@
 var auth = $require('/modules/auth'),
-    locate = $require('/modules/locate'),
     Errors = $require('/modules/rest/errors'),
+    locate = $require('/modules/locate'),
+    md5 = $require('MD5'),
+    Resource = $require('/modules/resource'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'authService', 'fullName', 'gender', 'site' ],
         avatarPublic: [ 'id', 'filename' ],
@@ -11,7 +13,9 @@ var auth = $require('/modules/auth'),
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search', 'createSearch' ] );
 
-var app, DB, User, Place, Image;
+
+var User, Place, Image,
+    resourceTypes, resourcePath;
 
 function create(authData, proto) {
     var user, created, place, avatar, updateProps = [ ];
@@ -39,7 +43,7 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(_user) {
-            if(!!_user && (_user !== true)) {
+            if(_user !== true) {
                 user = _user;
             }
 
@@ -63,7 +67,7 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(_place) {
-            if((_place !== true) && !!_place) {
+            if(_place !== true) {
                 place = _place;
                 user.PlaceId = place.values.id;
                 
@@ -79,15 +83,17 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(_avatar) {
-            if((_avatar !== true) && !!_avatar) {
+            if(_avatar !== true) {
                 avatar = _avatar;
                 
                 user.AvatarId = avatar.values.id;
                 
                 updateProps.push('AvatarId');
                 
+                var r = new Resource(resourceTypes, resourcePath);
+
                 return r.fetch(avatar.originalUrl).then(function() {
-	    				    return r.save(avatar.filename);
+	    				    return r.save(md5(avatar.filename));
 	    			    });
 		    } else {
 		    	return true;
@@ -99,14 +105,14 @@ function create(authData, proto) {
             if(savingResult !== true) {
                 avatar.filename = savingResult;
                 
-                return avatar.save([ 'filename ']);
+                return avatar.save(/*[ 'filename '] -- for some reason with this restriction saving doesn't work */);
             } else {
                 return true;
             }
         },
 		Errors.report('Database')
 	).then(
-        function(savingResult) {
+        function() {
             if(updateProps.length) {
                 return user.save(updateProps);
             } else {
@@ -117,8 +123,8 @@ function create(authData, proto) {
     ).then(
         function() {
             return { resource: extend(restrict.public(user), {
-                            avatar: (avatar ? restrict.avatarPublic(avatar.values) : (user.values.avatar ? restrict.avatarPublic(user.values.avatar.values) : 0)),
-                            place: (place ? restrict.placePublic(place.values) : (user.values.place ? restrict.placePublic(user.values.place.values) : 0))
+                            avatar: (avatar ? restrict.avatarPublic(avatar) : (user.values.avatar ? restrict.avatarPublic(user.values.avatar) : 0)),
+                            place: (place ? restrict.placePublic(place) : (user.values.place ? restrict.placePublic(user.values.place) : 0))
                         }),
                     existed: !created
                 };
@@ -135,8 +141,8 @@ function retrieve(params, authData) {
                 throw new Errors.NotFound();
             } else {
                 return { resource: extend(restrict.public(user), {
-                            avatar: (user.values.avatar ? restrict.avatarPublic(user.values.avatar.values) : 0),
-                            place: (user.values.place ? restrict.placePublic(user.values.place.values) : 0)
+                            avatar: (user.values.avatar ? restrict.avatarPublic(user.values.avatar) : 0),
+                            place: (user.values.place ? restrict.placePublic(user.values.place) : 0)
                         })
                 };
             }
@@ -181,7 +187,7 @@ function update(params, authData, proto) {
         Errors.report('Database')
     ).then(
         function(_place) {
-            if((_place !== true) && !!_place) {
+            if(_place !== true) {
                 place = _place;
                 user.PlaceId = place.values.id;
                 
@@ -197,33 +203,35 @@ function update(params, authData, proto) {
         Errors.report('Database')
     ).then(
         function(_avatar) {
-            if((_avatar !== true) && !!_avatar) {
+            if(_avatar !== true) {
                 avatar = _avatar;
                 
                 user.AvatarId = avatar.values.id;
                 
                 updateProps.push('AvatarId');
                 
+                var r = new Resource(resourceTypes, resourcePath);
+
                 return r.fetch(avatar.originalUrl).then(function() {
-	    				    return r.save(avatar.filename);
-	    			    });
-		    } else {
-		    	return true;
-		    }
-		},
-		Errors.report('Database')
-	).then(
-        function(savingResult) {
-            if(savingResult !== true) {
-                avatar.filename = savingResult;
-                
-                return avatar.save([ 'filename ']);
+                            return r.save(md5(avatar.filename));
+                        });
             } else {
                 return true;
             }
         },
-		Errors.report('Database')
-	).then(function() {
+        Errors.report('Database')
+    ).then(
+        function(savingResult) {
+            if(savingResult !== true) {
+                avatar.filename = savingResult;
+                
+                return avatar.save(/*[ 'filename '] -- for some reason with this restriction saving doesn't work */);
+            } else {
+                return true;
+            }
+        },
+        Errors.report('Database')
+    ).then(function() {
             updateProps = updateProps.concat(Object.keys(restrict.update(proto)));
 
             extend(user, restrict.update(proto));
@@ -238,8 +246,8 @@ function update(params, authData, proto) {
     ).then(
         function() {
             return { resource: extend(restrict.public(user), {
-                            avatar: (avatar ? restrict.avatarPublic(avatar.values) : (user.values.avatar ? restrict.avatarPublic(user.values.avatar.values) : 0)),
-                            place: (place ? restrict.placePublic(place.values) : (user.values.place ? restrict.placePublic(user.values.place.values) : 0))
+                            avatar: (avatar ? restrict.avatarPublic(avatar) : (user.values.avatar ? restrict.avatarPublic(user.values.avatar) : 0)),
+                            place: (place ? restrict.placePublic(place) : (user.values.place ? restrict.placePublic(user.values.place) : 0))
                         })
                 };
         },
@@ -288,12 +296,14 @@ function destroy(params, authData) {
 }
 
 
-module.exports = function(_app) {
-    app = _app;
-    DB = app.get('db');
+module.exports = function(app) {
+    var DB = app.get('db');
+
     User = DB.User;
     Place = DB.Place;
     Image = DB.Image;
+    resourceTypes = [ 'image/jpeg', 'image/png' ];
+    resourcePath = app.get('root') + '/public/images';
 
     return {
         create: create,
