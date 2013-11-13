@@ -19,7 +19,7 @@ function _setTimestamps(target, src) {
     var startAt = src.startAt ? new Date(src.startAt) : null,
         endAt = src.endAt ? new Date(src.endAt) : null;
     
-    if((isNaN(startAt) || isNaN(endAt)) || (!startAt !== !endAt) || ((startAt && endAt) && (startAt.getTime() > endAt.getTime()))) {
+    if((isNaN(startAt) || isNaN(endAt)) || (!startAt !== !endAt) || ((startAt && endAt) && (startAt.getTime() > endAt.getTime()) || (endAt.getTime() < Date.now()))) {
         delete target.startAt;
         delete target.endAt;
         

@@ -1,13 +1,11 @@
-responses, acceptedResponses & maxAcceptedResponses fields for offer entity
-  - offer author can accept only specific amount (default one) responses
-  - users see message when responsesAmount is already greater of equal than maxAcceptedResponses
+user view
+  - basic info about user (+ rating)
+  - started user's offers
+
 
 interface for adding offer templates and offers
-  - for start, no ability to upload images (only from URLs)
-  - mechanism for download images to server and downscale them
+  - mechanism for downscale downloaded images
   - mechanism for suggest tags already added by users
-  - mechanism for verifying recipes URLs (if URL isn't available when user is adding template, it should cause an error)
-    
 
 events cache
   - table in db aggregates notifications for users, ex.:
@@ -16,5 +14,10 @@ events cache
       - your response was accepted by offer owner
   - notifications can be marked as read by user and don't be showing for him anymore in notification panel
   - user can see already read notifications (ex. 100 last or from last month) when he request it
+
+responses, acceptedResponses & maxAcceptedResponses fields for offer entity
+  - offer author can accept only specific amount (default one) responses
+  - users see message when responsesAmount is already greater of equal than maxAcceptedResponses
+
   
 

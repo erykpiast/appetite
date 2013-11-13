@@ -57,11 +57,12 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
         m.User.belongsTo(m.Image, { as: 'Avatar', foreignKey: 'AvatarId' });
         m.User.belongsTo(m.Place);
 
-        m.Like.belongsTo(m.User);
-        m.Like.belongsTo(m.Recipe);
+        m.UserRating.belongsTo(m.User, { as: 'Target', foreignKey: 'TargetId' });
+        m.UserRating.belongsTo(m.Response);
 
         /* -- */
 
+        m.UserRating.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Tag.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Recipe.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
         m.Place.belongsTo(m.User, { as: 'Author', foreignKey: 'AuthorId' });
