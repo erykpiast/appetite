@@ -1,7 +1,7 @@
 var auth = $require('/modules/auth'),
     Errors = $require('/modules/rest/errors'),
     restrict = $require('/modules/rest/restrict')({
-        public: [ 'id', 'type' ],
+        public: [ 'id', 'type', 'createdAt' ],
         create: [ 'type' ],
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
