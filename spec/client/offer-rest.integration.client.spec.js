@@ -127,8 +127,8 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     expect(successCallback).toHaveBeenCalled();
                   
                     proto = $.extend(proto, {
-                        startAt: (new Date(startDate)).toISOString(),
-                        endAt: (new Date(endDate)).toISOString(),
+                        startAt: (new Date(parseInt(startDate / 1000) * 1000)).toISOString(),
+                        endAt: (new Date(parseInt(endDate / 1000) * 1000)).toISOString(),
                         started: true,
                         ended: false
                     });
