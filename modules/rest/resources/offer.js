@@ -18,8 +18,25 @@ var app, DB, Offer, Template, Place, User;
 function _setTimestamps(target, src) {
     var startAt = src.startAt ? new Date(src.startAt) : null,
         endAt = src.endAt ? new Date(src.endAt) : null;
+        
+    if(!isNaN(startAt) && startAt.getTime()) {
+        startAt = new Date((startAt.getTime() / 1000) * 1000);
+    }
     
-    if((isNaN(startAt) || isNaN(endAt)) || (!startAt !== !endAt) || ((startAt && endAt) && (startAt.getTime() > endAt.getTime()) || (endAt.getTime() < Date.now()))) {
+    if(!isNaN(endAt) && endAt.getTime()) {
+        endAt = new Date((endAt.getTime() / 1000) * 1000);
+    }
+    
+    
+    if(isNaN(startAt)
+    || isNaN(endAt)
+    || (!startAt !== !endAt)
+    || ((startAt && endAt)
+        && ((startAt.getTime() > endAt.getTime())
+        || (endAt.getTime() < Date.now())
+        || (startAt.getTime() < Date.now())
+        ))
+    ) {
         delete target.startAt;
         delete target.endAt;
         

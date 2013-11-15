@@ -118,20 +118,37 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         
         it('should be UPDATE rest allows change offer entry properties', function() {
             
+            var startDate, endDate;
             rest.update(currentRest + '/' + proto.id, {
-                    startAt: (new Date(123000)).toISOString(),
-                    endAt: (new Date(234000)).toISOString()
+                    startAt: startDate = Date.now() + 2000,
+                    endAt: endDate = Date.now() + (4 * 24 * 60 * 60 * 1000)
                 }, function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
                   
                     proto = $.extend(proto, {
-                        startAt: (new Date(123000)).toISOString(),
-                        endAt: (new Date(234000)).toISOString(),
+                        startAt: (new Date(startDate)).toISOString(),
+                        endAt: (new Date(endDate)).toISOString(),
                         started: true,
-                        ended: true
+                        ended: false
                     });
 
+                    var response = successCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+                    expect(response).toEqual(proto);
+    
+                    var status = successCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.ok);
+               });
+        });
+        
+        
+        it('should be GET rest with returns first offer entry', function() { 
+            rest.retrieve(currentRest + '/' + proto.id,
+               function(successCallback, errorCallback) {
+                    expect(errorCallback).not.toHaveBeenCalled();
+                    expect(successCallback).toHaveBeenCalled();
+                  
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
                     expect(response).toEqual(proto);
@@ -179,7 +196,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     'template': offerTemplate.id,
                     'place' : 'p1',
                     'type' : 'offer',
-                    'startAt' : Date.now(),
+                    'startAt' : Date.now() + 2000,
                     'endAt' : Date.now() + (3 * 24 * 60 * 60 * 1000),
                 }, function(successCallback, errorCallback) {
                     expect(successCallback).toHaveBeenCalled();
@@ -196,7 +213,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     'template': offerTemplate.id,
                     'place' : 'p2',
                     'type' : 'offer',
-                    'startAt' : Date.now() + (1 * 24 * 60 * 60 * 1000),
+                    'startAt' : Date.now() + 2000,
                     'endAt' : Date.now() + (4 * 24 * 60 * 60 * 1000),
                 }, function(successCallback, errorCallback) {
                     expect(successCallback).toHaveBeenCalled();

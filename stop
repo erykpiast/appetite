@@ -3,3 +3,4 @@
 pkill --signal KILL node
 pkill --signal KILL phantomjs
 pkill --signal KILL karma
+service mysql stop

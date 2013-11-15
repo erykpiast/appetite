@@ -62,7 +62,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                 'place' : 'p1',
                 'template' : offerTemplate.id,
                 'type' : 'offer',
-                'startAt' : Date.now(),
+                'startAt' : Date.now() + 2000,
                 'endAt' : Date.now() + (3 * 24 * 60 * 60 * 1000)
             }, function(successCallback, errorCallback) {
                     expect(successCallback).toHaveBeenCalled();
@@ -91,7 +91,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                 
                 expect(_response).toBeDefined();
                     
-                response = _response;
+                user2 = _response;
             });
         });
     
@@ -206,7 +206,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     'place' : 'p1',
                     'template' : offerTemplate.id,
                     'type' : 'offer',
-                    'startAt' : Date.now(),
+                    'startAt' : Date.now() + 2000,
                     'endAt' : Date.now() + (3 * 24 * 60 * 60 * 1000)
                 }, function(successCallback, errorCallback) {
                         expect(successCallback).toHaveBeenCalled();
