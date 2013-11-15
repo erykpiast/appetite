@@ -14,6 +14,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                 'service' : 'facebook',
                 'accessToken' : 'a9'
             },
+            proto = { },
             user1, user2,
             offerTemplate, offer, response;
     
@@ -31,7 +32,6 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                 var response = successCallback.mostRecentCall.args[0];
                 
                 currentRest = currentRest.replace(/(\:[^\/]+)/, response.id);
-                console.log('----------------------------------------- current rest', currentRest);
                 
                 expect(response).toBeDefined();
                     
@@ -87,11 +87,11 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             }, function(successCallback) {
                 expect(successCallback).toHaveBeenCalled();
                 
-                var response = successCallback.mostRecentCall.args[0];
+                var _response = successCallback.mostRecentCall.args[0];
                 
-                expect(response).toBeDefined();
+                expect(_response).toBeDefined();
                     
-                user2 = response;
+                response = _response;
             });
         });
     
@@ -107,11 +107,30 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
                     expect(_response).toBeDefined();
                   
                     response = _response;
+                    proto.response = _response.id;
                });
         });
+
+
+        it('should be PUT rest which updates response entry', function() {
+            var authData = user1AuthData;
+            
+            $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+    
+            rest.update('/response/' + response.id, {
+                'accepted': true
+            }, function(successCallback) {
+                expect(successCallback).toHaveBeenCalled();
+                
+                var response = successCallback.mostRecentCall.args[0];
+                
+                expect(response).toBeDefined();
+            });
+        });
+
         
-        it('should be GET rest with does not return any comment entry', function() { 
-            rest.retrieve(currentRest + '/1000',
+        it('should be GET rest with does not return any rating entry', function() { 
+            rest.retrieve('/user/1000/rating',
                function(successCallback, errorCallback) {
                     expect(successCallback).not.toHaveBeenCalled();
                     expect(errorCallback).toHaveBeenCalled();
@@ -126,28 +145,29 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         });
     
        
-        it('should be POST rest which creates first comment entry', function() {
-            proto.offer = offer.id;
-            proto.response = response.id;
+        it('should be POST rest which creates first rating entry', function() {
+            var authData = user2AuthData;
             
+            $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
+            proto.type = 'positive';
+
             rest.create(currentRest, proto,
                function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
                   
-                    var _response = successCallback.mostRecentCall.args[0];
-                    expect(_response).toBeDefined();
+                    var response = successCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
                   
                     proto = $.extend(proto, {
-                        id: _response.id,
+                        id: response.id,
                         author: user2.id,
-                        createdAt: _response.createdAt,
-                        updatedAt: _response.updatedAt,
-                        response: response,
-                        parent: 0
+                        target: user1.id,
+                        createdAt: response.createdAt
                     });
                     
-                    expect(_response).toEqual(proto);
+                    expect(response).toEqual(proto);
     
                     var status = successCallback.mostRecentCall.args[1];
                     expect(status).toEqual(rest.codes.created);
@@ -155,123 +175,123 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         });
     
         
-        it('should be GET rest with returns first comment entry', function() { 
-            rest.retrieve(currentRest + '/' + proto.id,
+        it('should be GET rest with returns first rating entry', function() {
+            rest.retrieve(currentRest,
                function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
                   
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
-                    expect(response).toEqual(proto);
-    
-                    var status = successCallback.mostRecentCall.args[1];
-                    expect(status).toEqual(rest.codes.ok);
-               });
-        });
-    
-        
-        it('should be UPDATE rest allows change comment entry properties', function() {
-            
-            rest.update(currentRest + '/' + proto.id, {
-                    content: 'Lorem ipsum!'
-                }, function(successCallback, errorCallback) {
-                    expect(errorCallback).not.toHaveBeenCalled();
-                    expect(successCallback).toHaveBeenCalled();
-                  
-                    var response = successCallback.mostRecentCall.args[0];
-                    expect(response).toBeDefined();
-
-                    proto = $.extend(proto, {
-                        content: 'Lorem ipsum!',
-                        updatedAt: response.updatedAt
+                    expect(response).toEqual({
+                        'positives': 1,
+                        'negatives': 0
                     });
+    
+                    var status = successCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.ok);
+               });
+        });
 
-                    expect(response).toEqual(proto);
-    
-                    var status = successCallback.mostRecentCall.args[1];
-                    expect(status).toEqual(rest.codes.ok);
-               });
-        });
-    
-       
-        it('should be DELETE rest deletes comment entry', function() {
-            rest.destroy(currentRest + '/' + proto.id,
-               function(successCallback, errorCallback) {
-                    expect(errorCallback).not.toHaveBeenCalled();
-                    expect(successCallback).toHaveBeenCalled();
-                  
-                    var response = successCallback.mostRecentCall.args[0];
-                    expect(response).toBeDefined();
-                    expect(response).toEqual(proto);
-    
-                    var status = successCallback.mostRecentCall.args[1];
-                    expect(status).toEqual(rest.codes.ok);
-               });
-        });
-    
+
+    // more ratings >>
+        [ 'positive', 'positive', 'negative', 'negative' ].forEach(function(type) {
+
+            it('should be POST rest which prepares offer entry', function() {
+                var authData = user1AuthData;
+                
+                $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
+                rest.create('/offer', {
+                    'place' : 'p1',
+                    'template' : offerTemplate.id,
+                    'type' : 'offer',
+                    'startAt' : Date.now(),
+                    'endAt' : Date.now() + (3 * 24 * 60 * 60 * 1000)
+                }, function(successCallback, errorCallback) {
+                        expect(successCallback).toHaveBeenCalled();
+                      
+                        var response = successCallback.mostRecentCall.args[0];
+                        
+                        expect(response).toBeDefined();
+                      
+                        offer = response;
+                   });
+            });
         
-        it('should be GET rest with does not return any comment entry', function() { 
-            rest.retrieve(currentRest + '/' + proto.id,
-               function(successCallback, errorCallback) {
-                    expect(successCallback).not.toHaveBeenCalled();
-                    expect(errorCallback).toHaveBeenCalled();
-                  
-                    var response = errorCallback.mostRecentCall.args[0];
-                    expect(response).toBeDefined();
-                    expect(response.msg).toBeDefined();
-    
-                    var status = errorCallback.mostRecentCall.args[1];
-                    expect(status).toEqual(rest.codes.notFound);
-               });
-        });
+
+            it('should be POST rest which prepares response entry', function() {
+                var authData = user2AuthData;
+                
+                $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
+                rest.create('/response', {
+                    'offer' : offer.id
+                }, function(successCallback, errorCallback) {
+                        expect(successCallback).toHaveBeenCalled();
+                      
+                        var _response = successCallback.mostRecentCall.args[0];
+                        
+                        expect(_response).toBeDefined();
+                      
+                        response = _response;
+                        proto.response = response.id;
+                   });
+            });
 
 
-        it('should be POST rest which prepares comment entry', function() {
-            rest.create(currentRest, {
-                    offer: offer.id,
-                    content: 'Lorem ipsum dolor sit amet...'
-                },
-                function(successCallback, errorCallback) {
-                    expect(errorCallback).not.toHaveBeenCalled();
+            it('should be PUT rest which updates response entry', function() {
+                var authData = user1AuthData;
+                
+                $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+        
+                rest.update('/response/' + response.id, {
+                    'accepted': true
+                }, function(successCallback) {
                     expect(successCallback).toHaveBeenCalled();
-                  
+                    
                     var response = successCallback.mostRecentCall.args[0];
+                    
                     expect(response).toBeDefined();
-    
-                    var status = successCallback.mostRecentCall.args[1];
-                    expect(status).toEqual(rest.codes.created);
                 });
+            });
+        
+           
+            it('should be POST rest which creates rating entry', function() {
+                var authData = user2AuthData;
+                
+                $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+
+                proto.type = type;
+
+                rest.create(currentRest, proto,
+                   function(successCallback, errorCallback) {
+                        expect(errorCallback).not.toHaveBeenCalled();
+                        expect(successCallback).toHaveBeenCalled();
+                      
+                        var response = successCallback.mostRecentCall.args[0];
+                        expect(response).toBeDefined();
+        
+                        var status = successCallback.mostRecentCall.args[1];
+                        expect(status).toEqual(rest.codes.created);
+                   });
+            });
+
         });
 
 
-        it('should be POST rest which prepares comment entry', function() {
-            rest.create(currentRest, {
-                    offer: offer.id,
-                    content: 'Sit amet! Lorem ipsum.'
-                },
-                function(successCallback, errorCallback) {
-                    expect(errorCallback).not.toHaveBeenCalled();
-                    expect(successCallback).toHaveBeenCalled();
-                  
-                    var response = successCallback.mostRecentCall.args[0];
-                    expect(response).toBeDefined();
-    
-                    var status = successCallback.mostRecentCall.args[1];
-                    expect(status).toEqual(rest.codes.created);
-                });
-        });
-
-
-        it('should be GET rest with returns all comment entries for the offer', function() { 
-            rest.retrieve('/offer/' + offer.id + '/comments',
+        it('should be GET rest with returns rating entry', function() { 
+            rest.retrieve(currentRest,
                function(successCallback, errorCallback) {
                     expect(errorCallback).not.toHaveBeenCalled();
                     expect(successCallback).toHaveBeenCalled();
                   
                     var response = successCallback.mostRecentCall.args[0];
                     expect(response).toBeDefined();
-                    expect(response.length).toBeGreaterThan(0);
+                    expect(response).toEqual({
+                        'positives': 3,
+                        'negatives': 2
+                    });
     
                     var status = successCallback.mostRecentCall.args[1];
                     expect(status).toEqual(rest.codes.ok);
