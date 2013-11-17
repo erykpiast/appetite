@@ -54,6 +54,9 @@ define([ 'libs/angular', 'modules/appetite' ], function(angular, undefined, appe
                     },
                 	recipeFrom: 'Przepis pochodzi z',
                     remainingTime: 'Czas do końca'
+                },
+                user: {
+                    currentOffers: 'Bieżące oferty użytkownika'
                 }
             };
             

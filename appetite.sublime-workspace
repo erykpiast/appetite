@@ -4,12 +4,80 @@
 		"selected_items":
 		[
 			[
+				"star",
+				"startAt"
+			],
+			[
+				"end",
+				"endAt"
+			],
+			[
+				"sta",
+				"startAt"
+			],
+			[
+				"po",
+				"positive"
+			],
+			[
 				"res",
-				"resourcePath"
+				"response"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"start",
+				"startAt"
+			],
+			[
+				"aut",
+				"authData"
+			],
+			[
+				"rest",
+				"restrict"
+			],
+			[
+				"for",
+				"foreignKey"
+			],
+			[
+				"dele",
+				"deletedAt"
+			],
+			[
+				"tableJ",
+				"tableJunctionWhereConditions"
+			],
+			[
+				"attru",
+				"attributes"
 			],
 			[
 				"in",
-				"instanceof"
+				"include"
+			],
+			[
+				"incl",
+				"includesWhereConditions"
+			],
+			[
+				"attr",
+				"attributes"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"tm",
+				"template"
 			],
 			[
 				"Re",
@@ -76,10 +144,6 @@
 				"_appendToParent"
 			],
 			[
-				"re",
-				"return"
-			],
-			[
 				"parse",
 				"parseInt0"
 			],
@@ -94,10 +158,6 @@
 			[
 				"upda",
 				"updatedAt"
-			],
-			[
-				"star",
-				"started"
 			],
 			[
 				"ret",
@@ -245,10 +305,6 @@
 			],
 			[
 				"auth",
-				"author"
-			],
-			[
-				"aut",
 				"author"
 			],
 			[
@@ -458,82 +514,82 @@
 			[
 				"back",
 				"background"
-			],
-			[
-				"bac",
-				"background-size"
-			],
-			[
-				"marg",
-				"margin-top"
-			],
-			[
-				"dec",
-				"decPlaces"
-			],
-			[
-				"round",
-				"roundTo"
-			],
-			[
-				"st",
-				"steps"
-			],
-			[
-				"val",
-				"value"
-			],
-			[
-				"anim",
-				"animation"
-			],
-			[
-				"sec",
-				"secondary-color"
-			],
-			[
-				"tra",
-				"transform"
-			],
-			[
-				"font",
-				"font-size"
-			],
-			[
-				"ease",
-				"ease-out"
-			],
-			[
-				"trans",
-				"transition"
-			],
-			[
-				"tran",
-				"transition"
-			],
-			[
-				"no",
-				"none"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "modules/rest/resources/offer-template.js",
+			"file": "public/controllers/user.js",
 			"settings":
 			{
-				"buffer_size": 10884,
+				"buffer_size": 143,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/templates/user.tpl",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/JSLint/JSLint.sublime-build",
 	"command_palette":
 	{
-		"height": 54.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"lis",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"show",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"sho",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"sq",
+				"Set Syntax: SQL"
+			],
+			[
+				"list",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"linte",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"jsh",
+				"JSHint"
+			],
+			[
+				"jshi",
+				"JSHint"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
 			[
 				"forma",
 				"Format Code"
@@ -583,10 +639,6 @@
 				"Set Syntax: HTML (Angular.js)"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"bea",
 				"Javascript Beautify"
 			],
@@ -605,10 +657,6 @@
 			[
 				"zurb",
 				"Snippet: Zurb Foundation - New Page"
-			],
-			[
-				"list",
-				"Package Control: List Packages"
 			],
 			[
 				"list pa",
@@ -661,10 +709,6 @@
 			[
 				"zfpa",
 				"Snippet: Zurb Foundation - New Page"
-			],
-			[
-				"show",
-				"Show TODOs: Project and open files"
 			],
 			[
 				"packa",
@@ -784,14 +828,41 @@
 	},
 	"file_history":
 	[
-		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/eryk/.config/sublime-text-2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/eryk/.config/sublime-text-2/Packages/User/SublimeLinter.sublime-settings",
+		"/var/www/appetite/public/modules/appetite.js",
+		"/var/www/appetite/public/templates/index.js",
+		"/var/www/appetite/public/controllers/index.js",
+		"/var/www/appetite/spec/client/rest.js",
+		"/var/www/appetite/spec/client/user-rating-rest.integration.client.spec.js",
+		"/var/www/appetite/spec/client/offer-rest.integration.client.spec.js",
+		"/var/www/appetite/modules/rest/resources/offer.js",
+		"/var/www/appetite/karma.conf.js",
+		"/var/www/appetite/modules/rest/resources/user-rating.js",
+		"/var/www/appetite/routes/user-rating.js",
+		"/var/www/appetite/todo/main.todo",
+		"/var/www/appetite/modules/db/index.js",
+		"/var/www/appetite/modules/rest/resources/tag.js",
+		"/var/www/appetite/modules/db/models/user-rating.js",
+		"/var/www/appetite/node_modules/sequelize/lib/dialects/mysql/query-generator.js",
+		"/var/www/appetite/node_modules/sequelize/lib/dialects/abstract/query-generator.js",
+		"/home/eryk/Desktop/query-generator.js",
+		"/var/www/appetite/node_modules/sequelize/lib/sql-string.js",
+		"/var/www/appetite/node_modules/sequelize/lib/dialects/query-generator.js",
+		"/var/www/appetite/node_modules/sequelize/lib/dao-factory.js",
+		"/var/www/appetite/node_modules/sequelize/lib/query-interface.js",
+		"/var/www/appetite/node_modules/sequelize/lib/dialects/mysql/query.js",
+		"/var/www/appetite/spec/client/user-rest.integration.client.spec.js",
+		"/var/www/appetite/spec/client/offer-template-rest.integration.client.spec.js",
+		"/var/www/appetite/modules/rest/resources/user.js",
 		"/var/www/appetite/modules/rest/resources/offer-template.js",
+		"/var/www/appetite/libs/std.js",
+		"/home/eryk/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/var/www/appetite/modules/resource/index.js",
 		"/var/www/appetite/app.js",
 		"/var/www/appetite/libs/md5.js",
 		"/var/www/appetite/libs/simplehash.js",
 		"/var/www/appetite/modules/rest/resources/comment.js",
-		"/var/www/appetite/libs/std.js",
 		"/var/www/appetite/public/libs/std.js",
 		"/var/www/appetite/public/services/i18n.js",
 		"/var/www/appetite/public/templates/image-picker.tpl",
@@ -800,22 +871,17 @@
 		"/var/www/appetite/public/controllers/offer-create.js",
 		"/var/www/appetite/public/directives/gallery.js",
 		"/var/www/appetite/public/directives/index.js",
-		"/var/www/appetite/public/templates/index.js",
 		"/var/www/appetite/modules/db/models/recipe.js",
-		"/var/www/appetite/modules/rest/resources/offer.js",
 		"/var/www/appetite/public/services/node-rest.js",
 		"/var/www/appetite/node_modules/grunt/node_modules/glob/test/00-setup.js",
 		"/var/www/appetite/public/controllers/offer.js",
 		"/var/www/appetite/public/services/rest.js",
 		"/var/www/appetite/public/templates/header.tpl",
 		"/var/www/appetite/public/templates/offer_create.tpl",
-		"/var/www/appetite/public/modules/appetite.js",
 		"/var/www/appetite/public/templates/main.tpl",
 		"/var/www/appetite/public/templates/offer-thumbnail.tpl",
 		"/var/www/appetite/public/controllers/offers.js",
 		"/var/www/appetite/public/templates/offers.tpl",
-		"/var/www/appetite/public/controllers/index.js",
-		"/var/www/appetite/todo/main.todo",
 		"/var/www/appetite/public/directives/comments.js",
 		"/var/www/appetite/public/directives/add-comment.js",
 		"/var/www/appetite/public/services/auth.js",
@@ -835,7 +901,6 @@
 		"/var/www/appetite/public/templates/offer-author.tpl",
 		"/var/www/appetite/public/fake-rest/offer/2/comments.json",
 		"/var/www/appetite/spec/client/comment-rest.integration.client.spec.js",
-		"/var/www/appetite/spec/client/offer-rest.integration.client.spec.js",
 		"/var/www/appetite/modules/db/models/offer.js",
 		"/var/www/appetite/public/templates/gallery.tpl",
 		"/var/www/appetite/public/services/fake-rest.js",
@@ -844,16 +909,10 @@
 		"/var/www/appetite/public/fake-rest/offer/all.json",
 		"/var/www/appetite/public/fake-rest/offer/1.json",
 		"/var/www/appetite/public/fake-rest/offer/2.json",
-		"/var/www/appetite/modules/rest/resources/user.js",
-		"/var/www/appetite/spec/client/offer-template-rest.integration.client.spec.js",
-		"/var/www/appetite/spec/client/user-rest.integration.client.spec.js",
-		"/var/www/appetite/modules/db/index.js",
 		"/var/www/appetite/modules/db/models/comment.js",
 		"/var/www/appetite/routes/comment.js",
 		"/var/www/appetite/routes/offer.js",
-		"/var/www/appetite/karma.conf.js",
 		"/var/www/appetite/spec/client/rest-integration.client.spec.js",
-		"/var/www/appetite/spec/client/rest.js",
 		"/var/www/appetite/spec/client/index.js",
 		"/var/www/appetite/spec/client/user-rest-integration.client.spec.js",
 		"/var/www/blog/app/templates/pages/article.tpl",
@@ -896,22 +955,7 @@
 		"/var/www/appetite/routes/answer.js",
 		"/var/www/appetite/modules/db/models/offer-response.js",
 		"/var/www/appetite/modules/db/models/request-response.js",
-		"/var/www/appetite/modules/db/models/request-template.js",
-		"/var/www/appetite/modules/db/models/request.js",
-		"/var/www/appetite/modules/db/models/offer-template.js",
-		"/home/eryk/bin/at",
-		"/var/www/appetite/routes/offer-template.js",
-		"/var/www/appetite/routes/user.js",
-		"/var/www/appetite/todo/db.todo",
-		"/var/www/appetite/toremove.txt",
-		"/var/www/appetite/stop",
-		"/var/www/appetite/test",
-		"/var/www/appetite/node_modules/karma-phantomjs-launcher/index.js",
-		"/var/www/appetite/package.json",
-		"/var/www/appetite/.gitignore",
-		"/var/www/appetite/.git/config",
-		"/var/www/appetite/.git/info/exclude",
-		"/var/www/appetite/routes/index.js"
+		"/var/www/appetite/modules/db/models/request-template.js"
 	],
 	"find":
 	{
@@ -922,6 +966,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/var/www/appetite/node_modules/sequelize",
 			"/var/www/appetite",
 			"/var/www/appetite/node_modules/grunt-express/lib",
 			"/home/eryk/UTC/usabilitytools/nuvr/recording/shower",
@@ -935,6 +980,43 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"start",
+			" null",
+			"start",
+			"endAt.getTime()",
+			"startAt.getTime()",
+			"proto =",
+			"_response",
+			"proto.type = positive",
+			"_response",
+			"comment entry",
+			"offer",
+			"Response",
+			"offer",
+			"Offer",
+			"/user-rating/:id",
+			"/userRating",
+			"d",
+			"/userRating",
+			"comment",
+			"d",
+			"rating",
+			"ta",
+			"_rating",
+			"User",
+			"Tag",
+			"DB",
+			"selectQ",
+			"selectQuery:",
+			"'",
+			" ' ",
+			"'",
+			"include",
+			"validateIncludedElement",
+			"Image",
+			"prefix",
+			"r.save(avatar.filename)",
+			"app.",
 			"this",
 			"type=\"date\"",
 			"offer.",
@@ -1025,44 +1107,7 @@
 			"@extend",
 			".page--content",
 			" /* t */",
-			"rem",
-			"875rem",
-			"rem",
-			"grid",
-			"@import \"",
-			"generic",
-			"\n@import \"generic",
-			"@import \"",
-			"!false",
-			"false",
-			"5em",
-			"global",
-			"root",
-			"template",
-			"__dirname + '/public'",
-			"template",
-			"templates",
-			"1.5rem",
-			"line-height",
-			"left",
-			"autoprefixer:dev",
-			"this",
-			"tags",
-			"Model",
-			"Image",
-			"property",
-			"prop",
-			"tag",
-			".tags",
-			"Pictures",
-			"pictures",
-			"source1[prop]",
-			"_publishImages",
-			"img",
-			"pictures",
-			"'main'",
-			"header",
-			"nav"
+			"rem"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1144,29 +1189,316 @@
 			[
 				{
 					"buffer": 0,
-					"file": "modules/rest/resources/offer-template.js",
+					"file": "public/controllers/user.js",
 					"settings":
 					{
-						"buffer_size": 10884,
+						"buffer_size": 143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7331,
-								7331
+								137,
+								137
 							]
 						],
 						"settings":
 						{
-							"buffer_scroll_name": "77c5929b",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"buffer_scroll_name": "d93e17ef",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": false,
+								"boss": false,
+								"browser": true,
+								"curly": true,
+								"debug": true,
+								"devel": true,
+								"eqeqeq": true,
+								"eqnull": false,
+								"esnext": false,
+								"evil": false,
+								"forin": true,
+								"funcscope": false,
+								"globals":
+								{
+									"$require": true,
+									"_": true,
+									"define": true,
+									"describe": true,
+									"expect": true,
+									"extend": true,
+									"it": true,
+									"parseFloat0": true,
+									"parseInt0": true,
+									"require": true,
+									"requirejs": true
+								},
+								"immed": true,
+								"indent": false,
+								"jquery": true,
+								"latedef": "nofunc",
+								"maxcomplexity": false,
+								"maxdepth": false,
+								"maxlen": 200,
+								"maxparams": false,
+								"maxstatements": false,
+								"noarg": true,
+								"node": true,
+								"plusplus": false,
+								"quotmark": "single",
+								"regexdash": true,
+								"shadow": true,
+								"smarttabs": true,
+								"strict": false,
+								"sub": true,
+								"supernew": true,
+								"trailing": false,
+								"undef": true,
+								"unused": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2660.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/templates/user.tpl",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"buffer_scroll_name": "3437b799",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": false,
+								"boss": false,
+								"browser": true,
+								"curly": true,
+								"debug": true,
+								"devel": true,
+								"eqeqeq": true,
+								"eqnull": false,
+								"esnext": false,
+								"evil": false,
+								"forin": true,
+								"funcscope": false,
+								"globals":
+								{
+									"$require": true,
+									"_": true,
+									"define": true,
+									"describe": true,
+									"expect": true,
+									"extend": true,
+									"it": true,
+									"parseFloat0": true,
+									"parseInt0": true,
+									"require": true,
+									"requirejs": true
+								},
+								"immed": true,
+								"indent": false,
+								"jquery": true,
+								"latedef": "nofunc",
+								"maxcomplexity": false,
+								"maxdepth": false,
+								"maxlen": 200,
+								"maxparams": false,
+								"maxstatements": false,
+								"noarg": true,
+								"node": true,
+								"plusplus": false,
+								"quotmark": "single",
+								"regexdash": true,
+								"shadow": true,
+								"smarttabs": true,
+								"strict": false,
+								"sub": true,
+								"supernew": true,
+								"trailing": false,
+								"undef": true,
+								"unused": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML Mustache/Syntaxes/HTMLMustache.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1207,7 +1539,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 36.0
+		"height": 161.0
 	},
 	"output.find_results":
 	{
@@ -1570,6 +1902,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 280.0,
+	"side_bar_width": 281.0,
 	"status_bar_visible": true
 }

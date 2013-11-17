@@ -7,10 +7,22 @@ define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite' ], function
             }
             
             return {
-                user: $resource(_rest('/user/:id.json'), { }, {
+                user: angular.extend($resource(_rest('/user/:id.json'), { }, {
                     retrieve: {
                         method: 'GET'
                     }
+                }), {
+                    rating: $resource(_rest('/user/:userId/rating.json'), { }, {
+                        retrieve: {
+                            method: 'GET'
+                        }
+                    }),
+                    offers: $resource(_rest('/user/:userId/offers.json'), { }, {
+                        retrieve: {
+                            method: 'GET',
+                            isArray: true
+                        }
+                    })
                 }),
                 offer: angular.extend($resource(_rest('/offer/:id.json'), { id: 'all' }, {
                     retrieve: {

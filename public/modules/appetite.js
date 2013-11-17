@@ -52,6 +52,24 @@ define([ 'libs/angular', 'modules/filters', 'libs/angular-resource', 'libs/angul
 							controller: controllers.offerCreate
 						}
 					}, common)
+				})
+				.state('user', {
+					url: '/user',
+					views: angular.extend({
+						'content@': {
+							template: templates.users,
+							controller: controllers.users
+						}
+					}, common)
+				})
+				.state('user.details', {
+					url: '/{id:[0-9]{1,8}}',
+					views: angular.extend({
+						'content@': {
+							template: templates.user,
+							controller: controllers.user
+						}
+					}, common)
 				});
 				
 		    // $locationProvider.html5Mode(true);

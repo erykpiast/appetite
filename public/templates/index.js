@@ -1,13 +1,12 @@
 (function() {
     
     var templates = [ 'header', 'footer',
-        'test', 'main', 'offers', 'offer', 'offer-create',
+        'test', 'main', 'offers', 'offer', 'offer-create', 'user',
         'offer-thumbnail', 'offer-author', 'comment', 'gallery', 'add-comment', 'image-picker' ];
     
     define([ 'libs/underscore' ].concat(templates.map(function(template) {
         return 'text!templates/' + template + '.tpl';
-    })),
-    function() {
+    })), function() {
     
         var o = { },
             _ = arguments[0],

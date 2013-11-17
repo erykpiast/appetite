@@ -1,0 +1,45 @@
+{
+    "id": 3,
+    "type": "offer",
+    "place": {
+        "id": 2,
+        "serviceId": "Poznań, Centrum"
+    },
+    "template": {
+        "id": 3,
+        "title": "Brownie z kaszy jaglanej z orzechami pekan",
+        "description": "Bezglutenowe brownies, którego podstawowym składnikiem jest kasza jaglana.",
+        "recipe": {
+            "id": 3,
+            "url": "http://www.mojewypieki.com/przepis/brownie-z-kaszy-jaglanej-z-orzechami-pekan",
+            "domain": "mojewypieki.com"
+        },
+        "author": 1,
+        "pictures": [{
+            "id": 3,
+            "filename": "0006.jpg"
+        }, {
+            "id": 7,
+            "filename": "0007.jpg"
+        }],
+        "tags": [{
+            "id": 7,
+            "text": "bez glutenu"
+        }, {
+            "id": 8,
+            "text": "orzechy pekan"
+        }, {
+            "id": 9,
+            "text": "orzechy"
+        }, {
+            "id": 10,
+            "text": "brownie"
+        }, {
+            "id": 11,
+            "text": "kasza jaglana"
+        }]
+    },
+    "startAt": "2013-11-16T17:24:00.143Z",
+    "endAt": "2013-11-25T12:00:43.980Z",
+    "author": 1
+}

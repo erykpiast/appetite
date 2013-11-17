@@ -40,47 +40,6 @@
     "endAt": "2013-11-11T12:18:29.442Z",
     "author": 1
 }, {
-    "id": 2,
-    "type": "offer",
-    "place": {
-        "id": 2,
-        "serviceId": "Poznań, Centrum"
-    },
-    "template": {
-        "id": 2,
-        "title": "Pani Walewska (Pychotka)",
-        "description": "Pyszne kruche ciasto, słodziutka beza, krem i dla przełamania słodyczy dżem porzeczkowy... Nic dziwnego, że ktoś je nazwał pychotką ;-)",
-        "recipe": {
-            "id": 2,
-            "url": "http://www.mojewypieki.com/przepis/pani-walewska-pychotka",
-            "domain": "mojewypieki.com"
-        },
-        "author": 2,
-        "pictures": [{
-            "id": 3,
-            "filename": "0004.jpg"
-        }, {
-            "id": 7,
-            "filename": "0005.jpg"
-        }],
-        "tags": [{
-            "id": 4,
-            "text": "beza"
-        }, {
-            "id": 2,
-            "text": "migdały"
-        }, {
-            "id": 5,
-            "text": "porzeczki"
-        }, {
-            "id": 6,
-            "text": "ciasto kruche"
-        }]
-    },
-    "startAt": "2013-10-30T17:24:00.143Z",
-    "endAt": "2013-11-05T12:00:43.980Z",
-    "author": 2
-}, {
     "id": 3,
     "type": "offer",
     "place": {
@@ -98,7 +57,7 @@
         },
         "author": 1,
         "pictures": [{
-            "id": 3,
+            "id": 6,
             "filename": "0006.jpg"
         }, {
             "id": 7,

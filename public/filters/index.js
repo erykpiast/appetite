@@ -1,6 +1,6 @@
 (function() {
     
-    var filters = [ 'for-now' ];
+    var filters = [ 'for-now', 'format-url' ];
     
     define([ 'libs/underscore' ].concat(filters.map(function(filter) {
     	return 'filters/' + filter;
