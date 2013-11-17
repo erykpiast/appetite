@@ -3529,6 +3529,45 @@ ol.horizontal > li {
   margin-top: 20px;
 }
 
+.offer-thumbnail {
+  border: 1px solid #888888;
+  border-radius: 0.25em;
+  padding-bottom: -webkit-calc(100% - 2px);
+  padding-bottom: calc(100% - 2px);
+  width: 100%;
+}
+
+.offer-thumbnail:hover {
+  cursor: pointer;
+}
+
+.offer-thumbnail:after {
+  background-color: white;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: .25em;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.offer-thumbnail h3 {
+  font-size: 1.2rem;
+}
+
+.offer-thumbnail p {
+  font-size: .9rem;
+}
+
+.offer-thumbnail h3,
+.offer-thumbnail p {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
 .page__part--main .offers.grid,
 .page__part--main .page .offers.page__part,
 .page .page__part--main .offers.page__part,
@@ -3591,45 +3630,6 @@ ol.horizontal > li {
 .page__part--main .page .offers.page__part--user .page__part__footer,
 .page .page__part--main .offers.page__part--user .page__part__footer {
   padding-bottom: 20px;
-}
-
-.page__part--main .offers .offer-thumbnail {
-  border: 1px solid #888888;
-  border-radius: 0.25em;
-  padding-bottom: -webkit-calc(100% - 2px);
-  padding-bottom: calc(100% - 2px);
-  width: 100%;
-}
-
-.page__part--main .offers .offer-thumbnail:hover {
-  cursor: pointer;
-}
-
-.page__part--main .offers .offer-thumbnail:after {
-  background-color: white;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: .25em;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-.page__part--main .offers .offer-thumbnail h3 {
-  font-size: 1.2rem;
-}
-
-.page__part--main .offers .offer-thumbnail p {
-  font-size: .9rem;
-}
-
-.page__part--main .offers .offer-thumbnail h3,
-.page__part--main .offers .offer-thumbnail p {
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
 }
 
 .page__part--offer .gallery {
@@ -3707,43 +3707,4 @@ ol.horizontal > li {
 .page__part--user .page .user__offers.page__part--user .page__part__footer,
 .page .page__part--user .user__offers.page__part--user .page__part__footer {
   padding-bottom: 20px;
-}
-
-.page__part--user .user__offers .offer-thumbnail {
-  border: 1px solid #888888;
-  border-radius: 0.25em;
-  padding-bottom: -webkit-calc(100% - 2px);
-  padding-bottom: calc(100% - 2px);
-  width: 100%;
-}
-
-.page__part--user .user__offers .offer-thumbnail:hover {
-  cursor: pointer;
-}
-
-.page__part--user .user__offers .offer-thumbnail:after {
-  background-color: white;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: .25em;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-.page__part--user .user__offers .offer-thumbnail h3 {
-  font-size: 1.2rem;
-}
-
-.page__part--user .user__offers .offer-thumbnail p {
-  font-size: .9rem;
-}
-
-.page__part--user .user__offers .offer-thumbnail h3,
-.page__part--user .user__offers .offer-thumbnail p {
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
 }

@@ -1,11 +1,9 @@
-<section class="offer-author">
+<section class="offer-author" ng-click="goTo('user.details', { id: author.id })">
 	
 	<header class="offer-author__header">
-		<a ng-href="{{ author.site }}">
-			<img ng-src="/static/images/{{ author.avatar.filename }}" />
+		<h3 class="offer-author__name">{{ author.fullName }}</h3>
 
-			<span class="offer-author__name">{{ author.fullName }}</span>
-		</a>
+		<img ng-src="/static/images/{{ author.avatar.filename }}" />
 	</header>
 
 </section>

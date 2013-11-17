@@ -2,7 +2,7 @@
 	
 	<header class="comment__header">
 		
-		<div class="comment__author">
+		<div class="comment__author" ng-click="goTo('user.details', { id: comment.author.id })">
 			<img ng-src="/static/images/{{ comment.author.avatar.filename }}" height="40" width="40" />
 			<span class="comment__author__name">{{ comment.author.fullName }}</span>
 		</div>

@@ -9,35 +9,15 @@ define([ 'libs/angular', 'libs/std', 'modules/filters' ], function(angular, unde
 		function URL(raw) {
 			this._raw = raw || '';
 
-			this._current = this._raw;
+			this._parsed = this._raw.split(/^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/i);
 		}
 
 		angular.extend(URL.prototype, {
-			_regExs: {
-				protocol: /https?:\/\//i,
-				www: /w{3}/i,
-				slash: /(?:(\/\/)?[^\/]+)(\/.*)/i
-			},
-			getOriginalValue: function() {
+			getValue: function() {
 				return this._raw;
 			},
-			getValue: function() {
-				return this._current;
-			},
-			stripWww: function() {
-				this._current = this._current.replace(this._regExs.www, '');
-
-				return this;
-			},
-			stripProtocol: function() {
-				this._current = this._current.replace(this._regExs.protocol, '');
-
-				return this;
-			},
-			stripSlash: function() {
-				this._current = this._current.replace(this._regExs.slash, '');
-
-				return this;
+			getDomain: function() {
+				return this._parsed[4];
 			}
 		});
 
@@ -46,13 +26,13 @@ define([ 'libs/angular', 'libs/std', 'modules/filters' ], function(angular, unde
 
 			switch(format) {
 				case formats['domain']:
-						formated.stripWww().stripProtocol().stripSlash();
+						formated = formated.getDomain();
 					break;
 				default:
 
 			}
 
-			return formated.getValue();
+			return formated;
 		};
 	});
 });

@@ -1,0 +1,35 @@
+.offer-thumbnail {
+    $border-width: 1px;
+	$border-radius: 0.25em;
+
+    border: $border-width solid #888 {
+		radius: $border-radius;
+    };
+    padding-bottom: calc(100% - #{2 * $border-width}); // square
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:after {
+    	background-color: $main-light-color;
+    	bottom: 0;
+    	content: "";
+    	display: block;
+    	height: .25em;
+		@include stretch-x();
+    }
+
+	h3 {
+		font-size: 1.2rem;
+    }
+
+    p {
+    	font-size: .9rem;
+    }
+
+    h3, p {
+    	@include spacing();
+    }
+}
