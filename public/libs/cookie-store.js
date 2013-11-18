@@ -1,4 +1,5 @@
-define([ 'libs/angular', 'libs/angular-cookies', 'libs/jquery-cookie' ], function(angular, undefined, undefined) {
+define([ 'libs/angular', 'libs/angular-cookies', 'libs/jquery', 'libs/jquery-cookie' ],
+function(angular, undefined, $, undefined) {
 
     angular.module('ngCookies')
         .provider('$cookieStore', [
