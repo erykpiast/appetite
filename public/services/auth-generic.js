@@ -63,7 +63,7 @@ function(angular, module, undefined) {
             getUserInfo: function() {
                 this._ensureInit();
 
-                this._.getUserInfo().then((function(userData) {
+                return this._.getUserInfo().then((function(userData) {
                     $rootScope.$broadcast(authConfig.events.userInfo, userData);
 
                     return true;
@@ -72,7 +72,7 @@ function(angular, module, undefined) {
             autoLogin: function() {
                 this._ensureInit();
                 
-                this._.autoLogin().then((function() {
+                return this._.autoLogin().then((function() {
                     $rootScope.$broadcast(authConfig.events.login, {
                         serviceName: this._.name,
                         userId: this._.userId,

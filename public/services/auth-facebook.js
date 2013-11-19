@@ -54,8 +54,8 @@ function(angular, module, FB) {
                 },
                 _loginHandler: function(response, scopes) {
                     if(response.status === 'connected') {
-                        this._accessToken = response.authResponse.accessToken;
-                        this._userId = response.authResponse.userID;
+                        this.accessToken = response.authResponse.accessToken;
+                        this.userId = response.authResponse.userID;
 
                         if(scopes) {
                             scopes.forEach(this._grant, this);
@@ -63,7 +63,7 @@ function(angular, module, FB) {
 
                         return true;
                     } else {
-                        this._accessToken = undefined;
+                        this.accessToken = undefined;
 
                         return false;
                     }

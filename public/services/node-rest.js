@@ -10,7 +10,7 @@ function(angular, undefined, module) {
         return {
             user: $resource(_rest('/user/:id'), { }, {
                 create: {
-                    method: 'PUT'
+                    method: 'POST'
                 },
                 retrieve: {
                     method: 'GET'
