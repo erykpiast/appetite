@@ -1,5 +1,5 @@
 define([ 'libs/angular', 'modules/appetite', 'services/auth', 'libs/underscore', 'templates' ],
-function(angular, appetite, auth, _, templates) {
+function(angular, appetite, undefined, _, templates) {
 
 	// window.___gcfg = {
 	// 	lang: 'pl-PL',
@@ -48,8 +48,8 @@ function(angular, appetite, auth, _, templates) {
 				}
 			};
 		})
-		.directive('appUnsignButton', function($rootScope, authServices) {
-			var services = _getServices(authServices);
+		.directive('appUnsignButton', function($rootScope, auth) {
+			var services = _getServices(auth);
 
 			return {
 				replace: true,

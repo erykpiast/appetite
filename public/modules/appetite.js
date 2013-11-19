@@ -1,4 +1,4 @@
-define([ 'libs/angular', 'modules/filters', 'modules/auth', 'libs/angular-resource', 'libs/angular-cookies', 'libs/angular-ui-router', 'controllers', 'templates' ],
+define([ 'libs/angular', 'modules/filters', 'modules/auth', 'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui-router', 'controllers', 'templates' ],
 function(angular, filters, auth, undefined, undefined, undefined, controllers, templates) {
 
 	angular.module('appetite',

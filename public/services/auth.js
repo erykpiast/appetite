@@ -1,11 +1,18 @@
-define([ 'libs/angular', 'libs/cookie-store', 'modules/appetite' ], function(angular, undefined, appetite) {
-    
-    return angular.module('appetite')
-        .factory('auth', function($cookieStore) {
+define([ 'libs/angular', 'modules/auth', 'services/auth-facebook' ],
+function(angular, auth, undefined) {
 
-            $cookieStore.put('auth', { service: 'facebook', accessToken: 'a1' });
-            
-            return {
+    auth
+    .config(function(authServiceFacebookProvider) {
+        authServiceFacebookProvider.setAppId('467246670041226');
+    })
+    .factory('auth', function($cookieStore, authServices, authServiceFacebook) {
+        Array.create(arguments).slice(2).forEach(function(service) {
+            authServices[service.prototype.name] = service;
+        });
+
+        $cookieStore.put('auth', { service: 'facebook', accessToken: 'a1' });
+        
+        return {
                 currentUser: {
                     "id": 1,
                     "authService": "facebook",
@@ -23,7 +30,6 @@ define([ 'libs/angular', 'libs/cookie-store', 'modules/appetite' ], function(ang
                     }
                 }
             };
-            
-        });
-    
+    });
+
 });

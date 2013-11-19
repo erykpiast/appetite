@@ -12,7 +12,8 @@ requirejs.config({
         'libs/angular-sanitize': 'bower_components/angular-sanitize-unstable/angular-sanitize',
         'libs/angular-cookies': 'bower_components/angular-cookies/angular-cookies',
         'libs/angular-ui': 'bower_components/angular-ui/build/angular-ui',
-        'libs/angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router'
+        'libs/angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router',
+        'libs/facebook': '//connect.facebook.net/pl_PL/all'
     },
     packages: [
         'modules',
@@ -52,7 +53,10 @@ requirejs.config({
         },
         'libs/jquery-cookie': {
             deps: [ 'libs/jquery' ]
-        }
+        },
+        'libs/facebook': {
+            exports: 'FB'
+        },
     }
 });
 

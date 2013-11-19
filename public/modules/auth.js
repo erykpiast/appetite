@@ -16,79 +16,7 @@ function(angular, undefined, _) {
             id: '467246670041226'
         }
     })
-    .constant('authServices',  { })
-    .factory('authService', function($rootScope, $q, authConfig) { // generic auth serivce
-
-        function AuthService() {
-            this._accessToken = null;
-            this._userId = null;
-            this._appId = null;
-            this._initialized = false;
-
-            setTimeout(function(that) {
-                that._init();
-            }, 0, this);
-        }
-
-        angular.extend(AtuhService.prototype, {
-            _ensureInit: function() {
-                if(!this._initialized) {
-                    this._init();
-                }
-            },
-            _getDeferred: function() {
-                return $q.defer();
-            },
-            login: function(scopes) {
-                this._ensureInit();
-
-                return this._login(scopes).then(function() {
-                    $rootScope.$broadcast(authConfig.events.login, {
-                        serviceName: this._name,
-                        userId: this._userId,
-                        accessToken: this._accessToken
-                    });
-
-                    return true;
-                });
-            },
-            logout: function() {
-                this._ensureInit();
-
-                return this._logout().then(function() {
-                    $rootScope.$broadcast(authConfig.events.logout, {
-                        serviceName: this._name,
-                        userId: this._userId
-                    });
-
-                    this._userId = null;
-                    this._accessToken = null;
-
-                    return true;
-                });
-            },
-            getUserInfo: function() {
-                this._getUserInfo().then(function(userData) {
-                    $rootScope.$broadcast(authConfig.events.userInfo, userData);
-
-                    return true;
-                });
-            },
-            autoLogin: function() {
-                this._autoLogin().then(function() {
-                    $rootScope.$broadcast(authConfig.events.login, {
-                        serviceName: this._name,
-                        userId: this._userId,
-                        accessToken: this._accessToken
-                    });
-
-                    return true;
-                });
-            }
-        });
-
-        return AuthService;
-    })
+    .value('authServices', { })
     .factory('authData', function($rootScope, $cookieStore, authConfig) {
         var authData,
             restored = $cookieStore.get(authConfig.cookie.name);
@@ -117,8 +45,6 @@ function(angular, undefined, _) {
     })
     .run(function($rootScope, authConfig, authData, authServices) {
         $rootScope.$on(authConfig.events.login, function(e, data) {
-            e.stopPropagation();
-
             var service = authServices[data.serviceName];
 
             if(!service) {
@@ -149,8 +75,6 @@ function(angular, undefined, _) {
         });
 
         $rootScope.$on(authConfig.events.logout, function(e, data) {
-            e.stopPropagation();
-
             var service = authServices[data.serviceName];
 
             if(!service) {
@@ -172,5 +96,7 @@ function(angular, undefined, _) {
             console.log('Wylogowano z ' + service.name);
         });
     });
+
+    return angular.module('auth');
 
 });
