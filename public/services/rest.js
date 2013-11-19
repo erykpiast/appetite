@@ -1,20 +1,24 @@
-define([ 'libs/angular', 'libs/angular-resource', 'modules/appetite', 'services/node-rest', 'services/fake-rest' ], function(angular, undefined, appetite) {
+define([ 'libs/angular', 'libs/angular-resource', './module', 'services/node-rest', 'services/fake-rest' ],
+function(angular, undefined, module, undefined, undefined) {
     
-    angular.module('appetite')
-        .factory('rest', function(nodeRest, fakeRest) {
-            
-            return angular.extend({ }, fakeRest, {
-            	response: nodeRest.response,
-                comment: {
-                    retrieve: fakeRest.comment.retrieve,
-                    create: nodeRest.comment.create
-                },
-                offerTemplate: {
-                    create: nodeRest.offerTemplate.create
-                },
-                offer: angular.extend({ }, fakeRest.offer, {
-                    create: nodeRest.offer.create
-                })
-            });
+    module
+    .factory('rest', function(nodeRest, fakeRest) {
+        return angular.extend({ }, fakeRest, {
+            comment: {
+                retrieve: fakeRest.comment.retrieve,
+                create: nodeRest.comment.create
+            },
+            offer: angular.extend({ }, fakeRest.offer, {
+                create: nodeRest.offer.create
+            }),
+            offerTemplate: {
+                create: nodeRest.offerTemplate.create
+            },
+            response: nodeRest.response,
+            user: angular.extend({ }, fakeRest.user, {
+                create: nodeRest.user.create
+            })
         });
+    });
+    
 });

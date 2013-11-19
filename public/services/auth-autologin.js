@@ -1,11 +1,13 @@
-define([ 'libs/angular', 'modules/auth' ], function (angular, auth) {
+define([ 'libs/angular', './module-auth' ],
+function (angular, module) {
 
-	auth
-	.run(function(authConfig, authData, authServices) {
-		if(authConfig.autoLogin && authData.login) {
-			authServices[authData.serviceName]
-				.autoLogin(authData.scopes, authData.accessToken);
-		}
+	module
+	.run(function(authConfig, authData, authGeneric) {
+		if(authData.restored) {
+            authGeneric.use(authData.serviceName);
+
+            authGeneric.autoLogin();
+        }
 	});
 
 });

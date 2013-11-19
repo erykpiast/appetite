@@ -1,35 +1,45 @@
-define([ 'libs/angular', 'modules/auth' ], function(angular, auth) {
+define([ 'libs/angular', './module-auth', 'services/auth-facebook' ],
+function(angular, module, undefined) {
 
-    auth
-    .factory('authService', function($rootScope, $q, authConfig) {
+    module
+    .factory('authGeneric', function($rootScope, $q, authConfig, authFacebook) {
         function AuthService() {
-            this._accessToken = null;
-            this._userId = null;
-            this._appId = null;
-            this._initialized = false;
+            this._ = null; // current authService
 
-            setTimeout(function(that) {
-                that._init();
-            }, 0, this);
+            this._services = {
+                    facebook: authFacebook
+                };
         }
 
         angular.extend(AuthService.prototype, {
             _ensureInit: function() {
-                if(!this._initialized) {
-                    this._init();
+                if(!this._) {
+                    throw new Error('No auth service attached!');
+                } else {
+                    return true;
                 }
             },
-            _getDeferred: function() {
-                return $q.defer();
+            use: function(serviceName) {
+                var service = this._services[serviceName];
+
+                if(!!service) {
+                    delete this._;
+
+                    this._ = service;
+
+                    return this._.init();
+                } else {
+                    return false;
+                }
             },
             login: function(scopes) {
                 this._ensureInit();
 
-                return this._login(scopes).then((function() {
+                return this._.login(scopes).then((function() {
                     $rootScope.$broadcast(authConfig.events.login, {
-                        serviceName: this.name,
-                        userId: this._userId,
-                        accessToken: this._accessToken
+                        serviceName: this._.name,
+                        userId: this._.userId,
+                        accessToken: this._.accessToken
                     });
 
                     return true;
@@ -38,31 +48,35 @@ define([ 'libs/angular', 'modules/auth' ], function(angular, auth) {
             logout: function() {
                 this._ensureInit();
 
-                return this._logout().then((function() {
+                return this._.logout().then((function() {
                     $rootScope.$broadcast(authConfig.events.logout, {
-                        serviceName: this._name,
-                        userId: this._userId
+                        serviceName: this._.name,
+                        userId: this._.userId
                     });
 
-                    this._userId = null;
-                    this._accessToken = null;
+                    this._.userId = null;
+                    this._.accessToken = null;
 
                     return true;
                 }).bind(this));
             },
             getUserInfo: function() {
-                this._getUserInfo().then((function(userData) {
+                this._ensureInit();
+
+                this._.getUserInfo().then((function(userData) {
                     $rootScope.$broadcast(authConfig.events.userInfo, userData);
 
                     return true;
                 }).bind(this));
             },
             autoLogin: function() {
-                this._autoLogin().then((function() {
+                this._ensureInit();
+                
+                this._.autoLogin().then((function() {
                     $rootScope.$broadcast(authConfig.events.login, {
-                        serviceName: this._name,
-                        userId: this._userId,
-                        accessToken: this._accessToken
+                        serviceName: this._.name,
+                        userId: this._.userId,
+                        accessToken: this._.accessToken
                     });
 
                     return true;
@@ -70,7 +84,7 @@ define([ 'libs/angular', 'modules/auth' ], function(angular, auth) {
             }
         });
 
-        return AuthService;
+        return (new AuthService());
     });
 
 });

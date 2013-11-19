@@ -1,75 +1,71 @@
-define([ 'libs/angular', 'modules/appetite', 'services/auth', 'libs/underscore', 'templates' ],
-function(angular, appetite, undefined, _, templates) {
+define([ 'libs/angular', './module', 'services/auth-generic', 'libs/underscore', 'templates' ],
+function(angular, module, undefined, _, templates) {
 
-	// window.___gcfg = {
-	// 	lang: 'pl-PL',
-	// 	parsetags: 'explicit'
-	// };
+    // window.___gcfg = {
+    //  lang: 'pl-PL',
+    //  parsetags: 'explicit'
+    // };
 
+    module
+    .directive('appLogin', function($rootScope, authConfig) {
+        return {
+            replace: true,
+            restrict: 'E',
+            template: templates.login,
+            scope: true,
+            link: function(scope, element, attrs) {
+                scope.authServices = [ { name: 'facebook', label: 'Facebook' } ];
+                scope.currentService = null;
 
-	function _getService(authServices, serviceName) {
-		return {
-				runner: authServices[serviceName] ? new authServices[serviceName]() : undefined,
-				label: _.capitalize(serviceName)
-			};
-	}
+                $rootScope.$on(authConfig.events.login, function(e, data) {
+                    scope.loggedIn = true;
 
+                    scope.currentService = scope.authServices.filter(function(service) {
+                            return service.name === data.serviceName;
+                        })[0];
+                });
 
-	appetite
-		.directive('appLogin', function() {
-			return {
-				replace: true,
-				restrict: 'E',
-				template: templates.login,
-				scope: true,
-				link: function(scope, element, attrs) {
-					scope.authServices = [ 'facebook'/*, 'google'*/ ];
-				}
-			};
-		})
-		.directive('appSignButton', function($rootScope, authServices) {
-			return {
-				replace: true,
-				restrict: 'E',
-				template: '<button ng-click="requestLogin()">{{ i18n.common.signWith }} {{ serviceLabel }}</button>',
-				scope: { serviceName: '@service' },
-				link: function(scope, element, attrs) {
-					var service = _getService(authServices, scope.serviceName);
+                $rootScope.$on(authConfig.events.logout, function(e, data) {
+                    scope.loggedIn = false;
 
-					if(!service.runner) {
-						return false;
-					}
+                    scope.currentService = null;
+                });
+            }
+        };
+    })
+    .directive('appSignButton', function($rootScope, authGeneric) {
+        return {
+            replace: true,
+            restrict: 'E',
+            template: '<button class="login__sign" ng-click="requestLogin()">{{ i18n.common.signLong }} {{ label }}</button>',
+            scope: { serviceName: '@service', label: '@' },
+            link: function(scope, element, attrs) {
+                scope.i18n = $rootScope.i18n;
 
-					scope.serviceLabel = service.label;
+                scope.requestLogin = function() {
+                    authGeneric.use(scope.serviceName);
 
-					scope.requestLogin = function() {
-						service.runner.login([ 'userInfo' ]);
-					};
-				}
-			};
-		})
-		.directive('appUnsignButton', function($rootScope, auth) {
-			var services = _getServices(auth);
+                    authGeneric.login([ 'userInfo' ]);
+                };
+            }
+        };
+    })
+    .directive('appUnsignButton', function($rootScope, authGeneric) {
+        return {
+            replace: true,
+            restrict: 'E',
+            template: '<button class="login__unsign" ng-click="requestLogout()">{{ i18n.common.unsignLong }} {{ label }}</button>',
+            scope: { serviceName: '@service', label: '@' },
+            link: function(scope, element, attrs) {
+                scope.i18n = $rootScope.i18n;
 
-			return {
-				replace: true,
-				restrict: 'E',
-				template: '<button ng-click="requestLogout()">{{ i18n.common.unsignFrom }} {{ serviceLabel }}</button',
-				scope: { serviceName: '@service' },
-				link: function(scope, element, attrs) {
-					var service = _getService(authServices, scope.serviceName);
+                scope.requestLogout = function() {
+                    authGeneric.use(scope.serviceName);
 
-					if(!service.runner) {
-						return false;
-					} 
-
-					scope.serviceLabel = service.label;
-
-					scope.requestLogout = function() {
-						service.runner.logout();
-					};
-				}
-			};
-		});
+                    authGeneric.logout();
+                };
+            }
+        };
+    });
 
 });

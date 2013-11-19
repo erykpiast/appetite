@@ -1,7 +1,7 @@
 define([ 'libs/angular', 'libs/angular-cookies', 'libs/underscore' ],
 function(angular, undefined, _) {
 
-    angular.module('auth', [ ])
+    angular.module('auth', [ 'auth.services' ])
     .constant('authConfig', {
         cookie: {
             name: 'auth'
@@ -16,85 +16,47 @@ function(angular, undefined, _) {
             id: '467246670041226'
         }
     })
-    .value('authServices', { })
     .factory('authData', function($rootScope, $cookieStore, authConfig) {
-        var authData,
+        var authData = { },
             restored = $cookieStore.get(authConfig.cookie.name);
 
         if(!!restored) {
-            authData = restored;
+            angular.extend(authData, restored, {
+                restored: true
+            });
         } else {
-            authData = {
-                userId: undefined,
+            angular.extend(authData, {
+                login: false,
                 serviceName: undefined,
+                userId: undefined,
                 accessToken: undefined,
-                scopes: undefined,
-                login: false
-            };
+                scopes: undefined
+            });
         }
 
-        $rootScope.__authData = authData;
-
-        $rootScope.$watch('__authData', function(newVal, oldVal) {
-            if(!_.isEqual(newVal, oldVal)) {
-                $cookieStore.put(authConfig.cookie.name, JSON.stringify(newVal));
-            }
-        }, true);
-
-        return authData;
-    })
-    .run(function($rootScope, authConfig, authData, authServices) {
         $rootScope.$on(authConfig.events.login, function(e, data) {
-            var service = authServices[data.serviceName];
+            angular.extend(authData, data, {
+                login: true
+            });
+            delete authData.restored;
 
-            if(!service) {
-                return;
-            }
-
-            var userInfo = {
-                    serviceName: service.name
-                };
-
-            authData.serviceName = service.name;
-            authData.login = true;
-            authData.scopes = data.scopes;
-            authData.accessToken = data.accessToken;
-
-            service.getUserInfo().then(
-                function(info) {
-                    angular.extend(userInfo, info);
-                    userInfo.login = true;
-
-                    $rootScope.$broadcast(authConfig.events.userInfo, userInfo);
-
-                    authData.userId = userInfo.id;
-                }
-            );
-
-            console.log('Zalogowano przy pomocy ' + service.name);
+            $cookieStore.put(authConfig.cookie.name, authData);
         });
 
         $rootScope.$on(authConfig.events.logout, function(e, data) {
-            var service = authServices[data.serviceName];
-
-            if(!service) {
-                return;
-            }
-
-            var userInfo = {
-                    serviceName: service.name
-                };
-
-            authData.serviceName = undefined;
             authData.login = false;
-            authData.scopes = undefined;
-            authData.accessToken = undefined;
+            authData.serviceName = undefined;
             authData.userId = undefined;
-            
-            $rootScope.$broadcast(authConfig.events.userInfo, null);
+            authData.accessToken = undefined;
+            authData.scopes = undefined;
 
-            console.log('Wylogowano z ' + service.name);
+            $cookieStore.remove(authConfig.cookie.name);
         });
+
+        return authData;
+    })
+    .config(function(authConfig, authFacebookProvider) {
+        authFacebookProvider.setAppId(authConfig.facebook.id);
     });
 
     return angular.module('auth');

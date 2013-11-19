@@ -1,6 +1,6 @@
-define([ 'angular', 'auth', 'googlePlusApi' ], function () {
+define([ 'libs/angular', './module-auth', 'libs/googlePlus' ], function (angular, module, gapi) {
 
-	angular.module('auth')
+	module
 	.factory('google', function($rootScope, $q, resource, authConfig, authServices) {
 		var login,
 			accessToken;

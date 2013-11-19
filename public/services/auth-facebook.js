@@ -1,8 +1,8 @@
-define([ 'libs/angular', 'modules/auth', 'services/auth-generic', 'libs/facebook' ],
-function(angular, auth, authServiceGeneric, FB) {
+define([ 'libs/angular', './module-auth', 'libs/facebook' ],
+function(angular, module, FB) {
 
-    auth
-    .provider('authServiceFacebook', function() {
+    module
+    .provider('authFacebook', function() {
         var provider = this;
 
         this.serviceName = 'facebook';
@@ -11,10 +11,8 @@ function(angular, auth, authServiceGeneric, FB) {
             this.appId = appId;
         };
 
-        this.$get = function(authService) {
+        this.$get = function(q, $rootScope) {
             function FacebookAuthService() {
-                authService.constructor.call(this);
-
                 this._scopes = {
                         userInfo: {
                             url: '',
@@ -24,9 +22,9 @@ function(angular, auth, authServiceGeneric, FB) {
                     };
             }
 
-            angular.extend(FacebookAuthService.prototype, authService.prototype, {
+            angular.extend(FacebookAuthService.prototype, {
                 name: provider.serviceName,
-                _init: function() {
+                init: function() {
                     this._appId = provider.appId;
 
                     if(!this._appId) {
@@ -39,12 +37,20 @@ function(angular, auth, authServiceGeneric, FB) {
                     FB.init({
                         appId: this._appId,
                         status: true,
-                        cookie: true
+                        cookie: false
                     });
 
                     this._initialized = true;
 
                     return true;
+                },
+                _grant: function(scopeName) {
+
+                    return this._scopes.hasOwnProperty(scopeName) ? this._scopes[scopeName].permissions = true : false;
+                },
+                _getScopeUrl: function(scopeName) {
+
+                    return this._scopes.hasOwnProperty(scopeName) ? this._scopes[scopeName].url : undefined;
                 },
                 _loginHandler: function(response, scopes) {
                     if(response.status === 'connected') {
@@ -62,8 +68,8 @@ function(angular, auth, authServiceGeneric, FB) {
                         return false;
                     }
                 },
-                _login: function(scopes) {
-                    var deferred = this._getDeferred();
+                login: function(scopes) {
+                    var deferred = q.defer();
 
                     FB.login((function(response) {
                         var result = this._loginHandler(response, scopes);
@@ -81,28 +87,28 @@ function(angular, auth, authServiceGeneric, FB) {
 
                     return !!response;
                 },
-                _logout: function() {
-                    var deferred = this._getDeferred();
+                logout: function() {
+                    var deferred = q.defer();
 
                     FB.api('/me/permissions', 'delete', (function(response) {
-                        var result = _logoutHandler(response);
+                        var result = this._logoutHandler(response);
                         
                         if(result) {
-                            deffered.resolve(true);  
+                            deferred.resolve(true);  
                         } else {
-                            deffered.reject(false);
+                            deferred.reject(false);
                         };
                     }).bind(this));
 
-                    return deffered.promise;
+                    return deferred.promise;
                 },
-                _getUserInfo: function() {
+                getUserInfo: function() {
                     if(this._scopes.userInfo.permissions) {
-                        var deferred = this._getDeferred();
+                        var deferred = q.defer();
 
                         FB.api('/me?fields=id,name,gender,locale,link,picture',
                             (function(response) {
-                                deffered.resolve({
+                                deferred.resolve({
                                     id: response.id,
                                     name: response.name,
                                     link: response.link,
@@ -113,20 +119,22 @@ function(angular, auth, authServiceGeneric, FB) {
                             }).bind(this)
                         );
 
-                        return deffered.promise;
+                        return deferred.promise;
                     } else {
-                        return this._login([ 'userInfo']).then(
+                        return this.login([ 'userInfo']).then(
                             function() {
                                 return getUserInfo();
                             });
                     }
                 },
-                _autoLogin: function(/* [scopes] */) {
-                    var deferred = this._getDeferred();
+                autoLogin: function(/* [scopes] */) {
+                    var deferred = q.defer();
 
                     FB.getLoginStatus((function(response) {
-                        if(this._loginHandler(response)) {
-                            FB.api('/me/permissions', function(response) {
+                        var result = this._loginHandler(response);
+
+                        if(result) {
+                            FB.api('/me/permissions', (function(response) {
                                 if(response && response.data) {
                                     var permissions = response.data[0],
                                         scopes = [ ];
@@ -147,25 +155,17 @@ function(angular, auth, authServiceGeneric, FB) {
                                 }
 
                                 deferred.resolve(false);
-                            });
+                            }).bind(this));
                         } else {
                             deferred.resolve(false);
                         }
                     }).bind(this), true);
 
-                    return deffered.promise;
-                },
-                _grant: function(scopeName) {
-
-                    return this._scopes.hasOwnProperty(scopeName) ? this._scopes[scopeName].permissions = true : false;
-                },
-                _getScopeUrl: function(scopeName) {
-
-                    return this._scopes.hasOwnProperty(scopeName) ? this._scopes[scopeName].url : undefined;
+                    return deferred.promise;
                 }
             });
 
-            return FacebookAuthService;
+            return (new FacebookAuthService());
         };
     });
 

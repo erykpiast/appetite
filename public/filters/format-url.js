@@ -1,6 +1,7 @@
-define([ 'libs/angular', 'libs/std', 'modules/filters' ], function(angular, undefined, filters) {
+define([ 'libs/angular', 'libs/std', './module' ],
+function(angular, undefined, module) {
 
-	angular.module('filters')
+	module
 	.filter('formatUrl', function(){
 		var formats = {
 				domain: 'domain'

@@ -1,6 +1,6 @@
-'use strict';
-
 define([ 'libs/angular' ], function(angular) {
+
+	'use strict';
 
 	function ctrl($scope) {
 	
