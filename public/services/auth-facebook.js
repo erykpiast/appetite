@@ -106,15 +106,16 @@ function(angular, module, FB) {
                     if(this._scopes.userInfo.permissions) {
                         var deferred = q.defer();
 
-                        FB.api('/me?fields=id,name,gender,locale,link,picture',
+                        FB.api('/me?fields=id,first_name,last_name,gender,picture,website,location',
                             (function(response) {
                                 deferred.resolve({
                                     id: response.id,
-                                    name: response.name,
-                                    link: response.link,
-                                    picture: response.picture.data.url,
+                                    firstName: response.first_name,
+                                    lastName: response.last_name,
+                                    site: response.website,
+                                    avatar: response.picture.data.url,
                                     gender: response.gender,
-                                    locale: response.locale
+                                    place: response.location.name
                                 });
                             }).bind(this)
                         );

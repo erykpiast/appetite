@@ -10,7 +10,7 @@ var DB, Tag, User;
 
 
 function create(authData, proto) {
-	return auth(authData.service, authData.accessToken).then(
+	return auth(authData.service, authData.userId, authData.accessToken).then(
 		function(serviceId) {
 		    return User.find({ where: {
 					serviceId: serviceId,

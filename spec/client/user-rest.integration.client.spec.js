@@ -6,6 +6,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
     
         var authData = {
                 'service' : 'facebook',
+                'userId': 'a1',
                 'accessToken' : 'a1'
             },
             proto = {
@@ -17,7 +18,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
             currentRest = '/user';
         
         it('should be GET rest with does not return any user entry', function() { 
-            $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
     
             rest.retrieve(currentRest + '/1000',
                function(successCallback, errorCallback) {

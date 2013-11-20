@@ -7,9 +7,9 @@ function _connect() {
 }
 
 
-function auth(accessToken, deffered) {
+function auth(userId, accessToken, deffered) {
 	
-	deffered.resolve(accessToken);
+	deffered.resolve(userId);
 }
 
 module.exports = auth;

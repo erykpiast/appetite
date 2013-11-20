@@ -26,8 +26,7 @@ function(angular, undefined, _) {
             });
         } else {
             angular.extend(authData, {
-                login: false,
-                serviceName: undefined,
+                service: undefined,
                 userId: undefined,
                 accessToken: undefined,
                 scopes: undefined
@@ -35,17 +34,13 @@ function(angular, undefined, _) {
         }
 
         $rootScope.$on(authConfig.events.login, function(e, data) {
-            angular.extend(authData, data, {
-                login: true
-            });
-            delete authData.restored;
+            angular.extend(authData, data);
 
             $cookieStore.put(authConfig.cookie.name, authData);
         });
 
         $rootScope.$on(authConfig.events.logout, function(e, data) {
-            authData.login = false;
-            authData.serviceName = undefined;
+            authData.service = undefined;
             authData.userId = undefined;
             authData.accessToken = undefined;
             authData.scopes = undefined;

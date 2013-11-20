@@ -7,7 +7,7 @@ function(angular, module, templates) {
             template: templates.comment,
             replace: true,
             restrict: 'E',
-            scope: { comment: '=model', showOwnerFeatures: '&', responseAcceptHandler: '&' },
+            scope: { comment: '=model', showOwnerFeatures: '&', showUserFeatures: '&', responseAcceptHandler: '&' },
             link: function(scope, $element, attrs) {
                 angular.extend(scope, {
                     goTo: $rootScope.goTo,

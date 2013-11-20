@@ -6,6 +6,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
 
     var authData = {
             'service' : 'facebook',
+            'userId': 'a2',
             'accessToken' : 'a2'
         },
         imagePrefix = window.location.protocol + '//' + window.location.hostname + ':' + 3000 + '/static/images',
@@ -24,7 +25,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         user;
 
     it('should be POST rest which prepares user entry', function() {
-        $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+        $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
 
         rest.create('/user', {
             'firstName' : 'c',

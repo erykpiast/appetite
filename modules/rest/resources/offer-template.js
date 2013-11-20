@@ -46,13 +46,13 @@ function _createSetFn(propName, modelName, searchRestrictFn, protoProcessingFn) 
                          // tests need this sequence for correct ids :(
                         return chainer.runSerially();
                     } else {
-                        throw Errors.WrongData();
+                        throw new Errors.WrongData();
                     }
                 } else if(dontIgnoreEmpty) {
                     return true;
                 }
             } else {
-                throw Errors.WrongData();
+                throw new Errors.WrongData();
             }
         }
         
@@ -96,7 +96,7 @@ var _publishPictures = _createPublishFn('pictures', restrict.imagePublic),
 function create(authData, proto) {
     var user, recipe, template;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(serviceId) {
             return User.find({ where: {
                     serviceId: serviceId,
@@ -232,7 +232,7 @@ function retrieve(params, authData) {
 function update(params, authData, proto) {
     var serviceId, template;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             
@@ -340,7 +340,7 @@ function update(params, authData, proto) {
 function destroy(params, authData) {
     var template, serviceId;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             

@@ -7,7 +7,7 @@ function(angular, module, undefined, _, templates) {
     // };
 
     module
-    .directive('appLogin', function($rootScope, authConfig) {
+    .directive('appLogin', function($rootScope, authConfig, authData) {
         return {
             replace: true,
             restrict: 'E',
@@ -16,18 +16,17 @@ function(angular, module, undefined, _, templates) {
             link: function(scope, element, attrs) {
                 scope.authServices = [ { name: 'facebook', label: 'Facebook' } ];
                 scope.currentService = null;
+                scope.currentService = authData && scope.authServices.filter(function(service) {
+                        return service.name === authData.service;
+                    })[0];
 
                 $rootScope.$on(authConfig.events.login, function(e, data) {
-                    scope.loggedIn = true;
-
                     scope.currentService = scope.authServices.filter(function(service) {
-                            return service.name === data.serviceName;
+                            return service.name === data.service;
                         })[0];
                 });
 
                 $rootScope.$on(authConfig.events.logout, function(e, data) {
-                    scope.loggedIn = false;
-
                     scope.currentService = null;
                 });
             }

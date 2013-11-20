@@ -13,7 +13,7 @@ var Response, Offer, User;
 function create(authData, proto) {
     var user, offer;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(serviceId) {
             if(!serviceId) {
                 throw new Errors.Authentication();
@@ -89,7 +89,7 @@ function retrieve(params, authData) {
 function update(params, authData, proto) {
     var serviceId;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
 
@@ -145,7 +145,7 @@ function update(params, authData, proto) {
 function destroy(params, authData) {
     var response, serviceId;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             

@@ -4,7 +4,9 @@ function (angular, module) {
     module
     .run(function(authConfig, authData, authGeneric) {
         if(authData.restored) {
-            authGeneric.use(authData.serviceName);
+            delete authData.restored;
+
+            authGeneric.use(authData.service);
 
             authGeneric.autoLogin();
         }

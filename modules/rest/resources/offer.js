@@ -56,7 +56,7 @@ function _setTimestamps(target, src) {
 function create(authData, proto) {
     var user, template, place;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(serviceId) {
             return User.find({ where: {
                     serviceId: serviceId,
@@ -204,7 +204,7 @@ function retrieveAll(params, authData) {
 function update(params, authData, proto) {
     var serviceId, offer;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             
@@ -262,7 +262,7 @@ function update(params, authData, proto) {
 function destroy(params, authData) {
     var offer, serviceId;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             

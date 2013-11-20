@@ -20,7 +20,7 @@ var User, Place, Image,
 function create(authData, proto) {
     var user, created, place, avatar, updateProps = [ ];
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(serviceId) {
             proto.authService = authData.service;
             proto.serviceId = serviceId;
@@ -32,12 +32,14 @@ function create(authData, proto) {
         function(_user) {
             if(_user) {
                 return _user;
-            } else {
+            } else if((proto.firstName && proto.firstName.length) && (proto.lastName && proto.lastName.length)) {
                 var p = restrict.create(proto);
 
                 created = true;
 
                 return User.create(p, Object.keys(p));
+            } else {
+                throw new Errors.WrongData();
             }
         },
         Errors.report('Database')
@@ -57,7 +59,7 @@ function create(authData, proto) {
     ).then(
         function(place) {
             if(!place) {
-                throw Errors.WrongData();
+                throw new Errors.WrongData();
             } else if(place !== true) {
                 return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
             } else {
@@ -155,7 +157,7 @@ function retrieve(params, authData) {
 function update(params, authData, proto) {
     var user, place, avatar, updateProps = [ ];
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(serviceId) {
             proto.authService = authData.service;
             proto.serviceId = serviceId;
@@ -177,7 +179,7 @@ function update(params, authData, proto) {
     ).then(
         function(place) {
             if(!place) {
-                throw Errors.WrongData();
+                throw new Errors.WrongData();
             } else if(place !== true) {
                 return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
             } else {
@@ -259,7 +261,7 @@ function update(params, authData, proto) {
 function destroy(params, authData) {
     var user, serviceId;
     
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(_serviceId) {
             serviceId = _serviceId;
             

@@ -14,7 +14,7 @@ function create(authData, proto) {
 
     proto.userId = parseInt0(proto.userId);
 
-    return auth(authData.service, authData.accessToken).then(
+    return auth(authData.service, authData.userId, authData.accessToken).then(
         function(serviceId) {
             return User.find({ where: {
                     serviceId: serviceId,

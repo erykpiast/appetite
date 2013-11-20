@@ -7,10 +7,12 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         var currentRest = '/response',
             user1AuthData = {
                 'service' : 'facebook',
+                'userId': 'a4',
                 'accessToken' : 'a4'
             },
             user2AuthData = {
                 'service' : 'facebook',
+                'userId': 'a5',
                 'accessToken' : 'a5'
             },
             proto = { },
@@ -20,7 +22,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         it('should be POST rest which prepares offer owner entry', function() {
             var authData = user1AuthData;
                 
-            $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
     
             rest.create('/user', {
                 'firstName' : 'e',
@@ -76,7 +78,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         it('should be POST rest which prepares response owner entry', function() {
             var authData = user2AuthData;
             
-            $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
     
             rest.create('/user', {
                 'firstName' : 'g',
@@ -154,7 +156,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         it('should be UPDATE rest allows change response entry properties', function() {
             var authData = user1AuthData;
     
-            $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' }); // only offer owner can accept response
+            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' }); // only offer owner can accept response
             
             proto = $.extend(proto, {
                 accepted: true
@@ -178,7 +180,7 @@ define([ 'libs/jquery', 'libs/jquery.cookie', 'mods/rest' ], function($, undefin
         it('should be DELETE rest deletes response entry', function() {
             var authData = user2AuthData;
     
-            $.cookie('auth', { service: authData.service, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
     
             rest.destroy(currentRest + '/' + proto.id,
                function(successCallback, errorCallback) {

@@ -8,13 +8,13 @@ $require('fs').readdirSync(__dirname + '/services')
 		authServices[servicename] = $require(__dirname + '/services/' + filename);
 	});
 
-module.exports = function(servicename, accessToken) {
+module.exports = function(servicename, userId, accessToken) {
 	var deffered = Q.defer();
 
 	servicename =  (servicename || '').toLowerCase();
 
 	if(authServices.hasOwnProperty(servicename)) {
-		authServices[servicename](accessToken, deffered);
+		authServices[servicename](userId, accessToken, deffered);
 	} else {
 		deffered.reject(false);
 	}

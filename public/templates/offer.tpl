@@ -19,11 +19,13 @@
         
         <ul class="offer__comments no-bullets">
             <li class="offer__comment" ng-repeat="comment in offer.comments">
-                <app-comments model="comment" show-owner-features="showOwnerFeatures()" response-accept-handler="acceptResponse(response)"></app-comments>
+                <app-comments model="comment" show-owner-features="showOwnerFeatures()" show-user-features="showUserFeatures()" response-accept-handler="acceptResponse(response)"></app-comments>
             </li>
         </ul>
 
-        <app-add-comment on-submit="addComment(comment)" on-response="response(comment)" show-owner-features="showOwnerFeatures()"></app-add-comment>
+        <div class="offer__comments__add" ng-if="showUserFeatures()">
+            <app-add-comment on-submit="addComment(comment)" on-response="response(comment)" show-owner-features="showOwnerFeatures()"></app-add-comment>
+        </div>
     </div>
 
     <aside class="page__part__aside one-fifth">

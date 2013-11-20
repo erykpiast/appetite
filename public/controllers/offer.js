@@ -52,7 +52,7 @@ define([ 'libs/angular' ], function(angular) {
 	}
 
 
-	return function($rootScope, $scope, $stateParams, rest) {
+	return function($rootScope, $scope, $stateParams, rest, authData) {
 		$scope.users = users;
 		$scope.offer = {
 			comments: [ ]
@@ -86,8 +86,12 @@ define([ 'libs/angular' ], function(angular) {
 						$scope.addComment(angular.extend(comment, { response: res.resource.id }));
 					});
 			},
+			showUserFeatures: function() {
+				return authData && authData.userInfo;
+			},
 			showOwnerFeatures: function() {
-				return ($scope.offer && $scope.offer.author && ($rootScope.currentUser.id === $scope.offer.author.id));
+				return ($scope.offer && $scope.offer.author && ((
+                    authData && authData.userInfo && authData.userInfo.id) === $scope.offer.author.id));
 			},
 			acceptResponse: function(response) {
 				rest.response.update({ id: response.id }, { accepted: true })
