@@ -1955,7 +1955,25 @@ define([ ], function() {
     })(exports, String);
 
 
-    exports._.mixin(exports._.str.exports());
+    (function custom(_) {
+
+        _.mixin(_.str.exports());
+
+        _.mixin({
+            restrict: function(obj, keys) {
+                var o = { };
+
+                _.each(obj, function(value, key) {
+                    if(keys.indexOf(key) !== -1) {
+                        o[key] = value;
+                    }
+                });
+
+                return o;
+            }
+        });
+
+    })(exports._);
 
 
     return exports._;

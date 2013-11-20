@@ -9,5 +9,9 @@
   "dependencies": {
     "underscore": "~1.5.2",
     "underscore.string": "~2.3.3"
+  },
+  "resolutions": {
+    "angular": "~1.2.1",
+    "angular-ui-router": "~0.2.0"
   }
 }

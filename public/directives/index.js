@@ -7,7 +7,8 @@
             'add-comment',
             'gallery',
             'image-picker',
-            'login'
+            'login',
+            'current-user'
             ].map(function(f) { return './' + f; }),
            function() { }
     );

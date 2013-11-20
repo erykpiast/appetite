@@ -8,7 +8,7 @@ function(angular, auth,
          undefined, undefined, undefined) {
 
     angular.module('appetite',
-        [ 'ngResource', 'ngCookies', 'ui.state', 'auth',
+        [ 'ngResource', 'ngCookies', 'ui.router', 'auth',
           'appetite.filters', 'appetite.directives', 'appetite.services' ])
         .config(function($stateProvider, $urlRouterProvider, $locationProvider, $cookieStoreProvider) {
             $urlRouterProvider.otherwise('/');

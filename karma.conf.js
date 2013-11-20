@@ -11,8 +11,7 @@ module.exports = function(config) {
             }
         },
 		files: [
-			{ pattern: 'public/bower_components/jquery/jquery.js', included: false },
-			{ pattern: 'public/bower_components/jquery.cookie/jquery.cookie.js', included: false },
+			{ pattern: 'public/**/*.{js,tpl}', included: false },
 			{ pattern: 'spec/client/rest.js', included: false },
 		    { pattern: '**/*.client.spec.js', included: false },
 		    // { pattern: '**/offer-rest.integration.client.spec.js', included: false },

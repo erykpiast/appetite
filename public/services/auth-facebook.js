@@ -106,7 +106,7 @@ function(angular, module, FB) {
                     if(this._scopes.userInfo.permissions) {
                         var deferred = q.defer();
 
-                        FB.api('/me?fields=id,first_name,last_name,gender,picture,website,location',
+                        FB.api('/me?fields=id,first_name,last_name,gender,picture.type(large),website,location',
                             (function(response) {
                                 deferred.resolve({
                                     id: response.id,

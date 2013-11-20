@@ -18,7 +18,7 @@ define([ 'libs/angular' ], function(angular) {
 			rest.offerTemplate.create(angular.extend({ }, t, {
 				tags: _getTags(t.tags),
 				pictures: t.pictures.length ? t.pictures : null
-			})).$then(function(res) {
+			})).$promise.then(function(res) {
 				console.log('template', res.data);
 
 				deferred.resolve(res.data);
@@ -59,7 +59,7 @@ define([ 'libs/angular' ], function(angular) {
 						place: d.place,
 						startAt: d.startAt,
 						endAt: d.endAt
-					}).$then(function(res) {
+					}).$promise.then(function(res) {
 						console.log('offer', res.data);
 
 						$rootScope.goTo('index');

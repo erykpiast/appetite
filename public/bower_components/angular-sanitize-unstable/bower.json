@@ -1,8 +1,0 @@
-{
-  "name": "angular-sanitize-unstable",
-  "version": "1.1.5",
-  "main": "./angular-sanitize.js",
-  "dependencies": {
-    "angular-unstable": "1.1.5"
-  }
-}

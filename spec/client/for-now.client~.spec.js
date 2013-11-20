@@ -1,4 +1,4 @@
-define([ 'flrForNow' ], function() {
+define([ 'libs/angular', 'filters/for-now' ], function(angular, undefined) {
 
 	describe('forNow filter - Module testing', function() {
 

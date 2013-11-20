@@ -3,9 +3,10 @@
 define([ 'libs/angular' ], function(angular) {
 
 	return function($rootScope, $scope, rest) {
-		
-		rest.offer.retrieveAll().$then(function(res) {
-		    $scope.offers = res.data;
+		$scope.offers = [];
+
+		rest.offer.retrieveAll().$promise.then(function(res) {
+		    $scope.offers.append(res);
 		});
 		
 	};

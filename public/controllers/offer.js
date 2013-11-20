@@ -11,8 +11,8 @@ define([ 'libs/angular' ], function(angular) {
 				relatedEntities[entity.author] = [ ];
 
 				rest.user.retrieve({ id: entity.author }).
-					$then(function(res) {
-						var user = res.data;
+					$promise.then(function(res) {
+						var user = res;
 
 						relatedEntities[user.id].forEach(function(entity) {
 							entity.author = user;
@@ -74,15 +74,15 @@ define([ 'libs/angular' ], function(angular) {
 				});
 
 				rest.comment.create(comment)
-					.$then(function(res) {
-						commentsBuffer.push(res.data);
+					.$promise.then(function(res) {
+						commentsBuffer.push(res);
 
-						_addComment(res.data);
+						_addComment(res);
 					});
 			},
 			response: function(comment) {
 				rest.response.create({ offer: $scope.offer.id })
-					.$then(function(res) {
+					.$promise.then(function(res) {
 						$scope.addComment(angular.extend(comment, { response: res.resource.id }));
 					});
 			},
@@ -95,7 +95,7 @@ define([ 'libs/angular' ], function(angular) {
 			},
 			acceptResponse: function(response) {
 				rest.response.update({ id: response.id }, { accepted: true })
-					.$then(function(res) {
+					.$promise.then(function(res) {
 						response.accepted = true;
 					});	
 			}
@@ -103,16 +103,16 @@ define([ 'libs/angular' ], function(angular) {
 
 
 		rest.offer.retrieve({ id: $stateParams.id })
-			.$then(function(res) {
-				angular.extend($scope.offer, res.data);
+			.$promise.then(function(res) {
+				angular.extend($scope.offer, res);
 
 				_expandAuthor($scope.offer);
 
 				rest.offer.comments.retrieveAll({ offerId: $scope.offer.id })
-					.$then(function(res) {
-						commentsBuffer.append(res.data);
+					.$promise.then(function(res) {
+						commentsBuffer.append(res);
 
-						res.data.forEach(_addComment);
+						res.forEach(_addComment);
 					});
 			});
 	};

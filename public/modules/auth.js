@@ -36,7 +36,11 @@ function(angular, undefined, _) {
         $rootScope.$on(authConfig.events.login, function(e, data) {
             angular.extend(authData, data);
 
-            $cookieStore.put(authConfig.cookie.name, authData);
+            $cookieStore.put(authConfig.cookie.name, {
+                service: authData.service,
+                userId: authData.userId,
+                accessToken: authData.accessToken
+            });
         });
 
         $rootScope.$on(authConfig.events.logout, function(e, data) {

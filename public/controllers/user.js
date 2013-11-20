@@ -10,20 +10,20 @@ define([ 'libs/angular' ], function(angular) {
 
 
         rest.user.retrieve({ id: $stateParams.id })
-            .$then(function(res) {
-                angular.extend($scope.user, res.data, {
+            .$promise.then(function(res) {
+                angular.extend($scope.user, res, {
                     offers: [ ],
                     rating: { }
                 });
 
                 rest.user.offers.retrieve({ userId: $scope.user.id })
-                    .$then(function(res) {
-                        $scope.user.offers.append(res.data);
+                    .$promise.then(function(res) {
+                        $scope.user.offers.append(res);
                     });
 
                 rest.user.rating.retrieve({ userId: $scope.user.id })
-                    .$then(function(res) {
-                        angular.extend($scope.user.rating, res.data);
+                    .$promise.then(function(res) {
+                        angular.extend($scope.user.rating, res);
                     });
             });
 	};

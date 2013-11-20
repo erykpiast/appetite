@@ -18,7 +18,7 @@ var User, Place, Image,
     resourceTypes, resourcePath;
 
 function create(authData, proto) {
-    var user, created, place, avatar, updateProps = [ ];
+    var user, existed, place, avatar, updateProps = [ ];
     
     return auth(authData.service, authData.userId, authData.accessToken).then(
         function(serviceId) {
@@ -31,11 +31,11 @@ function create(authData, proto) {
     ).then(
         function(_user) {
             if(_user) {
+                existed = true;
+
                 return _user;
             } else if((proto.firstName && proto.firstName.length) && (proto.lastName && proto.lastName.length)) {
                 var p = restrict.create(proto);
-
-                created = true;
 
                 return User.create(p, Object.keys(p));
             } else {
@@ -45,11 +45,11 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(_user) {
-            if(_user !== true) {
+            if(_user) {
                 user = _user;
             }
 
-            if(proto.place) {
+            if(!existed && !!proto.place) {
                 return locate(proto.place);
             } else {
                 return true;
@@ -58,9 +58,9 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(place) {
-            if(!place) {
+            if(!existed && !place) {
                 throw new Errors.WrongData();
-            } else if(place !== true) {
+            } else if(!existed && (place !== true)) {
                 return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
             } else {
                 return true;
@@ -69,14 +69,14 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(_place) {
-            if(_place !== true) {
+            if(!existed && (_place !== true)) {
                 place = _place;
                 user.PlaceId = place.values.id;
                 
                 updateProps.push('PlaceId');
-            }
-            
-            if(proto.avatar) {
+            } 
+
+            if(!existed && !!proto.avatar) {
                 return Image.findOrCreate({ originalUrl: proto.avatar }, { filename: new RegExp('^(.*/)([^/]*)$').exec(proto.avatar)[2], AuthorId: user.id });
             } else {
                 return true;
@@ -85,7 +85,7 @@ function create(authData, proto) {
         Errors.report('Database')
     ).then(
         function(_avatar) {
-            if(_avatar !== true) {
+            if(!existed && (_avatar !== true)) {
                 avatar = _avatar;
                 
                 user.AvatarId = avatar.values.id;
@@ -104,7 +104,7 @@ function create(authData, proto) {
 		Errors.report('Database')
 	).then(
         function(savingResult) {
-            if(savingResult !== true) {
+            if(!existed && (savingResult !== true)) {
                 avatar.filename = savingResult;
                 
                 return avatar.save(/*[ 'filename '] -- for some reason with this restriction saving doesn't work */);
@@ -115,7 +115,7 @@ function create(authData, proto) {
 		Errors.report('Database')
 	).then(
         function() {
-            if(updateProps.length) {
+            if(!existed && updateProps.length) {
                 return user.save(updateProps);
             } else {
                 return true;
@@ -128,7 +128,7 @@ function create(authData, proto) {
                             avatar: (avatar ? restrict.avatarPublic(avatar) : (user.values.avatar ? restrict.avatarPublic(user.values.avatar) : 0)),
                             place: (place ? restrict.placePublic(place) : (user.values.place ? restrict.placePublic(user.values.place) : 0))
                         }),
-                    existed: !created
+                    existed: existed
                 };
         },
         Errors.report('Database')

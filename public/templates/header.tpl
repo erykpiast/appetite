@@ -4,4 +4,6 @@
 
 	<app-login></app-login>
 
+	<app-current-user></app-current-user>
+
 </div>
