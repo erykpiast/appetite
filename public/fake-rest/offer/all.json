@@ -14,7 +14,7 @@
             "url": "http://olgagotuje.pl/przepisy/ciasto-tres-leches",
             "domain": "olgagotuje.pl"
         },
-        "author": 1,
+        "author": 2,
         "pictures": [{
             "id": 3,
             "filename": "0001.jpg"
@@ -38,7 +38,7 @@
     },
     "startAt": "2013-10-27T19:28:10.398Z",
     "endAt": "2013-11-11T12:18:29.442Z",
-    "author": 1
+    "author": 2
 }, {
     "id": 2,
     "type": "offer",
@@ -55,7 +55,7 @@
             "url": "http://www.mojewypieki.com/przepis/pani-walewska-pychotka",
             "domain": "mojewypieki.com"
         },
-        "author": 2,
+        "author": 1,
         "pictures": [{
             "id": 3,
             "filename": "0004.jpg"
@@ -79,7 +79,7 @@
     },
     "startAt": "2013-10-30T17:24:00.143Z",
     "endAt": "2013-11-05T12:00:43.980Z",
-    "author": 2
+    "author": 1
 }, {
     "id": 3,
     "type": "offer",
@@ -96,7 +96,7 @@
             "url": "http://www.mojewypieki.com/przepis/brownie-z-kaszy-jaglanej-z-orzechami-pekan",
             "domain": "mojewypieki.com"
         },
-        "author": 1,
+        "author": 2,
         "pictures": [{
             "id": 3,
             "filename": "0006.jpg"
@@ -123,5 +123,5 @@
     },
     "startAt": "2013-11-16T17:24:00.143Z",
     "endAt": "2013-11-25T12:00:43.980Z",
-    "author": 1
+    "author": 2
 }]

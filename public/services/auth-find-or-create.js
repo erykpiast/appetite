@@ -8,13 +8,13 @@ function (angular, module, _) {
                 rest.user.create(_.restrict(userData,
                 	[ 'firstName', 'lastName', 'gender', 'site', 'avatar' ]))
                 .$promise.then(function(res) {
-					authData.userInfo = angular.extend({ }, res.data);
+					authData.userInfo = angular.extend({ }, res);
 				});
             })
         });
 
-        $rootScope.$on(authConfig.events.logout, function(e, data) {
-        	$rootScope.currentUser = null;
+        $rootScope.$on(authConfig.events.logout, function() {
+        	delete authData.userInfo;
         });
 	});
 

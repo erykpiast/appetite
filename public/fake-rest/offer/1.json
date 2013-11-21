@@ -14,7 +14,7 @@
             "url": "http://olgagotuje.pl/przepisy/ciasto-tres-leches",
             "domain": "olgagotuje.pl"
         },
-        "author": 1,
+        "author": 2,
         "pictures": [{
             "id": 3,
             "filename": "0001.jpg"
@@ -38,5 +38,5 @@
     },
     "startAt": "2013-10-27T19:28:10.398Z",
     "endAt": "2013-11-11T12:18:29.442Z",
-    "author": 1
+    "author": 2
 }

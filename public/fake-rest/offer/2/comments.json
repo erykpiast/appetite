@@ -1,6 +1,6 @@
 [{
 	"id": 6,
-	"author": 1,
+	"author": 2,
 	"content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, explicabo, fugit itaque sequi nisi hic ipsam alias sit praesentium perferendis ipsa quisquam. Incidunt, veniam, eveniet porro velit aspernatur impedit aliquam?",
 	"createdAt": "1382121448082",
 	"updatedAt": "1382121448082",
@@ -9,7 +9,7 @@
 	"offer": 2
 }, {
 	"id": 7,
-	"author": 2,
+	"author": 1,
 	"content": "Consectetur adipisicing elit. Tempora, explicabo, fugit itaque sequi nisi hic ipsam alias sit praesentium perferendis ipsa quisquam.",
 	"createdAt": "1382121400053",
 	"updatedAt": "1382121400053",
@@ -18,13 +18,13 @@
 	"offer": 2
 }, {
 	"id": 8,
-	"author": 1,
+	"author": 2,
 	"content": "Nisi ipsa!",
 	"createdAt": "1383621448082",
 	"updatedAt": "1383621448082",
 	"response": {
 		"offer": 2,
-		"author": 1,
+		"author": 2,
 		"id": 2,
 		"accepted": false
 	},
@@ -32,7 +32,7 @@
 	"offer": 2
 }, {
 	"id": 9,
-	"author": 2,
+	"author": 1,
 	"content": "Sit porro!",
 	"createdAt": "1383621648082",
 	"updatedAt": "1383621648082",

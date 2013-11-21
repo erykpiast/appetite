@@ -13,6 +13,8 @@ function(angular, module, templates, _) {
                 scope.goTo = $rootScope.goTo;
                 scope.i18n = $rootScope.i18n;
                 
+                scope.user = authData.userInfo
+
                 scope.authData = authData;
                 scope.$watch('authData', function(newVal, oldVal) {
                     if(!_.isEqual(newVal.userInfo, oldVal.userInfo)) {

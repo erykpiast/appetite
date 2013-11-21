@@ -16,6 +16,7 @@ function(angular, undefined, module, undefined, undefined) {
             },
             response: nodeRest.response,
             user: angular.extend({ }, fakeRest.user, {
+                retrieve: nodeRest.user.retrieve,
                 create: nodeRest.user.create
             })
         });
