@@ -7,15 +7,6 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		authService: {
-			type: DataTypes.ENUM,
-			values: auth.services,
-			allowNull: false
-		},
-		serviceId: {
-			type: DataTypes.STRING,
-			allowNull: false
-		},
 		firstName: {
 			type: DataTypes.STRING,
 			allowNull: false
@@ -35,6 +26,7 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 			defaultValue: ''
 		}
+		// accessToken - foreign key from AccessToken
 		// avatar - foreign key from Avatar
 		// place - foreign key from Place
 	}, {

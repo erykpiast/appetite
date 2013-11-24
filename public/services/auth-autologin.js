@@ -6,7 +6,7 @@ function (angular, module) {
         if(authData.restored) {
             delete authData.restored;
 
-            authGeneric.use(authData.service);
+            authGeneric.use(authData.serviceName);
 
             authGeneric.autoLogin();
         }

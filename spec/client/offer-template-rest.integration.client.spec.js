@@ -1,11 +1,10 @@
 define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefined, rest) {
 
-    $.cookie.json = true;
 
-	describe('offer template REST integration test', function() {
+describe('offer template REST integration test', function() {
 
     var authData = {
-            'service' : 'facebook',
+            'serviceName' : 'test',
             'userId': 'a2',
             'accessToken' : 'a2'
         },
@@ -25,7 +24,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
         user;
 
     it('should be POST rest which prepares user entry', function() {
-        $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+        $.cookie('auth', JSON.stringify(authData), { path: '/' });
 
         rest.create('/user', {
             'firstName' : 'c',
@@ -111,7 +110,6 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
 
     
     it('should be UPDATE rest allows change template entry properties', function() {
-        
         rest.update(currentRest + '/' + proto.id, {
                 title: 'ccc',
                 description: 'tra la la tra la la',
@@ -202,4 +200,4 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
     
 });
 
-})
+});

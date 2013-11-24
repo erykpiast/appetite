@@ -17,12 +17,12 @@ function(angular, module, undefined, _, templates) {
                 scope.authServices = [ { name: 'facebook', label: 'Facebook' } ];
                 scope.currentService = null;
                 scope.currentService = authData && scope.authServices.filter(function(service) {
-                        return service.name === authData.service;
+                        return service.name === authData.serviceName;
                     })[0];
 
                 $rootScope.$on(authConfig.events.login, function(e, data) {
                     scope.currentService = scope.authServices.filter(function(service) {
-                            return service.name === data.service;
+                            return service.name === data.serviceName;
                         })[0];
                 });
 

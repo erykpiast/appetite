@@ -1,5 +1,5 @@
 var auth = $require('/modules/auth'),
-    Errors = $require('/modules/rest/errors'),
+    Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'accepted' ],
         create: [ ],
@@ -56,7 +56,7 @@ function create(authData, proto) {
                 return Response.create(proto, Object.keys(proto));
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(response) {
             return { resource: extend(restrict.public(response.values), {
@@ -64,7 +64,7 @@ function create(authData, proto) {
                         author: response.values.AuthorId
                     }) };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -81,7 +81,7 @@ function retrieve(params, authData) {
                     }) };
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -129,7 +129,7 @@ function update(params, authData, proto) {
                 return response.save(Object.keys(newAttrs));
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(response) {
             return { resource: extend(restrict.public(response.values), {
@@ -137,7 +137,7 @@ function update(params, authData, proto) {
                     author: response.values.AuthorId
                 }) };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -168,7 +168,7 @@ function destroy(params, authData) {
                 return response.destroy();
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function() {
             return { resource: extend(restrict.public(response.values), {
@@ -176,7 +176,7 @@ function destroy(params, authData) {
                     author: response.values.AuthorId
                 }) };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 

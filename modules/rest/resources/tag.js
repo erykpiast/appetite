@@ -1,5 +1,5 @@
 var auth = $require('/modules/auth'),
-	Errors = $require('/modules/rest/errors'),
+	Errors = $require('/modules/errors'),
 	restrict = $require('/modules/rest/restrict')({
 		public: [ 'id', 'text' ],
 		create: [ 'text' ],
@@ -34,7 +34,7 @@ function create(authData, proto) {
 		function(tag) {
 			return { resource: restrict.public(tag.values) };
 		},
-		Errors.report('Database')
+		Errors.report('Internal', 'DATABASE')
 	);
 }
 
@@ -48,7 +48,7 @@ function retrieve(params, authData) {
 				throw new Errors.NotFound();
 			}
 		},
-		Errors.report('Database')
+		Errors.report('Internal', 'DATABASE')
 	);
 }
 

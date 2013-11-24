@@ -1,11 +1,9 @@
 define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefined, rest) {
 
-    $.cookie.json = true;
-
 	describe('user REST integration test', function() {
     
         var authData = {
-                'service' : 'facebook',
+                'serviceName' : 'test',
                 'userId': 'a1',
                 'accessToken' : 'a1'
             },
@@ -18,7 +16,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
             currentRest = '/user';
         
         it('should be GET rest with does not return any user entry', function() { 
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(authData), { path: '/' });
     
             rest.retrieve(currentRest + '/1000',
                function(successCallback, errorCallback) {
@@ -87,6 +85,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
             
             rest.update(currentRest + '/' + proto.id, {
                     gender: 'male',
+                    place: 'p2',
                     avatar: window.location.protocol + '//' + window.location.hostname + ':' + 3000 + '/static/images/1002.jpg',
                     site: 'http://example.com/'
                 }, function(successCallback, errorCallback) {
@@ -102,6 +101,10 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
                         avatar: {
                             id: response.avatar.id,
                             filename: 'afc7b4188d014e56fe8c202e5a67ff72.jpg'
+                        },
+                        place: {
+                            id: response.place.id,
+                            serviceId: 'p2'
                         }
                     });
 

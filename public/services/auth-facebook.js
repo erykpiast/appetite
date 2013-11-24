@@ -32,7 +32,7 @@ function(angular, module, FB) {
                     }
 
                     FB.Event.subscribe('auth.login', this._loginHandler.bind(this));
-                    FB.Event.subscribe('auth.logout', this._loginHandler.bind(this));
+                    FB.Event.subscribe('auth.logout', this._logoutHandler.bind(this));
 
                     FB.init({
                         appId: this._appId,

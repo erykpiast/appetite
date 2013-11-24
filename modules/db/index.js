@@ -11,7 +11,8 @@ var sequelize = new Sequelize(
         define: {
             charset: 'utf8',
             collate: 'utf8_general_ci'
-        }
+        },
+        language: 'en'
     }
 );
 
@@ -56,6 +57,8 @@ $require('fs').readdir(__dirname + '/models', function(err, files) {
 
         m.User.belongsTo(m.Image, { as: 'Avatar', foreignKey: 'AvatarId' });
         m.User.belongsTo(m.Place);
+
+        m.User.belongsTo(m.AuthData);
 
         m.UserRating.belongsTo(m.User, { as: 'Target', foreignKey: 'TargetId' });
         m.UserRating.belongsTo(m.Response);

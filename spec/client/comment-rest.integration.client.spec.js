@@ -1,18 +1,18 @@
 define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefined, rest) {
 
-    $.cookie.json = true;
+    
 
     describe('comment REST integration test', function() {
     
     
         var currentRest = '/comment',
             user1AuthData = {
-                'service' : 'facebook',
+                'serviceName' : 'test',
                 'userId': 'a6',
                 'accessToken' : 'a6'
             },
             user2AuthData = {
-                'service' : 'facebook',
+                'serviceName' : 'test',
                 'userId': 'a7',
                 'accessToken' : 'a7'
             },
@@ -23,9 +23,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
             offerTemplate, offer, response;
     
         it('should be POST rest which prepares offer owner entry', function() {
-            var authData = user1AuthData;
-                
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(user1AuthData), { path: '/' });
     
             rest.create('/user', {
                 'firstName' : 'e',
@@ -79,9 +77,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
         
         
         it('should be POST rest which prepares response owner entry', function() {
-            var authData = user2AuthData;
-            
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(user2AuthData), { path: '/' });
     
             rest.create('/user', {
                 'firstName' : 'g',
@@ -174,7 +170,6 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
     
         
         it('should be UPDATE rest allows change comment entry properties', function() {
-            
             rest.update(currentRest + '/' + proto.id, {
                     content: 'Lorem ipsum!'
                 }, function(successCallback, errorCallback) {

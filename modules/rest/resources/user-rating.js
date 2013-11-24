@@ -1,5 +1,5 @@
 var auth = $require('/modules/auth'),
-    Errors = $require('/modules/rest/errors'),
+    Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'type', 'createdAt' ],
         create: [ 'type' ],
@@ -12,130 +12,113 @@ var DB, Rating, Response, Offer, User;
 function create(authData, proto) {
     var user, response;
 
-    proto.userId = parseInt0(proto.userId);
+    return User.find({ where: { id: params.userId } })
+    .then(function(_user) {
+        user = _user;
 
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(serviceId) {
-            return User.find({ where: {
-                    serviceId: serviceId,
-                    authService: authData.service,
-                    deletedAt: null
-                } });
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_user) {
-            if(!_user) {
-                throw new Errors.Authentication();
-            } else if(!proto.response || !proto.type) {
-                throw new Errors.WrongData();
-            } else {
-                user = _user;
+        if(!user) {
+            throw new Errors.NotFound();
+        } else if(user.AuthDataId === authData.storedId) { // you can't rate yourself!
+            throw new Errors.Authentication();
+        } else if(!proto.response || !proto.type) {
+            throw new Errors.WrongData();
+        } else {
+            return Response.find({ where: {
+                id: proto.response
+            }, include: [ Offer ] });
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_response) {
+        response = _response;
 
-                return Response.find({ where: {
-                    id: proto.response
-                }, include: [ Offer ] });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_response) {
-            if(!_response) {
-                throw new Errors.WrongData();
-            } else if((user.id !== _response.AuthorId) || (_response.offer.AuthorId !== proto.userId) || !_response.accepted) {
-                throw new Errors.Authentication();
-            } else {
-                response = _response;
-
-                return Rating.find({ where: { ResponseId: response.id, AuthorId: user.id } });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(rating) {
-            if(!!rating) {
-                throw new Errors.WrongData();
-            } else {
-                var p = extend(restrict.create(proto), {
-                        AuthorId: user.id,
-                        TargetId: proto.userId,
-                        ResponseId: response.id
-                    });
-
-                return Rating.create(p, Object.keys(p));    
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function(rating) {
-            if(!rating) {
-                throw new Errors.Database();
-            } else {
-                return {
-                        resource: extend(restrict.public(rating), {
-                            author: user.id,
-                            target: response.offer.AuthorId,
-                            response: response.id
-                        })
-                    };
-            }
-        },
-        Errors.report('Database')
-    );
+        if(!response) {
+            throw new Errors.WrongData();
+        } else if((user.id !== response.AuthorId) || (response.offer.AuthorId !== proto.userId) || !response.accepted) {
+            throw new Errors.Authentication();
+        } else {
+            return Rating.find({ where: { ResponseId: response.id, AuthorId: user.id } });
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(rating) {
+        if(!!rating) {
+            throw new Errors.WrongData('ENTITY_EXISTS');
+        } else {
+            var p;
+            return Rating.create(p = extend(restrict.create(proto), {
+                    AuthorId: user.id,
+                    TargetId: proto.userId,
+                    ResponseId: response.id
+                }), Object.keys(p));    
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(rating) {
+        if(!rating) {
+            throw new Errors.Database();
+        } else {
+            return {
+                    resource: extend(restrict.public(rating), {
+                        author: user.id,
+                        target: response.offer.AuthorId,
+                        response: response.id
+                    })
+                };
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function retrieve(params, authData) {
-    return Rating.find({ where: restrict.search(params) }).then(
-        function(rating) {
-            if(!!rating) {
-                return {
-                        resource: extend(restrict.public(rating), {
-                            author: rating.AuthorId,
-                            target: rating.TargetId,
-                            response: rating.ResponseId
-                        })
-                    };
-            } else {
-                throw new Errors.NotFound();
-            }
-        },
-        Errors.report('Database')
-    );
+    return Rating.find({ where: restrict.search(params) })
+    .then(function(rating) {
+        if(!!rating) {
+            return {
+                    resource: extend(restrict.public(rating), {
+                        author: rating.AuthorId,
+                        target: rating.TargetId,
+                        response: rating.ResponseId
+                    })
+                };
+        } else {
+            throw new Errors.NotFound();
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function countAllForUser(params, authData) {
-    return User.find({ where: { id: params.userId, deletedAt: null } }).then(
-        function(user) {
-            if(!user) {
-               throw new Errors.NotFound(); 
-            } else {
-                return DB.sequelize.query('SELECT `type`, COUNT(*) AS "value" FROM `' + Rating.tableName + '` WHERE `TargetId`=' + user.id + ' AND `deletedAt` IS NULL GROUP BY `type`');
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function(res) {
-            if(!!res) {
-                var values = { };
+    return User.find({ where: { id: params.userId, deletedAt: null } })
+    .then(function(user) {
+        if(!user) {
+           throw new Errors.NotFound(); 
+        } else {
+            return DB.sequelize.query('SELECT `type`, COUNT(*) AS "value" FROM `' + Rating.tableName + '` WHERE `TargetId`=' + user.id + ' AND `deletedAt` IS NULL GROUP BY `type`');
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(res) {
+        if(!!res) {
+            var values = { };
 
-                res.forEach(function(res) {
-                    values[res.type + 's'] = res.value;
-                });
+            res.forEach(function(res) {
+                values[res.type + 's'] = res.value;
+            });
 
-                return {
-                        resource: {
-                            positives: values.positives || 0,
-                            negatives: values.negatives || 0
-                        }
-                    };
-            } else {
-                throw new Errors.NotFound();
-            }
-        },
-        Errors.report('Database')
-    );
+            return {
+                    resource: {
+                        positives: values.positives || 0,
+                        negatives: values.negatives || 0
+                    }
+                };
+        } else {
+            throw new Errors.NotFound();
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 

@@ -37,7 +37,7 @@ function(angular, module, undefined) {
 
                 return this._.login(scopes).then((function() {
                     $rootScope.$broadcast(authConfig.events.login, {
-                        service: this._.name,
+                        serviceName: this._.name,
                         userId: this._.userId,
                         accessToken: this._.accessToken
                     });
@@ -50,7 +50,7 @@ function(angular, module, undefined) {
 
                 return this._.logout().then((function() {
                     $rootScope.$broadcast(authConfig.events.logout, {
-                        service: this._.name,
+                        serviceName: this._.name,
                         userId: this._.userId
                     });
 
@@ -74,7 +74,7 @@ function(angular, module, undefined) {
                 
                 return this._.autoLogin().then((function() {
                     $rootScope.$broadcast(authConfig.events.login, {
-                        service: this._.name,
+                        serviceName: this._.name,
                         userId: this._.userId,
                         accessToken: this._.accessToken
                     });

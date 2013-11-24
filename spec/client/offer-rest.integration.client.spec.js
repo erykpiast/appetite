@@ -1,11 +1,11 @@
 define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefined, rest) {
 
-    $.cookie.json = true;
+    
 
 	describe('offer REST integration test', function() {
 
         var authData = {
-                'service' : 'facebook',
+                'serviceName' : 'test',
                 'userId': 'a3',
                 'accessToken' : 'a3'
             },
@@ -18,7 +18,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
             offerTemplate;
     
         it('should be POST rest which prepares user entry', function() {
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(authData), { path: '/' });
     
             rest.create('/user', {
                 'firstName' : 'c',

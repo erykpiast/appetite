@@ -2,7 +2,7 @@ var Q = $require('q'),
     moment = $require('moment'),
     auth = $require('/modules/auth'),
     locate = $require('/modules/locate'),
-    Errors = $require('/modules/rest/errors'),
+    Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'type', 'place', 'template', 'startAt', 'endAt', 'started', 'ended' ],
         placePublic: [ 'id', 'serviceId' ],
@@ -97,7 +97,7 @@ function create(authData, proto) {
                 return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(_place) {
             place = _place;
@@ -115,7 +115,7 @@ function create(authData, proto) {
 
             return Offer.create(p, Object.keys(p));
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(offer) {
             return { resource: extend(restrict.public(offer), {
@@ -124,7 +124,7 @@ function create(authData, proto) {
                     author: user.values.id
                 }) };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -142,7 +142,7 @@ function retrieve(params, authData) {
                 return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(template) {
             return { resource: extend(restrict.public(offer), {
@@ -152,7 +152,7 @@ function retrieve(params, authData) {
                         })
                     };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -187,7 +187,7 @@ function retrieveAll(params, authData) {
                 throw new Errors.NotFound();
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(templates) {
             templates.forEach(function(template, index) {
@@ -196,7 +196,7 @@ function retrieveAll(params, authData) {
             
             return { resource: offers };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -238,14 +238,14 @@ function update(params, authData, proto) {
                 throw new Errors.Authentication();
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(_offer) {
             offer = _offer;
             
             return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(template) {
             return { resource: extend(restrict.public(offer), {
@@ -285,12 +285,12 @@ function destroy(params, authData) {
                 throw new Errors.Authentication();
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function() {
             return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(template) {
             return { resource: extend(restrict.public(offer), {
@@ -300,7 +300,7 @@ function destroy(params, authData) {
                         })
                     };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 

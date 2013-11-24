@@ -1,7 +1,7 @@
 var moment = $require('moment'),
     auth = $require('/modules/auth'),
     locate = $require('/modules/locate'),
-    Errors = $require('/modules/rest/errors'),
+    Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'content', 'createdAt', 'updatedAt' ],
         create: [ 'content' ],
@@ -97,7 +97,7 @@ function create(authData, proto) {
                 return Comment.create(proto, Object.keys(proto));
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(comment, created) {
             return extend({ resource: extend(restrict.public(comment.values), {
@@ -110,7 +110,7 @@ function create(authData, proto) {
                     parent: (parent ?  parent.values.id : 0)
                 }) }, (created === false ? { existed: true } : { }));
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -130,7 +130,7 @@ function retrieve(params, authData) {
                 return true;
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(response) {
             return { resource: extend(restrict.public(comment.values), {
@@ -144,7 +144,7 @@ function retrieve(params, authData) {
                         })
                     };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -172,7 +172,7 @@ function retrieveAllForOffer(params, authData) {
                 throw new Errors.NotFound();
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 
@@ -205,7 +205,7 @@ function update(params, authData, proto) {
                 throw new Errors.Authentication();
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function(_comment) {
             comment = _comment;
@@ -251,7 +251,7 @@ function destroy(params, authData) {
                 throw new Errors.Authentication();
             }
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     ).then(
         function() {
             return { resource: extend(restrict.public(comment.values), {
@@ -265,7 +265,7 @@ function destroy(params, authData) {
                         })
                     };
         },
-        Errors.report('Database')
+        Errors.report('Internal', 'DATABASE')
     );
 }
 

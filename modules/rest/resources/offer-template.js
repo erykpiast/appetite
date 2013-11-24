@@ -2,8 +2,7 @@ var Sequelize = $require('sequelize'),
     Resource = $require('/modules/resource'),
     md5 = $require('MD5'),
     q = $require('q'),
-    auth = $require('/modules/auth'),
-    Errors = $require('/modules/rest/errors'),
+    Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'title', 'description', 'recipe' ],
         recipePublic: [ 'id', 'url', 'domain' ],
@@ -69,7 +68,7 @@ function _createPublishFn(prop, restrictFn) { // function factory
 
         return source
             .map(function(obj) {
-                return restrictFn(obj.values);
+                return restrictFn(obj);
             })
             .unique(true); // required until Sequelize returns duplicated objects in collections of pictures and tags
     };
@@ -96,276 +95,104 @@ var _publishPictures = _createPublishFn('pictures', restrict.imagePublic),
 function create(authData, proto) {
     var user, recipe, template;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(serviceId) {
-            return User.find({ where: {
-                    serviceId: serviceId,
-                    authService: authData.service,
-                    deletedAt: null
-                } });
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_user) {
-            user = _user;
-            
-            if(!user) {
-                throw new Errors.Authentication();
-            } else if(!proto.recipe || !String.isUrl(proto.recipe)) {
-                throw new Errors.WrongData();
-            } else {
-                return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.values.id });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_recipe) {
-            recipe = _recipe;
-            
-            var p = extend(restrict.create(proto), {
-                    AuthorId: user.values.id,
-                    RecipeId: recipe.values.id
-                });
-            
-            return OfferTemplate.create(p, Object.keys(p));
-        },
-        Errors.report('Database')
-    ).then(
-        function(_template) {
-            template = _template;
-            
-            return _setPictures(proto, user.values.id);
-        },
-        Errors.report('Database')
-    ).then(
-        function(pictures) {
-            if(pictures instanceof Array) {
-                proto.pictures = pictures;
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
 
-                return q.all(proto.pictures.map(function(picture) {
-                    var r = new Resource(resourceTypes, resourcePath);
+        if(!user || !proto.recipe || !String.isUrl(proto.recipe)) {
+            throw new Errors.WrongData();
+        } else {
+            return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.values.id });
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_recipe) {
+        recipe = _recipe;
+        
+        var p;
+        return OfferTemplate.create(p = extend(restrict.create(proto), {
+                AuthorId: user.values.id,
+                RecipeId: recipe.values.id
+            }), Object.keys(p));
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_template) {
+        template = _template;
+        
+        return _setPictures(proto, user.values.id);
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(pictures) {
+        if(pictures instanceof Array) {
+            proto.pictures = pictures;
 
-                    return r.fetch(picture.originalUrl).then(function() {
-                            return r.save(picture.filename);
-                        });
-                    }));
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function(savingResults) {
-            if(savingResults instanceof Array) {
-                return q.all(savingResults.map(function(file, index) {
-                    proto.pictures[index].filename = file;
-                    
-                    return proto.pictures[index].save([ 'filename' ]);
+            return q.all(proto.pictures.map(function(picture) {
+                var r = new Resource(resourceTypes, resourcePath);
+
+                return r.fetch(picture.originalUrl).then(function() {
+                        return r.save(picture.filename);
+                    });
                 }));
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function() {
-            if(proto.pictures) {
-                return template.setPictures(proto.pictures);
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function() {
-            return _setTags(proto, user.values.id);
-        },
-        Errors.report('Database')
-    ).then(
-        function(tags) {
-            if(tags instanceof Array) {
-                proto.tags = tags;
-            }
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(savingResults) {
+        if(savingResults instanceof Array) {
+            return q.all(savingResults.map(function(file, index) {
+                proto.pictures[index].filename = file;
+                
+                return proto.pictures[index].save([ 'filename' ]);
+            }));
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        if(proto.pictures) {
+            return template.setPictures(proto.pictures);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return _setTags(proto, user.values.id);
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(tags) {
+        if(tags instanceof Array) {
+            proto.tags = tags;
+        }
 
-            if(proto.tags) {
-                return template.setTags(proto.tags);
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function() {
-            return { resource: extend(restrict.public(template.values), {
-                            recipe: restrict.recipePublic(recipe),
-                            author: user.values.id,
-                            pictures: _publishPictures(proto),
-                            tags: _publishTags(proto)
-                        })
-                    };
-        },
-        Errors.report('Database')
-    );
+        if(proto.tags) {
+            return template.setTags(proto.tags);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return { resource: extend(restrict.public(template), {
+                        recipe: restrict.recipePublic(recipe),
+                        author: user.id,
+                        pictures: _publishPictures(proto),
+                        tags: _publishTags(proto)
+                    })
+                };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function retrieve(params, authData) {
-    return OfferTemplate.find({ where: restrict.search(params), include: [ Recipe, Tag, { model: Image, as: 'Pictures' } ] }).then(
-        function(template) {
-            if(!!template) {
-                return { resource: extend(restrict.public(template.values), {
-                                recipe: restrict.recipePublic(template.values.recipe),
-                                author: template.values.AuthorId,
-                                pictures: _publishPictures(template.values),
-                                tags: _publishTags(template.values)
-                            })
-                       };
-            } else {
-                throw new Errors.NotFound();
-            }
-        },
-        Errors.report('Database')
-    );
-}
-
-
-function update(params, authData, proto) {
-    var serviceId, template;
-    
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
-            
-            if(!!serviceId) {
-                return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, { model: Image, as: 'Pictures' }, Tag, Recipe ] });
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(template) {
-            if(!template) {
-                throw new Errors.NotFound();    
-            } else if(serviceId === template.values.author.values.serviceId) {
-                var newAttrs = restrict.update(proto);
-                
-                extend(template, newAttrs);
-                
-                return template.save(Object.keys(newAttrs));
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function(_template) {
-            template = _template;
-            
-            return _setPictures(proto, template.values.author.values.id, !!'don\'t ignore empty');
-        },
-        Errors.report('Database')
-    ).then(
-        function(pictures) {
-            if(pictures instanceof Array) {
-                proto.pictures = pictures;
-
-                return q.all(proto.pictures.map(function(picture) {
-                    var r = new Resource(resourceTypes, resourcePath);
-
-                    return r.fetch(picture.originalUrl).then(function() {
-                            return r.save(picture.filename);
-                        });
-                    }));
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function(savingResults) {
-            if(savingResults instanceof Array) {
-                return q.all(savingResults.map(function(file, index) {
-                    proto.pictures[index].filename = file;
-                    
-                    return proto.pictures[index].save([ 'filename' ]);
-                }));
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function() {
-            if(proto.pictures) {
-                return template.setPictures(proto.pictures);
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function() {
-            return _setTags(proto, template.values.author.values.id, !!'don\'t ignore empty');
-        },
-        Errors.report('Database')
-    ).then(
-        function(tags) {
-            if(tags instanceof Array) {
-                proto.tags = tags;
-            }
-            
-            if(proto.tags) {
-                return template.setTags(proto.tags);
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function() {
-            return { resource: extend(restrict.public(template.values), {
-                            recipe: restrict.recipePublic(template.values.recipe),
-                            author: template.values.AuthorId,
-                            pictures: _publishPictures(proto, template.values),
-                            tags: _publishTags(proto, template.values)
-                        })
-                    };
-        },
-        Errors.report('Database')
-    );
-}
-
-
-function destroy(params, authData) {
-    var template, serviceId;
-    
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
-            
-            if(!!serviceId) {
-                return OfferTemplate.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, { model: Image, as: 'Pictures' }, Tag, Recipe ] });
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_template) {
-            template = _template;
-            
-            if(!template) {
-                throw new Errors.NotFound();    
-            } else if(serviceId === template.values.author.values.serviceId) {
-                return template.destroy();
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Database')
-    ).then(
-        function() {
+    return OfferTemplate.find({ where: restrict.search(params), include: [ Recipe, Tag, { model: Image, as: 'Pictures' } ] })
+    .then(function(template) {
+        if(!template) {
+            throw new Errors.NotFound();
+        } else {
             return { resource: extend(restrict.public(template.values), {
                             recipe: restrict.recipePublic(template.values.recipe),
                             author: template.values.AuthorId,
@@ -373,9 +200,149 @@ function destroy(params, authData) {
                             tags: _publishTags(template.values)
                         })
                    };
-        },
-        Errors.report('Database')
-    );
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
+}
+
+
+function update(params, authData, proto) {
+    var user, template;
+    
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
+
+        if(!user) {
+            throw new Errors.Authentication();
+        } else {
+            return OfferTemplate.find({ where: restrict.search(params), include: [ { model: Image, as: 'Pictures' }, Tag, Recipe ] });
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_template) {
+        template = _template;
+
+        if(!template) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== template.AuthorId) {
+            throw new Errors.Authentication();
+        } else {
+            var newAttrs = restrict.update(proto);
+            
+            extend(template, newAttrs);
+            
+            return template.save(Object.keys(newAttrs));
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_template) {
+        template = _template;
+        
+        return _setPictures(proto, template.AuthorId, !!'don\'t ignore empty');
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(pictures) {
+        if(pictures instanceof Array) {
+            proto.pictures = pictures;
+
+            return q.all(proto.pictures.map(function(picture) {
+                var r = new Resource(resourceTypes, resourcePath);
+
+                return r.fetch(picture.originalUrl).then(function() {
+                        return r.save(picture.filename);
+                    });
+                }));
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(savingResults) {
+        if(savingResults instanceof Array) {
+            return q.all(savingResults.map(function(file, index) {
+                proto.pictures[index].filename = file;
+                
+                return proto.pictures[index].save([ 'filename' ]);
+            }));
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        if(proto.pictures) {
+            return template.setPictures(proto.pictures);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return _setTags(proto, template.AuthorId, !!'don\'t ignore empty');
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(tags) {
+        if(tags instanceof Array) {
+            proto.tags = tags;
+        }
+        
+        if(proto.tags) {
+            return template.setTags(proto.tags);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return { resource: extend(restrict.public(template), {
+                        recipe: restrict.recipePublic(template.recipe),
+                        author: template.AuthorId,
+                        pictures: _publishPictures(proto, template),
+                        tags: _publishTags(proto, template)
+                    })
+                };
+    },
+    Errors.report('Internal', 'DATABASE'));
+}
+
+
+function destroy(params, authData) {
+    var user, template;
+    
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
+
+        if(!user) {
+            throw new Errors.Authentication();
+        } else {
+            return OfferTemplate.find({ where: restrict.search(params), include: [ { model: Image, as: 'Pictures' }, Tag, Recipe ] });
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_template) {
+        template = _template;
+
+        if(!template) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== template.AuthorId) {
+            throw new Errors.Authentication();
+        } else {
+            return template.destroy();
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return { resource: extend(restrict.public(template), {
+                        recipe: restrict.recipePublic(template.recipe),
+                        author: template.AuthorId,
+                        pictures: _publishPictures(template),
+                        tags: _publishTags(template)
+                    })
+               };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 

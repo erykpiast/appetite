@@ -20,44 +20,20 @@ var app = express();
 app
 .configure(function() {
 	app
-        .set('root', __dirname)
-		.set('port', process.env.PORT || 3000)
-		.set('db', $require('/modules/db')) // make db connection once
-		.set('rest', $require('/modules/rest')(app))
-		.set('routes', $require('/routes')(app))
 		.use(express.bodyParser())
 		.use(express.cookieParser())
 		.use('/static', express.static(appDir))
-		.use('/rest/*', function(req, res, next) {
-            res.header('Access-Control-Allow-Origin', '*');
-            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-            res.header('Access-Control-Allow-Headers', 'Content-Type');
-        
-            next();
-        })
-        // configure route parameters
-        .param(function(name, handler){
-            if (handler instanceof RegExp) {
-                return function(req, res, next, val) {
-                    var captures = handler.exec(new String(val));
-
-                    if (!!captures) {
-                        req.params[name] = captures[0];
-
-                        next();
-                    } else {
-                        next('route');
-                    }
-                };
-            }
-        })
-        .param('id', /^\d+$/)
-		.use(app.router)
-        .get('/', function(req, res) {
-            res.sendfile('index.html', { root: appDir });
-        });
+		.get('/', function(req, res) {
+	        res.sendfile('index.html', { root: appDir });
+	    })
+	    .set('root', __dirname)
+		.set('port', process.env.PORT || 3000)
+		.set('db', $require('/modules/db')) // make db connection once
+        .set('auth', $require('/modules/auth')(app))
+		.set('rest', $require('/modules/rest')(app))
+		.set('routes', $require('/routes')(app)); // use auth and router
 })
-.configure('development', function() {
+.configure('devel', function() {
 	app
 		.use(express.logger('dev'))
 		.use(express.errorHandler());

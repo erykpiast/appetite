@@ -1,18 +1,18 @@
 define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefined, rest) {
 
-    $.cookie.json = true;
+    
 
     describe('user rating REST integration test', function() {
     
     
         var currentRest = '/user/:userId/rating',
             user1AuthData = {
-                'service' : 'facebook',
+                'serviceName' : 'test',
                 'userId': 'a8',
                 'accessToken' : 'a8'
             },
             user2AuthData = {
-                'service' : 'facebook',
+                'serviceName' : 'test',
                 'userId': 'a9',
                 'accessToken' : 'a9'
             },
@@ -21,9 +21,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
             offerTemplate, offer, response;
     
         it('should be POST rest which prepares offer owner entry', function() {
-            var authData = user1AuthData;
-                
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(user1AuthData), { path: '/' });
     
             rest.create('/user', {
                 'firstName' : 'i',
@@ -79,9 +77,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
         
         
         it('should be POST rest which prepares response owner entry', function() {
-            var authData = user2AuthData;
-            
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(user2AuthData), { path: '/' });
     
             rest.create('/user', {
                 'firstName' : 'k',
@@ -115,9 +111,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
 
 
         it('should be PUT rest which updates response entry', function() {
-            var authData = user1AuthData;
-            
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(user1AuthData), { path: '/' });
     
             rest.update('/response/' + response.id, {
                 'accepted': true
@@ -148,9 +142,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
     
        
         it('should be POST rest which creates first rating entry', function() {
-            var authData = user2AuthData;
-            
-            $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+            $.cookie('auth', JSON.stringify(user2AuthData), { path: '/' });
 
             proto.type = 'positive';
 
@@ -200,9 +192,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
         [ 'positive', 'positive', 'negative', 'negative' ].forEach(function(type) {
 
             it('should be POST rest which prepares offer entry', function() {
-                var authData = user1AuthData;
-                
-                $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+                $.cookie('auth', JSON.stringify(user1AuthData), { path: '/' });
 
                 rest.create('/offer', {
                     'place' : 'p1',
@@ -223,9 +213,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
         
 
             it('should be POST rest which prepares response entry', function() {
-                var authData = user2AuthData;
-                
-                $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+                $.cookie('auth', JSON.stringify(user2AuthData), { path: '/' });
 
                 rest.create('/response', {
                     'offer' : offer.id
@@ -243,9 +231,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
 
 
             it('should be PUT rest which updates response entry', function() {
-                var authData = user1AuthData;
-                
-                $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+                $.cookie('auth', JSON.stringify(user1AuthData), { path: '/' });
         
                 rest.update('/response/' + response.id, {
                     'accepted': true
@@ -260,9 +246,7 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
         
            
             it('should be POST rest which creates rating entry', function() {
-                var authData = user2AuthData;
-                
-                $.cookie('auth', { service: authData.service, userId: authData.userId, accessToken: authData.accessToken }, { path: '/' });
+                $.cookie('auth', JSON.stringify(user2AuthData), { path: '/' });
 
                 proto.type = type;
 

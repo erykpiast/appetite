@@ -1,5 +1,4 @@
 var extend = $require('extend'),
-	getAuthData = $require(__dirname + '/get-auth-data'),
 	restUrl = $require('config').restUrl;
 
 module.exports = function(app) {
@@ -7,7 +6,7 @@ module.exports = function(app) {
 
 	app
 		.post(restUrl + '/user/:userId/rating', function(req, res) {
-			rest.create(getAuthData(req), extend({ }, req.params, req.body)).then(
+			rest.create(res.locals.authData, extend({ }, req.params, req.body)).then(
 				function(userRating) {
 					if(!userRating.existed) {
 						res.status(201);
@@ -24,7 +23,7 @@ module.exports = function(app) {
 				});
 		})
 		.get(restUrl + '/user/:userId/rating', function(req, res) {
-			rest.countAllForUser(extend({ }, req.params, req.query), getAuthData(req)).then(
+			rest.countAllForUser(extend({ }, req.params, req.query), res.locals.authData).then(
 				function(userRating) {
 					res.json(userRating.resource);
 				},
@@ -37,7 +36,7 @@ module.exports = function(app) {
 				});
 		})
 		.get(restUrl + '/user-rating/:id', function(req, res) {
-			rest.retrieve(req.params, getAuthData(req)).then(
+			rest.retrieve(req.params, res.locals.authData).then(
 				function(userRating) {
 					res.json(userRating.resource);
 				},
@@ -50,7 +49,7 @@ module.exports = function(app) {
 				});
 		})
 		.put(restUrl + '/user-rating/:id', function(req, res) {
-			rest.update({ id: req.params.id }, getAuthData(req), req.body).then(
+			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
 				function(userRating) {
 					res.json(userRating.resource);
 				},
@@ -63,7 +62,7 @@ module.exports = function(app) {
 				});
 		})
 		.delete(restUrl + '/user-rating/:id', function(req, res) {
-			rest.destroy({ id: req.params.id }, getAuthData(req)).then(
+			rest.destroy({ id: req.params.id }, res.locals.authData).then(
 				function(userRating) {
 					res.json(userRating.resource);
 				},

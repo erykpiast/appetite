@@ -1,5 +1,7 @@
 module.exports = function(app) {
-	var exports = { };
+	var exports = {
+			path: '/rest'
+		};
 
 	$require('fs').readdir(__dirname + '/resources', function(err, files) {
 		files.filter(function(filename) { // all files except index.js
