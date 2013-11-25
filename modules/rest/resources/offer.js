@@ -12,7 +12,7 @@ var Q = $require('q'),
         searchAll: [ 'deletedAt' ]
     }, [ 'public', 'search', 'searchAll' ] );
 
-var app, DB, Offer, Template, Place, User;
+var REST, Offer, Template, Place, User;
 
 
 function _setTimestamps(target, src) {
@@ -56,104 +56,88 @@ function _setTimestamps(target, src) {
 function create(authData, proto) {
     var user, template, place;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(serviceId) {
-            return User.find({ where: {
-                    serviceId: serviceId,
-                    authService: authData.service,
-                    deletedAt: null
-                } });
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_user) {
-            user = _user;
-            
-            if(!user) {
-                throw new Errors.Authentication();
-            } else if(!proto.template) {
-                throw new Errors.WrongData();
-            } else {
-                return app.get('rest').OfferTemplate.retrieve({ id: proto.template }, authData);
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_template) {
-            template = _template.resource;
-            
-            if(!template || (template.author !== user.values.id) || !proto.place) {
-                throw new Errors.WrongData();
-            } else {
-                return locate(proto.place);
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(place) {
-            if(!place) {
-                throw new Errors.WrongData();
-            } else {
-                return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(_place) {
-            place = _place;
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
 
-            var p = extend(restrict.create(proto), {
-                        AuthorId: user.values.id,
-                        PlaceId: place.values.id,
-                        TemplateId: template.id
-                    });
+        if(!user || !proto.template || !proto.place || !proto.type) {
+            throw new Errors.WrongData();
+        } else {
+            return REST.OfferTemplate.retrieve({ id: proto.template }, authData);
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_template) {
+        template = _template.resource;
+        
+        if(!template) {
+            throw new Errors.WrongData();
+        } else if (template.author !== user.id) {
+            throw new Errors.Authentication();
+        } else {
+            return locate(proto.place);
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(place) {
+        if(!place) {
+            throw new Errors.WrongData();
+        } else {
+            return Place.findOrCreate({ serviceId: place.id }, { name: place.name, AuthorId: user.id });
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_place) {
+        place = _place;
 
-            var res = _setTimestamps(p, proto);
-            if(!res) {
-                throw new Errors.WrongData();
-            }
+        var p = extend(restrict.create(proto), {
+                AuthorId: user.id,
+                PlaceId: place.id,
+                TemplateId: template.id
+            });
 
-            return Offer.create(p, Object.keys(p));
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(offer) {
-            return { resource: extend(restrict.public(offer), {
-                    place: restrict.placePublic(place.values),
-                    template: template,
-                    author: user.values.id
-                }) };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+        var res = _setTimestamps(p, proto);
+        if(!res) {
+            throw new Errors.WrongData();
+        }
+
+        return Offer.create(p, Object.keys(p));
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(offer) {
+        return { resource: extend(restrict.public(offer), {
+                place: restrict.placePublic(place),
+                template: template,
+                author: user.id
+            }) };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function retrieve(params, authData) {
     var offer;
     
-    return Offer.find({ where: restrict.search(params), include: [ Place ] }).then(
-        function(_offer) {
-            offer = _offer;
-            
-            if(!offer) {
-                throw new Errors.NotFound();
-            } else {
-                return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(template) {
-            return { resource: extend(restrict.public(offer), {
-                            place: restrict.placePublic(offer.values.place.values),
-                            template: template.resource,
-                            author: offer.values.AuthorId
-                        })
-                    };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+    return Offer.find({ where: restrict.search(params), include: [ Place ] })
+    .then(function(_offer) {
+        offer = _offer;
+        
+        if(!offer) {
+            throw new Errors.NotFound();
+        } else {
+            return REST.OfferTemplate.retrieve({ id: offer.TemplateId }, authData);
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(template) {
+        return { resource: extend(restrict.public(offer), {
+                        place: restrict.placePublic(offer.place),
+                        template: template.resource,
+                        author: offer.AuthorId
+                    })
+                };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
@@ -162,152 +146,148 @@ function retrieveAll(params, authData) {
         limit = parseInt0(params.limit) || 10,
         params = {
             deletedAt: null,
+            startAt: {
+                gt: new Date(0)
+            },
             endAt: {
-                gt: Date.now()
+                gt: new Date(Date.now())
             }
         };
         
     var offers;
 
-    return Offer.findAll({ where: params, offset: offset, limit: limit }).then(
-        function(_offers) {
-            if(_offers) {
-                var promises = [ ];
-                
-                offers = _offers.map(function(offer) {
-                    promises.push(app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData));
-                    
-                    return extend(restrict.public(offer), {
-                        author: offer.values.AuthorId
-                        });
-                    });
-                    
-                return Q.all(promises);
-            } else {
-                throw new Errors.NotFound();
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(templates) {
-            templates.forEach(function(template, index) {
-                offers[index].template = template.resource;
-            });
+    return Offer.findAll({ where: params, offset: offset, limit: limit, include: [ Place ] })
+    .then(function(_offers) {
+        offers = _offers;
+
+        if(!offers || !offers.length) {
+            throw new Errors.NotFound();
+        } else {
+            var promises = [ ];
             
-            return { resource: offers };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+            offers = offers.map(function(offer) {
+                promises.push(REST.OfferTemplate.retrieve({ id: offer.TemplateId }, authData));
+                
+                return extend(restrict.public(offer), {
+                    place: restrict.placePublic(offer.place),
+                    author: offer.AuthorId
+                    });
+            });
+                
+            return Q.all(promises);
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(templates) {
+        templates.forEach(function(template, index) {
+            offers[index].template = template.resource;
+        });
+        
+        return { resource: offers };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function update(params, authData, proto) {
-    var serviceId, offer;
+    var user, offer;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
+
+        if(!user) {
+            throw new Errors.WrongData();
+        } else {
+            return Offer.find({ where: restrict.search(params), include: [ Place ] });
+        }
+    },
+    Errors.report('Authentication')
+    ).then(function(_offer) {
+        offer = _offer;
+
+        if(!offer) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== offer.AuthorId) {
+            throw new Errors.Authentication();
+        } else if(offer.started) {
+            throw new Errors.WrongData();
+        } else {
+            var newAttrs = restrict.update(proto);
             
-            if(!!serviceId) {
-                return Offer.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Place ] });
-            } else {
-                throw new Errors.Authentication();
+            var res = _setTimestamps(newAttrs, proto);
+            if(!res) {
+                throw new Errors.WrongData();
             }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(offer) {
-            if(!offer) {
-                throw new Errors.NotFound();    
-            } else if(serviceId === offer.values.author.values.serviceId) {
-                var newAttrs = restrict.update(proto);
-                
-                var res = _setTimestamps(newAttrs, proto);
-                if(!res) {
-                    throw new Errors.WrongData();
-                }
-                
-                if(Date.parse(offer.values.startAt) != 0) {
-                    throw new Errors.Database();
-                }
-                
-                extend(offer, newAttrs);
-                
-                return offer.save(Object.keys(newAttrs));
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(_offer) {
-            offer = _offer;
             
-            return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(template) {
-            return { resource: extend(restrict.public(offer), {
-                            place: restrict.placePublic(offer.values.place.values),
-                            template: template.resource,
-                            author: offer.values.AuthorId
-                        })
-                    };
-        }    
-    );
+            extend(offer, newAttrs);
+            
+            return offer.save(Object.keys(newAttrs));
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return REST.OfferTemplate.retrieve({ id: offer.TemplateId }, authData);
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(template) {
+        return { resource: extend(restrict.public(offer), {
+                        place: restrict.placePublic(offer.place),
+                        template: template.resource,
+                        author: offer.AuthorId
+                    })
+                };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function destroy(params, authData) {
-    var offer, serviceId;
+    var user, offer;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
-            
-            if(!!serviceId) {
-                return Offer.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Place ] });
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_offer) {
-            offer = _offer;
-            
-            if(!offer) {
-                throw new Errors.NotFound();    
-            } else if(serviceId === offer.values.author.values.serviceId) {
-                return offer.destroy();
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function() {
-            return app.get('rest').OfferTemplate.retrieve({ id: offer.values.TemplateId }, authData);
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(template) {
-            return { resource: extend(restrict.public(offer), {
-                            place: restrict.placePublic(offer.values.place.values),
-                            template: template.resource,
-                            author: offer.values.AuthorId
-                        })
-                    };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
+
+        if(!user) {
+            throw new Errors.WrongData();
+        } else {
+            return Offer.find({ where: restrict.search(params), include: [ Place ] });
+        }
+    },
+    Errors.report('Authentication')
+    ).then(function(_offer) {
+        offer = _offer;
+        
+        if(!offer) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== offer.AuthorId) {
+            throw new Errors.Authentication();
+        } else {
+            return offer.destroy();
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return REST.OfferTemplate.retrieve({ id: offer.TemplateId }, authData);
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(template) {
+        return { resource: extend(restrict.public(offer), {
+                        place: restrict.placePublic(offer.place),
+                        template: template.resource,
+                        author: offer.AuthorId
+                    })
+                };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
-module.exports = function(_app) {
-    app = _app;
-    DB = app.get('db');
+module.exports = function(app) {
+    var DB = app.get('db');
+
+    REST = app.get('rest');
     Offer = DB.Offer;
     Template = DB.OfferTemplate;
     Place = DB.Place;
