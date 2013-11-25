@@ -170,6 +170,28 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
                });
         });
     
+
+        it('should be POST rest which creates first response entry', function() {
+            $.cookie('auth', JSON.stringify(user2AuthData), { path: '/' });
+            
+            rest.create(currentRest, proto,
+               function(successCallback, errorCallback) {
+                    expect(errorCallback).not.toHaveBeenCalled();
+                    expect(successCallback).toHaveBeenCalled();
+                  
+                    var response = successCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+
+                    $.extend(proto, {
+                        id: response.id,
+                        accepted: false
+                    });
+
+                    var status = successCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.created);
+               });
+        });
+
        
         it('should be DELETE rest deletes response entry', function() {
             $.cookie('auth', JSON.stringify(user2AuthData), { path: '/' });

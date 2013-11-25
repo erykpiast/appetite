@@ -7,7 +7,7 @@ module.exports = function(app) {
 
 	app
 		.post(restUrl + '/response', function(req, res) {
-			rest.create(getAuthData(req), req.body).then(
+			rest.create(res.locals.authData, req.body).then(
 				function(offer) {
 					if(!offer.existed) {
 						res.status(201);
@@ -24,7 +24,7 @@ module.exports = function(app) {
 				});
 		})
 		.get(restUrl + '/response/:id', function(req, res) {
-			rest.retrieve({ id: req.params.id }, getAuthData(req)).then(
+			rest.retrieve({ id: req.params.id }, res.locals.authData).then(
 				function(offer) {
 					res.json(offer.resource);
 				},
@@ -37,7 +37,7 @@ module.exports = function(app) {
 				});
 		})
 		.put(restUrl + '/response/:id', function(req, res) {
-			rest.update({ id: req.params.id }, getAuthData(req), req.body).then(
+			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
 				function(offer) {
 					res.json(offer.resource);
 				},
@@ -50,7 +50,7 @@ module.exports = function(app) {
 				});
 		})
 		.delete(restUrl + '/response/:id', function(req, res) {
-			rest.destroy({ id: req.params.id }, getAuthData(req)).then(
+			rest.destroy({ id: req.params.id }, res.locals.authData).then(
 				function(offer) {
 					res.json(offer.resource);
 				},

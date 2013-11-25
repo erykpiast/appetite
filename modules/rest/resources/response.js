@@ -13,184 +13,146 @@ var Response, Offer, User;
 function create(authData, proto) {
     var user, offer;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(serviceId) {
-            if(!serviceId) {
-                throw new Errors.Authentication();
-            } else {
-                return User.find({ where: {
-                        serviceId: serviceId,
-                        authService: authData.service,
-                        deletedAt: null
-                    } });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_user) {
-            user = _user;
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
 
-            if(!user) {
-                throw new Errors.Authentication();
-            } else if(!proto.offer) {
-                throw new Errors.WrongData();
-            } else {
-                return Offer.find({ where: { id: proto.offer } });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_offer) {
-            offer = _offer;
-            
-            if(!offer || !offer.started || offer.ended) {
-                throw new Errors.WrongData();
-            } else if(offer.values.AuthorId === user.values.id) {
-                throw new Errors.Authentication();
-            } else {
-                proto = extend(restrict.create(proto), {
-                    OfferId: proto.offer,
-                    AuthorId: user.values.id
-                });
-
-                return Response.create(proto, Object.keys(proto));
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(response) {
-            return { resource: extend(restrict.public(response.values), {
-                        offer: response.values.OfferId,
-                        author: response.values.AuthorId
-                    }) };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+        if(!user || !proto.offer) {
+            throw new Errors.WrongData();
+        } else {
+            return Offer.find({ where: { id: proto.offer } });
+        }
+    },
+    Errors.report('Authentication')
+    ).then(function(_offer) {
+        offer = _offer;
+        
+        if(!offer || !offer.started || offer.ended) {
+            throw new Errors.WrongData();
+        } else if(user.id === offer.AuthorId) { // you can't response to your own offer!
+            throw new Errors.Authentication();
+        } else {
+            var p;
+            return Response.create(p = extend(restrict.create(proto), {
+                OfferId: proto.offer,
+                AuthorId: user.values.id
+            }), Object.keys(p));
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(response) {
+        return { resource: extend(restrict.public(response), {
+                    offer: response.OfferId,
+                    author: response.AuthorId
+                }) };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function retrieve(params, authData) {
-    return Response.find({ where: restrict.search(params) }).then(
-        function(response) {
-            if(!response) {
-                throw new Errors.NotFound();
-            } else {
-                return { resource: extend(restrict.public(response.values), {
-                        offer: response.values.OfferId,
-                        author: response.values.AuthorId
-                    }) };
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+    return Response.find({ where: restrict.search(params) })
+    .then(function(response) {
+        if(!response) {
+            throw new Errors.NotFound();
+        } else {
+            return { resource: extend(restrict.public(response), {
+                    offer: response.OfferId,
+                    author: response.AuthorId
+                }) };
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function update(params, authData, proto) {
-    var serviceId;
+    var user;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
 
-            if(!serviceId) {
-                throw new Errors.Authentication();
-            } else {
-                return User.find({ where: {
-                        serviceId: serviceId,
-                        authService: authData.service,
-                        deletedAt: null
-                    } });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_user) {
-            user = _user;
+        if(!user)  {
+            throw new Errors.Authentication();
+        } else {
+            return Response.find({ where: restrict.search(params), include: [ Offer ] });
+        }
+    },
+    Errors.report('Authentication')
+    ).then(function(response) {
+        if(!response) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== response.offer.AuthorId) { // only offer author can update (accept) response
+            throw new Errors.Authentication();
+        } else {
+            var newAttrs = restrict.update(proto);
             
-            if(!user) {
-                throw new Errors.Authentication();
-            } else {
-                return Response.find({ where: restrict.search(params), include: [ Offer ] });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(response) {
-            if(!response) {
-                throw new Errors.NotFound();    
-            } else if(user.values.id !== response.values.offer.values.AuthorId) {
-                throw new Errors.Authentication();
-            } else {
-                var newAttrs = restrict.update(proto);
-                
-                extend(response, newAttrs);
-                
-                return response.save(Object.keys(newAttrs));
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(response) {
-            return { resource: extend(restrict.public(response.values), {
-                    offer: response.values.offer.values.id,
-                    author: response.values.AuthorId
-                }) };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+            extend(response, newAttrs);
+            
+            return response.save(Object.keys(newAttrs));
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(response) {
+        return { resource: extend(restrict.public(response), {
+                offer: response.offer.id,
+                author: response.AuthorId
+            }) };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function destroy(params, authData) {
-    var response, serviceId;
+    var response, user;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
-            
-            if(!serviceId) {
-                throw new Errors.Authentication();
-            } else {
-                return Response.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' } ] });
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_response) {
-            response = _response;
-            
-            if(!response) {
-                throw new Errors.NotFound();    
-            } else if(serviceId !== response.values.author.values.serviceId) {
-                throw new Errors.Authentication();
-            } else {
-                return response.destroy();
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function() {
-            return { resource: extend(restrict.public(response.values), {
-                    offer: response.values.OfferId,
-                    author: response.values.AuthorId
-                }) };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
+
+        if(!user) {
+            throw new Errors.Authentication();
+        } else {
+            return Response.find({ where: restrict.search(params) });
+        }
+    },
+    Errors.report('Authentication')
+    ).then(function(_response) {
+        response = _response;
+        
+        if(!response) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== response.AuthorId) {
+            throw new Errors.Authentication();
+        } else if(response.accepted) {
+            throw new Error.WrongData();
+        } else {
+            return response.destroy();
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        return { resource: extend(restrict.public(response), {
+                offer: response.OfferId,
+                author: response.AuthorId
+            }) };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 module.exports = function(app) {
-    Response = app.get('db').Response;
-    Offer = app.get('db').Offer;
-    User = app.get('db').User;
+    var DB = app.get('db');
+
+    Response = DB.Response;
+    Offer = DB.Offer;
+    User = DB.User;
 
     return {
         create: create,
         retrieve: retrieve,
         update: update,
-        destroy: destroy,
-        public: restrict.public
-    }
+        destroy: destroy
+    };
 };
