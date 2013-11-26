@@ -1,7 +1,6 @@
 var Sequelize = $require('sequelize'),
     Resource = $require('/modules/resource'),
     md5 = $require('MD5'),
-    q = $require('q'),
     Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'title', 'description', 'recipe' ],

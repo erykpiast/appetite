@@ -1,5 +1,4 @@
 var moment = $require('moment'),
-    auth = $require('/modules/auth'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
@@ -9,270 +8,284 @@ var moment = $require('moment'),
         search: [ 'id', 'deletedAt' ]
     }, [ 'public', 'search' ] );
 
-var app, DB, Comment, Offer, User;
+var REST, Comment, Offer, User;
 
 
 function create(authData, proto) {
     var user, offer, parent, response;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(serviceId) {
-            return User.find({ where: {
-                    serviceId: serviceId,
-                    authService: authData.service,
-                    deletedAt: null
-                } });
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_user) {
-            user = _user;
-            
-            if(!user) {
-                throw new Errors.Authentication();
-            } else if(!proto.offer || !proto.content) {
-                throw new Errors.WrongData();
-            } else {
-                proto.content = proto.content.toString();
+   return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
 
-                return app.get('rest').Offer.retrieve({ id: proto.offer }, authData);
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_offer) {
+        if(!user || !proto.offer || !proto.content) {
+            throw new Errors.WrongData();
+        } else {
+            return REST.Offer.retrieve({ id: proto.offer }, authData);
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_offer) {
+        if(!_offer || !_offer.resource) {
+            throw new Errors.WrongData();
+        } else {
             offer = _offer.resource;
-            
-            if(!offer) {
-                throw new Errors.WrongData();
-            } else if(proto.parent) {
-                return Comment.find({ where: { id: parseInt0(proto.parent) } });
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_parent) {
-            if(_parent && _parent.values) {
-                parent = _parent;
 
-                if(!parent) {
-                    throw new Errors.WrongData();
-                }
-            }
-            
-            if(proto.response) {
-                return app.get('rest').Response.retrieve({ id: proto.response }, authData);
+            if(proto.parent) {
+                return Comment.find({ where: { id: proto.parent } });
             } else {
                 return true;
             }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_response) {
-            if(_response && _response.resource) {
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_parent) {
+        parent = _parent;
+
+        if(parent !== true) {
+            if(!parent) {
+                throw new Errors.WrongData();
+            }
+        }
+        
+        if(proto.response) {
+            return REST.Response.retrieve({ id: proto.response }, authData);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_response) {
+        if(_response !== true) {
+            if(!_response || !_response.resource) {
+                throw new Errors.WrongData();
+            } else {
                 response = _response.resource;
 
-                if(!response) {
-                    throw new Errors.WrongData();
-                } else if(response.author !== user.values.id) {
+                if(user.id !== response.author) {
                     throw new Errors.Authentication();
+                } else { // create comment related with response
+                    return Comment.findOrCreate(extend({
+                            AuthorId: user.id,
+                            OfferId: offer.id,
+                            ResponseId: response.id,
+                            deletedAt: null
+                        }, (parent !== true ? { ParentId: parent.id } : { })), restrict.create(proto));
                 }
-            }
-
-            if(response) {
-                return Comment.findOrCreate(extend({
-                        AuthorId: user.values.id,
-                        OfferId: offer.id,
-                        ResponseId: response.id,
-                        deletedAt: null
-                    }, (parent ? { ParentId: parent.values.id } : { })), restrict.create(proto));
-            } else {
-                proto = extend(restrict.create(proto), {
-                    AuthorId: user.values.id,
+            }       
+        } else { // create comment not related with response
+            var p;
+            return Comment.create(p = extend(restrict.create(proto), {
+                    AuthorId: user.id,
                     OfferId: offer.id,
-                }, (response ? { ResponseId: response.id } : { }), (parent ? { ParentId: parent.values.id } : { }));
-
-                return Comment.create(proto, Object.keys(proto));
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(comment, created) {
-            return extend({ resource: extend(restrict.public(comment.values), {
-                    response: (response ? extend({ 
-                            offer: offer.id,
-                            author: user.values.id
-                        }, response) : 0),
-                    offer: offer.id,
-                    author: user.values.id,
-                    parent: (parent ?  parent.values.id : 0)
-                }) }, (created === false ? { existed: true } : { }));
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+                    ResponseId: 0
+                },
+                (parent !== true ? { ParentId: parent.id } : { })), Object.keys(p));
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(comment, created) {
+        return extend({ resource: extend(restrict.public(comment), {
+                response: (response ? extend({ 
+                        offer: offer.id,
+                        author: user.id
+                    }, response) : 0),
+                offer: offer.id,
+                author: user.id,
+                parent: (parent !== true ?  parent.id : 0)
+            }) },
+            (created === false ? { existed: true } : { }));
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function retrieve(params, authData) {
     var comment;
     
-    return Comment.find({ where: restrict.search(params), include: [ Response ] }).then(
-        function(_comment) {
-            comment = _comment;
-            
-            if(!comment) {
-                throw new Errors.NotFound();
-            } else if(comment.values.ResponseId) {
-                return app.get('rest').Response.retrieve({ id: comment.values.ResponseId }, authData);
-            } else {
-                return true;
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(response) {
-            return { resource: extend(restrict.public(comment.values), {
-                            offer: comment.values.OfferId,
-                            author: comment.values.AuthorId,
-                            parent: comment.values.ParentId || 0,
-                            response: (response.resource ? extend({ 
-                                    offer: comment.values.OfferId,
-                                    author: comment.values.AuthorId
-                                }, response.resource) : 0)
-                        })
-                    };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+    return Comment.find({ where: restrict.search(params) })
+    .then(function(_comment) {
+        comment = _comment;
+        
+        if(!comment) {
+            throw new Errors.NotFound();
+        } else if(comment.ResponseId) {
+            return REST.Response.retrieve({ id: comment.ResponseId }, authData);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(response) {
+        if((response !== true) && (!response || !response.resource)) {
+            throw new Error.Internal('DATABASE');
+        } else {
+            return { resource: extend(restrict.public(comment), {
+                        offer: comment.OfferId,
+                        author: comment.AuthorId,
+                        parent: comment.ParentId || 0,
+                        response: response !== true ? response.resource : 0
+                    })
+                };
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function retrieveAllForOffer(params, authData) {
     var offset = parseInt0(params.offset),
-        limit = parseInt0(params.limit) || 10,
-        include = [ Response ];
+        limit = parseInt0(params.limit) || 10;
 
-    return Comment.findAll({ where: { OfferId: params.offerId, deletedAt: null }, offset: offset, limit: limit, include: include }).then(
-        function(comments) {
-            if(comments) {
-                return { resource: comments.map(function(comment) {
-                    return extend(restrict.public(comment.values), {
-                        offer: comment.values.OfferId,
-                        author: comment.values.AuthorId,
-                        parent: comment.values.ParentId || 0,
-                        response: (comment.values.response ? extend({ 
-                                    offer: comment.values.OfferId,
-                                    author: comment.values.AuthorId,
-                                }, app.get('rest').Response.public(comment.values.response.values)) : 0)
-                        });
-                    }) };
-            } else {
-                throw new Errors.NotFound();
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+    var comments;
+
+    return Comment.findAll({ where: { OfferId: params.offerId, deletedAt: null }, offset: offset, limit: limit })
+    .then(function(_comments) {
+        comments = _comments;
+
+        if(!comments || !comments.length) {
+            throw new Errors.NotFound();
+        } else {
+            var promises = [ ];
+        
+            comments = comments.map(function(comment) {
+                if(comment.ResponseId) {
+                    promises.push(REST.Response.retrieve({ id: comment.ResponseId }, authData));
+                }
+                
+                return extend(restrict.public(comment), {
+                        offer: comment.OfferId,
+                        author: comment.AuthorId,
+                        parent: comment.ParentId || 0,
+                        response: 0
+                    });
+            });
+                
+            return Q.all(promises);
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(responses) {
+        responses.forEach(function(response, index) {
+            comments[index].response = response.resource;
+        });
+        
+        return { resource: comments };
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function update(params, authData, proto) {
-    var serviceId, comment;
+    var user, comment;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
-            
-            if(!!serviceId) {
-                return Comment.find({ where: restrict.search(params), include: [ { model: User, as: 'Author' }, Response ] });
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(comment) {
-            if(!comment) {
-                throw new Errors.NotFound();    
-            } else if(serviceId === comment.values.author.values.serviceId) {
-                var newAttrs = restrict.update(proto);
-                
-                extend(comment, newAttrs);
-                
-                return comment.save(Object.keys(newAttrs));
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function(_comment) {
-            comment = _comment;
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
 
-            return { resource: extend(restrict.public(comment.values), {
-                            offer: comment.values.OfferId,
-                            author: comment.values.author.values.id,
-                            parent: comment.values.ParentId || 0,
-                            response: (comment.values.response ? extend({ 
-                                    offer: comment.values.OfferId,
-                                    author: comment.values.author.values.id
-                                }, app.get('rest').Response.public(comment.values.response.values)) : 0)
-                        })
-                    };
-        }    
-    );
+        if(!user) {
+            throw new Errors.Authentication();
+        } else {
+            return Comment.find({ where: restrict.search(params) });
+        }
+    },
+    Errors.report('Authentication')
+    ).then(function(_comment) {
+        comment = _comment;
+
+        if(!comment) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== comment.AuthorId) {
+            throw new Errors.Authentication();
+        } else {
+            var newAttrs = restrict.update(proto);
+            
+            extend(comment, newAttrs);
+            
+            return comment.save(Object.keys(newAttrs));
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        if(comment.ResponseId) {
+            return REST.Response.retrieve({ id: comment.ResponseId }, authData);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(response) {
+        if((response !== true) && (!response || !response.resource)) {
+            throw new Error.Internal('DATABASE');
+        } else {
+            return { resource: extend(restrict.public(comment), {
+                        offer: comment.OfferId,
+                        author: comment.AuthorId,
+                        parent: comment.ParentId || 0,
+                        response: response !== true ? response.resource : 0
+                    })
+                };
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
 function destroy(params, authData) {
-    var offer, serviceId;
+    var user, comment;
     
-    return auth(authData.service, authData.userId, authData.accessToken).then(
-        function(_serviceId) {
-            serviceId = _serviceId;
-            
-            if(!!serviceId) {
-                return Comment.find({ where: restrict.search(params), include: [ Response, { model: User, as: 'Author' } ] });
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Authentication')
-    ).then(
-        function(_comment) {
-            comment = _comment;
-            
-            if(!comment) {
-                throw new Errors.NotFound();    
-            } else if(serviceId === comment.values.author.values.serviceId) {
-                return comment.destroy();
-            } else {
-                throw new Errors.Authentication();
-            }
-        },
-        Errors.report('Internal', 'DATABASE')
-    ).then(
-        function() {
-            return { resource: extend(restrict.public(comment.values), {
-                            offer: comment.values.OfferId,
-                            author: comment.values.author.values.id,
-                            parent: comment.values.ParentId || 0,
-                            response: (comment.values.response ? extend({ 
-                                    offer: comment.values.OfferId,
-                                    author: comment.values.author.values.id
-                                }, app.get('rest').Response.public(comment.values.response.values)) : 0)
-                        })
-                    };
-        },
-        Errors.report('Internal', 'DATABASE')
-    );
+    return User.find({ where: { AuthDataId: authData.storedId } })
+    .then(function(_user) {
+        user = _user;
+
+        if(!user) {
+            throw new Errors.Authentication();
+        } else {
+            return Comment.find({ where: restrict.search(params) });
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(_comment) {
+        comment = _comment;
+        
+        if(!comment) {
+            throw new Errors.NotFound();    
+        } else if(user.id !== comment.AuthorId) {
+            throw new Errors.Authentication();
+        } else {
+            return comment.destroy();
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function() {
+        if(comment.ResponseId) {
+            return REST.Response.retrieve({ id: comment.ResponseId }, authData);
+        } else {
+            return true;
+        }
+    },
+    Errors.report('Internal', 'DATABASE')
+    ).then(function(response) {
+        if((response !== true) && (!response || !response.resource)) {
+            throw new Error.Internal('DATABASE');
+        } else {
+            return { resource: extend(restrict.public(comment), {
+                    offer: comment.OfferId,
+                    author: comment.AuthorId,
+                    parent: comment.ParentId || 0,
+                    response: response !== true ? response.resource : 0
+                })
+            };
+        }
+    },
+    Errors.report('Internal', 'DATABASE'));
 }
 
 
-module.exports = function(_app) {
-    app = _app;
-    DB = app.get('db');
+module.exports = function(app) {
+    var DB = app.get('db');
+
+    REST = app.get('rest');
     Comment = DB.Comment;
     Offer = DB.Offer;
     Response = DB.Response;

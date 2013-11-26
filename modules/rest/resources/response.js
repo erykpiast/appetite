@@ -1,5 +1,4 @@
-var auth = $require('/modules/auth'),
-    Errors = $require('/modules/errors'),
+var Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
         public: [ 'id', 'accepted' ],
         create: [ ],

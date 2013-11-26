@@ -1,6 +1,4 @@
-var Q = $require('q'),
-    moment = $require('moment'),
-    auth = $require('/modules/auth'),
+var moment = $require('moment'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({

@@ -1,5 +1,4 @@
 var extend = $require('extend'),
-	getAuthData = $require(__dirname + '/get-auth-data'),
 	restUrl = $require('config').restUrl;
 
 module.exports = function(app) {
