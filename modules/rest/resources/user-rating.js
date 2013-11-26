@@ -12,14 +12,14 @@ var DB, Rating, Response, Offer, User;
 function create(authData, proto) {
     var user, response;
 
-    return User.find({ where: { id: params.userId } })
+    var targetId = parseInt0(proto.userId); // userId from params is string!
+
+    return User.find({ where: { AuthDataId: authData.storedId } })
     .then(function(_user) {
         user = _user;
 
         if(!user) {
             throw new Errors.NotFound();
-        } else if(user.AuthDataId === authData.storedId) { // you can't rate yourself!
-            throw new Errors.Authentication();
         } else if(!proto.response || !proto.type) {
             throw new Errors.WrongData();
         } else {
@@ -34,7 +34,7 @@ function create(authData, proto) {
 
         if(!response) {
             throw new Errors.WrongData();
-        } else if((user.id !== response.AuthorId) || (response.offer.AuthorId !== proto.userId) || !response.accepted) {
+        } else if((user.id !== response.AuthorId) || (response.offer.AuthorId !== targetId) || !response.accepted) {
             throw new Errors.Authentication();
         } else {
             return Rating.find({ where: { ResponseId: response.id, AuthorId: user.id } });
@@ -48,7 +48,7 @@ function create(authData, proto) {
             var p;
             return Rating.create(p = extend(restrict.create(proto), {
                     AuthorId: user.id,
-                    TargetId: proto.userId,
+                    TargetId: targetId,
                     ResponseId: response.id
                 }), Object.keys(p));    
         }

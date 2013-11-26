@@ -1,17 +1,17 @@
 var restUrl = $require('config').restUrl;
 
 module.exports = function(app) {
-	var rest = app.get('rest').User;
+	var rest = app.get('rest').Tag;
 
 	app
-		.post(restUrl + '/user', function(req, res) {
+		.post(restUrl + '/tag', function(req, res) {
 			rest.create(res.locals.authData, req.body).then(
-				function(user) {
-					if(!user.existed) {
+				function(tag) {
+					if(!tag.existed) {
 						res.status(201);
 					}
 
-					res.json(user.resource);
+					res.json(tag.resource);
 				},
 				function(err) {
 					res
@@ -21,10 +21,10 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/user/:id', function(req, res) {
+		.get(restUrl + '/tag/:id', function(req, res) {
 			rest.retrieve({ id: req.params.id }, res.locals.authData).then(
-				function(user) {
-					res.json(user.resource);
+				function(tag) {
+					res.json(tag.resource);
 				},
 				function(err) {
 					res
@@ -34,10 +34,23 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.put(restUrl + '/user/:id', function(req, res) {
+		.get(restUrl + '/tag', function(req, res) {
+			rest.retrieveAll({ limit: req.query.limit, offset: req.query.offset }, res.locals.authData).then(
+				function(tag) {
+					res.json(tag.resource);
+				},
+				function(err) {
+					res
+						.status(err.httpStatus)
+						.json({
+							msg: err.message
+						});
+				});
+		})
+		.put(restUrl + '/tag/:id', function(req, res) {
 			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
-				function(user) {
-					res.json(user.resource);
+				function(tag) {
+					res.json(tag.resource);
 				},
 				function(err) {
 					res
@@ -47,10 +60,10 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.delete(restUrl + '/user/:id', function(req, res) {
+		.delete(restUrl + '/tag/:id', function(req, res) {
 			rest.destroy({ id: req.params.id }, res.locals.authData).then(
-				function(user) {
-					res.json(user.resource);
+				function(tag) {
+					res.json(tag.resource);
 				},
 				function(err) {
 					res

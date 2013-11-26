@@ -1,5 +1,4 @@
-var extend = $require('extend'),
-	restUrl = $require('config').restUrl;
+var restUrl = $require('config').restUrl;
 
 module.exports = function(app) {
 	var rest = app.get('rest').UserRating;

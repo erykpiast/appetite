@@ -13,12 +13,8 @@ module.exports = function(config) {
 		files: [
 			{ pattern: 'public/**/*.{js,tpl}', included: false },
 			{ pattern: 'spec/client/rest.js', included: false },
-		    // { pattern: '**/*.client.spec.js', included: false },
-		    { pattern: '**/comment-rest.integration.client.spec.js', included: false },
-		    // { pattern: '**/response-rest.integration.client.spec.js', included: false },
-		    // { pattern: '**/offer-rest.integration.client.spec.js', included: false },
-		    // { pattern: '**/user-rest.integration.client.spec.js', included: false },
-		    // { pattern: '**/offer-template-rest.integration.client.spec.js', included: false },
+			// { pattern: '**/offer-template-rest.integration.client.spec.js', included: false },
+		    { pattern: '**/*.client.spec.js', included: false },
 		    'spec/client/index.js'
 		],
 		frameworks: [ 'jasmine', 'requirejs' ],

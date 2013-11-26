@@ -98,10 +98,10 @@ function create(authData, proto) {
     .then(function(_user) {
         user = _user;
 
-        if(!user || !proto.recipe || !String.isUrl(proto.recipe)) {
+        if(!user || !proto.recipe || !String.isUrl(proto.recipe) || !proto.description || !proto.title) {
             throw new Errors.WrongData();
         } else {
-            return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.values.id });
+            return Recipe.findOrCreate({ url: proto.recipe }, { AuthorId: user.id });
         }
     },
     Errors.report('Internal', 'DATABASE')
@@ -110,22 +110,22 @@ function create(authData, proto) {
         
         var p;
         return OfferTemplate.create(p = extend(restrict.create(proto), {
-                AuthorId: user.values.id,
-                RecipeId: recipe.values.id
+                AuthorId: user.id,
+                RecipeId: recipe.id
             }), Object.keys(p));
     },
     Errors.report('Internal', 'DATABASE')
     ).then(function(_template) {
         template = _template;
         
-        return _setPictures(proto, user.values.id);
+        return _setPictures(proto, user.id);
     },
     Errors.report('Internal', 'DATABASE')
     ).then(function(pictures) {
         if(pictures instanceof Array) {
             proto.pictures = pictures;
 
-            return q.all(proto.pictures.map(function(picture) {
+            return Q.all(proto.pictures.map(function(picture) {
                 var r = new Resource(resourceTypes, resourcePath);
 
                 return r.fetch(picture.originalUrl).then(function() {
@@ -139,7 +139,7 @@ function create(authData, proto) {
     Errors.report('Internal', 'DATABASE')
     ).then(function(savingResults) {
         if(savingResults instanceof Array) {
-            return q.all(savingResults.map(function(file, index) {
+            return Q.all(savingResults.map(function(file, index) {
                 proto.pictures[index].filename = file;
                 
                 return proto.pictures[index].save([ 'filename' ]);
@@ -158,7 +158,7 @@ function create(authData, proto) {
     },
     Errors.report('Internal', 'DATABASE')
     ).then(function() {
-        return _setTags(proto, user.values.id);
+        return _setTags(proto, user.id);
     },
     Errors.report('Internal', 'DATABASE')
     ).then(function(tags) {
@@ -192,11 +192,11 @@ function retrieve(params, authData) {
         if(!template) {
             throw new Errors.NotFound();
         } else {
-            return { resource: extend(restrict.public(template.values), {
-                            recipe: restrict.recipePublic(template.values.recipe),
-                            author: template.values.AuthorId,
-                            pictures: _publishPictures(template.values),
-                            tags: _publishTags(template.values)
+            return { resource: extend(restrict.public(template), {
+                            recipe: restrict.recipePublic(template.recipe),
+                            author: template.AuthorId,
+                            pictures: _publishPictures(template),
+                            tags: _publishTags(template)
                         })
                    };
         }
@@ -245,7 +245,7 @@ function update(params, authData, proto) {
         if(pictures instanceof Array) {
             proto.pictures = pictures;
 
-            return q.all(proto.pictures.map(function(picture) {
+            return Q.all(proto.pictures.map(function(picture) {
                 var r = new Resource(resourceTypes, resourcePath);
 
                 return r.fetch(picture.originalUrl).then(function() {
@@ -259,7 +259,7 @@ function update(params, authData, proto) {
     Errors.report('Internal', 'DATABASE')
     ).then(function(savingResults) {
         if(savingResults instanceof Array) {
-            return q.all(savingResults.map(function(file, index) {
+            return Q.all(savingResults.map(function(file, index) {
                 proto.pictures[index].filename = file;
                 
                 return proto.pictures[index].save([ 'filename' ]);
@@ -359,7 +359,6 @@ module.exports = function(app) {
         create: create,
         retrieve: retrieve,
         update: update,
-        destroy: destroy,
-        public: restrict.public
+        destroy: destroy
     };
 };
