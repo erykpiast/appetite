@@ -1,4 +1,10 @@
 .page {
     margin: 0 auto;
     max-width: 1000px;
+    width: 100%;
+
+    .page__row {
+		height: 250px;
+	}
+
 }

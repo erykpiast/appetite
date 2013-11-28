@@ -8,14 +8,22 @@
 @import "compass";
 @import "compass/layout";
 @import "compass/typography";
+@import "compass/css3/images";
 
 @import "compass-inuit";
+@import "compass-inuit/generic/reset";
+
+@import "scut";
+
+// Utils
+@import "utils/scut-extensions.scss";
 
 // Components
-
+@import "components/slider.scss";
+@import "components/search.scss";
 
 // Site-specific components
-
+@import "site-components/main-search.scss";
 
 // Partials
 @import "partials/page.scss";

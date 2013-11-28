@@ -1,0 +1,43 @@
+@mixin scut-pseudo($type, $display: inline-block, $content: "") {
+	&:#{$type} {
+		display: $display;
+		content: $content;
+
+		@content;
+	}
+}
+
+@mixin scut-before($display: inline-block, $content: "") {
+	@include scut-pseudo(before, $display, $content) {
+		@content;
+	}
+}
+
+@mixin scut-after($display: inline-block, $content: "") {
+	@include scut-pseudo(after, $display, $content) {
+		@content;
+	}
+}
+
+@mixin scut-side-shadow($side, $size, $color, $pseudo: before) {
+	position: relative;
+  
+	@include scut-pseudo($pseudo, $display: block) {
+		position: absolute;
+     
+		@if ($side == bottom) or ($side == top) {
+	        height: $size;
+	        left: 0;
+	        right: 0;
+	    }
+
+	    @if ($side == left) or ($side == right) {
+	    	bottom: 0;
+	    	top: 0;
+	        width: $size;
+	    }
+
+	    #{$side}: 0;
+	    @include background-image( linear-gradient($side, transparent, $color) );
+	}
+}

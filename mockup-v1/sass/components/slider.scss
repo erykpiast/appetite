@@ -1,0 +1,26 @@
+.slider {
+
+	@extend %scut-list-unstyled;
+	@extend %scut-list-inline;
+
+	.slider__element {
+		height: 100%;
+		overflow: hidden;
+
+		.slider__element__figure {
+			display: block;
+			height: 100%;
+			text-align: center;
+		}
+
+		.slider__element__image {
+			height: auto;
+			min-width: 640px;
+			width: 100%;
+		}
+
+		.slider__element__label {
+			position: absolute;
+		}
+	}
+}
