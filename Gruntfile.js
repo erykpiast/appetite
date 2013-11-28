@@ -4,7 +4,8 @@ var request = require('request');
 
 module.exports = function (grunt) {
 	var LIVEREOAD_PORT = 35729,
-	    appDir = 'public';
+	    appDir = 'public',
+	    mockupDir = 'mockup-v1';
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -20,17 +21,39 @@ module.exports = function (grunt) {
         		    relativeAssets: true,
         		    noLineComments: true
         		}
+        	},
+        	mockup: {
+		        options: {
+        		    basePath: mockupDir,
+        		    sassDir: 'sass',
+        		    cssDir: 'styles',
+        		    specify: mockupDir + '/sass/style.scss',
+        		    require: [ 'compass', 'compass-inuit' ],
+        		    force: true,
+        		    relativeAssets: true,
+        		    noLineComments: true
+        		}
         	}
 		},
 		autoprefixer: {
 			options: {
 				browsers: [ '> 1%', 'last 2 version' ]
 			},
-			multiple_files: {
-				expand: true,
-				flatten: true,
-				src: appDir + '/styles/*.css',
-				dest: appDir + '/styles/'
+			dev: {
+    			multiple_files: {
+    				expand: true,
+    				flatten: true,
+    				src: appDir + '/styles/*.css',
+    				dest: appDir + '/styles/'
+    			}
+			},
+			mockup: {
+			    multiple_files: {
+    				expand: true,
+    				flatten: true,
+    				src: mockupDir + '/styles/*.css',
+    				dest: mockupDir + '/styles/'
+    			}
 			}
 		},
 		develop: {
@@ -38,6 +61,17 @@ module.exports = function (grunt) {
 				file: 'app.js'
 			}
 		},
+		'http-server': {
+            mockup: {
+                root: mockupDir,
+                port: 8080,
+                host: '0.0.0.0',
+                cache: 0,
+                runInBAckground: true,
+                autoIndex: true,
+                defaultExt: 'html'
+            }
+        },
 		watch: {
 			options: {
 				nospawn: true,
@@ -65,7 +99,7 @@ module.exports = function (grunt) {
 			    files: [
 					appDir + '/sass/{,*/}*.scss'
 				],
-				tasks: [ 'compass:dev', 'autoprefixer' ]
+				tasks: [ 'compass:dev', 'autoprefixer:dev' ]
 			},
 			karma: {
 			    files: [
@@ -78,7 +112,13 @@ module.exports = function (grunt) {
 					appDir + '/scripts/{,*/}*.js',
 					appDir + '/{,*/}*.tpl'
 				],
-				tasks: [ 'develop', 'compass:dev', 'autoprefixer', 'karma:integration:run' ]
+				tasks: [ 'develop', 'compass:dev', 'autoprefixer:dev', 'karma:integration:run' ]
+			},
+			mockup: {
+			    files: [
+			        mockupDir + '/sass/{,*/}*.scss' 
+			    ],
+			    tasks: [ 'http-server:mockup', 'compass:mockup', 'autoprefixer:mockup' ]
 			}
 		},
 		karma: {
@@ -114,6 +154,7 @@ module.exports = function (grunt) {
 
 
 	grunt.loadNpmTasks('grunt-develop');
+	grunt.loadNpmTasks('grunt-http-server');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	
 	grunt.loadNpmTasks('grunt-node-inspector');
@@ -129,8 +170,15 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', [
 		'develop',
 		'compass:dev',
-		'autoprefixer',
-		'watch'
+		'autoprefixer:dev',
+		'watch:dev'
+	]);
+	
+	grunt.registerTask('mockup', [
+		'compass:mockup',
+		'autoprefixer:mockup',
+		'http-server:mockup',
+		'watch:mockup'
 	]);
 	
 	grunt.registerTask('debug', [
