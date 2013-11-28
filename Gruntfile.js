@@ -67,14 +67,12 @@ module.exports = function (grunt) {
                 port: 8080,
                 host: '0.0.0.0',
                 cache: 0,
-                runInBAckground: true,
                 autoIndex: true,
                 defaultExt: 'html'
             }
         },
 		watch: {
 			options: {
-				nospawn: true,
 				livereload: LIVEREOAD_PORT
 			},
 			develop: {
@@ -118,12 +116,16 @@ module.exports = function (grunt) {
 			    files: [
 			        mockupDir + '/sass/{,*/}*.scss' 
 			    ],
-			    tasks: [ 'http-server:mockup', 'compass:mockup', 'autoprefixer:mockup' ]
+			    tasks: [ 'compass:mockup', 'autoprefixer:mockup' ],
+			    options: {
+			        livereload: false
+			    }
 			}
 		},
 		karma: {
 		    integration: {
-		        configFile: 'karma.conf.js'
+		        configFile: 'karma.conf.js',
+		        background: true
 		    }
 		},
 		'node-inspector': {
@@ -149,12 +151,21 @@ module.exports = function (grunt) {
 		    projectRoot: "./spec/server",
 		    requirejs: false,
 		    forceExit: true
+		},
+		concurrent: {
+		    mockup: {
+		        tasks: [ 'http-server:mockup', 'watch:mockup' ],
+		        options: {
+		            logConcurrentOutput: true
+		        }
+		    }
 		}
 	});
 
 
 	grunt.loadNpmTasks('grunt-develop');
 	grunt.loadNpmTasks('grunt-http-server');
+	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	
 	grunt.loadNpmTasks('grunt-node-inspector');
@@ -177,8 +188,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('mockup', [
 		'compass:mockup',
 		'autoprefixer:mockup',
-		'http-server:mockup',
-		'watch:mockup'
+// 		'watch:mockup'
+		'concurrent:mockup'
 	]);
 	
 	grunt.registerTask('debug', [
