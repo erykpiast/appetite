@@ -2882,3 +2882,12 @@ label,
   }
 }
 /* endif */
+.page {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.page--header {
+  background: red;
+  min-height: 10rem;
+}
