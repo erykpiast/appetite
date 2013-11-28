@@ -116,10 +116,7 @@ module.exports = function (grunt) {
                 files: [
                     mockupDir + '/sass/{,*/}*.scss' 
                 ],
-                tasks: [ 'compass:mockup', 'autoprefixer:mockup' ],
-                options: {
-                    livereload: false
-                }
+                tasks: [ 'compass:mockup', 'autoprefixer:mockup' ]
             }
         },
         karma: {

@@ -41,3 +41,11 @@
 	    @include background-image( linear-gradient($side, transparent, $color) );
 	}
 }
+
+@mixin scut-inline-container() {
+	font-size: 0;
+
+	& > * {
+		font-size: $base-font-size;
+	}
+}

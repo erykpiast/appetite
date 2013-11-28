@@ -8,4 +8,17 @@
         display: none;
     }
 
+    .search__input,
+    .search__submit {
+    	display: inline-block;
+    }
+
+    .search__submit {
+		height: 100%;
+
+    	&.btn {
+    		line-height: inherit;
+    	}
+    }
+
 }

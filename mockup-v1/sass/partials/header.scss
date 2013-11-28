@@ -1,16 +1,26 @@
 .page__header {
+    overflow: hidden;
+    position: relative;
     
     @include scut-side-shadow(bottom, .5rem, $c-shadow-dark);
 
-    .page__header__title,
-    .page__header__search {
-        background-color: $c-bg-light;
+    .page__header__bar {
+        @include scut-inline-container();
+
         float: left;
-        font-size: 2.5rem;
+        height: 3rem;
         margin-top: 2rem;
-        padding: .25em;
         position: relative;
+        table-layout: fixed;
         z-index: 1;
+
+        .page__header__title,
+        .page__header__search {
+            background-color: $c-bg-light;
+            display: inline-block;
+            padding: 0 $half-spacing-unit;
+            vertical-align: middle;
+        }
     }
 
     .page__header__slider {

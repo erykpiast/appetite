@@ -1,11 +1,11 @@
 .search--main {
     @extend .search;
 
-    box-shadow: 0 0 5px 2px $c-shadow-dark inset;
+    // box-shadow: 0 0 5px 2px $c-shadow-dark inset;
+    border: 5px solid $c-shadow-dark;
     
     fieldset {
-        display: block;
-        height: 100%;
+        
     }
     
     .search__label {
@@ -14,14 +14,9 @@
     
     .search__input {
         border: none;
-        box-sizing: border-box;
-        display: block;
-        font-size: 1.75rem;
-        height: 2.5rem;
-        line-height: 2.5rem;
+        font-size: $h1-size;
         margin: 0;
-        min-width: 15em;
-        padding: 0;
+        min-width: 13em;
         
         &:focus {
             outline: none;
