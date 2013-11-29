@@ -49,3 +49,8 @@
 		font-size: $base-font-size;
 	}
 }
+
+@mixin scut-hide-text() {
+    overflow: hidden;
+    text-indent: -10000px;
+}

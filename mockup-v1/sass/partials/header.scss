@@ -18,8 +18,16 @@
         .page__header__search {
             background-color: $c-bg-light;
             display: inline-block;
-            padding: 0 $half-spacing-unit;
+            
             vertical-align: middle;
+        }
+        
+        .page__header__title {
+            padding: 0 $half-spacing-unit;
+        }
+        
+        .page__header__search {
+            padding-left: $half-spacing-unit;
         }
     }
 

@@ -5,7 +5,7 @@
     border: 5px solid $c-shadow-dark;
     
     fieldset {
-        
+        position: relative;
     }
     
     .search__label {
@@ -21,5 +21,13 @@
         &:focus {
             outline: none;
         }
+    }
+    
+    .search__submit {
+        display: block;
+        
+        @include scut-ratio-box(1/1, 'button');
+        @include scut-absolute(0 0 0 n);
+        @include scut-hide-text();
     }
 }
