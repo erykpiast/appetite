@@ -28,3 +28,12 @@
 // Partials
 @import "partials/page.scss";
 @import "partials/header.scss";
+
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+}

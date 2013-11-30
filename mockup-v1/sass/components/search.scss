@@ -16,7 +16,7 @@
     .search__submit {
 		height: 100%;
 
-    	&.btn {
+    	& > .btn {
     		line-height: inherit;
     	}
     }

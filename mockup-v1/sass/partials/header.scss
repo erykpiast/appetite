@@ -1,41 +1,49 @@
 .page__header {
-    overflow: hidden;
-    position: relative;
-    
-    @include scut-side-shadow(bottom, .5rem, $c-shadow-dark);
+    overflow: {
+        y: hidden;
+        x: visible;
+    };
 
     .page__header__bar {
         @include scut-inline-container();
+        @include scut-after();
 
-        float: left;
+        display: table;
         height: 3rem;
         margin-top: 2rem;
         position: relative;
         table-layout: fixed;
+        width: 100%;
         z-index: 1;
 
         .page__header__title,
-        .page__header__search {
-            background-color: $c-bg-light;
-            display: inline-block;
-            
+        .page__header__search,
+        &:after {
+            display: table-cell;
             vertical-align: middle;
+        }
+
+        .page__header__title,
+        &:after {
+            width: 30%;
+        }
+
+        .page__header__title,
+        .search--main {
+            background-color: $c-bg-light;
         }
         
         .page__header__title {
             padding: 0 $half-spacing-unit;
         }
-        
-        .page__header__search {
-            padding-left: $half-spacing-unit;
-        }
     }
 
     .page__header__slider {
-        height: 100%;
-        position: absolute;
-        top: 0;
-        width: 100%;
+        @include scut-side-shadow(bottom, .5rem, $c-shadow-dark);
+        @include scut-absolute(0 0 n 0);
+
+        border-bottom: 1px solid $c-shadow-dark;
+        height: $page-row-height;
         z-index: 0;
     }
 }

@@ -622,17 +622,6 @@ table {
  * As per: csswizardry.com/2011/10/reset-restarted
  */
 /**
-* Let’s make the box model all nice, shall we...?
-*/
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/**
  * The usual...
  */
 h1, h2, h3, h4, h5, h6,
@@ -1618,6 +1607,11 @@ label,
   width: 100%;
   padding-left: 20px;
   vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*------------------------------------*\
@@ -3099,17 +3093,6 @@ label,
  * As per: csswizardry.com/2011/10/reset-restarted
  */
 /**
-* Let’s make the box model all nice, shall we...?
-*/
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/**
  * The usual...
  */
 h1, h2, h3, h4, h5, h6,
@@ -3191,20 +3174,34 @@ textarea:focus {
 }
 
 .slider .slider__element {
-  height: 100%;
   overflow: hidden;
+}
+.slider .slider__element,
+.slider .slider__element .slider__element__figure {
+  width: 100%;
+  height: 100%;
 }
 .slider .slider__element .slider__element__figure {
   display: block;
-  height: 100%;
+  margin: 0;
   text-align: center;
 }
-.slider .slider__element .slider__element__image {
+.slider .slider__element .slider__element__figure:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.slider .slider__element .slider__element__figure > .slider__element__image {
+  display: inline-block;
+  vertical-align: middle;
+}
+.slider .slider__element .slider__element__figure .slider__element__image {
   height: auto;
   min-width: 640px;
-  width: 100%;
 }
-.slider .slider__element .slider__element__label {
+.slider .slider__element .slider__element__figure .slider__element__label {
   position: absolute;
 }
 
@@ -3222,56 +3219,63 @@ textarea:focus {
 .search .search__submit, .search--main .search__submit {
   height: 100%;
 }
-.search .search__submit.btn, .search--main .search__submit.btn {
+.search .search__submit > .btn, .search--main .search__submit > .btn {
   line-height: inherit;
 }
 
 .search--main {
   border: 5px solid rgba(77, 77, 77, 0.7);
-}
-.search--main fieldset {
+  display: inline-block;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 2.5rem;
   position: relative;
+}
+.search--main:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.search--main > fieldset {
+  display: inline-block;
+  vertical-align: middle;
 }
 .search--main .search__label {
   display: none;
 }
 .search--main .search__input {
   border: none;
-  font-size: 32px;
+  font-size: 24px;
   margin: 0;
-  min-width: 13em;
+  min-width: 14em;
 }
 .search--main .search__input:focus {
   outline: none;
 }
 .search--main .search__submit {
-  display: block;
-  overflow: hidden;
-  position: relative;
+  width: 2.5rem;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  overflow: hidden;
-  text-indent: -10000px;
 }
-.search--main .search__submit:before {
-  content: "";
-  display: block;
-  height: 0;
-  padding-top: 100%;
-}
-.search--main .search__submit > button {
+.search--main .search__submit > .btn {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  text-indent: -10000px;
 }
 
 .page {
   margin: 0 auto;
   max-width: 1000px;
+  min-height: 100%;
+  outline: 1px dotted #999;
   width: 100%;
 }
 .page .page__row {
@@ -3279,52 +3283,70 @@ textarea:focus {
 }
 
 .page__header {
-  overflow: hidden;
-  position: relative;
-  position: relative;
+  overflow-y: hidden;
+  overflow-x: visible;
 }
-.page__header:before {
+.page__header .page__header__bar {
+  font-size: 0;
+  display: table;
+  height: 3rem;
+  margin-top: 2rem;
+  position: relative;
+  table-layout: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.page__header .page__header__bar > * {
+  font-size: 16px;
+}
+.page__header .page__header__bar:after {
+  display: inline-block;
+  content: "";
+}
+.page__header .page__header__bar .page__header__title,
+.page__header .page__header__bar .page__header__search, .page__header .page__header__bar:after {
+  display: table-cell;
+  vertical-align: middle;
+}
+.page__header .page__header__bar .page__header__title, .page__header .page__header__bar:after {
+  width: 30%;
+}
+.page__header .page__header__bar .page__header__title,
+.page__header .page__header__bar .search--main {
+  background-color: #fafafa;
+}
+.page__header .page__header__bar .page__header__title {
+  padding: 0 10px;
+}
+.page__header .page__header__slider {
+  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(77, 77, 77, 0.7);
+  height: 250px;
+  z-index: 0;
+}
+.page__header .page__header__slider:before {
   display: block;
   content: "";
   position: absolute;
   height: 0.5rem;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -0.5rem;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, transparent), color-stop(100%, rgba(77, 77, 77, 0.7)));
   background-image: -webkit-linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
   background-image: -moz-linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
   background-image: -o-linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
   background-image: linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
 }
-.page__header .page__header__bar {
-  font-size: 0;
-  float: left;
-  height: 3rem;
-  margin-top: 2rem;
-  position: relative;
-  table-layout: fixed;
-  z-index: 1;
-}
-.page__header .page__header__bar > * {
-  font-size: 16px;
-}
-.page__header .page__header__bar .page__header__title,
-.page__header .page__header__bar .page__header__search {
-  background-color: #fafafa;
-  display: inline-block;
-  vertical-align: middle;
-}
-.page__header .page__header__bar .page__header__title {
-  padding: 0 10px;
-}
-.page__header .page__header__bar .page__header__search {
-  padding-left: 10px;
-}
-.page__header .page__header__slider {
+
+html {
   height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 0;
+}
+
+body {
+  min-height: 100%;
 }
