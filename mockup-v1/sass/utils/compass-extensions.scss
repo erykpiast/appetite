@@ -1,0 +1,4 @@
+@mixin spacing($property: margin) {
+	@include vertical-spacing($property);
+	@include horizontal-spacing($property);
+}
