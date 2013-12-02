@@ -1,35 +1,66 @@
 .offer-thumbnail {
+    @extend .thumbnail;
+
     $border-width: 1px;
 	$border-radius: 0.25em;
+
+    @include scut-square($border-width);
 
     border: $border-width solid #888 {
 		radius: $border-radius;
     };
-    padding-bottom: calc(100% - #{2 * $border-width}); // square
     width: 100%;
 
     &:hover {
         cursor: pointer;
     }
 
-    &:after {
+    @include scut-after() {
     	background-color: $c-bg-light;
     	bottom: 0;
-    	content: "";
     	display: block;
     	height: .25em;
+
 		@include stretch-x();
     }
 
+    .thumbnail__text--top,
+    .thumbnail__text--bottom {
+        background-color: rgba($c-bg-light, 0.7);
+    }
+
+    .thumbnail__text--top {
+        @include scut-before() {
+            @include scut-absolute(0 0 0 0);
+
+            background: {
+                image: url("/images/tarta_z_wisniami.jpg");
+                position: 0 19%;
+                repeat: no-repeat;
+                size: 100% auto;
+            };
+            -webkit-filter: blur(2px);
+            z-index: 0;
+        }
+
+        & > * {
+            background-color: rgba($c-bg-light, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
 	h3 {
-		font-size: 1.2rem;
+		font-size: $h5-size;
+        letter-spacing: -.0312em;
+        text-transform: uppercase;
     }
 
     p {
-    	font-size: .9rem;
+    	
     }
 
     h3, p {
-    	@include spacing();
+    	@include spacing(padding);
     }
 }

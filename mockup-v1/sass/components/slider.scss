@@ -16,6 +16,9 @@
 			margin: 0;
 			text-align: center;
 			@include scut-vcenter-ib(".slider__element__image");
+			&:before {
+	            height: auto;
+	        }
 
 			.slider__element__image {
 				height: auto;

@@ -39,7 +39,7 @@
     }
 
     .page__header__slider {
-        @include scut-side-shadow(bottom, .5rem, $c-shadow-dark);
+        // @include scut-side-shadow(bottom, .5rem, $c-shadow-dark);
         @include scut-absolute(0 0 n 0);
 
         border-bottom: 1px solid $c-shadow-dark;

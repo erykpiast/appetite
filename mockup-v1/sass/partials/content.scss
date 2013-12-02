@@ -1,0 +1,26 @@
+.page__content {
+	@extend .grid;
+
+	.page__content__offers,
+	.page__content__login {
+		@extend .grid__item;
+
+		outline: 1px dotted #999;
+	}
+
+	.page__content__offers {
+		@extend .three-quarters;
+
+		.offers {
+
+		}
+
+		.offers--cakes {
+			@extend .offers;
+		}
+	}
+
+	.page__content__login {
+		@extend .one-quarter;
+	}
+}

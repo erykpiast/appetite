@@ -54,3 +54,61 @@
     overflow: hidden;
     text-indent: -10000px;
 }
+
+@mixin scut-square($border-width: 0) {
+    padding: 0 {
+        bottom: calc(100% - #{2 * $border-width});
+    };
+}
+
+@mixin scut-vcenter-tt {
+    margin: {
+        bottom: auto;
+        top: auto;
+    };
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+@mixin scut-multiline-text-overflow($type: ellipsis, $width: 4em, $padding-right: 0.5em, $line-height: 1.5em) {
+    // $type - text (in quotes) or word ellipsis (without quotes) that matches \02026 Unicode character
+    // $width - width of "ellipsis element" (shows up on the end of text); increasing this value can helps if you have problem with line wrapping, but it decrease "accuracy of detecting" the last word
+    // $padding-right - simply right padding of "ellipsis element"
+    // $line-height - should be absolute value (in px, ems etc.) and fit to line-height of cutting text
+    // you can use @content block to style "ellipsis element"
+
+    @if ($type == ellipsis) {
+        $type: "\02026";
+    }
+
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        content: "";
+        float: left;
+        height: 100%;
+        width: $padding-right;
+    }
+  
+    &:after {
+        content: $type;
+        float: right;
+        left: 100%; 
+        margin-left: -$width;
+        padding-right: $padding-right;
+        position: relative;
+        text-align: left;
+        top: -$line-height;
+        width: $width;
+        
+        @content;
+    }
+
+    & > *:first-child {
+        float: right;
+        width: 100%;
+        margin-left: -$padding-right;
+    }
+}

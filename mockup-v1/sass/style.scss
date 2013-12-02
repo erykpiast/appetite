@@ -25,14 +25,17 @@
 @import "components/slider.scss";
 @import "components/search.scss";
 @import "components/thumbnail.scss";
+@import "components/thumbnails-grid.scss";
 
 // Site-specific components
 @import "site-components/main-search.scss";
 @import "site-components/offer-thumbnail.scss";
+@import "site-components/offers-thumbnails.scss";
 
 // Partials
 @import "partials/page.scss";
 @import "partials/header.scss";
+@import "partials/content.scss";
 
 
 html {
