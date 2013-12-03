@@ -3,6 +3,7 @@
     overflow: hidden;
     position: relative;
     text-align: center;
+    transition: border-color .15s linear;
   
     .thumbnail__background {
         $maxBgWidth: 500px;
@@ -56,9 +57,11 @@
     }
   
     &:hover {
+        transition: border-color .3s ease-out;
+
         .thumbnail__text--bottom {
             bottom: 0;
-            transition: bottom .3s ease-out .2s;
+            transition: bottom .3s ease-out .3s;
         }
     }
 }

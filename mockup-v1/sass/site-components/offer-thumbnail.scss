@@ -13,11 +13,19 @@
         };
     };
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-    transition: border-color .3s ease-out, box-shadow .3s ease-out;
 
     &:hover {
         cursor: pointer;
         border-color: $c-fg-acc;
+
+        .thumbnail__text--top {
+            background-color: rgba($c-fg-acc, 0.9);
+            transition: background-color .3s ease-out;
+
+            & > h3 {
+                color: rgba($c-bg-light, 1);
+            }
+        }
     }
 
     .thumbnail__text--top,
@@ -29,6 +37,7 @@
         @include spacing(padding);
 
         background-color: rgba($c-bg-light, 0.9);
+        transition: background-color .15s linear;
 
         & > h3 {
             font-size: $h5-size;
