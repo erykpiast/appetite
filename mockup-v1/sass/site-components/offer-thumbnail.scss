@@ -4,63 +4,56 @@
     $border-width: 1px;
 	$border-radius: 0.25em;
 
-    @include scut-square($border-width);
+    @include scut-square(100%, $border-width);
 
-    border: $border-width solid #888 {
+    border: $border-width solid rgba($c-fg-def, 0.7) {
 		radius: $border-radius;
     };
-    width: 100%;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: border-color .3s ease-out, box-shadow .3s ease-out;
 
     &:hover {
         cursor: pointer;
-    }
-
-    @include scut-after() {
-    	background-color: $c-bg-light;
-    	bottom: 0;
-    	display: block;
-    	height: .25em;
-
-		@include stretch-x();
+        border-color: rgba($c-fg-acc, 0.7);
+        // box-shadow: 0 0 .3em rgba($c-fg-acc, 1);
     }
 
     .thumbnail__text--top,
     .thumbnail__text--bottom {
-        background-color: rgba($c-bg-light, 0.7);
+        @include spacing(padding);
+
+        background-color: rgba($c-bg-light, 0.8);
+        box-shadow: 0 0 .3em rgba($c-fg-def, 1);
     }
 
     .thumbnail__text--top {
-        @include scut-before() {
-            @include scut-absolute(0 0 0 0);
-
-            background: {
-                image: url("/images/tarta_z_wisniami.jpg");
-                position: 0 19%;
-                repeat: no-repeat;
-                size: 100% auto;
-            };
-            -webkit-filter: blur(2px);
-            z-index: 0;
-        }
-
-        & > * {
-            background-color: rgba($c-bg-light, 0.3);
-            position: relative;
-            z-index: 1;
+        & > h3 {
+            font-size: $h5-size;
+            letter-spacing: -.0312em;
+            // text-transform: uppercase;
         }
     }
 
-	h3 {
-		font-size: $h5-size;
-        letter-spacing: -.0312em;
-        text-transform: uppercase;
-    }
+    .thumbnail__text--bottom {
+        background-color: rgba($c-fg-acc, 0.8);
+        bottom: -2em;
+        font-size: $h6-size;
+        height: 2.25em;
 
-    p {
-    	
-    }
+        & * {
+            color: rgba($c-bg-light, 1);
+        }
 
-    h3, p {
-    	@include spacing(padding);
+        .offer-thumbnail__author {
+            .offer-thumbnail__author__name {
+
+            }
+
+            .offer-thumbnail__author__rating {
+                @include scut-fonticon-label(inherit, '♥', $space: $space-width);
+
+                float: right;
+            }
+        }        
     }
 }

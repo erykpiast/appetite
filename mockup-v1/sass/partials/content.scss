@@ -4,8 +4,6 @@
 	.page__content__offers,
 	.page__content__login {
 		@extend .grid__item;
-
-		outline: 1px dotted #999;
 	}
 
 	.page__content__offers {

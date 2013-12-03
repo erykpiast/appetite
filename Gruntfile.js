@@ -114,7 +114,8 @@ module.exports = function (grunt) {
             },
             mockup: {
                 files: [
-                    mockupDir + '/sass/{,*/}*.scss' 
+                    mockupDir + '/sass/{,*/}*.scss',
+                    mockupDir + '{,*/}*.html'
                 ],
                 tasks: [ 'compass:mockup', 'autoprefixer:mockup' ]
             }

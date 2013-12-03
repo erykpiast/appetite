@@ -39,18 +39,14 @@
         @extend .thumbnail__text;
     }
     .thumbnail__text--top {
-        top: 15%;
+        top: 0%;
         
         & > * {
             height: 100%;
             overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
         }
     }
     .thumbnail__text--bottom {
-        bottom: -100%;
-        max-height: 15%;
         padding-bottom: $half-spacing-unit;
         transition: bottom linear .15s;
 

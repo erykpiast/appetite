@@ -3,6 +3,18 @@
 // Variables - must come first !!!
 @import "_vars.scss";
 
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+}
+
+* {
+	border-color: $c-fg-def;
+	color: $c-fg-def;
+}
 
 // Frameworks
 @import "compass";
@@ -22,6 +34,8 @@
 @import "utils/compass-extensions.scss";
 
 // Components
+@import "components/links.scss";
+
 @import "components/slider.scss";
 @import "components/search.scss";
 @import "components/thumbnail.scss";
@@ -36,12 +50,3 @@
 @import "partials/page.scss";
 @import "partials/header.scss";
 @import "partials/content.scss";
-
-
-html {
-	height: 100%;
-}
-
-body {
-	min-height: 100%;
-}

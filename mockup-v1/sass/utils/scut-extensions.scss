@@ -55,10 +55,18 @@
     text-indent: -10000px;
 }
 
-@mixin scut-square($border-width: 0) {
+@mixin scut-square($width, $border-width: 0) {
+    $height: 100%;
+    @if ($border-width != 0) {
+        $height: #{"calc( 100% - " + (2 * $border-width) + " )"};
+    }
+
+    display: block;
+    height: 0;
     padding: 0 {
-        bottom: calc(100% - #{2 * $border-width});
+        bottom: $height;
     };
+    width: $width;
 }
 
 @mixin scut-vcenter-tt {
@@ -111,4 +119,8 @@
         width: 100%;
         margin-left: -$padding-right;
     }
+}
+
+@mixin scut-debug() {
+    outline: 1px dotted rgb(255, 128, 128);
 }
