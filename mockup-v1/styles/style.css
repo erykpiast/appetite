@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext);
 /*------------------------------------*\
     VARS.SCSS
 \*------------------------------------*/
@@ -41,6 +42,7 @@ body {
 
 * {
   border-color: #2c2c2c;
+  font-family: "Ubuntu Condensed", sans-serif;
   color: #2c2c2c;
 }
 
@@ -730,8 +732,8 @@ pre,
 .media,
 .island,
 .islet {
-  margin-bottom: 17px;
-  margin-bottom: 1.21429rem;
+  margin-bottom: 22px;
+  margin-bottom: 1.57143rem;
 }
 .islet h1, .islet h2, .islet h3, .islet h4, .islet h5, .islet h6, .islet hgroup, .islet
 ul, .islet ol, .islet dl, .islet
@@ -742,16 +744,16 @@ pre, .islet .form-fields > li, .islet
 .media, .islet
 .island, .islet
 .islet {
-  margin-bottom: 8.5px;
-  margin-bottom: 0.60714rem;
+  margin-bottom: 11px;
+  margin-bottom: 0.78571rem;
 }
 
 /**
  * Doubled up `margin-bottom` helper class.
  */
 .landmark {
-  margin-bottom: 34px;
-  margin-bottom: 2.42857rem;
+  margin-bottom: 44px;
+  margin-bottom: 3.14286rem;
 }
 
 /**
@@ -759,8 +761,8 @@ pre, .islet .form-fields > li, .islet
  * treatment regarding vertical rhythm.
  */
 hr {
-  margin-bottom: 15px;
-  margin-bottom: 1.07143rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.42857rem;
 }
 
 /**
@@ -768,8 +770,8 @@ hr {
  * by a consistent amount. Define that amount once, here.
  */
 ul, ol, dd {
-  margin-left: 34px;
-  margin-left: 2.42857rem;
+  margin-left: 44px;
+  margin-left: 3.14286rem;
 }
 
 /**
@@ -779,7 +781,7 @@ ul, ol, dd {
     $MAIN
 \*------------------------------------*/
 html {
-  font: 0.875em/1.5 sans-serif;
+  font: 0.875em/2 sans-serif;
   overflow-y: scroll;
   min-height: 100%;
 }
@@ -797,37 +799,37 @@ html {
 h1, .alpha {
   font-size: 28px;
   font-size: 2rem;
-  line-height: 1.5;
+  line-height: 1;
 }
 
 h2, .beta {
   font-size: 26.25px;
   font-size: 1.875rem;
-  line-height: 1.6;
+  line-height: 1.06667;
 }
 
 h3, .gamma {
   font-size: 21px;
   font-size: 1.5rem;
-  line-height: 1;
+  line-height: 1.33333;
 }
 
 h4, .delta {
   font-size: 17.5px;
   font-size: 1.25rem;
-  line-height: 1.2;
+  line-height: 1.6;
 }
 
 h5, .epsilon {
   font-size: 14px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 2;
 }
 
 h6, .zeta {
   font-size: 12.25px;
   font-size: 0.875rem;
-  line-height: 1.71429;
+  line-height: 2.28571;
 }
 
 /**
@@ -851,7 +853,7 @@ hgroup .hN {
 .giga {
   font-size: 96px;
   font-size: 6.85714rem;
-  line-height: 1.09375;
+  line-height: 1.16667;
 }
 
 .mega {
@@ -863,7 +865,7 @@ hgroup .hN {
 .kilo {
   font-size: 48px;
   font-size: 3.42857rem;
-  line-height: 1.3125;
+  line-height: 1.16667;
 }
 
 /*------------------------------------*\
@@ -877,7 +879,7 @@ hgroup .hN {
 .lead {
   font-size: 15.75px;
   font-size: 1.125rem;
-  line-height: 1.33333;
+  line-height: 1.77778;
 }
 
 /*------------------------------------*\
@@ -890,13 +892,13 @@ hgroup .hN {
 .milli {
   font-size: 12px;
   font-size: 0.85714rem;
-  line-height: 1.75;
+  line-height: 2.33333;
 }
 
 .micro {
   font-size: 10px;
   font-size: 0.71429rem;
-  line-height: 2.1;
+  line-height: 2.8;
 }
 
 /*------------------------------------*\
@@ -1084,20 +1086,20 @@ img[height] {
  */
 .img--right {
   float: right;
-  margin-bottom: 17px;
-  margin-left: 17px;
+  margin-bottom: 22px;
+  margin-left: 22px;
 }
 
 .img--left {
   float: left;
-  margin-right: 17px;
-  margin-bottom: 17px;
+  margin-right: 22px;
+  margin-bottom: 22px;
 }
 
 .img--center {
   display: block;
   margin-right: auto;
-  margin-bottom: 17px;
+  margin-bottom: 22px;
   margin-left: auto;
 }
 
@@ -1108,15 +1110,15 @@ img[height] {
  * distort when resized below a certain width. Use with caution.
  */
 .img--short {
-  height: 85px;
+  height: 110px;
 }
 
 .img--medium {
-  height: 170px;
+  height: 220px;
 }
 
 .img--tall {
-  height: 255px;
+  height: 330px;
 }
 
 /**
@@ -1208,13 +1210,13 @@ table {
 
 th,
 td {
-  padding: 4.25px;
+  padding: 5.5px;
   text-align: left;
 }
 @media screen and (min-width: 480px) {
   th,
   td {
-    padding: 8.5px;
+    padding: 11px;
   }
 }
 
@@ -1398,7 +1400,7 @@ td {
  *
  */
 fieldset {
-  padding: 17px;
+  padding: 22px;
 }
 
 /**
@@ -1600,7 +1602,7 @@ label,
  * Grid wrapper
  */
 .grid, .thumbnails-grid, .offers-thumbnails, .page__content {
-  margin-left: -17px;
+  margin-left: -22px;
   list-style: none;
   margin-bottom: 0;
 }
@@ -1619,7 +1621,7 @@ label,
 .page__content .page__content__login {
   display: inline-block;
   width: 100%;
-  padding-left: 17px;
+  padding-left: 22px;
   vertical-align: top;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1651,7 +1653,7 @@ label,
 
 .media__img {
   float: left;
-  margin-right: 17px;
+  margin-right: 22px;
 }
 
 /**
@@ -1659,7 +1661,7 @@ label,
  */
 .media__img--rev {
   float: right;
-  margin-left: 17px;
+  margin-left: 22px;
 }
 
 .media__img img,
@@ -1680,11 +1682,11 @@ label,
  * `.img`s in `.islet`s need an appropriately sized margin.
  */
 .islet .media__img {
-  margin-right: 8.5px;
+  margin-right: 11px;
 }
 
 .islet .media__img--rev {
-  margin-left: 8.5px;
+  margin-left: 11px;
 }
 
 /*------------------------------------*\
@@ -2767,63 +2769,63 @@ label,
  * Add/remove margins
  */
 .push {
-  margin: 17px !important;
+  margin: 22px !important;
 }
 
 .push--top {
-  margin-top: 17px !important;
+  margin-top: 22px !important;
 }
 
 .push--right {
-  margin-right: 17px !important;
+  margin-right: 22px !important;
 }
 
 .push--bottom {
-  margin-bottom: 17px !important;
+  margin-bottom: 22px !important;
 }
 
 .push--left {
-  margin-left: 17px !important;
+  margin-left: 22px !important;
 }
 
 .push--ends {
-  margin-top: 17px !important;
-  margin-bottom: 17px !important;
+  margin-top: 22px !important;
+  margin-bottom: 22px !important;
 }
 
 .push--sides {
-  margin-right: 17px !important;
-  margin-left: 17px !important;
+  margin-right: 22px !important;
+  margin-left: 22px !important;
 }
 
 .push-half {
-  margin: 8.5px !important;
+  margin: 11px !important;
 }
 
 .push-half--top {
-  margin-top: 8.5px !important;
+  margin-top: 11px !important;
 }
 
 .push-half--right {
-  margin-right: 8.5px !important;
+  margin-right: 11px !important;
 }
 
 .push-half--bottom {
-  margin-bottom: 8.5px !important;
+  margin-bottom: 11px !important;
 }
 
 .push-half--left {
-  margin-left: 8.5px !important;
+  margin-left: 11px !important;
 }
 
 .push-half--ends {
-  margin-top: 8.5px !important;
-  margin-bottom: 8.5px !important;
+  margin-top: 11px !important;
+  margin-bottom: 11px !important;
 }
 
 .push-half--sides {
-  margin-right: 8.5px !important;
-  margin-left: 8.5px !important;
+  margin-right: 11px !important;
+  margin-left: 11px !important;
 }
 
 .flush {
@@ -2860,63 +2862,63 @@ label,
  * Add/remove paddings
  */
 .soft {
-  padding: 17px !important;
+  padding: 22px !important;
 }
 
 .soft--top {
-  padding-top: 17px !important;
+  padding-top: 22px !important;
 }
 
 .soft--right {
-  padding-right: 17px !important;
+  padding-right: 22px !important;
 }
 
 .soft--bottom {
-  padding-bottom: 17px !important;
+  padding-bottom: 22px !important;
 }
 
 .soft--left {
-  padding-left: 17px !important;
+  padding-left: 22px !important;
 }
 
 .soft--ends {
-  padding-top: 17px !important;
-  padding-bottom: 17px !important;
+  padding-top: 22px !important;
+  padding-bottom: 22px !important;
 }
 
 .soft--sides {
-  padding-right: 17px !important;
-  padding-left: 17px !important;
+  padding-right: 22px !important;
+  padding-left: 22px !important;
 }
 
 .soft-half {
-  padding: 8.5px !important;
+  padding: 11px !important;
 }
 
 .soft-half--top {
-  padding-top: 8.5px !important;
+  padding-top: 11px !important;
 }
 
 .soft-half--right {
-  padding-right: 8.5px !important;
+  padding-right: 11px !important;
 }
 
 .soft-half--bottom {
-  padding-bottom: 8.5px !important;
+  padding-bottom: 11px !important;
 }
 
 .soft-half--left {
-  padding-left: 8.5px !important;
+  padding-left: 11px !important;
 }
 
 .soft-half--ends {
-  padding-top: 8.5px !important;
-  padding-bottom: 8.5px !important;
+  padding-top: 11px !important;
+  padding-bottom: 11px !important;
 }
 
 .soft-half--sides {
-  padding-right: 8.5px !important;
-  padding-left: 8.5px !important;
+  padding-right: 11px !important;
+  padding-left: 11px !important;
 }
 
 .hard {
@@ -2953,12 +2955,12 @@ label,
  * Pull items full width of `.island` parents.
  */
 .full-bleed {
-  margin-right: -17px !important;
-  margin-left: -17px !important;
+  margin-right: -22px !important;
+  margin-left: -22px !important;
 }
 .islet .full-bleed {
-  margin-right: -8.5px !important;
-  margin-left: -8.5px !important;
+  margin-right: -11px !important;
+  margin-left: -11px !important;
 }
 
 /**
@@ -3298,7 +3300,7 @@ a.hyperlink, a.hyperlink:active, a.hyperlink:visited {
   overflow: hidden;
 }
 .thumbnail .thumbnail__text--bottom, .offer-thumbnail .thumbnail__text--bottom {
-  padding-bottom: 8.5px;
+  padding-bottom: 11px;
   transition: bottom linear .15s;
 }
 .thumbnail .thumbnail__text--bottom > *, .offer-thumbnail .thumbnail__text--bottom > * {
@@ -3306,14 +3308,14 @@ a.hyperlink, a.hyperlink:active, a.hyperlink:visited {
 }
 .thumbnail:hover .thumbnail__text--bottom, .offer-thumbnail:hover .thumbnail__text--bottom {
   bottom: 0;
-  transition: bottom ease-out .3s;
+  transition: bottom .3s ease-out .2s;
 }
 
 .search--main {
   box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
   display: inline-block;
-  padding: 4.25px;
-  padding-left: 8.5px;
+  padding: 5.5px;
+  padding-left: 11px;
   padding-right: 2.5rem;
   position: relative;
 }
@@ -3361,35 +3363,38 @@ a.hyperlink, a.hyperlink:active, a.hyperlink:visited {
   display: block;
   height: 0;
   padding: 0;
-  padding-bottom: calc( 100% - 2px );
+  padding-bottom: calc( 100% - 0.2em );
   width: 100%;
-  border: 1px solid rgba(44, 44, 44, 0.7);
-  border-radius: 0.25em;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  border: 0.1em solid silver;
+  border-radius: 0.4em;
+  border-bottom-width: .25em;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   transition: border-color .3s ease-out, box-shadow .3s ease-out;
 }
 .offer-thumbnail:hover {
   cursor: pointer;
-  border-color: rgba(170, 30, 30, 0.7);
+  border-color: #aa1e1e;
 }
-.offer-thumbnail .thumbnail__text--top,
-.offer-thumbnail .thumbnail__text--bottom {
+.offer-thumbnail .thumbnail__text--top, .offer-thumbnail:hover .thumbnail__text--bottom {
+  box-shadow: 0 0 0.3em #2c2c2c;
+}
+.offer-thumbnail .thumbnail__text--top {
   padding-bottom: 0.5em;
   padding-top: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  background-color: rgba(250, 250, 250, 0.8);
-  box-shadow: 0 0 0.3em #2c2c2c;
+  background-color: rgba(250, 250, 250, 0.9);
 }
 .offer-thumbnail .thumbnail__text--top > h3 {
   font-size: 14px;
-  letter-spacing: -.0312em;
 }
 .offer-thumbnail .thumbnail__text--bottom {
-  background-color: rgba(170, 30, 30, 0.8);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background: linear-gradient(to top, #aa1e1e, rgba(170, 30, 30, 0.8));
   bottom: -2em;
   font-size: 12.25px;
-  height: 2.25em;
+  height: 2em;
 }
 .offer-thumbnail .thumbnail__text--bottom * {
   color: #fafafa;
@@ -3452,7 +3457,7 @@ a.hyperlink, a.hyperlink:active, a.hyperlink:visited {
   background-color: #fafafa;
 }
 .page__header .page__header__bar .page__header__title {
-  padding: 0 8.5px;
+  padding: 0 11px;
 }
 .page__header .page__header__slider {
   position: absolute;

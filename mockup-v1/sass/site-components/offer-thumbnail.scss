@@ -1,44 +1,49 @@
 .offer-thumbnail {
     @extend .thumbnail;
 
-    $border-width: 1px;
-	$border-radius: 0.25em;
+    $border-width: .1em;
+	$border-radius: .4em;
 
     @include scut-square(100%, $border-width);
 
-    border: $border-width solid rgba($c-fg-def, 0.7) {
+    border: $border-width solid $c-fg-def-light {
 		radius: $border-radius;
+        bottom: {
+            width: .25em;
+        };
     };
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
     transition: border-color .3s ease-out, box-shadow .3s ease-out;
 
     &:hover {
         cursor: pointer;
-        border-color: rgba($c-fg-acc, 0.7);
-        // box-shadow: 0 0 .3em rgba($c-fg-acc, 1);
+        border-color: $c-fg-acc;
     }
 
     .thumbnail__text--top,
-    .thumbnail__text--bottom {
-        @include spacing(padding);
-
-        background-color: rgba($c-bg-light, 0.8);
+    &:hover .thumbnail__text--bottom {
         box-shadow: 0 0 .3em rgba($c-fg-def, 1);
     }
 
     .thumbnail__text--top {
+        @include spacing(padding);
+
+        background-color: rgba($c-bg-light, 0.9);
+
         & > h3 {
             font-size: $h5-size;
-            letter-spacing: -.0312em;
-            // text-transform: uppercase;
         }
     }
 
     .thumbnail__text--bottom {
-        background-color: rgba($c-fg-acc, 0.8);
-        bottom: -2em;
+        $h: 2em;
+
+        @include horizontal-spacing(padding);
+
+        background: linear-gradient(to top, rgba($c-fg-acc, 1), rgba($c-fg-acc, 0.8));
+        bottom: -$h;
         font-size: $h6-size;
-        height: 2.25em;
+        height: $h;
 
         & * {
             color: rgba($c-bg-light, 1);

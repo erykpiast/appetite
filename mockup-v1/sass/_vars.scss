@@ -62,8 +62,8 @@ $use-greybox:       false;
  */
 
 $base-font-size: 14px;
-$base-line-height: $base-font-size * 1.5;
-$base-spacing-unit: $base-line-height - 4;
+$base-line-height: $base-font-size * 2;
+$base-spacing-unit: $base-line-height - 6;
 $half-spacing-unit: $base-spacing-unit / 2;
 $line-height-ratio: $base-line-height / $base-font-size;
 
@@ -89,6 +89,7 @@ $page-row-height: 250px;
 
 $c-fg-def: rgba(44, 44, 44, 1.0);
 $c-fg-acc: rgba(170, 30, 30, 1.0);
+$c-fg-def-light: rgba(192, 192, 192, 1.0);
 
 $c-bg-light: rgba(250, 250, 250, 1.0);
 $c-bg-links: $c-bg-light;

@@ -55,10 +55,10 @@
     text-indent: -10000px;
 }
 
-@mixin scut-square($width, $border-width: 0) {
+@mixin scut-square($width, $border-width: 0, $border-bottom-width: $border-width, $border-top-width: $border-width) {
     $height: 100%;
-    @if ($border-width != 0) {
-        $height: #{"calc( 100% - " + (2 * $border-width) + " )"};
+    @if ($border-width != 0) or ($border-bottom-width != 0) or ($border-top-width != 0) {
+        $height: #{"calc( 100% - " + ($border-bottom-width + $border-top-width) + " )"};
     }
 
     display: block;

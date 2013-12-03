@@ -58,7 +58,7 @@
     &:hover {
         .thumbnail__text--bottom {
             bottom: 0;
-            transition: bottom ease-out .3s;
+            transition: bottom .3s ease-out .2s;
         }
     }
 }
