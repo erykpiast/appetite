@@ -32,8 +32,8 @@ module.exports = function (grunt) {
                     require: [ 'compass', 'compass-inuit', 'scut' ],
                     force: true,
                     relativeAssets: true,
-                    noLineComments: true,
-                    debugInfo: true
+                    noLineComments: true/*,
+                    debugInfo: true*/
                 }
             }
         },
@@ -42,20 +42,12 @@ module.exports = function (grunt) {
                 browsers: [ '> 1%', 'last 2 version' ]
             },
             dev: {
-                multiple_files: {
-                    expand: true,
-                    flatten: true,
-                    src: appDir + '/styles/*.css',
-                    dest: appDir + '/styles/'
-                }
+                src: appDir + '/styles/style.css',
+                dest: appDir + '/styles/style.css'
             },
             mockup: {
-                multiple_files: {
-                    expand: true,
-                    flatten: true,
-                    src: mockupDir + '/styles/*.css',
-                    dest: mockupDir + '/styles/'
-                }
+                src: mockupDir + '/styles/style.css',
+                dest: mockupDir + '/styles/style.css'
             }
         },
         develop: {

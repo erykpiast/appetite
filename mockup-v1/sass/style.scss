@@ -3,7 +3,7 @@
 // Variables - must come first !!!
 @import "_vars.scss";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext);
-
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700&subset=latin,latin-ext);
 html {
 	height: 100%;
 }
@@ -12,10 +12,14 @@ body {
 	min-height: 100%;
 }
 
-* {
+body {
 	border-color: $c-fg-def;
-	font-family: "Ubuntu Condensed", sans-serif;
+	font-family: "Oxygen", "Ubuntu Condensed", sans-serif;
 	color: $c-fg-def;
+}
+
+img[src=""] {
+	display: none;
 }
 
 // Frameworks
