@@ -88,8 +88,11 @@ $space-width: .0625em;
 $page-row-height: 250px;
 
 $c-fg-def: rgba(40, 40, 40, 1.0);
-$c-fg-acc: rgba(170, 30, 30, 1.0);
-$c-fg-acc: rgba(170, 30, 30, 1.0);
+
+// $c-fg-acc: rgba(170, 30, 30, 1.0); // reddish
+// $c-fg-acc: rgba(204, 38, 73, 1.0); // purplish
+$c-fg-acc: rgba(153, 44, 75, 1.0); // darker purplish
+
 $c-fg-def-light: rgba(152, 152, 152, 1.0);
 
 $c-bg-light: rgba(250, 250, 250, 1.0);
