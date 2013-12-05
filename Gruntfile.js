@@ -19,7 +19,8 @@ module.exports = function (grunt) {
                     require: [ 'compass', 'compass-inuit', 'scut' ],
                     force: true,
                     relativeAssets: true,
-                    noLineComments: true
+                    noLineComments: true,
+                    debugInfo: true
                 }
             },
             mockup: {
@@ -31,7 +32,8 @@ module.exports = function (grunt) {
                     require: [ 'compass', 'compass-inuit', 'scut' ],
                     force: true,
                     relativeAssets: true,
-                    noLineComments: true
+                    noLineComments: true,
+                    debugInfo: true
                 }
             }
         },

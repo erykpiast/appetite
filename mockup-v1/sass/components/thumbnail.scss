@@ -49,7 +49,6 @@
     }
     .thumbnail__text--bottom {
         padding-bottom: $half-spacing-unit;
-        transition: bottom linear .15s;
 
         & > * {
             height: 100%;
@@ -57,11 +56,8 @@
     }
   
     &:hover {
-        transition: border-color .3s ease-out;
-
         .thumbnail__text--bottom {
             bottom: 0;
-            transition: bottom .3s ease-out .3s;
         }
     }
 }
