@@ -20,11 +20,13 @@
     }
 
     .thumbnail__text--top {
-        @include spacing(padding);
+        @include half-spacing(padding);
 
         background-color: rgba($c-bg-light, 0.9);
 
         & > h3 {
+            @include slice-to-lines(2, $h5-size, max-height);
+
             font-size: $h5-size;
         }
     }
@@ -32,7 +34,7 @@
     .thumbnail__text--bottom {
         $h: 2em;
 
-        @include horizontal-spacing(padding);
+        @include half-spacing(padding);
 
         background: linear-gradient(to top, rgba($c-fg-acc, 1), rgba($c-fg-acc, 0.8));
         bottom: -$h;

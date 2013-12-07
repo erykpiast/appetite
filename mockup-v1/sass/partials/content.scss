@@ -10,7 +10,11 @@
 		@extend .three-quarters;
 
 		.offers {
-
+			header {
+				h2 {
+					font-family: "Englebert", sans-serif;
+				}
+			}
 		}
 
 		.offers--cakes {

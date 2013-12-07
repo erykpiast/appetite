@@ -124,3 +124,13 @@
 @mixin scut-debug() {
     outline: 1px dotted rgb(255, 128, 128);
 }
+
+@mixin scut-row-grid($row-height, $color: rgba(99, 99, 99, .2)) {
+    background: {
+        color: transparent;
+        image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 99%, $color 100%);
+        position: 0 0;
+        repeat: repeat-y;
+        size: 100% $row-height;
+    };
+}

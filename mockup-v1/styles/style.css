@@ -5,7 +5,9 @@
 
 @import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700&subset=latin,latin-ext);
 
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic&subset=latin,latin-ext);
+
+@import url(http://fonts.googleapis.com/css?family=Englebert&subset=latin,latin-ext);
 
 /*------------------------------------*\
     VARS.SCSS
@@ -46,24 +48,6 @@
 /**
  * Place any of your own variables that sit on top of inuit.css here.
  */
-
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-}
-
-body {
-  border-color: #282828;
-  font-family: "Source Sans Pro", "Oxygen", "Ubuntu Condensed", sans-serif;
-  color: #282828;
-}
-
-img[src=""] {
-  display: none;
-}
 
 /**
  * Generic utility styles etc.
@@ -879,8 +863,8 @@ pre,
 .media,
 .island,
 .islet {
-  margin-bottom: 22px;
-  margin-bottom: 1.57143rem;
+  margin-bottom: 21px;
+  margin-bottom: 1.5rem;
 }
 
 .islet h1,
@@ -912,8 +896,8 @@ pre,
 .island,
 .islet
 .islet {
-  margin-bottom: 11px;
-  margin-bottom: 0.78571rem;
+  margin-bottom: 10.5px;
+  margin-bottom: 0.75rem;
 }
 
 /**
@@ -921,8 +905,8 @@ pre,
  */
 
 .landmark {
-  margin-bottom: 44px;
-  margin-bottom: 3.14286rem;
+  margin-bottom: 42px;
+  margin-bottom: 3rem;
 }
 
 /**
@@ -931,8 +915,8 @@ pre,
  */
 
 hr {
-  margin-bottom: 20px;
-  margin-bottom: 1.42857rem;
+  margin-bottom: 19px;
+  margin-bottom: 1.35714rem;
 }
 
 /**
@@ -943,8 +927,8 @@ hr {
 ul,
 ol,
 dd {
-  margin-left: 44px;
-  margin-left: 3.14286rem;
+  margin-left: 42px;
+  margin-left: 3rem;
 }
 
 /**
@@ -956,7 +940,7 @@ dd {
 \*------------------------------------*/
 
 html {
-  font: 0.875em/2 sans-serif;
+  font: 0.875em/1.5 sans-serif;
   overflow-y: scroll;
   min-height: 100%;
 }
@@ -977,42 +961,42 @@ h1,
 .alpha {
   font-size: 28px;
   font-size: 2rem;
-  line-height: 1;
+  line-height: 1.5;
 }
 
 h2,
 .beta {
   font-size: 26.25px;
   font-size: 1.875rem;
-  line-height: 1.06667;
+  line-height: 1.6;
 }
 
 h3,
 .gamma {
   font-size: 21px;
   font-size: 1.5rem;
-  line-height: 1.33333;
+  line-height: 1;
 }
 
 h4,
 .delta {
   font-size: 17.5px;
   font-size: 1.25rem;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 h5,
 .epsilon {
   font-size: 14px;
   font-size: 1rem;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 h6,
 .zeta {
   font-size: 12.25px;
   font-size: 0.875rem;
-  line-height: 2.28571;
+  line-height: 1.71429;
 }
 
 /**
@@ -1038,7 +1022,7 @@ hgroup .hN {
 .giga {
   font-size: 96px;
   font-size: 6.85714rem;
-  line-height: 1.16667;
+  line-height: 1.09375;
 }
 
 .mega {
@@ -1050,7 +1034,7 @@ hgroup .hN {
 .kilo {
   font-size: 48px;
   font-size: 3.42857rem;
-  line-height: 1.16667;
+  line-height: 1.3125;
 }
 
 /*------------------------------------*\
@@ -1066,7 +1050,7 @@ hgroup .hN {
 .lead {
   font-size: 15.75px;
   font-size: 1.125rem;
-  line-height: 1.77778;
+  line-height: 1.33333;
 }
 
 /*------------------------------------*\
@@ -1081,13 +1065,13 @@ hgroup .hN {
 .milli {
   font-size: 12px;
   font-size: 0.85714rem;
-  line-height: 2.33333;
+  line-height: 1.75;
 }
 
 .micro {
   font-size: 10px;
   font-size: 0.71429rem;
-  line-height: 2.8;
+  line-height: 2.1;
 }
 
 /*------------------------------------*\
@@ -1301,20 +1285,20 @@ img[height] {
 
 .img--right {
   float: right;
-  margin-bottom: 22px;
-  margin-left: 22px;
+  margin-bottom: 21px;
+  margin-left: 21px;
 }
 
 .img--left {
   float: left;
-  margin-right: 22px;
-  margin-bottom: 22px;
+  margin-right: 21px;
+  margin-bottom: 21px;
 }
 
 .img--center {
   display: block;
   margin-right: auto;
-  margin-bottom: 22px;
+  margin-bottom: 21px;
   margin-left: auto;
 }
 
@@ -1326,15 +1310,15 @@ img[height] {
  */
 
 .img--short {
-  height: 110px;
+  height: 105px;
 }
 
 .img--medium {
-  height: 220px;
+  height: 210px;
 }
 
 .img--tall {
-  height: 330px;
+  height: 315px;
 }
 
 /**
@@ -1433,14 +1417,14 @@ table {
 
 th,
 td {
-  padding: 5.5px;
+  padding: 5.25px;
   text-align: left;
 }
 
 @media screen and (min-width: 480px) {
   th,
   td {
-    padding: 11px;
+    padding: 10.5px;
   }
 }
 
@@ -1643,7 +1627,7 @@ td {
  */
 
 fieldset {
-  padding: 22px;
+  padding: 21px;
 }
 
 /**
@@ -1861,7 +1845,7 @@ label,
 .thumbnails-grid,
 .offers-thumbnails,
 .page__content {
-  margin-left: -22px;
+  margin-left: -21px;
   list-style: none;
   margin-bottom: 0;
 }
@@ -1900,7 +1884,7 @@ label,
 .page__content .page__content__login {
   display: inline-block;
   width: 100%;
-  padding-left: 22px;
+  padding-left: 21px;
   vertical-align: top;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1934,7 +1918,7 @@ label,
 
 .media__img {
   float: left;
-  margin-right: 22px;
+  margin-right: 21px;
 }
 
 /**
@@ -1943,7 +1927,7 @@ label,
 
 .media__img--rev {
   float: right;
-  margin-left: 22px;
+  margin-left: 21px;
 }
 
 .media__img img,
@@ -1965,11 +1949,11 @@ label,
  */
 
 .islet .media__img {
-  margin-right: 11px;
+  margin-right: 10.5px;
 }
 
 .islet .media__img--rev {
-  margin-left: 11px;
+  margin-left: 10.5px;
 }
 
 /*------------------------------------*\
@@ -3268,63 +3252,63 @@ label,
  */
 
 .push {
-  margin: 22px !important;
+  margin: 21px !important;
 }
 
 .push--top {
-  margin-top: 22px !important;
+  margin-top: 21px !important;
 }
 
 .push--right {
-  margin-right: 22px !important;
+  margin-right: 21px !important;
 }
 
 .push--bottom {
-  margin-bottom: 22px !important;
+  margin-bottom: 21px !important;
 }
 
 .push--left {
-  margin-left: 22px !important;
+  margin-left: 21px !important;
 }
 
 .push--ends {
-  margin-top: 22px !important;
-  margin-bottom: 22px !important;
+  margin-top: 21px !important;
+  margin-bottom: 21px !important;
 }
 
 .push--sides {
-  margin-right: 22px !important;
-  margin-left: 22px !important;
+  margin-right: 21px !important;
+  margin-left: 21px !important;
 }
 
 .push-half {
-  margin: 11px !important;
+  margin: 10.5px !important;
 }
 
 .push-half--top {
-  margin-top: 11px !important;
+  margin-top: 10.5px !important;
 }
 
 .push-half--right {
-  margin-right: 11px !important;
+  margin-right: 10.5px !important;
 }
 
 .push-half--bottom {
-  margin-bottom: 11px !important;
+  margin-bottom: 10.5px !important;
 }
 
 .push-half--left {
-  margin-left: 11px !important;
+  margin-left: 10.5px !important;
 }
 
 .push-half--ends {
-  margin-top: 11px !important;
-  margin-bottom: 11px !important;
+  margin-top: 10.5px !important;
+  margin-bottom: 10.5px !important;
 }
 
 .push-half--sides {
-  margin-right: 11px !important;
-  margin-left: 11px !important;
+  margin-right: 10.5px !important;
+  margin-left: 10.5px !important;
 }
 
 .flush {
@@ -3362,63 +3346,63 @@ label,
  */
 
 .soft {
-  padding: 22px !important;
+  padding: 21px !important;
 }
 
 .soft--top {
-  padding-top: 22px !important;
+  padding-top: 21px !important;
 }
 
 .soft--right {
-  padding-right: 22px !important;
+  padding-right: 21px !important;
 }
 
 .soft--bottom {
-  padding-bottom: 22px !important;
+  padding-bottom: 21px !important;
 }
 
 .soft--left {
-  padding-left: 22px !important;
+  padding-left: 21px !important;
 }
 
 .soft--ends {
-  padding-top: 22px !important;
-  padding-bottom: 22px !important;
+  padding-top: 21px !important;
+  padding-bottom: 21px !important;
 }
 
 .soft--sides {
-  padding-right: 22px !important;
-  padding-left: 22px !important;
+  padding-right: 21px !important;
+  padding-left: 21px !important;
 }
 
 .soft-half {
-  padding: 11px !important;
+  padding: 10.5px !important;
 }
 
 .soft-half--top {
-  padding-top: 11px !important;
+  padding-top: 10.5px !important;
 }
 
 .soft-half--right {
-  padding-right: 11px !important;
+  padding-right: 10.5px !important;
 }
 
 .soft-half--bottom {
-  padding-bottom: 11px !important;
+  padding-bottom: 10.5px !important;
 }
 
 .soft-half--left {
-  padding-left: 11px !important;
+  padding-left: 10.5px !important;
 }
 
 .soft-half--ends {
-  padding-top: 11px !important;
-  padding-bottom: 11px !important;
+  padding-top: 10.5px !important;
+  padding-bottom: 10.5px !important;
 }
 
 .soft-half--sides {
-  padding-right: 11px !important;
-  padding-left: 11px !important;
+  padding-right: 10.5px !important;
+  padding-left: 10.5px !important;
 }
 
 .hard {
@@ -3456,13 +3440,13 @@ label,
  */
 
 .full-bleed {
-  margin-right: -22px !important;
-  margin-left: -22px !important;
+  margin-right: -21px !important;
+  margin-left: -21px !important;
 }
 
 .islet .full-bleed {
-  margin-right: -11px !important;
-  margin-left: -11px !important;
+  margin-right: -10.5px !important;
+  margin-left: -10.5px !important;
 }
 
 /**
@@ -3744,7 +3728,7 @@ textarea:focus {
 .page__content .page__content__offers,
 .page__content .page__content__login {
   font-size: 14px;
-  padding-bottom: 22px;
+  padding-bottom: 21px;
 }
 
 a,
@@ -3906,7 +3890,7 @@ a.hyperlink:visited {
 
 .thumbnail .thumbnail__text--bottom,
 .offer-thumbnail .thumbnail__text--bottom {
-  padding-bottom: 11px;
+  padding-bottom: 10.5px;
 }
 
 .thumbnail .thumbnail__text--bottom > *,
@@ -3923,8 +3907,8 @@ a.hyperlink:visited {
   -webkit-box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
   display: inline-block;
-  padding: 5.5px;
-  padding-left: 11px;
+  padding: 5.25px;
+  padding-left: 10.5px;
   padding-right: 2.5rem;
   position: relative;
 }
@@ -4003,10 +3987,14 @@ a.hyperlink:visited {
 }
 
 .offer-thumbnail .thumbnail__text--top > h3 {
+  max-height: 42px;
+  overflow: hidden;
   font-size: 14px;
 }
 
 .offer-thumbnail .thumbnail__text--bottom {
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
   background: -webkit-gradient(linear, bottom left, top left, from(#992c4b), to(rgba(153, 44, 75, 0.8)));
@@ -4098,13 +4086,13 @@ a.hyperlink:visited {
 
 .page {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 70rem;
   min-height: 100%;
   width: 100%;
 }
 
 .page .page__row {
-  height: 250px;
+  height: 200px;
 }
 
 .page__header {
@@ -4150,7 +4138,7 @@ a.hyperlink:visited {
 }
 
 .page__header .page__header__bar .page__header__title {
-  padding: 0 11px;
+  padding: 0 10.5px;
 }
 
 .page__header .page__header__slider {
@@ -4159,6 +4147,42 @@ a.hyperlink:visited {
   right: 0;
   left: 0;
   border-bottom: 1px solid rgba(77, 77, 77, 0.7);
-  height: 250px;
+  height: 200px;
   z-index: 0;
+}
+
+.page__content .page__content__offers .offers header h2,
+.page__content .page__content__offers .offers--cakes header h2 {
+  font-family: "Englebert", sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+body {
+  border-color: #282828;
+  font-family: "Alegreya Sans", sans-serif;
+  color: #282828;
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(0, 0, 0, 0)), color-stop(99%, rgba(0, 0, 0, 0)), to(rgba(99, 99, 99, 0.2)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 99%, rgba(99, 99, 99, 0.2) 100%);
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 99%, rgba(99, 99, 99, 0.2) 100%);
+  background-position: 0 0;
+  background-repeat: repeat-y;
+  -webkit-background-size: 100% 200px;
+  background-size: 100% 200px;
+}
+
+h1,
+h2 {
+  font-family: "Englebert", sans-serif;
+}
+
+img[src=""] {
+  display: none;
 }

@@ -62,8 +62,8 @@ $use-greybox:       false;
  */
 
 $base-font-size: 14px;
-$base-line-height: $base-font-size * 2;
-$base-spacing-unit: $base-line-height - 6;
+$base-line-height: $base-font-size * 1.5;
+$base-spacing-unit: $base-line-height;
 $half-spacing-unit: $base-spacing-unit / 2;
 $line-height-ratio: $base-line-height / $base-font-size;
 
@@ -85,7 +85,10 @@ $text-leading: .5em;
 $text-trailing: .5em;
 $space-width: .0625em;
 
-$page-row-height: 250px;
+$page-row-height: 200px;
+
+$content-font: "Alegreya Sans", sans-serif;
+$heading-font: "Englebert", sans-serif;
 
 $c-fg-def: rgba(40, 40, 40, 1.0);
 
