@@ -2,10 +2,6 @@
 
 // Variables - must come first !!!
 @import "_vars.scss";
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext);
-@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700&subset=latin,latin-ext);
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic&subset=latin,latin-ext);
-@import url(http://fonts.googleapis.com/css?family=Englebert&subset=latin,latin-ext);
 
 
 // Frameworks
@@ -20,6 +16,8 @@
 @import "compass-inuit/generic/reset";
 
 @import "scut";
+
+@import "fonts.scss";
 
 // Utils
 @import "utils/scut-extensions.scss";
@@ -64,6 +62,7 @@ body {
 }
 
 h1, h2 {
+	color: $c-fg-acc;
 	font-family: $heading-font;
 }
 

@@ -11,13 +11,34 @@
 
 		.offers {
 			header {
+				position: relative;
+
+				@include scut-before() {
+					@include scut-vcenter-tt();
+
+					background-color: $c-fg-acc;
+					display: block;
+					height: 1rem/($base-font-size/1px);
+					left: 0;
+					position: absolute;
+					right: 0;
+					z-index: 0;
+				}
+
 				h2 {
-					font-family: "Englebert", sans-serif;
+					@include vertical-spacing();
+
+					background-color: $c-bg-light;
+					display: inline-block;
+					margin-left: $base-spacing-unit;
+					padding: 0 $half-spacing-unit;
+					position: relative;
+					z-index: 1;
 				}
 			}
 		}
 
-		.offers--cakes {
+		.offers--cakes, .offers--meals, .offers--snacks {
 			@extend .offers;
 		}
 	}
