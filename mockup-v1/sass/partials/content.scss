@@ -1,8 +1,9 @@
 .page__content {
-	@extend .grid;
+	@extend .grid; 
 
-	.page__content__offers,
-	.page__content__login {
+	margin-top: $base-spacing-unit;
+
+	.page__content__column {
 		@extend .grid__item;
 	}
 
@@ -11,35 +12,118 @@
 
 		.offers {
 			header {
+				margin-bottom: $quarter-spacing-unit;
+				overflow: hidden;
 				position: relative;
 
-				@include scut-before() {
-					@include scut-vcenter-tt();
+				.offers__more,
+				&:before {
+					top: 50%;
+				}
 
+				@include scut-before() {
 					background-color: $c-fg-acc;
 					display: block;
-					height: 1rem/($base-font-size/1px);
+					height: $rpx;
 					left: 0;
+					margin-top: -($rpx / 2);
 					position: absolute;
 					right: 0;
 					z-index: 0;
 				}
 
 				h2 {
-					@include vertical-spacing();
-
 					background-color: $c-bg-light;
 					display: inline-block;
 					margin-left: $base-spacing-unit;
-					padding: 0 $half-spacing-unit;
+					padding: 0 $quarter-spacing-unit;
 					position: relative;
 					z-index: 1;
 				}
+
+				
+				$folded-size: $half-spacing-unit;
+				$unfolded-width: 9em;
+				.offers__more {
+					$unfolded-height: 1.5em;
+					
+					height: $unfolded-height;
+					margin-top: -($unfolded-height / 2);
+					overflow: hidden;
+					position: absolute;
+					right: $half-spacing-unit;
+					transition: width .2s linear;
+					white-space: nowrap;
+					width: $folded-size;
+
+					@include scut-after() {
+						@include scut-circle($folded-size, $c-bg-light);
+						border: $rpx solid $c-fg-acc;
+						box-sizing: border-box;
+						right: 0;
+						transition: background-color .2s linear;
+					}
+
+					&:after,
+					.offers__more__text {
+						@include scut-vcenter-tt();
+						position: absolute;
+					}
+
+					.offers__more__text {
+						background-color: $c-bg-light;
+						padding: 0 $quarter-spacing-unit;
+						right: $folded-size;
+					}
+				}
+
+				&:hover {
+					.offers__more {
+						transition: width .3s ease-out $response-delay;
+						width: $unfolded-width;
+
+						&:after {
+							background-color: $c-fg-acc;
+							transition: background-color .3s ease-out $response-delay;
+						}
+
+						.offers__more__text {
+							right: $folded-size * 2;
+						}
+					}
+				}
+			}
+		}
+
+		.thumbnails-grid {
+			@extend .grid;
+			
+			.thumbnails-grid__container {
+				@extend .grid__item;
 			}
 		}
 
 		.offers--cakes, .offers--meals, .offers--snacks {
 			@extend .offers;
+		}
+
+		.offers--cakes {
+			.thumbnails-grid__container {
+				@extend .one-quarter;
+			}
+		}
+
+		.offers--meals, .offers--snacks {
+			float: left;
+			width: calc(50% - #{$half-spacing-unit});
+
+			.thumbnails-grid__container {
+				@extend .one-half;
+			}
+		}
+
+		.offers--snacks {
+			margin-left: $base-spacing-unit;
 		}
 	}
 

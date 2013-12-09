@@ -65,6 +65,7 @@ $base-font-size: 14px;
 $base-line-height: $base-font-size * 1.5;
 $base-spacing-unit: $base-line-height;
 $half-spacing-unit: $base-spacing-unit / 2;
+$quarter-spacing-unit: $base-spacing-unit / 4;
 $line-height-ratio: $base-line-height / $base-font-size;
 
 $h1-size:           2 * $base-font-size; // .alpha
@@ -81,11 +82,13 @@ $h6-size:           .875 * $base-font-size; // .zeta
  * Place any of your own variables that sit on top of inuit.css here.
  */
 
+$rpx: 1rem/($base-font-size/1px);
+
+$response-delay: .4s;
+
 $text-leading: .5em;
 $text-trailing: .5em;
 $space-width: .0625em;
-
-$page-row-height: 200px;
 
 $content-font: "Alegreya Sans", sans-serif;
 $heading-font: "Englebert", sans-serif;

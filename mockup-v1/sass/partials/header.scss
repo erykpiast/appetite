@@ -1,4 +1,7 @@
 .page__header {
+    $header-height: 105px;
+
+    height: $header-height;
     overflow: {
         y: hidden;
         x: visible;
@@ -43,7 +46,7 @@
         @include scut-absolute(0 0 n 0);
 
         border-bottom: 1px solid $c-shadow-dark;
-        height: $page-row-height;
+        height: $header-height;
         z-index: 0;
     }
 }

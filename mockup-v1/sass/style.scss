@@ -57,8 +57,6 @@ body {
 	border-color: $c-fg-def;
 	font-family: $content-font;
 	color: $c-fg-def;
-
-	@include scut-row-grid($row-height: 200px); 
 }
 
 h1, h2 {
