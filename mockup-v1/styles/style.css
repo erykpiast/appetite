@@ -1841,6 +1841,7 @@ label,
 
 .grid,
 .thumbnails-grid,
+.offers-thumbnails,
 .page__content {
   margin-left: -21px;
   list-style: none;
@@ -1853,12 +1854,19 @@ label,
 
 .grid > .grid,
 .thumbnails-grid > .grid,
+.offers-thumbnails > .grid,
 .page__content > .grid,
 .grid > .thumbnails-grid,
 .thumbnails-grid > .thumbnails-grid,
+.offers-thumbnails > .thumbnails-grid,
 .page__content > .thumbnails-grid,
+.grid > .offers-thumbnails,
+.thumbnails-grid > .offers-thumbnails,
+.offers-thumbnails > .offers-thumbnails,
+.page__content > .offers-thumbnails,
 .grid > .page__content,
 .thumbnails-grid > .page__content,
+.offers-thumbnails > .page__content,
 .page__content > .page__content {
   margin-left: 0;
 }
@@ -1869,6 +1877,7 @@ label,
 
 .grid__item,
 .thumbnails-grid .thumbnails-grid__container,
+.offers-thumbnails .thumbnails-grid__container,
 .page__content .page__content__column {
   display: inline-block;
   width: 100%;
@@ -2237,7 +2246,6 @@ label,
 .one-quarter,
 .two-eighths,
 .three-twelfths,
-.thumbnails-grid .thumbnails-grid__container,
 .offers--cakes .thumbnails-grid__container,
 .page__content .page__content__login {
   width: 25%;
@@ -3715,18 +3723,21 @@ textarea:focus {
 
 .grid,
 .thumbnails-grid,
+.offers-thumbnails,
 .page__content {
   font-size: 0;
 }
 
 .grid > *,
 .thumbnails-grid > *,
+.offers-thumbnails > *,
 .page__content > * {
   font-size: 14px;
 }
 
 .grid__item,
 .thumbnails-grid .thumbnails-grid__container,
+.offers-thumbnails .thumbnails-grid__container,
 .page__content .page__content__column {
   padding-bottom: 21px;
 }

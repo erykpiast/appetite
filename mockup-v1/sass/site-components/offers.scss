@@ -85,15 +85,6 @@
 		}
 	}
 }
-
-.thumbnails-grid {
-	@extend .grid;
-	
-	.thumbnails-grid__container {
-		@extend .grid__item;
-	}
-}
-
 .offers--cakes, .offers--meals, .offers--snacks {
 	@extend .offers;
 }
@@ -115,4 +106,8 @@
 
 .offers--snacks {
 	margin-left: $base-spacing-unit;
+}
+
+.offers-thumbnails {
+	@extend .thumbnails-grid;
 }
