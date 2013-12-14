@@ -1,0 +1,38 @@
+.button {
+	&:focus {
+		outline: none;
+	}
+}
+
+.button--call-to-action {
+	@extend .button;
+
+	background-color: $c-fg-acc;
+	border: 1px solid $c-fg-acc {
+		radius: .4em
+	};
+	color: $c-bg-light;
+	box-shadow: 0 0 .25em $c-shadow-dark;
+	padding: $half-spacing-unit $base-spacing-unit;
+}
+
+.button--ico {
+
+	&:before {
+		@extend .fa;
+
+		border: none {
+			right: 1px solid $c-bg-light;
+		};
+		margin-right: $half-spacing-unit;
+		padding-right: $half-spacing-unit;
+	}
+}
+
+.button--ico--facebook {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-facebook;
+	}
+}

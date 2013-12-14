@@ -1,0 +1,56 @@
+.page__content__sidebar {
+	
+
+	form.page__content__sidebar__box {
+		margin-bottom: $base-spacing-unit;
+
+		fieldset {
+			border: none {
+				top: 1px solid $c-fg-acc;
+			};
+
+			legend {
+				@extend h2;
+				
+				font-weight: bold;
+				text-align: center;
+				padding: 0 $quarter-spacing-unit;
+			}
+		}
+	}
+
+	form.login {
+		overflow: visible;
+		
+		fieldset {
+			text-align: center;
+		}
+	}
+
+	.button--login {
+		@extend .button--call-to-action;
+		@extend .button--ico--facebook;
+
+		background-color: $c-facebook-def;
+		border-color: $c-facebook-dark;
+		margin-top: $half-spacing-unit;
+		transition: background-color 0.2s linear;
+
+		&:hover {
+			background-color: $c-facebook-light;
+			transition: background-color 0.3s ease-out;
+		}
+
+		// background: linear-gradient(to left, $c-facebook-def, $c-facebook-def), linear-gradient(to left, $c-facebook-light, $c-facebook-light) {
+		// 	position: 0 0, 100% 0;
+		// 	size: 100% 100%, 100% 100%;
+		// };
+		// border-color: $c-facebook-dark;
+		// transition: background-position 0.2s linear;
+
+		// &:hover {
+		// 	background-position: -100% 0, 0 0;
+		// 	transition: background-position 0.3s ease-out;
+		// }
+	}
+}

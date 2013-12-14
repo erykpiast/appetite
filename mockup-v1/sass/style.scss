@@ -17,6 +17,8 @@
 
 @import "scut";
 
+@import "font-awesome";
+
 @import "fonts.scss";
 
 // Utils
@@ -29,6 +31,8 @@
 
 @import "components/slider.scss";
 @import "components/search.scss";
+@import "components/links.scss";
+@import "components/buttons.scss";
 @import "components/thumbnail.scss";
 @import "components/thumbnails-grid.scss";
 
@@ -36,7 +40,7 @@
 @import "site-components/main-search.scss";
 @import "site-components/offer-thumbnail.scss";
 @import "site-components/offers.scss";
-@import "site-components/login.scss";
+@import "site-components/sidebar.scss";
 
 // Partials
 @import "partials/page.scss";

@@ -1,8 +1,6 @@
 'use strict';
 
-var request = require('request');
-
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     var LIVEREOAD_PORT = 35729,
         appDir = 'public',
         mockupDir = 'mockup-v1';
@@ -29,11 +27,11 @@ module.exports = function (grunt) {
                     sassDir: 'sass',
                     cssDir: 'styles',
                     specify: mockupDir + '/sass/style.scss',
-                    require: [ 'compass', 'compass-inuit', 'scut' ],
+                    require: [ 'compass', 'compass-inuit', 'scut', 'font-awesome-sass' ],
                     force: true,
                     relativeAssets: true,
-                    noLineComments: true/*,
-                    debugInfo: true*/
+                    noLineComments: true,
+                    debugInfo: true
                 }
             }
         },
