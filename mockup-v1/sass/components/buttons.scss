@@ -16,6 +16,10 @@
 	padding: $half-spacing-unit $base-spacing-unit;
 }
 
+.button--empty {
+	
+}
+
 .button--ico {
 
 	&:before {
@@ -34,5 +38,13 @@
 
 	&:before {
 		@extend .fa-facebook;
+	}
+}
+
+.button--ico--github {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-github;
 	}
 }

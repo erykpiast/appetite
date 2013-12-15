@@ -7719,7 +7719,8 @@ textarea:focus {
 .fa,
 .button--ico:before,
 .button--ico--facebook:before,
-.page__content__sidebar .button--login:before {
+.page__content__sidebar .button--login--facebook:before,
+.button--ico--github:before {
   display: inline-block;
   font-family: FontAwesome;
   font-style: normal;
@@ -7937,7 +7938,8 @@ textarea:focus {
 .fa.pull-left,
 .pull-left.button--ico:before,
 .pull-left.button--ico--facebook:before,
-.page__content__sidebar .pull-left.button--login:before {
+.page__content__sidebar .pull-left.button--login--facebook:before,
+.pull-left.button--ico--github:before {
   margin-right: .3em;
 }
 
@@ -7954,7 +7956,8 @@ textarea:focus {
 .fa.pull-right,
 .pull-right.button--ico:before,
 .pull-right.button--ico--facebook:before,
-.page__content__sidebar .pull-right.button--login:before {
+.page__content__sidebar .pull-right.button--login--facebook:before,
+.pull-right.button--ico--github:before {
   margin-left: .3em;
 }
 
@@ -10223,7 +10226,7 @@ textarea:focus {
 
 .fa-facebook:before,
 .button--ico--facebook:before,
-.page__content__sidebar .button--login:before {
+.page__content__sidebar .button--login--facebook:before {
   content: "\f09a";
 }
 
@@ -10237,7 +10240,8 @@ textarea:focus {
   }
 }
 
-.fa-github:before {
+.fa-github:before,
+.button--ico--github:before {
   content: "\f09b";
 }
 
@@ -13843,13 +13847,14 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000321;
+    font-family: \0000325;
   }
 }
 
 .button--ico:before,
 .button--ico--facebook:before,
-.page__content__sidebar .button--login:before {
+.page__content__sidebar .button--login--facebook:before,
+.button--ico--github:before {
   border: none;
   border-right: 1px solid #f8f8f8;
   margin-right: 10.5px;
@@ -14867,8 +14872,8 @@ a.hyperlink:visited {
 }
 
 .page__content__sidebar .button--login {
-  background-color: #3b5998;
-  border-color: #133783;
+  display: block;
+  margin: 0 auto;
   margin-top: 10.5px;
   -webkit-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
@@ -14885,9 +14890,51 @@ a.hyperlink:visited {
 }
 
 .page__content__sidebar .button--login:hover {
-  background-color: #4b67a1;
   -webkit-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000344;
+  }
+}
+
+.page__content__sidebar .button--login--facebook {
+  background-color: #3b5998;
+  border-color: #133783;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000350;
+  }
+}
+
+.page__content__sidebar .button--login--facebook:hover {
+  background-color: #4b67a1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000355;
+  }
+}
+
+.page__content__sidebar .button--contribute {
+  display: inline-block;
 }
 
 @media -sass-debug-info {
