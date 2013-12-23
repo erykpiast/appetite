@@ -7720,7 +7720,8 @@ textarea:focus {
 .button--ico:before,
 .button--ico--facebook:before,
 .page__content__sidebar .button--login--facebook:before,
-.button--ico--github:before {
+.button--ico--github:before,
+.page__content__sidebar .button--contribute--github:before {
   display: inline-block;
   font-family: FontAwesome;
   font-style: normal;
@@ -7939,7 +7940,8 @@ textarea:focus {
 .pull-left.button--ico:before,
 .pull-left.button--ico--facebook:before,
 .page__content__sidebar .pull-left.button--login--facebook:before,
-.pull-left.button--ico--github:before {
+.pull-left.button--ico--github:before,
+.page__content__sidebar .pull-left.button--contribute--github:before {
   margin-right: .3em;
 }
 
@@ -7957,7 +7959,8 @@ textarea:focus {
 .pull-right.button--ico:before,
 .pull-right.button--ico--facebook:before,
 .page__content__sidebar .pull-right.button--login--facebook:before,
-.pull-right.button--ico--github:before {
+.pull-right.button--ico--github:before,
+.page__content__sidebar .pull-right.button--contribute--github:before {
   margin-left: .3em;
 }
 
@@ -10241,7 +10244,8 @@ textarea:focus {
 }
 
 .fa-github:before,
-.button--ico--github:before {
+.button--ico--github:before,
+.page__content__sidebar .button--contribute--github:before {
   content: "\f09b";
 }
 
@@ -13404,7 +13408,7 @@ textarea:focus {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/inuit-extensions\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/inuit-extensions\.scss;
   }
 
   line {
@@ -13421,7 +13425,7 @@ textarea:focus {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/inuit-extensions\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/inuit-extensions\.scss;
   }
 
   line {
@@ -13438,7 +13442,7 @@ textarea:focus {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/inuit-extensions\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/inuit-extensions\.scss;
   }
 
   line {
@@ -13455,7 +13459,7 @@ textarea:focus {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13470,7 +13474,7 @@ a:hover {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13484,7 +13488,7 @@ a:focus {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13500,7 +13504,7 @@ a:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13515,7 +13519,7 @@ a.hyperlink:hover {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13531,7 +13535,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
   }
 
   line {
@@ -13545,7 +13549,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
   }
 
   line {
@@ -13561,7 +13565,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
   }
 
   line {
@@ -13610,7 +13614,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
   }
 
   line {
@@ -13624,7 +13628,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
   }
 
   line {
@@ -13639,7 +13643,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/slider\.scss;
   }
 
   line {
@@ -13653,7 +13657,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/search\.scss;
   }
 
   line {
@@ -13668,7 +13672,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/search\.scss;
   }
 
   line {
@@ -13683,7 +13687,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/search\.scss;
   }
 
   line {
@@ -13700,7 +13704,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/search\.scss;
   }
 
   line {
@@ -13715,7 +13719,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/search\.scss;
   }
 
   line {
@@ -13730,7 +13734,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13745,7 +13749,7 @@ a:hover {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13759,7 +13763,7 @@ a:focus {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13775,7 +13779,7 @@ a:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13790,7 +13794,7 @@ a.hyperlink:hover {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
   line {
@@ -13806,27 +13810,57 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
   }
 
   line {
-    font-family: \000032;
+    font-family: \000031;
+  }
+}
+
+.button,
+.button--call-to-action,
+.page__content__sidebar .button--login,
+.button--ico,
+.button--ico--facebook,
+.page__content__sidebar .button--login--facebook,
+.button--ico--github,
+.page__content__sidebar .button--contribute--github {
+  background-color: #f8f8f8;
+  border: 1px solid #282828;
+  border-radius: 0.2em;
+  color: #282828;
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \000039;
   }
 }
 
 .button:focus,
 .button--call-to-action:focus,
-.page__content__sidebar .button--login:focus {
+.page__content__sidebar .button--login:focus,
+.button--ico:focus,
+.button--ico--facebook:focus,
+.page__content__sidebar .button--login--facebook:focus,
+.button--ico--github:focus,
+.page__content__sidebar .button--contribute--github:focus {
   outline: none;
 }
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
   }
 
   line {
-    font-family: \000037;
+    font-family: \0000314;
   }
 }
 
@@ -13838,23 +13872,49 @@ a.hyperlink:visited {
   color: #f8f8f8;
   -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  display: block;
   padding: 10.5px 21px;
 }
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
   }
 
   line {
-    font-family: \0000325;
+    font-family: \0000328;
+  }
+}
+
+.button--empty.button--ico:before,
+.button--empty.button--ico--facebook:before,
+.page__content__sidebar .button--empty.button--login--facebook:before,
+.page__content__sidebar .button--login--facebook.button--contribute:before,
+.page__content__sidebar .button--ico--facebook.button--contribute:before,
+.button--empty.button--ico--github:before,
+.page__content__sidebar .button--ico--github.button--contribute:before,
+.page__content__sidebar .button--contribute.button--contribute--github:before,
+.page__content__sidebar .button--empty.button--contribute--github:before,
+.page__content__sidebar .button--ico.button--contribute:before {
+  margin-right: 0;
+  padding-right: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \0000337;
   }
 }
 
 .button--ico:before,
 .button--ico--facebook:before,
 .page__content__sidebar .button--login--facebook:before,
-.button--ico--github:before {
+.button--ico--github:before,
+.page__content__sidebar .button--contribute--github:before {
   border: none;
   border-right: 1px solid #f8f8f8;
   margin-right: 10.5px;
@@ -13863,7 +13923,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -13885,7 +13945,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -13907,7 +13967,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -13924,7 +13984,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -13950,7 +14010,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -13965,7 +14025,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -13981,7 +14041,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -13996,7 +14056,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -14011,7 +14071,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/thumbnail\.scss;
   }
 
   line {
@@ -14026,7 +14086,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
   }
 
   line {
@@ -14079,7 +14139,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
   }
 
   line {
@@ -14093,7 +14153,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
   }
 
   line {
@@ -14110,7 +14170,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
   }
 
   line {
@@ -14124,7 +14184,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
   }
 
   line {
@@ -14142,7 +14202,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
   }
 
   line {
@@ -14162,7 +14222,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14187,7 +14247,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14202,7 +14262,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14220,7 +14280,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14236,7 +14296,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14261,7 +14321,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14275,7 +14335,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14310,7 +14370,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14325,7 +14385,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14339,7 +14399,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14353,7 +14413,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14368,7 +14428,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14383,7 +14443,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14398,7 +14458,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14413,7 +14473,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14428,7 +14488,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14443,7 +14503,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14458,7 +14518,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14473,7 +14533,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offer-thumbnail\.scss;
   }
 
   line {
@@ -14488,7 +14548,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14507,7 +14567,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14528,7 +14588,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
   }
 
   line {
@@ -14554,7 +14614,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14584,7 +14644,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14609,7 +14669,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
   }
 
   line {
@@ -14639,7 +14699,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14667,7 +14727,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14687,7 +14747,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14704,7 +14764,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14723,7 +14783,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14742,7 +14802,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14759,7 +14819,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14776,7 +14836,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
   }
 
   line {
@@ -14790,7 +14850,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14804,7 +14864,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14819,7 +14879,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14835,7 +14895,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14849,7 +14909,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14863,7 +14923,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14881,7 +14941,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14896,7 +14956,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
@@ -14905,41 +14965,200 @@ a.hyperlink:visited {
 }
 
 .page__content__sidebar .button--login--facebook {
+  position: relative;
+  z-index: 0;
   background-color: #3b5998;
   border-color: #133783;
+  overflow: hidden;
 }
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
   }
 
   line {
-    font-family: \0000350;
+    font-family: \000032;
   }
 }
 
-.page__content__sidebar .button--login--facebook:hover {
+.page__content__sidebar .button--login--facebook:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \0000374;
+  }
+}
+
+.page__content__sidebar .button--login--facebook:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \0000382;
+  }
+}
+
+.page__content__sidebar .button--login--facebook:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
   background-color: #4b67a1;
+  -webkit-box-shadow: 0 0 0.25em #4b67a1;
+  box-shadow: 0 0 0.25em #4b67a1;
 }
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
   }
 
   line {
-    font-family: \0000355;
+    font-family: \0000358;
+  }
+}
+
+.page__content__sidebar .button--contribute,
+.page__content__sidebar .button--contribute + label {
+  float: left;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000362;
   }
 }
 
 .page__content__sidebar .button--contribute {
-  display: inline-block;
+  font-size: 150%;
+  margin-right: 10.5px;
 }
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000369;
+  }
+}
+
+.page__content__sidebar .button--contribute + label {
+  width: 80%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000373;
+  }
+}
+
+.page__content__sidebar .button--contribute--github {
+  position: relative;
+  z-index: 0;
+  background-color: whitesmoke;
+  border-color: black;
+  overflow: hidden;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__content__sidebar .button--contribute--github:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \0000374;
+  }
+}
+
+.page__content__sidebar .button--contribute--github:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \0000382;
+  }
+}
+
+.page__content__sidebar .button--contribute--github:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: white;
+  -webkit-box-shadow: 0 0 0.25em white;
+  box-shadow: 0 0 0.25em white;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
   }
 
   line {
@@ -14956,7 +15175,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
   }
 
   line {
@@ -14970,7 +15189,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -14986,7 +15205,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -15007,7 +15226,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
   }
 
   line {
@@ -15021,7 +15240,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
   }
 
   line {
@@ -15036,7 +15255,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -15053,7 +15272,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -15068,7 +15287,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -15083,7 +15302,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -15097,7 +15316,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -15117,7 +15336,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/content\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/partials\/content\.scss;
   }
 
   line {
@@ -15131,7 +15350,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/style\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/style\.scss;
   }
 
   line {
@@ -15145,7 +15364,7 @@ html {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/style\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/style\.scss;
   }
 
   line {
@@ -15159,7 +15378,7 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/style\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/style\.scss;
   }
 
   line {
@@ -15168,6 +15387,7 @@ body {
 }
 
 body {
+  background-color: #f8f8f8;
   border-color: #282828;
   font-family: "Alegreya Sans", sans-serif;
   color: #282828;
@@ -15175,11 +15395,11 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/style\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/style\.scss;
   }
 
   line {
-    font-family: \0000367;
+    font-family: \0000368;
   }
 }
 
@@ -15192,11 +15412,11 @@ h2,
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/style\.scss;
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/mockup-v1\/sass\/style\.scss;
   }
 
   line {
-    font-family: \0000373;
+    font-family: \0000374;
   }
 }
 

@@ -43,18 +43,43 @@
 
 	.button--login--facebook {
 		@extend .button--ico--facebook;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-facebook-light;
+		    box-shadow: 0 0 .25em $c-facebook-light;
+		};
 
 		background-color: $c-facebook-def;
 		border-color: $c-facebook-dark;
-
-		&:hover {
-			background-color: $c-facebook-light;
-		}
+		overflow: hidden;
 	}
-
+	
+	.button--contribute,
+	.button--contribute + label {
+	    float: left;
+	}
+	
 	.button--contribute {
 		@extend .button--empty;
+		
+		font-size: 150%;
+		margin-right: $half-spacing-unit;
+	}
+	
+	.button--contribute + label {
+	    width: 80%;
+	}
+	
+	.button--contribute--github {
+		@extend .button--ico--github;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-github-light;
+		    box-shadow: 0 0 .25em $c-github-light;
+		};
 
-		display: inline-block;
+		background-color: $c-github-def;
+		border-color: $c-github-dark;
+		overflow: hidden;
 	}
 }
