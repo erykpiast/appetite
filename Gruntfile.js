@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             options: {
                 livereload: LIVEREOAD_PORT
             },
-            develop: {
+            dev: {
                 files: [
                     'app.js',
                     'modules/{,*/}*.js',
