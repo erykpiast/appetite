@@ -94,14 +94,15 @@ $content-font: "Alegreya Sans", sans-serif;
 $heading-font: "Englebert", sans-serif;
 
 $c-fg-def: rgba(40, 40, 40, 1.0);
+$c-fg-def-light: rgba(150, 150, 150, 1.0);
 
 $c-fg-acc: rgba(170, 30, 30, 1.0); // reddish
 // $c-fg-acc: rgba(204, 38, 73, 1.0); // purplish
 // $c-fg-acc: rgba(153, 44, 75, 1.0); // darker purplish
-
-$c-fg-def-light: rgba(160, 160, 160, 1.0);
+$c-fg-acc-light: lighten($c-fg-acc, 3%);
 
 $c-bg-light: rgba(248, 248, 248, 1.0);
+$c-bg-dark: rgba(224, 224, 224, 1.0);
 $c-bg-links: $c-bg-light;
 
 $c-shadow-dark: rgba(77, 77, 77, 0.7);

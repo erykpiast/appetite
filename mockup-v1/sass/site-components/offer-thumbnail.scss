@@ -9,7 +9,7 @@
     border: $border-width solid $c-fg-def-light {
 		radius: $border-radius;
         bottom: {
-            color: rgba($c-shadow-dark, 0.8);
+            color: $c-fg-def-light;
             width: .25em;
         };
     };

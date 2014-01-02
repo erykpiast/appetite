@@ -26,6 +26,7 @@
 
 .button--empty {
 	&.button--ico:before {
+		border-right: none;
 	    margin-right: 0;
 	    padding-right: 0;
 	}
@@ -53,11 +54,43 @@
 	}
 }
 
+.button--ico--facebook-square {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-facebook-square;
+	}
+}
+
+.button--ico--gift {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-gift;
+	}
+}
+
 .button--ico--github {
 	@extend .button--ico;
 
 	&:before {
 		@extend .fa-github;
+	}
+}
+
+.button--ico--like {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-thumbs-up;
+	}
+}
+
+.button--ico--search {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-search;
 	}
 }
 

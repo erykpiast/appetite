@@ -11,10 +11,9 @@
 
     </head>
 
-    <body>
-    
-        <section class="page">
+    <body class="page">
 
+        <div class="wrapper">
             <header class="page__header page__row">
 
                 <div class="page__header__bar">
@@ -31,7 +30,7 @@
                                 <input class="search__input" type="text" placeholder="tartę z budyniem i jabłkami" id="main-search" />
 
                                 <div class="search__submit">
-                                    <button class="btn btn--hard" type="submit">Szukaj</button>
+                                    <button class="btn btn--hard button--ico--search" type="submit">Szukaj</button>
                                 </span>
                             </fieldset>
                         </form>
@@ -49,7 +48,7 @@
                 </ul>
             </header>
             
-            <div class="page__content">
+            <section class="page__content">
                 <div class="page__content__offers page__content__column">
                     <div class="page__row">
                         <section class="offers--cakes">
@@ -216,6 +215,52 @@
                                         </div>
                                     </div>
                                 </li>
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Olga Krysztofiak
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    68
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Olga Krysztofiak
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    68
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </section>
 
@@ -229,6 +274,52 @@
                             </header>
 
                             <ul class="offers-thumbnails">
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Olga Krysztofiak
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    68
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Olga Krysztofiak
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    68
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
@@ -294,22 +385,29 @@
                         <fieldset>
                             <legend>Pomóż nam!</legend>
                             
+                            <button class="button--contribute button--contribute--facebook" id="contribute_facebook"></button>
+                            <label for="contribute_facebook">Podoba Ci się nasz serwis? Poleć go znajomym na Facebooku!</label>
+                            
+                            <button class="button--contribute button--contribute--paypal" id="donate_paypal"></button>
+                            <label for="donate_paypal">Chcesz docenić pracę włożoną w powstanie serwisu? Możesz zasilić nasze konto PayPal dowolną kwotą.</label>
+
                             <button class="button--contribute button--contribute--github" id="contribute_github"></button>
                             <label for="contribute_github">Jeśli jesteś webdeweloperem i podoba Ci się nasz projekt, twórz go razem z nami! Każda pomoc jest potrzebna!</label>
-                            
-                            <!-- <button class="button--contribute button--contribute--paypal" id="donate_paypal">PayPal</button>
-                            <label for="donate_paypal">Chcesz docenić pracę włożoną w powstanie serwisu? Możesz zasilić nasze konto PayPal dowolną kwotą.</label> -->
                         </fieldset>
                     </form>
                 </div>
-            </div>
+            </section>
+        </div>
 
-            <footer class="page__footer page__row">
-                
-                
-            </footer>    
-
-        </section>
+        <footer class="page__footer page__row">
+            <ul class="page__footer__links ">
+                <li><a href="#">Kontakt</a></li>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Regulamin</a></li>
+                <li><a href="#">Reklama</a></li>
+                <li><a href="#">Pomóż nam!</a></li>
+            </ul>
+        </footer>
 
     </body>
 </html>

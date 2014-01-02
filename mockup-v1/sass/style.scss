@@ -26,6 +26,11 @@
 @import "utils/inuit-extensions.scss";
 @import "utils/compass-extensions.scss";
 
+
+// General styles
+@import "partials/page.scss";
+
+
 // Components
 @import "components/links.scss";
 
@@ -37,13 +42,13 @@
 @import "components/thumbnails-grid.scss";
 
 // Site-specific components
+@import "site-components/footer.scss";
 @import "site-components/main-search.scss";
 @import "site-components/offer-thumbnail.scss";
 @import "site-components/offers.scss";
 @import "site-components/sidebar.scss";
 
 // Partials
-@import "partials/page.scss";
 @import "partials/header.scss";
 @import "partials/content.scss";
 

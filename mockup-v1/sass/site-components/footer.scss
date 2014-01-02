@@ -1,0 +1,37 @@
+$footer-height: 3rem;
+
+@include scut-sticky-footer($footer-height, ".wrapper", ".page__footer");
+
+.page__footer {
+	@include scut-absolute(n 0 n 0);
+
+	background-color: $c-bg-dark;
+	border: {
+		top: $rpx solid $c-shadow-dark; 
+	};
+	box-sizing: border-box;
+	height: $footer-height;
+	text-align: center;
+
+	&.page__row {
+		overflow: hidden;
+	}
+
+	.page__footer__links {
+		@include scut-list-unstyled();
+		@include scut-list-inline();
+
+		& > li {
+			@include scut-vcenter-lh($footer-height);
+			@include hover-effect--expand {
+				background-color: $c-bg-light;
+			}
+
+			&:hover {
+				color: $c-fg-acc;
+			}
+
+			padding: 0 $base-spacing-unit;
+		}
+	}
+}
