@@ -13109,28 +13109,42 @@ textarea:focus {
 
 @-webkit-keyframes unwind {
   0% {
+    opacity: 1;
     width: 0%;
   }
 
   33% {
+    opacity: 1;
     width: 0%;
   }
 
+  85% {
+    opacity: 1;
+  }
+
   100% {
+    opacity: 0;
     width: 100%;
   }
 }
 
 @keyframes unwind {
   0% {
+    opacity: 1;
     width: 0%;
   }
 
   33% {
+    opacity: 1;
     width: 0%;
   }
 
+  85% {
+    opacity: 1;
+  }
+
   100% {
+    opacity: 0;
     width: 100%;
   }
 }
@@ -13141,7 +13155,7 @@ textarea:focus {
   }
 
   line {
-    font-family: \0000313;
+    font-family: \0000319;
   }
 }
 
@@ -13154,11 +13168,35 @@ textarea:focus {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: unwind 1s ease-in-out 0s 1;
+  animation: unwind 1s ease-in-out 0s 1;
+  background-color: #aa1e1e;
+  height: 3px;
+  width: 0;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
   }
 
   line {
-    font-family: \0000331;
+    font-family: \0000337;
   }
 }
 

@@ -1,11 +1,17 @@
 @keyframes unwind {
 	0% {
+		opacity: 1;
 		width: 0%;
 	}
 	33% {
+		opacity: 1;
 		width: 0%;
 	}
+	85% {
+		opacity: 1;
+	}
 	100% {
+		opacity: 0;
 		width: 100%;
 	}
 }
@@ -18,15 +24,15 @@
     // outline: 1px dotted #999;
     width: 100%;
 
-  //   @include scut-before() {
-		// @include scut-absolute();
+    @include scut-before() {
+		@include scut-absolute();
 
-		// animation: unwind 1s ease-in-out 0s 1;
-		// background-color: $c-bg-light;
-		// height: 3px;
-		// width: 100%;
-		// z-index: 1;
-  //   }
+		animation: unwind 1s ease-in-out 0s 1;
+		background-color: $c-fg-acc;
+		height: 3px;
+		width: 0;
+		z-index: 1;
+    }
 
     .page__row {
 		overflow: auto;
