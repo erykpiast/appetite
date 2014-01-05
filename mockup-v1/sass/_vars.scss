@@ -44,7 +44,7 @@ $use-flyout:        false;
 $use-arrows:        false;
 $use-sprite:        false;
 $use-icon-text:     false;
-$use-beautons:      true;
+$use-beautons:      false;
 $use-lozenges:      false;
 $use-rules:         false;
 $use-stats:         false;
@@ -86,6 +86,8 @@ $rpx: 1rem/($base-font-size/1px);
 
 $response-delay: .4s;
 
+$page-size: 70rem;
+
 $text-leading: .5em;
 $text-trailing: .5em;
 $space-width: .0625em;
@@ -101,9 +103,11 @@ $c-fg-acc: rgba(170, 30, 30, 1.0); // reddish
 // $c-fg-acc: rgba(153, 44, 75, 1.0); // darker purplish
 $c-fg-acc-light: lighten($c-fg-acc, 3%);
 
-$c-bg-light: rgba(248, 248, 248, 1.0);
+$c-bg-light: rgba(247, 247, 247, 1.0);
 $c-bg-dark: rgba(224, 224, 224, 1.0);
+$c-bg-acc: rgb(255, 212, 198);
 $c-bg-links: $c-bg-light;
+$c-bg-def: $c-bg-light;
 
 $c-shadow-dark: rgba(77, 77, 77, 0.7);
 

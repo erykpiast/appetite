@@ -39,6 +39,8 @@
 
         #{$side}: -$size;
         @include background-image( linear-gradient($side, transparent, $color) );
+
+        @content;
     }
 }
 

@@ -64,7 +64,10 @@ body {
 }
 
 body {
-    background-color: $c-bg-light;
+    background: {
+    	color: $c-bg-light;
+    	image: url('../images/patterns/fabric_plaid.png');
+    };
 	border-color: $c-fg-def;
 	font-family: $content-font;
 	color: $c-fg-def;

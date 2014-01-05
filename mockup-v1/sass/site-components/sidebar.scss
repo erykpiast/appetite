@@ -72,18 +72,7 @@
 	    width: 80%;
 	}
 	
-	.button--contribute--github {
-		@extend .button--ico--github;
-		
-		@include hover-effect--expand() {	    
-		    background-color: $c-github-light;
-		    box-shadow: 0 0 .25em $c-github-light;
-		};
-
-		background-color: $c-github-def;
-		border-color: $c-github-dark;
-		overflow: hidden;
-	}
+	
 
 	.button--contribute--facebook {
 		@extend .button--ico--facebook-square;
@@ -99,6 +88,20 @@
 		overflow: hidden;
 	}
 
+	.button--contribute--adblock {
+		@extend .button--ico--power-off;
+		
+		@include hover-effect--expand() {	    
+		    background-color: lighten(#C00, 3%);
+		    box-shadow: 0 0 .25em $c-shadow-dark;
+		};
+
+		color: $c-bg-light;
+		background-color: #C00;
+		border-color: $c-shadow-dark;
+		overflow: hidden;
+	}
+
 	.button--contribute--paypal {
 		@extend .button--ico--gift;
 		
@@ -110,6 +113,19 @@
 		color: $c-bg-light;
 		background-color: $c-fg-acc;
 		border-color: $c-shadow-dark;
+		overflow: hidden;
+	}
+
+	.button--contribute--github {
+		@extend .button--ico--github;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-github-light;
+		    box-shadow: 0 0 .25em $c-github-light;
+		};
+
+		background-color: $c-github-def;
+		border-color: $c-github-dark;
 		overflow: hidden;
 	}
 }

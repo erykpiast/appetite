@@ -86,6 +86,14 @@
 	}
 }
 
+.button--ico--power-off {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-power-off;
+	}
+}
+
 .button--ico--search {
 	@extend .button--ico;
 

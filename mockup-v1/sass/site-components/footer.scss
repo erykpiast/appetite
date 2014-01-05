@@ -1,25 +1,53 @@
-$footer-height: 3rem;
+$footer-height: 3.5rem;
 
 @include scut-sticky-footer($footer-height, ".wrapper", ".page__footer");
 
 .page__footer {
 	@include scut-absolute(n 0 n 0);
 
-	background-color: $c-bg-dark;
+	background-color: $c-bg-acc;
 	border: {
-		top: $rpx solid $c-shadow-dark; 
+		top: $rpx solid $c-fg-acc; 
 	};
 	box-sizing: border-box;
 	height: $footer-height;
-	text-align: center;
+	text-align: left;
 
 	&.page__row {
 		overflow: hidden;
 	}
 
+	& > .wrapper {
+		max-width: $page-size;
+		margin: 0 auto;
+
+		& > * {
+			float: left;
+		}
+	}
+
+
+	.page__footer__site-info {
+		line-height: 0.1;
+		margin-left: $quarter-spacing-unit;
+		padding-top: $quarter-spacing-unit;
+
+		.page__footer__site-logo {
+			@extend h1;
+
+			font-size: 18px;
+		}
+
+		.page__footer__copyright {
+			@extend small;
+		}
+	}
+
 	.page__footer__links {
 		@include scut-list-unstyled();
 		@include scut-list-inline();
+
+		margin-left: $base-spacing-unit;
 
 		& > li {
 			@include scut-vcenter-lh($footer-height);

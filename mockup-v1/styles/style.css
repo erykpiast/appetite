@@ -500,7 +500,8 @@ a:hover {
   }
 }
 
-h1 {
+h1,
+.page__footer .page__footer__site-info .page__footer__site-logo {
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -672,7 +673,8 @@ q {
   }
 }
 
-small {
+small,
+.page__footer .page__footer__site-info .page__footer__copyright {
   font-size: 80%;
 }
 
@@ -1110,6 +1112,7 @@ table {
 }
 
 h1,
+.page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
 .page__content__sidebar form.page__content__sidebar__box fieldset legend,
 h3,
@@ -1302,6 +1305,7 @@ textarea:focus {
 }
 
 h1,
+.page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
 .page__content__sidebar form.page__content__sidebar__box fieldset legend,
 h3,
@@ -1338,6 +1342,8 @@ pre,
 }
 
 .islet h1,
+.islet .page__footer .page__footer__site-info .page__footer__site-logo,
+.page__footer .page__footer__site-info .islet .page__footer__site-logo,
 .islet h2,
 .islet .page__content__sidebar form.page__content__sidebar__box fieldset legend,
 .page__content__sidebar form.page__content__sidebar__box fieldset .islet legend,
@@ -1480,6 +1486,7 @@ html {
 }
 
 h1,
+.page__footer .page__footer__site-info .page__footer__site-logo,
 .alpha {
   font-size: 28px;
   font-size: 2rem;
@@ -3526,396 +3533,6 @@ label,
 
 .islet .media__img--rev {
   margin-left: 10.5px;
-}
-
-/*------------------------------------*\
-    $BEAUTONS.CSS
-\*------------------------------------*/
-
-/**
- * beautons is a beautifully simple button toolkit.
- *
- * LICENSE
- * 
- * Copyright 2013 Harry Roberts
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * http://apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * 
- */
-
-/*!*
- * 
- * @csswizardry -- csswizardry.com/beautons
- * 
- */
-
-/*------------------------------------*\
-    $BASE
-\*------------------------------------*/
-
-/**
- * Base button styles.
- *
- * 1. Allow us to better style box model properties.
- * 2. Line different sized buttons up a little nicer.
- * 3. Stop buttons wrapping and looking broken.
- * 4. Make buttons inherit font styles.
- * 5. Force all elements using beautons to appear clickable.
- * 6. Normalise box model styles.
- * 7. If the button’s text is 1em, and the button is (3 * font-size) tall, then
- *    there is 1em of space above and below that text. We therefore apply 1em
- *    of space to the left and right, as padding, to keep consistent spacing.
- * 8. Basic cosmetics for default buttons. Change or override at will.
- * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \0000356;
-  }
-}
-
-.btn {
-  display: inline-block;
-  /* [1] */
-  vertical-align: middle;
-  /* [2] */
-  white-space: nowrap;
-  /* [3] */
-  font-family: inherit;
-  /* [4] */
-  font-size: 100%;
-  /* [4] */
-  cursor: pointer;
-  /* [5] */
-  border: none;
-  /* [6] */
-  margin: 0;
-  /* [6] */
-  padding-top: 0;
-  /* [6] */
-  padding-bottom: 0;
-  /* [6] */
-  line-height: 3;
-  /* [7] */
-  padding-right: 1em;
-  /* [7] */
-  padding-left: 1em;
-  /* [7] */
-  border-radius: 4px;
-  /* [8] */
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \0000376;
-  }
-}
-
-.btn,
-.btn:hover {
-  text-decoration: none;
-  /* [9] */
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \0000381;
-  }
-}
-
-.btn:active,
-.btn:focus {
-  outline: none;
-}
-
-/*------------------------------------*\
-    $SIZES
-\*------------------------------------*/
-
-/**
- * Button size modifiers.
- *
- * These all follow the same sizing rules as above; text is 1em, space around it
- * remains uniform.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \0000399;
-  }
-}
-
-.btn--small {
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-  line-height: 2;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003105;
-  }
-}
-
-.btn--large {
-  padding-right: 1.5em;
-  padding-left: 1.5em;
-  line-height: 4;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003111;
-  }
-}
-
-.btn--huge {
-  padding-right: 2em;
-  padding-left: 2em;
-  line-height: 5;
-}
-
-/**
- * These buttons will fill the entirety of their container.
- *
- * 1. Remove padding so that widths and paddings don’t conflict.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003122;
-  }
-}
-
-.btn--full {
-  width: 100%;
-  padding-right: 0;
-  /* [1] */
-  padding-left: 0;
-  /* [1] */
-  text-align: center;
-}
-
-/*------------------------------------*\
-    $FONT-SIZES
-\*------------------------------------*/
-
-/**
- * Button font-size modifiers.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003139;
-  }
-}
-
-.btn--alpha {
-  font-size: 3rem;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003143;
-  }
-}
-
-.btn--beta {
-  font-size: 2rem;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003147;
-  }
-}
-
-.btn--gamma {
-  font-size: 1rem;
-}
-
-/**
- * Make the button inherit sizing from its parent.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003154;
-  }
-}
-
-.btn--natural {
-  vertical-align: baseline;
-  font-size: inherit;
-  line-height: inherit;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-}
-
-/*------------------------------------*\
-    $FUNCTIONS
-\*------------------------------------*/
-
-/**
- * Button function modifiers.
- */
-
-/**
- * Positive actions; e.g. sign in, purchase, submit, etc.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003179;
-  }
-}
-
-.btn--positive {
-  background-color: #4A993E;
-  color: #fff;
-}
-
-/**
- * Negative actions; e.g. close account, delete photo, remove friend, etc.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003187;
-  }
-}
-
-.btn--negative {
-  background-color: #b33630;
-  color: #fff;
-}
-
-/**
- * Inactive, disabled buttons.
- * 
- * 1. Make the button look like normal text when hovered.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003200;
-  }
-}
-
-.btn--inactive,
-.btn--inactive:hover,
-.btn--inactive:active,
-.btn--inactive:focus {
-  background-color: #ddd;
-  color: #777;
-  cursor: text;
-  /* [1] */
-}
-
-/*------------------------------------*\
-    $STYLES
-\*------------------------------------*/
-
-/**
- * Button style modifiers.
- *
- * 1. Use an overly-large number to ensure completely rounded, pill-like ends.
- */
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003218;
-  }
-}
-
-.btn--soft {
-  border-radius: 200px;
-  /* [1] */
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/compass-inuit-5\.0\.2\/stylesheets\/compass-inuit\/objects\/_beautons\.scss;
-  }
-
-  line {
-    font-family: \00003222;
-  }
-}
-
-.btn--hard {
-  border-radius: 0;
 }
 
 /**
@@ -7477,6 +7094,7 @@ label,
 }
 
 h1,
+.page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
 .page__content__sidebar form.page__content__sidebar__box fieldset legend,
 h3,
@@ -7727,6 +7345,8 @@ textarea:focus {
 .button--ico--github:before,
 .page__content__sidebar .button--contribute--github:before,
 .button--ico--like:before,
+.button--ico--power-off:before,
+.page__content__sidebar .button--contribute--adblock:before,
 .button--ico--search:before {
   display: inline-block;
   font-family: FontAwesome;
@@ -7953,6 +7573,8 @@ textarea:focus {
 .pull-left.button--ico--github:before,
 .page__content__sidebar .pull-left.button--contribute--github:before,
 .pull-left.button--ico--like:before,
+.pull-left.button--ico--power-off:before,
+.page__content__sidebar .pull-left.button--contribute--adblock:before,
 .pull-left.button--ico--search:before {
   margin-right: .3em;
 }
@@ -7978,6 +7600,8 @@ textarea:focus {
 .pull-right.button--ico--github:before,
 .page__content__sidebar .pull-right.button--contribute--github:before,
 .pull-right.button--ico--like:before,
+.pull-right.button--ico--power-off:before,
+.page__content__sidebar .pull-right.button--contribute--adblock:before,
 .pull-right.button--ico--search:before {
   margin-left: .3em;
 }
@@ -8433,7 +8057,9 @@ textarea:focus {
   }
 }
 
-.fa-power-off:before {
+.fa-power-off:before,
+.button--ico--power-off:before,
+.page__content__sidebar .button--contribute--adblock:before {
   content: "\f011";
 }
 
@@ -13481,13 +13107,41 @@ textarea:focus {
   padding-bottom: 21px;
 }
 
+@-webkit-keyframes unwind {
+  0% {
+    width: 0%;
+  }
+
+  33% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes unwind {
+  0% {
+    width: 0%;
+  }
+
+  33% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 @media -sass-debug-info {
   filename {
     font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
   }
 
   line {
-    font-family: \000031;
+    font-family: \0000313;
   }
 }
 
@@ -13504,7 +13158,7 @@ textarea:focus {
   }
 
   line {
-    font-family: \0000310;
+    font-family: \0000331;
   }
 }
 
@@ -13782,8 +13436,50 @@ a.hyperlink:visited {
   }
 }
 
-.search .search__submit > .btn,
-.search--main .search__submit > .btn {
+.search .search__submit > .button,
+.search--main .search__submit > .button,
+.search .search__submit > .button--call-to-action,
+.search--main .search__submit > .button--call-to-action,
+.search .page__content__sidebar .search__submit > .button--login,
+.page__content__sidebar .search .search__submit > .button--login,
+.search--main .page__content__sidebar .search__submit > .button--login,
+.page__content__sidebar .search--main .search__submit > .button--login,
+.search .search__submit > .button--ico,
+.search--main .search__submit > .button--ico,
+.search .search__submit > .button--ico--facebook,
+.search--main .search__submit > .button--ico--facebook,
+.search .page__content__sidebar .search__submit > .button--login--facebook,
+.page__content__sidebar .search .search__submit > .button--login--facebook,
+.search--main .page__content__sidebar .search__submit > .button--login--facebook,
+.page__content__sidebar .search--main .search__submit > .button--login--facebook,
+.search .search__submit > .button--ico--facebook-square,
+.search--main .search__submit > .button--ico--facebook-square,
+.search .page__content__sidebar .search__submit > .button--contribute--facebook,
+.page__content__sidebar .search .search__submit > .button--contribute--facebook,
+.search--main .page__content__sidebar .search__submit > .button--contribute--facebook,
+.page__content__sidebar .search--main .search__submit > .button--contribute--facebook,
+.search .search__submit > .button--ico--gift,
+.search--main .search__submit > .button--ico--gift,
+.search .page__content__sidebar .search__submit > .button--contribute--paypal,
+.page__content__sidebar .search .search__submit > .button--contribute--paypal,
+.search--main .page__content__sidebar .search__submit > .button--contribute--paypal,
+.page__content__sidebar .search--main .search__submit > .button--contribute--paypal,
+.search .search__submit > .button--ico--github,
+.search--main .search__submit > .button--ico--github,
+.search .page__content__sidebar .search__submit > .button--contribute--github,
+.page__content__sidebar .search .search__submit > .button--contribute--github,
+.search--main .page__content__sidebar .search__submit > .button--contribute--github,
+.page__content__sidebar .search--main .search__submit > .button--contribute--github,
+.search .search__submit > .button--ico--like,
+.search--main .search__submit > .button--ico--like,
+.search .search__submit > .button--ico--power-off,
+.search--main .search__submit > .button--ico--power-off,
+.search .page__content__sidebar .search__submit > .button--contribute--adblock,
+.page__content__sidebar .search .search__submit > .button--contribute--adblock,
+.search--main .page__content__sidebar .search__submit > .button--contribute--adblock,
+.page__content__sidebar .search--main .search__submit > .button--contribute--adblock,
+.search .search__submit > .button--ico--search,
+.search--main .search__submit > .button--ico--search {
   line-height: inherit;
 }
 
@@ -13886,8 +13582,10 @@ a.hyperlink:visited {
 .button--ico--github,
 .page__content__sidebar .button--contribute--github,
 .button--ico--like,
+.button--ico--power-off,
+.page__content__sidebar .button--contribute--adblock,
 .button--ico--search {
-  background-color: #f8f8f8;
+  background-color: #f7f7f7;
   border: 1px solid #282828;
   border-radius: 0.2em;
   color: #282828;
@@ -13917,6 +13615,8 @@ a.hyperlink:visited {
 .button--ico--github:focus,
 .page__content__sidebar .button--contribute--github:focus,
 .button--ico--like:focus,
+.button--ico--power-off:focus,
+.page__content__sidebar .button--contribute--adblock:focus,
 .button--ico--search:focus {
   outline: none;
 }
@@ -13936,7 +13636,7 @@ a.hyperlink:visited {
   background-color: #aa1e1e;
   border: 1px solid #aa1e1e;
   border-radius: 0.4em;
-  color: #f8f8f8;
+  color: #f7f7f7;
   -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
   display: block;
@@ -13972,6 +13672,10 @@ a.hyperlink:visited {
 .page__content__sidebar .button--empty.button--contribute--github:before,
 .button--empty.button--ico--like:before,
 .page__content__sidebar .button--ico--like.button--contribute:before,
+.button--empty.button--ico--power-off:before,
+.page__content__sidebar .button--ico--power-off.button--contribute:before,
+.page__content__sidebar .button--contribute.button--contribute--adblock:before,
+.page__content__sidebar .button--empty.button--contribute--adblock:before,
 .button--empty.button--ico--search:before,
 .page__content__sidebar .button--ico--search.button--contribute:before,
 .page__content__sidebar .button--ico.button--contribute:before {
@@ -14000,9 +13704,11 @@ a.hyperlink:visited {
 .button--ico--github:before,
 .page__content__sidebar .button--contribute--github:before,
 .button--ico--like:before,
+.button--ico--power-off:before,
+.page__content__sidebar .button--contribute--adblock:before,
 .button--ico--search:before {
   border: none;
-  border-right: 1px solid #f8f8f8;
+  border-right: 1px solid #f7f7f7;
   margin-right: 10.5px;
   padding-right: 10.5px;
 }
@@ -14197,7 +13903,7 @@ body {
 
 .wrapper {
   min-height: 100%;
-  margin-bottom: -3rem;
+  margin-bottom: -3.5rem;
 }
 
 @media -sass-debug-info {
@@ -14227,7 +13933,7 @@ body {
 
 .wrapper:after,
 .page__footer {
-  height: 3rem;
+  height: 3.5rem;
 }
 
 @media -sass-debug-info {
@@ -14244,13 +13950,13 @@ body {
   position: absolute;
   right: 0;
   left: 0;
-  background-color: #e0e0e0;
-  border-top: 0.07143rem solid rgba(77, 77, 77, 0.7);
+  background-color: #ffd4c6;
+  border-top: 0.07143rem solid #aa1e1e;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  height: 3rem;
-  text-align: center;
+  height: 3.5rem;
+  text-align: left;
 }
 
 @media -sass-debug-info {
@@ -14277,6 +13983,65 @@ body {
   }
 }
 
+.page__footer > .wrapper {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/footer\.scss;
+  }
+
+  line {
+    font-family: \0000324;
+  }
+}
+
+.page__footer > .wrapper > * {
+  float: left;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/footer\.scss;
+  }
+
+  line {
+    font-family: \0000330;
+  }
+}
+
+.page__footer .page__footer__site-info {
+  line-height: 0.1;
+  margin-left: 5.25px;
+  padding-top: 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/footer\.scss;
+  }
+
+  line {
+    font-family: \0000335;
+  }
+}
+
+.page__footer .page__footer__site-info .page__footer__site-logo {
+  font-size: 18px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/footer\.scss;
+  }
+
+  line {
+    font-family: \0000346;
+  }
+}
+
 .page__footer .page__footer__links {
   list-style-type: none;
   margin: 0;
@@ -14284,6 +14049,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-left: 21px;
 }
 
 @media -sass-debug-info {
@@ -14306,13 +14072,13 @@ body {
   }
 
   line {
-    font-family: \0000324;
+    font-family: \0000352;
   }
 }
 
 .page__footer .page__footer__links > li {
-  height: 3rem;
-  line-height: 3rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
   position: relative;
   z-index: 0;
   padding: 0 21px;
@@ -14339,7 +14105,7 @@ body {
   }
 
   line {
-    font-family: \00003107;
+    font-family: \00003115;
   }
 }
 
@@ -14361,7 +14127,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003123;
   }
 }
 
@@ -14374,7 +14140,7 @@ body {
   border-radius: 0;
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
-  background-color: #f8f8f8;
+  background-color: #f7f7f7;
 }
 
 @media -sass-debug-info {
@@ -14383,7 +14149,7 @@ body {
   }
 
   line {
-    font-family: \0000330;
+    font-family: \0000358;
   }
 }
 
@@ -14402,12 +14168,10 @@ body {
 }
 
 .search--main {
+  background-color: #FFF;
   -webkit-box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
   display: inline-block;
-  padding: 5.25px;
-  padding-left: 10.5px;
-  padding-right: 2.5rem;
   position: relative;
 }
 
@@ -14450,7 +14214,38 @@ body {
   }
 
   line {
-    font-family: \0000320;
+    font-family: \0000315;
+  }
+}
+
+.search--main,
+.search--main fieldset {
+  border-radius: 0.4rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+  }
+
+  line {
+    font-family: \0000319;
+  }
+}
+
+.search--main fieldset {
+  padding: 5.25px;
+  padding-left: 10.5px;
+  padding-right: 2.5rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/main-search\.scss;
+  }
+
+  line {
+    font-family: \0000326;
   }
 }
 
@@ -14464,7 +14259,7 @@ body {
   }
 
   line {
-    font-family: \0000324;
+    font-family: \0000330;
   }
 }
 
@@ -14481,7 +14276,7 @@ body {
   }
 
   line {
-    font-family: \0000330;
+    font-family: \0000336;
   }
 }
 
@@ -14495,16 +14290,16 @@ body {
   }
 
   line {
-    font-family: \0000335;
+    font-family: \0000341;
   }
 }
 
 .search--main .search__submit {
-  width: 2.5rem;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
+  width: 2.5rem;
 }
 
 @media -sass-debug-info {
@@ -14513,18 +14308,44 @@ body {
   }
 
   line {
-    font-family: \0000340;
+    font-family: \0000346;
   }
 }
 
-.search--main .search__submit > .btn {
+.search--main .search__submit > .button,
+.search--main .search__submit > .button--call-to-action,
+.search--main .page__content__sidebar .search__submit > .button--login,
+.page__content__sidebar .search--main .search__submit > .button--login,
+.search--main .search__submit > .button--ico,
+.search--main .search__submit > .button--ico--facebook,
+.search--main .page__content__sidebar .search__submit > .button--login--facebook,
+.page__content__sidebar .search--main .search__submit > .button--login--facebook,
+.search--main .search__submit > .button--ico--facebook-square,
+.search--main .page__content__sidebar .search__submit > .button--contribute--facebook,
+.page__content__sidebar .search--main .search__submit > .button--contribute--facebook,
+.search--main .search__submit > .button--ico--gift,
+.search--main .page__content__sidebar .search__submit > .button--contribute--paypal,
+.page__content__sidebar .search--main .search__submit > .button--contribute--paypal,
+.search--main .search__submit > .button--ico--github,
+.search--main .page__content__sidebar .search__submit > .button--contribute--github,
+.page__content__sidebar .search--main .search__submit > .button--contribute--github,
+.search--main .search__submit > .button--ico--like,
+.search--main .search__submit > .button--ico--power-off,
+.search--main .page__content__sidebar .search__submit > .button--contribute--adblock,
+.page__content__sidebar .search--main .search__submit > .button--contribute--adblock,
+.search--main .search__submit > .button--ico--search {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  text-indent: -10000px;
+  background-color: inherit;
+  border: none;
+  border-radius: 0.4rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  font-size: 130%;
+  text-align: center;
 }
 
 @media -sass-debug-info {
@@ -14582,7 +14403,7 @@ body {
   padding-top: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  background-color: rgba(248, 248, 248, 0.9);
+  background-color: rgba(247, 247, 247, 0.9);
 }
 
 @media -sass-debug-info {
@@ -14637,7 +14458,7 @@ body {
 }
 
 .offer-thumbnail .thumbnail__text--bottom * {
-  color: #f8f8f8;
+  color: #f7f7f7;
 }
 
 @media -sass-debug-info {
@@ -14715,7 +14536,7 @@ body {
 }
 
 .offer-thumbnail:hover .thumbnail__text--top > h3 {
-  color: #f8f8f8;
+  color: #f7f7f7;
 }
 
 @media -sass-debug-info {
@@ -14941,7 +14762,7 @@ body {
 .page__content__sidebar form.page__content__sidebar__box fieldset .offers--meals header legend,
 .offers--snacks header .page__content__sidebar form.page__content__sidebar__box fieldset legend,
 .page__content__sidebar form.page__content__sidebar__box fieldset .offers--snacks header legend {
-  background-color: #f8f8f8;
+  background-color: #f7f7f7;
   display: inline-block;
   margin-left: 21px;
   padding: 0 5.25px;
@@ -14992,7 +14813,7 @@ body {
   content: "";
   border-radius: 50%;
   display: inline-block;
-  background-color: #f8f8f8;
+  background-color: #f7f7f7;
   height: 10.5px;
   width: 10.5px;
   border: 0.07143rem solid #aa1e1e;
@@ -15046,7 +14867,7 @@ body {
 .offers--cakes header .offers__more .offers__more__text,
 .offers--meals header .offers__more .offers__more__text,
 .offers--snacks header .offers__more .offers__more__text {
-  background-color: #f8f8f8;
+  background-color: #f7f7f7;
   color: #aa1e1e;
   padding: 0 5.25px;
   right: 10.5px;
@@ -15300,7 +15121,7 @@ body {
   }
 
   line {
-    font-family: \00003107;
+    font-family: \00003115;
   }
 }
 
@@ -15322,7 +15143,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003123;
   }
 }
 
@@ -15392,7 +15213,247 @@ body {
   }
 
   line {
-    font-family: \0000375;
+    font-family: \0000377;
+  }
+}
+
+.page__content__sidebar .button--contribute--facebook {
+  position: relative;
+  z-index: 0;
+  color: #f7f7f7;
+  background-color: #3b5998;
+  border-color: #133783;
+  overflow: hidden;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__content__sidebar .button--contribute--facebook:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003115;
+  }
+}
+
+.page__content__sidebar .button--contribute--facebook:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003123;
+  }
+}
+
+.page__content__sidebar .button--contribute--facebook:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: #4b67a1;
+  -webkit-box-shadow: 0 0 0.25em #4b67a1;
+  box-shadow: 0 0 0.25em #4b67a1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000391;
+  }
+}
+
+.page__content__sidebar .button--contribute--adblock {
+  position: relative;
+  z-index: 0;
+  color: #f7f7f7;
+  background-color: #C00;
+  border-color: rgba(77, 77, 77, 0.7);
+  overflow: hidden;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__content__sidebar .button--contribute--adblock:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003115;
+  }
+}
+
+.page__content__sidebar .button--contribute--adblock:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003123;
+  }
+}
+
+.page__content__sidebar .button--contribute--adblock:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: #db0000;
+  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \00003105;
+  }
+}
+
+.page__content__sidebar .button--contribute--paypal {
+  position: relative;
+  z-index: 0;
+  color: #f7f7f7;
+  background-color: #aa1e1e;
+  border-color: rgba(77, 77, 77, 0.7);
+  overflow: hidden;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__content__sidebar .button--contribute--paypal:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003115;
+  }
+}
+
+.page__content__sidebar .button--contribute--paypal:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003123;
+  }
+}
+
+.page__content__sidebar .button--contribute--paypal:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: #b72020;
+  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \00003119;
   }
 }
 
@@ -15425,7 +15486,7 @@ body {
   }
 
   line {
-    font-family: \00003107;
+    font-family: \00003115;
   }
 }
 
@@ -15447,7 +15508,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003123;
   }
 }
 
@@ -15463,166 +15524,6 @@ body {
   background-color: white;
   -webkit-box-shadow: 0 0 0.25em white;
   box-shadow: 0 0 0.25em white;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
-  }
-
-  line {
-    font-family: \0000388;
-  }
-}
-
-.page__content__sidebar .button--contribute--facebook {
-  position: relative;
-  z-index: 0;
-  color: #f8f8f8;
-  background-color: #3b5998;
-  border-color: #133783;
-  overflow: hidden;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
-  }
-
-  line {
-    font-family: \000032;
-  }
-}
-
-.page__content__sidebar .button--contribute--facebook:after {
-  display: inline-block;
-  content: "";
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
-  }
-
-  line {
-    font-family: \00003107;
-  }
-}
-
-.page__content__sidebar .button--contribute--facebook:after {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  bottom: 50%;
-  left: 50%;
-  border-radius: 50%;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
-  z-index: -1;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
-  }
-
-  line {
-    font-family: \00003115;
-  }
-}
-
-.page__content__sidebar .button--contribute--facebook:hover:after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 0;
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-  background-color: #4b67a1;
-  -webkit-box-shadow: 0 0 0.25em #4b67a1;
-  box-shadow: 0 0 0.25em #4b67a1;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
-  }
-
-  line {
-    font-family: \00003102;
-  }
-}
-
-.page__content__sidebar .button--contribute--paypal {
-  position: relative;
-  z-index: 0;
-  color: #f8f8f8;
-  background-color: #aa1e1e;
-  border-color: rgba(77, 77, 77, 0.7);
-  overflow: hidden;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
-  }
-
-  line {
-    font-family: \000032;
-  }
-}
-
-.page__content__sidebar .button--contribute--paypal:after {
-  display: inline-block;
-  content: "";
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
-  }
-
-  line {
-    font-family: \00003107;
-  }
-}
-
-.page__content__sidebar .button--contribute--paypal:after {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  bottom: 50%;
-  left: 50%;
-  border-radius: 50%;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
-  z-index: -1;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
-  }
-
-  line {
-    font-family: \00003115;
-  }
-}
-
-.page__content__sidebar .button--contribute--paypal:hover:after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 0;
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-  background-color: #b72020;
-  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
 }
 
 @media -sass-debug-info {
@@ -15668,7 +15569,7 @@ body {
   }
 
   line {
-    font-family: \0000348;
+    font-family: \0000350;
   }
 }
 
@@ -15720,7 +15621,7 @@ body {
 
 .page__header .page__header__bar .page__header__title,
 .page__header .page__header__bar:after {
-  width: 30%;
+  width: 39.5%;
 }
 
 @media -sass-debug-info {
@@ -15729,26 +15630,30 @@ body {
   }
 
   line {
-    font-family: \0000335;
-  }
-}
-
-.page__header .page__header__bar .page__header__title,
-.page__header .page__header__bar .search--main {
-  background-color: #f8f8f8;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
-  }
-
-  line {
-    font-family: \0000339;
+    font-family: \0000334;
   }
 }
 
 .page__header .page__header__bar .page__header__title {
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+  }
+
+  line {
+    font-family: \0000337;
+  }
+}
+
+.page__header .page__header__bar .page__header__title h1,
+.page__header .page__header__bar .page__header__title .page__footer .page__footer__site-info .page__footer__site-logo,
+.page__footer .page__footer__site-info .page__header .page__header__bar .page__header__title .page__footer__site-logo {
+  background-color: #ffd4c6;
+  display: inline-block;
+  font-size: 40px;
   padding: 0 10.5px;
 }
 
@@ -15758,18 +15663,80 @@ body {
   }
 
   line {
-    font-family: \0000344;
+    font-family: \0000346;
   }
 }
 
-.page__header .page__header__slider {
+.page__header .page__header__background {
+  position: relative;
+  position: relative;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
+  background-color: #ffd4c6;
+  background-image: -webkit-radial-gradient(#f7f7f7 15%, transparent 16%), radial-gradient(#f7f7f7 15%, transparent 16%);
+  background-image: radial-gradient(#f7f7f7 15%, transparent 16%), radial-gradient(#f7f7f7 15%, transparent 16%);
+  -webkit-background-size: 30px 30px;
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  border: none;
   border-bottom: 1px solid rgba(77, 77, 77, 0.7);
+  border-top: 3px solid #f7f7f7;
   height: 105px;
   z-index: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__header .page__header__background:after {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  top: -2px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, rgba(77, 77, 77, 0.7)));
+  background-image: -webkit-linear-gradient(top, transparent, rgba(77, 77, 77, 0.7));
+  background-image: -webkit-gradient(linear, top left, bottom left, from(transparent), to(rgba(77, 77, 77, 0.7)));
+  background-image: linear-gradient(top, transparent, rgba(77, 77, 77, 0.7));
+  top: -webkit-calc(100% - 2px + 1px);
+  top: calc(100% - 2px + 1px);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__header .page__header__background:before {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, transparent), color-stop(100%, rgba(77, 77, 77, 0.7)));
+  background-image: -webkit-linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
+  background-image: -webkit-gradient(linear, bottom left, top left, from(transparent), to(rgba(77, 77, 77, 0.7)));
+  background-image: linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
+  bottom: -webkit-calc(100% - 2px);
+  bottom: calc(100% - 2px);
 }
 
 @media -sass-debug-info {
@@ -15825,7 +15792,8 @@ body {
 }
 
 body {
-  background-color: #f8f8f8;
+  background-color: #f7f7f7;
+  background-image: url("../images/patterns/fabric_plaid.png");
   border-color: #282828;
   font-family: "Alegreya Sans", sans-serif;
   color: #282828;
@@ -15837,11 +15805,12 @@ body {
   }
 
   line {
-    font-family: \0000373;
+    font-family: \0000376;
   }
 }
 
 h1,
+.page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
 .page__content__sidebar form.page__content__sidebar__box fieldset legend {
   color: #aa1e1e;
@@ -15854,7 +15823,7 @@ h2,
   }
 
   line {
-    font-family: \0000379;
+    font-family: \0000382;
   }
 }
 
