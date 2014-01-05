@@ -1,14 +1,13 @@
 @keyframes unwind {
 	0% {
-		opacity: 1;
-		width: 0%;
+		
 	}
 	33% {
-		opacity: 1;
 		width: 0%;
 	}
-	85% {
+	75% {
 		opacity: 1;
+		width: 100%;
 	}
 	100% {
 		opacity: 0;
@@ -27,7 +26,7 @@
     @include scut-before() {
 		@include scut-absolute();
 
-		animation: unwind 1s ease-in-out 0s 1;
+		animation: unwind 2s ease-in-out 0s 1;
 		background-color: $c-fg-acc;
 		height: 3px;
 		width: 0;

@@ -13108,18 +13108,13 @@ textarea:focus {
 }
 
 @-webkit-keyframes unwind {
-  0% {
-    opacity: 1;
-    width: 0%;
-  }
-
   33% {
-    opacity: 1;
     width: 0%;
   }
 
-  85% {
+  75% {
     opacity: 1;
+    width: 100%;
   }
 
   100% {
@@ -13129,18 +13124,13 @@ textarea:focus {
 }
 
 @keyframes unwind {
-  0% {
-    opacity: 1;
-    width: 0%;
-  }
-
   33% {
-    opacity: 1;
     width: 0%;
   }
 
-  85% {
+  75% {
     opacity: 1;
+    width: 100%;
   }
 
   100% {
@@ -13155,7 +13145,7 @@ textarea:focus {
   }
 
   line {
-    font-family: \0000319;
+    font-family: \0000318;
   }
 }
 
@@ -13182,8 +13172,8 @@ textarea:focus {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-animation: unwind 1s ease-in-out 0s 1;
-  animation: unwind 1s ease-in-out 0s 1;
+  -webkit-animation: unwind 2s ease-in-out 0s 1;
+  animation: unwind 2s ease-in-out 0s 1;
   background-color: #aa1e1e;
   height: 3px;
   width: 0;
@@ -13196,7 +13186,7 @@ textarea:focus {
   }
 
   line {
-    font-family: \0000337;
+    font-family: \0000336;
   }
 }
 
