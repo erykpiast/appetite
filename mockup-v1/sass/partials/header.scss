@@ -2,6 +2,7 @@
     $header-height: 105px;
 
     height: $header-height;
+    margin-left: -$base-spacing-unit; // grid in content has margin like that and real width of element with width: 100% inside that grid is bigger by given amount; to have the same base width in header, should emulate grid margin
     overflow: {
         y: hidden;
         x: visible;
@@ -11,35 +12,38 @@
         @include scut-inline-container();
         @include scut-after();
 
-        display: table;
-        height: 3rem;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
         position: relative;
-        table-layout: fixed;
+        text-align: right;
         width: 100%;
         z-index: 1;
 
-        .page__header__title,
-        .page__header__search,
+        & > *,
         &:after {
-            display: table-cell;
-            vertical-align: middle;
+            float: left;
         }
 
-        .page__header__title,
-        &:after {
-            width: 39.5%;
-        }
         
         .page__header__title {
             text-align: center;
+            width: 40%;
 
             h1 {
                 background-color: $c-bg-acc;
                 display: inline-block;
                 font-size: 40px;
-                padding: 0 $half-spacing-unit;
+                line-height: 1;
+                margin-top: -$half-spacing-unit;
+                padding: $half-spacing-unit;
             }
+        }
+
+        .page__header__search {
+            width: 35%;
+        }
+
+        &:after {
+            width: 25%;
         }
     }
 

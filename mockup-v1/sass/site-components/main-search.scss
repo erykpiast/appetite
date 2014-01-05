@@ -6,7 +6,7 @@
 
     background-color: #FFF;
     box-shadow: 0 0 0 5px $c-shadow-dark;
-    display: inline-block;    
+    // display: inline-block;    
     position: relative;
 
     @include scut-vcenter-ib("fieldset");

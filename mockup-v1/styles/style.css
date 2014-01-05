@@ -1114,7 +1114,6 @@ table {
 h1,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
-.page__content__sidebar form.page__content__sidebar__box fieldset legend,
 h3,
 h4,
 h5,
@@ -1307,7 +1306,6 @@ textarea:focus {
 h1,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
-.page__content__sidebar form.page__content__sidebar__box fieldset legend,
 h3,
 h4,
 h5,
@@ -1345,8 +1343,6 @@ pre,
 .islet .page__footer .page__footer__site-info .page__footer__site-logo,
 .page__footer .page__footer__site-info .islet .page__footer__site-logo,
 .islet h2,
-.islet .page__content__sidebar form.page__content__sidebar__box fieldset legend,
-.page__content__sidebar form.page__content__sidebar__box fieldset .islet legend,
 .islet h3,
 .islet h4,
 .islet h5,
@@ -1504,7 +1500,6 @@ h1,
 }
 
 h2,
-.page__content__sidebar form.page__content__sidebar__box fieldset legend,
 .beta {
   font-size: 26.25px;
   font-size: 1.875rem;
@@ -7096,7 +7091,6 @@ label,
 h1,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
-.page__content__sidebar form.page__content__sidebar__box fieldset legend,
 h3,
 h4,
 h5,
@@ -14199,7 +14193,6 @@ body {
   background-color: #FFF;
   -webkit-box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
-  display: inline-block;
   position: relative;
 }
 
@@ -14781,15 +14774,7 @@ body {
 .offers header h2,
 .offers--cakes header h2,
 .offers--meals header h2,
-.offers--snacks header h2,
-.offers header .page__content__sidebar form.page__content__sidebar__box fieldset legend,
-.page__content__sidebar form.page__content__sidebar__box fieldset .offers header legend,
-.offers--cakes header .page__content__sidebar form.page__content__sidebar__box fieldset legend,
-.page__content__sidebar form.page__content__sidebar__box fieldset .offers--cakes header legend,
-.offers--meals header .page__content__sidebar form.page__content__sidebar__box fieldset legend,
-.page__content__sidebar form.page__content__sidebar__box fieldset .offers--meals header legend,
-.offers--snacks header .page__content__sidebar form.page__content__sidebar__box fieldset legend,
-.page__content__sidebar form.page__content__sidebar__box fieldset .offers--snacks header legend {
+.offers--snacks header h2 {
   background-color: #f7f7f7;
   display: inline-block;
   margin-left: 21px;
@@ -15010,7 +14995,65 @@ body {
   }
 
   line {
-    font-family: \000034;
+    font-family: \000031;
+  }
+}
+
+.page__content__sidebar {
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \000035;
+  }
+}
+
+.page__content__sidebar > * {
+  text-align: left;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \000039;
+  }
+}
+
+.page__content__sidebar > h2 {
+  background-color: #f7f7f7;
+  display: inline-block;
+  padding: 0 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000315;
+  }
+}
+
+.page__content__sidebar > form {
+  margin-top: -21px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/sidebar\.scss;
+  }
+
+  line {
+    font-family: \0000319;
   }
 }
 
@@ -15024,13 +15067,14 @@ body {
   }
 
   line {
-    font-family: \000037;
+    font-family: \0000322;
   }
 }
 
 .page__content__sidebar form.page__content__sidebar__box fieldset {
   border: none;
   border-top: 1px solid #aa1e1e;
+  padding-top: 21px;
 }
 
 @media -sass-debug-info {
@@ -15039,14 +15083,12 @@ body {
   }
 
   line {
-    font-family: \0000312;
+    font-family: \0000328;
   }
 }
 
 .page__content__sidebar form.page__content__sidebar__box fieldset legend {
-  font-weight: bold;
-  text-align: center;
-  padding: 0 5.25px;
+  display: none;
 }
 
 @media -sass-debug-info {
@@ -15055,7 +15097,7 @@ body {
   }
 
   line {
-    font-family: \0000322;
+    font-family: \0000334;
   }
 }
 
@@ -15069,7 +15111,7 @@ body {
   }
 
   line {
-    font-family: \0000325;
+    font-family: \0000337;
   }
 }
 
@@ -15083,7 +15125,7 @@ body {
   }
 
   line {
-    font-family: \0000330;
+    font-family: \0000342;
   }
 }
 
@@ -15101,7 +15143,7 @@ body {
   }
 
   line {
-    font-family: \0000339;
+    font-family: \0000351;
   }
 }
 
@@ -15116,7 +15158,7 @@ body {
   }
 
   line {
-    font-family: \0000344;
+    font-family: \0000356;
   }
 }
 
@@ -15195,7 +15237,7 @@ body {
   }
 
   line {
-    font-family: \0000358;
+    font-family: \0000370;
   }
 }
 
@@ -15210,7 +15252,7 @@ body {
   }
 
   line {
-    font-family: \0000362;
+    font-family: \0000374;
   }
 }
 
@@ -15225,7 +15267,7 @@ body {
   }
 
   line {
-    font-family: \0000369;
+    font-family: \0000381;
   }
 }
 
@@ -15241,7 +15283,7 @@ body {
   }
 
   line {
-    font-family: \0000377;
+    font-family: \0000389;
   }
 }
 
@@ -15321,7 +15363,7 @@ body {
   }
 
   line {
-    font-family: \0000391;
+    font-family: \00003103;
   }
 }
 
@@ -15401,7 +15443,7 @@ body {
   }
 
   line {
-    font-family: \00003105;
+    font-family: \00003117;
   }
 }
 
@@ -15481,7 +15523,7 @@ body {
   }
 
   line {
-    font-family: \00003119;
+    font-family: \00003131;
   }
 }
 
@@ -15566,6 +15608,7 @@ body {
 
 .page__header {
   height: 105px;
+  margin-left: -21px;
   overflow-y: hidden;
   overflow-x: visible;
 }
@@ -15576,17 +15619,15 @@ body {
   }
 
   line {
-    font-family: \0000310;
+    font-family: \0000311;
   }
 }
 
 .page__header .page__header__bar {
   font-size: 0;
-  display: table;
-  height: 3rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   position: relative;
-  table-layout: fixed;
+  text-align: right;
   width: 100%;
   z-index: 1;
 }
@@ -15626,15 +15667,13 @@ body {
   }
 
   line {
-    font-family: \0000324;
+    font-family: \0000322;
   }
 }
 
-.page__header .page__header__bar .page__header__title,
-.page__header .page__header__bar .page__header__search,
+.page__header .page__header__bar > *,
 .page__header .page__header__bar:after {
-  display: table-cell;
-  vertical-align: middle;
+  float: left;
 }
 
 @media -sass-debug-info {
@@ -15643,27 +15682,13 @@ body {
   }
 
   line {
-    font-family: \0000330;
-  }
-}
-
-.page__header .page__header__bar .page__header__title,
-.page__header .page__header__bar:after {
-  width: 39.5%;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
-  }
-
-  line {
-    font-family: \0000334;
+    font-family: \0000327;
   }
 }
 
 .page__header .page__header__bar .page__header__title {
   text-align: center;
+  width: 40%;
 }
 
 @media -sass-debug-info {
@@ -15672,7 +15697,7 @@ body {
   }
 
   line {
-    font-family: \0000337;
+    font-family: \0000331;
   }
 }
 
@@ -15682,7 +15707,9 @@ body {
   background-color: #ffd4c6;
   display: inline-block;
   font-size: 40px;
-  padding: 0 10.5px;
+  line-height: 1;
+  margin-top: -10.5px;
+  padding: 10.5px;
 }
 
 @media -sass-debug-info {
@@ -15691,7 +15718,35 @@ body {
   }
 
   line {
-    font-family: \0000346;
+    font-family: \0000341;
+  }
+}
+
+.page__header .page__header__bar .page__header__search {
+  width: 35%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+  }
+
+  line {
+    font-family: \0000345;
+  }
+}
+
+.page__header .page__header__bar:after {
+  width: 25%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
+  }
+
+  line {
+    font-family: \0000350;
   }
 }
 
@@ -15733,10 +15788,9 @@ body {
   left: 0;
   right: 0;
   top: -2px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, rgba(77, 77, 77, 0.7)));
-  background-image: -webkit-linear-gradient(top, transparent, rgba(77, 77, 77, 0.7));
-  background-image: -webkit-gradient(linear, top left, bottom left, from(transparent), to(rgba(77, 77, 77, 0.7)));
-  background-image: linear-gradient(top, transparent, rgba(77, 77, 77, 0.7));
+  background-image: -webkit-gradient(linear, bottom left, top left, from(rgba(77, 77, 77, 0.7)), to(transparent));
+  background-image: -webkit-linear-gradient(bottom, rgba(77, 77, 77, 0.7), transparent);
+  background-image: linear-gradient(to top, rgba(77, 77, 77, 0.7), transparent);
   top: -webkit-calc(100% - 2px + 1px);
   top: calc(100% - 2px + 1px);
 }
@@ -15759,10 +15813,9 @@ body {
   left: 0;
   right: 0;
   bottom: -2px;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, transparent), color-stop(100%, rgba(77, 77, 77, 0.7)));
-  background-image: -webkit-linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
-  background-image: -webkit-gradient(linear, bottom left, top left, from(transparent), to(rgba(77, 77, 77, 0.7)));
-  background-image: linear-gradient(bottom, transparent, rgba(77, 77, 77, 0.7));
+  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(77, 77, 77, 0.7)), to(transparent));
+  background-image: -webkit-linear-gradient(top, rgba(77, 77, 77, 0.7), transparent);
+  background-image: linear-gradient(to bottom, rgba(77, 77, 77, 0.7), transparent);
   bottom: -webkit-calc(100% - 2px);
   bottom: calc(100% - 2px);
 }
@@ -15839,8 +15892,7 @@ body {
 
 h1,
 .page__footer .page__footer__site-info .page__footer__site-logo,
-h2,
-.page__content__sidebar form.page__content__sidebar__box fieldset legend {
+h2 {
   color: #aa1e1e;
   font-family: "Englebert", sans-serif;
 }
