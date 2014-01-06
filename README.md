@@ -9,7 +9,7 @@ Webpage for lovers of food and cooking.
 Used technologies
 -----------------
 Front-end:
- * SASS
+ * SASS (SCSS)
  * Inuit CSS
  * Scut
  * AngularJS
