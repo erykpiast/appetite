@@ -5,8 +5,9 @@ MamApetytNa.pl
 Webpage for lovers of food and cooking.
 
 
-Used technologies:
 
+Used technologies
+=================
 Front-end:
  * SASS
  * Inuit CSS
