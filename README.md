@@ -10,6 +10,7 @@ Used technologies
 -----------------
 Front-end:
  * SASS (SCSS)
+ * Compass
  * Inuit CSS
  * Scut
  * Autoprefixer
