@@ -5,6 +5,7 @@
 	};
 	color: $c-fg-def;
 	display: inline-block;
+	padding: 0 $quarter-spacing-unit;
     
 	&:focus {
 		outline: none;
@@ -20,16 +21,9 @@
 	};
 	color: $c-bg-light;
 	box-shadow: 0 0 .25em $c-shadow-dark;
+	box-sizing: border-box;
 	display: block;
 	padding: $half-spacing-unit $base-spacing-unit;
-}
-
-.button--empty {
-	&.button--ico:before {
-		border-right: none;
-	    margin-right: 0;
-	    padding-right: 0;
-	}
 }
 
 .button--ico {
@@ -43,6 +37,14 @@
 		};
 		margin-right: $half-spacing-unit;
 		padding-right: $half-spacing-unit;
+	}
+}
+
+.button--ico--close {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-times;
 	}
 }
 
@@ -102,6 +104,14 @@
 	}
 }
 
+.button--empty {
+	&.button--ico:before {
+		border-right: none;
+	    margin-right: 0;
+	    padding-right: 0;
+	}
+}
+
 @mixin hover-effect {
     @include scut-after();
 }
@@ -125,6 +135,17 @@
         
         border-radius: 0;
         transition: all .2s ease-out;
+        
+        @content;
+    }
+}
+
+@mixin hover-effect--colorize($color) {
+	transition: color .1s linear;
+
+    &:hover {
+        color: $color;
+        transition: color .2s ease-out;
         
         @content;
     }

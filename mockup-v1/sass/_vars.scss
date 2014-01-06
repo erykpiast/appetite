@@ -68,7 +68,7 @@ $half-spacing-unit: $base-spacing-unit / 2;
 $quarter-spacing-unit: $base-spacing-unit / 4;
 $line-height-ratio: $base-line-height / $base-font-size;
 
-$h1-size:           2 * $base-font-size; // .alpha
+$h1-size:           2.5 * $base-font-size; // .alpha
 $h2-size:           1.875 * $base-font-size; // .beta
 $h3-size:           1.5 * $base-font-size; // .gamma
 $h4-size:           1.25 * $base-font-size; // .delta
@@ -95,6 +95,10 @@ $space-width: .0625em;
 $content-font: "Alegreya Sans", sans-serif;
 $heading-font: "Englebert", sans-serif;
 
+
+$c-transparent-white: rgba(255, 255, 255, 0);
+$c-transparent-black: rgba(0, 0, 0, 0);
+
 $c-fg-def: rgba(40, 40, 40, 1.0);
 $c-fg-def-light: rgba(150, 150, 150, 1.0);
 
@@ -110,6 +114,9 @@ $c-bg-links: $c-bg-light;
 $c-bg-def: $c-bg-light;
 
 $c-shadow-dark: rgba(77, 77, 77, 0.7);
+
+$c-adblock-dark: rgba(180, 0, 0, 1);
+$c-adblock-light: rgba(212, 0, 0, 1);
 
 $c-facebook-def: rgb(59, 89, 152);
 $c-facebook-light: rgb(75, 103, 161);

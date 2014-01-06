@@ -45,6 +45,7 @@
 
         & > .button {
             @include scut-fill();
+            @include hover-effect--colorize($c-fg-acc);
 
             background-color: inherit;
             border: none {

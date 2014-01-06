@@ -1,5 +1,5 @@
 .page__header {
-    $header-height: 105px;
+    $header-height: 100px;
 
     height: $header-height;
     margin-left: -$base-spacing-unit; // grid in content has margin like that and real width of element with width: 100% inside that grid is bigger by given amount; to have the same base width in header, should emulate grid margin
@@ -12,7 +12,7 @@
         @include scut-inline-container();
         @include scut-after();
 
-        margin-top: 2.5rem;
+        margin-top: 2.4rem;
         position: relative;
         text-align: right;
         width: 100%;

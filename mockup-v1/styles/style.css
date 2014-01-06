@@ -501,6 +501,7 @@ a:hover {
 }
 
 h1,
+.site-logo,
 .page__footer .page__footer__site-info .page__footer__site-logo {
   font-size: 2em;
   margin: 0.67em 0;
@@ -1112,6 +1113,7 @@ table {
 }
 
 h1,
+.site-logo,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
 h3,
@@ -1304,6 +1306,7 @@ textarea:focus {
 }
 
 h1,
+.site-logo,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
 h3,
@@ -1340,6 +1343,7 @@ pre,
 }
 
 .islet h1,
+.islet .site-logo,
 .islet .page__footer .page__footer__site-info .page__footer__site-logo,
 .page__footer .page__footer__site-info .islet .page__footer__site-logo,
 .islet h2,
@@ -1482,11 +1486,12 @@ html {
 }
 
 h1,
+.site-logo,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 .alpha {
-  font-size: 28px;
-  font-size: 2rem;
-  line-height: 1.5;
+  font-size: 35px;
+  font-size: 2.5rem;
+  line-height: 1.2;
 }
 
 @media -sass-debug-info {
@@ -3585,8 +3590,10 @@ label,
 .four-eighths,
 .five-tenths,
 .six-twelfths,
+.offers--baking .thumbnails-grid__container,
+.offers--snacks .thumbnails-grid__container,
 .offers--meals .thumbnails-grid__container,
-.offers--snacks .thumbnails-grid__container {
+.offers--jams .thumbnails-grid__container {
   width: 50%;
 }
 
@@ -7089,6 +7096,7 @@ label,
 }
 
 h1,
+.site-logo,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 h2,
 h3,
@@ -7330,17 +7338,22 @@ textarea:focus {
 
 .fa,
 .button--ico:before,
+.button--ico--close:before,
 .button--ico--facebook:before,
 .page__content__sidebar .button--login--facebook:before,
 .button--ico--facebook-square:before,
 .page__content__sidebar .button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:before,
 .button--ico--gift:before,
 .page__content__sidebar .button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:before,
 .button--ico--github:before,
 .page__content__sidebar .button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:before,
 .button--ico--like:before,
 .button--ico--power-off:before,
 .page__content__sidebar .button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:before,
 .button--ico--search:before {
   display: inline-block;
   font-family: FontAwesome;
@@ -7558,17 +7571,22 @@ textarea:focus {
 
 .fa.pull-left,
 .pull-left.button--ico:before,
+.pull-left.button--ico--close:before,
 .pull-left.button--ico--facebook:before,
 .page__content__sidebar .pull-left.button--login--facebook:before,
 .pull-left.button--ico--facebook-square:before,
 .page__content__sidebar .pull-left.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-left.button--contribute--facebook:before,
 .pull-left.button--ico--gift:before,
 .page__content__sidebar .pull-left.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-left.button--contribute--paypal:before,
 .pull-left.button--ico--github:before,
 .page__content__sidebar .pull-left.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-left.button--contribute--github:before,
 .pull-left.button--ico--like:before,
 .pull-left.button--ico--power-off:before,
 .page__content__sidebar .pull-left.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-left.button--contribute--adblock:before,
 .pull-left.button--ico--search:before {
   margin-right: .3em;
 }
@@ -7585,17 +7603,22 @@ textarea:focus {
 
 .fa.pull-right,
 .pull-right.button--ico:before,
+.pull-right.button--ico--close:before,
 .pull-right.button--ico--facebook:before,
 .page__content__sidebar .pull-right.button--login--facebook:before,
 .pull-right.button--ico--facebook-square:before,
 .page__content__sidebar .pull-right.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-right.button--contribute--facebook:before,
 .pull-right.button--ico--gift:before,
 .page__content__sidebar .pull-right.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-right.button--contribute--paypal:before,
 .pull-right.button--ico--github:before,
 .page__content__sidebar .pull-right.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-right.button--contribute--github:before,
 .pull-right.button--ico--like:before,
 .pull-right.button--ico--power-off:before,
 .page__content__sidebar .pull-right.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-right.button--contribute--adblock:before,
 .pull-right.button--ico--search:before {
   margin-left: .3em;
 }
@@ -8009,7 +8032,8 @@ textarea:focus {
   }
 }
 
-.fa-times:before {
+.fa-times:before,
+.button--ico--close:before {
   content: "\f00d";
 }
 
@@ -8053,7 +8077,8 @@ textarea:focus {
 
 .fa-power-off:before,
 .button--ico--power-off:before,
-.page__content__sidebar .button--contribute--adblock:before {
+.page__content__sidebar .button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:before {
   content: "\f011";
 }
 
@@ -9250,7 +9275,8 @@ textarea:focus {
 
 .fa-gift:before,
 .button--ico--gift:before,
-.page__content__sidebar .button--contribute--paypal:before {
+.page__content__sidebar .button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:before {
   content: "\f06b";
 }
 
@@ -9547,7 +9573,8 @@ textarea:focus {
 
 .fa-facebook-square:before,
 .button--ico--facebook-square:before,
-.page__content__sidebar .button--contribute--facebook:before {
+.page__content__sidebar .button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:before {
   content: "\f082";
 }
 
@@ -9888,7 +9915,8 @@ textarea:focus {
 
 .fa-github:before,
 .button--ico--github:before,
-.page__content__sidebar .button--contribute--github:before {
+.page__content__sidebar .button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:before {
   content: "\f09b";
 }
 
@@ -13190,6 +13218,54 @@ textarea:focus {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
+  }
+
+  line {
+    font-family: \0000344;
+  }
+}
+
+.text-block p {
+  margin-bottom: 10.5px;
+  margin-top: 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
+  }
+
+  line {
+    font-family: \0000352;
+  }
+}
+
+.site-logo,
+.page__footer .page__footer__site-info .page__footer__site-logo {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/page\.scss;
+  }
+
+  line {
+    font-family: \0000360;
+  }
+}
+
+.list--unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/links\.scss;
   }
 
@@ -13466,8 +13542,30 @@ a.hyperlink:visited {
 .page__content__sidebar .search .search__submit > .button--login,
 .search--main .page__content__sidebar .search__submit > .button--login,
 .page__content__sidebar .search--main .search__submit > .button--login,
+.search .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search .search__submit > .button--contribute,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute,
+.search .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search .search__submit > .button--contribute--facebook,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--facebook,
+.search .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search .search__submit > .button--contribute--adblock,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--adblock,
+.search .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search .search__submit > .button--contribute--paypal,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--paypal,
+.search .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--github,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search .search__submit > .button--contribute--github,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--github,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--github,
 .search .search__submit > .button--ico,
 .search--main .search__submit > .button--ico,
+.search .search__submit > .button--ico--close,
+.search--main .search__submit > .button--ico--close,
 .search .search__submit > .button--ico--facebook,
 .search--main .search__submit > .button--ico--facebook,
 .search .page__content__sidebar .search__submit > .button--login--facebook,
@@ -13594,7 +13692,13 @@ a.hyperlink:visited {
 .button,
 .button--call-to-action,
 .page__content__sidebar .button--login,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github,
 .button--ico,
+.button--ico--close,
 .button--ico--facebook,
 .page__content__sidebar .button--login--facebook,
 .button--ico--facebook-square,
@@ -13612,6 +13716,7 @@ a.hyperlink:visited {
   border-radius: 0.2em;
   color: #282828;
   display: inline-block;
+  padding: 0 5.25px;
 }
 
 @media -sass-debug-info {
@@ -13620,14 +13725,20 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \000039;
+    font-family: \0000310;
   }
 }
 
 .button:focus,
 .button--call-to-action:focus,
 .page__content__sidebar .button--login:focus,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute:focus,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:focus,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:focus,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:focus,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:focus,
 .button--ico:focus,
+.button--ico--close:focus,
 .button--ico--facebook:focus,
 .page__content__sidebar .button--login--facebook:focus,
 .button--ico--facebook-square:focus,
@@ -13649,18 +13760,26 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000314;
+    font-family: \0000315;
   }
 }
 
 .button--call-to-action,
-.page__content__sidebar .button--login {
+.page__content__sidebar .button--login,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github {
   background-color: #aa1e1e;
   border: 1px solid #aa1e1e;
   border-radius: 0.4em;
   color: #f7f7f7;
   -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
   padding: 10.5px 21px;
 }
@@ -13671,39 +13790,32 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000328;
+    font-family: \0000332;
   }
 }
 
-.button--empty.button--ico:before,
-.button--empty.button--ico--facebook:before,
-.page__content__sidebar .button--empty.button--login--facebook:before,
-.page__content__sidebar .button--login--facebook.button--contribute:before,
-.page__content__sidebar .button--ico--facebook.button--contribute:before,
-.button--empty.button--ico--facebook-square:before,
-.page__content__sidebar .button--ico--facebook-square.button--contribute:before,
-.page__content__sidebar .button--contribute.button--contribute--facebook:before,
-.page__content__sidebar .button--empty.button--contribute--facebook:before,
-.button--empty.button--ico--gift:before,
-.page__content__sidebar .button--ico--gift.button--contribute:before,
-.page__content__sidebar .button--contribute.button--contribute--paypal:before,
-.page__content__sidebar .button--empty.button--contribute--paypal:before,
-.button--empty.button--ico--github:before,
-.page__content__sidebar .button--ico--github.button--contribute:before,
-.page__content__sidebar .button--contribute.button--contribute--github:before,
-.page__content__sidebar .button--empty.button--contribute--github:before,
-.button--empty.button--ico--like:before,
-.page__content__sidebar .button--ico--like.button--contribute:before,
-.button--empty.button--ico--power-off:before,
-.page__content__sidebar .button--ico--power-off.button--contribute:before,
-.page__content__sidebar .button--contribute.button--contribute--adblock:before,
-.page__content__sidebar .button--empty.button--contribute--adblock:before,
-.button--empty.button--ico--search:before,
-.page__content__sidebar .button--ico--search.button--contribute:before,
-.page__content__sidebar .button--ico.button--contribute:before {
-  border-right: none;
-  margin-right: 0;
-  padding-right: 0;
+.button--ico:before,
+.button--ico--close:before,
+.button--ico--facebook:before,
+.page__content__sidebar .button--login--facebook:before,
+.button--ico--facebook-square:before,
+.page__content__sidebar .button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:before,
+.button--ico--gift:before,
+.page__content__sidebar .button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:before,
+.button--ico--github:before,
+.page__content__sidebar .button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:before,
+.button--ico--like:before,
+.button--ico--power-off:before,
+.page__content__sidebar .button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:before,
+.button--ico--search:before {
+  border: none;
+  border-right: 1px solid #f7f7f7;
+  margin-right: 10.5px;
+  padding-right: 10.5px;
 }
 
 @media -sass-debug-info {
@@ -13712,27 +13824,145 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000338;
+    font-family: \00003108;
   }
 }
 
-.button--ico:before,
-.button--ico--facebook:before,
-.page__content__sidebar .button--login--facebook:before,
-.button--ico--facebook-square:before,
+.button--empty.button--ico:before,
+.button--empty.button--ico--close:before,
+.page__content__sidebar .button--ico--close.button--contribute:before,
+.page__content__sidebar .button--ico--close.button--contribute--facebook:before,
+.page__content__sidebar .button--ico--close.button--contribute--adblock:before,
+.page__content__sidebar .button--ico--close.button--contribute--paypal:before,
+.page__content__sidebar .button--ico--close.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--close.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--close.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--close.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--close.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--close.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--close.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--close.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--close.button--contribute--github:before,
+.button--empty.button--ico--facebook:before,
+.page__content__sidebar .button--empty.button--login--facebook:before,
+.page__content__sidebar .button--login--facebook.button--contribute:before,
+.page__content__sidebar .button--login--facebook.button--contribute--facebook:before,
+.page__content__sidebar .button--login--facebook.button--contribute--adblock:before,
+.page__content__sidebar .button--login--facebook.button--contribute--paypal:before,
+.page__content__sidebar .button--login--facebook.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--login--facebook.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--login--facebook.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--login--facebook.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--login--facebook.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--login--facebook.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--login--facebook.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--login--facebook.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--login--facebook.button--contribute--github:before,
+.page__content__sidebar .button--ico--facebook.button--contribute:before,
+.page__content__sidebar .button--ico--facebook.button--contribute--facebook:before,
+.page__content__sidebar .button--ico--facebook.button--contribute--adblock:before,
+.page__content__sidebar .button--ico--facebook.button--contribute--paypal:before,
+.page__content__sidebar .button--ico--facebook.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook.button--contribute--github:before,
+.button--empty.button--ico--facebook-square:before,
+.page__content__sidebar .button--ico--facebook-square.button--contribute:before,
 .page__content__sidebar .button--contribute--facebook:before,
-.button--ico--gift:before,
+.page__content__sidebar .button--ico--facebook-square.button--contribute--adblock:before,
+.page__content__sidebar .button--ico--facebook-square.button--contribute--paypal:before,
+.page__content__sidebar .button--ico--facebook-square.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook-square.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook-square.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook-square.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook-square.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook-square.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook-square.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--facebook:before,
+.button--empty.button--ico--gift:before,
+.page__content__sidebar .button--ico--gift.button--contribute:before,
+.page__content__sidebar .button--ico--gift.button--contribute--facebook:before,
+.page__content__sidebar .button--ico--gift.button--contribute--adblock:before,
 .page__content__sidebar .button--contribute--paypal:before,
-.button--ico--github:before,
+.page__content__sidebar .button--ico--gift.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--gift.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--gift.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--gift.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--gift.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--gift.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--gift.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--paypal:before,
+.button--empty.button--ico--github:before,
+.page__content__sidebar .button--ico--github.button--contribute:before,
+.page__content__sidebar .button--ico--github.button--contribute--facebook:before,
+.page__content__sidebar .button--ico--github.button--contribute--adblock:before,
+.page__content__sidebar .button--ico--github.button--contribute--paypal:before,
 .page__content__sidebar .button--contribute--github:before,
-.button--ico--like:before,
-.button--ico--power-off:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--github.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--github.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--github.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--github.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--github.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--github.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--github:before,
+.button--empty.button--ico--like:before,
+.page__content__sidebar .button--ico--like.button--contribute:before,
+.page__content__sidebar .button--ico--like.button--contribute--facebook:before,
+.page__content__sidebar .button--ico--like.button--contribute--adblock:before,
+.page__content__sidebar .button--ico--like.button--contribute--paypal:before,
+.page__content__sidebar .button--ico--like.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--like.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--like.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--like.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--like.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--like.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--like.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--like.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--like.button--contribute--github:before,
+.button--empty.button--ico--power-off:before,
+.page__content__sidebar .button--ico--power-off.button--contribute:before,
+.page__content__sidebar .button--ico--power-off.button--contribute--facebook:before,
 .page__content__sidebar .button--contribute--adblock:before,
-.button--ico--search:before {
-  border: none;
-  border-right: 1px solid #f7f7f7;
-  margin-right: 10.5px;
-  padding-right: 10.5px;
+.page__content__sidebar .button--ico--power-off.button--contribute--paypal:before,
+.page__content__sidebar .button--ico--power-off.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--power-off.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--power-off.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--power-off.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--power-off.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--power-off.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--power-off.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--adblock:before,
+.button--empty.button--ico--search:before,
+.page__content__sidebar .button--ico--search.button--contribute:before,
+.page__content__sidebar .button--ico--search.button--contribute--facebook:before,
+.page__content__sidebar .button--ico--search.button--contribute--adblock:before,
+.page__content__sidebar .button--ico--search.button--contribute--paypal:before,
+.page__content__sidebar .button--ico--search.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--search.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--search.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--search.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--search.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--search.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--search.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--search.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--search.button--contribute--github:before,
+.page__content__sidebar .button--ico.button--contribute:before {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
 }
 
 @media -sass-debug-info {
@@ -13900,6 +14130,51 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/overlay\.scss;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.overlay,
+.welcome {
+  position: relative;
+  top: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 0 0 4096px rgba(77, 77, 77, 0.7), 0 0 200px rgba(77, 77, 77, 0.7), 0 0 100px rgba(77, 77, 77, 0.7), 0 0 50px rgba(77, 77, 77, 0.7);
+  box-shadow: 0 0 0 4096px rgba(77, 77, 77, 0.7), 0 0 200px rgba(77, 77, 77, 0.7), 0 0 100px rgba(77, 77, 77, 0.7), 0 0 50px rgba(77, 77, 77, 0.7);
+  position: fixed;
+  -webkit-transition: opacity .3s ease-out;
+  transition: opacity .3s ease-out;
+  z-index: 10000;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/overlay\.scss;
+  }
+
+  line {
+    font-family: \000039;
+  }
+}
+
+.overlay.hidden,
+.hidden.welcome {
+  opacity: 0;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/scut-0\.6\.0\/dist\/_scut\.scss;
   }
 
@@ -13923,7 +14198,7 @@ body {
   }
 }
 
-.wrapper {
+.page > .wrapper {
   min-height: 100%;
   margin-bottom: -3.5rem;
 }
@@ -13938,7 +14213,7 @@ body {
   }
 }
 
-.wrapper:after {
+.page > .wrapper:after {
   content: "";
   display: block;
 }
@@ -13953,7 +14228,7 @@ body {
   }
 }
 
-.wrapper:after,
+.page > .wrapper:after,
 .page__footer {
   height: 3.5rem;
 }
@@ -14035,9 +14310,9 @@ body {
 }
 
 .page__footer .page__footer__site-info {
-  line-height: 0.1;
+  line-height: 0.7;
   margin-left: 5.25px;
-  padding-top: 5.25px;
+  margin-top: 8px;
 }
 
 @media -sass-debug-info {
@@ -14127,7 +14402,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003125;
   }
 }
 
@@ -14149,7 +14424,7 @@ body {
   }
 
   line {
-    font-family: \00003123;
+    font-family: \00003133;
   }
 }
 
@@ -14162,7 +14437,7 @@ body {
   border-radius: 0;
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
-  background-color: #f7f7f7;
+  background-color: #aa1e1e;
 }
 
 @media -sass-debug-info {
@@ -14176,7 +14451,7 @@ body {
 }
 
 .page__footer .page__footer__links > li:hover {
-  color: #aa1e1e;
+  color: #f7f7f7;
 }
 
 @media -sass-debug-info {
@@ -14337,7 +14612,18 @@ body {
 .search--main .search__submit > .button--call-to-action,
 .search--main .page__content__sidebar .search__submit > .button--login,
 .page__content__sidebar .search--main .search__submit > .button--login,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--facebook,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--adblock,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--paypal,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--github,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--github,
 .search--main .search__submit > .button--ico,
+.search--main .search__submit > .button--ico--close,
 .search--main .search__submit > .button--ico--facebook,
 .search--main .page__content__sidebar .search__submit > .button--login--facebook,
 .page__content__sidebar .search--main .search__submit > .button--login--facebook,
@@ -14360,6 +14646,8 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
+  -webkit-transition: color .1s linear;
+  transition: color .1s linear;
   background-color: inherit;
   border: none;
   border-radius: 0.4rem;
@@ -14367,6 +14655,54 @@ body {
   border-top-left-radius: 0;
   font-size: 130%;
   text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003146;
+  }
+}
+
+.search--main .search__submit > .button:hover,
+.search--main .search__submit > .button--call-to-action:hover,
+.search--main .page__content__sidebar .search__submit > .button--login:hover,
+.page__content__sidebar .search--main .search__submit > .button--login:hover,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute:hover,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute:hover,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--facebook:hover,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--facebook:hover,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--adblock:hover,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--adblock:hover,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--paypal:hover,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--paypal:hover,
+.search--main .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search__submit > .button--contribute--github:hover,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .search--main .search__submit > .button--contribute--github:hover,
+.search--main .search__submit > .button--ico:hover,
+.search--main .search__submit > .button--ico--close:hover,
+.search--main .search__submit > .button--ico--facebook:hover,
+.search--main .page__content__sidebar .search__submit > .button--login--facebook:hover,
+.page__content__sidebar .search--main .search__submit > .button--login--facebook:hover,
+.search--main .search__submit > .button--ico--facebook-square:hover,
+.search--main .page__content__sidebar .search__submit > .button--contribute--facebook:hover,
+.page__content__sidebar .search--main .search__submit > .button--contribute--facebook:hover,
+.search--main .search__submit > .button--ico--gift:hover,
+.search--main .page__content__sidebar .search__submit > .button--contribute--paypal:hover,
+.page__content__sidebar .search--main .search__submit > .button--contribute--paypal:hover,
+.search--main .search__submit > .button--ico--github:hover,
+.search--main .page__content__sidebar .search__submit > .button--contribute--github:hover,
+.page__content__sidebar .search--main .search__submit > .button--contribute--github:hover,
+.search--main .search__submit > .button--ico--like:hover,
+.search--main .search__submit > .button--ico--power-off:hover,
+.search--main .page__content__sidebar .search__submit > .button--contribute--adblock:hover,
+.page__content__sidebar .search--main .search__submit > .button--contribute--adblock:hover,
+.search--main .search__submit > .button--ico--search:hover {
+  color: #aa1e1e;
+  -webkit-transition: color .2s ease-out;
+  transition: color .2s ease-out;
 }
 
 @media -sass-debug-info {
@@ -14701,14 +15037,44 @@ body {
   }
 
   line {
-    font-family: \000032;
+    font-family: \000033;
+  }
+}
+
+.page__content__offers .page__row:first-child {
+  margin-top: -4px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+  }
+
+  line {
+    font-family: \000037;
+  }
+}
+
+.page__content__offers .page__row:not(:first-child) {
+  margin-top: -7px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/offers\.scss;
+  }
+
+  line {
+    font-family: \0000313;
   }
 }
 
 .offers header,
 .offers--cakes header,
+.offers--baking header,
+.offers--snacks header,
 .offers--meals header,
-.offers--snacks header {
+.offers--jams header {
   margin-bottom: 5.25px;
   overflow: hidden;
   position: relative;
@@ -14720,18 +15086,22 @@ body {
   }
 
   line {
-    font-family: \000038;
+    font-family: \0000319;
   }
 }
 
 .offers header .offers__more,
 .offers--cakes header .offers__more,
-.offers--meals header .offers__more,
+.offers--baking header .offers__more,
 .offers--snacks header .offers__more,
+.offers--meals header .offers__more,
+.offers--jams header .offers__more,
 .offers header:before,
 .offers--cakes header:before,
+.offers--baking header:before,
+.offers--snacks header:before,
 .offers--meals header:before,
-.offers--snacks header:before {
+.offers--jams header:before {
   top: 50%;
 }
 
@@ -14747,8 +15117,10 @@ body {
 
 .offers header:before,
 .offers--cakes header:before,
+.offers--baking header:before,
+.offers--snacks header:before,
 .offers--meals header:before,
-.offers--snacks header:before {
+.offers--jams header:before {
   display: inline-block;
   content: "";
   background-color: #aa1e1e;
@@ -14767,14 +15139,16 @@ body {
   }
 
   line {
-    font-family: \0000323;
+    font-family: \0000334;
   }
 }
 
 .offers header h2,
 .offers--cakes header h2,
+.offers--baking header h2,
+.offers--snacks header h2,
 .offers--meals header h2,
-.offers--snacks header h2 {
+.offers--jams header h2 {
   background-color: #f7f7f7;
   display: inline-block;
   margin-left: 21px;
@@ -14789,14 +15163,16 @@ body {
   }
 
   line {
-    font-family: \0000335;
+    font-family: \0000346;
   }
 }
 
 .offers header .offers__more,
 .offers--cakes header .offers__more,
+.offers--baking header .offers__more,
+.offers--snacks header .offers__more,
 .offers--meals header .offers__more,
-.offers--snacks header .offers__more {
+.offers--jams header .offers__more {
   height: 1.5em;
   margin-top: -0.75em;
   overflow: hidden;
@@ -14820,8 +15196,10 @@ body {
 
 .offers header .offers__more:after,
 .offers--cakes header .offers__more:after,
+.offers--baking header .offers__more:after,
+.offers--snacks header .offers__more:after,
 .offers--meals header .offers__more:after,
-.offers--snacks header .offers__more:after {
+.offers--jams header .offers__more:after {
   display: inline-block;
   content: "";
   border-radius: 50%;
@@ -14844,18 +15222,22 @@ body {
   }
 
   line {
-    font-family: \0000356;
+    font-family: \0000367;
   }
 }
 
 .offers header .offers__more:after,
 .offers--cakes header .offers__more:after,
-.offers--meals header .offers__more:after,
+.offers--baking header .offers__more:after,
 .offers--snacks header .offers__more:after,
+.offers--meals header .offers__more:after,
+.offers--jams header .offers__more:after,
 .offers header .offers__more .offers__more__text,
 .offers--cakes header .offers__more .offers__more__text,
+.offers--baking header .offers__more .offers__more__text,
+.offers--snacks header .offers__more .offers__more__text,
 .offers--meals header .offers__more .offers__more__text,
-.offers--snacks header .offers__more .offers__more__text {
+.offers--jams header .offers__more .offers__more__text {
   position: relative;
   top: 50%;
   margin-top: auto;
@@ -14872,14 +15254,16 @@ body {
   }
 
   line {
-    font-family: \0000361;
+    font-family: \0000372;
   }
 }
 
 .offers header .offers__more .offers__more__text,
 .offers--cakes header .offers__more .offers__more__text,
+.offers--baking header .offers__more .offers__more__text,
+.offers--snacks header .offers__more .offers__more__text,
 .offers--meals header .offers__more .offers__more__text,
-.offers--snacks header .offers__more .offers__more__text {
+.offers--jams header .offers__more .offers__more__text {
   background-color: #f7f7f7;
   color: #aa1e1e;
   padding: 0 5.25px;
@@ -14892,14 +15276,16 @@ body {
   }
 
   line {
-    font-family: \0000369;
+    font-family: \0000380;
   }
 }
 
 .offers header:hover,
 .offers--cakes header:hover,
+.offers--baking header:hover,
+.offers--snacks header:hover,
 .offers--meals header:hover,
-.offers--snacks header:hover {
+.offers--jams header:hover {
   cursor: pointer;
 }
 
@@ -14909,17 +15295,19 @@ body {
   }
 
   line {
-    font-family: \0000372;
+    font-family: \0000383;
   }
 }
 
 .offers header:hover .offers__more,
 .offers--cakes header:hover .offers__more,
+.offers--baking header:hover .offers__more,
+.offers--snacks header:hover .offers__more,
 .offers--meals header:hover .offers__more,
-.offers--snacks header:hover .offers__more {
+.offers--jams header:hover .offers__more {
   -webkit-transition: width 0.3s ease-out 0.4s;
   transition: width 0.3s ease-out 0.4s;
-  width: 9em;
+  width: 10em;
 }
 
 @media -sass-debug-info {
@@ -14928,14 +15316,16 @@ body {
   }
 
   line {
-    font-family: \0000376;
+    font-family: \0000387;
   }
 }
 
 .offers header:hover .offers__more:after,
 .offers--cakes header:hover .offers__more:after,
+.offers--baking header:hover .offers__more:after,
+.offers--snacks header:hover .offers__more:after,
 .offers--meals header:hover .offers__more:after,
-.offers--snacks header:hover .offers__more:after {
+.offers--jams header:hover .offers__more:after {
   background-color: #aa1e1e;
   -webkit-transition: background-color 0.3s ease-out 0.4s;
   transition: background-color 0.3s ease-out 0.4s;
@@ -14947,14 +15337,16 @@ body {
   }
 
   line {
-    font-family: \0000381;
+    font-family: \0000392;
   }
 }
 
 .offers header:hover .offers__more .offers__more__text,
 .offers--cakes header:hover .offers__more .offers__more__text,
+.offers--baking header:hover .offers__more .offers__more__text,
+.offers--snacks header:hover .offers__more .offers__more__text,
 .offers--meals header:hover .offers__more .offers__more__text,
-.offers--snacks header:hover .offers__more .offers__more__text {
+.offers--jams header:hover .offers__more .offers__more__text {
   right: 21px;
 }
 
@@ -14964,12 +15356,14 @@ body {
   }
 
   line {
-    font-family: \0000398;
+    font-family: \00003110;
   }
 }
 
+.offers--baking,
+.offers--snacks,
 .offers--meals,
-.offers--snacks {
+.offers--jams {
   float: left;
   width: -webkit-calc(50% - 10.5px);
   width: calc(50% - 10.5px);
@@ -14981,11 +15375,12 @@ body {
   }
 
   line {
-    font-family: \00003107;
+    font-family: \00003119;
   }
 }
 
-.offers--snacks {
+.offers--snacks,
+.offers--jams {
   margin-left: 21px;
 }
 
@@ -15000,6 +15395,7 @@ body {
 }
 
 .page__content__sidebar {
+  margin-top: -4px;
   text-align: center;
 }
 
@@ -15009,7 +15405,7 @@ body {
   }
 
   line {
-    font-family: \000035;
+    font-family: \000037;
   }
 }
 
@@ -15023,7 +15419,7 @@ body {
   }
 
   line {
-    font-family: \000039;
+    font-family: \0000311;
   }
 }
 
@@ -15039,7 +15435,7 @@ body {
   }
 
   line {
-    font-family: \0000315;
+    font-family: \0000317;
   }
 }
 
@@ -15053,7 +15449,7 @@ body {
   }
 
   line {
-    font-family: \0000319;
+    font-family: \0000321;
   }
 }
 
@@ -15067,7 +15463,7 @@ body {
   }
 
   line {
-    font-family: \0000322;
+    font-family: \0000324;
   }
 }
 
@@ -15083,7 +15479,7 @@ body {
   }
 
   line {
-    font-family: \0000328;
+    font-family: \0000330;
   }
 }
 
@@ -15097,7 +15493,7 @@ body {
   }
 
   line {
-    font-family: \0000334;
+    font-family: \0000336;
   }
 }
 
@@ -15111,7 +15507,7 @@ body {
   }
 
   line {
-    font-family: \0000337;
+    font-family: \0000339;
   }
 }
 
@@ -15125,7 +15521,7 @@ body {
   }
 
   line {
-    font-family: \0000342;
+    font-family: \0000344;
   }
 }
 
@@ -15143,7 +15539,7 @@ body {
   }
 
   line {
-    font-family: \0000351;
+    font-family: \0000353;
   }
 }
 
@@ -15158,7 +15554,7 @@ body {
   }
 
   line {
-    font-family: \0000356;
+    font-family: \0000358;
   }
 }
 
@@ -15191,7 +15587,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003125;
   }
 }
 
@@ -15213,7 +15609,7 @@ body {
   }
 
   line {
-    font-family: \00003123;
+    font-family: \00003133;
   }
 }
 
@@ -15237,12 +15633,36 @@ body {
   }
 
   line {
-    font-family: \0000370;
+    font-family: \0000372;
   }
 }
 
 .page__content__sidebar .button--contribute,
-.page__content__sidebar .button--contribute + label {
+.page__content__sidebar .button--contribute--facebook,
+.page__content__sidebar .button--contribute--adblock,
+.page__content__sidebar .button--contribute--paypal,
+.page__content__sidebar .button--contribute--github,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--facebook,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--adblock,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--paypal,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github,
+.page__content__sidebar .button--contribute + span,
+.page__content__sidebar .button--contribute--facebook + span,
+.page__content__sidebar .button--contribute--adblock + span,
+.page__content__sidebar .button--contribute--paypal + span,
+.page__content__sidebar .button--contribute--github + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--facebook + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--adblock + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--paypal + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github + span {
   float: left;
 }
 
@@ -15252,13 +15672,26 @@ body {
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000376;
   }
 }
 
-.page__content__sidebar .button--contribute {
+.page__content__sidebar .button--contribute,
+.page__content__sidebar .button--contribute--facebook,
+.page__content__sidebar .button--contribute--adblock,
+.page__content__sidebar .button--contribute--paypal,
+.page__content__sidebar .button--contribute--github,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--facebook,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--adblock,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--paypal,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github {
   font-size: 150%;
   margin-top: 5.25px;
+  overflow: hidden;
 }
 
 @media -sass-debug-info {
@@ -15267,11 +15700,23 @@ body {
   }
 
   line {
-    font-family: \0000381;
+    font-family: \0000384;
   }
 }
 
-.page__content__sidebar .button--contribute + label {
+.page__content__sidebar .button--contribute + span,
+.page__content__sidebar .button--contribute--facebook + span,
+.page__content__sidebar .button--contribute--adblock + span,
+.page__content__sidebar .button--contribute--paypal + span,
+.page__content__sidebar .button--contribute--github + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--facebook + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--adblock + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--paypal + span,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github + span,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github + span {
   margin-bottom: 10.5px;
   padding-left: 10.5px;
   width: 80%;
@@ -15283,7 +15728,7 @@ body {
   }
 
   line {
-    font-family: \0000389;
+    font-family: \0000390;
   }
 }
 
@@ -15293,7 +15738,6 @@ body {
   color: #f7f7f7;
   background-color: #3b5998;
   border-color: #133783;
-  overflow: hidden;
 }
 
 @media -sass-debug-info {
@@ -15317,7 +15761,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003125;
   }
 }
 
@@ -15339,7 +15783,7 @@ body {
   }
 
   line {
-    font-family: \00003123;
+    font-family: \00003133;
   }
 }
 
@@ -15363,7 +15807,7 @@ body {
   }
 
   line {
-    font-family: \00003103;
+    font-family: \00003104;
   }
 }
 
@@ -15371,9 +15815,8 @@ body {
   position: relative;
   z-index: 0;
   color: #f7f7f7;
-  background-color: #C00;
+  background-color: #b40000;
   border-color: rgba(77, 77, 77, 0.7);
-  overflow: hidden;
 }
 
 @media -sass-debug-info {
@@ -15397,7 +15840,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003125;
   }
 }
 
@@ -15419,7 +15862,7 @@ body {
   }
 
   line {
-    font-family: \00003123;
+    font-family: \00003133;
   }
 }
 
@@ -15432,7 +15875,7 @@ body {
   border-radius: 0;
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
-  background-color: #db0000;
+  background-color: #d40000;
   -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
 }
@@ -15443,7 +15886,7 @@ body {
   }
 
   line {
-    font-family: \00003117;
+    font-family: \00003118;
   }
 }
 
@@ -15453,7 +15896,6 @@ body {
   color: #f7f7f7;
   background-color: #aa1e1e;
   border-color: rgba(77, 77, 77, 0.7);
-  overflow: hidden;
 }
 
 @media -sass-debug-info {
@@ -15477,7 +15919,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003125;
   }
 }
 
@@ -15499,7 +15941,7 @@ body {
   }
 
   line {
-    font-family: \00003123;
+    font-family: \00003133;
   }
 }
 
@@ -15523,7 +15965,7 @@ body {
   }
 
   line {
-    font-family: \00003131;
+    font-family: \00003132;
   }
 }
 
@@ -15532,7 +15974,6 @@ body {
   z-index: 0;
   background-color: whitesmoke;
   border-color: black;
-  overflow: hidden;
 }
 
 @media -sass-debug-info {
@@ -15556,7 +15997,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003125;
   }
 }
 
@@ -15578,7 +16019,7 @@ body {
   }
 
   line {
-    font-family: \00003123;
+    font-family: \00003133;
   }
 }
 
@@ -15598,6 +16039,607 @@ body {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.welcome {
+  background-color: #f7f7f7;
+  border: 1px solid black;
+  border-radius: .3rem;
+  height: 50rem;
+  max-height: 80%;
+  width: 50rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.welcome:after {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 6.5rem;
+  right: 16px;
+  left: 0;
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, top left, bottom left, from(#f7f7f7), to(rgba(247, 247, 247, 0)));
+  background-image: -webkit-linear-gradient(top, #f7f7f7, rgba(247, 247, 247, 0));
+  background-image: linear-gradient(to bottom, #f7f7f7, rgba(247, 247, 247, 0));
+  height: 3px;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000323;
+  }
+}
+
+.welcome > .wrapper {
+  position: absolute;
+  top: 6.5rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 21px;
+  z-index: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000335;
+  }
+}
+
+.welcome .welcome__header > h1,
+.welcome .welcome__header > .site-logo,
+.welcome .page__footer .page__footer__site-info .welcome__header > .page__footer__site-logo,
+.page__footer .page__footer__site-info .welcome .welcome__header > .page__footer__site-logo {
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000338;
+  }
+}
+
+.welcome .welcome__header > h1 > small,
+.welcome .welcome__header > .site-logo > small,
+.welcome .page__footer .page__footer__site-info .welcome__header > .page__footer__site-logo > small,
+.page__footer .page__footer__site-info .welcome .welcome__header > .page__footer__site-logo > small,
+.welcome .page__footer .page__footer__site-info .welcome__header > h1 > .page__footer__copyright,
+.page__footer .page__footer__site-info .welcome .welcome__header > h1 > .page__footer__copyright,
+.welcome .page__footer .page__footer__site-info .welcome__header > .site-logo > .page__footer__copyright,
+.page__footer .page__footer__site-info .welcome .welcome__header > .site-logo > .page__footer__copyright,
+.welcome .page__footer .page__footer__site-info .welcome__header > .page__footer__site-logo > .page__footer__copyright,
+.page__footer .page__footer__site-info .welcome .welcome__header > .page__footer__site-logo > .page__footer__copyright {
+  color: #282828;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000349;
+  }
+}
+
+.welcome .welcome__close {
+  position: relative;
+  z-index: 0;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.welcome .welcome__close:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003125;
+  }
+}
+
+.welcome .welcome__close:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003133;
+  }
+}
+
+.welcome .welcome__close:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: #aa1e1e;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000355;
+  }
+}
+
+.welcome .welcome__close:hover {
+  color: #f7f7f7;
+  -webkit-transition: color .2s ease-out;
+  transition: color .2s ease-out;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000362;
+  }
+}
+
+.welcome .welcome__contribute > header {
+  padding-bottom: 21px;
+  padding-top: 0;
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000370;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options {
+  display: table;
+  margin-bottom: 21px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000374;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option {
+  display: table-cell;
+  padding: 0 21px;
+  vertical-align: top;
+  width: 33%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000380;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github {
+  margin-bottom: 10.5px;
+  margin-left: 12.5%;
+  width: 75%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \0000390;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook {
+  position: relative;
+  z-index: 0;
+  color: #f7f7f7;
+  background-color: #3b5998;
+  border-color: #133783;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003125;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003133;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: #4b67a1;
+  -webkit-box-shadow: 0 0 0.25em #4b67a1;
+  box-shadow: 0 0 0.25em #4b67a1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \00003104;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock {
+  position: relative;
+  z-index: 0;
+  color: #f7f7f7;
+  background-color: #b40000;
+  border-color: rgba(77, 77, 77, 0.7);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003125;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003133;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: #d40000;
+  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \00003118;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal {
+  position: relative;
+  z-index: 0;
+  color: #f7f7f7;
+  background-color: #aa1e1e;
+  border-color: rgba(77, 77, 77, 0.7);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003125;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003133;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: #b72020;
+  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \00003132;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github {
+  position: relative;
+  z-index: 0;
+  background-color: whitesmoke;
+  border-color: black;
+  color: #000;
+  overflow: hidden;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003125;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003133;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: white;
+  -webkit-box-shadow: 0 0 0.25em white;
+  box-shadow: 0 0 0.25em white;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/site-components\/welcome\.scss;
+  }
+
+  line {
+    font-family: \00003146;
+  }
+}
+
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:before {
+  border-color: #000;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/header\.scss;
   }
 
@@ -15607,7 +16649,7 @@ body {
 }
 
 .page__header {
-  height: 105px;
+  height: 100px;
   margin-left: -21px;
   overflow-y: hidden;
   overflow-x: visible;
@@ -15625,7 +16667,7 @@ body {
 
 .page__header .page__header__bar {
   font-size: 0;
-  margin-top: 2.5rem;
+  margin-top: 2.4rem;
   position: relative;
   text-align: right;
   width: 100%;
@@ -15702,6 +16744,7 @@ body {
 }
 
 .page__header .page__header__bar .page__header__title h1,
+.page__header .page__header__bar .page__header__title .site-logo,
 .page__header .page__header__bar .page__header__title .page__footer .page__footer__site-info .page__footer__site-logo,
 .page__footer .page__footer__site-info .page__header .page__header__bar .page__header__title .page__footer__site-logo {
   background-color: #ffd4c6;
@@ -15766,7 +16809,7 @@ body {
   border: none;
   border-bottom: 1px solid rgba(77, 77, 77, 0.7);
   border-top: 3px solid #f7f7f7;
-  height: 105px;
+  height: 100px;
   z-index: 0;
 }
 
@@ -15840,7 +16883,7 @@ body {
   }
 
   line {
-    font-family: \0000358;
+    font-family: \0000361;
   }
 }
 
@@ -15854,7 +16897,7 @@ html {
   }
 
   line {
-    font-family: \0000362;
+    font-family: \0000365;
   }
 }
 
@@ -15868,7 +16911,7 @@ body {
   }
 
   line {
-    font-family: \0000366;
+    font-family: \0000369;
   }
 }
 
@@ -15886,11 +16929,12 @@ body {
   }
 
   line {
-    font-family: \0000376;
+    font-family: \0000379;
   }
 }
 
 h1,
+.site-logo,
 .page__footer .page__footer__site-info .page__footer__site-logo,
 h2 {
   color: #aa1e1e;
@@ -15903,7 +16947,7 @@ h2 {
   }
 
   line {
-    font-family: \0000382;
+    font-family: \0000385;
   }
 }
 

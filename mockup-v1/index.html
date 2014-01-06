@@ -19,9 +19,76 @@
 
         </script>
 
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script>
+
+            $(function() {
+                var $welcome = $('.welcome');
+
+                $('.welcome__close').on('click', function() {
+                    $welcome.addClass('hidden');
+
+                    setTimeout(function() {
+                        $welcome.remove();
+                    }, 301);
+                });
+            });
+
+        </script>
+
     </head>
 
     <body class="page">
+
+        <section class="welcome">
+            <header class="welcome__header">
+                    <h1>
+                        <small>Witamy w serwisie</small></br/>
+                        MamApetytNa.pl
+                    </h1>
+
+                <button class="welcome__close button--ico--close button--empty"></button>
+            </header>
+            
+            <div class="wrapper text-block">
+                <p>Czy nachodzi Cię czasami ochota na pyszne i przygotowane z pasją danie, ale nie masz czasu (lub umiejętności:) by je ugotować? A może wręcz przeciwnie – nie brakuje Ci czasu ani talentu, jednak nie masz okazji, aby to wykorzystać? Dobrze trafiłeś! <strong class="site-logo">MamApetytNa.pl</strong> to witryna dla amatorów jedzenia i gotowania.</p>
+                <p>Jeżeli w kuchni czujesz się najlepiej – umieść w serwisie ofertę realizacji ciekawego i smacznego przepisu. Na pewno znajdziesz wielu chętnych na spróbowanie czegoś nowego!</p>
+                <p>Do pełni szczęścia wystarczy Ci dobre jedzenie? Wybierz coś interesującego z oferty pasjonatów gotowania lub poproś o realizację wybranego przepisu!</p>
+                <p>Pierwsza wersja serwisu <strong class="site-logo">MamApetytNa.pl</strong> zostanie uruchomiona, mamy taką nadzieję, <strong>wiosną 2014 roku</strong>. Nie możesz się doczekać?</p>
+
+                <section class="welcome__contribute">
+                    <header>
+                        <h2>Pomóż nam!</h2>
+                    </header>
+
+                    <ul class="welcome__contribute__options list--unstyled">
+                        <li class="welcome__contribute__option">
+                            <a class="button--contribute--facebook" id="welcome_contribute_facebook" href="https://facebook.com/mamapetytna" target="_blank" >Facebook</a>
+                            <label for="welcome_contribute_facebook">Podoba Ci się nasz serwis? Polub nasz profil na Facebooku! Dzięki temu będziemy mogli informować Cię na bieżąco o podstępach w pracy nad stroną (obiecujemy nie spamować!).</label>
+                        </li>
+
+                        <li class="welcome__contribute__option">
+                            <a class="button--contribute--adblock" id="welcome_contribute_adblock" href="#">AdBlock</a>
+                            <label for="welcome_contribute_adblock">Wyłącz dodatki blokujące reklamy dla <strong class="site-logo">MamApetytNa.pl</strong>. Takie programy uniemożliwiają działanie mechanizmów, dzięki którym możemy monitorować zainteresowanie serwisem.</label>
+                        </li>
+                        
+                        <!-- <li class="welcome__contribute__option">
+                            <a class="button--contribute--paypal" id="welcome_contribute_paypal"></a>
+                            <label for="welcome_contribute_paypal">Zasil nasze konto PayPal dowolną kwotą (serwery kosztują!).</label>
+                        </li> -->
+
+                        <li class="welcome__contribute__option">
+                            <a class="button--contribute--github" id="welcome_contribute_github" href="https://github.com/erykpiast/appetite" target="_blank">GitHub</a>
+                            <label for="welcome_contribute_github">Jeśli znasz się na projektowaniu stron internetowych, ich promowaniu lub jesteś programistą JavaScript (front-end lub back-end), a do tego chcesz spożytkować swój wolny czas rozwijając ciekawy projekt, twórz serwis razem z nami!</label>
+                        </li>
+                    </ul>
+                </section>
+
+                <footer class="welcome__footer">
+
+                </footer>
+            </div>
+        </section>
 
         <div class="wrapper">
             <header class="page__header page__row">
@@ -37,7 +104,7 @@
                                 <legend class="search__legend">Wyszukiwanie oferty</legend>
                                 
                                 <label class="search__label" for="main-search">Przeszukaj serwis</label>
-                                <input class="search__input" type="text" placeholder="tartę z budyniem i jabłkami" id="main-search" />
+                                <input class="search__input" type="text" placeholder="np. tarta z budyniem i jabłkami" id="main-search" />
 
                                 <div class="search__submit">
                                     <button class="button--ico--search" type="submit"></button>
@@ -56,10 +123,10 @@
                     <div class="page__row">
                         <section class="offers--cakes">
                             <header>
-                                <h2>Ciasta</h2>
+                                <h2>Wypieki</h2>
 
                                 <a class="offers__more" href="#">
-                                    <span class="offers__more__text">Więcej ciast</span>
+                                    <span class="offers__more__text">Więcej wypieków</span>
                                 </a>
                             </header>
 
@@ -67,11 +134,11 @@
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Tarta mocno cytrynowa</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/tarta_mocno_cytrynowa.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
@@ -90,57 +157,114 @@
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Ciasto czekoladowe z musem cytrynowym</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/ciasto_czekoladowe_z_musem_cytrynowym.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
                                             <a href="#" class="offer-thumbnail__author">
                                                 <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
+                                                    <img src="" />Eryk Napierała
                                                 </span>
 
                                                 <span class="offer-thumbnail__author__rating">
-                                                    68
+                                                    30
                                                 </span>
                                             </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Moje Wypieki
+                                                </span>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </li>
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Ciasteczka brownie z masłem orzechowym</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/ciasteczka_brownie_z_maslem_orzechowym.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
                                             <a href="#" class="offer-thumbnail__author">
                                                 <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
+                                                    <img src="" />Bartosz Kupsik
                                                 </span>
 
                                                 <span class="offer-thumbnail__author__rating">
-                                                    68
+                                                    45
                                                 </span>
                                             </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Moje Wypieki
+                                                </span>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </li>
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Kremowy sernik waniliowy</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/kremowy_sernik_waniliowy.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Henryk Kfiatek
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    37
+                                                </span>
+                                            </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Czym pachnie u Żaków
+                                                </span>
+                                            </a> -->
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <div class="page__row">
+                        <section class="offers--baking">
+                            
+                            <header>
+                                <h2>Pieczywo</h2>
+
+                                <a class="offers__more" href="#">
+                                    <span class="offers__more__text">Więcej pieczywa</span>
+                                </a>
+                            </header>
+
+                            <ul class="offers-thumbnails">
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Bagietki z makiem i cebulką</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/offers/bagietki_z_makiem_i_cebulka.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
@@ -153,6 +277,112 @@
                                                     68
                                                 </span>
                                             </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Pracownia Wypierków
+                                                </span>
+                                            </a> -->
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Precle z kminkiem</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/offers/precle_z_kminkiem.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Celina Naga
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    63
+                                                </span>
+                                            </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />White Plate
+                                                </span>
+                                            </a> -->
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="offers--snacks">
+                            <header>
+                                <h2>Przekąski</h2>
+
+                                <a class="offers__more" href="#">
+                                    <span class="offers__more__text">Więcej przekąsek</span>
+                                </a>
+                            </header>
+
+                            <ul class="offers-thumbnails">
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Granola na mleku skondensowanym</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/offers/granola_na_mleku_skondensowanym.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Olga Krysztofiak
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    68
+                                                </span>
+                                            </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Addio Pomidory
+                                                </span>
+                                            </a> -->
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="thumbnails-grid__container">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                        <div class="thumbnail__text--top">
+                                            <h3>Włoskie paluszki grissini</h3>
+                                        </div>
+
+                                        <div class="thumbnail__background">
+                                            <img src="/images/offers/wloskie_paluszki_grissini.jpg" alt="Tarta z wiśniami" />
+                                        </div>
+
+                                        <div class="thumbnail__text--bottom">
+                                            <a href="#" class="offer-thumbnail__author">
+                                                <span class="offer-thumbnail__author__name">
+                                                    <img src="" />Hans Pazur
+                                                </span>
+
+                                                <span class="offer-thumbnail__author__rating">
+                                                    23
+                                                </span>
+                                            </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Kuchenny bałagan
+                                                </span>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </li>
@@ -175,21 +405,21 @@
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Grillowany łosoś w marynacie hoisin</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/grillowany_losos_w_marynacie_hoisin.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
                                             <a href="#" class="offer-thumbnail__author">
                                                 <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
+                                                    <img src="" />Sven Ikea
                                                 </span>
 
                                                 <span class="offer-thumbnail__author__rating">
-                                                    68
+                                                    49
                                                 </span>
                                             </a>
                                         </div>
@@ -198,81 +428,40 @@
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Polędwiczka w cieście francuskim</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/poledwiczka_w_ciescie_francuskim.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
                                             <a href="#" class="offer-thumbnail__author">
                                                 <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
+                                                    <img src="" />Bartosz Kupsik
                                                 </span>
 
                                                 <span class="offer-thumbnail__author__rating">
-                                                    68
+                                                    45
                                                 </span>
                                             </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="thumbnails-grid__container">
-                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
-                                        <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
-                                        </div>
 
-                                        <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
-                                        </div>
-
-                                        <div class="thumbnail__text--bottom">
-                                            <a href="#" class="offer-thumbnail__author">
-                                                <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
-                                                </span>
-
-                                                <span class="offer-thumbnail__author__rating">
-                                                    68
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="thumbnails-grid__container">
-                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
-                                        <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
-                                        </div>
-
-                                        <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
-                                        </div>
-
-                                        <div class="thumbnail__text--bottom">
-                                            <a href="#" class="offer-thumbnail__author">
-                                                <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
-                                                </span>
-
-                                                <span class="offer-thumbnail__author__rating">
-                                                    68
-                                                </span>
-                                            </a>
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Kwestia Smaku
+                                            </a> -->
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </section>
 
-                        <section class="offers--snacks">
+                        <section class="offers--jams">
                             <header>
-                                <h2>Przekąski</h2>
+                                <h2>Przetwory</h2>
 
                                 <a class="offers__more" href="#">
-                                    <span class="offers__more__text">Więcej przekąsek</span>
+                                    <span class="offers__more__text">Więcej przetworów</span>
                                 </a>
                             </header>
 
@@ -280,34 +469,40 @@
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Dżem morelowo-pomarańczowy z cynamonem</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/dzem_morelowo-pomaranczowy_z_cynamonem.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
                                             <a href="#" class="offer-thumbnail__author">
                                                 <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
+                                                    <img src="" />Eryk Napierała
                                                 </span>
 
                                                 <span class="offer-thumbnail__author__rating">
-                                                    68
+                                                    30
                                                 </span>
                                             </a>
+
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Olga Smile
+                                                </span>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </li>
                                 <li class="thumbnails-grid__container">
                                     <div class="thumbnails-grid__thumbnails offer-thumbnail">
                                         <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
+                                            <h3>Krem karmelowy salidou</h3>
                                         </div>
 
                                         <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
+                                            <img src="/images/offers/krem_karmelowy_salidou.jpg" alt="Tarta z wiśniami" />
                                         </div>
 
                                         <div class="thumbnail__text--bottom">
@@ -320,52 +515,12 @@
                                                     68
                                                 </span>
                                             </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="thumbnails-grid__container">
-                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
-                                        <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
-                                        </div>
 
-                                        <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
-                                        </div>
-
-                                        <div class="thumbnail__text--bottom">
-                                            <a href="#" class="offer-thumbnail__author">
-                                                <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
+                                            <!-- <a href="#" class="offer-thumbnail__source">
+                                                <span class="offer-thumbnail__source__name">
+                                                    <img src="" />Addio Pomidory
                                                 </span>
-
-                                                <span class="offer-thumbnail__author__rating">
-                                                    68
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="thumbnails-grid__container">
-                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
-                                        <div class="thumbnail__text--top">
-                                            <h3>Tarta budyniowa z&nbsp;wiśniami</h3>
-                                        </div>
-
-                                        <div class="thumbnail__background">
-                                            <img src="/images/tarta_z_wisniami.jpg" alt="Tarta z wiśniami" />
-                                        </div>
-
-                                        <div class="thumbnail__text--bottom">
-                                            <a href="#" class="offer-thumbnail__author">
-                                                <span class="offer-thumbnail__author__name">
-                                                    <img src="" />Olga Krysztofiak
-                                                </span>
-
-                                                <span class="offer-thumbnail__author__rating">
-                                                    68
-                                                </span>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </li>
@@ -390,17 +545,27 @@
                         <fieldset>
                             <legend>Pomóż nam!</legend>
                             
-                            <button class="button--contribute button--contribute--facebook" id="contribute_facebook"></button>
-                            <label for="contribute_facebook">Podoba Ci się nasz serwis? Poleć go znajomym na Facebooku!</label>
+                            <ul class="list--unstyled">
+                                <li>
+                                    <a class="button--contribute--facebook" id="contribute_facebook" href="https://facebook.com/mamapetytna" target="_blank"></a>
+                                    <span for="contribute_facebook">Podoba Ci się nasz serwis? Poleć go znajomym na Facebooku!</span>
+                                </li>
 
-                            <button class="button--contribute button--contribute--adblock" id="donate_adblock"></button>
-                            <label for="donate_adblock">Wyłącz dodatki blokujące reklamy dla mamapetytna.pl.</label>
-                            
-                            <button class="button--contribute button--contribute--paypal" id="donate_paypal"></button>
-                            <label for="donate_paypal">Zasil nasze konto PayPal dowolną kwotą (serwery kosztują!).</label>
+                                <li>
+                                    <a class="button--contribute--adblock" id="contribute_adblock" href="#"></a>
+                                    <span for="contribute_adblock">Wyłącz dodatki blokujące reklamy dla mamapetytna.pl.</span>
+                                </li>
+                                
+                                <!-- <li>
+                                    <a class="button--contribute--paypal" id="contribute_paypal" href="" target="_blank"></a>
+                                    <span for="contribute_paypal">Zasil nasze konto PayPal dowolną kwotą (serwery kosztują!).</span>
+                                </li> -->
 
-                            <button class="button--contribute button--contribute--github" id="contribute_github"></button>
-                            <label for="contribute_github">Jeśli jesteś webdeweloperem, twórz serwis razem z nami!</label>
+                                <li>
+                                    <a class="button--contribute--github" id="contribute_github" href="https://github.com/erykpiast/appetite" target="_blank"></a>
+                                    <span for="contribute_github">Jeśli jesteś webdeweloperem, twórz serwis razem z nami!</span>
+                                </li>
+                            </ul>
                         </fieldset>
                     </form>
                 </div>

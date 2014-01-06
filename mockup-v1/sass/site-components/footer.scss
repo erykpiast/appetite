@@ -1,6 +1,6 @@
 $footer-height: 3.5rem;
 
-@include scut-sticky-footer($footer-height, ".wrapper", ".page__footer");
+@include scut-sticky-footer($footer-height, ".page > .wrapper", ".page__footer");
 
 .page__footer {
 	@include scut-absolute(n 0 n 0);
@@ -28,12 +28,12 @@ $footer-height: 3.5rem;
 
 
 	.page__footer__site-info {
-		line-height: 0.1;
+		line-height: 0.7;
 		margin-left: $quarter-spacing-unit;
-		padding-top: $quarter-spacing-unit;
+		margin-top: 8px;
 
 		.page__footer__site-logo {
-			@extend h1;
+			@extend .site-logo;
 
 			font-size: 18px;
 		}
@@ -52,11 +52,11 @@ $footer-height: 3.5rem;
 		& > li {
 			@include scut-vcenter-lh($footer-height);
 			@include hover-effect--expand {
-				background-color: $c-bg-light;
+				background-color: $c-fg-acc;
 			}
 
 			&:hover {
-				color: $c-fg-acc;
+				color: $c-bg-light;
 			}
 
 			padding: 0 $base-spacing-unit;
