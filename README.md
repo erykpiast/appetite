@@ -12,6 +12,7 @@ Front-end:
  * SASS (SCSS)
  * Inuit CSS
  * Scut
+ * Autoprefixer
  * AngularJS
  * jQuery
  * RequireJS
