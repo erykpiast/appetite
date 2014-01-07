@@ -114,8 +114,7 @@ module.exports = function(grunt) {
         },
         karma: {
             integration: {
-                configFile: 'karma.conf.js',
-                background: true
+                configFile: 'karma.conf.js'
             }
         },
         'node-inspector': {
@@ -138,7 +137,7 @@ module.exports = function(grunt) {
         },
         jasmine_node: {
             matchall: true,
-            projectRoot: "./spec/server",
+            projectRoot: './spec/server',
             requirejs: false,
             forceExit: true
         },
@@ -178,7 +177,6 @@ module.exports = function(grunt) {
     grunt.registerTask('mockup', [
         'compass:mockup',
         'autoprefixer:mockup',
-//      'watch:mockup'
         'concurrent:mockup'
     ]);
     
@@ -191,9 +189,8 @@ module.exports = function(grunt) {
     grunt.registerTask('test', [
        'develop',
        'compass:dev',
-       'autoprefixer',
+       'autoprefixer:dev',
        'jasmine_node',
-       'karma:integration',
-       'watch:karma'
+       'karma:integration'
     ]);
 };
