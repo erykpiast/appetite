@@ -35,6 +35,7 @@
                 line-height: 1;
                 margin-top: -$half-spacing-unit;
                 padding: $half-spacing-unit;
+                text-shadow: 0.05em 0 0.05em $c-bg-light, 0 0.05em 0.05em $c-bg-light, 0 0 0.05em $c-shadow-dark;
             }
         }
 

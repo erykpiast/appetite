@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
 
-        <title>Appetite Mockup V1</title>
+        <title>MamApetytNa.pl – Strona główna</title>
 
         <link rel="stylesheet" href="/styles/style.css"/>
         
@@ -31,6 +31,10 @@
                     setTimeout(function() {
                         $welcome.remove();
                     }, 301);
+                });
+
+                $('.offer-thumbnail').on('click', function(e) {
+                    window.location = $(e.currentTarget).data('url');
                 });
             });
 
@@ -132,7 +136,7 @@
 
                             <ul class="offers-thumbnails">
                                 <li class="thumbnails-grid__container">
-                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail" data-url="/offer/tarta-mocno-cytrynowa.html">
                                         <div class="thumbnail__text--top">
                                             <h3>Tarta mocno cytrynowa</h3>
                                         </div>
