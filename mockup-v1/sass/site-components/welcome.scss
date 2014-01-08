@@ -16,9 +16,9 @@
 	border: 1px solid #000 {
 		radius: .3rem;
 	};
-	height: 50rem;
+	height: 51rem;
 	max-height: 80%;
-	width: 50rem;
+	width: 51rem;
 
 	& > .wrapper {
 		@include scut-absolute(6.5rem 0 0 0);

@@ -3324,7 +3324,7 @@ label,
 .grid,
 .thumbnails-grid,
 .offers-thumbnails,
-.page__content {
+.page--main .page__content {
   margin-left: -21px;
   list-style: none;
   margin-bottom: 0;
@@ -3347,19 +3347,19 @@ label,
 .grid > .grid,
 .thumbnails-grid > .grid,
 .offers-thumbnails > .grid,
-.page__content > .grid,
+.page--main .page__content > .grid,
 .grid > .thumbnails-grid,
 .thumbnails-grid > .thumbnails-grid,
 .offers-thumbnails > .thumbnails-grid,
-.page__content > .thumbnails-grid,
+.page--main .page__content > .thumbnails-grid,
 .grid > .offers-thumbnails,
 .thumbnails-grid > .offers-thumbnails,
 .offers-thumbnails > .offers-thumbnails,
-.page__content > .offers-thumbnails,
-.grid > .page__content,
-.thumbnails-grid > .page__content,
-.offers-thumbnails > .page__content,
-.page__content > .page__content {
+.page--main .page__content > .offers-thumbnails,
+.page--main .grid > .page__content,
+.page--main .thumbnails-grid > .page__content,
+.page--main .offers-thumbnails > .page__content,
+.page--main .page__content > .page__content {
   margin-left: 0;
 }
 
@@ -3380,7 +3380,7 @@ label,
 .grid__item,
 .thumbnails-grid .thumbnails-grid__container,
 .offers-thumbnails .thumbnails-grid__container,
-.page__content .page__content__column {
+.page--main .page__content .page__content__column {
   display: inline-block;
   width: 100%;
   padding-left: 21px;
@@ -3651,7 +3651,7 @@ label,
 .two-eighths,
 .three-twelfths,
 .offers--cakes .thumbnails-grid__container,
-.page__content .page__content__sidebar {
+.page--main .page__content .page__content__sidebar {
   width: 25%;
 }
 
@@ -3668,7 +3668,7 @@ label,
 .three-quarters,
 .six-eighths,
 .nine-twelfths,
-.page__content .page__content__offers {
+.page--main .page__content .page__content__offers {
   width: 75%;
 }
 
@@ -13091,7 +13091,7 @@ textarea:focus {
 .grid,
 .thumbnails-grid,
 .offers-thumbnails,
-.page__content {
+.page--main .page__content {
   font-size: 0;
 }
 
@@ -13108,7 +13108,7 @@ textarea:focus {
 .grid > *,
 .thumbnails-grid > *,
 .offers-thumbnails > *,
-.page__content > * {
+.page--main .page__content > * {
   font-size: 14px;
 }
 
@@ -13125,7 +13125,7 @@ textarea:focus {
 .grid__item,
 .thumbnails-grid .thumbnails-grid__container,
 .offers-thumbnails .thumbnails-grid__container,
-.page__content .page__content__column {
+.page--main .page__content .page__content__column {
   padding-bottom: 21px;
 }
 
@@ -13171,7 +13171,9 @@ textarea:focus {
   }
 }
 
-.page {
+.page,
+.page--main,
+.page--offer {
   margin: 0 auto;
   max-width: 70rem;
   min-height: 100%;
@@ -13188,7 +13190,9 @@ textarea:focus {
   }
 }
 
-.page:before {
+.page:before,
+.page--main:before,
+.page--offer:before {
   display: inline-block;
   content: "";
   position: absolute;
@@ -13212,7 +13216,9 @@ textarea:focus {
   }
 }
 
-.page .page__row {
+.page .page__row,
+.page--main .page__row,
+.page--offer .page__row {
   overflow: auto;
 }
 
@@ -13222,7 +13228,7 @@ textarea:focus {
   }
 
   line {
-    font-family: \0000344;
+    font-family: \0000348;
   }
 }
 
@@ -13237,7 +13243,7 @@ textarea:focus {
   }
 
   line {
-    font-family: \0000352;
+    font-family: \0000356;
   }
 }
 
@@ -13254,7 +13260,7 @@ textarea:focus {
   }
 
   line {
-    font-family: \0000360;
+    font-family: \0000364;
   }
 }
 
@@ -14175,6 +14181,72 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/photo-gallery\.scss;
+  }
+
+  line {
+    font-family: \000036;
+  }
+}
+
+.photo-gallery__photo > img,
+.offer__picture > img {
+  height: 100%;
+  width: auto;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/photo-gallery\.scss;
+  }
+
+  line {
+    font-family: \0000312;
+  }
+}
+
+ul.photo-gallery--inline,
+ul.offer__pictures {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/photo-gallery\.scss;
+  }
+
+  line {
+    font-family: \0000316;
+  }
+}
+
+.photo-gallery--inline,
+.offer__pictures {
+  display: block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/photo-gallery\.scss;
+  }
+
+  line {
+    font-family: \0000321;
+  }
+}
+
+.photo-gallery--inline > .photo-gallery__photo,
+.offer__pictures > .photo-gallery__photo,
+.photo-gallery--inline > .offer__picture,
+.offer__pictures > .offer__picture {
+  display: inline-block;
+  height: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/scut-0\.6\.0\/dist\/_scut\.scss;
   }
 
@@ -14198,7 +14270,9 @@ body {
   }
 }
 
-.page > .wrapper {
+.page > .wrapper,
+.page--main > .wrapper,
+.page--offer > .wrapper {
   min-height: 100%;
   margin-bottom: -3.5rem;
 }
@@ -14213,7 +14287,9 @@ body {
   }
 }
 
-.page > .wrapper:after {
+.page > .wrapper:after,
+.page--main > .wrapper:after,
+.page--offer > .wrapper:after {
   content: "";
   display: block;
 }
@@ -14229,6 +14305,8 @@ body {
 }
 
 .page > .wrapper:after,
+.page--main > .wrapper:after,
+.page--offer > .wrapper:after,
 .page__footer {
   height: 3.5rem;
 }
@@ -16051,9 +16129,9 @@ body {
   background-color: #f7f7f7;
   border: 1px solid black;
   border-radius: .3rem;
-  height: 50rem;
+  height: 51rem;
   max-height: 80%;
-  width: 50rem;
+  width: 51rem;
 }
 
 @media -sass-debug-info {
@@ -16870,12 +16948,26 @@ body {
   }
 
   line {
+    font-family: \000032;
+  }
+}
+
+.page--main .page__content {
+  margin-top: 21px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
     font-family: \000031;
   }
 }
 
-.page__content {
-  margin-top: 21px;
+.offer__pictures {
+  height: 15rem;
 }
 
 @media -sass-debug-info {
@@ -16884,7 +16976,7 @@ body {
   }
 
   line {
-    font-family: \0000361;
+    font-family: \0000363;
   }
 }
 
@@ -16898,7 +16990,7 @@ html {
   }
 
   line {
-    font-family: \0000365;
+    font-family: \0000367;
   }
 }
 
@@ -16912,7 +17004,7 @@ body {
   }
 
   line {
-    font-family: \0000369;
+    font-family: \0000371;
   }
 }
 
@@ -16930,7 +17022,7 @@ body {
   }
 
   line {
-    font-family: \0000379;
+    font-family: \0000381;
   }
 }
 
@@ -16948,7 +17040,7 @@ h2 {
   }
 
   line {
-    font-family: \0000385;
+    font-family: \0000387;
   }
 }
 

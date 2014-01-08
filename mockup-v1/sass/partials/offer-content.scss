@@ -1,0 +1,9 @@
+.offer__pictures {
+	@extend .photo-gallery--inline;
+
+	height: 15rem;
+}
+
+.offer__picture {
+	@extend .photo-gallery__photo;
+}

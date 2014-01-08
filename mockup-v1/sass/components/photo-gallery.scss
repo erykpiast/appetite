@@ -1,7 +1,26 @@
 .photo-gallery {
-	display: block;
+	
 }
 
-.photo-gallery--photo {
-	display: inline-block;
+.photo-gallery__photo {
+	& > img {
+		height: 100%;
+		width: auto;
+	}
 }
+
+ul.photo-gallery--inline {
+	@include scut-list-unstyled();
+}
+
+.photo-gallery--inline {
+	@extend .photo-gallery;
+
+	display: block;
+
+	& > .photo-gallery__photo {
+		display: inline-block;
+		height: 100%;
+	}
+}
+

@@ -39,6 +39,10 @@
 
 }
 
+.page--main, .page--offer {
+	@extend .page;
+}
+
 
 .text-block {
 	p {
