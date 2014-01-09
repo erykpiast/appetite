@@ -37,6 +37,9 @@
 		overflow: auto;
 	}
 
+	.page__content {
+		margin-top: $base-spacing-unit;
+	}
 }
 
 .page--main, .page--offer {

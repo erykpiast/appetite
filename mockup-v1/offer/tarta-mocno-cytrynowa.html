@@ -20,9 +20,6 @@
         </script>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script>
-
-        </script>
 
     </head>
 
@@ -58,22 +55,98 @@
             
             <div class="page__content">
                 <section class="page__content__offer offer">
-                    <header>
-                        <h2>Tarta mocno cytrynowa</h2>
-                    </header>
+                    <div class="page__content__column--left">
+                        <header class="offer__header">
+                            <h2>Tarta mocno cytrynowa</h2>
+                        </header>
 
-                    <div class="page__content__column">
-                        <ul class="offer__pictures">
-                            <li class="offer__picture">
-                                <img src="/images/offer/tarta_mocno_cytrynowa/tarta_mocno_cytrynowa_01.jpg" />
-                            </li>
-                            <li class="offer__picture">
-                                <img src="/images/offer/tarta_mocno_cytrynowa/tarta_mocno_cytrynowa_02.jpg" />
-                            </li>
-                        </ul>
+                        <div class="offer__content">
+                            <script>
+
+                                function createPreview(src) {
+                                    function removePreview() {
+                                        $cont.fadeOut(300, function() {
+                                            $cont.remove();
+                                        });
+                                    }
+
+                                    var $cont = $('<div>')
+                                        .addClass('offer__pictures__picture--preview')
+                                        .addClass('hidden');
+
+                                    var $img = $('<img>')
+                                        .attr('src', src)
+                                        .appendTo($cont);
+
+                                    var $close = $('<button>')
+                                        .addClass('offer__pictures__picture--preview__close')
+                                        .on('click', function() {
+                                            removePreview();
+                                        })
+                                        .appendTo($cont);
+
+                                    $cont.appendTo(document.body);
+
+                                    $(document.body).on('click', function clickHandler() {
+                                        removePreview();
+
+                                        $(document.body).off('click', clickHandler);
+                                    });
+
+                                    setTimeout(function() {
+                                        $cont.removeClass('hidden');
+                                    }, 0);
+                                }
+
+                                $(function() {
+                                    $('.offer__pictures__picture').on('click', function(e) {
+                                        e.stopPropagation();
+
+                                        createPreview($(e.currentTarget).find('img').attr('src'));
+                                    });
+                                });
+
+                            </script>
+                            <ul class="offer__pictures">
+                                <li class="offer__pictures__picture">
+                                    <img src="/images/offer/tarta_mocno_cytrynowa/tarta_mocno_cytrynowa_01.jpg" />
+                                </li>
+                                <li class="offer__pictures__picture">
+                                    <img src="/images/offer/tarta_mocno_cytrynowa/tarta_mocno_cytrynowa_02.jpg" />
+                                </li>
+                            </ul>
+
+                            <div class="offer__description">
+                                <p>Przepyszna tarta z kruchym spodzem i musem śmietanowo-cytrynowym. Wystarczająco słodka, z soczystym i orzeźwiajacym smakiem cytryny. Wiosenna i lekka! Najlepiej smakuje z cukrem pudrem i bitą śmietaną.</p>
+                            </div>
+                        </div>
+
+                        <section class="offer__comments">
+                            <header class="offer__comments__header">
+                                <h3>Komentarze</h3>
+                            </header>
+
+                            <ul class="offer__comments__list">
+                                <li class="offer__comments__comment">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, aliquam, a, tempore tenetur quia esse porro nulla quae fuga voluptatum eaque libero repellendus delectus nisi illum quaerat consequatur cumque. Adipisci.
+                                </li>
+                                <li class="offer__comments__comment">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, aliquam, a, tempore tenetur quia esse porro nulla quae fuga voluptatum eaque libero repellendus delectus nisi illum quaerat consequatur cumque. Adipisci.
+                                </li>
+                                <li class="offer__comments__comment">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, aliquam, a, tempore tenetur quia esse porro nulla quae fuga voluptatum eaque libero repellendus delectus nisi illum quaerat consequatur cumque. Adipisci.
+                                </li>
+                                <li class="offer__comments__comment">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, aliquam, a, tempore tenetur quia esse porro nulla quae fuga voluptatum eaque libero repellendus delectus nisi illum quaerat consequatur cumque. Adipisci.
+                                </li>
+                                <li class="offer__comments__comment">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, aliquam, a, tempore tenetur quia esse porro nulla quae fuga voluptatum eaque libero repellendus delectus nisi illum quaerat consequatur cumque. Adipisci.
+                                </li>
+                            </ul>
+                        </section>
                     </div>
 
-                    <aside class="offer__author page__content__sidebar page__content__column">
+                    <aside class="offer__author page__content__column--right">
                         
                     </aside>
                 </section>
