@@ -1,0 +1,142 @@
+.page--offer {
+
+	.page__content__column--left {
+		@extend .page__content__column;
+
+		width: 75%;
+	}
+
+	.page__content__column--right {
+		@extend .page__content__column;
+
+		width: 25%;
+	}
+
+	.offer__header {
+		margin-bottom: $quarter-spacing-unit;
+		overflow: hidden;
+		position: relative;
+
+		&:before {
+			top: 50%;
+		}
+
+		@include scut-before() {
+			background-color: $c-fg-acc;
+			display: block;
+			height: $rpx;
+			left: 0;
+			margin-top: -($rpx / 2);
+			position: absolute;
+			right: 0;
+			z-index: 0;
+		}
+
+		h2 {
+			background-color: $c-bg-light;
+			display: inline-block;
+			margin-left: $base-spacing-unit;
+			padding: 0 $quarter-spacing-unit;
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.offer__content {
+		
+	}
+
+	.offer__author {
+
+	}
+
+
+	ul.offer__pictures,
+	.offer__description {
+		padding-left: $base-spacing-unit;
+	}
+
+	ul.offer__pictures {
+		@extend .photo-gallery--inline;
+
+		border-bottom: 1px solid $c-fg-acc;
+		height: 15rem;
+		padding-bottom: $base-spacing-unit;
+		margin: $base-spacing-unit 0; }
+		.offer__pictures__picture {
+			@extend .photo-gallery__photo;
+
+			& > img {
+				border: 1px solid $c-shadow-dark;
+				box-sizing: border-box;
+			}
+		}
+		.offer__pictures__picture--preview {
+			@extend .photo-gallery__photo--fullscreen; 
+			
+			border: 1px solid #000;
+		}
+			.offer__pictures__picture--preview__close {
+				@extend .button--ico--close;
+				@extend .button--empty;
+
+				@include hover-effect--expand() {
+					background-color: $c-fg-acc;
+				}
+				@include scut-absolute(-1px -1px n n);
+
+				&:hover {
+					color: $c-bg-light;
+					transition: color .2s ease-out;
+				}
+			}	
+
+
+	.offer__description {
+
+	}
+
+	.offer__comments {
+		margin-top: $base-spacing-unit;
+
+
+		}
+		.offer__comments__header {
+			margin-bottom: $quarter-spacing-unit;
+			overflow: hidden;
+			position: relative;
+
+			&:before {
+				top: 50%;
+			}
+
+			@include scut-before() {
+				background-color: $c-fg-def;
+				display: block;
+				height: $rpx;
+				left: 0;
+				margin-top: -($rpx / 2);
+				position: absolute;
+				right: 0;
+				z-index: 0;
+			}
+
+			h3 {
+				background-color: $c-bg-light;
+				display: inline-block;
+				margin-left: $base-spacing-unit;
+				padding: 0 $quarter-spacing-unit;
+				position: relative;
+				z-index: 1;
+			}
+		}
+
+		.offer__comments__list {
+			@include scut-list-unstyled();
+		}
+			.offer__comments__comment {
+				border-top: 1px solid $c-shadow-dark;
+				margin-bottom: $base-spacing-unit;
+				padding-top: $quarter-spacing-unit;
+			}
+}

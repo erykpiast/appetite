@@ -37,7 +37,8 @@ module.exports = function(grunt) {
         },
         autoprefixer: {
             options: {
-                browsers: [ '> 1%', 'last 2 version' ]
+                browsers: [ '> 1%', 'last 2 versions' ],
+                map: true
             },
             dev: {
                 src: appDir + '/styles/style.css',

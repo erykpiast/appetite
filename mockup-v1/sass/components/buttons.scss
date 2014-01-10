@@ -5,6 +5,7 @@
 	};
 	color: $c-fg-def;
 	display: inline-block;
+	padding: 0 $quarter-spacing-unit;
     
 	&:focus {
 		outline: none;
@@ -20,15 +21,9 @@
 	};
 	color: $c-bg-light;
 	box-shadow: 0 0 .25em $c-shadow-dark;
+	box-sizing: border-box;
 	display: block;
 	padding: $half-spacing-unit $base-spacing-unit;
-}
-
-.button--empty {
-	&.button--ico:before {
-	    margin-right: 0;
-	    padding-right: 0;
-	}
 }
 
 .button--ico {
@@ -45,6 +40,14 @@
 	}
 }
 
+.button--ico--close {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-times;
+	}
+}
+
 .button--ico--facebook {
 	@extend .button--ico;
 
@@ -53,11 +56,59 @@
 	}
 }
 
+.button--ico--facebook-square {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-facebook-square;
+	}
+}
+
+.button--ico--gift {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-gift;
+	}
+}
+
 .button--ico--github {
 	@extend .button--ico;
 
 	&:before {
 		@extend .fa-github;
+	}
+}
+
+.button--ico--like {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-thumbs-up;
+	}
+}
+
+.button--ico--power-off {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-power-off;
+	}
+}
+
+.button--ico--search {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-search;
+	}
+}
+
+.button--empty {
+	&.button--ico:before {
+		border-right: none;
+	    margin-right: 0;
+	    padding-right: 0;
 	}
 }
 
@@ -84,6 +135,17 @@
         
         border-radius: 0;
         transition: all .2s ease-out;
+        
+        @content;
+    }
+}
+
+@mixin hover-effect--colorize($color) {
+	transition: color .1s linear;
+
+    &:hover {
+        color: $color;
+        transition: color .2s ease-out;
         
         @content;
     }

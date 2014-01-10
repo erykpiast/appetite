@@ -1,0 +1,39 @@
+.photo-gallery {
+	z-index: auto; // empty selector causes warning with @extend
+}
+
+.photo-gallery__photo {
+	& > img {
+		height: 100%;
+		width: auto;
+	}
+}
+
+.photo-gallery__photo--fullscreen {
+	@extend .photo-gallery__photo;
+	@extend .overlay;
+
+	@include scut-fixed(n n n n);
+
+	height: 80%;
+
+	& > img {
+		display: block;
+	}
+}
+
+ul.photo-gallery--inline {
+	@include scut-list-unstyled();
+}
+
+.photo-gallery--inline {
+	@extend .photo-gallery;
+
+	display: block;
+
+	& > .photo-gallery__photo {
+		display: inline-block;
+		height: 100%;
+	}
+}
+

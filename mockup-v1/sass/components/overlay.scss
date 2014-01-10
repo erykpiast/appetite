@@ -1,0 +1,12 @@
+.overlay {
+	@include scut-center-tt();
+
+	box-shadow: 0 0 0 4096px $c-shadow-dark, 0 0 200px $c-shadow-dark, 0 0 100px $c-shadow-dark, 0 0 50px $c-shadow-dark;
+	position: fixed;
+	transition: opacity .3s ease-out;
+	z-index: 10000;
+
+	&.hidden {
+		opacity: 0;
+	}
+}

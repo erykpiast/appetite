@@ -1,14 +1,69 @@
+@keyframes unwind {
+	0% {
+		
+	}
+	33% {
+		width: 0%;
+	}
+	75% {
+		opacity: 1;
+		width: 100%;
+	}
+	100% {
+		opacity: 0;
+		width: 100%;
+	}
+}
+
 .page {
 	
-
     margin: 0 auto;
-    max-width: 70rem;
+    max-width: $page-size;
     min-height: 100%;
     // outline: 1px dotted #999;
     width: 100%;
+
+    @include scut-before() {
+		@include scut-absolute();
+
+		animation: unwind 2s ease-in-out 0s 1;
+		background-color: $c-fg-acc;
+		height: 3px;
+		width: 0;
+		z-index: 1;
+    }
 
     .page__row {
 		overflow: auto;
 	}
 
+	.page__content {
+		margin-top: $base-spacing-unit;
+	}
+}
+
+.page--main, .page--offer {
+	@extend .page;
+}
+
+
+.text-block {
+	p {
+		margin: {
+			bottom: $half-spacing-unit;
+			top: $half-spacing-unit;
+		}
+	}
+}
+
+.site-logo {
+	@extend h1;
+
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+.list--unstyled {
+	@include scut-list-unstyled();
 }

@@ -1,3 +1,14 @@
+.page__content__offers {
+	// dumb (and temporary!) method to aligning space between visible parts of rows to $base-spacing-unit (21px)
+	.page__row:first-child {
+		margin-top: -4px;
+	}
+
+	.page__row:not(:first-child) {
+		margin-top: -7px;
+	}
+}
+
 .offers {
 	header {
 		margin-bottom: $quarter-spacing-unit;
@@ -31,7 +42,7 @@
 
 		
 		$folded-size: $half-spacing-unit;
-		$unfolded-width: 9em;
+		$unfolded-width: 10em;
 		.offers__more {
 			$unfolded-height: 1.5em;
 			
@@ -85,7 +96,8 @@
 		}
 	}
 }
-.offers--cakes, .offers--meals, .offers--snacks {
+
+.offers--cakes, .offers--baking, .offers--snacks, .offers--meals, .offers--jams {
 	@extend .offers;
 }
 
@@ -95,7 +107,7 @@
 	}
 }
 
-.offers--meals, .offers--snacks {
+.offers--baking, .offers--snacks, .offers--meals, .offers--jams {
 	float: left;
 	width: calc(50% - #{$half-spacing-unit});
 
@@ -104,7 +116,7 @@
 	}
 }
 
-.offers--snacks {
+.offers--snacks, .offers--jams {
 	margin-left: $base-spacing-unit;
 }
 
