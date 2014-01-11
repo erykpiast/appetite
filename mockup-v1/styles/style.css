@@ -541,7 +541,7 @@ abbr[title] {
 
 b,
 strong,
-.page--offer .offer__comments__comment > .comment .comment__header__author__name {
+.page--offer .offer__comments__comment .comment__header__author__name {
   font-weight: bold;
 }
 
@@ -14409,7 +14409,8 @@ ul.photo-gallery--inline,
   }
 }
 
-.comment {
+.comment,
+.comment--offer-author-comment {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -14428,7 +14429,9 @@ ul.photo-gallery--inline,
 }
 
 .comment .comment__header,
-.comment .comment__content {
+.comment--offer-author-comment .comment__header,
+.comment .comment__content,
+.comment--offer-author-comment .comment__content {
   margin-left: 72.8px;
   padding: 5.25px 15.75px;
 }
@@ -14444,8 +14447,11 @@ ul.photo-gallery--inline,
 }
 
 .comment .comment__header,
+.comment--offer-author-comment .comment__header,
 .comment .comment__header:before,
-.comment .comment__content {
+.comment--offer-author-comment .comment__header:before,
+.comment .comment__content,
+.comment--offer-author-comment .comment__content {
   border: 1px solid;
 }
 
@@ -14459,7 +14465,8 @@ ul.photo-gallery--inline,
   }
 }
 
-.comment .comment__header {
+.comment .comment__header,
+.comment--offer-author-comment .comment__header {
   border-bottom: none;
   border-left: none;
   border-top-right-radius: .4rem;
@@ -14477,7 +14484,8 @@ ul.photo-gallery--inline,
   }
 }
 
-.comment .comment__header:before {
+.comment .comment__header:before,
+.comment--offer-author-comment .comment__header:before {
   display: inline-block;
   content: "";
   width: 36.4px;
@@ -14501,7 +14509,7 @@ ul.photo-gallery--inline,
 }
 
 .comment .comment__header__author,
-.page--offer .offer__comments__comment > .comment .comment__header__author--offer-author {
+.comment--offer-author-comment .comment__header__author {
   position: relative;
 }
 
@@ -14515,7 +14523,8 @@ ul.photo-gallery--inline,
   }
 }
 
-.comment .comment__header__author__avatar {
+.comment .comment__header__author__avatar,
+.comment--offer-author-comment .comment__header__author__avatar {
   position: absolute;
   top: -11.5px;
   left: -87.55px;
@@ -14538,7 +14547,8 @@ ul.photo-gallery--inline,
   }
 }
 
-.comment .comment__header__author__avatar > img {
+.comment .comment__header__author__avatar > img,
+.comment--offer-author-comment .comment__header__author__avatar > img {
   border-radius: 50% 50% 0 50%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -14559,7 +14569,8 @@ ul.photo-gallery--inline,
   }
 }
 
-.comment .comment__header__author__avatar:before {
+.comment .comment__header__author__avatar:before,
+.comment--offer-author-comment .comment__header__author__avatar:before {
   display: inline-block;
   content: "";
   position: absolute;
@@ -14582,7 +14593,8 @@ ul.photo-gallery--inline,
   }
 }
 
-.comment .comment__content {
+.comment .comment__content,
+.comment--offer-author-comment .comment__content {
   border-top: none;
 }
 
@@ -17674,6 +17686,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-left: 21px;
 }
 
 @media -sass-debug-info {
@@ -17682,7 +17695,21 @@ body {
   }
 
   line {
-    font-family: \00003139;
+    font-family: \00003141;
+  }
+}
+
+.page--offer .offer__comments__list .offer__comments__list {
+  margin-left: 73.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003145;
   }
 }
 
@@ -17696,14 +17723,37 @@ body {
   }
 
   line {
-    font-family: \00003146;
+    font-family: \00003150;
   }
 }
 
-.page--offer .offer__comments__comment > .comment .comment__header,
-.page--offer .offer__comments__comment > .comment .comment__header:before,
-.page--offer .offer__comments__comment > .comment .comment__content {
-  background-color: white;
+.page--offer .offer__comments__comment .comment,
+.page--offer .offer__comments__comment .comment--offer-author-comment {
+  overflow: hidden;
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page--offer .offer__comments__comment .comment:before,
+.page--offer .offer__comments__comment .comment--offer-author-comment:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 42px;
+  background-color: #c8c8c8;
+  height: .2rem;
+  z-index: 1;
 }
 
 @media -sass-debug-info {
@@ -17712,28 +17762,12 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003164;
   }
 }
 
-.page--offer .offer__comments__comment > .comment .comment__header,
-.page--offer .offer__comments__comment > .comment .comment__header:before,
-.page--offer .offer__comments__comment > .comment .comment__content {
-  border-color: #c8c8c8;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
-  }
-
-  line {
-    font-family: \00003156;
-  }
-}
-
-.page--offer .offer__comments__comment > .comment .comment__header {
-  border-top-right-radius: .4rem;
+.page--offer .offer__comments__comment .comment--offer-author-comment:before {
+  background-color: #aa1e1e;
 }
 
 @media -sass-debug-info {
@@ -17742,56 +17776,44 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
-.page--offer .offer__comments__comment > .comment .comment__header__time {
-  color: #969696;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
-  }
-
-  line {
-    font-family: \00003163;
-  }
-}
-
-.page--offer .offer__comments__comment > .comment .comment__header__time:before {
-  content: "‧";
-  margin: 0 5.25px;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
-  }
-
-  line {
-    font-family: \00003169;
-  }
-}
-
-.page--offer .offer__comments__comment > .comment .comment__content {
-  border-radius: 0 0 .4rem .4rem;
-  padding-bottom: 10.5px;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
-  }
-
-  line {
-    font-family: \00003181;
-  }
-}
-
-.page--offer .offer__comments__comment > .comment .comment__header__author--offer-author .comment__header__author__name {
+.page--offer .offer__comments__comment .comment--offer-author-comment .comment__header__author__name {
   color: #aa1e1e;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003174;
+  }
+}
+
+.page--offer .offer__comments__comment .comment,
+.page--offer .offer__comments__comment .comment--offer-author-comment,
+.page--offer .offer__comments__comment .comment__header {
+  border-top-right-radius: 0.4rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003180;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header,
+.page--offer .offer__comments__comment .comment__header:before,
+.page--offer .offer__comments__comment .comment__content {
+  background-color: white;
 }
 
 @media -sass-debug-info {
@@ -17804,7 +17826,82 @@ body {
   }
 }
 
-.page--offer .offer__comments__comment > .comment .comment__header__author__avatar:before {
+.page--offer .offer__comments__comment .comment__header,
+.page--offer .offer__comments__comment .comment__header:before,
+.page--offer .offer__comments__comment .comment__content {
+  border-color: #c8c8c8;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003190;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__time {
+  color: #969696;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003193;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__time:before {
+  content: "‧";
+  margin: 0 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003199;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__content {
+  border-radius: 0 0 0.4rem 0.4rem;
+  padding-bottom: 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003204;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__author {
+  position: relative;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003213;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__author__avatar:before {
   -webkit-box-shadow: 0 0 0.4rem 0.1rem rgba(77, 77, 77, 0.7) inset;
   box-shadow: 0 0 0.4rem 0.1rem rgba(77, 77, 77, 0.7) inset;
 }
