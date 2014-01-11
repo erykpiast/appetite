@@ -3,6 +3,8 @@
 }
 
 .photo-gallery__photo {
+	cursor: pointer;
+
 	& > img {
 		height: 100%;
 		width: auto;
