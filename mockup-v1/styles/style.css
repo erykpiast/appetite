@@ -540,7 +540,8 @@ abbr[title] {
 }
 
 b,
-strong {
+strong,
+.page--offer .offer__comments__comment .comment__header__author__name {
   font-weight: bold;
 }
 
@@ -13750,7 +13751,7 @@ a.hyperlink:visited {
 .button--ico--power-off,
 .page__content__sidebar .button--contribute--adblock,
 .button--ico--search {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   border: 1px solid #282828;
   border-radius: 0.2em;
   color: #282828;
@@ -13814,7 +13815,7 @@ a.hyperlink:visited {
   background-color: #aa1e1e;
   border: 1px solid #aa1e1e;
   border-radius: 0.4em;
-  color: #f7f7f7;
+  color: #eaeaea;
   -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
   -webkit-box-sizing: border-box;
@@ -13854,7 +13855,7 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:before,
 .button--ico--search:before {
   border: none;
-  border-right: 1px solid #f7f7f7;
+  border-right: 1px solid #eaeaea;
   margin-right: 10.5px;
   padding-right: 10.5px;
 }
@@ -14284,7 +14285,24 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \000036;
+    font-family: \000035;
+  }
+}
+
+.photo-gallery__photo,
+.photo-gallery__photo--fullscreen,
+.page--offer .offer__pictures__picture--preview,
+.page--offer .offer__pictures__picture {
+  cursor: pointer;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/photo-gallery\.scss;
+  }
+
+  line {
+    font-family: \000038;
   }
 }
 
@@ -14302,7 +14320,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000312;
+    font-family: \0000314;
   }
 }
 
@@ -14318,7 +14336,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000320;
+    font-family: \0000322;
   }
 }
 
@@ -14333,7 +14351,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000325;
+    font-family: \0000327;
   }
 }
 
@@ -14350,7 +14368,7 @@ ul.photo-gallery--inline,
   }
 
   line {
-    font-family: \0000329;
+    font-family: \0000331;
   }
 }
 
@@ -14365,7 +14383,7 @@ ul.photo-gallery--inline,
   }
 
   line {
-    font-family: \0000334;
+    font-family: \0000336;
   }
 }
 
@@ -14379,6 +14397,205 @@ ul.photo-gallery--inline,
 .page--offer ul.offer__pictures > .offer__pictures__picture {
   display: inline-block;
   height: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.comment,
+.comment--offer-author-comment {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 72.8px;
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \0000312;
+  }
+}
+
+.comment .comment__header,
+.comment--offer-author-comment .comment__header,
+.comment .comment__content,
+.comment--offer-author-comment .comment__content {
+  margin-left: 72.8px;
+  padding: 5.25px 15.75px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \0000319;
+  }
+}
+
+.comment .comment__header,
+.comment--offer-author-comment .comment__header,
+.comment .comment__header:before,
+.comment--offer-author-comment .comment__header:before,
+.comment .comment__content,
+.comment--offer-author-comment .comment__content {
+  border: 1px solid;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \0000323;
+  }
+}
+
+.comment .comment__header,
+.comment--offer-author-comment .comment__header {
+  border-bottom: none;
+  border-left: none;
+  border-top-right-radius: .4rem;
+  padding-top: 10.5px;
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.comment .comment__header:before,
+.comment--offer-author-comment .comment__header:before {
+  display: inline-block;
+  content: "";
+  width: 36.4px;
+  height: 36.4px;
+  position: absolute;
+  top: -1px;
+  left: -36.4px;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \0000344;
+  }
+}
+
+.comment .comment__header__author,
+.comment--offer-author-comment .comment__header__author {
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \0000348;
+  }
+}
+
+.comment .comment__header__author__avatar,
+.comment--offer-author-comment .comment__header__author__avatar {
+  position: absolute;
+  top: -11.5px;
+  left: -87.55px;
+  border-radius: 50% 0 0 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 72.8px;
+  overflow: hidden;
+  width: 72.8px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \0000357;
+  }
+}
+
+.comment .comment__header__author__avatar > img,
+.comment--offer-author-comment .comment__header__author__avatar > img {
+  border-radius: 50% 50% 0 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.comment .comment__header__author__avatar:before,
+.comment--offer-author-comment .comment__header__author__avatar:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 36.4px;
+  border-bottom-right-radius: 0;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/components\/comment\.scss;
+  }
+
+  line {
+    font-family: \0000381;
+  }
+}
+
+.comment .comment__content,
+.comment--offer-author-comment .comment__content {
+  border-top: none;
 }
 
 @media -sass-debug-info {
@@ -14665,7 +14882,7 @@ body {
 }
 
 .page__footer .page__footer__links > li:hover {
-  color: #f7f7f7;
+  color: #eaeaea;
 }
 
 @media -sass-debug-info {
@@ -14978,7 +15195,7 @@ body {
   padding-top: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  background-color: rgba(247, 247, 247, 0.9);
+  background-color: rgba(234, 234, 234, 0.9);
 }
 
 @media -sass-debug-info {
@@ -15033,7 +15250,7 @@ body {
 }
 
 .offer-thumbnail .thumbnail__text--bottom * {
-  color: #f7f7f7;
+  color: #eaeaea;
 }
 
 @media -sass-debug-info {
@@ -15111,7 +15328,7 @@ body {
 }
 
 .offer-thumbnail:hover .thumbnail__text--top > h3 {
-  color: #f7f7f7;
+  color: #eaeaea;
 }
 
 @media -sass-debug-info {
@@ -15367,7 +15584,7 @@ body {
 .offers--snacks header h2,
 .offers--meals header h2,
 .offers--jams header h2 {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   display: inline-block;
   margin-left: 21px;
   padding: 0 5.25px;
@@ -15422,7 +15639,7 @@ body {
   content: "";
   border-radius: 50%;
   display: inline-block;
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   height: 10.5px;
   width: 10.5px;
   border: 0.07143rem solid #aa1e1e;
@@ -15482,7 +15699,7 @@ body {
 .offers--snacks header .offers__more .offers__more__text,
 .offers--meals header .offers__more .offers__more__text,
 .offers--jams header .offers__more .offers__more__text {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   color: #aa1e1e;
   padding: 0 5.25px;
   right: 10.5px;
@@ -15642,7 +15859,7 @@ body {
 }
 
 .page__content__sidebar > h2 {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   display: inline-block;
   padding: 0 10.5px;
 }
@@ -15953,7 +16170,7 @@ body {
 .page__content__sidebar .button--contribute--facebook {
   position: relative;
   z-index: 0;
-  color: #f7f7f7;
+  color: #eaeaea;
   background-color: #3b5998;
   border-color: #133783;
 }
@@ -16032,7 +16249,7 @@ body {
 .page__content__sidebar .button--contribute--adblock {
   position: relative;
   z-index: 0;
-  color: #f7f7f7;
+  color: #eaeaea;
   background-color: #b40000;
   border-color: rgba(77, 77, 77, 0.7);
 }
@@ -16111,7 +16328,7 @@ body {
 .page__content__sidebar .button--contribute--paypal {
   position: relative;
   z-index: 0;
-  color: #f7f7f7;
+  color: #eaeaea;
   background-color: #aa1e1e;
   border-color: rgba(77, 77, 77, 0.7);
 }
@@ -16266,7 +16483,7 @@ body {
 }
 
 .welcome {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   border: 1px solid black;
   border-radius: .3rem;
   height: 51rem;
@@ -16292,9 +16509,9 @@ body {
   right: 16px;
   left: 0;
   background-color: transparent;
-  background-image: -webkit-gradient(linear, top left, bottom left, from(#f7f7f7), to(rgba(247, 247, 247, 0)));
-  background-image: -webkit-linear-gradient(top, #f7f7f7, rgba(247, 247, 247, 0));
-  background-image: linear-gradient(to bottom, #f7f7f7, rgba(247, 247, 247, 0));
+  background-image: -webkit-gradient(linear, top left, bottom left, from(#eaeaea), to(rgba(234, 234, 234, 0)));
+  background-image: -webkit-linear-gradient(top, #eaeaea, rgba(234, 234, 234, 0));
+  background-image: linear-gradient(to bottom, #eaeaea, rgba(234, 234, 234, 0));
   height: 3px;
   z-index: 1;
 }
@@ -16452,7 +16669,7 @@ body {
 }
 
 .welcome .welcome__close:hover {
-  color: #f7f7f7;
+  color: #eaeaea;
   -webkit-transition: color .2s ease-out;
   transition: color .2s ease-out;
 }
@@ -16538,7 +16755,7 @@ body {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook {
   position: relative;
   z-index: 0;
-  color: #f7f7f7;
+  color: #eaeaea;
   background-color: #3b5998;
   border-color: #133783;
 }
@@ -16617,7 +16834,7 @@ body {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock {
   position: relative;
   z-index: 0;
-  color: #f7f7f7;
+  color: #eaeaea;
   background-color: #b40000;
   border-color: rgba(77, 77, 77, 0.7);
 }
@@ -16696,7 +16913,7 @@ body {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal {
   position: relative;
   z-index: 0;
-  color: #f7f7f7;
+  color: #eaeaea;
   background-color: #aa1e1e;
   border-color: rgba(77, 77, 77, 0.7);
 }
@@ -16970,7 +17187,7 @@ body {
   line-height: 1;
   margin-top: -10.5px;
   padding: 15.75px;
-  text-shadow: 0.05em 0 0.05em #f7f7f7, 0 0.05em 0.05em #f7f7f7, 0 0 0.05em rgba(77, 77, 77, 0.7);
+  text-shadow: 0.05em 0 0.05em #eaeaea, 0 0.05em 0.05em #eaeaea, 0 0 0.05em rgba(77, 77, 77, 0.7);
 }
 
 @media -sass-debug-info {
@@ -17019,14 +17236,14 @@ body {
   right: 0;
   left: 0;
   background-color: #ffd4c6;
-  background-image: -webkit-radial-gradient(#f7f7f7 15%, transparent 16%), radial-gradient(#f7f7f7 15%, transparent 16%);
-  background-image: radial-gradient(#f7f7f7 15%, transparent 16%), radial-gradient(#f7f7f7 15%, transparent 16%);
+  background-image: -webkit-radial-gradient(#eaeaea 15%, transparent 16%), radial-gradient(#eaeaea 15%, transparent 16%);
+  background-image: radial-gradient(#eaeaea 15%, transparent 16%), radial-gradient(#eaeaea 15%, transparent 16%);
   -webkit-background-size: 30px 30px;
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
   border: none;
   border-bottom: 1px solid rgba(77, 77, 77, 0.7);
-  border-top: 3px solid #f7f7f7;
+  border-top: 3px solid #eaeaea;
   height: 100px;
   z-index: 0;
 }
@@ -17187,7 +17404,7 @@ body {
 }
 
 .page--offer .offer__header h2 {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   display: inline-block;
   margin-left: 21px;
   padding: 0 5.25px;
@@ -17201,13 +17418,18 @@ body {
   }
 
   line {
-    font-family: \0000355;
+    font-family: \0000345;
   }
 }
 
-.page--offer ul.offer__pictures,
-.page--offer .offer__description {
-  padding-left: 21px;
+.page--offer .offer__content {
+  background-color: white;
+  border: 1px solid #c8c8c8;
+  border-radius: .4rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 21px;
 }
 
 @media -sass-debug-info {
@@ -17216,15 +17438,13 @@ body {
   }
 
   line {
-    font-family: \0000359;
+    font-family: \0000363;
   }
 }
 
 .page--offer ul.offer__pictures {
-  border-bottom: 1px solid #aa1e1e;
   height: 15rem;
-  padding-bottom: 21px;
-  margin: 21px 0;
+  margin-bottom: 21px;
 }
 
 @media -sass-debug-info {
@@ -17233,7 +17453,7 @@ body {
   }
 
   line {
-    font-family: \0000369;
+    font-family: \0000371;
   }
 }
 
@@ -17250,7 +17470,7 @@ body {
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000376;
   }
 }
 
@@ -17264,7 +17484,7 @@ body {
   }
 
   line {
-    font-family: \0000379;
+    font-family: \0000381;
   }
 }
 
@@ -17341,12 +17561,12 @@ body {
   }
 
   line {
-    font-family: \0000388;
+    font-family: \0000390;
   }
 }
 
 .page--offer .offer__pictures__picture--preview__close:hover {
-  color: #f7f7f7;
+  color: #eaeaea;
   -webkit-transition: color .2s ease-out;
   transition: color .2s ease-out;
 }
@@ -17357,12 +17577,12 @@ body {
   }
 
   line {
-    font-family: \0000399;
+    font-family: \0000397;
   }
 }
 
-.page--offer .offer__comments {
-  margin-top: 21px;
+.page--offer .offer__description {
+  background-color: white;
 }
 
 @media -sass-debug-info {
@@ -17371,7 +17591,21 @@ body {
   }
 
   line {
-    font-family: \00003104;
+    font-family: \00003101;
+  }
+}
+
+.page--offer .offer__comments {
+  margin: 42px 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003105;
   }
 }
 
@@ -17387,7 +17621,7 @@ body {
   }
 
   line {
-    font-family: \00003109;
+    font-family: \00003110;
   }
 }
 
@@ -17408,7 +17642,7 @@ body {
 .page--offer .offer__comments__header:before {
   display: inline-block;
   content: "";
-  background-color: #282828;
+  background-color: #aa1e1e;
   display: block;
   height: 0.07143rem;
   left: 0;
@@ -17424,12 +17658,13 @@ body {
   }
 
   line {
-    font-family: \00003124;
+    font-family: \00003125;
   }
 }
 
 .page--offer .offer__comments__header h3 {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
+  color: #aa1e1e;
   display: inline-block;
   margin-left: 21px;
   padding: 0 5.25px;
@@ -17443,7 +17678,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003136;
   }
 }
 
@@ -17451,6 +17686,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-left: 21px;
 }
 
 @media -sass-debug-info {
@@ -17459,14 +17695,215 @@ body {
   }
 
   line {
-    font-family: \00003137;
+    font-family: \00003141;
+  }
+}
+
+.page--offer .offer__comments__list .offer__comments__list {
+  margin-left: 73.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003145;
   }
 }
 
 .page--offer .offer__comments__comment {
-  border-top: 1px solid rgba(77, 77, 77, 0.7);
-  margin-bottom: 21px;
-  padding-top: 5.25px;
+  margin-top: 21px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003150;
+  }
+}
+
+.page--offer .offer__comments__comment .comment,
+.page--offer .offer__comments__comment .comment--offer-author-comment {
+  overflow: hidden;
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page--offer .offer__comments__comment .comment:before,
+.page--offer .offer__comments__comment .comment--offer-author-comment:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 42px;
+  background-color: #c8c8c8;
+  height: .2rem;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003164;
+  }
+}
+
+.page--offer .offer__comments__comment .comment--offer-author-comment:before {
+  background-color: #aa1e1e;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003168;
+  }
+}
+
+.page--offer .offer__comments__comment .comment--offer-author-comment .comment__header__author__name {
+  color: #aa1e1e;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003174;
+  }
+}
+
+.page--offer .offer__comments__comment .comment,
+.page--offer .offer__comments__comment .comment--offer-author-comment,
+.page--offer .offer__comments__comment .comment__header {
+  border-top-right-radius: 0.4rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003180;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header,
+.page--offer .offer__comments__comment .comment__header:before,
+.page--offer .offer__comments__comment .comment__content {
+  background-color: white;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003186;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header,
+.page--offer .offer__comments__comment .comment__header:before,
+.page--offer .offer__comments__comment .comment__content {
+  border-color: #c8c8c8;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003190;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__time {
+  color: #969696;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003193;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__time:before {
+  content: "‧";
+  margin: 0 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003199;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__content {
+  border-radius: 0 0 0.4rem 0.4rem;
+  padding-bottom: 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003204;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__author {
+  position: relative;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/mockup-v1\/sass\/partials\/offer-content\.scss;
+  }
+
+  line {
+    font-family: \00003213;
+  }
+}
+
+.page--offer .offer__comments__comment .comment__header__author__avatar:before {
+  -webkit-box-shadow: 0 0 0.4rem 0.1rem rgba(77, 77, 77, 0.7) inset;
+  box-shadow: 0 0 0.4rem 0.1rem rgba(77, 77, 77, 0.7) inset;
 }
 
 @media -sass-debug-info {
@@ -17475,7 +17912,7 @@ body {
   }
 
   line {
-    font-family: \0000363;
+    font-family: \0000364;
   }
 }
 
@@ -17489,7 +17926,7 @@ html {
   }
 
   line {
-    font-family: \0000367;
+    font-family: \0000368;
   }
 }
 
@@ -17503,12 +17940,12 @@ body {
   }
 
   line {
-    font-family: \0000371;
+    font-family: \0000372;
   }
 }
 
 body {
-  background-color: #f7f7f7;
+  background-color: #eaeaea;
   background-image: url("../images/patterns/fabric_plaid.png");
   border-color: #282828;
   font-family: "Alegreya Sans", sans-serif;
@@ -17521,7 +17958,7 @@ body {
   }
 
   line {
-    font-family: \0000381;
+    font-family: \0000382;
   }
 }
 
@@ -17539,7 +17976,7 @@ h2 {
   }
 
   line {
-    font-family: \0000387;
+    font-family: \0000388;
   }
 }
 

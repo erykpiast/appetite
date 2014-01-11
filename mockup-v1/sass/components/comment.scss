@@ -1,0 +1,88 @@
+.comment {
+    $avatar-size: 5.2 * $base-font-size;
+    $v-margin: $quarter-spacing-unit;
+    $h-margin: $quarter-spacing-unit * 3;
+    $border-width: 1px;
+
+    box-sizing: border-box;
+    min-height: $avatar-size;
+    position: relative;
+
+    .comment__header,
+    .comment__content {
+        margin-left: $avatar-size;
+        padding: $v-margin $h-margin;
+    }
+
+    .comment__header,
+    .comment__header:before,
+    .comment__content {
+        border: $border-width solid;
+    }
+
+    .comment__header {
+        @include scut-before() {
+            @include scut-size($avatar-size/2 $avatar-size/2);
+            @include scut-absolute((-$border-width) n n (-$avatar-size/2));
+            
+            border: {
+                bottom: none;
+                left: none;
+                right: none;
+            }
+        }
+
+        border: {
+            bottom: none;
+            left: none;
+            top-right-radius: .4rem;
+        };
+        padding-top: $v-margin * 2;
+        position: relative;
+    }
+    
+        .comment__header__author {
+            position: relative;
+        }
+
+            .comment__header__author__avatar {
+                @include scut-absolute((-$v-margin * 2 - $border-width) n n (-$avatar-size - $h-margin + $border-width));
+
+                border-radius: 50% 0 0 50%;
+                box-sizing: border-box;
+                height: $avatar-size;
+                overflow: hidden;
+                width: $avatar-size;
+                
+                & > img {
+                    border-radius: 50% 50% 0 50%;
+                    box-sizing: border-box;
+                    height: 100%;
+                    position: relative;
+                    width: 100%; 
+                    z-index: 0;
+                }
+                
+                @include scut-before() {
+                    @include scut-absolute(0 0 0 0);
+
+                    border: {
+                        radius: $avatar-size/2;
+                        bottom-right-radius: 0;
+                    };
+                    z-index: 1;
+                }
+            }
+
+            .comment__header__author__name {
+                
+            }
+
+    .comment__content {
+        border-top: none;
+    }
+}
+
+.comment--offer-author-comment {
+    @extend .comment;
+}
