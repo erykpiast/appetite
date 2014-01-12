@@ -1,4 +1,12 @@
 .page--offer {
+    .page__content__offer {
+        @include scut-inline-container();
+    }
+    
+    .page__content__column {
+        display: inline-block;
+        vertical-align: top;
+    }
 
 	.page__content__column--left {
 		@extend .page__content__column;
@@ -9,6 +17,7 @@
 	.page__content__column--right {
 		@extend .page__content__column;
 
+        box-sizing: border-box;
 		width: 25%;
 	}
 
@@ -64,7 +73,8 @@
 		@extend .photo-gallery--inline;
 
 		height: 15rem;
-		margin-bottom: $base-spacing-unit; }
+	}
+	
 		.offer__pictures__picture {
 			@extend .photo-gallery__photo;
 
@@ -96,7 +106,35 @@
 
 	.offer__description {
 		background-color: $c-bg-acc-light;
+		margin-top: $half-spacing-unit;
 	}
+	
+	    .offer__description__paragraph {
+		    margin-top: $half-spacing-unit;
+		}
+	
+	.offer__source {
+		color: $c-fg-def-light;
+	    margin-top: $base-spacing-unit;
+	}
+	    .offer__source__link {
+	        @extend strong;
+	        
+	        color: $c-fg-acc;
+	        display: inline-block;
+	    }
+	    
+	    .offer__source__favico {
+	        @include scut-size(1em);
+	        
+	        display: inline-block;
+	        margin: {
+	            left: .25em;
+	            right: .1em;
+	        };
+	        transform: translateY( 0.15em );
+	    }
+
 
 	.offer__comments {
 		margin: $base-spacing-unit * 2 0;
