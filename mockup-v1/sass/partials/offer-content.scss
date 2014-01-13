@@ -17,7 +17,6 @@
 	.page__content__column--right {
 		@extend .page__content__column;
 
-        box-sizing: border-box;
 		width: 25%;
 	}
 
@@ -26,21 +25,23 @@
 	}
 
 	.offer__content {
+		@include scut-inline-container();
+
 		background-color: $c-bg-acc-light;
 		border: 1px solid $c-bg-dark {
 			radius: .4rem;
 		};
 		box-sizing: border-box;
 		padding: $base-spacing-unit;
-	}
-
-	.offer__author {
-
+		position: relative;
 	}
 
 
 	ul.offer__pictures,
-	.offer__description {
+	.offer__order {
+		display: inline-block;
+		vertical-align: middle;
+		width: 50%;
 	}
 
 	ul.offer__pictures {
@@ -226,4 +227,21 @@
 					box-shadow: 0 0 .4rem .1rem $c-shadow-dark inset;
 				}
 			}
+
+	.offer__order {
+		text-align: center;
+	}
+		.offer__order__price {
+			margin-bottom: $half-spacing-unit;
+		}
+		.offer__order__button {
+			@extend .button--call-to-action;
+			@extend .button--ico--order;
+
+			@include hover-effect--expand() {
+				background-color: $c-fg-acc-light;
+			};
+
+			display: inline-block;
+		}
 }

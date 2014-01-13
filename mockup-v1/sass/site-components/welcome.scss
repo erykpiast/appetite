@@ -58,6 +58,12 @@
 		}
 	}
 
+	.welcome__start-time {
+		font-size: 125%;
+		margin: $base-spacing-unit 0;
+		text-align: center;
+	}
+
 	.welcome__contribute {
 		& > header {
 			padding: {
@@ -148,6 +154,18 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+.page--offer .welcome {
+	h1 {
+		margin-top: $base-spacing-unit;
+	}
+
+	& > .wrapper {
+		p {
+			text-align: center;
 		}
 	}
 }

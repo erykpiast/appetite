@@ -1,14 +1,19 @@
 .offer {
 
-    .offer__author {
-        padding: $base-spacing-unit {
+    .offer__author,
+    .offer__related {
+        margin: $base-spacing-unit {
             right: 0;
-            top: 0;
         };
     }
 
+    .offer__author {
+        margin-top: 0;
+    }
 
-    .offer__author__header {
+
+    .offer__author__header,
+    .offer__related__header {
         @include header-with-line("h2");
 
         text-align: center;
@@ -22,12 +27,13 @@
     .offer__author__content {
         border: 1px solid $c-bg-dark;
         border-radius: .4rem;
+        overflow: hidden;
         padding: $base-spacing-unit;
         background: $c-bg-acc-light;
     }
     
         .offer__author__avatar {
-            @include scut-square(100%);
+            // @include scut-square(100%);
             @include scut-after() {
                 @include scut-absolute(0 0 0 0);
                 
@@ -35,17 +41,19 @@
                 z-index: 2;
             }
             
+            margin-bottom: $half-spacing-unit;
             overflow: hidden;
             position: relative;
+            width: 100%;
             
             &:before {
                 @include scut-absolute(n 0 0 n);
             }
             
             & > img {
-                @include scut-size(100%);
-                
+                display: block;
                 position: relative;
+                width: 100%;
                 z-index: 1;
             }
             
@@ -55,25 +63,37 @@
                 border-radius: .4rem;
             }
         }
+
+        .offer__author__name,
+        .offer__author__rating {
+            color: $c-fg-acc;
+            float: left;
+        }
         
         .offer__author__name {
             @extend h3;
 
-            color: $c-fg-acc;
-            display: inline-block;
             margin: {
                 right: 4 * $space-width;
-                top: $half-spacing-unit;
             };
         }
         
         .offer__author__rating {
             @include scut-fonticon-label(inherit, '♥', $space: $space-width);
             
-            &, &:before {
-                color: $c-fg-acc;
-                // vertical-align: top;
+            &:before {
+                color: inherit;
             }
         }
 
+    .offer__related {
+        & > .offers-thumbnails {
+            margin: 0 auto;
+            width: 75%; // to get same size of thumbnail as on main page
+
+            & > .thumbnails-grid__container {
+                padding-left: 0;
+            }
+        }
+    }
 }
