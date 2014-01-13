@@ -11,35 +11,7 @@
 
 .offers {
 	header {
-		margin-bottom: $quarter-spacing-unit;
-		overflow: hidden;
-		position: relative;
-
-		.offers__more,
-		&:before {
-			top: 50%;
-		}
-
-		@include scut-before() {
-			background-color: $c-fg-acc;
-			display: block;
-			height: $rpx;
-			left: 0;
-			margin-top: -($rpx / 2);
-			position: absolute;
-			right: 0;
-			z-index: 0;
-		}
-
-		h2 {
-			background-color: $c-bg-light;
-			display: inline-block;
-			margin-left: $base-spacing-unit;
-			padding: 0 $quarter-spacing-unit;
-			position: relative;
-			z-index: 1;
-		}
-
+		@include header-with-line("h2");
 		
 		$folded-size: $half-spacing-unit;
 		$unfolded-width: 10em;
@@ -51,6 +23,7 @@
 			overflow: hidden;
 			position: absolute;
 			right: $half-spacing-unit;
+			top: 50%;
 			transition: width .2s linear;
 			white-space: nowrap;
 			width: $folded-size;

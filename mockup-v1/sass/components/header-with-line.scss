@@ -1,0 +1,29 @@
+@mixin header-with-line($h) {
+	margin-bottom: $quarter-spacing-unit;
+	overflow: hidden;
+	position: relative;
+
+	&:before {
+		top: 50%;
+	}
+
+	@include scut-before() {
+		background-color: $c-fg-acc;
+		display: block;
+		height: $rpx;
+		left: 0;
+		margin-top: -($rpx / 2);
+		position: absolute;
+		right: 0;
+		z-index: 0;
+	}
+
+	#{$h} {
+		background-color: $c-bg-light;
+		display: inline-block;
+		margin-left: $base-spacing-unit;
+		padding: 0 $quarter-spacing-unit;
+		position: relative;
+		z-index: 1;
+	}
+}
