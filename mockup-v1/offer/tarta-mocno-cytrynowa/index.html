@@ -21,6 +21,16 @@
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
 
+        <script type="text/javascript">
+
+            $(function() {
+                $('.offer-thumbnail').on('click', function(e) {
+                    window.location = $(e.currentTarget).data('url');
+                });
+            });
+
+        </script>
+
     </head>
 
     <body class="page--offer">
@@ -188,7 +198,7 @@
                             </div>
 
                             <div class="offer__description">
-                                <p class="offer__description__paragraph">Przepyszna tarta z kruchym spodzem i musem śmietanowo-cytrynowym. Wystarczająco słodka, z soczystym i orzeźwiajacym smakiem cytryny. Wiosenna i lekka! Najlepiej smakuje z cukrem pudrem i bitą śmietaną.</p>
+                                <p class="offer__description__paragraph">Przepyszna tarta z kruchym spodem i musem śmietanowo-cytrynowym. Wystarczająco słodka, z soczystym i orzeźwiajacym smakiem cytryny. Wiosenna i lekka! Najlepiej smakuje z cukrem pudrem i bitą śmietaną.</p>
                                 <p class="offer__source">Przepis pochodzi z serwisu <a class="offer__source__link" href="http://www.mojewypieki.com/przepis/tarta-cytrynowa" target="_blank"><img class="offer__source__favico" src="http://www.mojewypieki.com/favicon.ico">Moje Wypieki</a></p>
                             </div>
                         </div>
@@ -340,7 +350,7 @@
 
                             <ul class="offers-thumbnails">
                                 <li class="thumbnails-grid__container">
-                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail" data-url="/offer/ciasto-czekoladowe-z-musem-cytrynowym/">
                                         <div class="thumbnail__text--top">
                                             <h3>Ciasto czekoladowe z musem cytrynowym</h3>
                                         </div>
@@ -369,7 +379,7 @@
                                     </div>
                                 </li>
                                 <li class="thumbnails-grid__container">
-                                    <div class="thumbnails-grid__thumbnails offer-thumbnail">
+                                    <div class="thumbnails-grid__thumbnails offer-thumbnail" data-url="/offer/ciasteczka-brownie-z-maslem-orzechowym/">
                                         <div class="thumbnail__text--top">
                                             <h3>Ciasteczka brownie z masłem orzechowym</h3>
                                         </div>
