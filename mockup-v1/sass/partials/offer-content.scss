@@ -37,18 +37,30 @@
 	}
 
 
-	ul.offer__pictures,
+	.offer__pictures,
 	.offer__order {
 		display: inline-block;
 		vertical-align: middle;
 		width: 50%;
 	}
 
-	ul.offer__pictures {
+	.offer__pictures {
 		@extend .photo-gallery--inline;
 
+		@include scut-after() {
+			@include scut-absolute(0 0 0 n);
+
+			background-image: linear-gradient(to left, $c-bg-acc-light 0%, transparent 100%);
+			width: .4rem;
+		}
+
 		height: 15rem;
+		overflow: hidden;
+		position: relative;
 	}
+		.offer__pictures__list {
+			@extend .photo-gallery__list;			
+		}
 	
 		.offer__pictures__picture {
 			@extend .photo-gallery__photo;
