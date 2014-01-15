@@ -14439,7 +14439,8 @@ a.hyperlink:visited {
 .photo-gallery__photo--fullscreen,
 .page--offer .offer__pictures__picture--preview {
   position: fixed;
-  max-height: 90%;
+  height: 80%;
+  max-height: 80%;
 }
 
 @media -sass-debug-info {
@@ -14448,7 +14449,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000322;
+    font-family: \0000323;
   }
 }
 
@@ -14463,7 +14464,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000328;
+    font-family: \0000329;
   }
 }
 
@@ -14480,7 +14481,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000337;
+    font-family: \0000338;
   }
 }
 
@@ -14501,7 +14502,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000342;
+    font-family: \0000343;
   }
 }
 
@@ -16972,9 +16973,9 @@ body {
   right: 16px;
   left: 0;
   background-color: transparent;
-  background-image: -webkit-gradient(linear, top left, bottom left, from(#eaeaea), to(rgba(234, 234, 234, 0)));
-  background-image: -webkit-linear-gradient(top, #eaeaea, rgba(234, 234, 234, 0));
-  background-image: linear-gradient(to bottom, #eaeaea, rgba(234, 234, 234, 0));
+  background-image: -webkit-gradient(linear, top left, bottom left, from(#ffffff), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, #ffffff, rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0));
   height: 3px;
   z-index: 1;
 }
