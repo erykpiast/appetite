@@ -50,7 +50,7 @@
 		@include scut-after() {
 			@include scut-absolute(0 0 0 n);
 
-			background-image: linear-gradient(to left, $c-bg-acc-light 0%, transparent 100%);
+			background-image: linear-gradient(to left, $c-bg-acc-light 0%, rgba($c-bg-acc-light, 0) 100%);
 			width: .4rem;
 		}
 

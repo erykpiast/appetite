@@ -38,7 +38,8 @@
 	.photo-gallery__list {
 		@include scut-list-unstyled();
 
-		width: 5000px;
+		height: 100%;
+		width: 5000px; // Infinity :)
 
 		.photo-gallery__photo {
 			display: inline-block;

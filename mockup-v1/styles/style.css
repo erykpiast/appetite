@@ -14493,6 +14493,7 @@ a.hyperlink:visited {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 100%;
   width: 5000px;
 }
 
@@ -14502,7 +14503,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000343;
+    font-family: \0000344;
   }
 }
 
@@ -18054,9 +18055,9 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-  background-image: -webkit-gradient(linear, top right, top left, from(#ffffff), to(transparent));
-  background-image: -webkit-linear-gradient(right, #ffffff 0%, transparent 100%);
-  background-image: linear-gradient(to left, #ffffff 0%, transparent 100%);
+  background-image: -webkit-gradient(linear, top right, top left, from(#ffffff), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   width: .4rem;
 }
 
