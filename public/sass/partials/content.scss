@@ -1,0 +1,19 @@
+.page--main {
+	.page__content {
+		@extend .grid; 
+
+		margin-top: $base-spacing-unit;
+
+		.page__content__column {
+			@extend .grid__item;
+		}
+
+		.page__content__offers {
+			@extend .three-quarters;
+		}
+
+		.page__content__sidebar {
+			@extend .one-quarter;
+		}
+	}
+}

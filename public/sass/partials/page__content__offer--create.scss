@@ -1,0 +1,14 @@
+.page__content__offer--create {
+	@extend .page__content__offer;
+
+	.offer--create__template {
+		& > fieldset {
+			border: none;
+
+			& > legend {
+				display: none;
+			}
+		}
+	}
+
+}

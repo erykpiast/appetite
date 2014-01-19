@@ -1,10 +1,13 @@
 .thumbnail {
+    box-sizing: border-box;
     overflow: hidden;
     position: relative;
     text-align: center;
+    transition: border-color .15s linear;
   
     .thumbnail__background {
-        $maxBgWidth: 1000px; 
+        $maxBgWidth: 500px;
+
         height: 100%;
         left: 50%;
         margin-left: -($maxBgWidth / 2);
@@ -24,7 +27,6 @@
         $animDuration: .5s;
         $animEasing: ease-in;
 
-        background-color: rgba(255, 255, 255, 1);
         box-sizing: border-box;
         left: 0;
         position: absolute;
@@ -38,17 +40,24 @@
         @extend .thumbnail__text;
     }
     .thumbnail__text--top {
-        top: 0;
+        top: 0%;
+        
+        & > * {
+            height: 100%;
+            overflow: hidden;
+        }
     }
     .thumbnail__text--bottom {
-        bottom: -100%;
-        transition: bottom linear .15s;
+        padding-bottom: $half-spacing-unit;
+
+        & > * {
+            height: 100%;
+        }
     }
   
     &:hover {
         .thumbnail__text--bottom {
             bottom: 0;
-            transition: bottom ease-out .3s;
         }
     }
 }

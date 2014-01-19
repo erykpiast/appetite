@@ -1,0 +1,10 @@
+.grid {
+	font-size: 0;
+
+	& > * {
+		font-size: $base-font-size;
+	}
+}
+	.grid__item {
+		padding-bottom: $base-spacing-unit;
+	}

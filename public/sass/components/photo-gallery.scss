@@ -1,0 +1,50 @@
+.photo-gallery {
+	z-index: auto; // empty selector causes warning with @extend
+}
+
+.photo-gallery__photo {
+	cursor: pointer;
+
+	& > img {
+		height: 100%;
+		width: auto;
+	}
+}
+
+.photo-gallery__photo--fullscreen {
+	@extend .photo-gallery__photo;
+	@extend .overlay;
+
+	@include scut-fixed(n n n n);
+
+	height: 80%;
+	max-height: 80%;
+
+	& > img {
+		display: block;
+	}
+}
+
+
+.photo-gallery--inline {
+	@extend .photo-gallery;
+
+	display: block;
+	overflow: {
+		y: hidden;
+		x: auto;
+	};
+
+	.photo-gallery__list {
+		@include scut-list-unstyled();
+
+		height: 100%;
+		width: 5000px; // Infinity :)
+
+		.photo-gallery__photo {
+			display: inline-block;
+			height: 100%;
+		}
+	}
+}
+

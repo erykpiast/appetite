@@ -1,0 +1,28 @@
+a {
+
+	&, &:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		border: none;
+	}
+
+	&, &:active, &:visited {
+		color: inherit;
+	}
+
+	&.hyperlink {
+		&, &:hover {
+			text-decoration: underline;
+		}
+
+		&:focus {
+			// border: 1px dotted $c-shadow-dark;
+		}
+
+		&, &:active, &:visited {
+			color: $c-fg-acc;
+		}
+	}
+}

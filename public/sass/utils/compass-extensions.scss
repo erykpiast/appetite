@@ -1,0 +1,49 @@
+@mixin vertical-spacing($property: margin) {
+	#{$property}: {
+		bottom: $text-trailing;
+		top: $text-leading;
+	};
+}
+
+
+@mixin horizontal-spacing($property: margin) {
+	#{$property}: {
+		left: $text-trailing;
+		right: $text-leading;
+	};
+}
+
+
+@mixin spacing($property: margin) {
+	@include vertical-spacing($property);
+	@include horizontal-spacing($property);
+}
+
+
+@mixin vertical-half-spacing($property: margin) {
+	#{$property}: {
+		bottom: $text-trailing / 2;
+		top: $text-leading / 2;
+	};
+}
+
+
+@mixin horizontal-half-spacing($property: margin) {
+	#{$property}: {
+		left: $text-trailing / 2;
+		right: $text-leading / 2;
+	};
+}
+
+
+@mixin half-spacing($property: margin) {
+	@include vertical-spacing($property);
+	@include horizontal-spacing($property);
+}
+
+
+@mixin slice-to-lines($lines, $font-size, $property: height) {
+	#{$property}: $lines * ($font-size * $line-height-ratio);
+
+	overflow: hidden;
+}

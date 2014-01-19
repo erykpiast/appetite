@@ -1,0 +1,190 @@
+@mixin scut-pseudo($type, $display: inline-block, $content: "") {
+    &:#{$type} {
+        display: $display;
+        content: $content;
+
+        @content;
+    }
+}
+
+@mixin scut-before($display: inline-block, $content: "") {
+    @include scut-pseudo(before, $display, $content) {
+        @content;
+    }
+}
+
+@mixin scut-after($display: inline-block, $content: "") {
+    @include scut-pseudo(after, $display, $content) {
+        @content;
+    }
+}
+
+@mixin scut-side-shadow($side, $size, $color, $pseudo: before) {
+    position: relative;
+  
+    @include scut-pseudo($pseudo, $display: block) {
+        position: absolute;
+     
+        @if ($side == bottom) or ($side == top) {
+            height: $size;
+            left: 0;
+            right: 0;
+        }
+
+        @if ($side == left) or ($side == right) {
+            bottom: 0;
+            top: 0;
+            width: $size;
+        }
+
+        #{$side}: -$size;
+        background-image: linear-gradient(to $side, $color, transparent);
+
+        @content;
+    }
+}
+
+@mixin scut-inline-container() {
+    font-size: 0;
+
+    & > * {
+        font-size: $base-font-size;
+    }
+}
+
+@mixin scut-hide-text() {
+    overflow: hidden;
+    text-indent: -10000px;
+}
+
+@mixin scut-square($width, $border-width: 0, $border-bottom-width: $border-width, $border-top-width: $border-width) {
+    $height: 100%;
+    @if ($border-width != 0) or ($border-bottom-width != 0) or ($border-top-width != 0) {
+        $height: #{"calc( 100% - " + ($border-bottom-width + $border-top-width) + " )"};
+    }
+
+    display: block;
+    height: 0;
+    padding: 0 {
+        bottom: $height;
+    };
+    width: $width;
+}
+
+@mixin scut-vcenter-tt {
+    margin: {
+        bottom: auto;
+        top: auto;
+    };
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+@mixin scut-multiline-text-overflow($type: ellipsis, $width: 4em, $padding-right: 0.5em, $line-height: 1.5em) {
+    // $type - text (in quotes) or word ellipsis (without quotes) that matches \02026 Unicode character
+    // $width - width of "ellipsis element" (shows up on the end of text); increasing this value can helps if you have problem with line wrapping, but it decrease "accuracy of detecting" the last word
+    // $padding-right - simply right padding of "ellipsis element"
+    // $line-height - should be absolute value (in px, ems etc.) and fit to line-height of cutting text
+    // you can use @content block to style "ellipsis element"
+
+    @if ($type == ellipsis) {
+        $type: "\02026";
+    }
+
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        content: "";
+        float: left;
+        height: 100%;
+        width: $padding-right;
+    }
+  
+    &:after {
+        content: $type;
+        float: right;
+        left: 100%; 
+        margin-left: -$width;
+        padding-right: $padding-right;
+        position: relative;
+        text-align: left;
+        top: -$line-height;
+        width: $width;
+        
+        @content;
+    }
+
+    & > *:first-child {
+        float: right;
+        width: 100%;
+        margin-left: -$padding-right;
+    }
+}
+
+@mixin scut-debug() {
+    outline: 1px dotted rgb(255, 128, 128);
+}
+
+@mixin scut-row-grid($row-height, $color: rgba(99, 99, 99, .2)) {
+    background: {
+        color: transparent;
+        image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 99%, $color 100%);
+        position: 0 0;
+        repeat: repeat-y;
+        size: 100% $row-height;
+    };
+}
+
+@mixin scut-center-tt(
+    $side: null // or x or y
+) {
+    position: relative;
+
+    @if $side != x {
+        top: 50%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    @if $side != y {
+        left: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    $translate-val: null;
+
+    @if not $side {
+        $translate-val: translate(-50%, -50%);
+    } @else if $side != x {
+        $translate-val: translateY(-50%);
+    } @else if $side != y {
+        $translate-val: translateX(-50%);
+    }
+
+    -webkit-transform: $translate-val;
+    -ms-transform: $translate-val;
+    transform: $translate-val;
+}
+
+%scut-center-tt {
+    @include scut-center-tt;
+}
+
+%scut-center-tt-x {
+    @include scut-center-tt(x);
+}
+
+%scut-center-tt-y {
+    @include scut-center-tt(y);
+}
+
+@mixin scut-vcenter-tt() {
+    @include scut-center-tt(y);
+}
+
+%scut-vcenter-tt {
+    @include scut-vcenter-tt;
+}

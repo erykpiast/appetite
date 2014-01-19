@@ -11,17 +11,18 @@
 
     </head>
 
-    <body>
-    
-        <section id="page" class="page">
+    <body class="page">
 
-            <header id="header" class="page--header row" ui-view="header"></header>
+        <div class="wrapper">
+            <header id="header" class="page__header" ui-view="header"></header>
 
-            <div id="content" class="page--content row" ui-view="content"></div>
+            <div class="page__middle">
+                <div id="content" class="page__content" ui-view="content"></div>
+                <div id="sidebar" class="page__sidebar" ui-view="sidebar"></div>
+            </div>
+        </div>
 
-            <footer id="footer" class="page--footer row" ui-view="footer"></footer>    
-
-        </section>
+        <footer id="footer" class="page__footer" ui-view="footer"></footer>
 
     </body>
 </html>

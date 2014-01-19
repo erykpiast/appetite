@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                     cssDir: 'styles',
                     imagesDir: 'styles/images',
                     specify: appDir + '/sass/style.scss',
-                    require: [ 'compass', 'compass-inuit', 'scut', 'sass-css-importer' ],
+                    require: [ 'compass', 'compass-inuit', 'scut', 'font-awesome-sass', 'sass-css-importer' ],
                     force: true,
                     relativeAssets: true,
                     noLineComments: true,

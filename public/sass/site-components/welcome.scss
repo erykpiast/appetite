@@ -1,0 +1,171 @@
+.welcome {
+	@extend .overlay;
+
+	@include scut-after {
+		@include scut-absolute(6.5rem 16px n 0); // 16px is common scrollbar size
+
+		background: {
+			color: transparent;
+			image: linear-gradient(to bottom, $c-bg-acc-light, rgba($c-bg-acc-light, 0));
+		};
+		height: 3px;
+		z-index: 1;
+	}
+
+	background-color: #FFF;
+	border: 1px solid #000 {
+		radius: .3rem;
+	};
+	height: 51rem;
+	max-height: 80%;
+	width: 51rem;
+
+	& > .wrapper {
+		@include scut-absolute(6.5rem 0 0 0);
+
+		overflow: {
+			x: hidden;
+			y: auto;
+		};
+		padding: 0 $base-spacing-unit;
+		z-index: 0;
+	}
+
+	.welcome__header {
+		& > h1 {
+			text-align: center;
+
+			& > small {
+				color: $c-fg-def;
+				font: {
+					family: $content-font;
+					size: $base-font-size;
+					weight: normal;
+				};
+			}
+		}
+	}
+
+	.welcome__close {
+		@include hover-effect--expand() {
+			background-color: $c-fg-acc;
+		}
+		@include scut-absolute(-1px -1px n n);
+
+		&:hover {
+			color: $c-bg-light;
+			transition: color .2s ease-out;
+		}
+	}
+
+	.welcome__start-time {
+		font-size: 125%;
+		margin: $base-spacing-unit 0;
+		text-align: center;
+	}
+
+	.welcome__contribute {
+		& > header {
+			padding: {
+				bottom: $base-spacing-unit;
+				top: 0;
+			};
+			text-align: center;
+		}
+
+		.welcome__contribute__options {
+			display: table;
+			margin-bottom: $base-spacing-unit;
+
+			.welcome__contribute__option {
+				display: table-cell;
+				padding: 0 $base-spacing-unit;
+				vertical-align: top;
+				width: 33%;
+
+				.button--contribute {
+					@extend .button--call-to-action;
+
+					margin: {
+						bottom: $half-spacing-unit;
+						left: 12.5%;
+					};
+					width: 75%;
+				}
+
+				.button--contribute--facebook {
+					@extend .button--contribute;
+					@extend .button--ico--facebook-square;
+					
+					@include hover-effect--expand() {	    
+					    background-color: $c-facebook-light;
+					    box-shadow: 0 0 .25em $c-facebook-light;
+					};
+
+					color: $c-bg-light;
+					background-color: $c-facebook-def;
+					border-color: $c-facebook-dark;
+				}
+
+				.button--contribute--adblock {
+					@extend .button--contribute;
+					@extend .button--ico--power-off;
+					
+					@include hover-effect--expand() {	    
+					    background-color: $c-adblock-light;
+					    box-shadow: 0 0 .25em $c-shadow-dark;
+					};
+
+					color: $c-bg-light;
+					background-color: $c-adblock-dark;
+					border-color: $c-shadow-dark;
+				}
+
+				.button--contribute--paypal {
+					@extend .button--contribute;
+					@extend .button--ico--gift;
+					
+					@include hover-effect--expand() {	    
+					    background-color: $c-fg-acc-light;
+					    box-shadow: 0 0 .25em $c-shadow-dark;
+					};
+
+					color: $c-bg-light;
+					background-color: $c-fg-acc;
+					border-color: $c-shadow-dark;
+				}
+
+				.button--contribute--github {
+					@extend .button--contribute;
+					@extend .button--ico--github;
+					
+					@include hover-effect--expand() {	    
+					    background-color: $c-github-light;
+					    box-shadow: 0 0 .25em $c-github-light;
+					};
+
+					background-color: $c-github-def;
+					border-color: $c-github-dark;
+					color: #000;
+					overflow: hidden;
+
+					&:before {
+						border-color: #000;
+					}
+				}
+			}
+		}
+	}
+}
+
+.page--offer .welcome {
+	h1 {
+		margin-top: $base-spacing-unit;
+	}
+
+	& > .wrapper {
+		p {
+			text-align: center;
+		}
+	}
+}

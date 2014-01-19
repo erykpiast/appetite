@@ -1,0 +1,98 @@
+.page__content__offers {
+	// dumb (and temporary!) method to aligning space between visible parts of rows to $base-spacing-unit (21px)
+	.page__row:first-child {
+		margin-top: -4px;
+	}
+
+	.page__row:not(:first-child) {
+		margin-top: -7px;
+	}
+}
+
+.offers {
+	header {
+		@include header-with-line("h2");
+		
+		$folded-size: $half-spacing-unit;
+		$unfolded-width: 10em;
+		.offers__more {
+			$unfolded-height: 1.5em;
+			
+			height: $unfolded-height;
+			margin-top: -($unfolded-height / 2);
+			overflow: hidden;
+			position: absolute;
+			right: $half-spacing-unit;
+			top: 50%;
+			transition: width .2s linear;
+			white-space: nowrap;
+			width: $folded-size;
+
+			@include scut-after() {
+				@include scut-circle($folded-size, $c-bg-light);
+				border: $rpx solid $c-fg-acc;
+				box-sizing: border-box;
+				right: 0;
+				transition: background-color .2s linear;
+			}
+
+			&:after,
+			.offers__more__text {
+				@include scut-vcenter-tt();
+				position: absolute;
+			}
+
+			.offers__more__text {
+				background-color: $c-bg-light;
+				color: $c-fg-acc;
+				padding: 0 $quarter-spacing-unit;
+				right: $folded-size;
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			.offers__more {
+				transition: width .3s ease-out $response-delay;
+				width: $unfolded-width;
+
+				&:after {
+					background-color: $c-fg-acc;
+					transition: background-color .3s ease-out $response-delay;
+				}
+
+				.offers__more__text {
+					right: $folded-size * 2;
+				}
+			}
+		}
+	}
+}
+
+.offers--cakes, .offers--baking, .offers--snacks, .offers--meals, .offers--jams {
+	@extend .offers;
+}
+
+.offers--cakes {
+	.thumbnails-grid__container {
+		@extend .one-quarter;
+	}
+}
+
+.offers--baking, .offers--snacks, .offers--meals, .offers--jams {
+	float: left;
+	width: calc(50% - #{$half-spacing-unit});
+
+	.thumbnails-grid__container {
+		@extend .one-half;
+	}
+}
+
+.offers--snacks, .offers--jams {
+	margin-left: $base-spacing-unit;
+}
+
+.offers-thumbnails {
+	@extend .thumbnails-grid;
+}

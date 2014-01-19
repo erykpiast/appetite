@@ -33,7 +33,11 @@ function(angular, auth,
                         'content@': {
                             template: templates.main,
                             controller: controllers.main
-                        }
+                        }/*,
+                        'sidebar@': {
+                            template: templates.sidebarMain,
+                            controller: controllers.sidebarMain
+                        }*/
                     }, common)
                 })
                 .state('offer', {
@@ -42,7 +46,11 @@ function(angular, auth,
                         'content@': {
                             template: templates.offers,
                             controller: controllers.offers
-                        }
+                        }/*,
+                        'sidebar@': {
+                            template: templates.sidebarOffers,
+                            controller: controllers.sidebarOffers
+                        }*/
                     }, common)
                 })
                 .state('offer.details', {
@@ -51,7 +59,11 @@ function(angular, auth,
                         'content@': {
                             template: templates.offer,
                             controller: controllers.offer
-                        }
+                        }/*,
+                        'sidebar@': {
+                            template: templates.sidebarOffer,
+                            controller: controllers.sidebarOffer
+                        }*/
                     }, common)
                 })
                 .state('offer.create', {
@@ -60,7 +72,11 @@ function(angular, auth,
                         'content@': {
                             template: templates.offerCreate,
                             controller: controllers.offerCreate
-                        }
+                        }/*,
+                        'sidebar@': {
+                            template: templates.sidebarOffer,
+                            controller: controllers.sidebarOffer
+                        }*/
                     }, common)
                 })
                 .state('user', {
@@ -69,7 +85,11 @@ function(angular, auth,
                         'content@': {
                             template: templates.users,
                             controller: controllers.users
-                        }
+                        }/*,
+                        'sidebar@': {
+                            template: templates.sidebarUsers,
+                            controller: controllers.sidebarUsers
+                        }*/
                     }, common)
                 })
                 .state('user.details', {
@@ -78,7 +98,11 @@ function(angular, auth,
                         'content@': {
                             template: templates.user,
                             controller: controllers.user
-                        }
+                        }/*,
+                        'sidebar@': {
+                            template: templates.sidebarUser,
+                            controller: controllers.sidebarUser
+                        }*/
                     }, common)
                 });
                 

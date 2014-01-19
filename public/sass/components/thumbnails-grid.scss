@@ -1,0 +1,7 @@
+.thumbnails-grid {
+	@extend .grid;
+	
+	.thumbnails-grid__container {
+		@extend .grid__item;
+	}
+}

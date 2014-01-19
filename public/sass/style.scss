@@ -6,27 +6,90 @@
 // Variables - must come first !!!
 @import "_vars.scss";
 
+
 // Frameworks
 @import "compass";
 @import "compass/layout";
+@import "compass/layout/stretching";
 @import "compass/typography";
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3/images";
 
 @import "compass-inuit";
+@import "compass-inuit/generic/reset";
+
+@import "scut";
+
+@import "font-awesome";
+
+@import "fonts.scss";
+
+// Utils
+@import "utils/scut-extensions.scss";
+@import "utils/inuit-extensions.scss";
+@import "utils/compass-extensions.scss";
+
+
+// General styles
+@import "partials/page.scss";
+
 
 // Components
-@import "components/page.scss";
-@import "components/grid.scss";
+@import "components/links.scss";
 
-@import "components/rhythm.scss";
+@import "components/slider.scss";
+@import "components/search.scss";
+@import "components/links.scss";
+@import "components/buttons.scss";
 @import "components/thumbnail.scss";
-@import "components/gallery.scss";
-@import "components/lists.scss";
-@import "components/text-block.scss";
+@import "components/thumbnails-grid.scss";
+@import "components/overlay.scss";
+@import "components/photo-gallery.scss";
+@import "components/comment.scss";
+@import "components/header-with-line.scss";
 
 // Site-specific components
+@import "site-components/footer.scss";
+@import "site-components/main-search.scss";
 @import "site-components/offer-thumbnail.scss";
+@import "site-components/offers.scss";
+@import "site-components/sidebar.scss";
+@import "site-components/offer-author.scss";
+@import "site-components/welcome.scss";
 
 // Partials
-@import "partials/main.scss";
-@import "partials/offer.scss";
-@import "partials/user.scss";
+@import "partials/header.scss";
+@import "partials/content.scss";
+@import "partials/page__content__offer.scss";
+@import "partials/page__content__offer--create.scss";
+
+
+
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+}
+
+body {
+    background: {
+    	color: $c-bg-light;
+    	image: url('../images/patterns/fabric_plaid.png');
+    };
+	border-color: $c-fg-def;
+	font-family: $content-font;
+	color: $c-fg-def;
+}
+
+h1, h2 {
+	color: $c-fg-acc;
+	font-family: $heading-font;
+}
+
+
+img[src=""] {
+	display: none;
+}

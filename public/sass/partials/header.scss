@@ -1,0 +1,74 @@
+.page__header {
+    $header-height: 100px;
+
+    height: $header-height;
+    margin-left: -$base-spacing-unit; // grid in content has margin like that and real width of element with width: 100% inside that grid is bigger by given amount; to have the same base width in header, should emulate grid margin
+    overflow: {
+        y: hidden;
+        x: visible;
+    };
+
+    .page__header__bar {
+        @include scut-inline-container();
+        @include scut-after();
+
+        margin-top: 2.4rem;
+        position: relative;
+        text-align: right;
+        width: 100%;
+        z-index: 1;
+
+        & > *,
+        &:after {
+            float: left;
+        }
+
+        
+        .page__header__title {
+            text-align: center;
+            width: 40%;
+
+            h1 {
+                background-color: $c-bg-acc;
+                display: inline-block;
+                line-height: 1;
+                margin-top: -$half-spacing-unit;
+                padding: 3 * $quarter-spacing-unit;
+                text-shadow: 0.05em 0 0.05em $c-bg-light, 0 0.05em 0.05em $c-bg-light, 0 0 0.05em $c-shadow-dark;
+            }
+        }
+
+        .page__header__search {
+            width: 35%;
+        }
+
+        &:after {
+            width: 25%;
+        }
+    }
+
+    .page__header__background {
+        $shadow-size: 2px;
+
+        @include scut-side-shadow(top, $shadow-size, $c-shadow-dark, after) {
+            top: calc(100% - #{$shadow-size} + 1px);
+        };
+        @include scut-side-shadow(bottom, $shadow-size, $c-shadow-dark, before) {
+            bottom: calc(100% - #{$shadow-size});
+        };
+        @include scut-absolute(0 0 n 0);
+
+        background: {
+            color: $c-bg-acc;
+            image: radial-gradient($c-bg-acc-light 15%, transparent 16%), radial-gradient($c-bg-acc-light 15%, transparent 16%);
+            size: 30px 30px;
+            position: 0 0, 15px 15px;
+        };
+        border: none {
+            bottom: 1px solid $c-shadow-dark;
+            top: 3px solid $c-bg-light;
+        };
+        height: $header-height;
+        z-index: 0;
+    }
+}

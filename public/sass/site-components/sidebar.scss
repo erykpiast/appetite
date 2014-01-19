@@ -1,0 +1,144 @@
+.page__content__sidebar {
+
+	// dumb (and temporary!) method to aligning space between visible parts of rows to $base-spacing-unit (21px)
+	margin-top: -4px;
+	text-align: center;
+
+	& > * {
+		text-align: left;
+	}
+
+	& > h2 {
+		background-color: $c-bg-light;
+		display: inline-block;
+		padding: 0 $half-spacing-unit;
+	}
+
+	& > form {
+			margin-top: -$base-spacing-unit;
+	}
+
+	form.page__content__sidebar__box {
+		margin-bottom: $base-spacing-unit;
+
+		fieldset {
+			border: none {
+				top: 1px solid $c-fg-acc;
+			};
+			padding-top: $base-spacing-unit;
+
+			legend {
+				display: none;
+			}
+		}
+	}
+
+	form.login {
+		overflow: visible;
+		
+		fieldset {
+			text-align: center;
+		}
+	}
+
+	.button--login {
+		@extend .button--call-to-action;
+		
+		display: block;
+		margin: 0 auto {
+			top: $half-spacing-unit;
+		};
+		transition: background-color 0.2s linear;
+
+		&:hover {
+			transition: background-color 0.3s ease-out;
+		}
+	}
+
+	.button--login--facebook {
+		@extend .button--ico--facebook;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-facebook-light;
+		    box-shadow: 0 0 .25em $c-facebook-light;
+		};
+
+		background-color: $c-facebook-def;
+		border-color: $c-facebook-dark;
+		overflow: hidden;
+	}
+	
+	.button--contribute,
+	.button--contribute + span {
+	    float: left;
+	}
+	
+	.button--contribute {
+		@extend .button--empty;
+		
+		font-size: 150%;
+		margin-top: $quarter-spacing-unit;
+		overflow: hidden;
+	}
+	
+	.button--contribute + span {
+		margin-bottom: $half-spacing-unit;
+		padding-left: $half-spacing-unit;
+	    width: 80%;
+	}
+
+	.button--contribute--facebook {
+		@extend .button--contribute;
+		@extend .button--ico--facebook-square;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-facebook-light;
+		    box-shadow: 0 0 .25em $c-facebook-light;
+		};
+
+		color: $c-bg-light;
+		background-color: $c-facebook-def;
+		border-color: $c-facebook-dark;
+	}
+
+	.button--contribute--adblock {
+		@extend .button--contribute;
+		@extend .button--ico--power-off;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-adblock-light;
+		    box-shadow: 0 0 .25em $c-shadow-dark;
+		};
+
+		color: $c-bg-light;
+		background-color: $c-adblock-dark;
+		border-color: $c-shadow-dark;
+	}
+
+	.button--contribute--paypal {
+		@extend .button--contribute;
+		@extend .button--ico--gift;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-fg-acc-light;
+		    box-shadow: 0 0 .25em $c-shadow-dark;
+		};
+
+		color: $c-bg-light;
+		background-color: $c-fg-acc;
+		border-color: $c-shadow-dark;
+	}
+
+	.button--contribute--github {
+		@extend .button--contribute;
+		@extend .button--ico--github;
+		
+		@include hover-effect--expand() {	    
+		    background-color: $c-github-light;
+		    box-shadow: 0 0 .25em $c-github-light;
+		};
+
+		background-color: $c-github-def;
+		border-color: $c-github-dark;
+	}
+}

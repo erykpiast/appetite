@@ -1,0 +1,33 @@
+.slider {
+
+	@extend %scut-list-unstyled;
+	@extend %scut-list-inline;
+
+	.slider__element {
+		overflow: hidden;
+
+		&,
+		.slider__element__figure {
+			@include scut-size(100% 100%);
+		}
+
+		.slider__element__figure {
+			display: block;
+			margin: 0;
+			text-align: center;
+			@include scut-vcenter-ib(".slider__element__image");
+			&:before {
+	            height: auto;
+	        }
+
+			.slider__element__image {
+				height: auto;
+				min-width: 640px;
+			}
+
+			.slider__element__label {
+				position: absolute;
+			}
+		}
+	}
+}
