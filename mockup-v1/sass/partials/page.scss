@@ -48,35 +48,18 @@
 		width: 0;
 		z-index: 1;
     }
-}
-	.page__middle {
-		@include scut-inline-container();
 
+    .page__row {
+		overflow: auto;
+	}
+
+	.page__content {
 		margin-top: $base-spacing-unit;
 	}
-		.page__middle__column {
-			display: inline-block;
-			vertical-align: top;
-		}
-
-		.page__content {
-			@extend .page__middle__column;
-
-			width: 75%;
-		}
-
-		.page__sidebar {
-			@extend .page__middle__column;
-
-			width: 25%;
-		}
+}
 
 .page--main, .page--offer {
 	@extend .page;
-}
-
-.page--offer--create {
-	@extend .page--offer;
 }
 
 

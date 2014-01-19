@@ -18,6 +18,7 @@
 @import "scut";
 
 @import "font-awesome";
+
 @import "fonts.scss";
 
 // Utils
@@ -56,8 +57,7 @@
 // Partials
 @import "partials/header.scss";
 @import "partials/content.scss";
-@import "partials/page__content__offer.scss";
-@import "partials/page__content__offer--create.scss";
+@import "partials/offer-content.scss";
 
 
 
