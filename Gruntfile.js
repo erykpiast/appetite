@@ -16,9 +16,16 @@ module.exports = function(grunt) {
                         cwd: appDir,
                         src: [ 'bower_components/jquery-ui/themes/base/images/*' ],
                         dest: appDir + '/styles/images'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: appDir,
+                        src: [ 'bower_components/select2/*.{png,gif}' ],
+                        dest: appDir + '/styles/'
                     }
                 ]
-            }
+            }, 
         },
         compass: {
             dev: {

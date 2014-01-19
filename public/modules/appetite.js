@@ -1,16 +1,16 @@
 define([ 'libs/angular', 'modules/auth',
-         'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui-router', 'libs/angular-ui-date',
+         'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui-router', 'libs/angular-ui-date', 'libs/angular-ui-select2',
          'controllers', 'templates',
          'directives', 'services', 'filters' ],
 function(angular, auth,
-         _angularResource, _cookieStore, _angularUiRouter, _angularUiDate,
+         _angularResource, _cookieStore, _angularUiRouter, _angularUiDate, _angularUiSelect2,
          controllers, templates,
          _directives, _services, _filters) {
 
     'use scrict';
 
     angular.module('appetite',
-        [ 'ngResource', 'ngCookies', 'ui.router', 'ui.date', 'auth',
+        [ 'ngResource', 'ngCookies', 'ui.router', 'ui.date', 'ui.select2', 'auth',
           'appetite.filters', 'appetite.directives', 'appetite.services' ])
         .config(function($stateProvider, $urlRouterProvider, $locationProvider, $cookieStoreProvider) {
             $urlRouterProvider.otherwise('/');

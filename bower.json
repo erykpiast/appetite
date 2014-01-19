@@ -8,7 +8,9 @@
   ],
   "dependencies": {
     "underscore": "~1.5.2",
-    "underscore.string": "~2.3.3"
+    "underscore.string": "~2.3.3",
+    "angular-ui-select2": "~0.0.5",
+    "select2": "~3.4.5"
   },
   "resolutions": {
     "angular": "~1.2.1"

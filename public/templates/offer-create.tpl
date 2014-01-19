@@ -1,6 +1,6 @@
 <section class="page__content__offer--create">
 
-    <form name="formTemplate" class="offer--create__template">
+    <form name="formTemplate" class="offer--create__form--template">
         <fieldset>
             <legend>{{ i18n.offer.create.templateHeader }}</legend>
 
@@ -57,8 +57,12 @@
                     placeholder="{{ i18n.offer.create.example.tags }}"
                     ng-model="offer.template.tags"
                     ng-required="true"
-                    ng-minlength="3"
-                    ng-maxlength="20" />
+                    ui-select2="{
+                        multiple: true,
+                        simple_tags: true,
+                        maximumSelectionSize: 5,
+                        tags: [ ]
+                    }" />
             </div>
 
             <button 
@@ -72,7 +76,7 @@
         </fieldset>
     </form>
 
-    <form name="formOffer" class="offer--create__details">
+    <form name="formOffer" class="offer--create__form--details">
         <fieldset>
             <legend>{{ i18n.offer.create.detailsHeader }}</legend>
 
