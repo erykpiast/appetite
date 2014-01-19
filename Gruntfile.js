@@ -7,14 +7,28 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        copy: {
+            'css-assets': {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: appDir,
+                        src: [ 'bower_components/jquery-ui/themes/base/images/*' ],
+                        dest: appDir + '/styles/images'
+                    }
+                ]
+            }
+        },
         compass: {
             dev: {
                 options: {
                     basePath: appDir,
                     sassDir: 'sass',
                     cssDir: 'styles',
+                    imagesDir: 'styles/images',
                     specify: appDir + '/sass/style.scss',
-                    require: [ 'compass', 'compass-inuit', 'scut' ],
+                    require: [ 'compass', 'compass-inuit', 'scut', 'sass-css-importer' ],
                     force: true,
                     relativeAssets: true,
                     noLineComments: true,
@@ -66,7 +80,7 @@ module.exports = function(grunt) {
         },
         watch: {
             options: {
-                livereload: LIVEREOAD_PORT
+                livereload: false
             },
             dev: {
                 files: [
@@ -87,6 +101,9 @@ module.exports = function(grunt) {
                 tasks: [ 'shell:debug' ]
             },
             sass: {
+                options: {
+                    livereload: LIVEREOAD_PORT
+                },
                 files: [
                     appDir + '/sass/{,*/}*.scss'
                 ],
@@ -148,6 +165,12 @@ module.exports = function(grunt) {
                 options: {
                     logConcurrentOutput: true
                 }
+            },
+            'dev-watch': {
+                tasks: [ 'watch:dev', 'watch:sass' ],
+                options: {
+                    logConcurrentOutput: true
+                }
             }
         }
     });
@@ -156,6 +179,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-develop');
     grunt.loadNpmTasks('grunt-http-server');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     
     grunt.loadNpmTasks('grunt-node-inspector');
@@ -170,9 +194,10 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [
         'develop',
+        'copy:css-assets',
         'compass:dev',
         'autoprefixer:dev',
-        'watch:dev'
+        'concurrent:dev-watch'
     ]);
     
     grunt.registerTask('mockup', [

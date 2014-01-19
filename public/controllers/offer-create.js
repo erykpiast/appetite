@@ -28,13 +28,11 @@ define([ 'libs/angular' ], function(angular) {
 		}
 
 		angular.extend($scope, {
-			defaultStartTime: new Date(Date.now()),
-			defaultEndTime: new Date(Date.now() + (3 * 24 * 60 * 60 * 1000)),
 			offer: {
 				details: {
-					endAt: '',
+					endAt: new Date(Date.now() + (7 * 24 * 60 * 60 * 1000)),
 					place: '',
-					startAt: ''
+					startAt: new Date(Date.now())
 				},
 				template: {
 					description: '',
@@ -66,21 +64,8 @@ define([ 'libs/angular' ], function(angular) {
 					});
 				});
 			},
-			detailsFullfilled: function() {
-				var d = $scope.offer.details;
-
-				return [ d.place ].every(function(field) {
-						return (field.length > 0);
-					}) && [ d.startAt, d.endAt ].every(function(field) {
-						return !!field;
-					}) && ((new Date(d.startAt)).getTime() > (Date.now() + (10 * 60 * 1000))) && ((new Date(d.startAt)).getTime() < (new Date(d.endAt)).getTime());
-			},
-			templateFullfilled: function() {
-				var t = $scope.offer.template;
-
-				return [ t.title, t.description ].every(function(field) {
-						return (field.length > 0);
-					}) && String.isUrl(t.recipe) && _getTags(t.tags).length;
+			getMaxEndDate: function() {
+				return new Date($scope.offer.details.startAt.getTime() + (14 * 24 * 60 * 60 * 1000));
 			}
 		});
 	};

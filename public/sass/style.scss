@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
+// External stylesheets
+@import "CSS:../bower_components/jquery-ui/themes/base/jquery-ui";
+
 // Variables - must come first !!!
 @import "_vars.scss";
-
 
 // Frameworks
 @import "compass";

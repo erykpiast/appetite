@@ -1,14 +1,16 @@
 define([ 'libs/angular', 'modules/auth',
-         'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui-router',
+         'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui-router', 'libs/angular-ui-date',
          'controllers', 'templates',
          'directives', 'services', 'filters' ],
 function(angular, auth,
-         undefined, undefined, undefined,
+         _angularResource, _cookieStore, _angularUiRouter, _angularUiDate,
          controllers, templates,
-         undefined, undefined, undefined) {
+         _directives, _services, _filters) {
+
+    'use scrict';
 
     angular.module('appetite',
-        [ 'ngResource', 'ngCookies', 'ui.router', 'auth',
+        [ 'ngResource', 'ngCookies', 'ui.router', 'ui.date', 'auth',
           'appetite.filters', 'appetite.directives', 'appetite.services' ])
         .config(function($stateProvider, $urlRouterProvider, $locationProvider, $cookieStoreProvider) {
             $urlRouterProvider.otherwise('/');
@@ -95,6 +97,8 @@ function(angular, auth,
             $rootScope.goTo = function(state, params) {
                 $state.transitionTo(state, params, { location: true, inherit: true, relative: $state.$current, notify: true });
             }
+
+            $rootScope.urlRegExp = String._urlRegExp;
         });
 
     return angular.module('appetite');

@@ -16,6 +16,15 @@ function(angular, module) {
             signLong: 'Zaloguj używając',
             unsignLong: 'Wyloguj - odłącz konto'
         },
+        dates: {
+            dayNames: ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'],
+            dayNamesShort: ['Nie','Pn','Wt','Śr','Czw','Pt','So'],
+            dayNamesMin: ['N','Pn','Wt','Śr','Cz','Pt','So'],
+            monthNames: ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec',
+            'Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'],
+            monthNamesShort: ['Sty','Lu','Mar','Kw','Maj','Cze',
+            'Lip','Sie','Wrz','Pa','Lis','Gru']
+        },
         imagePicker: {
             addNext: 'Dodaj kolejne zdjęcie',
             adderHeader: 'Dodawanie zdjecia',

@@ -2,10 +2,10 @@ user view
   - basic info about user (+ rating)
   - started user's offers
 
-
 interface for adding offer templates and offers
   - mechanism for downscale downloaded images
   - mechanism for suggest tags already added by users
+  - form validators and ui widgets (date etc.)
 
 events cache
   - table in db aggregates notifications for users, ex.:

@@ -192,6 +192,8 @@
 
 // String >>
 	String.isUrl = function(str) {
-		return (str = str + '') && (str.length > 3) && str.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/);
+		return (str = str + '') && (str.length > 3) && str.match(String._urlRegExp);
 	};
+
+	String._urlRegExp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 // << String
