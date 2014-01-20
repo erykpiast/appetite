@@ -6865,6 +6865,262 @@ disabled look for disabled choices in the results dropdown
   }
 }
 
+/*!
+angular-xeditable - 0.1.8
+Edit-in-place for angular.js
+Build date: 2014-01-10 
+*/
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \000037;
+  }
+}
+
+.editable-wrap {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000313;
+  }
+}
+
+.editable-wrap .editable-controls,
+.editable-wrap .editable-error {
+  margin-bottom: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000317;
+  }
+}
+
+.editable-wrap .editable-controls > input,
+.editable-wrap .editable-controls > select,
+.editable-wrap .editable-controls > textarea {
+  margin-bottom: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000321;
+  }
+}
+
+.editable-wrap .editable-input {
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000325;
+  }
+}
+
+.editable-buttons {
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000330;
+  }
+}
+
+.editable-buttons button {
+  margin-left: 5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000334;
+  }
+}
+
+.editable-input.editable-has-buttons {
+  width: auto;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000338;
+  }
+}
+
+.editable-bstime .editable-input input[type=text] {
+  width: 46px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000342;
+  }
+}
+
+.editable-bstime .well-small {
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000347;
+  }
+}
+
+.editable-range output {
+  display: inline-block;
+  min-width: 30px;
+  vertical-align: top;
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000354;
+  }
+}
+
+.editable-color input[type=color] {
+  width: 50px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000358;
+  }
+}
+
+.editable-checkbox label span,
+.editable-checklist label span,
+.editable-radiolist label span {
+  margin-left: 7px;
+  margin-right: 10px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000363;
+  }
+}
+
+.editable-hide {
+  display: none !important;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000367;
+  }
+}
+
+.editable-click,
+a.editable-click {
+  text-decoration: none;
+  /*color: #428bca;*/
+  border-bottom: dashed 1px #428bca;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000373;
+  }
+}
+
+.editable-click:hover,
+a.editable-click:hover {
+  text-decoration: none;
+  /*color: #2a6496;*/
+  /*border-bottom-color: #2a6496*/
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-xeditable\/dist\/css\/xeditable\.css;
+  }
+
+  line {
+    font-family: \0000379;
+  }
+}
+
+.editable-empty,
+.editable-empty:hover,
+.editable-empty:focus,
+a.editable-empty,
+a.editable-empty:hover,
+a.editable-empty:focus {
+  font-style: italic;
+  /*color: #D14;*/
+  text-decoration: none;
+}
+
 /*------------------------------------*\
     VARS.SCSS
 \*------------------------------------*/
@@ -24889,7 +25145,8 @@ body {
 }
 
 .page__content__offer .offer__header,
-.page__content__offer--create .offer__header {
+.page__content__offer--create .offer__header,
+.page__content__offer--create .offer--create__form--template .offer__title {
   margin-bottom: 5.25px;
   overflow: hidden;
   position: relative;
@@ -24906,7 +25163,8 @@ body {
 }
 
 .page__content__offer .offer__header:before,
-.page__content__offer--create .offer__header:before {
+.page__content__offer--create .offer__header:before,
+.page__content__offer--create .offer--create__form--template .offer__title:before {
   top: 50%;
 }
 
@@ -24921,7 +25179,8 @@ body {
 }
 
 .page__content__offer .offer__header:before,
-.page__content__offer--create .offer__header:before {
+.page__content__offer--create .offer__header:before,
+.page__content__offer--create .offer--create__form--template .offer__title:before {
   display: inline-block;
   content: "";
   background-color: #aa1e1e;
@@ -24945,7 +25204,8 @@ body {
 }
 
 .page__content__offer .offer__header h2,
-.page__content__offer--create .offer__header h2 {
+.page__content__offer--create .offer__header h2,
+.page__content__offer--create .offer--create__form--template .offer__title h2 {
   background-color: #eaeaea;
   display: inline-block;
   margin-left: 21px;
@@ -24965,8 +25225,7 @@ body {
 }
 
 .page__content__offer .offer__content,
-.page__content__offer--create .offer__content,
-.page__content__offer--create .offer--create__form--template {
+.page__content__offer--create .offer__content {
   font-size: 0;
   background-color: white;
   border: 1px solid #c8c8c8;
@@ -24989,8 +25248,7 @@ body {
 }
 
 .page__content__offer .offer__content > *,
-.page__content__offer--create .offer__content > *,
-.page__content__offer--create .offer--create__form--template > * {
+.page__content__offer--create .offer__content > * {
   font-size: 14px;
 }
 
@@ -25738,7 +25996,7 @@ body {
   }
 
   line {
-    font-family: \000035;
+    font-family: \000037;
   }
 }
 
@@ -25754,7 +26012,7 @@ body {
   }
 
   line {
-    font-family: \000038;
+    font-family: \0000310;
   }
 }
 
@@ -25766,11 +26024,46 @@ body {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000314;
+  }
+}
+
+.page__content__offer--create .offer--create__form > fieldset .form__field,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field {
+  margin-top: 21px;
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000322;
+  }
+}
+
+.page__content__offer--create .offer--create__form > fieldset .form__field label,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field label,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field label {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/style\.scss;
   }
 
   line {
-    font-family: \0000370;
+    font-family: \0000371;
   }
 }
 
@@ -25784,7 +26077,7 @@ html {
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000375;
   }
 }
 
@@ -25798,7 +26091,7 @@ body {
   }
 
   line {
-    font-family: \0000378;
+    font-family: \0000379;
   }
 }
 
@@ -25816,7 +26109,7 @@ body {
   }
 
   line {
-    font-family: \0000388;
+    font-family: \0000389;
   }
 }
 
@@ -25834,7 +26127,7 @@ h2 {
   }
 
   line {
-    font-family: \0000394;
+    font-family: \0000395;
   }
 }
 

@@ -1,77 +1,80 @@
 <section class="page__content__offer--create">
 
-    <form name="formTemplate" class="offer--create__form--template">
+    <form name="formTemplate" class="offer--create__form--template" editable-form>
         <fieldset>
             <legend>{{ i18n.offer.create.templateHeader }}</legend>
 
-            <div class="offer__title">
+            <div class="offer__title form__field">
             	<label for="offer__title">{{ i18n.offer.create.title }}</label>
-            	<input
-                    id="offer__title"
-                    type="text"
-                    value=""
-                    placeholder="{{ i18n.offer.create.example.title }}"
-                    ng-model="offer.template.title"
-                    ng-required="true"
-                    ng-minlength="10"
-                    ng-maxlength="50" />
+                <h2 editable-text="offer.template.title"
+                    e-value=""
+                    e-id="offer__title"
+                    e-placeholder="{{ i18n.offer.create.example.title }}"
+                    e-required="true"
+                    e-minlength="10"
+                    e-maxlength="50" 
+                    >{{ offer.template.title || i18n.offer.create.title }}</h2>
             </div>
 
-            <div class="offer__pictures">
-                
-                <app-image-picker model="offer.template.pictures"></app-image-picker>
+            <div class="offer__content">
+
+                <div class="offer__pictures form__field">
+                    
+                    <app-image-picker model="offer.template.pictures"></app-image-picker>
+
+                </div>
+
+                <div class="offer__description form__field">
+                	<label for="offer__description">{{ i18n.offer.create.description }}</label>
+                	<textarea
+                        id="offer__description"
+                        type="text"
+                        value=""
+                        placeholder="{{ i18n.offer.create.example.description }}"
+                        ng-model="offer.template.description"
+                        ng-required="true"
+                        ng-minlength="60"
+                        ng-maxlength="300" >
+                    </textarea>
+                </div>
+
+                <div class="offer__source form__field">
+                    <label for="offer__source">{{ i18n.offer.create.recipe }}</label>
+                    <input
+                        id="offer__source"
+                        type="url"
+                        value=""
+                        placeholder="{{ i18n.offer.create.example.recipe }}"
+                        ng-model="offer.template.recipe"
+                        ng-required="true" />
+                </div>
+
+                <div class="offer__tags form__field">
+                	<label for="offer__tags">{{ i18n.offer.create.tags }}</label>
+                	<input
+                        id="offer__tags"
+                        type="text"
+                        value=""
+                        placeholder="{{ i18n.offer.create.example.tags }}"
+                        ng-model="offer.template.tags"
+                        ng-required="true"
+                        ui-select2="{
+                            multiple: true,
+                            simple_tags: true,
+                            maximumSelectionSize: 5,
+                            tags: [ ]
+                        }" />
+                </div>
+
+                <button 
+                    class="offer__submit" 
+                    type="submit"
+                    ng-click="submitTemplate()" 
+                    ng-disabled="!formTemplate.$valid" >
+                    {{ i18n.offer.create.submitTemplate }}
+                </button>
 
             </div>
-
-            <div class="offer__description">
-            	<label for="offer__description">{{ i18n.offer.create.description }}</label>
-            	<textarea
-                    id="offer__description"
-                    type="text"
-                    value=""
-                    placeholder="{{ i18n.offer.create.example.description }}"
-                    ng-model="offer.template.description"
-                    ng-required="true"
-                    ng-minlength="60"
-                    ng-maxlength="300" >
-                </textarea>
-            </div>
-
-            <div class="offer__source">
-                <label for="offer__source">{{ i18n.offer.create.recipe }}</label>
-                <input
-                    id="offer__source"
-                    type="url"
-                    value=""
-                    placeholder="{{ i18n.offer.create.example.recipe }}"
-                    ng-model="offer.template.recipe"
-                    ng-required="true" />
-            </div>
-
-            <div class="offer__tags">
-            	<label for="offer__tags">{{ i18n.offer.create.tags }}</label>
-            	<input
-                    id="offer__tags"
-                    type="text"
-                    value=""
-                    placeholder="{{ i18n.offer.create.example.tags }}"
-                    ng-model="offer.template.tags"
-                    ng-required="true"
-                    ui-select2="{
-                        multiple: true,
-                        simple_tags: true,
-                        maximumSelectionSize: 5,
-                        tags: [ ]
-                    }" />
-            </div>
-
-            <button 
-                class="offer__submit" 
-                type="submit"
-                ng-click="submitTemplate()" 
-                ng-disabled="!formTemplate.$valid" >
-                {{ i18n.offer.create.submitTemplate }}
-            </button>
 
         </fieldset>
     </form>

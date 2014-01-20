@@ -13,6 +13,7 @@ requirejs.config({
         'libs/angular-resource': 'bower_components/angular-resource/angular-resource',
         'libs/angular-sanitize': 'bower_components/angular-sanitize/angular-sanitize',
         'libs/angular-cookies': 'bower_components/angular-cookies/angular-cookies',
+        'libs/angular-xeditable': 'bower_components/angular-xeditable/dist/js/xeditable',
         'libs/angular-ui': 'bower_components/angular-ui/build/angular-ui',
         'libs/angular-ui-date': 'bower_components/angular-ui-date/src/date',
         'libs/angular-ui-select2': 'bower_components/angular-ui-select2/src/select2',
@@ -45,6 +46,9 @@ requirejs.config({
             deps: [ 'libs/angular' ]
         },
         'libs/angular-cookies': {
+            deps: [ 'libs/angular' ]
+        },
+        'libs/angular-xeditable': {
             deps: [ 'libs/angular' ]
         },
         'libs/angular-ui': {

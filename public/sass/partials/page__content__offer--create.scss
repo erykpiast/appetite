@@ -2,11 +2,26 @@
 	@extend .page__content__offer;
 
 	.offer--create__form {
+		@extend .form;
+
 		& > fieldset {
 			border: none;
 
 			& > legend {
 				display: none;
+			}
+
+			.form__field {
+				margin-top: $base-spacing-unit;
+				position: relative;
+
+				input {
+					
+				}
+
+				label {
+					@include scut-absolute(n n 100% 0);
+				}
 			}
 		}
 	}
@@ -17,7 +32,10 @@
 	}
 
 	.offer--create__form--template {
-		@extend .offer__content;
+		
+		.offer__title {
+			@extend .offer__header;
+		}
 	}
 
 }
