@@ -1,19 +1,18 @@
 <section class="page__content__offer--create">
 
-    <form name="formTemplate" class="offer--create__form--template" editable-form>
+    <form name="formTemplate" class="offer--create__form--template">
         <fieldset>
             <legend>{{ i18n.offer.create.templateHeader }}</legend>
 
             <div class="offer__title form__field">
             	<label for="offer__title">{{ i18n.offer.create.title }}</label>
-                <h2 editable-text="offer.template.title"
-                    e-value=""
-                    e-id="offer__title"
-                    e-placeholder="{{ i18n.offer.create.example.title }}"
-                    e-required="true"
-                    e-minlength="10"
-                    e-maxlength="50" 
-                    >{{ offer.template.title || i18n.offer.create.title }}</h2>
+            	<h2 app-edit-in-place="offer.template.title"
+                    id="offer__title" inputAttributes="{
+                        'placeholder': i18n.offer.create.example.title,
+                        'ng-required': true,
+                        'ng-minlength': 10,
+                        'ng-maxlength': 50
+                    }"></h2>
             </div>
 
             <div class="offer__content">
@@ -73,7 +72,7 @@
                     ng-disabled="!formTemplate.$valid" >
                     {{ i18n.offer.create.submitTemplate }}
                 </button>
-
+                
             </div>
 
         </fieldset>
