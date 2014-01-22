@@ -4,14 +4,17 @@
         <fieldset>
             <legend>{{ i18n.offer.create.templateHeader }}</legend>
 
-            <div class="offer__title form__field">
-            	<h2 app-edit-in-place="offer.template.title"
-                    id="offer__title" input-attrs="{
+            <div class="offer__title">
+            	<h2 class="form__field"
+                    app-edit-in-place="offer.template.title"
+                    label="{{ i18n.offer.create.title }}"
+                    default-active="true"
+                    input-attrs="{
                         'placeholder': i18n.offer.create.example.title,
                         'ng-required': true,
                         'ng-minlength': 10,
                         'ng-maxlength': 50
-                    }" label="{{ i18n.offer.create.title }}"></h2>
+                    }"></h2>
             </div>
 
             <div class="offer__content">
@@ -22,18 +25,16 @@
 
                 </div>
 
-                <div class="offer__description form__field">
-                	<label for="offer__description">{{ i18n.offer.create.description }}</label>
-                	<textarea
-                        id="offer__description"
-                        type="text"
-                        value=""
-                        placeholder="{{ i18n.offer.create.example.description }}"
-                        ng-model="offer.template.description"
-                        ng-required="true"
-                        ng-minlength="60"
-                        ng-maxlength="300" >
-                    </textarea>
+                <div class="offer__description">
+                    <p  class="form__field"
+                        app-edit-in-place="offer.template.description"
+                        label="{{ i18n.offer.create.description }}"
+                        input-type="textarea"
+                        input-attrs="{
+                            'placeholder': i18n.offer.create.example.description,
+                            'ng-required': true,
+                            'ng-maxlength': 300
+                        }"></p>
                 </div>
 
                 <div class="offer__source form__field">

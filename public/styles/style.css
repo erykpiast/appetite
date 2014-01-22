@@ -21772,6 +21772,53 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/edit-in-place\.scss;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.edit-in-place {
+  cursor: pointer;
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/edit-in-place\.scss;
+  }
+
+  line {
+    font-family: \000036;
+  }
+}
+
+.edit-in-place__input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border: none;
+  -webkit-box-shadow: 0px 0px 1px 1px #000 inset;
+  box-shadow: 0px 0px 1px 1px #000 inset;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: auto;
+  font: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  display: inline-block;
+  line-height: inherit;
+  outline: none;
+  padding: inherit;
+  width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/scut-0\.6\.0\/dist\/_scut\.scss;
   }
 
@@ -25772,43 +25819,17 @@ body {
   }
 
   line {
-    font-family: \0000314;
-  }
-}
-
-.page__content__offer--create .offer--create__form > fieldset .form__field,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field {
-  margin-top: 21px;
-  position: relative;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \0000318;
+    font-family: \0000315;
   }
 }
 
 .page__content__offer--create .offer--create__form > fieldset .form__field input,
 .page__content__offer--create .offer--create__form--template > fieldset .form__field input,
 .page__content__offer--create .offer--create__form--details > fieldset .form__field input {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  border: none;
+  border-radius: .4rem;
   -webkit-box-shadow: 0px 0px 1px 1px rgba(77, 77, 77, 0.7) inset;
   box-shadow: 0px 0px 1px 1px rgba(77, 77, 77, 0.7) inset;
   color: #282828;
-  font: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-  display: inline-block;
-  padding: 0px 5.25px;
 }
 
 @media -sass-debug-info {
@@ -25817,7 +25838,7 @@ body {
   }
 
   line {
-    font-family: \0000331;
+    font-family: \0000321;
   }
 }
 
@@ -25827,6 +25848,44 @@ body {
   position: absolute;
   bottom: 100%;
   left: 0;
+  color: #282828;
+  display: none;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000334;
+  }
+}
+
+.page__content__offer--create .offer--create__form > fieldset .form__field:hover label,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field:hover label,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field:hover label,
+.page__content__offer--create .offer--create__form > fieldset .form__field input:focus ~ label,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field input:focus ~ label,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field input:focus ~ label {
+  display: block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000349;
+  }
+}
+
+.page__content__offer--create .offer--create__form--template .offer__title {
+  overflow: visible;
 }
 
 @media -sass-debug-info {
@@ -25835,7 +25894,7 @@ body {
   }
 
   line {
-    font-family: \0000370;
+    font-family: \0000371;
   }
 }
 
@@ -25849,7 +25908,7 @@ html {
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000375;
   }
 }
 
@@ -25863,7 +25922,7 @@ body {
   }
 
   line {
-    font-family: \0000378;
+    font-family: \0000379;
   }
 }
 
@@ -25881,7 +25940,7 @@ body {
   }
 
   line {
-    font-family: \0000388;
+    font-family: \0000389;
   }
 }
 
@@ -25899,7 +25958,7 @@ h2 {
   }
 
   line {
-    font-family: \0000394;
+    font-family: \0000395;
   }
 }
 

@@ -35,7 +35,7 @@ define([ 'libs/angular' ], function(angular) {
 					startAt: new Date(Date.now())
 				},
 				template: {
-					description: '',
+					description: $rootScope.i18n.offer.create.description,
 					recipe: '',
 					tags: '',
 					title: $rootScope.i18n.offer.create.title,

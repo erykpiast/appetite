@@ -3,47 +3,73 @@ function(angular, $, module) {
     'use strict';
 
     module.directive( 'appEditInPlace', function($compile, $parse) {
+        var cssClass = 'edit-in-place';
+
         return {
             restrict: 'A',
             scope: { model: '=appEditInPlace' },
-            template: '<span ng-bind="model"></span><input ng-model="model" type="text" class="edit-in-place__input" />',
-            compile: function(tElement, tAttrs) {
-                var $input = tElement.children('.edit-in-place__input'),
-                    inputId = 'edit-in-place-' + ~~(Math.random() * Date.now());
+            template: '<span class="' + cssClass + '__value" ng-bind="model"></span>',
+            compile: function($tElement, tAttrs) {
+                $tElement.addClass(cssClass);
+
+                var inputId = cssClass + '--' + Math.round(Math.random() * Date.now()),
+                    $input = angular.element(tAttrs.inputType !== 'textarea' ? '<input>' : '<textarea>');
+
+                $input
+                    .addClass(cssClass + '__input')
+                    .attr({
+                        'id': inputId,
+                        'ng-model': 'model'
+                    })
+                    .appendTo($tElement);
                 
-                $input.attr('id', inputId);
-                
-                if(tAttrs.label) {
-                    var $label = angular.element('<label for="' + inputId + '" class="edit-in-place__label"></label>');
-                    
-                    $label.insertBefore($input);
+                if(tAttrs.inputType !== 'textarea') {
+                    $input.attr('type', tAttrs.inputType || 'text');
                 }
                 
+
+                if(tAttrs.label) {
+                    var $label = angular.element('<label for="' + inputId + '" class="' + cssClass + '__label"></label>');
+                    
+                    $label.insertAfter($input);
+                }
+                
+
                 return function(scope, $element, attrs) {
                     scope.editing = false;
     
-                    var $input = $element.children('.edit-in-place__input');
+                    var $input = $element.children('.' + cssClass + '__input');
                     $input
-                        .hide()
                         .on('blur', function() {
                             $input.hide();
 
                             scope.editing = false;
                         });
+
+                    if(!attrs.defaultActive) {
+                        $input.hide();
+                    } else {
+                        $input.focus();
+                    }
                         
                     if(attrs.inputAttrs) {
                         angular.forEach($parse(attrs.inputAttrs)(scope.$parent), function(attrValue, attrName) {
                             $input.attr(attrName, attrValue);
                         });
                         
-                        $compile($input[0])(scope, function(scope, cloned) {
-                           // $element.append(cloned);
-                        });
+                        $compile($input[0])(scope);
                         
+                    }
+
+                    var $label = $element.children('.' + cssClass + '__label');
+                    if($label.length) {
+                        $label.text(attrs.label);
+
+                        $compile($label[0])(scope);
                     }
     
                     $element
-                        .addClass('edit-in-place')
+                        .addClass('' + cssClass + '')
                         .on('click', function(e) {
                             e.preventDefault();
     

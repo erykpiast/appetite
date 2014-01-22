@@ -12,25 +12,29 @@
 			}
 
 			.form__field {
-				margin-top: $base-spacing-unit;
-				position: relative;
-
 				input {
-					@include scut-absolute(0 n 0 0);
-
-					border: none;
+					border-radius: .4rem;
 					box-shadow: 0px 0px 1px 1px $c-shadow-dark inset;
 					color: $c-fg-def;
-					font: inherit;
-					font-family: inherit;
-					font-weight: inherit;
-					display: inline-block;
-					padding: 0px $quarter-spacing-unit;
 				}
 
 				label {
 					@include scut-absolute(n n 100% 0);
+
+					color: $c-fg-def;
+					display: none;
+					font: {
+						family: $content-font;
+						size: $base-font-size;
+						weight: normal;
+					};
 				}
+
+				&:hover label,
+				input:focus ~ label {
+					display: block;
+				}
+
 			}
 		}
 	}
@@ -44,6 +48,8 @@
 		
 		.offer__title {
 			@extend .offer__header;
+
+			overflow: visible;
 		}
 	}
 
