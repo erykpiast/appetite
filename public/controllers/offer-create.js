@@ -38,7 +38,7 @@ define([ 'libs/angular' ], function(angular) {
 					description: '',
 					recipe: '',
 					tags: '',
-					title: '',
+					title: $rootScope.i18n.offer.create.title,
 					pictures: [ ]
 				}
 			},
