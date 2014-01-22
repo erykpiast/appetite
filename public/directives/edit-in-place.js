@@ -10,7 +10,7 @@ function(angular, $, module) {
             compile: function(tElement, tAttrs) {
                 var $input = tElement.children('.edit-in-place__input'),
                     inputId = 'edit-in-place-' + ~~(Math.random() * Date.now());
-                tAttrs
+                
                 $input.attr('id', inputId);
                 
                 if(tAttrs.label) {
@@ -27,7 +27,7 @@ function(angular, $, module) {
                         .hide()
                         .on('blur', function() {
                             $input.hide();
-    
+
                             scope.editing = false;
                         });
                         

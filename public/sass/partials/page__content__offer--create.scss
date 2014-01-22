@@ -16,7 +16,16 @@
 				position: relative;
 
 				input {
-					@include scut-absolute();
+					@include scut-absolute(0 n 0 0);
+
+					border: none;
+					box-shadow: 0px 0px 1px 1px $c-shadow-dark inset;
+					color: $c-fg-def;
+					font: inherit;
+					font-family: inherit;
+					font-weight: inherit;
+					display: inline-block;
+					padding: 0px $quarter-spacing-unit;
 				}
 
 				label {
