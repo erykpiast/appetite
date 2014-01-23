@@ -21780,8 +21780,10 @@ a.hyperlink:visited {
   }
 }
 
-.edit-in-place {
+.edit-in-place,
+.edit-in-place--active {
   cursor: pointer;
+  min-width: 1em;
   position: relative;
 }
 
@@ -21792,6 +21794,39 @@ a.hyperlink:visited {
 
   line {
     font-family: \000036;
+  }
+}
+
+.edit-in-place:before,
+.edit-in-place--active:before {
+  color: transparent;
+  content: "|";
+  display: inline-block;
+  width: 0.001px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/edit-in-place\.scss;
+  }
+
+  line {
+    font-family: \0000316;
+  }
+}
+
+.edit-in-place--active .edit-in-place__input {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/edit-in-place\.scss;
+  }
+
+  line {
+    font-family: \0000322;
   }
 }
 
@@ -21812,8 +21847,10 @@ a.hyperlink:visited {
   font-weight: inherit;
   display: inline-block;
   line-height: inherit;
+  opacity: 0;
   outline: none;
   padding: inherit;
+  pointer-events: none;
   width: 100%;
 }
 
@@ -25826,9 +25863,11 @@ body {
 .page__content__offer--create .offer--create__form > fieldset .form__field input,
 .page__content__offer--create .offer--create__form--template > fieldset .form__field input,
 .page__content__offer--create .offer--create__form--details > fieldset .form__field input {
+  border: 1px solid rgba(77, 77, 77, 0.7);
   border-radius: .4rem;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(77, 77, 77, 0.7) inset;
-  box-shadow: 0px 0px 1px 1px rgba(77, 77, 77, 0.7) inset;
+  border-top-left-radius: 0;
+  -webkit-box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
+  box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
   color: #282828;
 }
 
@@ -25838,7 +25877,7 @@ body {
   }
 
   line {
-    font-family: \0000321;
+    font-family: \0000324;
   }
 }
 
@@ -25853,6 +25892,12 @@ body {
   font-family: "Alegreya Sans", sans-serif;
   font-size: 14px;
   font-weight: normal;
+  padding: 0 inherit;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @media -sass-debug-info {
@@ -25861,7 +25906,7 @@ body {
   }
 
   line {
-    font-family: \0000334;
+    font-family: \0000340;
   }
 }
 
@@ -25880,7 +25925,25 @@ body {
   }
 
   line {
-    font-family: \0000349;
+    font-family: \0000347;
+  }
+}
+
+.page__content__offer--create .offer--create__form > fieldset .edit-in-place--active label,
+.page__content__offer--create .offer--create__form--template > fieldset .edit-in-place--active label,
+.page__content__offer--create .offer--create__form--details > fieldset .edit-in-place--active label {
+  border: 1px solid rgba(77, 77, 77, 0.7);
+  border-bottom: none;
+  border-radius: .4rem .4rem 0 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000364;
   }
 }
 

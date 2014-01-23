@@ -42,6 +42,7 @@ function(angular, module) {
                 discardConfirmation: 'Jesteś w trakcie edycji komentarza. Czy chcesz skasować wpisany tekst przed rozpoczęciem odpowiadania na post?'
             },
             create: {
+                clickToEdit: 'kliknij, aby edytować',
                 description: 'Krótki opis',
                 detailsHeader: 'Informacje szczegółowe (możesz wypełnić później)',
                 end: 'Zakończenie oferty',

@@ -12,9 +12,9 @@
                     input-attrs="{
                         'placeholder': i18n.offer.create.example.title,
                         'ng-required': true,
-                        'ng-minlength': 10,
                         'ng-maxlength': 50
-                    }"></h2>
+                    }"
+                    title="{{ i18n.offer.create.title }} - {{ i18n.offer.create.clickToEdit }}"></h2>
             </div>
 
             <div class="offer__content">

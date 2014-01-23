@@ -5,6 +5,21 @@ function(angular, $, module) {
     module.directive( 'appEditInPlace', function($compile, $parse) {
         var cssClass = 'edit-in-place';
 
+        function activate($element, $input) {
+            $element
+                .removeClass(cssClass)
+                .addClass(cssClass + '--active');
+
+            $input.focus();
+        }
+
+
+        function deactivate($element) {
+            $element
+                .removeClass(cssClass + '--active')
+                .addClass(cssClass);
+        }
+
         return {
             restrict: 'A',
             scope: { model: '=appEditInPlace' },
@@ -41,15 +56,15 @@ function(angular, $, module) {
                     var $input = $element.children('.' + cssClass + '__input');
                     $input
                         .on('blur', function() {
-                            $input.hide();
+                            deactivate($element);
 
                             scope.editing = false;
                         });
 
                     if(!attrs.defaultActive) {
-                        $input.hide();
+                        deactivate($element);
                     } else {
-                        $input.focus();
+                        activate($element, $input);
                     }
                         
                     if(attrs.inputAttrs) {
@@ -71,12 +86,13 @@ function(angular, $, module) {
                     $element
                         .addClass('' + cssClass + '')
                         .on('click', function(e) {
-                            e.preventDefault();
+                            if(!scope.editing) {
+                                e.preventDefault();
+                                
+                                activate($element, $input);
     
-                            $input.show();
-                            $input.focus();
-    
-                            scope.editing = true;
+                                scope.editing = true;
+                            }
                         });
                 };
             }

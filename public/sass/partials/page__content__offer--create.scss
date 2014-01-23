@@ -13,8 +13,11 @@
 
 			.form__field {
 				input {
-					border-radius: .4rem;
-					box-shadow: 0px 0px 1px 1px $c-shadow-dark inset;
+					border: 1px solid $c-shadow-dark {
+						radius: .4rem;
+						top-left-radius: 0;
+					};
+					box-shadow: 0px 0px 1px $c-shadow-dark inset;
 					color: $c-fg-def;
 				}
 
@@ -28,6 +31,9 @@
 						size: $base-font-size;
 						weight: normal;
 					};
+					padding: 0 inherit;
+					pointer-events: none;
+					user-select: none;
 				}
 
 				&:hover label,
@@ -35,6 +41,15 @@
 					display: block;
 				}
 
+			}
+
+			.edit-in-place--active {
+				label {
+					border: 1px solid $c-shadow-dark {
+						bottom: none;
+						radius: .4rem .4rem 0 0;
+					};
+				}
 			}
 		}
 	}

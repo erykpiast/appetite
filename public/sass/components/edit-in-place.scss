@@ -1,7 +1,23 @@
 .edit-in-place {
 	cursor: pointer;
+	min-width: 1em; // prevents hiding input when no text
 	position: relative;
+
+	&:before {
+		color: transparent;
+		content: "|";
+		display: inline-block;
+		width: 0.001px;
+	}
 }
+	.edit-in-place--active {
+		@extend .edit-in-place;
+
+		.edit-in-place__input {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
 
 	.edit-in-place__input {
 		@include scut-absolute(0 n 0 0);
@@ -15,7 +31,9 @@
 		font-weight: inherit;
 		display: inline-block;
 		line-height: inherit;
+		opacity: 0;
 		outline: none;
 		padding: inherit;
+		pointer-events: none;
 		width: 100%;
 	}
