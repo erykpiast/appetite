@@ -23,32 +23,29 @@ function(angular, $, module) {
         return {
             restrict: 'A',
             scope: { model: '=appEditInPlace' },
-            template: '<span class="' + cssClass + '__value" ng-bind="model"></span>',
+            template: function($tElement, tAttrs) {
+                var template,
+                    common = 'class="' + (cssClass + '__input" ng-bind="model"';
+                
+                if(tAttrs.inputType === 'textarea') {
+                    template = '<textarea ' + common + '></textarea>';
+                } else {
+                    template = '<input type="' + (tAttrs.inputType || 'text') + '" ' + common + '/>';
+                }
+                
+                if(tAttrs.label) {
+                    template += '<label class="' + cssClass + '__label"></label>';
+                }
+                
+                return template + '<span class="' + cssClass + '__value" ng-bind="model"></span>';
+            },
             compile: function($tElement, tAttrs) {
                 $tElement.addClass(cssClass);
 
-                var inputId = cssClass + '--' + Math.round(Math.random() * Date.now()),
-                    $input = angular.element(tAttrs.inputType !== 'textarea' ? '<input>' : '<textarea>');
+                var inputId = cssClass + '--' + Math.round(Math.random() * Date.now());
 
-                $input
-                    .addClass(cssClass + '__input')
-                    .attr({
-                        'id': inputId,
-                        'ng-model': 'model'
-                    })
-                    .appendTo($tElement);
-                
-                if(tAttrs.inputType !== 'textarea') {
-                    $input.attr('type', tAttrs.inputType || 'text');
-                }
-                
-
-                if(tAttrs.label) {
-                    var $label = angular.element('<label for="' + inputId + '" class="' + cssClass + '__label"></label>');
-                    
-                    $label.insertAfter($input);
-                }
-                
+                $tElement.children('.' + cssClass + '__input').attr('id', inputId);
+                $tElement.children('.' + cssClass + '__label').attr('for', inputId);
 
                 return function(scope, $element, attrs) {
                     scope.editing = false;
@@ -73,14 +70,11 @@ function(angular, $, module) {
                         });
                         
                         $compile($input[0])(scope);
-                        
                     }
 
                     var $label = $element.children('.' + cssClass + '__label');
                     if($label.length) {
                         $label.text(attrs.label);
-
-                        $compile($label[0])(scope);
                     }
     
                     $element
