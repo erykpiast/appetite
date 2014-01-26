@@ -1,0 +1,25 @@
+.tooltip {
+    box-sizing: border-box;
+    padding: $quarter-spacing-unit $half-spacing-unit;
+    position: absolute;
+    pointer-events: none;
+}
+
+.tooltip--top {
+    @extend .tooltip;
+    
+    bottom: 100%;
+    left: 0;
+    top: auto;
+    right: auto;
+}
+
+.tooltip--right {
+    @extend .tooltip;
+    
+    bottom: auto;
+    left: 100%;
+    top: 50%;
+    transform: translateY( -50% );
+    right: auto;
+}

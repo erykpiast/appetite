@@ -5,27 +5,12 @@ function(angular, $, module) {
     module.directive( 'appEditInPlace', function($compile, $parse) {
         var cssClass = 'edit-in-place';
 
-        function activate($element, $input) {
-            $element
-                .removeClass(cssClass)
-                .addClass(cssClass + '--active');
-
-            $input.focus();
-        }
-
-
-        function deactivate($element) {
-            $element
-                .removeClass(cssClass + '--active')
-                .addClass(cssClass);
-        }
-
         return {
             restrict: 'A',
             scope: { model: '=appEditInPlace' },
             template: function($tElement, tAttrs) {
                 var template,
-                    common = 'class="' + (cssClass + '__input" ng-bind="model"';
+                    common = 'class="' + cssClass + '__input"';
                 
                 if(tAttrs.inputType === 'textarea') {
                     template = '<textarea ' + common + '></textarea>';
@@ -49,41 +34,70 @@ function(angular, $, module) {
 
                 return function(scope, $element, attrs) {
                     scope.editing = false;
-    
-                    var $input = $element.children('.' + cssClass + '__input');
-                    $input
-                        .on('blur', function() {
-                            deactivate($element);
 
-                            scope.editing = false;
-                        });
+                    function _activate() {
+                        $element
+                            .removeClass(cssClass)
+                            .addClass(cssClass + '--active');
 
-                    if(!attrs.defaultActive) {
-                        deactivate($element);
-                    } else {
-                        activate($element, $input);
+                        $input.focus();
+
+                        scope.editing = true;
                     }
-                        
+
+
+                    function _deactivate() {
+                        $element
+                            .removeClass(cssClass + '--active')
+                            .addClass(cssClass);
+
+                        scope.editing = false;
+                    }
+
+                // prepare input >>
+                    var $input = $element.children('.' + cssClass + '__input');
+
+                    // all or no directives for input element must be defined in linking function
+                    /* if you, ex. define ng-model directive in template and then recompile element
+                       in linking function, model will be bound twice and you can see some glitches,
+                       like cursor fleeing to end of input after typing character
+                    */
+                    $input.attr('ng-model', 'model');
                     if(attrs.inputAttrs) {
                         angular.forEach($parse(attrs.inputAttrs)(scope.$parent), function(attrValue, attrName) {
                             $input.attr(attrName, attrValue);
                         });
-                        
-                        $compile($input[0])(scope);
                     }
+
+                    $compile($input)(scope);
+
+                    $input
+                        .on('blur', function() {
+                            _deactivate();
+                        });
+                // << prepare input
+
+
+                    if(!attrs.defaultActive) {
+                        _deactivate();
+                    } else {
+                        _activate();
+                    }
+
 
                     var $label = $element.children('.' + cssClass + '__label');
                     if($label.length) {
                         $label.text(attrs.label);
                     }
+
     
                     $element
                         .addClass('' + cssClass + '')
                         .on('click', function(e) {
-                            if(!scope.editing) {
+                            if(!scope.editing) { // prevents calls in edit mode
                                 e.preventDefault();
                                 
-                                activate($element, $input);
+                                _activate();
     
                                 scope.editing = true;
                             }

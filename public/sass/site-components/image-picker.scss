@@ -1,0 +1,37 @@
+.image-picker,
+.image-picker__adder,
+.image-picker__adder__add-next,
+.image-picker__adder__form,
+.image-picker__adder__form > fieldset,
+.image-picker__images,
+.image-picker__image {
+    height: 100%;   
+}
+
+.image-picker__adder__add-next {
+    width: 15rem;
+}
+
+.image-picker__header {
+    display: none;
+}
+
+.image-picker__adder {
+    
+}
+
+.image-picker__adder__form {
+    & > fieldset {
+        border: none;
+    }
+}
+
+.image-picker__adder,
+.image-picker__images {
+    display: inline-block;
+}
+
+.image-picker__images {
+    @include scut-list-unstyled();
+    @include scut-list-inline();
+}

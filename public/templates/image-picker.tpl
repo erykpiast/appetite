@@ -1,10 +1,10 @@
 <section class="image-picker">
 	
-	<header>
+	<header class="image-picker__header">
 		{{ i18n.imagePicker.header }}
 	</header>
 
-	<ul class="image-picker__images horizontal">
+	<ul class="image-picker__images">
 		<li class="image-picker__image" ng-repeat="imageUrl in images">
 			<img ng-src="{{ imageUrl }}" height="100" />
 		</li>

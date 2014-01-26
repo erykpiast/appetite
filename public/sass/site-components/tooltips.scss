@@ -1,0 +1,14 @@
+.tooltip {
+    background-color: $c-fg-def;
+    border: 1px solid $c-shadow-dark {
+        radius: .4rem;
+    };
+    box-shadow: 0 0 .1em $c-shadow-dark;
+    color: $c-bg-def;
+    font: {
+        family: $content-font;
+        size: $base-font-size;
+        weight: normal;
+    };
+    line-height: $base-line-height;
+}

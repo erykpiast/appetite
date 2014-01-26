@@ -14,7 +14,7 @@
                         'ng-required': true,
                         'ng-maxlength': 50
                     }"
-                    title="{{ i18n.offer.create.title }} - {{ i18n.offer.create.clickToEdit }}"></h2>
+                    data-title="{{ i18n.offer.create.title }} – {{ i18n.offer.create.clickToEdit }}"></h2>
             </div>
 
             <div class="offer__content">
