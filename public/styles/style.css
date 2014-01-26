@@ -21859,6 +21859,70 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/components\/tooltips\.scss;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.tooltip,
+.tooltip--top,
+.tooltip--right,
+.page__content__offer--create .offer--create__form > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5.25px 10.5px;
+  position: absolute;
+  pointer-events: none;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/components\/tooltips\.scss;
+  }
+
+  line {
+    font-family: \000038;
+  }
+}
+
+.tooltip--top {
+  bottom: 100%;
+  left: 0;
+  top: auto;
+  right: auto;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/components\/tooltips\.scss;
+  }
+
+  line {
+    font-family: \0000317;
+  }
+}
+
+.tooltip--right,
+.page__content__offer--create .offer--create__form > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+  bottom: auto;
+  left: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: auto;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/scut-0\.6\.0\/dist\/_scut\.scss;
   }
 
@@ -24728,7 +24792,149 @@ body {
 
 @media -sass-debug-info {
   filename {
+<<<<<<< HEAD
     font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/header\.scss;
+=======
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/tooltips\.scss;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.tooltip,
+.tooltip--top,
+.tooltip--right,
+.page__content__offer--create .offer--create__form > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+  background-color: #282828;
+  border: 1px solid rgba(77, 77, 77, 0.7);
+  border-radius: .4rem;
+  -webkit-box-shadow: 0 0 0.1em rgba(77, 77, 77, 0.7);
+  box-shadow: 0 0 0.1em rgba(77, 77, 77, 0.7);
+  color: #eaeaea;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 21px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \000037;
+  }
+}
+
+.image-picker,
+.image-picker__adder,
+.image-picker__adder__add-next,
+.image-picker__adder__form,
+.image-picker__adder__form > fieldset,
+.image-picker__images,
+.image-picker__image {
+  height: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000311;
+  }
+}
+
+.image-picker__adder__add-next {
+  width: 15rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000315;
+  }
+}
+
+.image-picker__header {
+  display: none;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000324;
+  }
+}
+
+.image-picker__adder__form > fieldset {
+  border: none;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000330;
+  }
+}
+
+.image-picker__adder,
+.image-picker__images {
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000334;
+  }
+}
+
+.image-picker__images {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/scut-0\.6\.0\/dist\/_scut\.scss;
+  }
+
+  line {
+    font-family: \00003707;
+  }
+}
+
+.image-picker__images > li {
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/header\.scss;
+>>>>>>> c062334643f83ec37a525fd44a8e48bf263c00eb
   }
 
   line {
@@ -25859,13 +26065,13 @@ body {
   }
 
   line {
-    font-family: \0000315;
+    font-family: \0000316;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field input,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field input,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field input {
+.page__content__offer--create .offer--create__form > fieldset .form__field > input,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field > input,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field > input {
   border: 1px solid rgba(77, 77, 77, 0.7);
   border-radius: .4rem;
   border-top-left-radius: 0;
@@ -25880,13 +26086,13 @@ body {
   }
 
   line {
-    font-family: \0000324;
+    font-family: \0000325;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field label,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field label,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field label {
+.page__content__offer--create .offer--create__form > fieldset .form__field > label,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field > label,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field > label {
   position: absolute;
   bottom: 100%;
   left: 0;
@@ -25913,12 +26119,9 @@ body {
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field:hover label,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field:hover label,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field:hover label,
-.page__content__offer--create .offer--create__form > fieldset .form__field input:focus ~ label,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field input:focus ~ label,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field input:focus ~ label {
+.page__content__offer--create .offer--create__form > fieldset .form__field > input:focus ~ label,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field > input:focus ~ label,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field > input:focus ~ label {
   display: block;
 }
 
@@ -25928,16 +26131,57 @@ body {
   }
 
   line {
-    font-family: \0000347;
+    font-family: \0000344;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .edit-in-place--active label,
-.page__content__offer--create .offer--create__form--template > fieldset .edit-in-place--active label,
-.page__content__offer--create .offer--create__form--details > fieldset .edit-in-place--active label {
+.page__content__offer--create .offer--create__form > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+  content: attr(data-title);
+  margin-left: 5.25px;
+  opacity: 0;
+  -webkit-transition: opacity .3s linear 0;
+  transition: opacity .3s linear 0;
+  min-width: 15em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000354;
+  }
+}
+
+.page__content__offer--create .offer--create__form > fieldset .form__field:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--template > fieldset .form__field:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--details > fieldset .form__field:not(.edit-in-place--active):hover:after {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-out 0.4s;
+  transition: opacity 0.3s ease-out 0.4s;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000361;
+  }
+}
+
+.page__content__offer--create .offer--create__form > fieldset .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--template > fieldset .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--details > fieldset .edit-in-place--active > label {
+  background-color: #aa1e1e;
   border: 1px solid rgba(77, 77, 77, 0.7);
   border-bottom: none;
   border-radius: .4rem .4rem 0 0;
+  color: white;
 }
 
 @media -sass-debug-info {
@@ -25946,6 +26190,7 @@ body {
   }
 
   line {
+<<<<<<< HEAD
     font-family: \0000355;
   }
 }
@@ -25968,20 +26213,44 @@ body {
 
   line {
     font-family: \0000369;
+=======
+    font-family: \0000380;
+>>>>>>> c062334643f83ec37a525fd44a8e48bf263c00eb
   }
 }
 
 .page__content__offer--create .offer--create__form--template .offer__title {
+  max-width: -webkit-calc(100% - 42px);
+  max-width: calc(100% - 42px);
+  min-width: 4em;
   overflow: visible;
 }
 
 @media -sass-debug-info {
   filename {
+<<<<<<< HEAD
     font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/style\.scss;
+=======
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
   }
 
   line {
-    font-family: \0000371;
+    font-family: \0000389;
+  }
+}
+
+.page__content__offer--create .offer__pictures {
+  width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/style\.scss;
+>>>>>>> c062334643f83ec37a525fd44a8e48bf263c00eb
+  }
+
+  line {
+    font-family: \0000374;
   }
 }
 
@@ -25995,7 +26264,7 @@ html {
   }
 
   line {
-    font-family: \0000375;
+    font-family: \0000378;
   }
 }
 
@@ -26009,7 +26278,7 @@ body {
   }
 
   line {
-    font-family: \0000379;
+    font-family: \0000382;
   }
 }
 
@@ -26027,7 +26296,7 @@ body {
   }
 
   line {
-    font-family: \0000389;
+    font-family: \0000392;
   }
 }
 
@@ -26045,7 +26314,7 @@ h2 {
   }
 
   line {
-    font-family: \0000395;
+    font-family: \0000398;
   }
 }
 
