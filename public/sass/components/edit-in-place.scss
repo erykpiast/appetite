@@ -1,12 +1,13 @@
 .edit-in-place {
 	cursor: pointer;
-	min-width: 1em; // prevents hiding input when no text
+	min-width: 1em; 
 	position: relative;
 
-	&:before {
+	&:before { // prevents hiding input when no text
 		color: transparent;
 		content: "|";
 		display: inline-block;
+		transform: translateX(-0.001px);
 		width: 0.001px;
 	}
 }

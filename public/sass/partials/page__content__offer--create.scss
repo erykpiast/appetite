@@ -51,6 +51,11 @@
 					};
 				}
 			}
+
+			.edit-in-place {
+				max-width: calc(100% - #{2 * $base-spacing-unit});
+				min-width: 4em;
+			}
 		}
 	}
 
