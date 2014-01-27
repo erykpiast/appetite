@@ -4,15 +4,17 @@
 		{{ i18n.imagePicker.header }}
 	</header>
 
-	<ul class="image-picker__images">
-		<li class="image-picker__image" ng-repeat="imageUrl in images">
-			<img ng-src="{{ imageUrl }}" height="100" />
-		</li>
-	</ul>
+	<div class="image-picker__images">
+		<ul class="image-picker__images__list">
+			<li class="image-picker__images__image" ng-repeat="imageUrl in images">
+				<img ng-src="{{ imageUrl }}" />
+			</li>
+		</ul>
+	</div>
 
 	<div class="image-picker__adder">
 
-		<button class="image-picker__adder__add-next" ng-click="showForm = true" ng-hide="!!showForm">{{ i18n.imagePicker.addNext }}</button>
+		<button class="image-picker__adder__add-next" ng-click="showForm = true" ng-hide="!!showForm" data-title="{{ i18n.imagePicker.addNext }}"></button>
 
 		<form class="image-picker__adder__form" ng-show="!!showForm">
 			<fieldset>

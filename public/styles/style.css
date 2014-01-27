@@ -14206,6 +14206,8 @@ textarea:focus {
 
 .fa,
 .button--ico:before,
+.button--ico--add:before,
+.image-picker__adder__add-next:before,
 .button--ico--close:before,
 .page__content__offer .offer__pictures__picture--preview__close:before,
 .page__content__offer--create .offer__pictures__picture--preview__close:before,
@@ -14444,6 +14446,8 @@ textarea:focus {
 
 .fa.pull-left,
 .pull-left.button--ico:before,
+.pull-left.button--ico--add:before,
+.pull-left.image-picker__adder__add-next:before,
 .pull-left.button--ico--close:before,
 .page__content__offer .pull-left.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .pull-left.offer__pictures__picture--preview__close:before,
@@ -14481,6 +14485,8 @@ textarea:focus {
 
 .fa.pull-right,
 .pull-right.button--ico:before,
+.pull-right.button--ico--add:before,
+.pull-right.image-picker__adder__add-next:before,
 .pull-right.button--ico--close:before,
 .page__content__offer .pull-right.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .pull-right.offer__pictures__picture--preview__close:before,
@@ -16102,7 +16108,9 @@ textarea:focus {
   }
 }
 
-.fa-plus:before {
+.fa-plus:before,
+.button--ico--add:before,
+.image-picker__adder__add-next:before {
   content: "\f067";
 }
 
@@ -20562,6 +20570,10 @@ a.hyperlink:visited {
 .page__content__offer--create .search--main .search__submit > .offer__order__button,
 .search .search__submit > .button--ico,
 .search--main .search__submit > .button--ico,
+.search .search__submit > .button--ico--add,
+.search--main .search__submit > .button--ico--add,
+.search .search__submit > .image-picker__adder__add-next,
+.search--main .search__submit > .image-picker__adder__add-next,
 .search .search__submit > .button--ico--close,
 .search--main .search__submit > .button--ico--close,
 .search .page__content__offer .search__submit > .offer__pictures__picture--preview__close,
@@ -20708,6 +20720,8 @@ a.hyperlink:visited {
 .page__content__offer .offer__order__button,
 .page__content__offer--create .offer__order__button,
 .button--ico,
+.button--ico--add,
+.image-picker__adder__add-next,
 .button--ico--close,
 .page__content__offer .offer__pictures__picture--preview__close,
 .page__content__offer--create .offer__pictures__picture--preview__close,
@@ -20754,6 +20768,8 @@ a.hyperlink:visited {
 .page__content__offer .offer__order__button:focus,
 .page__content__offer--create .offer__order__button:focus,
 .button--ico:focus,
+.button--ico--add:focus,
+.image-picker__adder__add-next:focus,
 .button--ico--close:focus,
 .page__content__offer .offer__pictures__picture--preview__close:focus,
 .page__content__offer--create .offer__pictures__picture--preview__close:focus,
@@ -20816,6 +20832,8 @@ a.hyperlink:visited {
 }
 
 .button--ico:before,
+.button--ico--add:before,
+.image-picker__adder__add-next:before,
 .button--ico--close:before,
 .page__content__offer .offer__pictures__picture--preview__close:before,
 .page__content__offer--create .offer__pictures__picture--preview__close:before,
@@ -20850,11 +20868,58 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003117;
+    font-family: \0000347;
+  }
+}
+
+.button--ico--add:before,
+.image-picker__adder__add-next:before {
+  line-height: 0.85;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003127;
   }
 }
 
 .button--empty.button--ico:before,
+.button--empty.button--ico--add:before,
+.page__content__sidebar .button--ico--add.button--contribute:before,
+.page__content__sidebar .button--ico--add.button--contribute--facebook:before,
+.page__content__sidebar .button--contribute--facebook.image-picker__adder__add-next:before,
+.page__content__sidebar .button--ico--add.button--contribute--adblock:before,
+.page__content__sidebar .button--contribute--adblock.image-picker__adder__add-next:before,
+.page__content__sidebar .button--ico--add.button--contribute--paypal:before,
+.page__content__sidebar .button--contribute--paypal.image-picker__adder__add-next:before,
+.page__content__sidebar .button--ico--add.button--contribute--github:before,
+.page__content__sidebar .button--contribute--github.image-picker__adder__add-next:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--add.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--add.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook.image-picker__adder__add-next:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--facebook.image-picker__adder__add-next:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--add.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--add.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock.image-picker__adder__add-next:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--adblock.image-picker__adder__add-next:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--add.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--add.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal.image-picker__adder__add-next:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--paypal.image-picker__adder__add-next:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--add.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--add.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github.image-picker__adder__add-next:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github.image-picker__adder__add-next:before,
+.page__content__sidebar .button--contribute.image-picker__adder__add-next:before,
+.image-picker__adder__add-next:before,
+.page__content__offer .button--ico--add.offer__pictures__picture--preview__close:before,
+.page__content__offer--create .button--ico--add.offer__pictures__picture--preview__close:before,
+.page__content__offer .offer__pictures__picture--preview__close.image-picker__adder__add-next:before,
+.page__content__offer--create .offer__pictures__picture--preview__close.image-picker__adder__add-next:before,
 .button--empty.button--ico--close:before,
 .page__content__sidebar .button--ico--close.button--contribute:before,
 .page__content__sidebar .button--ico--close.button--contribute--facebook:before,
@@ -20901,6 +20966,7 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer--create .page__content__sidebar .button--contribute--github.offer__pictures__picture--preview__close:before,
 .page__content__sidebar .page__content__offer--create .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github.offer__pictures__picture--preview__close:before,
+.button--ico--close.image-picker__adder__add-next:before,
 .page__content__offer .offer__pictures__picture--preview__close:before,
 .page__content__offer--create .offer__pictures__picture--preview__close:before,
 .button--empty.button--ico--facebook:before,
@@ -20918,6 +20984,7 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--login--facebook.button--contribute--paypal:before,
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--login--facebook.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--login--facebook.button--contribute--github:before,
+.page__content__sidebar .button--login--facebook.image-picker__adder__add-next:before,
 .page__content__sidebar .page__content__offer .button--login--facebook.offer__pictures__picture--preview__close:before,
 .page__content__offer .page__content__sidebar .button--login--facebook.offer__pictures__picture--preview__close:before,
 .page__content__sidebar .page__content__offer--create .button--login--facebook.offer__pictures__picture--preview__close:before,
@@ -20935,6 +21002,7 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook.button--contribute--paypal:before,
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook.button--contribute--github:before,
+.button--ico--facebook.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--facebook.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--facebook.offer__pictures__picture--preview__close:before,
 .button--empty.button--ico--facebook-square:before,
@@ -20952,10 +21020,12 @@ a.hyperlink:visited {
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--facebook-square.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--facebook-square.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook.image-picker__adder__add-next:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer .button--contribute--facebook.offer__pictures__picture--preview__close:before,
 .page__content__offer .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook.offer__pictures__picture--preview__close:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer--create .button--contribute--facebook.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook.offer__pictures__picture--preview__close:before,
+.button--ico--facebook-square.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--facebook-square.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--facebook-square.offer__pictures__picture--preview__close:before,
 .button--empty.button--ico--gift:before,
@@ -20973,10 +21043,12 @@ a.hyperlink:visited {
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--gift.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--gift.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal.image-picker__adder__add-next:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer .button--contribute--paypal.offer__pictures__picture--preview__close:before,
 .page__content__offer .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal.offer__pictures__picture--preview__close:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer--create .button--contribute--paypal.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal.offer__pictures__picture--preview__close:before,
+.button--ico--gift.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--gift.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--gift.offer__pictures__picture--preview__close:before,
 .button--empty.button--ico--github:before,
@@ -20994,10 +21066,12 @@ a.hyperlink:visited {
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github.image-picker__adder__add-next:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer .button--contribute--github.offer__pictures__picture--preview__close:before,
 .page__content__offer .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github.offer__pictures__picture--preview__close:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer--create .button--contribute--github.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github.offer__pictures__picture--preview__close:before,
+.button--ico--github.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--github.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--github.offer__pictures__picture--preview__close:before,
 .button--empty.button--ico--like:before,
@@ -21014,6 +21088,7 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--like.button--contribute--paypal:before,
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--like.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--like.button--contribute--github:before,
+.button--ico--like.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--like.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--like.offer__pictures__picture--preview__close:before,
 .button--empty.button--ico--order:before,
@@ -21082,6 +21157,9 @@ a.hyperlink:visited {
 .page__content__offer .page__content__sidebar .button--contribute.offer__order__button:before,
 .page__content__sidebar .page__content__offer--create .button--contribute.offer__order__button:before,
 .page__content__offer--create .page__content__sidebar .button--contribute.offer__order__button:before,
+.button--ico--order.image-picker__adder__add-next:before,
+.page__content__offer .image-picker__adder__add-next.offer__order__button:before,
+.page__content__offer--create .image-picker__adder__add-next.offer__order__button:before,
 .page__content__offer .button--ico--order.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--order.offer__pictures__picture--preview__close:before,
 .page__content__offer .offer__pictures__picture--preview__close.offer__order__button:before,
@@ -21119,10 +21197,12 @@ a.hyperlink:visited {
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--power-off.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--power-off.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--empty.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock.image-picker__adder__add-next:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer .button--contribute--adblock.offer__pictures__picture--preview__close:before,
 .page__content__offer .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock.offer__pictures__picture--preview__close:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__offer--create .button--contribute--adblock.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock.offer__pictures__picture--preview__close:before,
+.button--ico--power-off.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--power-off.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--power-off.offer__pictures__picture--preview__close:before,
 .button--empty.button--ico--search:before,
@@ -21139,6 +21219,7 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--search.button--contribute--paypal:before,
 .page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--search.button--contribute--github:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--search.button--contribute--github:before,
+.button--ico--search.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--search.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--search.offer__pictures__picture--preview__close:before,
 .page__content__sidebar .button--ico.button--contribute:before,
@@ -21413,7 +21494,9 @@ a.hyperlink:visited {
 .page__content__offer .offer__pictures__picture--preview,
 .page__content__offer--create .offer__pictures__picture--preview,
 .page__content__offer .offer__pictures__picture,
-.page__content__offer--create .offer__pictures__picture {
+.page__content__offer--create .offer__pictures__picture,
+.page__content__offer .image-picker__images__image,
+.page__content__offer--create .image-picker__images__image {
   cursor: pointer;
 }
 
@@ -21432,7 +21515,9 @@ a.hyperlink:visited {
 .page__content__offer .offer__pictures__picture--preview > img,
 .page__content__offer--create .offer__pictures__picture--preview > img,
 .page__content__offer .offer__pictures__picture > img,
-.page__content__offer--create .offer__pictures__picture > img {
+.page__content__offer--create .offer__pictures__picture > img,
+.page__content__offer .image-picker__images__image > img,
+.page__content__offer--create .image-picker__images__image > img {
   height: 100%;
   width: auto;
 }
@@ -21507,7 +21592,13 @@ a.hyperlink:visited {
 .page__content__offer .offer__pictures .offer__pictures__list,
 .photo-gallery--inline .page__content__offer--create .offer__pictures__list,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__list,
-.page__content__offer--create .offer__pictures .offer__pictures__list {
+.page__content__offer--create .offer__pictures .offer__pictures__list,
+.photo-gallery--inline .page__content__offer .image-picker__images__list,
+.page__content__offer .photo-gallery--inline .image-picker__images__list,
+.page__content__offer .offer__pictures .image-picker__images__list,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list,
+.page__content__offer--create .offer__pictures .image-picker__images__list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -21531,42 +21622,232 @@ a.hyperlink:visited {
 .photo-gallery--inline .page__content__offer .offer__pictures__list .photo-gallery__photo,
 .page__content__offer .photo-gallery--inline .offer__pictures__list .photo-gallery__photo,
 .page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .photo-gallery__photo,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo,
 .photo-gallery--inline .page__content__offer--create .offer__pictures__list .photo-gallery__photo,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__list .photo-gallery__photo,
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .photo-gallery__photo,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo,
 .page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .photo-gallery__photo,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .photo-gallery__photo,
+.page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .photo-gallery__photo,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .photo-gallery__photo,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .photo-gallery__photo,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .photo-gallery__photo,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo,
+.page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo,
 .photo-gallery--inline .photo-gallery__list .photo-gallery__photo--fullscreen,
 .page__content__offer .offer__pictures .photo-gallery__list .photo-gallery__photo--fullscreen,
 .page__content__offer--create .offer__pictures .photo-gallery__list .photo-gallery__photo--fullscreen,
 .photo-gallery--inline .page__content__offer .offer__pictures__list .photo-gallery__photo--fullscreen,
 .page__content__offer .photo-gallery--inline .offer__pictures__list .photo-gallery__photo--fullscreen,
 .page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .photo-gallery__photo--fullscreen,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
 .photo-gallery--inline .page__content__offer--create .offer__pictures__list .photo-gallery__photo--fullscreen,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__list .photo-gallery__photo--fullscreen,
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .photo-gallery__photo--fullscreen,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
 .page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
+.page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
 .photo-gallery--inline .photo-gallery__list .page__content__offer .offer__pictures__picture--preview,
 .page__content__offer .photo-gallery--inline .photo-gallery__list .offer__pictures__picture--preview,
 .page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .photo-gallery__list .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
 .photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
 .page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
 .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__list .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__list .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .offer__pictures__list .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .image-picker__images__list .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
 .photo-gallery--inline .photo-gallery__list .page__content__offer--create .offer__pictures__picture--preview,
 .page__content__offer--create .photo-gallery--inline .photo-gallery__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .photo-gallery__list .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
 .page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer .offer__pictures__list .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer .photo-gallery--inline .offer__pictures__list .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .offer__pictures__list .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
 .photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
 .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .image-picker__images__list .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
 .photo-gallery--inline .photo-gallery__list .page__content__offer .offer__pictures__picture,
 .page__content__offer .photo-gallery--inline .photo-gallery__list .offer__pictures__picture,
 .page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .photo-gallery__list .page__content__offer .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture,
 .photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture,
 .page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
 .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__list .page__content__offer .offer__pictures__picture,
+.page__content__offer .photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__list .page__content__offer .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .offer__pictures__list .page__content__offer .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .page__content__offer .offer__pictures__picture,
+.page__content__offer .photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .page__content__offer .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .image-picker__images__list .page__content__offer .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
 .photo-gallery--inline .photo-gallery__list .page__content__offer--create .offer__pictures__picture,
 .page__content__offer--create .photo-gallery--inline .photo-gallery__list .offer__pictures__picture,
+.page__content__offer .offer__pictures .photo-gallery__list .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture,
 .page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer .offer__pictures__list .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture,
+.page__content__offer .photo-gallery--inline .offer__pictures__list .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
+.page__content__offer .offer__pictures .offer__pictures__list .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
 .photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture {
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .offer__pictures .image-picker__images__list .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
+.photo-gallery--inline .photo-gallery__list .page__content__offer .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .photo-gallery__list .image-picker__images__image,
+.page__content__offer .offer__pictures .photo-gallery__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .photo-gallery__list .page__content__offer .image-picker__images__image,
+.page__content__offer .page__content__offer--create .offer__pictures .photo-gallery__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer .offer__pictures__list .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
+.page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .image-picker__images__image,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__list .page__content__offer .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .page__content__offer--create .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__list .page__content__offer .image-picker__images__image,
+.page__content__offer .page__content__offer--create .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .offer__pictures__list .page__content__offer .image-picker__images__image,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
+.page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .image-picker__images__image,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .page__content__offer .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .page__content__offer--create .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .page__content__offer .image-picker__images__image,
+.page__content__offer .page__content__offer--create .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .image-picker__images__list .page__content__offer .image-picker__images__image,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image,
+.photo-gallery--inline .photo-gallery__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .photo-gallery__list .image-picker__images__image,
+.page__content__offer .offer__pictures .photo-gallery__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .page__content__offer .offer__pictures .photo-gallery__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .photo-gallery__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer .offer__pictures__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .page__content__offer .offer__pictures__list .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .offer__pictures__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .page__content__offer .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
+.page__content__offer .offer__pictures .offer__pictures__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .image-picker__images__image,
+.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
+.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer .image-picker__images__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .page__content__offer .image-picker__images__list .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .image-picker__images__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .page__content__offer .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
+.page__content__offer .offer__pictures .image-picker__images__list .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .image-picker__images__image,
+.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
+.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
+.page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image {
   display: inline-block;
   height: 100%;
 }
@@ -21859,7 +22140,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/components\/tooltips\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/tooltips\.scss;
   }
 
   line {
@@ -21883,7 +22164,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/components\/tooltips\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/tooltips\.scss;
   }
 
   line {
@@ -21900,7 +22181,7 @@ a.hyperlink:visited {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/components\/tooltips\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/tooltips\.scss;
   }
 
   line {
@@ -22159,7 +22440,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -22181,7 +22462,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -22384,6 +22665,8 @@ body {
 .search--main .page__content__offer--create .search__submit > .offer__order__button,
 .page__content__offer--create .search--main .search__submit > .offer__order__button,
 .search--main .search__submit > .button--ico,
+.search--main .search__submit > .button--ico--add,
+.search--main .search__submit > .image-picker__adder__add-next,
 .search--main .search__submit > .button--ico--close,
 .search--main .page__content__offer .search__submit > .offer__pictures__picture--preview__close,
 .page__content__offer .search--main .search__submit > .offer__pictures__picture--preview__close,
@@ -22429,7 +22712,7 @@ body {
   }
 
   line {
-    font-family: \00003155;
+    font-family: \00003165;
   }
 }
 
@@ -22452,6 +22735,8 @@ body {
 .search--main .page__content__offer--create .search__submit > .offer__order__button:hover,
 .page__content__offer--create .search--main .search__submit > .offer__order__button:hover,
 .search--main .search__submit > .button--ico:hover,
+.search--main .search__submit > .button--ico--add:hover,
+.search--main .search__submit > .image-picker__adder__add-next:hover,
 .search--main .search__submit > .button--ico--close:hover,
 .search--main .page__content__offer .search__submit > .offer__pictures__picture--preview__close:hover,
 .page__content__offer .search--main .search__submit > .offer__pictures__picture--preview__close:hover,
@@ -23365,7 +23650,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -23387,7 +23672,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -23539,7 +23824,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -23561,7 +23846,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -23618,7 +23903,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -23640,7 +23925,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -23697,7 +23982,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -23719,7 +24004,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -23775,7 +24060,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -23797,7 +24082,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -24285,7 +24570,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -24307,7 +24592,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -24462,7 +24747,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -24484,7 +24769,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -24541,7 +24826,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -24563,7 +24848,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -24620,7 +24905,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -24642,7 +24927,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -24700,7 +24985,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -24722,7 +25007,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -24792,10 +25077,7 @@ body {
 
 @media -sass-debug-info {
   filename {
-<<<<<<< HEAD
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/header\.scss;
-=======
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/tooltips\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/tooltips\.scss;
   }
 
   line {
@@ -24823,7 +25105,7 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
   }
 
   line {
@@ -24843,25 +25125,11 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
   }
 
   line {
     font-family: \0000311;
-  }
-}
-
-.image-picker__adder__add-next {
-  width: 15rem;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
-  }
-
-  line {
-    font-family: \0000315;
   }
 }
 
@@ -24871,25 +25139,11 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
   }
 
   line {
-    font-family: \0000324;
-  }
-}
-
-.image-picker__adder__form > fieldset {
-  border: none;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
-  }
-
-  line {
-    font-family: \0000330;
+    font-family: \0000316;
   }
 }
 
@@ -24900,41 +25154,81 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
   }
 
   line {
-    font-family: \0000334;
+    font-family: \0000320;
+  }
+}
+
+.image-picker__adder {
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000325;
+  }
+}
+
+.image-picker__adder__form > fieldset {
+  border: none;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000330;
+  }
+}
+
+.image-picker__adder__add-next {
+  position: absolute;
+  width: 10rem;
+  left: 50%;
+  margin-left: -5rem;
+  height: 10rem;
+  top: 50%;
+  margin-top: -5rem;
+  font-size: 300%;
+  left: 100%;
+  margin-left: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000341;
   }
 }
 
 .image-picker__images {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 15rem;
+  bottom: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 15rem;
+  width: 100%;
 }
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/scut-0\.6\.0\/dist\/_scut\.scss;
-  }
-
-  line {
-    font-family: \00003707;
-  }
-}
-
-.image-picker__images > li {
-  display: inline-block;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/header\.scss;
->>>>>>> c062334643f83ec37a525fd44a8e48bf263c00eb
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/header\.scss;
   }
 
   line {
@@ -25360,7 +25654,9 @@ body {
 }
 
 .page__content__offer .offer__pictures__picture > img,
-.page__content__offer--create .offer__pictures__picture > img {
+.page__content__offer--create .offer__pictures__picture > img,
+.page__content__offer .image-picker__images__image > img,
+.page__content__offer--create .image-picker__images__image > img {
   border: 1px solid rgba(77, 77, 77, 0.7);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -25423,7 +25719,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -25446,7 +25742,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -25987,7 +26283,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003144;
   }
 }
 
@@ -26010,7 +26306,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003152;
   }
 }
 
@@ -26148,7 +26444,7 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
   }
 
   line {
@@ -26166,7 +26462,7 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
   }
 
   line {
@@ -26190,8 +26486,7 @@ body {
   }
 
   line {
-<<<<<<< HEAD
-    font-family: \0000355;
+    font-family: \0000371;
   }
 }
 
@@ -26212,10 +26507,7 @@ body {
   }
 
   line {
-    font-family: \0000369;
-=======
-    font-family: \0000380;
->>>>>>> c062334643f83ec37a525fd44a8e48bf263c00eb
+    font-family: \0000384;
   }
 }
 
@@ -26228,14 +26520,11 @@ body {
 
 @media -sass-debug-info {
   filename {
-<<<<<<< HEAD
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/style\.scss;
-=======
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
   }
 
   line {
-    font-family: \0000389;
+    font-family: \0000393;
   }
 }
 
@@ -26245,8 +26534,7 @@ body {
 
 @media -sass-debug-info {
   filename {
-    font-family: file\:\/\/\/home\/erykpiast\/appetite\/public\/sass\/style\.scss;
->>>>>>> c062334643f83ec37a525fd44a8e48bf263c00eb
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/style\.scss;
   }
 
   line {

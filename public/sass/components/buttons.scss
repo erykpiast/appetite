@@ -41,6 +41,16 @@
 	}
 }
 
+.button--ico--add {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-plus;
+
+		line-height: 0.85;
+	}
+}
+
 .button--ico--close {
 	@extend .button--ico;
 
