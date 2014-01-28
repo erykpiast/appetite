@@ -8,6 +8,17 @@
     height: 100%;   
 }
 
+.image-picker,
+.image-picker__adder {
+    display: inline-block;
+    min-width: 15rem;
+}
+
+.image-picker {
+    position: relative;
+    width: auto;
+}
+
 .image-picker__header {
     display: none;
 }
@@ -18,7 +29,7 @@
 }
 
 .image-picker__adder {
-    position: relative;
+    @include scut-absolute(0 0 n n);
 }
 
 	.image-picker__adder__form {
@@ -30,21 +41,13 @@
 	.image-picker__adder__add-next {
 		@extend .button--empty;
 		@extend .button--ico--add;
-
-	    @include scut-center-absolutely(10rem 10rem);
+		
+    	@include scut-center-absolutely(10rem 10rem);
 
 		font-size: 300%;
-		left: 100%;
-	    margin-left: 0;
 	}
 
 .image-picker__images {
-	// @extend .offer__pictures;
-	@include scut-absolute(0 15rem 0 0);
-
-	box-sizing: border-box;
-	padding-right: 15rem;
-	width: 100%;
 }
 	.image-picker__images__list {
 	    @extend .offer__pictures__list;
