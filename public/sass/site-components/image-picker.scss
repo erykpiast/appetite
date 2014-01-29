@@ -15,17 +15,12 @@
 }
 
 .image-picker {
+	max-width: 100%;
     position: relative;
-    width: auto;
 }
 
 .image-picker__header {
     display: none;
-}
-
-.image-picker__adder,
-.image-picker__images {
-    display: inline-block;
 }
 
 .image-picker__adder {
@@ -48,9 +43,14 @@
 	}
 
 .image-picker__images {
+	display: block;
+	overflow: hidden;
+	width: 100%;
 }
 	.image-picker__images__list {
 	    @extend .offer__pictures__list;
+
+	    display: block;
 	}
 		.image-picker__images__image {
 		    @extend .offer__pictures__picture;

@@ -16,8 +16,7 @@ requirejs.config({
         'libs/angular-ui': 'bower_components/angular-ui/build/angular-ui',
         'libs/angular-ui-date': 'bower_components/angular-ui-date/src/date',
         'libs/angular-ui-select2': 'bower_components/angular-ui-select2/src/select2',
-        'libs/angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router',
-        'libs/facebook': '//connect.facebook.net/pl_PL/all'
+        'libs/angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router'
     },
     packages: [
         'modules',

@@ -1,86 +1,90 @@
 .page__content__offer--create {
     @extend .page__content__offer;
 
+    // to offer title label be visible
+    &,
+    .offer__header {
+        overflow: visible;
+    }
+
+    @mixin parent-width() {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    @include parent-width();
+
     .offer--create__form {
-        @extend .form;
+        .form__field {
+           
+            & > input {
+                border: 1px solid $c-shadow-dark {
+                    radius: .4rem;
+                    top-left-radius: 0;
+                };
+                box-shadow: 0px 0px 1px $c-shadow-dark inset;
+                color: $c-fg-def;
+            }
 
-        & > fieldset {
-            border: none;
+            & > label {
+                @include scut-absolute(n n 100% 0);
 
-            & > legend {
+                color: $c-fg-def;
                 display: none;
+                font: {
+                    family: $content-font;
+                    size: $base-font-size;
+                    weight: normal;
+                };
+                padding: 0 inherit;
+                pointer-events: none;
+                user-select: none;
             }
 
-            .form__field {
-               
-                & > input {
-                    border: 1px solid $c-shadow-dark {
-                        radius: .4rem;
-                        top-left-radius: 0;
-                    };
-                    box-shadow: 0px 0px 1px $c-shadow-dark inset;
-                    color: $c-fg-def;
-                }
-
-                & > label {
-                    @include scut-absolute(n n 100% 0);
-
-                    color: $c-fg-def;
-                    display: none;
-                    font: {
-                        family: $content-font;
-                        size: $base-font-size;
-                        weight: normal;
-                    };
-                    padding: 0 inherit;
-                    pointer-events: none;
-                    user-select: none;
-                }
-
-                & > input:focus ~ label {
-                    display: block;
-                }
+            & > input:focus ~ label {
+                display: block;
+            }
+            
+            &:after {
+                @extend .tooltip--right;
                 
-                &:after {
-                    @extend .tooltip--right;
-                    
-                    content: attr(data-title);
-                    margin-left: $quarter-spacing-unit;
-                    opacity: 0;
-                    transition: opacity .3s linear 0;
-                    min-width: 15em;
-                }
-                
-                &:not(.edit-in-place--active):hover:after {
-                    opacity: 1;
-                    transition: opacity .3s ease-out $response-delay;
-                }
+                content: attr(data-title);
+                margin-left: $quarter-spacing-unit;
+                opacity: 0;
+                transition: opacity .3s linear 0;
+                min-width: 15em;
             }
+            
+            &:not(.edit-in-place--active):hover:after {
+                opacity: 1;
+                transition: opacity .3s ease-out $response-delay;
+            }
+        }
 
-            .edit-in-place--active {
-                & > label {
-                    background-color: $c-fg-acc;
-                    border: 1px solid $c-shadow-dark {
-                        bottom: none;
-                        radius: .4rem .4rem 0 0;
-                    };
-                    color: $c-bg-acc-light;
-                }
+        .edit-in-place--active {
+            & > label {
+                background-color: $c-fg-acc;
+                border: 1px solid $c-shadow-dark {
+                    bottom: none;
+                    radius: .4rem .4rem 0 0;
+                };
+                color: $c-bg-acc-light;
             }
+        }
 
-            .edit-in-place {
-                max-width: calc(100% - #{2 * $base-spacing-unit});
-                min-width: 4em;
-            }
+        .edit-in-place {
+            max-width: calc(100% - #{2 * $base-spacing-unit});
+            min-width: 4em;
         }
     }
     .offer--create__form--template,
     .offer--create__form--details {
         @extend .offer--create__form;
     }
-    
+
     .offer--create__form--template {
-        
+
         .offer__title {
             @extend .offer__header;
 
@@ -88,9 +92,5 @@
             min-width: 4em;
             overflow: visible;
         }
-    }
-
-    .offer__pictures {
-        width: 100%;
     }
 }

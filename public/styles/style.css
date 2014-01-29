@@ -1,8 +1,6 @@
 @charset "UTF-8";
 
 
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic&subset=latin,latin-ext);
-
 /*! jQuery UI - v1.10.3 - 2013-05-03
 * http://jqueryui.com
 * Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css, jquery.ui.theme.css
@@ -19959,6 +19957,14 @@ textarea:focus {
 }
 
 @font-face {
+  font-family: "Alegreya Sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/AlegreyaSans.eot");
+  src: url("fonts/AlegreyaSans.eot?#iefix") format("embedded-opentype"), url("fonts/AlegreyaSans.woff") format("woff"), url("fonts/AlegreyaSans.ttf") format("truetype"), url("fonts/AlegreyaSans.svg#Alegreya Sans") format("svg");
+}
+
+@font-face {
   font-family: "Englebert";
   font-weight: normal;
   font-style: normal;
@@ -22151,9 +22157,9 @@ a.hyperlink:visited {
 .tooltip,
 .tooltip--top,
 .tooltip--right,
-.page__content__offer--create .offer--create__form > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+.page__content__offer--create .offer--create__form .form__field:after,
+.page__content__offer--create .offer--create__form--template .form__field:after,
+.page__content__offer--create .offer--create__form--details .form__field:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -22190,9 +22196,9 @@ a.hyperlink:visited {
 }
 
 .tooltip--right,
-.page__content__offer--create .offer--create__form > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+.page__content__offer--create .offer--create__form .form__field:after,
+.page__content__offer--create .offer--create__form--template .form__field:after,
+.page__content__offer--create .offer--create__form--details .form__field:after {
   bottom: auto;
   left: 100%;
   top: 50%;
@@ -25088,9 +25094,9 @@ body {
 .tooltip,
 .tooltip--top,
 .tooltip--right,
-.page__content__offer--create .offer--create__form > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+.page__content__offer--create .offer--create__form .form__field:after,
+.page__content__offer--create .offer--create__form--template .form__field:after,
+.page__content__offer--create .offer--create__form--details .form__field:after {
   background-color: #282828;
   border: 1px solid rgba(77, 77, 77, 0.7);
   border-radius: .4rem;
@@ -25129,7 +25135,38 @@ body {
   }
 
   line {
-    font-family: \0000311;
+    font-family: \0000312;
+  }
+}
+
+.image-picker,
+.image-picker__adder {
+  display: inline-block;
+  min-width: 15rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000317;
+  }
+}
+
+.image-picker {
+  max-width: 100%;
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000322;
   }
 }
 
@@ -25143,27 +25180,14 @@ body {
   }
 
   line {
-    font-family: \0000316;
-  }
-}
-
-.image-picker__adder,
-.image-picker__images {
-  display: inline-block;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
-  }
-
-  line {
-    font-family: \0000320;
+    font-family: \0000326;
   }
 }
 
 .image-picker__adder {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 @media -sass-debug-info {
@@ -25172,7 +25196,7 @@ body {
   }
 
   line {
-    font-family: \0000325;
+    font-family: \0000331;
   }
 }
 
@@ -25186,7 +25210,7 @@ body {
   }
 
   line {
-    font-family: \0000330;
+    font-family: \0000336;
   }
 }
 
@@ -25199,8 +25223,6 @@ body {
   top: 50%;
   margin-top: -5rem;
   font-size: 300%;
-  left: 100%;
-  margin-left: 0;
 }
 
 @media -sass-debug-info {
@@ -25209,21 +25231,28 @@ body {
   }
 
   line {
-    font-family: \0000341;
+    font-family: \0000345;
   }
 }
 
 .image-picker__images {
-  position: absolute;
-  top: 0;
-  right: 15rem;
-  bottom: 0;
-  left: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-right: 15rem;
+  display: block;
+  overflow: hidden;
   width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000350;
+  }
+}
+
+.image-picker__images__list {
+  display: block;
 }
 
 @media -sass-debug-info {
@@ -26329,30 +26358,14 @@ body {
   }
 
   line {
-    font-family: \000037;
+    font-family: \000031;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset,
-.page__content__offer--create .offer--create__form--template > fieldset,
-.page__content__offer--create .offer--create__form--details > fieldset {
-  border: none;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \0000310;
-  }
-}
-
-.page__content__offer--create .offer--create__form > fieldset > legend,
-.page__content__offer--create .offer--create__form--template > fieldset > legend,
-.page__content__offer--create .offer--create__form--details > fieldset > legend {
-  display: none;
+.page__content__offer--create {
+  display: block;
+  overflow: hidden;
+  width: 100%;
 }
 
 @media -sass-debug-info {
@@ -26361,13 +26374,29 @@ body {
   }
 
   line {
-    font-family: \0000316;
+    font-family: \000036;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field > input,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field > input,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field > input {
+.page__content__offer--create,
+.page__content__offer--create .offer__header,
+.page__content__offer--create .offer--create__form--template .offer__title {
+  overflow: visible;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000321;
+  }
+}
+
+.page__content__offer--create .offer--create__form .form__field > input,
+.page__content__offer--create .offer--create__form--template .form__field > input,
+.page__content__offer--create .offer--create__form--details .form__field > input {
   border: 1px solid rgba(77, 77, 77, 0.7);
   border-radius: .4rem;
   border-top-left-radius: 0;
@@ -26382,13 +26411,13 @@ body {
   }
 
   line {
-    font-family: \0000325;
+    font-family: \0000330;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field > label,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field > label,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field > label {
+.page__content__offer--create .offer--create__form .form__field > label,
+.page__content__offer--create .offer--create__form--template .form__field > label,
+.page__content__offer--create .offer--create__form--details .form__field > label {
   position: absolute;
   bottom: 100%;
   left: 0;
@@ -26411,13 +26440,13 @@ body {
   }
 
   line {
-    font-family: \0000340;
+    font-family: \0000345;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field > input:focus ~ label,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field > input:focus ~ label,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field > input:focus ~ label {
+.page__content__offer--create .offer--create__form .form__field > input:focus ~ label,
+.page__content__offer--create .offer--create__form--template .form__field > input:focus ~ label,
+.page__content__offer--create .offer--create__form--details .form__field > input:focus ~ label {
   display: block;
 }
 
@@ -26427,13 +26456,13 @@ body {
   }
 
   line {
-    font-family: \0000344;
+    font-family: \0000349;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field:after,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field:after {
+.page__content__offer--create .offer--create__form .form__field:after,
+.page__content__offer--create .offer--create__form--template .form__field:after,
+.page__content__offer--create .offer--create__form--details .form__field:after {
   content: attr(data-title);
   margin-left: 5.25px;
   opacity: 0;
@@ -26448,13 +26477,13 @@ body {
   }
 
   line {
-    font-family: \0000354;
+    font-family: \0000359;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .form__field:not(.edit-in-place--active):hover:after,
-.page__content__offer--create .offer--create__form--template > fieldset .form__field:not(.edit-in-place--active):hover:after,
-.page__content__offer--create .offer--create__form--details > fieldset .form__field:not(.edit-in-place--active):hover:after {
+.page__content__offer--create .offer--create__form .form__field:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--template .form__field:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--details .form__field:not(.edit-in-place--active):hover:after {
   opacity: 1;
   -webkit-transition: opacity 0.3s ease-out 0.4s;
   transition: opacity 0.3s ease-out 0.4s;
@@ -26466,13 +26495,13 @@ body {
   }
 
   line {
-    font-family: \0000361;
+    font-family: \0000366;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .edit-in-place--active > label,
-.page__content__offer--create .offer--create__form--template > fieldset .edit-in-place--active > label,
-.page__content__offer--create .offer--create__form--details > fieldset .edit-in-place--active > label {
+.page__content__offer--create .offer--create__form .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active > label {
   background-color: #aa1e1e;
   border: 1px solid rgba(77, 77, 77, 0.7);
   border-bottom: none;
@@ -26486,16 +26515,16 @@ body {
   }
 
   line {
-    font-family: \0000371;
+    font-family: \0000376;
   }
 }
 
-.page__content__offer--create .offer--create__form > fieldset .edit-in-place,
-.page__content__offer--create .offer--create__form--template > fieldset .edit-in-place,
-.page__content__offer--create .offer--create__form--details > fieldset .edit-in-place,
-.page__content__offer--create .offer--create__form > fieldset .edit-in-place--active,
-.page__content__offer--create .offer--create__form--template > fieldset .edit-in-place--active,
-.page__content__offer--create .offer--create__form--details > fieldset .edit-in-place--active {
+.page__content__offer--create .offer--create__form .edit-in-place,
+.page__content__offer--create .offer--create__form--template .edit-in-place,
+.page__content__offer--create .offer--create__form--details .edit-in-place,
+.page__content__offer--create .offer--create__form .edit-in-place--active,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active {
   max-width: -webkit-calc(100% - 42px);
   max-width: calc(100% - 42px);
   min-width: 4em;
@@ -26507,7 +26536,7 @@ body {
   }
 
   line {
-    font-family: \0000384;
+    font-family: \0000388;
   }
 }
 
@@ -26516,20 +26545,6 @@ body {
   max-width: calc(100% - 42px);
   min-width: 4em;
   overflow: visible;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \0000393;
-  }
-}
-
-.page__content__offer--create .offer__pictures {
-  width: 100%;
 }
 
 @media -sass-debug-info {

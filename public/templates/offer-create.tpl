@@ -1,10 +1,8 @@
-<section class="page__content__offer--create">
+<section class="page__content__offer--create offer">
 
-    <form name="formTemplate" class="offer--create__form--template">
-        <fieldset>
-            <legend>{{ i18n.offer.create.templateHeader }}</legend>
-
-            <div class="offer__title">
+    <div class="page__content__column--left">
+        <div  ng-form="offerTemplate" class="offer--create__form--template">
+            <header class="offer__header">
             	<h2 class="form__field"
                     app-edit-in-place="offer.template.title"
                     label="{{ i18n.offer.create.title }}"
@@ -15,18 +13,19 @@
                         'ng-maxlength': 50
                     }"
                     data-title="{{ i18n.offer.create.title }} – {{ i18n.offer.create.clickToEdit }}"></h2>
-            </div>
+            </header>
+
 
             <div class="offer__content">
 
-                <div class="offer__pictures form__field">
+                <div class="offer__pictures">
                     
                     <app-image-picker model="offer.template.pictures"></app-image-picker>
 
                 </div>
 
                 <div class="offer__description">
-                    <p  class="form__field"
+                    <p  class="offer__description__paragraph form__field"
                         app-edit-in-place="offer.template.description"
                         label="{{ i18n.offer.create.description }}"
                         input-type="textarea"
@@ -35,18 +34,20 @@
                             'ng-required': true,
                             'ng-maxlength': 300
                         }"></p>
+
+                    <p class="offer__source form__field">
+                        <a  class="offer__description__paragraph form__field"
+                            app-edit-in-place="offer.template.recipe"
+                            label="{{ i18n.offer.create.recipe }}"
+                            input-type="url"
+                            input-attrs="{
+                                'placeholder': i18n.offer.create.example.recipe,
+                                'ng-required': true
+                            }"></a>
+                    </p>
                 </div>
 
-                <div class="offer__source form__field">
-                    <label for="offer__source">{{ i18n.offer.create.recipe }}</label>
-                    <input
-                        id="offer__source"
-                        type="url"
-                        value=""
-                        placeholder="{{ i18n.offer.create.example.recipe }}"
-                        ng-model="offer.template.recipe"
-                        ng-required="true" />
-                </div>
+               
 
                 <div class="offer__tags form__field">
                 	<label for="offer__tags">{{ i18n.offer.create.tags }}</label>
@@ -74,14 +75,9 @@
                 </button>
                 
             </div>
+        </div>
 
-        </fieldset>
-    </form>
-
-    <form name="formOffer" class="offer--create__form--details">
-        <fieldset>
-            <legend>{{ i18n.offer.create.detailsHeader }}</legend>
-
+        <section ng-form="offerDetails" class="offer--create__form--details">
             <div class="offer__place">
                 <label for="offer__place">{{ i18n.offer.create.place }}</label>
                 <input 
@@ -95,7 +91,7 @@
                     ng-maxlength="20" />
             </div>
 
-			<div class="offer__start-end">
+    		<div class="offer__start-end">
             	<label for="offer__start">{{ i18n.offer.create.start }}</label>
             	<input 
                     id="offer__start"  
@@ -142,7 +138,7 @@
                 ng-disabled="!(formOffer.$valid && formTemplate.$valid)">
                 {{ i18n.offer.create.startOffer }}
             </button>
-        </fieldset>
-    </form>
+        </div>
+    </div>
     	
 </section>
