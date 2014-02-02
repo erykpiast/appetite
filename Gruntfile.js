@@ -112,7 +112,8 @@ module.exports = function(grunt) {
                     livereload: LIVEREOAD_PORT
                 },
                 files: [
-                    appDir + '/sass/{,*/}*.scss'
+                    appDir + '/sass/{,*/}*.scss',
+                    appDir + '/bower_components/{,*/}*.css'
                 ],
                 tasks: [ 'compass:dev', 'autoprefixer:dev' ]
             },

@@ -93,4 +93,42 @@
             overflow: visible;
         }
     }
+
+
+    $add-button-size: 15rem;
+    $images-overflow-mask-width: .4rem;
+
+    .offer__pictures {
+        box-sizing: border-box;
+        max-width: 100%;
+        position: relative;
+        white-space: initial;
+        width: auto;
+
+        &:after {
+            right: $add-button-size; // add button size
+        }
+
+        .image-picker__images {
+            box-sizing: border-box;
+            padding: 0 $images-overflow-mask-width;
+            white-space: nowrap;
+
+            &.ps-container .ps-scrollbar-x-rail {
+                margin-left: $images-overflow-mask-width;
+            }
+        }
+            
+            .image-picker__adder--active {
+                margin-right: $images-overflow-mask-width;
+            }
+
+                .image-picker__adder__form {
+                    margin-left: $images-overflow-mask-width;
+                }
+
+                    .image-picker__adder__form__preview {
+                        max-width: $add-button-size;
+                    }
+    }
 }

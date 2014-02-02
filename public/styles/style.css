@@ -6863,6 +6863,214 @@ disabled look for disabled choices in the results dropdown
   }
 }
 
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.ps-container .ps-scrollbar-x-rail {
+  position: absolute;
+  /* please don't change 'position' */
+  bottom: 3px;
+  /* there must be 'bottom' for ps-scrollbar-x-rail */
+  height: 8px;
+  border-radius: 4px;
+  opacity: 0;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000311;
+  }
+}
+
+.ps-container:hover .ps-scrollbar-x-rail,
+.ps-container.hover .ps-scrollbar-x-rail {
+  opacity: 0.6;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000316;
+  }
+}
+
+.ps-container .ps-scrollbar-x-rail:hover,
+.ps-container .ps-scrollbar-x-rail.hover {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000321;
+  }
+}
+
+.ps-container .ps-scrollbar-x-rail.in-scrolling {
+  opacity: 0.9;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000325;
+  }
+}
+
+.ps-container .ps-scrollbar-y-rail {
+  position: absolute;
+  /* please don't change 'position' */
+  right: 3px;
+  /* there must be 'right' for ps-scrollbar-y-rail */
+  width: 8px;
+  border-radius: 4px;
+  opacity: 0;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000335;
+  }
+}
+
+.ps-container:hover .ps-scrollbar-y-rail,
+.ps-container.hover .ps-scrollbar-y-rail {
+  opacity: 0.6;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000340;
+  }
+}
+
+.ps-container .ps-scrollbar-y-rail:hover,
+.ps-container .ps-scrollbar-y-rail.hover {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000345;
+  }
+}
+
+.ps-container .ps-scrollbar-y-rail.in-scrolling {
+  opacity: 0.9;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000349;
+  }
+}
+
+.ps-container .ps-scrollbar-x {
+  position: absolute;
+  /* please don't change 'position' */
+  bottom: 0;
+  /* there must be 'bottom' for ps-scrollbar-x */
+  height: 8px;
+  background-color: #aaa;
+  border-radius: 4px;
+  -webkit-transition: background-color .2s linear;
+  transition: background-color .2s linear;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000359;
+  }
+}
+
+.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,
+.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x {
+  background-color: #999;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000363;
+  }
+}
+
+.ps-container .ps-scrollbar-y {
+  position: absolute;
+  /* please don't change 'position' */
+  right: 0;
+  /* there must be 'right' for ps-scrollbar-y */
+  width: 8px;
+  background-color: #aaa;
+  border-radius: 4px;
+  -webkit-transition: background-color .2s linear;
+  transition: background-color .2s linear;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/bower_components\/angular-perfect-scrollbar\/perfect-scrollbar\.css;
+  }
+
+  line {
+    font-family: \0000373;
+  }
+}
+
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,
+.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y {
+  background-color: #999;
+}
+
 /*------------------------------------*\
     VARS.SCSS
 \*------------------------------------*/
@@ -7979,6 +8187,7 @@ h2,
 h3,
 .offer .offer__author__name,
 h4,
+.image-picker__adder__form > fieldset > legend,
 h5,
 h6,
 p,
@@ -8173,6 +8382,7 @@ h2,
 h3,
 .offer .offer__author__name,
 h4,
+.image-picker__adder__form > fieldset > legend,
 h5,
 h6,
 hgroup,
@@ -8213,6 +8423,7 @@ pre,
 .islet .offer .offer__author__name,
 .offer .islet .offer__author__name,
 .islet h4,
+.islet .image-picker__adder__form > fieldset > legend,
 .islet h5,
 .islet h6,
 .islet hgroup,
@@ -8404,6 +8615,7 @@ h3,
 }
 
 h4,
+.image-picker__adder__form > fieldset > legend,
 .delta {
   font-size: 17.5px;
   font-size: 1.25rem;
@@ -13967,6 +14179,7 @@ h2,
 h3,
 .offer .offer__author__name,
 h4,
+.image-picker__adder__form > fieldset > legend,
 h5,
 h6,
 p,
@@ -20574,6 +20787,14 @@ a.hyperlink:visited {
 .page__content__offer--create .search .search__submit > .offer__order__button,
 .search--main .page__content__offer--create .search__submit > .offer__order__button,
 .page__content__offer--create .search--main .search__submit > .offer__order__button,
+.search .search__submit > .button--primary,
+.search--main .search__submit > .button--primary,
+.search .search__submit > .image-picker__adder__form__input__button--apply,
+.search--main .search__submit > .image-picker__adder__form__input__button--apply,
+.search .search__submit > .button--secondary,
+.search--main .search__submit > .button--secondary,
+.search .search__submit > .image-picker__adder__form__input__button--cancel,
+.search--main .search__submit > .image-picker__adder__form__input__button--cancel,
 .search .search__submit > .button--ico,
 .search--main .search__submit > .button--ico,
 .search .search__submit > .button--ico--add,
@@ -20725,6 +20946,10 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github,
 .page__content__offer .offer__order__button,
 .page__content__offer--create .offer__order__button,
+.button--primary,
+.image-picker__adder__form__input__button--apply,
+.button--secondary,
+.image-picker__adder__form__input__button--cancel,
 .button--ico,
 .button--ico--add,
 .image-picker__adder__add-next,
@@ -20773,6 +20998,10 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:focus,
 .page__content__offer .offer__order__button:focus,
 .page__content__offer--create .offer__order__button:focus,
+.button--primary:focus,
+.image-picker__adder__form__input__button--apply:focus,
+.button--secondary:focus,
+.image-picker__adder__form__input__button--cancel:focus,
 .button--ico:focus,
 .button--ico--add:focus,
 .image-picker__adder__add-next:focus,
@@ -20813,7 +21042,9 @@ a.hyperlink:visited {
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github,
 .page__content__offer .offer__order__button,
-.page__content__offer--create .offer__order__button {
+.page__content__offer--create .offer__order__button,
+.button--primary,
+.image-picker__adder__form__input__button--apply {
   background-color: #aa1e1e;
   border: 1px solid #aa1e1e;
   border-radius: 0.4em;
@@ -20833,7 +21064,27 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000333;
+    font-family: \0000330;
+  }
+}
+
+.button--secondary,
+.image-picker__adder__form__input__button--cancel {
+  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5.25px 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \0000341;
   }
 }
 
@@ -20874,7 +21125,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000347;
+    font-family: \0000355;
   }
 }
 
@@ -20889,7 +21140,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003127;
+    font-family: \00003135;
   }
 }
 
@@ -21575,41 +21826,13 @@ a.hyperlink:visited {
 .photo-gallery--inline,
 .page__content__offer .offer__pictures,
 .page__content__offer--create .offer__pictures {
-  display: block;
-  overflow-y: hidden;
-  overflow-x: auto;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/photo-gallery\.scss;
-  }
-
-  line {
-    font-family: \0000338;
-  }
-}
-
-.photo-gallery--inline .photo-gallery__list,
-.page__content__offer .offer__pictures .photo-gallery__list,
-.page__content__offer--create .offer__pictures .photo-gallery__list,
-.photo-gallery--inline .page__content__offer .offer__pictures__list,
-.page__content__offer .photo-gallery--inline .offer__pictures__list,
-.page__content__offer .offer__pictures .offer__pictures__list,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list,
-.page__content__offer--create .offer__pictures .offer__pictures__list,
-.photo-gallery--inline .page__content__offer .image-picker__images__list,
-.page__content__offer .photo-gallery--inline .image-picker__images__list,
-.page__content__offer .offer__pictures .image-picker__images__list,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list,
-.page__content__offer--create .offer__pictures .image-picker__images__list {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: block;
   height: 100%;
-  width: 5000px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media -sass-debug-info {
@@ -21618,242 +21841,34 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000344;
+    font-family: \0000339;
   }
 }
 
-.photo-gallery--inline .photo-gallery__list .photo-gallery__photo,
-.page__content__offer .offer__pictures .photo-gallery__list .photo-gallery__photo,
-.page__content__offer--create .offer__pictures .photo-gallery__list .photo-gallery__photo,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .photo-gallery__photo,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .photo-gallery__photo,
-.page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .photo-gallery__photo,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .photo-gallery__photo,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .photo-gallery__photo,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .photo-gallery__photo,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo,
-.page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .photo-gallery__photo,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .photo-gallery__photo,
-.page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .photo-gallery__photo,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .photo-gallery__photo,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .photo-gallery__photo,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .photo-gallery__photo,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo,
-.page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo,
-.photo-gallery--inline .photo-gallery__list .photo-gallery__photo--fullscreen,
-.page__content__offer .offer__pictures .photo-gallery__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .offer__pictures .photo-gallery__list .photo-gallery__photo--fullscreen,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .offer__pictures .offer__pictures__list .photo-gallery__photo--fullscreen,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
-.page__content__offer--create .offer__pictures .image-picker__images__list .photo-gallery__photo--fullscreen,
-.photo-gallery--inline .photo-gallery__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .photo-gallery--inline .photo-gallery__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .photo-gallery__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .offer__pictures__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .image-picker__images__list .page__content__offer .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.photo-gallery--inline .photo-gallery__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .photo-gallery--inline .photo-gallery__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .photo-gallery__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .offer__pictures__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .image-picker__images__list .page__content__offer--create .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture--preview,
-.photo-gallery--inline .photo-gallery__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .photo-gallery--inline .photo-gallery__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .photo-gallery__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .offer__pictures__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .image-picker__images__list .page__content__offer .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.photo-gallery--inline .photo-gallery__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .photo-gallery--inline .photo-gallery__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .photo-gallery__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .offer__pictures .photo-gallery__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .photo-gallery__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .photo-gallery--inline .page__content__offer .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .offer__pictures__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .offer__pictures__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .photo-gallery--inline .page__content__offer .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .image-picker__images__list .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .offer__pictures__picture,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .image-picker__images__list .offer__pictures__picture,
-.photo-gallery--inline .photo-gallery__list .page__content__offer .image-picker__images__image,
-.page__content__offer .photo-gallery--inline .photo-gallery__list .image-picker__images__image,
-.page__content__offer .offer__pictures .photo-gallery__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .photo-gallery__list .page__content__offer .image-picker__images__image,
-.page__content__offer .page__content__offer--create .offer__pictures .photo-gallery__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .image-picker__images__image,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
-.page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .image-picker__images__image,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .page__content__offer .image-picker__images__image,
-.page__content__offer .photo-gallery--inline .page__content__offer--create .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .page__content__offer .image-picker__images__image,
-.page__content__offer .page__content__offer--create .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .offer__pictures__list .page__content__offer .image-picker__images__image,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .image-picker__images__image,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
-.page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .image-picker__images__image,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .page__content__offer .image-picker__images__image,
-.page__content__offer .photo-gallery--inline .page__content__offer--create .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .page__content__offer .image-picker__images__image,
-.page__content__offer .page__content__offer--create .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .image-picker__images__list .page__content__offer .image-picker__images__image,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image,
-.photo-gallery--inline .photo-gallery__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .photo-gallery--inline .photo-gallery__list .image-picker__images__image,
-.page__content__offer .offer__pictures .photo-gallery__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .page__content__offer .offer__pictures .photo-gallery__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .photo-gallery__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer .offer__pictures__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .photo-gallery--inline .page__content__offer .offer__pictures__list .image-picker__images__image,
-.page__content__offer .photo-gallery--inline .offer__pictures__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .page__content__offer .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
-.page__content__offer .offer__pictures .offer__pictures__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .page__content__offer .offer__pictures__list .image-picker__images__image,
-.page__content__offer .page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer--create .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .photo-gallery--inline .offer__pictures__list .image-picker__images__image,
-.page__content__offer .offer__pictures .page__content__offer--create .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .page__content__offer .offer__pictures .offer__pictures__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .offer__pictures__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer .image-picker__images__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .photo-gallery--inline .page__content__offer .image-picker__images__list .image-picker__images__image,
-.page__content__offer .photo-gallery--inline .image-picker__images__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .page__content__offer .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
-.page__content__offer .offer__pictures .image-picker__images__list .page__content__offer--create .image-picker__images__image,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .page__content__offer .image-picker__images__list .image-picker__images__image,
-.page__content__offer .page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image,
-.photo-gallery--inline .page__content__offer--create .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .photo-gallery--inline .image-picker__images__list .image-picker__images__image,
-.page__content__offer .offer__pictures .page__content__offer--create .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .page__content__offer .offer__pictures .image-picker__images__list .image-picker__images__image,
-.page__content__offer--create .offer__pictures .image-picker__images__list .image-picker__images__image {
+.photo-gallery--inline .photo-gallery__photo,
+.page__content__offer .offer__pictures .photo-gallery__photo,
+.page__content__offer--create .offer__pictures .photo-gallery__photo,
+.photo-gallery--inline .photo-gallery__photo--fullscreen,
+.page__content__offer .offer__pictures .photo-gallery__photo--fullscreen,
+.page__content__offer--create .offer__pictures .photo-gallery__photo--fullscreen,
+.photo-gallery--inline .page__content__offer .offer__pictures__picture--preview,
+.page__content__offer .photo-gallery--inline .offer__pictures__picture--preview,
+.page__content__offer .offer__pictures .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__picture--preview,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures .offer__pictures__picture--preview,
+.photo-gallery--inline .page__content__offer .offer__pictures__picture,
+.page__content__offer .photo-gallery--inline .offer__pictures__picture,
+.page__content__offer .offer__pictures .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__picture,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__picture,
+.page__content__offer--create .offer__pictures .offer__pictures__picture,
+.photo-gallery--inline .page__content__offer .image-picker__images__image,
+.page__content__offer .photo-gallery--inline .image-picker__images__image,
+.page__content__offer .offer__pictures .image-picker__images__image,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__image,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__image,
+.page__content__offer--create .offer__pictures .image-picker__images__image {
   display: inline-block;
   height: 100%;
 }
@@ -22446,7 +22461,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -22468,7 +22483,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -22670,6 +22685,10 @@ body {
 .page__content__offer .search--main .search__submit > .offer__order__button,
 .search--main .page__content__offer--create .search__submit > .offer__order__button,
 .page__content__offer--create .search--main .search__submit > .offer__order__button,
+.search--main .search__submit > .button--primary,
+.search--main .search__submit > .image-picker__adder__form__input__button--apply,
+.search--main .search__submit > .button--secondary,
+.search--main .search__submit > .image-picker__adder__form__input__button--cancel,
 .search--main .search__submit > .button--ico,
 .search--main .search__submit > .button--ico--add,
 .search--main .search__submit > .image-picker__adder__add-next,
@@ -22718,7 +22737,7 @@ body {
   }
 
   line {
-    font-family: \00003165;
+    font-family: \00003173;
   }
 }
 
@@ -22740,6 +22759,10 @@ body {
 .page__content__offer .search--main .search__submit > .offer__order__button:hover,
 .search--main .page__content__offer--create .search__submit > .offer__order__button:hover,
 .page__content__offer--create .search--main .search__submit > .offer__order__button:hover,
+.search--main .search__submit > .button--primary:hover,
+.search--main .search__submit > .image-picker__adder__form__input__button--apply:hover,
+.search--main .search__submit > .button--secondary:hover,
+.search--main .search__submit > .image-picker__adder__form__input__button--cancel:hover,
 .search--main .search__submit > .button--ico:hover,
 .search--main .search__submit > .button--ico--add:hover,
 .search--main .search__submit > .image-picker__adder__add-next:hover,
@@ -23656,7 +23679,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -23678,7 +23701,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -23830,7 +23853,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -23852,7 +23875,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -23909,7 +23932,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -23931,7 +23954,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -23988,7 +24011,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -24010,7 +24033,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24066,7 +24089,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -24088,7 +24111,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24576,7 +24599,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -24598,7 +24621,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24753,7 +24776,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -24775,7 +24798,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24832,7 +24855,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -24854,7 +24877,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24911,7 +24934,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -24933,7 +24956,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24991,7 +25014,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -25013,7 +25036,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -25115,12 +25138,13 @@ body {
   }
 
   line {
-    font-family: \000037;
+    font-family: \000039;
   }
 }
 
 .image-picker,
 .image-picker__adder,
+.image-picker__adder--active,
 .image-picker__adder__add-next,
 .image-picker__adder__form,
 .image-picker__adder__form > fieldset,
@@ -25135,14 +25159,14 @@ body {
   }
 
   line {
-    font-family: \0000312;
+    font-family: \0000314;
   }
 }
 
 .image-picker,
-.image-picker__adder {
+.image-picker__adder,
+.image-picker__adder--active {
   display: inline-block;
-  min-width: 15rem;
 }
 
 @media -sass-debug-info {
@@ -25151,12 +25175,15 @@ body {
   }
 
   line {
-    font-family: \0000317;
+    font-family: \0000318;
   }
 }
 
 .image-picker {
-  max-width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 15rem;
   position: relative;
 }
 
@@ -25166,7 +25193,7 @@ body {
   }
 
   line {
-    font-family: \0000322;
+    font-family: \0000325;
   }
 }
 
@@ -25180,14 +25207,16 @@ body {
   }
 
   line {
-    font-family: \0000326;
+    font-family: \0000329;
   }
 }
 
-.image-picker__adder {
+.image-picker__adder,
+.image-picker__adder--active {
   position: absolute;
   top: 0;
   right: 0;
+  min-width: 15rem;
 }
 
 @media -sass-debug-info {
@@ -25196,12 +25225,42 @@ body {
   }
 
   line {
-    font-family: \0000331;
+    font-family: \0000334;
+  }
+}
+
+.image-picker__adder--active {
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000340;
+  }
+}
+
+.image-picker__adder__form {
+  position: relative;
+  width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000344;
   }
 }
 
 .image-picker__adder__form > fieldset {
   border: none;
+  width: 100%;
 }
 
 @media -sass-debug-info {
@@ -25210,7 +25269,94 @@ body {
   }
 
   line {
-    font-family: \0000336;
+    font-family: \0000353;
+  }
+}
+
+.image-picker__adder__form__preview {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  max-height: 100%;
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000360;
+  }
+}
+
+.image-picker__adder__form__input {
+  margin-top: 21px;
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000364;
+  }
+}
+
+.image-picker__adder__form__input,
+.image-picker__adder__form__input > label,
+.image-picker__adder__form__input > input {
+  display: inline-block;
+  margin-bottom: 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000369;
+  }
+}
+
+.image-picker__adder__form__input > input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000374;
+  }
+}
+
+.image-picker__adder__form__input__button,
+.image-picker__adder__form__input__button--apply,
+.image-picker__adder__form__input__button--cancel {
+  display: inline-block;
+  margin-right: 10.5px;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000390;
   }
 }
 
@@ -25231,28 +25377,14 @@ body {
   }
 
   line {
-    font-family: \0000345;
+    font-family: \0000399;
   }
 }
 
 .image-picker__images {
-  display: block;
+  display: inline-block;
   overflow: hidden;
-  width: 100%;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
-  }
-
-  line {
-    font-family: \0000350;
-  }
-}
-
-.image-picker__images__list {
-  display: block;
+  position: relative;
 }
 
 @media -sass-debug-info {
@@ -25637,7 +25769,7 @@ body {
   }
 
   line {
-    font-family: \0000327;
+    font-family: \0000330;
   }
 }
 
@@ -25646,6 +25778,47 @@ body {
   height: 15rem;
   overflow: hidden;
   position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
+  }
+
+  line {
+    font-family: \0000338;
+  }
+}
+
+.page__content__offer .offer__pictures:before,
+.page__content__offer--create .offer__pictures:before,
+.page__content__offer .offer__pictures:after,
+.page__content__offer--create .offer__pictures:after {
+  width: 0.4rem;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__content__offer .offer__pictures:before,
+.page__content__offer--create .offer__pictures:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, top left, top right, from(#ffffff), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 @media -sass-debug-info {
@@ -25669,7 +25842,6 @@ body {
   background-image: -webkit-gradient(linear, top right, top left, from(#ffffff), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
-  width: .4rem;
 }
 
 @media -sass-debug-info {
@@ -25678,18 +25850,40 @@ body {
   }
 
   line {
-    font-family: \0000348;
+    font-family: \0000356;
   }
 }
 
-.page__content__offer .offer__pictures__picture > img,
-.page__content__offer--create .offer__pictures__picture > img,
-.page__content__offer .image-picker__images__image > img,
-.page__content__offer--create .image-picker__images__image > img {
-  border: 1px solid rgba(77, 77, 77, 0.7);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+.page__content__offer .offer__pictures__picture,
+.page__content__offer--create .offer__pictures__picture,
+.page__content__offer .image-picker__images__image,
+.page__content__offer--create .image-picker__images__image {
+  position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.page__content__offer .offer__pictures__picture:after,
+.page__content__offer--create .offer__pictures__picture:after,
+.page__content__offer .image-picker__images__image:after,
+.page__content__offer--create .image-picker__images__image:after {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-box-shadow: 0 0 0.2em 1px rgba(77, 77, 77, 0.7) inset;
+  box-shadow: 0 0 0.2em 1px rgba(77, 77, 77, 0.7) inset;
 }
 
 @media -sass-debug-info {
@@ -25698,7 +25892,7 @@ body {
   }
 
   line {
-    font-family: \0000353;
+    font-family: \0000367;
   }
 }
 
@@ -25713,7 +25907,7 @@ body {
   }
 
   line {
-    font-family: \0000358;
+    font-family: \0000372;
   }
 }
 
@@ -25748,7 +25942,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -25771,7 +25965,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -25794,7 +25988,7 @@ body {
   }
 
   line {
-    font-family: \0000367;
+    font-family: \0000381;
   }
 }
 
@@ -25811,7 +26005,7 @@ body {
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000388;
   }
 }
 
@@ -25827,7 +26021,7 @@ body {
   }
 
   line {
-    font-family: \0000379;
+    font-family: \0000393;
   }
 }
 
@@ -25842,7 +26036,7 @@ body {
   }
 
   line {
-    font-family: \0000383;
+    font-family: \0000397;
   }
 }
 
@@ -25858,7 +26052,7 @@ body {
   }
 
   line {
-    font-family: \0000387;
+    font-family: \00003101;
   }
 }
 
@@ -25874,7 +26068,7 @@ body {
   }
 
   line {
-    font-family: \0000394;
+    font-family: \00003108;
   }
 }
 
@@ -25896,7 +26090,7 @@ body {
   }
 
   line {
-    font-family: \00003106;
+    font-family: \00003120;
   }
 }
 
@@ -25911,7 +26105,7 @@ body {
   }
 
   line {
-    font-family: \00003110;
+    font-family: \00003124;
   }
 }
 
@@ -25928,7 +26122,7 @@ body {
   }
 
   line {
-    font-family: \00003115;
+    font-family: \00003129;
   }
 }
 
@@ -25967,7 +26161,7 @@ body {
   }
 
   line {
-    font-family: \00003130;
+    font-family: \00003144;
   }
 }
 
@@ -25992,7 +26186,7 @@ body {
   }
 
   line {
-    font-family: \00003141;
+    font-family: \00003155;
   }
 }
 
@@ -26010,7 +26204,7 @@ body {
   }
 
   line {
-    font-family: \00003146;
+    font-family: \00003160;
   }
 }
 
@@ -26025,7 +26219,7 @@ body {
   }
 
   line {
-    font-family: \00003150;
+    font-family: \00003164;
   }
 }
 
@@ -26040,7 +26234,7 @@ body {
   }
 
   line {
-    font-family: \00003155;
+    font-family: \00003169;
   }
 }
 
@@ -26083,7 +26277,7 @@ body {
   }
 
   line {
-    font-family: \00003169;
+    font-family: \00003183;
   }
 }
 
@@ -26098,7 +26292,7 @@ body {
   }
 
   line {
-    font-family: \00003173;
+    font-family: \00003187;
   }
 }
 
@@ -26113,7 +26307,7 @@ body {
   }
 
   line {
-    font-family: \00003179;
+    font-family: \00003193;
   }
 }
 
@@ -26132,7 +26326,7 @@ body {
   }
 
   line {
-    font-family: \00003185;
+    font-family: \00003199;
   }
 }
 
@@ -26151,7 +26345,7 @@ body {
   }
 
   line {
-    font-family: \00003191;
+    font-family: \00003205;
   }
 }
 
@@ -26170,7 +26364,7 @@ body {
   }
 
   line {
-    font-family: \00003195;
+    font-family: \00003209;
   }
 }
 
@@ -26185,7 +26379,7 @@ body {
   }
 
   line {
-    font-family: \00003198;
+    font-family: \00003212;
   }
 }
 
@@ -26201,7 +26395,7 @@ body {
   }
 
   line {
-    font-family: \00003204;
+    font-family: \00003218;
   }
 }
 
@@ -26217,7 +26411,7 @@ body {
   }
 
   line {
-    font-family: \00003209;
+    font-family: \00003223;
   }
 }
 
@@ -26233,7 +26427,7 @@ body {
   }
 
   line {
-    font-family: \00003218;
+    font-family: \00003232;
   }
 }
 
@@ -26249,7 +26443,7 @@ body {
   }
 
   line {
-    font-family: \00003223;
+    font-family: \00003237;
   }
 }
 
@@ -26264,7 +26458,7 @@ body {
   }
 
   line {
-    font-family: \00003226;
+    font-family: \00003240;
   }
 }
 
@@ -26279,7 +26473,7 @@ body {
   }
 
   line {
-    font-family: \00003229;
+    font-family: \00003243;
   }
 }
 
@@ -26312,7 +26506,7 @@ body {
   }
 
   line {
-    font-family: \00003144;
+    font-family: \00003152;
   }
 }
 
@@ -26335,7 +26529,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -26549,11 +26743,119 @@ body {
 
 @media -sass-debug-info {
   filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003101;
+  }
+}
+
+.page__content__offer--create .offer__pictures {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
+  position: relative;
+  white-space: initial;
+  width: auto;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003108;
+  }
+}
+
+.page__content__offer--create .offer__pictures:after {
+  right: 15rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003112;
+  }
+}
+
+.page__content__offer--create .offer__pictures .image-picker__images {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0.4rem;
+  white-space: nowrap;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003117;
+  }
+}
+
+.page__content__offer--create .offer__pictures .image-picker__images.ps-container .ps-scrollbar-x-rail {
+  margin-left: 0.4rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003122;
+  }
+}
+
+.page__content__offer--create .offer__pictures .image-picker__adder--active {
+  margin-right: 0.4rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003126;
+  }
+}
+
+.page__content__offer--create .offer__pictures .image-picker__adder__form {
+  margin-left: 0.4rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003130;
+  }
+}
+
+.page__content__offer--create .offer__pictures .image-picker__adder__form__preview {
+  max-width: 15rem;
+}
+
+@media -sass-debug-info {
+  filename {
     font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/style\.scss;
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000375;
   }
 }
 
@@ -26567,7 +26869,7 @@ html {
   }
 
   line {
-    font-family: \0000378;
+    font-family: \0000379;
   }
 }
 
@@ -26581,7 +26883,7 @@ body {
   }
 
   line {
-    font-family: \0000382;
+    font-family: \0000383;
   }
 }
 
@@ -26599,7 +26901,7 @@ body {
   }
 
   line {
-    font-family: \0000392;
+    font-family: \0000393;
   }
 }
 
@@ -26617,7 +26919,7 @@ h2 {
   }
 
   line {
-    font-family: \0000398;
+    font-family: \0000399;
   }
 }
 

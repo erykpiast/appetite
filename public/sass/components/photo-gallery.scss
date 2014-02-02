@@ -29,22 +29,16 @@
 .photo-gallery--inline {
 	@extend .photo-gallery;
 
+	@include scut-list-unstyled();
+
 	display: block;
-	overflow: {
-		y: hidden;
-		x: auto;
-	};
-
-	.photo-gallery__list {
-		@include scut-list-unstyled();
-
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	
+	.photo-gallery__photo {
+		display: inline-block;
 		height: 100%;
-		width: 5000px; // Infinity :)
-
-		.photo-gallery__photo {
-			display: inline-block;
-			height: 100%;
-		}
 	}
 }
 

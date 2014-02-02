@@ -1,3 +1,5 @@
+$add-button-size: 15rem;
+
 .image-picker,
 .image-picker__adder,
 .image-picker__adder__add-next,
@@ -11,11 +13,12 @@
 .image-picker,
 .image-picker__adder {
     display: inline-block;
-    min-width: 15rem;
 }
 
 .image-picker {
-	max-width: 100%;
+	box-sizing: border-box;
+	// max-width: 100%;
+	padding-right: $add-button-size;
     position: relative;
 }
 
@@ -25,13 +28,64 @@
 
 .image-picker__adder {
     @include scut-absolute(0 0 n n);
+
+    min-width: $add-button-size;
+}
+.image-picker__adder--active {
+	@extend .image-picker__adder;
+
+	position: relative;
 }
 
 	.image-picker__adder__form {
+		position: relative;
+		width: 100%;
+
 	    & > fieldset {
 	        border: none;
+	        width: 100%;
+
+	        & > legend {
+	        	@extend h4;
+	        }
 	    }
 	}
+		.image-picker__adder__form__preview {
+			@include scut-absolute(0 n n 100%);
+
+			max-height: 100%;
+			transform: translateX(50%);
+		}
+
+		.image-picker__adder__form__input {
+			margin-top: $base-spacing-unit;
+			text-align: center;
+
+			&, & > label, & > input {
+				display: inline-block;
+				margin-bottom: $half-spacing-unit; 
+			}
+
+			& > input {
+				box-sizing: border-box;
+				width: 100%;
+			}
+		}
+			.image-picker__adder__form__input__button {
+				display: inline-block;
+				margin-right: $half-spacing-unit;
+				vertical-align: middle;
+			}
+			.image-picker__adder__form__input__button--apply,
+			.image-picker__adder__form__input__button--cancel {
+				@extend .image-picker__adder__form__input__button;
+			}
+			.image-picker__adder__form__input__button--apply {
+				@extend .button--primary;
+			}
+			.image-picker__adder__form__input__button--cancel {
+				@extend .button--secondary;
+			}
 
 	.image-picker__adder__add-next {
 		@extend .button--empty;
@@ -43,15 +97,11 @@
 	}
 
 .image-picker__images {
-	display: block;
+	display: inline-block;
 	overflow: hidden;
-	width: 100%;
+	position: relative; // container for fancy scrollbar
+	// max-width: 100%;
 }
-	.image-picker__images__list {
-	    @extend .offer__pictures__list;
-
-	    display: block;
+	.image-picker__images__image {
+	    @extend .offer__pictures__picture;
 	}
-		.image-picker__images__image {
-		    @extend .offer__pictures__picture;
-		}

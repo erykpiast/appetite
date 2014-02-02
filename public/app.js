@@ -9,6 +9,7 @@ requirejs.config({
         'libs/jquery-ui': 'bower_components/jquery-ui/ui/jquery-ui',
         'libs/jquery-cookie': 'bower_components/jquery.cookie/jquery.cookie',
         'libs/jquery-select2': 'bower_components/select2/select2',
+        'libs/jquery-perfect-scrollbar': 'bower_components/angular-perfect-scrollbar/perfect-scrollbar',
         'libs/angular': 'bower_components/angular/angular',
         'libs/angular-resource': 'bower_components/angular-resource/angular-resource',
         'libs/angular-sanitize': 'bower_components/angular-sanitize/angular-sanitize',
@@ -16,7 +17,8 @@ requirejs.config({
         'libs/angular-ui': 'bower_components/angular-ui/build/angular-ui',
         'libs/angular-ui-date': 'bower_components/angular-ui-date/src/date',
         'libs/angular-ui-select2': 'bower_components/angular-ui-select2/src/select2',
-        'libs/angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router'
+        'libs/angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router',
+        'libs/angular-perfect-scrollbar': 'bower_components/angular-perfect-scrollbar/angular-perfect-scrollbar'
     },
     packages: [
         'modules',
@@ -58,6 +60,9 @@ requirejs.config({
         'libs/angular-ui-router': {
             deps: [ 'libs/angular-ui' ]
         },
+        'libs/angular-perfect-scrollbar': {
+            deps: [ 'libs/angular', 'libs/jquery-perfect-scrollbar' ]
+        },
         'libs/jquery': {
             exports: 'jQuery'
         },
@@ -70,9 +75,12 @@ requirejs.config({
         'libs/jquery-ui': {
             deps: [ 'libs/jquery' ]
         },
+        'libs/jquery-perfect-scrollbar': {
+            deps: [ 'libs/jquery' ]
+        },
         'libs/facebook': {
             exports: 'FB'
-        },
+        }
     }
 });
 

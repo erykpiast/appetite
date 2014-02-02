@@ -13,7 +13,7 @@
 	}
 }
 
-.button--call-to-action {
+.button--call-to-action, .button--primary {
 	@extend .button;
 
 	background-color: $c-fg-acc;
@@ -25,6 +25,14 @@
 	box-sizing: border-box;
 	display: block;
 	padding: $half-spacing-unit $base-spacing-unit;
+}
+
+.button--secondary {
+	@extend .button;
+
+	box-shadow: 0 0 .25em $c-shadow-dark;
+	box-sizing: border-box;
+	padding: $quarter-spacing-unit $half-spacing-unit;
 }
 
 .button--ico {

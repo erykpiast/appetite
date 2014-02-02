@@ -6,7 +6,6 @@
             	<h2 class="form__field"
                     app-edit-in-place="offer.template.title"
                     label="{{ i18n.offer.create.title }}"
-                    default-active="true"
                     input-attrs="{
                         'placeholder': i18n.offer.create.example.title,
                         'ng-required': true,

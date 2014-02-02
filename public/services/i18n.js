@@ -12,6 +12,7 @@ function(angular, module) {
         common: {
             ago: 'temu',
             apply: 'Zatwierdź',
+            cancel: 'Anuluj',
             lastestOffers: 'Ostatnie oferty',
             signLong: 'Zaloguj używając',
             unsignLong: 'Wyloguj - odłącz konto'
