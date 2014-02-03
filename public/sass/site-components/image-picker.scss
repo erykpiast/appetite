@@ -10,16 +10,13 @@ $add-button-size: 15rem;
     height: 100%;   
 }
 
-.image-picker,
-.image-picker__adder {
-    display: inline-block;
-}
-
 .image-picker {
-	box-sizing: border-box;
-	// max-width: 100%;
-	padding-right: $add-button-size;
-    position: relative;
+	display: table;
+
+	& > * {
+		display: table-cell;
+		vertical-align: middle;
+	}
 }
 
 .image-picker__header {
@@ -27,9 +24,9 @@ $add-button-size: 15rem;
 }
 
 .image-picker__adder {
-    @include scut-absolute(0 0 n n);
+    // @include scut-absolute(0 0 n n);
 
-    min-width: $add-button-size;
+    // min-width: $add-button-size;
 }
 .image-picker__adder--active {
 	@extend .image-picker__adder;
@@ -91,13 +88,15 @@ $add-button-size: 15rem;
 		@extend .button--empty;
 		@extend .button--ico--add;
 		
-    	@include scut-center-absolutely(10rem 10rem);
+    	// @include scut-center-absolutely(10rem 10rem);
+    	@include scut-size(10rem);
+
+    	margin: 2.5rem;
 
 		font-size: 300%;
 	}
 
 .image-picker__images {
-	display: inline-block;
 	overflow: hidden;
 	position: relative; // container for fancy scrollbar
 	// max-width: 100%;

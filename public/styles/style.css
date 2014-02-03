@@ -25159,32 +25159,12 @@ body {
   }
 
   line {
-    font-family: \0000314;
-  }
-}
-
-.image-picker,
-.image-picker__adder,
-.image-picker__adder--active {
-  display: inline-block;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
-  }
-
-  line {
-    font-family: \0000318;
+    font-family: \0000313;
   }
 }
 
 .image-picker {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-right: 15rem;
-  position: relative;
+  display: table;
 }
 
 @media -sass-debug-info {
@@ -25193,7 +25173,22 @@ body {
   }
 
   line {
-    font-family: \0000325;
+    font-family: \0000316;
+  }
+}
+
+.image-picker > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000322;
   }
 }
 
@@ -25207,25 +25202,7 @@ body {
   }
 
   line {
-    font-family: \0000329;
-  }
-}
-
-.image-picker__adder,
-.image-picker__adder--active {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 15rem;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
-  }
-
-  line {
-    font-family: \0000334;
+    font-family: \0000331;
   }
 }
 
@@ -25239,7 +25216,7 @@ body {
   }
 
   line {
-    font-family: \0000340;
+    font-family: \0000337;
   }
 }
 
@@ -25254,7 +25231,7 @@ body {
   }
 
   line {
-    font-family: \0000344;
+    font-family: \0000341;
   }
 }
 
@@ -25269,7 +25246,7 @@ body {
   }
 
   line {
-    font-family: \0000353;
+    font-family: \0000350;
   }
 }
 
@@ -25289,7 +25266,7 @@ body {
   }
 
   line {
-    font-family: \0000360;
+    font-family: \0000357;
   }
 }
 
@@ -25304,7 +25281,7 @@ body {
   }
 
   line {
-    font-family: \0000364;
+    font-family: \0000361;
   }
 }
 
@@ -25321,7 +25298,7 @@ body {
   }
 
   line {
-    font-family: \0000369;
+    font-family: \0000366;
   }
 }
 
@@ -25338,7 +25315,7 @@ body {
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000371;
   }
 }
 
@@ -25356,18 +25333,14 @@ body {
   }
 
   line {
-    font-family: \0000390;
+    font-family: \0000387;
   }
 }
 
 .image-picker__adder__add-next {
-  position: absolute;
   width: 10rem;
-  left: 50%;
-  margin-left: -5rem;
   height: 10rem;
-  top: 50%;
-  margin-top: -5rem;
+  margin: 2.5rem;
   font-size: 300%;
 }
 
@@ -25382,7 +25355,6 @@ body {
 }
 
 .image-picker__images {
-  display: inline-block;
   overflow: hidden;
   position: relative;
 }

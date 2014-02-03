@@ -15,10 +15,10 @@ function(ạngular, module, templates) {
                 scope.maxReached = false;
 
                 scope.images.append([
-                    /*'http://www.mojewypieki.com/img/images/churros_1_419_small.jpg',
+                    'http://www.mojewypieki.com/img/images/churros_1_419_small.jpg',
                     'http://www.mojewypieki.com/img/images/gofry_bajaderki_10_400x400_1057_small.jpg',
                     'http://www.mojewypieki.com/img/images/paczki_prz_1_1060_small.jpg',
-                    'http://www.mojewypieki.com/img/images/racuchy_3_920_small.jpg'*/
+                    'http://www.mojewypieki.com/img/images/racuchy_3_920_small.jpg'
                 ]);
 
                 function _clear() {
