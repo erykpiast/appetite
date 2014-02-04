@@ -31,27 +31,27 @@
 		@extend .photo-gallery--inline;
 
 		height: 15rem;
-		overflow: hidden;
 		position: relative;
-
-		&:before,
-		&:after {
-			width: $images-overflow-mask-width;
-			z-index: 1;
-		}
-
-		@include scut-before() {
-			@include scut-absolute(0 n 0 0);
-
-			background-image: linear-gradient(to right, $c-bg-acc-light 0%, rgba($c-bg-acc-light, 0) 100%);
-		}
-
-		@include scut-after() {
-			@include scut-absolute(0 0 0 n);
-
-			background-image: linear-gradient(to left, $c-bg-acc-light 0%, rgba($c-bg-acc-light, 0) 100%);
-		}
 	}
+		.offer__pictures__wrapper {
+			@include scut-before() {
+				@include scut-absolute(0 n 0 0);
+
+				background-image: linear-gradient(to right, $c-bg-acc-light 0%, rgba($c-bg-acc-light, 0) 100%);
+			}
+
+			@include scut-after() {
+				@include scut-absolute(0 0 0 n);
+
+				background-image: linear-gradient(to left, $c-bg-acc-light 0%, rgba($c-bg-acc-light, 0) 100%);
+			}
+
+			&:before,
+			&:after {
+				width: $images-overflow-mask-width;
+				z-index: 1;
+			}
+		}
 	
 		.offer__pictures__picture {
 			@extend .photo-gallery__photo;

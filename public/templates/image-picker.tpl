@@ -4,16 +4,21 @@
 		{{ i18n.imagePicker.header }}
 	</header>
 
-	<ul class="image-picker__images"
-		ng-hide="!!showForm"
-		perfect-scrollbar="{
-			suppressScrollY: true,
-			useBothWheelAxes: true
-		}">
-		<li class="image-picker__images__image" ng-repeat="imageUrl in images">
-			<img ng-src="{{ imageUrl }}" />
-		</li>
-	</ul>
+	<div class="image-picker__images">
+		<ul class="image-picker__images__list"
+			ng-hide="!!showForm"
+			perfect-scrollbar="{
+				suppressScrollY: true,
+				useBothWheelAxes: true
+			}">
+			<li 
+				class="image-picker__images__image"
+				ng-repeat="imageUrl in images"
+				ng-click="removeImage(imageUrl)">
+				<img ng-src="{{ imageUrl }}" />
+			</li>
+		</ul>
+	</div>
 
 	<div ng-class="{
 			'image-picker__adder': !showForm,

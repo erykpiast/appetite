@@ -14,11 +14,18 @@ function(ạngular, module, templates) {
                 scope.i18n = $rootScope.i18n;
                 scope.maxReached = false;
 
+                scope.$watchCollection('images', function(newValue) {
+                    if(newValue.length >= maxPictures) {
+                        scope.maxReached = true;
+                    } else {
+                        scope.maxReached = false;
+                    }
+                });
+
                 scope.images.append([
                     'http://www.mojewypieki.com/img/images/churros_1_419_small.jpg',
                     'http://www.mojewypieki.com/img/images/gofry_bajaderki_10_400x400_1057_small.jpg',
-                    'http://www.mojewypieki.com/img/images/paczki_prz_1_1060_small.jpg',
-                    'http://www.mojewypieki.com/img/images/racuchy_3_920_small.jpg'
+                    'http://www.mojewypieki.com/img/images/paczki_prz_1_1060_small.jpg'
                 ]);
 
                 function _clear() {
@@ -27,28 +34,18 @@ function(ạngular, module, templates) {
                     scope.showForm = false;
                 }
 
-                function _max() {
-                    if(scope.images.length >= maxPictures) {
-                        scope.maxReached = true;
-                    } else {
-                        scope.maxReached = false;
-                    }
-                }
-
                 ạngular.extend(scope, {
                     addImage: function() {
-                        scope.images.push(scope.imageProto.url);
+                        if(scope.imageProto.url && scope.imageProto.url.length) {
+                            scope.images.push(scope.imageProto.url);
 
-                        _max();
-
-                        _clear();
+                            _clear();
+                        }
                     },
                     removeImage: function(imageUrl) {
                         scope.images.splice(
                             scope.images.indexOf(imageUrl)
                         , 1);
-
-                        _max();
                     },
                     cancelAdding: function() {
                         _clear();

@@ -131,6 +131,14 @@
 	}
 }
 
+.button--ico--trash {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-trash-o;
+	}
+}
+
 .button--empty {
 	&.button--ico:before {
 		border-right: none;

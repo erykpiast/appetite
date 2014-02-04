@@ -99,17 +99,18 @@
     $images-overflow-mask-width: .4rem;
 
     .offer__pictures {
-        box-sizing: border-box;
         max-width: 100%;
         position: relative;
         white-space: initial;
         width: auto;
 
-        &:after {
-            right: $add-button-size; // add button size
+        .image-picker__images {
+            @extend .offer__pictures__wrapper;
+
+            position: relative;
         }
 
-        .image-picker__images {
+        .image-picker__images__list {
             box-sizing: border-box;
             padding: 0 $images-overflow-mask-width;
             white-space: nowrap;

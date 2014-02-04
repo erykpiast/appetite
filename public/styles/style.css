@@ -14440,7 +14440,9 @@ textarea:focus {
 .button--ico--power-off:before,
 .page__content__sidebar .button--contribute--adblock:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:before,
-.button--ico--search:before {
+.button--ico--search:before,
+.button--ico--trash:before,
+.image-picker__images__image:before {
   display: inline-block;
   font-family: FontAwesome;
   font-style: normal;
@@ -14680,7 +14682,9 @@ textarea:focus {
 .pull-left.button--ico--power-off:before,
 .page__content__sidebar .pull-left.button--contribute--adblock:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-left.button--contribute--adblock:before,
-.pull-left.button--ico--search:before {
+.pull-left.button--ico--search:before,
+.pull-left.button--ico--trash:before,
+.pull-left.image-picker__images__image:before {
   margin-right: .3em;
 }
 
@@ -14719,7 +14723,9 @@ textarea:focus {
 .pull-right.button--ico--power-off:before,
 .page__content__sidebar .pull-right.button--contribute--adblock:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .pull-right.button--contribute--adblock:before,
-.pull-right.button--ico--search:before {
+.pull-right.button--ico--search:before,
+.pull-right.button--ico--trash:before,
+.pull-right.image-picker__images__image:before {
   margin-left: .3em;
 }
 
@@ -15223,7 +15229,9 @@ textarea:focus {
   }
 }
 
-.fa-trash-o:before {
+.fa-trash-o:before,
+.button--ico--trash:before,
+.image-picker__images__image:before {
   content: "\f014";
 }
 
@@ -20846,7 +20854,9 @@ a.hyperlink:visited {
 .search--main .page__content__sidebar .search__submit > .button--contribute--adblock,
 .page__content__sidebar .search--main .search__submit > .button--contribute--adblock,
 .search .search__submit > .button--ico--search,
-.search--main .search__submit > .button--ico--search {
+.search--main .search__submit > .button--ico--search,
+.search .search__submit > .button--ico--trash,
+.search--main .search__submit > .button--ico--trash {
   line-height: inherit;
 }
 
@@ -20968,7 +20978,8 @@ a.hyperlink:visited {
 .button--ico--order,
 .button--ico--power-off,
 .page__content__sidebar .button--contribute--adblock,
-.button--ico--search {
+.button--ico--search,
+.button--ico--trash {
   background-color: #eaeaea;
   border: 1px solid #282828;
   border-radius: 0.2em;
@@ -21020,7 +21031,8 @@ a.hyperlink:visited {
 .button--ico--order:focus,
 .button--ico--power-off:focus,
 .page__content__sidebar .button--contribute--adblock:focus,
-.button--ico--search:focus {
+.button--ico--search:focus,
+.button--ico--trash:focus {
   outline: none;
 }
 
@@ -21112,7 +21124,9 @@ a.hyperlink:visited {
 .button--ico--power-off:before,
 .page__content__sidebar .button--contribute--adblock:before,
 .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:before,
-.button--ico--search:before {
+.button--ico--search:before,
+.button--ico--trash:before,
+.image-picker__images__image:before {
   border: none;
   border-right: 1px solid #eaeaea;
   margin-right: 10.5px;
@@ -21140,7 +21154,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003135;
+    font-family: \00003143;
   }
 }
 
@@ -21479,6 +21493,40 @@ a.hyperlink:visited {
 .button--ico--search.image-picker__adder__add-next:before,
 .page__content__offer .button--ico--search.offer__pictures__picture--preview__close:before,
 .page__content__offer--create .button--ico--search.offer__pictures__picture--preview__close:before,
+.button--empty.button--ico--trash:before,
+.page__content__sidebar .button--ico--trash.button--contribute:before,
+.page__content__sidebar .button--ico--trash.button--contribute--facebook:before,
+.page__content__sidebar .button--contribute--facebook.image-picker__images__image:before,
+.page__content__sidebar .button--ico--trash.button--contribute--adblock:before,
+.page__content__sidebar .button--contribute--adblock.image-picker__images__image:before,
+.page__content__sidebar .button--ico--trash.button--contribute--paypal:before,
+.page__content__sidebar .button--contribute--paypal.image-picker__images__image:before,
+.page__content__sidebar .button--ico--trash.button--contribute--github:before,
+.page__content__sidebar .button--contribute--github.image-picker__images__image:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--trash.button--contribute--facebook:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--trash.button--contribute--facebook:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook.image-picker__images__image:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--facebook.image-picker__images__image:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--trash.button--contribute--adblock:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--trash.button--contribute--adblock:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock.image-picker__images__image:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--adblock.image-picker__images__image:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--trash.button--contribute--paypal:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--trash.button--contribute--paypal:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal.image-picker__images__image:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--paypal.image-picker__images__image:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--ico--trash.button--contribute--github:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--ico--trash.button--contribute--github:before,
+.page__content__sidebar .welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github.image-picker__images__image:before,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .page__content__sidebar .button--contribute--github.image-picker__images__image:before,
+.page__content__sidebar .button--contribute.image-picker__images__image:before,
+.button--ico--trash.image-picker__adder__add-next:before,
+.image-picker__adder__add-next.image-picker__images__image:before,
+.button--empty.image-picker__images__image:before,
+.page__content__offer .image-picker__images__image.offer__pictures__picture--preview__close:before,
+.page__content__offer--create .image-picker__images__image.offer__pictures__picture--preview__close:before,
+.page__content__offer .button--ico--trash.offer__pictures__picture--preview__close:before,
+.page__content__offer--create .button--ico--trash.offer__pictures__picture--preview__close:before,
 .page__content__sidebar .button--ico.button--contribute:before,
 .page__content__sidebar .page__content__offer .button--contribute--facebook.offer__pictures__picture--preview__close:before,
 .page__content__offer .page__content__sidebar .button--contribute--facebook.offer__pictures__picture--preview__close:before,
@@ -21871,6 +21919,45 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__pictures .image-picker__images__image {
   display: inline-block;
   height: 100%;
+  width: auto;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/photo-gallery\.scss;
+  }
+
+  line {
+    font-family: \0000344;
+  }
+}
+
+.photo-gallery--inline .photo-gallery__photo > img,
+.page__content__offer .offer__pictures .photo-gallery__photo > img,
+.page__content__offer--create .offer__pictures .photo-gallery__photo > img,
+.photo-gallery--inline .photo-gallery__photo--fullscreen > img,
+.page__content__offer .offer__pictures .photo-gallery__photo--fullscreen > img,
+.page__content__offer--create .offer__pictures .photo-gallery__photo--fullscreen > img,
+.photo-gallery--inline .page__content__offer .offer__pictures__picture--preview > img,
+.page__content__offer .photo-gallery--inline .offer__pictures__picture--preview > img,
+.page__content__offer .offer__pictures .offer__pictures__picture--preview > img,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__picture--preview > img,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__picture--preview > img,
+.page__content__offer--create .offer__pictures .offer__pictures__picture--preview > img,
+.photo-gallery--inline .page__content__offer .offer__pictures__picture > img,
+.page__content__offer .photo-gallery--inline .offer__pictures__picture > img,
+.page__content__offer .offer__pictures .offer__pictures__picture > img,
+.photo-gallery--inline .page__content__offer--create .offer__pictures__picture > img,
+.page__content__offer--create .photo-gallery--inline .offer__pictures__picture > img,
+.page__content__offer--create .offer__pictures .offer__pictures__picture > img,
+.photo-gallery--inline .page__content__offer .image-picker__images__image > img,
+.page__content__offer .photo-gallery--inline .image-picker__images__image > img,
+.page__content__offer .offer__pictures .image-picker__images__image > img,
+.photo-gallery--inline .page__content__offer--create .image-picker__images__image > img,
+.page__content__offer--create .photo-gallery--inline .image-picker__images__image > img,
+.page__content__offer--create .offer__pictures .image-picker__images__image > img {
+  height: 100%;
+  width: auto;
 }
 
 @media -sass-debug-info {
@@ -22461,7 +22548,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -22483,7 +22570,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -22714,7 +22801,8 @@ body {
 .search--main .search__submit > .button--ico--power-off,
 .search--main .page__content__sidebar .search__submit > .button--contribute--adblock,
 .page__content__sidebar .search--main .search__submit > .button--contribute--adblock,
-.search--main .search__submit > .button--ico--search {
+.search--main .search__submit > .button--ico--search,
+.search--main .search__submit > .button--ico--trash {
   position: absolute;
   left: 0;
   top: 0;
@@ -22737,7 +22825,7 @@ body {
   }
 
   line {
-    font-family: \00003173;
+    font-family: \00003181;
   }
 }
 
@@ -22788,7 +22876,8 @@ body {
 .search--main .search__submit > .button--ico--power-off:hover,
 .search--main .page__content__sidebar .search__submit > .button--contribute--adblock:hover,
 .page__content__sidebar .search--main .search__submit > .button--contribute--adblock:hover,
-.search--main .search__submit > .button--ico--search:hover {
+.search--main .search__submit > .button--ico--search:hover,
+.search--main .search__submit > .button--ico--trash:hover {
   color: #aa1e1e;
   -webkit-transition: color .2s ease-out;
   transition: color .2s ease-out;
@@ -23679,7 +23768,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -23701,7 +23790,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -23853,7 +23942,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -23875,7 +23964,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -23932,7 +24021,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -23954,7 +24043,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -24011,7 +24100,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24033,7 +24122,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -24089,7 +24178,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24111,7 +24200,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -24599,7 +24688,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24621,7 +24710,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -24776,7 +24865,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24798,7 +24887,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -24855,7 +24944,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24877,7 +24966,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -24934,7 +25023,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -24956,7 +25045,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -25014,7 +25103,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -25036,7 +25125,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -25202,7 +25291,7 @@ body {
   }
 
   line {
-    font-family: \0000331;
+    font-family: \0000328;
   }
 }
 
@@ -25216,7 +25305,7 @@ body {
   }
 
   line {
-    font-family: \0000337;
+    font-family: \0000334;
   }
 }
 
@@ -25231,7 +25320,7 @@ body {
   }
 
   line {
-    font-family: \0000341;
+    font-family: \0000338;
   }
 }
 
@@ -25246,7 +25335,7 @@ body {
   }
 
   line {
-    font-family: \0000350;
+    font-family: \0000347;
   }
 }
 
@@ -25266,7 +25355,7 @@ body {
   }
 
   line {
-    font-family: \0000357;
+    font-family: \0000354;
   }
 }
 
@@ -25281,7 +25370,7 @@ body {
   }
 
   line {
-    font-family: \0000361;
+    font-family: \0000358;
   }
 }
 
@@ -25298,7 +25387,7 @@ body {
   }
 
   line {
-    font-family: \0000366;
+    font-family: \0000363;
   }
 }
 
@@ -25315,7 +25404,7 @@ body {
   }
 
   line {
-    font-family: \0000371;
+    font-family: \0000368;
   }
 }
 
@@ -25333,7 +25422,7 @@ body {
   }
 
   line {
-    font-family: \0000387;
+    font-family: \0000384;
   }
 }
 
@@ -25350,13 +25439,86 @@ body {
   }
 
   line {
-    font-family: \0000399;
+    font-family: \0000396;
   }
 }
 
 .image-picker__images {
   overflow: hidden;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \0000399;
+  }
+}
+
+.image-picker__images__list {
+  height: 100%;
+  overflow: hidden;
   position: relative;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \00003104;
+  }
+}
+
+.image-picker__images__image {
+  height: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \00003109;
+  }
+}
+
+.image-picker__images__image:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: none;
+  font-size: 300%;
+  line-height: 500%;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: 0 0 0.4em white;
+  -webkit-transition: opacity .1s linear;
+  transition: opacity .1s linear;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \00003125;
+  }
+}
+
+.image-picker__images__image:hover:before {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-out 0.4s;
+  transition: opacity 0.3s ease-out 0.4s;
 }
 
 @media -sass-debug-info {
@@ -25748,26 +25910,7 @@ body {
 .page__content__offer .offer__pictures,
 .page__content__offer--create .offer__pictures {
   height: 15rem;
-  overflow: hidden;
   position: relative;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
-  }
-
-  line {
-    font-family: \0000338;
-  }
-}
-
-.page__content__offer .offer__pictures:before,
-.page__content__offer--create .offer__pictures:before,
-.page__content__offer .offer__pictures:after,
-.page__content__offer--create .offer__pictures:after {
-  width: 0.4rem;
-  z-index: 1;
 }
 
 @media -sass-debug-info {
@@ -25780,8 +25923,9 @@ body {
   }
 }
 
-.page__content__offer .offer__pictures:before,
-.page__content__offer--create .offer__pictures:before {
+.page__content__offer .offer__pictures__wrapper:before,
+.page__content__offer--create .offer__pictures__wrapper:before,
+.page__content__offer--create .offer__pictures .image-picker__images:before {
   display: inline-block;
   content: "";
   position: absolute;
@@ -25803,8 +25947,9 @@ body {
   }
 }
 
-.page__content__offer .offer__pictures:after,
-.page__content__offer--create .offer__pictures:after {
+.page__content__offer .offer__pictures__wrapper:after,
+.page__content__offer--create .offer__pictures__wrapper:after,
+.page__content__offer--create .offer__pictures .image-picker__images:after {
   display: inline-block;
   content: "";
   position: absolute;
@@ -25814,6 +25959,26 @@ body {
   background-image: -webkit-gradient(linear, top right, top left, from(#ffffff), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
+  }
+
+  line {
+    font-family: \0000350;
+  }
+}
+
+.page__content__offer .offer__pictures__wrapper:before,
+.page__content__offer--create .offer__pictures__wrapper:before,
+.page__content__offer--create .offer__pictures .image-picker__images:before,
+.page__content__offer .offer__pictures__wrapper:after,
+.page__content__offer--create .offer__pictures__wrapper:after,
+.page__content__offer--create .offer__pictures .image-picker__images:after {
+  width: 0.4rem;
+  z-index: 1;
 }
 
 @media -sass-debug-info {
@@ -25914,7 +26079,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -25937,7 +26102,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -26478,7 +26643,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003160;
   }
 }
 
@@ -26501,7 +26666,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003168;
   }
 }
 
@@ -26724,9 +26889,6 @@ body {
 }
 
 .page__content__offer--create .offer__pictures {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   max-width: 100%;
   position: relative;
   white-space: initial;
@@ -26739,12 +26901,12 @@ body {
   }
 
   line {
-    font-family: \00003108;
+    font-family: \00003107;
   }
 }
 
-.page__content__offer--create .offer__pictures:after {
-  right: 15rem;
+.page__content__offer--create .offer__pictures .image-picker__images {
+  position: relative;
 }
 
 @media -sass-debug-info {
@@ -26753,11 +26915,11 @@ body {
   }
 
   line {
-    font-family: \00003112;
+    font-family: \00003113;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__images {
+.page__content__offer--create .offer__pictures .image-picker__images__list {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -26771,11 +26933,11 @@ body {
   }
 
   line {
-    font-family: \00003117;
+    font-family: \00003118;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__images.ps-container .ps-scrollbar-x-rail {
+.page__content__offer--create .offer__pictures .image-picker__images__list.ps-container .ps-scrollbar-x-rail {
   margin-left: 0.4rem;
 }
 
@@ -26785,7 +26947,7 @@ body {
   }
 
   line {
-    font-family: \00003122;
+    font-family: \00003123;
   }
 }
 
@@ -26799,7 +26961,7 @@ body {
   }
 
   line {
-    font-family: \00003126;
+    font-family: \00003127;
   }
 }
 
@@ -26813,7 +26975,7 @@ body {
   }
 
   line {
-    font-family: \00003130;
+    font-family: \00003131;
   }
 }
 
