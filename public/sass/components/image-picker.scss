@@ -1,3 +1,13 @@
+.image-picker,
+.image-picker__adder,
+.image-picker__adder__add-next,
+.image-picker__adder__form,
+.image-picker__adder__form > fieldset,
+.image-picker__images,
+.image-picker__image {
+    height: 100%;   
+}
+
 .image-picker {
 	display: table;
 
@@ -12,18 +22,12 @@
 }
 
 .image-picker__adder {
-	height: 100%;
 }
 .image-picker__adder--active {
 	@extend .image-picker__adder;
 
 	position: relative;
 }
-	.image-picker__adder__add-next,
-	.image-picker__adder__form,
-	.image-picker__adder__form > fieldset {
-	    height: 100%;
-	}
 
 	.image-picker__adder__form {
 		position: relative;
@@ -39,10 +43,9 @@
 	    }
 	}
 		.image-picker__adder__form__preview {
-			@include scut-absolute(0 n n 100%);
+			@include scut-absolute(0 0 n n);
 
 			max-height: 100%;
-			transform: translateX(50%);
 		}
 
 		.image-picker__adder__form__input {

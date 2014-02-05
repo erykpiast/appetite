@@ -32,13 +32,14 @@
 	@include scut-list-unstyled();
 
 	display: block;
-	height: 100%;
+	line-height: 0; // remove bottom "margin" added by inline(-block) children
 	overflow: hidden;
 	white-space: nowrap;
 	
 	.photo-gallery__photo {
 		display: inline-block;
 		height: 100%;
+		line-height: $base-line-height;
 		width: auto;
 
 		& > img {

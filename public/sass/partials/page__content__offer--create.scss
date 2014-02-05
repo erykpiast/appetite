@@ -100,6 +100,7 @@
 
     .offer__pictures {
         max-width: 100%;
+        overflow: hidden;
         position: relative;
         white-space: initial;
         width: auto;
@@ -119,13 +120,23 @@
                 margin-left: $images-overflow-mask-width;
             }
         }
-            
+        .image-picker__images__image {
+            @extend .offer__pictures__picture;
+        }
+            .image-picker__adder {
+                
+            }
+
             .image-picker__adder--active {
-                margin-right: $images-overflow-mask-width;
+                box-sizing: border-box;
+                padding-right: $images-overflow-mask-width;
+                width: 100%;
             }
 
                 .image-picker__adder__form {
-                    margin-left: $images-overflow-mask-width;
+                    box-sizing: border-box;
+                    padding-left: $images-overflow-mask-width;
+                    width: 100%;
                 }
 
                     .image-picker__adder__form__preview {

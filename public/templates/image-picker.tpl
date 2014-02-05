@@ -37,7 +37,8 @@
 
 				<img
 					class="image-picker__adder__form__preview"
-					ng-src="{{ imageProto.url }}" />
+					ng-src="{{ imageProto.url }}"
+					ng-show="imageProto.url.length > 0" />
 
 				<div class="image-picker__adder__form__input">
 					<label for="image-picker__adder__form__url">{{ i18n.imagePicker.pasteUrl }}</label>

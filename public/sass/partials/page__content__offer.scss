@@ -1,3 +1,5 @@
+@import "./page__content__offer__pictures.scss";
+
 .page__content__offer {
 
 	.offer__header {
@@ -23,67 +25,6 @@
 		vertical-align: middle;
 		width: 50%;
 	}
-
-
-	$images-overflow-mask-width: .4rem;
-
-	.offer__pictures {
-		@extend .photo-gallery--inline;
-
-		height: 15rem;
-		position: relative;
-	}
-		.offer__pictures__wrapper {
-			@include scut-before() {
-				@include scut-absolute(0 n 0 0);
-
-				background-image: linear-gradient(to right, $c-bg-acc-light 0%, rgba($c-bg-acc-light, 0) 100%);
-			}
-
-			@include scut-after() {
-				@include scut-absolute(0 0 0 n);
-
-				background-image: linear-gradient(to left, $c-bg-acc-light 0%, rgba($c-bg-acc-light, 0) 100%);
-			}
-
-			&:before,
-			&:after {
-				width: $images-overflow-mask-width;
-				z-index: 1;
-			}
-		}
-	
-		.offer__pictures__picture {
-			@extend .photo-gallery__photo;
-
-			position: relative;
-
-			@include scut-after() {
-				@include scut-absolute(0 0 0 0);
-
-				box-shadow: 0 0 .2em 1px $c-shadow-dark inset;
-			}
-		}
-		.offer__pictures__picture--preview {
-			@extend .photo-gallery__photo--fullscreen; 
-			
-			border: 1px solid #000;
-		}
-			.offer__pictures__picture--preview__close {
-				@extend .button--ico--close;
-				@extend .button--empty;
-
-				@include hover-effect--expand() {
-					background-color: $c-fg-acc;
-				}
-				@include scut-absolute(-1px -1px n n);
-
-				&:hover {
-					color: $c-bg-light;
-					transition: color .2s ease-out;
-				}
-			}	
-
 
 	.offer__description {
 		background-color: $c-bg-acc-light;
