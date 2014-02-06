@@ -2,8 +2,8 @@
 
 // External stylesheets
 @import "CSS:../bower_components/jquery-ui/themes/base/jquery-ui";
-@import "CSS:../bower_components/select2/select2";
 @import "CSS:../bower_components/angular-perfect-scrollbar/perfect-scrollbar";
+@import "../bower_components/select2/select2.scss";
 
 // Variables - must come first !!!
 @import "_vars.scss";
@@ -52,6 +52,7 @@
 @import "components/edit-in-place.scss";
 @import "components/tooltips.scss";
 @import "components/image-picker.scss";
+@import "components/inputs.scss";
 
 // Site-specific components
 @import "site-components/footer.scss";
