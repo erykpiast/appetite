@@ -152,7 +152,7 @@
 }
 
 @mixin hover-effect--expand {
-    @include hover-effect;
+    @include hover-effect();
     
     position: relative;
     z-index: 0;

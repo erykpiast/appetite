@@ -22223,16 +22223,26 @@ a.hyperlink:visited {
 
 .tooltip,
 .tooltip--top,
+.page__content__offer--create .offer__description .edit-in-place:after,
+.page__content__offer--create .offer__description .edit-in-place--active:after,
 .tooltip--right,
-.page__content__offer--create .offer--create__form .form__field:after,
-.page__content__offer--create .offer--create__form--template .form__field:after,
-.page__content__offer--create .offer--create__form--details .form__field:after {
+.page__content__offer--create .offer__header .edit-in-place:after,
+.page__content__offer--create .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer__source .edit-in-place:after,
+.page__content__offer--create .offer__source .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place:after,
+.page__content__offer--create .offer--create__form .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 5.25px 10.5px;
   position: absolute;
   pointer-events: none;
+  z-index: 9999;
 }
 
 @media -sass-debug-info {
@@ -22241,11 +22251,13 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \000038;
+    font-family: \000039;
   }
 }
 
-.tooltip--top {
+.tooltip--top,
+.page__content__offer--create .offer__description .edit-in-place:after,
+.page__content__offer--create .offer__description .edit-in-place--active:after {
   bottom: 100%;
   left: 0;
   top: auto;
@@ -22258,14 +22270,17 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000317;
+    font-family: \0000318;
   }
 }
 
 .tooltip--right,
-.page__content__offer--create .offer--create__form .form__field:after,
-.page__content__offer--create .offer--create__form--template .form__field:after,
-.page__content__offer--create .offer--create__form--details .form__field:after {
+.page__content__offer--create .offer__header .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place:after,
+.page__content__offer--create .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active:after,
+.page__content__offer--create .offer__source .edit-in-place:after,
+.page__content__offer--create .offer__source .edit-in-place--active:after {
   bottom: auto;
   left: 100%;
   top: 50%;
@@ -22480,8 +22495,70 @@ a.hyperlink:visited {
 .image-picker__adder__add-next {
   width: 10rem;
   height: 10rem;
+  position: relative;
+  z-index: 0;
+  border-radius: 5%;
   margin: 2.5rem;
-  font-size: 300%;
+  overflow: hidden;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \000032;
+  }
+}
+
+.image-picker__adder__add-next:after {
+  display: inline-block;
+  content: "";
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003160;
+  }
+}
+
+.image-picker__adder__add-next:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  z-index: -1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \00003168;
+  }
+}
+
+.image-picker__adder__add-next:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  background-color: white;
 }
 
 @media -sass-debug-info {
@@ -22490,7 +22567,23 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000393;
+    font-family: \0000394;
+  }
+}
+
+.image-picker__adder__add-next:before {
+  display: block;
+  font-size: 300%;
+  margin-bottom: 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/image-picker\.scss;
+  }
+
+  line {
+    font-family: \00003101;
   }
 }
 
@@ -22504,7 +22597,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000396;
+    font-family: \00003104;
   }
 }
 
@@ -22519,7 +22612,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003101;
+    font-family: \00003109;
   }
 }
 
@@ -22547,7 +22640,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003117;
+    font-family: \00003125;
   }
 }
 
@@ -25452,10 +25545,19 @@ body {
 
 .tooltip,
 .tooltip--top,
+.page__content__offer--create .offer__description .edit-in-place:after,
+.page__content__offer--create .offer__description .edit-in-place--active:after,
 .tooltip--right,
-.page__content__offer--create .offer--create__form .form__field:after,
-.page__content__offer--create .offer--create__form--template .form__field:after,
-.page__content__offer--create .offer--create__form--details .form__field:after {
+.page__content__offer--create .offer__header .edit-in-place:after,
+.page__content__offer--create .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer__source .edit-in-place:after,
+.page__content__offer--create .offer__source .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place:after,
+.page__content__offer--create .offer--create__form .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active:after {
   background-color: #282828;
   border: 1px solid rgba(77, 77, 77, 0.7);
   border-radius: .4rem;
@@ -26683,34 +26785,16 @@ body {
   }
 
   line {
-    font-family: \0000321;
+    font-family: \0000324;
   }
 }
 
-.page__content__offer--create .offer--create__form .form__field > input,
-.page__content__offer--create .offer--create__form--template .form__field > input,
-.page__content__offer--create .offer--create__form--details .form__field > input {
-  border: 1px solid rgba(77, 77, 77, 0.7);
-  border-radius: .4rem;
-  border-top-left-radius: 0;
-  -webkit-box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
-  box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
-  color: #282828;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \0000330;
-  }
-}
-
-.page__content__offer--create .offer--create__form .form__field > label,
-.page__content__offer--create .offer--create__form--template .form__field > label,
-.page__content__offer--create .offer--create__form--details .form__field > label {
+.page__content__offer--create .offer--create__form .edit-in-place > label,
+.page__content__offer--create .offer--create__form--template .edit-in-place > label,
+.page__content__offer--create .offer--create__form--details .edit-in-place > label,
+.page__content__offer--create .offer--create__form .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active > label {
   position: absolute;
   bottom: 100%;
   left: 0;
@@ -26725,6 +26809,28 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: 1;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000340;
+  }
+}
+
+.page__content__offer--create .offer--create__form .edit-in-place:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form .edit-in-place--active:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active:not(.edit-in-place--active):hover:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active:not(.edit-in-place--active):hover:after {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-out 0.4s;
+  transition: opacity 0.3s ease-out 0.4s;
 }
 
 @media -sass-debug-info {
@@ -26737,27 +26843,13 @@ body {
   }
 }
 
-.page__content__offer--create .offer--create__form .form__field > input:focus ~ label,
-.page__content__offer--create .offer--create__form--template .form__field > input:focus ~ label,
-.page__content__offer--create .offer--create__form--details .form__field > input:focus ~ label {
-  display: block;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \0000349;
-  }
-}
-
-.page__content__offer--create .offer--create__form .form__field:after,
-.page__content__offer--create .offer--create__form--template .form__field:after,
-.page__content__offer--create .offer--create__form--details .form__field:after {
+.page__content__offer--create .offer--create__form .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place:after,
+.page__content__offer--create .offer--create__form .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active:after {
   content: attr(data-title);
-  margin-left: 5.25px;
   opacity: 0;
   -webkit-transition: opacity .3s linear 0;
   transition: opacity .3s linear 0;
@@ -26770,16 +26862,19 @@ body {
   }
 
   line {
-    font-family: \0000359;
+    font-family: \0000356;
   }
 }
 
-.page__content__offer--create .offer--create__form .form__field:not(.edit-in-place--active):hover:after,
-.page__content__offer--create .offer--create__form--template .form__field:not(.edit-in-place--active):hover:after,
-.page__content__offer--create .offer--create__form--details .form__field:not(.edit-in-place--active):hover:after {
-  opacity: 1;
-  -webkit-transition: opacity 0.3s ease-out 0.4s;
-  transition: opacity 0.3s ease-out 0.4s;
+.page__content__offer--create .offer--create__form .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--template .edit-in-place--active > label,
+.page__content__offer--create .offer--create__form--details .edit-in-place--active > label {
+  background-color: #aa1e1e;
+  border: 1px solid rgba(77, 77, 77, 0.7);
+  border-bottom: none;
+  border-radius: .4rem .4rem 0 0;
+  color: white;
+  padding: 0 5.25px;
 }
 
 @media -sass-debug-info {
@@ -26792,14 +26887,15 @@ body {
   }
 }
 
-.page__content__offer--create .offer--create__form .edit-in-place--active > label,
-.page__content__offer--create .offer--create__form--template .edit-in-place--active > label,
-.page__content__offer--create .offer--create__form--details .edit-in-place--active > label {
-  background-color: #aa1e1e;
+.page__content__offer--create .offer--create__form .edit-in-place__input,
+.page__content__offer--create .offer--create__form--template .edit-in-place__input,
+.page__content__offer--create .offer--create__form--details .edit-in-place__input {
   border: 1px solid rgba(77, 77, 77, 0.7);
-  border-bottom: none;
-  border-radius: .4rem .4rem 0 0;
-  color: white;
+  border-radius: .4rem;
+  border-top-left-radius: 0;
+  -webkit-box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
+  box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
+  color: #282828;
 }
 
 @media -sass-debug-info {
@@ -26808,19 +26904,14 @@ body {
   }
 
   line {
-    font-family: \0000376;
+    font-family: \0000374;
   }
 }
 
-.page__content__offer--create .offer--create__form .edit-in-place,
-.page__content__offer--create .offer--create__form--template .edit-in-place,
-.page__content__offer--create .offer--create__form--details .edit-in-place,
-.page__content__offer--create .offer--create__form .edit-in-place--active,
-.page__content__offer--create .offer--create__form--template .edit-in-place--active,
-.page__content__offer--create .offer--create__form--details .edit-in-place--active {
-  max-width: -webkit-calc(100% - 42px);
-  max-width: calc(100% - 42px);
-  min-width: 4em;
+.page__content__offer--create .offer--create__form .edit-in-place__input:focus ~ label,
+.page__content__offer--create .offer--create__form--template .edit-in-place__input:focus ~ label,
+.page__content__offer--create .offer--create__form--details .edit-in-place__input:focus ~ label {
+  display: block;
 }
 
 @media -sass-debug-info {
@@ -26829,7 +26920,7 @@ body {
   }
 
   line {
-    font-family: \0000388;
+    font-family: \0000386;
   }
 }
 
@@ -26846,7 +26937,43 @@ body {
   }
 
   line {
+    font-family: \0000397;
+  }
+}
+
+.page__content__offer--create .offer__header .edit-in-place,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place,
+.page__content__offer--create .offer__header .edit-in-place--active,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active {
+  max-width: -webkit-calc(100% - 42px);
+  max-width: calc(100% - 42px);
+  min-width: 4em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
     font-family: \00003101;
+  }
+}
+
+.page__content__offer--create .offer__header .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place:after,
+.page__content__offer--create .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active:after {
+  margin-left: 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003112;
   }
 }
 
@@ -26864,7 +26991,7 @@ body {
   }
 
   line {
-    font-family: \00003108;
+    font-family: \00003119;
   }
 }
 
@@ -26878,7 +27005,7 @@ body {
   }
 
   line {
-    font-family: \00003114;
+    font-family: \00003125;
   }
 }
 
@@ -26896,7 +27023,7 @@ body {
   }
 
   line {
-    font-family: \00003119;
+    font-family: \00003130;
   }
 }
 
@@ -26910,7 +27037,7 @@ body {
   }
 
   line {
-    font-family: \00003130;
+    font-family: \00003141;
   }
 }
 
@@ -26928,7 +27055,7 @@ body {
   }
 
   line {
-    font-family: \00003136;
+    font-family: \00003147;
   }
 }
 
@@ -26946,12 +27073,198 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003153;
   }
 }
 
 .page__content__offer--create .offer__pictures .image-picker__adder__form__preview {
   max-width: 15rem;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003159;
+  }
+}
+
+.page__content__offer--create .offer__description {
+  margin-left: -10.5px;
+  margin-right: -10.5px;
+  margin-top: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003167;
+  }
+}
+
+.page__content__offer--create .offer__description .edit-in-place:after,
+.page__content__offer--create .offer__description .edit-in-place--active:after {
+  margin-bottom: 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003174;
+  }
+}
+
+.page__content__offer--create .offer__description__paragraph {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 5.25px;
+  max-width: none;
+  padding: 5.25px 10.5px;
+  width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003183;
+  }
+}
+
+.page__content__offer--create .offer__source {
+  margin: 10.5px 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003187;
+  }
+}
+
+.page__content__offer--create .offer__source .edit-in-place:after,
+.page__content__offer--create .offer__source .edit-in-place--active:after {
+  margin-left: 5.25px;
+  min-width: 17em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003195;
+  }
+}
+
+.page__content__offer--create .offer__source__link {
+  margin-left: 5.25px;
+  min-width: 4em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003199;
+  }
+}
+
+.page__content__offer--create .offer__source__link.edit-in-place--active {
+  -webkit-transform: translateY(-25%);
+  -ms-transform: translateY(-25%);
+  transform: translateY(-25%);
+  min-width: 15em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003204;
+  }
+}
+
+.page__content__offer--create .offer__source__link .edit-in-place__input {
+  font-weight: normal;
+  height: 150%;
+  padding: 2.625px 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003212;
+  }
+}
+
+.page__content__offer--create .offer__tags {
+  margin: 10.5px 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003215;
+  }
+}
+
+.page__content__offer--create .offer__tags label {
+  display: inline-block;
+  margin-right: 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003220;
+  }
+}
+
+.page__content__offer--create .offer__tags .select2-container {
+  min-width: 15em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003224;
+  }
+}
+
+.page__content__offer--create .offer__tags .select2-input {
+  min-width: 5em;
 }
 
 @media -sass-debug-info {

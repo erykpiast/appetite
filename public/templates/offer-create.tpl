@@ -32,37 +32,42 @@
                             'placeholder': i18n.offer.create.example.description,
                             'ng-required': true,
                             'ng-maxlength': 300
-                        }"></p>
+                        }"
+                        data-title="{{ i18n.offer.create.description }} – {{ i18n.offer.create.clickToEdit }}"></p>
+                </div>
 
-                    <p class="offer__source form__field">
-                        <a  class="offer__description__paragraph form__field"
+                <div class="offer__tags">
+                    <p class="form__field">
+                        <label for="offer__tags">{{ i18n.offer.create.tags }}</label>
+                        <input
+                            id="offer__tags"
+                            type="text"
+                            value=""
+                            placeholder="{{ i18n.offer.create.example.tags }}"
+                            ng-model="offer.template.tags"
+                            ng-required="true"
+                            ui-select2="{
+                                multiple: true,
+                                simple_tags: true,
+                                maximumSelectionSize: 5,
+                                tags: [ ]
+                            }" />
+                    </p>
+                </div>
+
+                <div class="offer__source">
+                    <p class="form__field">
+                        {{ i18n.offer.recipeFrom }}
+                        <a  class="offer__source__link form__field"
                             app-edit-in-place="offer.template.recipe"
                             label="{{ i18n.offer.create.recipe }}"
                             input-type="url"
                             input-attrs="{
                                 'placeholder': i18n.offer.create.example.recipe,
                                 'ng-required': true
-                            }"></a>
+                            }"
+                            data-title="{{ i18n.offer.create.recipe }} – {{ i18n.offer.create.clickToEdit }}"></a>
                     </p>
-                </div>
-
-               
-
-                <div class="offer__tags form__field">
-                	<label for="offer__tags">{{ i18n.offer.create.tags }}</label>
-                	<input
-                        id="offer__tags"
-                        type="text"
-                        value=""
-                        placeholder="{{ i18n.offer.create.example.tags }}"
-                        ng-model="offer.template.tags"
-                        ng-required="true"
-                        ui-select2="{
-                            multiple: true,
-                            simple_tags: true,
-                            maximumSelectionSize: 5,
-                            tags: [ ]
-                        }" />
                 </div>
 
                 <button 

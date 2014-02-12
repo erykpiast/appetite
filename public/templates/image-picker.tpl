@@ -29,7 +29,9 @@
 			class="image-picker__adder__add-next"
 			ng-click="!maxReached && (showForm = true)"
 			ng-hide="!!showForm || !!maxReached"
-			data-title="{{ i18n.imagePicker.addNext }}"></button>
+			data-title="{{ i18n.imagePicker.addNext }}">
+				{{ i18n.imagePicker.addNext }}
+			</button>
 
 		<form class="image-picker__adder__form" ng-show="!!showForm">
 			<fieldset>

@@ -18,15 +18,9 @@
     .offer--create__form {
         .form__field {
            
-            & > input {
-                border: 1px solid $c-shadow-dark {
-                    radius: .4rem;
-                    top-left-radius: 0;
-                };
-                box-shadow: 0px 0px 1px $c-shadow-dark inset;
-                color: $c-fg-def;
-            }
+        }
 
+        .edit-in-place {
             & > label {
                 @include scut-absolute(n n 100% 0);
 
@@ -40,25 +34,21 @@
                 padding: 0 inherit;
                 pointer-events: none;
                 user-select: none;
-            }
-
-            & > input:focus ~ label {
-                display: block;
-            }
-            
-            &:after {
-                @extend .tooltip--right;
-                
-                content: attr(data-title);
-                margin-left: $quarter-spacing-unit;
-                opacity: 0;
-                transition: opacity .3s linear 0;
-                min-width: 15em;
+                z-index: 1;
             }
             
             &:not(.edit-in-place--active):hover:after {
                 opacity: 1;
                 transition: opacity .3s ease-out $response-delay;
+            }
+
+            &:after {
+                @extend .tooltip;
+                
+                content: attr(data-title);
+                opacity: 0;
+                transition: opacity .3s linear 0;
+                min-width: 15em;
             }
         }
 
@@ -70,13 +60,21 @@
                     radius: .4rem .4rem 0 0;
                 };
                 color: $c-bg-acc-light;
+                padding: 0 $quarter-spacing-unit;
             }
         }
+            .edit-in-place__input {
+                border: 1px solid $c-shadow-dark {
+                    radius: .4rem;
+                    top-left-radius: 0;
+                };
+                box-shadow: 0px 0px 1px $c-shadow-dark inset;
+                color: $c-fg-def;
 
-        .edit-in-place {
-            max-width: calc(100% - #{2 * $base-spacing-unit});
-            min-width: 4em;
-        }
+                &:focus ~ label {
+                    display: block;
+                }
+            }
     }
     .offer--create__form--template,
     .offer--create__form--details {
@@ -95,9 +93,22 @@
     }
 
 
+    .offer__header {
+        .edit-in-place {
+            max-width: calc(100% - #{2 * $base-spacing-unit});
+            min-width: 4em;
+
+            &:after {
+                @extend .tooltip--right;
+
+                margin-left: $quarter-spacing-unit;
+            }
+        }
+    }
+
+
     $add-button-size: 15rem;
     $images-overflow-mask-width: .4rem;
-
     .offer__pictures {
         max-width: 100%;
         overflow: hidden;
@@ -142,5 +153,76 @@
                     .image-picker__adder__form__preview {
                         max-width: $add-button-size;
                     }
+    }
+
+
+    .offer__description {
+        margin: {
+            left: -$half-spacing-unit;
+            right: -$half-spacing-unit;
+            top: 0;
+        };
+
+        .edit-in-place {
+            &:after {
+                @extend .tooltip--top;
+
+                margin-bottom: $quarter-spacing-unit;
+            }
+        }
+    }
+        .offer__description__paragraph {
+            box-sizing: border-box;
+            margin-top: $quarter-spacing-unit;
+            max-width: none;
+            padding: $quarter-spacing-unit $half-spacing-unit;
+            width: 100%;
+        }
+
+
+    .offer__source {
+        margin: $half-spacing-unit 0;
+
+        .edit-in-place {
+            &:after {
+                @extend .tooltip--right;
+
+                margin-left: $quarter-spacing-unit;
+                min-width: 17em;
+            }
+        }
+    }
+        .offer__source__link {
+            margin-left: $quarter-spacing-unit;
+            min-width: 4em;
+
+            &.edit-in-place--active {
+                transform: translateY( -25% );
+                min-width: 15em;
+            }
+
+                .edit-in-place__input {
+                    font-weight: normal;
+                    height: 150%;
+                    padding: ($quarter-spacing-unit / 2) $quarter-spacing-unit;
+                }
+        }
+
+
+    .offer__tags {
+        margin: $half-spacing-unit 0;
+
+        label {
+            display: inline-block;
+            margin-right: $quarter-spacing-unit;
+        }
+
+        .select2-container {
+            min-width: 15em;
+        }
+
+        .select2-input {
+            min-width: 5em;
+        }
     }
 }

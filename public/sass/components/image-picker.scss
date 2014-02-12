@@ -82,12 +82,20 @@
 		@extend .button--empty;
 		@extend .button--ico--add;
 		
-    	// @include scut-center-absolutely(10rem 10rem);
     	@include scut-size(10rem);
+    	@include hover-effect--expand() {
+    		background-color: $c-bg-acc-light;
+    	};
 
+		border-radius: 5%;
     	margin: 2.5rem;
+    	overflow: hidden;
 
-		font-size: 300%;
+		&:before {
+			display: block;
+			font-size: 300%;
+			margin-bottom: $quarter-spacing-unit;
+		}
 	}
 
 .image-picker__images {
