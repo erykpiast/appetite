@@ -5685,7 +5685,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \000037;
+    font-family: \0000339;
   }
 }
 
@@ -5713,7 +5713,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \0000320;
+    font-family: \0000352;
   }
 }
 
@@ -5733,7 +5733,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \0000329;
+    font-family: \0000361;
   }
 }
 
@@ -5743,10 +5743,10 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   padding: 0 0 0 8px;
   overflow: hidden;
   position: relative;
-  border: 1px solid #aaa;
+  border: 1px solid #aaaaaa;
   white-space: nowrap;
   line-height: 26px;
-  color: #444;
+  color: black;
   text-decoration: none;
   border-radius: 4px;
   -webkit-background-clip: padding-box;
@@ -5756,10 +5756,10 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #fff;
+  background-color: white;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.5, white));
   background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 50%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = "white", endColorstr = '$color-background-dark', GradientType = 0);
   background-image: -webkit-gradient(linear, top left, bottom left, from(#ffffff), to(#eeeeee));
   background-image: -webkit-linear-gradient(top, #ffffff 0%, #eeeeee 50%);
   background-image: linear-gradient(top, #ffffff 0%, #eeeeee 50%);
@@ -5771,7 +5771,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \0000359;
+    font-family: \0000391;
   }
 }
 
@@ -5789,7 +5789,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \0000369;
+    font-family: \00003101;
   }
 }
 
@@ -5814,7 +5814,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \0000385;
+    font-family: \00003117;
   }
 }
 
@@ -5829,7 +5829,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \0000391;
+    font-family: \00003123;
   }
 }
 
@@ -5840,14 +5840,14 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   position: absolute;
   right: 0;
   top: 0;
-  border-left: 1px solid #aaa;
+  border-left: 1px solid #aaaaaa;
   border-radius: 0 4px 4px 0;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background: #ccc;
+  background: #cccccc;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.6, #eeeeee));
   background-image: -webkit-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#cccccc', GradientType = 0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = "#eeeeee", endColorstr = "#cccccc", GradientType = 0);
   background-image: -webkit-gradient(linear, top left, bottom left, from(#cccccc), to(#eeeeee));
   background-image: -webkit-linear-gradient(top, #cccccc 0%, #eeeeee 60%);
   background-image: linear-gradient(top, #cccccc 0%, #eeeeee 60%);
@@ -5859,7 +5859,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003111;
+    font-family: \00003143;
   }
 }
 
@@ -5876,16 +5876,16 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003120;
+    font-family: \00003152;
   }
 }
 
 .select2-container.select2-drop-above .select2-choice {
-  border-bottom-color: #aaa;
+  border-bottom-color: #aaaaaa;
   border-radius: 0 0 4px 4px;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.9, white));
   background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 90%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="white", endColorstr="#eeeeee", GradientType=0);
   background-image: -webkit-gradient(linear, top left, bottom left, from(#eeeeee), to(#ffffff));
   background-image: -webkit-linear-gradient(top, #eeeeee 0%, #ffffff 90%);
   background-image: linear-gradient(top, #eeeeee 0%, #ffffff 90%);
@@ -5897,7 +5897,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003166;
   }
 }
 
@@ -5911,7 +5911,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003138;
+    font-family: \00003170;
   }
 }
 
@@ -5925,14 +5925,14 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003145;
+    font-family: \00003177;
   }
 }
 
 .select2-container .select2-container.select2-container-disabled .select2-choice {
   background-color: #f4f4f4;
   background-image: none;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   cursor: default;
 }
 
@@ -5942,7 +5942,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003151;
+    font-family: \00003183;
   }
 }
 
@@ -5958,7 +5958,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003157;
+    font-family: \00003189;
   }
 }
 
@@ -5972,7 +5972,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003166;
+    font-family: \00003198;
   }
 }
 
@@ -5990,7 +5990,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003175;
+    font-family: \00003207;
   }
 }
 
@@ -6008,7 +6008,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   opacity: 0;
   z-index: 9998;
   /* styles required for IE to work */
-  background-color: #fff;
+  background-color: white;
   filter: alpha(opacity=0);
 }
 
@@ -6018,7 +6018,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003193;
+    font-family: \00003225;
   }
 }
 
@@ -6028,9 +6028,9 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   position: absolute;
   z-index: 9999;
   top: 100%;
-  background: #fff;
-  color: #000;
-  border: 1px solid #aaa;
+  background: white;
+  color: black;
+  border: 1px solid #aaaaaa;
   border-top: 0;
   border-radius: 0 0 4px 4px;
   -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
@@ -6043,13 +6043,13 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003210;
+    font-family: \00003242;
   }
 }
 
 .select2-drop.select2-drop-above {
   margin-top: 1px;
-  border-top: 1px solid #aaa;
+  border-top: 1px solid #aaaaaa;
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
   -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
@@ -6062,7 +6062,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003220;
+    font-family: \00003252;
   }
 }
 
@@ -6076,7 +6076,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003224;
+    font-family: \00003256;
   }
 }
 
@@ -6090,12 +6090,12 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003230;
+    font-family: \00003262;
   }
 }
 
 .select2-drop-auto-width {
-  border-top: 1px solid #aaa;
+  border-top: 1px solid #aaaaaa;
   width: auto;
 }
 
@@ -6105,7 +6105,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003234;
+    font-family: \00003266;
   }
 }
 
@@ -6119,7 +6119,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003239;
+    font-family: \00003271;
   }
 }
 
@@ -6134,7 +6134,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003244;
+    font-family: \00003276;
   }
 }
 
@@ -6156,7 +6156,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003257;
+    font-family: \00003289;
   }
 }
 
@@ -6169,7 +6169,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   outline: 0;
   font-family: sans-serif;
   font-size: 1em;
-  border: 1px solid #aaa;
+  border: 1px solid #aaaaaa;
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -6187,7 +6187,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003280;
+    font-family: \00003312;
   }
 }
 
@@ -6206,20 +6206,20 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003291;
+    font-family: \00003323;
   }
 }
 
 .select2-dropdown-open .select2-choice {
   border-bottom-color: transparent;
-  -webkit-box-shadow: 0 1px 0 #fff inset;
-  box-shadow: 0 1px 0 #fff inset;
+  -webkit-box-shadow: 0 1px 0 white inset;
+  box-shadow: 0 1px 0 white inset;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  background-color: #eee;
+  background-color: #eeeeee;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, white), color-stop(0.5, #eeeeee));
   background-image: -webkit-linear-gradient(center bottom, white 0%, #eeeeee 50%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeeeee", endColorstr="white", GradientType=0);
   background-image: -webkit-gradient(linear, top left, bottom left, from(#ffffff), to(#eeeeee));
   background-image: -webkit-linear-gradient(top, #ffffff 0%, #eeeeee 50%);
   background-image: linear-gradient(top, #ffffff 0%, #eeeeee 50%);
@@ -6231,7 +6231,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003308;
+    font-family: \00003340;
   }
 }
 
@@ -6241,7 +6241,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   border-top-color: transparent;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.5, #eeeeee));
   background-image: -webkit-linear-gradient(center top, white 0%, #eeeeee 50%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeeeee", endColorstr="white", GradientType=0);
   background-image: -webkit-gradient(linear, bottom left, top left, from(#ffffff), to(#eeeeee));
   background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #eeeeee 50%);
   background-image: linear-gradient(bottom, #ffffff 0%, #eeeeee 50%);
@@ -6253,7 +6253,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003319;
+    font-family: \00003351;
   }
 }
 
@@ -6270,7 +6270,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003324;
+    font-family: \00003356;
   }
 }
 
@@ -6286,7 +6286,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003330;
+    font-family: \00003362;
   }
 }
 
@@ -6306,7 +6306,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003339;
+    font-family: \00003371;
   }
 }
 
@@ -6321,7 +6321,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003343;
+    font-family: \00003375;
   }
 }
 
@@ -6335,7 +6335,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003348;
+    font-family: \00003380;
   }
 }
 
@@ -6349,7 +6349,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003353;
+    font-family: \00003385;
   }
 }
 
@@ -6363,7 +6363,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003358;
+    font-family: \00003390;
   }
 }
 
@@ -6377,7 +6377,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003363;
+    font-family: \00003395;
   }
 }
 
@@ -6391,7 +6391,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003368;
+    font-family: \00003400;
   }
 }
 
@@ -6405,7 +6405,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003373;
+    font-family: \00003405;
   }
 }
 
@@ -6419,7 +6419,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003384;
+    font-family: \00003416;
   }
 }
 
@@ -6435,7 +6435,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003389;
+    font-family: \00003421;
   }
 }
 
@@ -6449,7 +6449,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003393;
+    font-family: \00003425;
   }
 }
 
@@ -6464,13 +6464,13 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003399;
+    font-family: \00003431;
   }
 }
 
 .select2-results .select2-highlighted {
   background: #3875d7;
-  color: #fff;
+  color: white;
 }
 
 @media -sass-debug-info {
@@ -6479,7 +6479,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003403;
+    font-family: \00003435;
   }
 }
 
@@ -6493,13 +6493,13 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003407;
+    font-family: \00003439;
   }
 }
 
 .select2-results .select2-highlighted ul {
-  background: #fff;
-  color: #000;
+  background: white;
+  color: black;
 }
 
 @media -sass-debug-info {
@@ -6508,7 +6508,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003413;
+    font-family: \00003445;
   }
 }
 
@@ -6530,7 +6530,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003429;
+    font-family: \00003461;
   }
 }
 
@@ -6547,7 +6547,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003434;
+    font-family: \00003466;
   }
 }
 
@@ -6563,12 +6563,12 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003439;
+    font-family: \00003471;
   }
 }
 
 .select2-results .select2-results .select2-disabled.select2-highlighted {
-  color: #666;
+  color: #666666;
   background: #f4f4f4;
   display: list-item;
   cursor: default;
@@ -6580,7 +6580,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003447;
+    font-family: \00003479;
   }
 }
 
@@ -6594,7 +6594,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003452;
+    font-family: \00003484;
   }
 }
 
@@ -6609,7 +6609,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003456;
+    font-family: \00003488;
   }
 }
 
@@ -6623,7 +6623,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003461;
+    font-family: \00003493;
   }
 }
 
@@ -6637,7 +6637,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003467;
+    font-family: \00003499;
   }
 }
 
@@ -6654,7 +6654,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003476;
+    font-family: \00003508;
   }
 }
 
@@ -6665,10 +6665,10 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   margin: 0;
   padding: 0;
   position: relative;
-  border: 1px solid #aaa;
+  border: 1px solid #aaaaaa;
   cursor: text;
   overflow: hidden;
-  background-color: #fff;
+  background-color: white;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
   background-image: -webkit-linear-gradient(top, #eeeeee 1%, white 15%);
   background-image: -webkit-gradient(linear, top left, bottom left, from(#eeeeee), to(#ffffff));
@@ -6682,7 +6682,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003494;
+    font-family: \00003526;
   }
 }
 
@@ -6697,7 +6697,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003500;
+    font-family: \00003532;
   }
 }
 
@@ -6714,7 +6714,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003506;
+    font-family: \00003538;
   }
 }
 
@@ -6723,7 +6723,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   margin: 3px 0 3px 5px;
   position: relative;
   line-height: 13px;
-  color: #333;
+  color: #333333;
   cursor: default;
   border: 1px solid #aaaaaa;
   border-radius: 3px;
@@ -6737,7 +6737,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   -ms-user-select: none;
   user-select: none;
   background-color: #e4e4e4;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeeeee", endColorstr='$color-background-default', GradientType=0);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
   background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   background-image: -webkit-gradient(linear, top left, bottom left, from(#f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), to(#eeeeee));
@@ -6750,7 +6750,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003536;
+    font-family: \00003568;
   }
 }
 
@@ -6764,7 +6764,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003540;
+    font-family: \00003572;
   }
 }
 
@@ -6778,7 +6778,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003545;
+    font-family: \00003577;
   }
 }
 
@@ -6792,7 +6792,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003548;
+    font-family: \00003580;
   }
 }
 
@@ -6806,7 +6806,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003554;
+    font-family: \00003586;
   }
 }
 
@@ -6815,7 +6815,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   margin: 1px 0;
   font-family: sans-serif;
   font-size: 100%;
-  color: #666;
+  color: #666666;
   outline: 0;
   border: 0;
   -webkit-box-shadow: none;
@@ -6829,7 +6829,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003567;
+    font-family: \00003599;
   }
 }
 
@@ -6843,7 +6843,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003574;
+    font-family: \00003606;
   }
 }
 
@@ -6857,14 +6857,14 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003579;
+    font-family: \00003611;
   }
 }
 
 .select2-container-multi.select2-container-disabled .select2-choices {
   background-color: #f4f4f4;
   background-image: none;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   cursor: default;
 }
 
@@ -6874,13 +6874,13 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003585;
+    font-family: \00003617;
   }
 }
 
 .select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice {
   padding: 3px 5px 3px 5px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   background-image: none;
   background-color: #f4f4f4;
 }
@@ -6891,7 +6891,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003591;
+    font-family: \00003623;
   }
 }
 
@@ -6906,12 +6906,12 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003600;
+    font-family: \00003632;
   }
 }
 
 .select2-default {
-  color: #999 !important;
+  color: #999999 !important;
 }
 
 @media -sass-debug-info {
@@ -6920,7 +6920,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003604;
+    font-family: \00003636;
   }
 }
 
@@ -6942,7 +6942,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003618;
+    font-family: \00003650;
   }
 }
 
@@ -6957,7 +6957,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003624;
+    font-family: \00003656;
   }
 }
 
@@ -6982,7 +6982,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003639;
+    font-family: \00003671;
   }
 }
 
@@ -6996,7 +6996,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   }
 
   line {
-    font-family: \00003643;
+    font-family: \00003675;
   }
 }
 
@@ -7018,7 +7018,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     }
 
     line {
-      font-family: \00003657;
+      font-family: \00003689;
     }
 }
 
@@ -7038,7 +7038,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     }
 
     line {
-      font-family: \00003663;
+      font-family: \00003695;
     }
 }
 

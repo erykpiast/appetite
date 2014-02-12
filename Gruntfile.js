@@ -113,7 +113,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     appDir + '/sass/{,*/}*.scss',
-                    appDir + '/bower_components/{,*/}*.css'
+                    appDir + '/bower_components/{,*/}*.{scss,css}'
                 ],
                 tasks: [ 'compass:dev', 'autoprefixer:dev' ]
             },
