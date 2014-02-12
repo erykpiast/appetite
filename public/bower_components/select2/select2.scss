@@ -15,6 +15,7 @@ $color-background-searchChoice-accent:#d4d4d4;
 
 $color-boxshadow-default: rgba(0, 0, 0, .3);
 $color-boxshadow-light: rgba(0, 0, 0, .15);
+$color-boxshadow-lighter: rgba(0, 0, 0, .05);
 
 $color-font-default: #000000;
 $color-font-light: #333333;
@@ -26,9 +27,18 @@ $color-border-default: #aaaaaa;
 $color-border-disabled: #dddddd;
 $color-border-accent: $color-accent;
 
-
 $borderRadius-default: 4px;
 $borderRadius-searchChoice: 3px;
+
+$boxShadowBlur-default: 5px;
+$boxShadowBlur-small: 2px;
+$boxShadowOffset-left-default: 0 -4px;
+$boxShadowOffset-right-default: 0 4px;
+$boxShadowOffset-right-small: 0 4px;
+
+
+$lineHeight: 26px;
+$arrowWidth: $lineHeight / 1.45;
 
 /*
 Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
@@ -60,14 +70,14 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
     .select2-choice {
         display: block;
-        height: 26px;
-        padding: 0 0 0 8px;
+        height: $lineHeight;
+        padding: 0 0 0 ($lineHeight / 3);
         overflow: hidden;
         position: relative;
 
         border: 1px solid $color-border-default;
         white-space: nowrap;
-        line-height: 26px;
+        line-height: $lineHeight;
         color: $color-font-default;
         text-decoration: none;
 
@@ -89,7 +99,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
         background-image: linear-gradient(top, $color-background-lighter 0%, $color-background-dark 50%);
 
         & > .select2-chosen {
-            margin-right: 26px;
+            margin-right: $lineHeight;
             display: block;
             overflow: hidden;
 
@@ -100,11 +110,11 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
         abbr {
             display: none;
-            width: 12px;
-            height: 12px;
+            width: ($lineHeight / 2);
+            height: ($lineHeight / 2);
             position: absolute;
-            right: 24px;
-            top: 8px;
+            right: $lineHeight;
+            top: $lineHeight / 3;
 
             font-size: 1px;
             text-decoration: none;
@@ -115,14 +125,14 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
             outline: 0;
 
             &:hover {
-                background-position: right -11px;
+                background-position: right -($lineHeight / 2);
                 cursor: pointer;
             }
         }
 
         .select2-arrow {
             display: inline-block;
-            width: 18px;
+            width: $arrowWidth;
             height: 100%;
             position: absolute;
             right: 0;
@@ -164,7 +174,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     &.select2-allowclear {
         .select2-choice {
             .select2-chosen {
-                margin-right: 42px;
+                margin-right: ($lineHeight * 1.6);
             }
 
             abbr {
@@ -199,8 +209,8 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
         border: 1px solid $color-border-accent;
         outline: none;
 
-        -webkit-box-shadow: 0 0 5px $color-boxshadow-default;
-                box-shadow: 0 0 5px $color-boxshadow-default;
+        -webkit-box-shadow: 0 0 $boxShadowBlur-default $color-boxshadow-default;
+                box-shadow: 0 0 $boxShadowBlur-default $color-boxshadow-default;
     }
 }
 
@@ -236,8 +246,8 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
     border-radius: 0 0 $borderRadius-default $borderRadius-default;
 
-    -webkit-box-shadow: 0 4px 5px $color-boxshadow-light;
-            box-shadow: 0 4px 5px $color-boxshadow-light;
+    -webkit-box-shadow: $boxShadowOffset-right-default $boxShadowBlur-default $color-boxshadow-light;
+            box-shadow: $boxShadowOffset-right-default $boxShadowBlur-default $color-boxshadow-light;
 
     &.select2-drop-above {
         margin-top: 1px;
@@ -246,15 +256,15 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
         border-radius: $borderRadius-default $borderRadius-default 0 0;
 
-        -webkit-box-shadow: 0 -4px 5px $color-boxshadow-light;
-                box-shadow: 0 -4px 5px $color-boxshadow-light;
+        -webkit-box-shadow: $boxShadowOffset-left-default $boxShadowBlur-default $color-boxshadow-light;
+                box-shadow: $boxShadowOffset-left-default $boxShadowBlur-default $color-boxshadow-light;
 
         &.select2-drop-active {
             border-top: 1px solid $color-border-accent;
         }
 
         .select2-search input {
-            margin-top: 4px;
+            margin-top: ($lineHeight / 6.5);
         }
     }
 }
@@ -264,7 +274,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     width: auto;
 
     .select2-search {
-        padding-top: 4px;
+        padding-top: ($lineHeight / 6.5);
     }
 }
 
@@ -276,10 +286,10 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 .select2-search {
     display: inline-block;
     width: 100%;
-    min-height: 26px;
+    min-height: $lineHeight;
     margin: 0;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: ($lineHeight / 6.5);
+    padding-right: ($lineHeight / 6.5);
 
     position: relative;
     z-index: 10000;
@@ -289,12 +299,12 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     input {
         width: 100%;
         height: auto !important;
-        min-height: 26px;
-        padding: 4px 20px 4px 5px;
+        min-height: $lineHeight;
+        padding: ($lineHeight / 6.5) ($lineHeight / 1.3) ($lineHeight / 6.5) ($lineHeight / 5);
         margin: 0;
 
         outline: 0;
-        font-family: sans-serif;
+        font-family: inherit;
         font-size: 1em;
 
         border: 1px solid $color-border-default;
@@ -322,8 +332,8 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 .select2-dropdown-open {
     .select2-choice {
         border-bottom-color: transparent;
-        -webkit-box-shadow: 0 1px 0 $color-background-lighter inset;
-                box-shadow: 0 1px 0 $color-background-lighter inset;
+        -webkit-box-shadow: $boxShadowOffset-right-small 0 $color-background-lighter inset;
+                box-shadow: $boxShadowOffset-right-small 0 $color-background-lighter inset;
 
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
@@ -354,56 +364,57 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
         filter: none;
     }
     .select2-choice .select2-arrow b {
-        background-position: -18px 1px;
+        background-position: -$arrowWidth 1px;
     }
 }
 
 /* results */
 .select2-results {
     max-height: 200px;
-    padding: 0 0 0 4px;
-    margin: 4px 4px 4px 0;
+    padding: 0 0 0 ($lineHeight / 6.5);
+    margin: ($lineHeight / 6.5) ($lineHeight / 6.5) ($lineHeight / 6.5) 0;
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
+    $b: ($lineHeight / 1.3);
     ul.select2-result-sub {
         margin: 0;
-        padding-left: 0;
+        padding-left: ($b * 0);
 
         & > li .select2-result-label {
-            padding-left: 20px;
+            padding-left: ($b * 1);
         }
 
         ul.select2-result-sub {
             & > li .select2-result-label {
-                padding-left: 40px;
+                padding-left: ($b * 2);
             }
 
             ul.select2-result-sub {
                 & > li .select2-result-label {
-                    padding-left: 60px;
+                    padding-left: ($b * 3);
                 }
 
                 ul.select2-result-sub {
                     & > li .select2-result-label {
-                        padding-left: 80px;
+                        padding-left: ($b * 4);
                     }
 
                     ul.select2-result-sub {
                         & > li .select2-result-label {
-                            padding-left: 100px;
+                            padding-left: ($b * 5);
                         }
 
                         ul.select2-result-sub {
                             & > li .select2-result-label {
-                                padding-left: 110px;
+                                padding-left: ($b * 5.5);
                             }
 
                             ul.select2-result-sub {
                                 & > li .select2-result-label {
-                                    padding-left: 120px;
+                                    padding-left: ($b * 6);
                                 }
                             }
                         }
@@ -443,7 +454,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     }
 
     .select2-result-label {
-        padding: 3px 7px 4px;
+        padding: ($lineHeight / 8) ($lineHeight / 4) ($lineHeight / 6.5);
         margin: 0;
         cursor: pointer;
 
@@ -491,7 +502,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 }
 
 .select2-locked {
-  padding: 3px 5px 3px 5px !important;
+  padding: ($lineHeight / 6.5) ($lineHeight / 5) ($lineHeight / 8.5) ($lineHeight / 5) !important;
 }
 
 .select2-container-multi {
@@ -500,15 +511,15 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
             border: 1px solid $color-border-accent;
             outline: none;
 
-            -webkit-box-shadow: 0 0 5px $color-boxshadow-default;
-                    box-shadow: 0 0 5px $color-boxshadow-default;
+            -webkit-box-shadow: 0 0 $boxShadowBlur-default $color-boxshadow-default;
+                    box-shadow: 0 0 $boxShadowBlur-default $color-boxshadow-default;
         }
     }
 
     .select2-choices {
         height: auto !important;
         height: 1%;
-        min-height: 26px;
+        min-height: $lineHeight;
         margin: 0;
         padding: 0;
         position: relative;
@@ -536,19 +547,19 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
         }
 
         .select2-search-choice {
-            padding: 3px 5px 3px 18px;
-            margin: 3px 0 3px 5px;
+            padding: ($lineHeight / 8) ($lineHeight / 5) ($lineHeight / 8) $arrowWidth;
+            margin: ($lineHeight / 8) 0 ($lineHeight / 8) ($lineHeight / 5);
             position: relative;
 
-            line-height: 13px;
+            line-height: $lineHeight / 2;
             color: $color-font-light;
             cursor: default;
             border: 1px solid $color-border-default;
 
-            border-radius: 3px;
+            border-radius: $borderRadius-searchChoice;
 
-            -webkit-box-shadow: 0 0 2px $color-background-lighter inset, 0 1px 0 rgba(0, 0, 0, 0.05);
-                    box-shadow: 0 0 2px $color-background-lighter inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+            -webkit-box-shadow: 0 0 $boxShadowBlur-small $color-background-lighter inset, $boxShadowOffset-right-small 0 $color-boxshadow-lighter;
+                    box-shadow: 0 0 $boxShadowBlur-small $color-background-lighter inset, $boxShadowOffset-right-small 0 $color-boxshadow-lighter;
 
             background-clip: padding-box;
 
@@ -584,10 +595,10 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
         .select2-search-field {
             input {
-                padding: 5px;
+                padding: ($lineHeight / 5);
                 margin: 1px 0;
 
-                font-family: sans-serif;
+                font-family: inherit;
                 font-size: 100%;
                 color: $color-font-lighter;
                 outline: 0;
@@ -604,7 +615,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     }
 
     .select2-search-choice-close {
-        left: 3px;
+        left: ($lineHeight / 8);
     }
 
     &.select2-container-disabled {
@@ -615,7 +626,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
             cursor: default;
 
             .select2-search-choice {
-                padding: 3px 5px 3px 5px;
+                padding: ($lineHeight / 8) ($lineHeight / 5) ($lineHeight / 8) ($lineHeight / 5);
                 border: 1px solid $color-border-disabled;
                 background-image: none;
                 background-color: $color-background-default;
@@ -635,11 +646,11 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
 .select2-search-choice-close {
     display: block;
-    width: 12px;
-    height: 13px;
+    width: ($lineHeight / 2);
+    height: ($lineHeight / 2);
     position: absolute;
-    right: 3px;
-    top: 4px;
+    right: ($lineHeight / 8);
+    top: ($lineHeight / 8);
 
     font-size: 1px;
     outline: none;
