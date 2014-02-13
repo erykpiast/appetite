@@ -10,6 +10,16 @@
 		transform: translateX(-0.001px);
 		width: 0.001px;
 	}
+
+	&:not(.edit-in-place--active) {
+		.edit-in-place__value:empty {
+			&:before {
+				content: attr(data-placeholder);
+				color: $c-fg-def-light;
+				display: inline-block;
+			}
+		}
+	}
 }
 	.edit-in-place--active {
 		@extend .edit-in-place;

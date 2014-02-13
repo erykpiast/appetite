@@ -25,6 +25,10 @@
 	box-sizing: border-box;
 	display: block;
 	padding: $half-spacing-unit $base-spacing-unit;
+
+	&:disabled {
+		background-color: $c-fg-acc-desaturated;
+	}
 }
 
 .button--secondary {

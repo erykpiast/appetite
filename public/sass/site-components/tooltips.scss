@@ -1,7 +1,7 @@
 .tooltip {
-    background-color: $c-fg-def;
+    background-color: rgba($c-fg-def, 0.9);
     border: 1px solid $c-shadow-dark {
-        radius: .4rem;
+        radius: .4em;
     };
     box-shadow: 0 0 .1em $c-shadow-dark;
     color: $c-bg-def;
@@ -11,4 +11,5 @@
         weight: normal;
     };
     line-height: $base-line-height;
+    padding: ($quarter-spacing-unit / 2) $quarter-spacing-unit;
 }

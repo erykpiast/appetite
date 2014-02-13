@@ -35,10 +35,10 @@ define(['libs/angular'], function(angular) {
                     startAt: new Date(Date.now())
                 },
                 template: {
-                    description: $rootScope.i18n.offer.create.description,
-                    recipe: $rootScope.i18n.offer.create.recipe,
-                    tags: '',
-                    title: $rootScope.i18n.offer.create.title,
+                    description: '',
+                    recipe: '',
+                    tags: [],
+                    title: '',
                     pictures: []
                 }
             },

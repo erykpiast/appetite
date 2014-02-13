@@ -5,13 +5,14 @@
             <header class="offer__header">
             	<h2 class="form__field"
                     app-edit-in-place="offer.template.title"
+                    placeholder="{{ i18n.offer.create.title }} – {{ i18n.offer.create.example.title }}"
                     label="{{ i18n.offer.create.title }}"
                     input-attrs="{
-                        'placeholder': i18n.offer.create.example.title,
+                        'maxlength': 50,
                         'ng-required': true,
                         'ng-maxlength': 50
                     }"
-                    data-title="{{ i18n.offer.create.title }} – {{ i18n.offer.create.clickToEdit }}"></h2>
+                    data-title="{{ i18n.offer.create.clickToEdit }}"></h2>
             </header>
 
 
@@ -26,14 +27,15 @@
                 <div class="offer__description">
                     <p  class="offer__description__paragraph form__field"
                         app-edit-in-place="offer.template.description"
+                        placeholder="{{ i18n.offer.create.description }} – {{ i18n.offer.create.example.description }}"
                         label="{{ i18n.offer.create.description }}"
                         input-type="textarea"
                         input-attrs="{
-                            'placeholder': i18n.offer.create.example.description,
+                            'maxlength': 300,
                             'ng-required': true,
                             'ng-maxlength': 300
                         }"
-                        data-title="{{ i18n.offer.create.description }} – {{ i18n.offer.create.clickToEdit }}"></p>
+                        data-title="{{ i18n.offer.create.clickToEdit }}"></p>
                 </div>
 
                 <div class="offer__tags">
@@ -45,7 +47,6 @@
                             value=""
                             placeholder="{{ i18n.offer.create.example.tags }}"
                             ng-model="offer.template.tags"
-                            ng-required="true"
                             ui-select2="{
                                 multiple: true,
                                 simple_tags: true,
@@ -56,27 +57,26 @@
                 </div>
 
                 <div class="offer__source">
-                    <p class="form__field">
-                        {{ i18n.offer.recipeFrom }}
-                        <a  class="offer__source__link form__field"
-                            app-edit-in-place="offer.template.recipe"
-                            label="{{ i18n.offer.create.recipe }}"
-                            input-type="url"
-                            input-attrs="{
-                                'placeholder': i18n.offer.create.example.recipe,
-                                'ng-required': true
-                            }"
-                            data-title="{{ i18n.offer.create.recipe }} – {{ i18n.offer.create.clickToEdit }}"></a>
-                    </p>
+                    <span class="offer__source__label">{{ i18n.offer.recipeFrom }}</span>
+                    <a  class="offer__source__link form__field"
+                        app-edit-in-place="offer.template.recipe"
+                        placeholder="{{ i18n.offer.create.example.recipe }}"
+                        label="{{ i18n.offer.create.recipe }}"
+                        input-type="url"
+                        input-attrs="{
+                            'ng-required': true
+                        }"
+                        data-title="{{ i18n.offer.create.clickToEdit }}"></a>
                 </div>
 
-                <button 
-                    class="offer__submit" 
-                    type="submit"
-                    ng-click="submitTemplate()" 
-                    ng-disabled="!formTemplate.$valid" >
-                    {{ i18n.offer.create.submitTemplate }}
-                </button>
+                <div class="offer__submit">
+                    <button 
+                        type="submit"
+                        ng-click="submitTemplate()" 
+                        ng-disabled="!offer.template.tags.length || !offer.template.pictures.length || offerTemplate.$pristine || offerTemplate.$invalid" >
+                        {{ i18n.offer.create.submitTemplate }}
+                    </button>
+                </div>
                 
             </div>
         </div>

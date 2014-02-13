@@ -48,7 +48,7 @@
                 content: attr(data-title);
                 opacity: 0;
                 transition: opacity .3s linear 0;
-                min-width: 15em;
+                min-width: 9em;
             }
         }
 
@@ -57,7 +57,7 @@
                 background-color: $c-fg-acc;
                 border: 1px solid $c-shadow-dark {
                     bottom: none;
-                    radius: .4rem .4rem 0 0;
+                    radius: .4em .4em 0 0;
                 };
                 color: $c-bg-acc-light;
                 padding: 0 $quarter-spacing-unit;
@@ -96,7 +96,7 @@
     .offer__header {
         .edit-in-place {
             max-width: calc(100% - #{2 * $base-spacing-unit});
-            min-width: 4em;
+            min-width: 14.5em;
 
             &:after {
                 @extend .tooltip--right;
@@ -170,17 +170,23 @@
                 margin-bottom: $quarter-spacing-unit;
             }
         }
+            .edit-in-place__input {
+                overflow: hidden;
+                resize: none;
+            }
     }
         .offer__description__paragraph {
             box-sizing: border-box;
             margin-top: $quarter-spacing-unit;
             max-width: none;
+            min-height: 2.5 * $base-line-height;
             padding: $quarter-spacing-unit $half-spacing-unit;
             width: 100%;
         }
 
 
     .offer__source {
+        color: inherit;
         margin: $half-spacing-unit 0;
 
         .edit-in-place {
@@ -188,23 +194,41 @@
                 @extend .tooltip--right;
 
                 margin-left: $quarter-spacing-unit;
-                min-width: 17em;
             }
         }
     }
+        .offer__source__label {
+            display: inline-block;
+            min-width: 10em;
+        }
         .offer__source__link {
+            font-weight: normal;
             margin-left: $quarter-spacing-unit;
+            max-width: calc(100% - 11em - #{$quarter-spacing-unit});
             min-width: 4em;
 
             &.edit-in-place--active {
-                transform: translateY( -25% );
-                min-width: 15em;
+                min-width: 32em;
             }
 
                 .edit-in-place__input {
+                    bottom: -$quarter-spacing-unit;
                     font-weight: normal;
-                    height: 150%;
-                    padding: ($quarter-spacing-unit / 2) $quarter-spacing-unit;
+                    padding: $quarter-spacing-unit;
+                    top: -$quarter-spacing-unit;
+                }
+
+                .edit-in-place__label {
+                    margin-bottom: $quarter-spacing-unit;
+                }
+
+                .edit-in-place__value {
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                    white-space: nowrap;
+                    vertical-align: bottom;
                 }
         }
 
@@ -223,6 +247,18 @@
 
         .select2-input {
             min-width: 5em;
+        }
+    }
+
+
+    .offer__submit {
+        margin-top: $base-spacing-unit;
+        text-align: center;
+
+        & > button {
+            @extend .button--primary;
+            
+            display: inline-block;
         }
     }
 }

@@ -20775,6 +20775,10 @@ a.hyperlink:visited {
 .search--main .search__submit > .button--primary,
 .search .search__submit > .image-picker__adder__form__input__button--apply,
 .search--main .search__submit > .image-picker__adder__form__input__button--apply,
+.search .page__content__offer--create .offer__submit.search__submit > button,
+.page__content__offer--create .search .offer__submit.search__submit > button,
+.search--main .page__content__offer--create .offer__submit.search__submit > button,
+.page__content__offer--create .search--main .offer__submit.search__submit > button,
 .search .search__submit > .button--secondary,
 .search--main .search__submit > .button--secondary,
 .search .search__submit > .image-picker__adder__form__input__button--cancel,
@@ -20934,6 +20938,7 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__order__button,
 .button--primary,
 .image-picker__adder__form__input__button--apply,
+.page__content__offer--create .offer__submit > button,
 .button--secondary,
 .image-picker__adder__form__input__button--cancel,
 .button--ico,
@@ -20987,6 +20992,7 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__order__button:focus,
 .button--primary:focus,
 .image-picker__adder__form__input__button--apply:focus,
+.page__content__offer--create .offer__submit > button:focus,
 .button--secondary:focus,
 .image-picker__adder__form__input__button--cancel:focus,
 .button--ico:focus,
@@ -21032,7 +21038,8 @@ a.hyperlink:visited {
 .page__content__offer .offer__order__button,
 .page__content__offer--create .offer__order__button,
 .button--primary,
-.image-picker__adder__form__input__button--apply {
+.image-picker__adder__form__input__button--apply,
+.page__content__offer--create .offer__submit > button {
   background-color: #aa1e1e;
   border: 1px solid #aa1e1e;
   border-radius: 0.4em;
@@ -21052,7 +21059,32 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000330;
+    font-family: \0000329;
+  }
+}
+
+.button--call-to-action:disabled,
+.page__content__sidebar .button--login:disabled,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute:disabled,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--facebook:disabled,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--adblock:disabled,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--paypal:disabled,
+.welcome .welcome__contribute .welcome__contribute__options .welcome__contribute__option .button--contribute--github:disabled,
+.page__content__offer .offer__order__button:disabled,
+.page__content__offer--create .offer__order__button:disabled,
+.button--primary:disabled,
+.image-picker__adder__form__input__button--apply:disabled,
+.page__content__offer--create .offer__submit > button:disabled {
+  background-color: #b95c5c;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/buttons\.scss;
+  }
+
+  line {
+    font-family: \0000334;
   }
 }
 
@@ -21072,7 +21104,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000341;
+    font-family: \0000345;
   }
 }
 
@@ -21115,7 +21147,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000355;
+    font-family: \0000359;
   }
 }
 
@@ -21130,7 +21162,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003143;
+    font-family: \00003147;
   }
 }
 
@@ -22168,7 +22200,24 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000317;
+    font-family: \0000316;
+  }
+}
+
+.edit-in-place:not(.edit-in-place--active) .edit-in-place__value:empty:before,
+.edit-in-place--active:not(.edit-in-place--active) .edit-in-place__value:empty:before {
+  content: attr(data-placeholder);
+  color: #969696;
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/components\/edit-in-place\.scss;
+  }
+
+  line {
+    font-family: \0000327;
   }
 }
 
@@ -22183,7 +22232,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000323;
+    font-family: \0000333;
   }
 }
 
@@ -22239,7 +22288,6 @@ a.hyperlink:visited {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 5.25px 10.5px;
   position: absolute;
   pointer-events: none;
   z-index: 9999;
@@ -22251,7 +22299,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \000039;
+    font-family: \000038;
   }
 }
 
@@ -22270,7 +22318,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \0000318;
+    font-family: \0000317;
   }
 }
 
@@ -22523,7 +22571,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -22545,7 +22593,7 @@ a.hyperlink:visited {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -22888,7 +22936,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -22910,7 +22958,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -23114,6 +23162,8 @@ body {
 .page__content__offer--create .search--main .search__submit > .offer__order__button,
 .search--main .search__submit > .button--primary,
 .search--main .search__submit > .image-picker__adder__form__input__button--apply,
+.search--main .page__content__offer--create .offer__submit.search__submit > button,
+.page__content__offer--create .search--main .offer__submit.search__submit > button,
 .search--main .search__submit > .button--secondary,
 .search--main .search__submit > .image-picker__adder__form__input__button--cancel,
 .search--main .search__submit > .button--ico,
@@ -23165,7 +23215,7 @@ body {
   }
 
   line {
-    font-family: \00003181;
+    font-family: \00003185;
   }
 }
 
@@ -23189,6 +23239,8 @@ body {
 .page__content__offer--create .search--main .search__submit > .offer__order__button:hover,
 .search--main .search__submit > .button--primary:hover,
 .search--main .search__submit > .image-picker__adder__form__input__button--apply:hover,
+.search--main .page__content__offer--create .offer__submit.search__submit > button:hover,
+.page__content__offer--create .search--main .offer__submit.search__submit > button:hover,
 .search--main .search__submit > .button--secondary:hover,
 .search--main .search__submit > .image-picker__adder__form__input__button--cancel:hover,
 .search--main .search__submit > .button--ico:hover,
@@ -24108,7 +24160,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -24130,7 +24182,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -24282,7 +24334,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -24304,7 +24356,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -24361,7 +24413,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -24383,7 +24435,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -24440,7 +24492,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -24462,7 +24514,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -24518,7 +24570,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -24540,7 +24592,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -25028,7 +25080,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -25050,7 +25102,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -25205,7 +25257,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -25227,7 +25279,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -25284,7 +25336,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -25306,7 +25358,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -25363,7 +25415,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -25385,7 +25437,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -25443,7 +25495,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -25465,7 +25517,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -25558,9 +25610,9 @@ body {
 .page__content__offer--create .offer--create__form .edit-in-place--active:after,
 .page__content__offer--create .offer--create__form--template .edit-in-place--active:after,
 .page__content__offer--create .offer--create__form--details .edit-in-place--active:after {
-  background-color: #282828;
+  background-color: rgba(40, 40, 40, 0.9);
   border: 1px solid rgba(77, 77, 77, 0.7);
-  border-radius: .4rem;
+  border-radius: .4em;
   -webkit-box-shadow: 0 0 0.1em rgba(77, 77, 77, 0.7);
   box-shadow: 0 0 0.1em rgba(77, 77, 77, 0.7);
   color: #eaeaea;
@@ -25568,6 +25620,7 @@ body {
   font-size: 14px;
   font-weight: normal;
   line-height: 21px;
+  padding: 2.625px 5.25px;
 }
 
 @media -sass-debug-info {
@@ -26006,7 +26059,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -26029,7 +26082,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -26707,7 +26760,7 @@ body {
   }
 
   line {
-    font-family: \00003160;
+    font-family: \00003164;
   }
 }
 
@@ -26730,7 +26783,7 @@ body {
   }
 
   line {
-    font-family: \00003168;
+    font-family: \00003172;
   }
 }
 
@@ -26853,7 +26906,7 @@ body {
   opacity: 0;
   -webkit-transition: opacity .3s linear 0;
   transition: opacity .3s linear 0;
-  min-width: 15em;
+  min-width: 9em;
 }
 
 @media -sass-debug-info {
@@ -26872,7 +26925,7 @@ body {
   background-color: #aa1e1e;
   border: 1px solid rgba(77, 77, 77, 0.7);
   border-bottom: none;
-  border-radius: .4rem .4rem 0 0;
+  border-radius: .4em .4em 0 0;
   color: white;
   padding: 0 5.25px;
 }
@@ -26947,7 +27000,7 @@ body {
 .page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active {
   max-width: -webkit-calc(100% - 42px);
   max-width: calc(100% - 42px);
-  min-width: 4em;
+  min-width: 14.5em;
 }
 
 @media -sass-debug-info {
@@ -27118,7 +27171,22 @@ body {
   }
 
   line {
-    font-family: \00003174;
+    font-family: \00003173;
+  }
+}
+
+.page__content__offer--create .offer__description .edit-in-place__input {
+  overflow: hidden;
+  resize: none;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003178;
   }
 }
 
@@ -27128,6 +27196,7 @@ body {
   box-sizing: border-box;
   margin-top: 5.25px;
   max-width: none;
+  min-height: 52.5px;
   padding: 5.25px 10.5px;
   width: 100%;
 }
@@ -27138,11 +27207,12 @@ body {
   }
 
   line {
-    font-family: \00003183;
+    font-family: \00003188;
   }
 }
 
 .page__content__offer--create .offer__source {
+  color: inherit;
   margin: 10.5px 0;
 }
 
@@ -27152,14 +27222,13 @@ body {
   }
 
   line {
-    font-family: \00003187;
+    font-family: \00003193;
   }
 }
 
 .page__content__offer--create .offer__source .edit-in-place:after,
 .page__content__offer--create .offer__source .edit-in-place--active:after {
   margin-left: 5.25px;
-  min-width: 17em;
 }
 
 @media -sass-debug-info {
@@ -27168,30 +27237,13 @@ body {
   }
 
   line {
-    font-family: \00003195;
+    font-family: \00003200;
   }
 }
 
-.page__content__offer--create .offer__source__link {
-  margin-left: 5.25px;
-  min-width: 4em;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \00003199;
-  }
-}
-
-.page__content__offer--create .offer__source__link.edit-in-place--active {
-  -webkit-transform: translateY(-25%);
-  -ms-transform: translateY(-25%);
-  transform: translateY(-25%);
-  min-width: 15em;
+.page__content__offer--create .offer__source__label {
+  display: inline-block;
+  min-width: 10em;
 }
 
 @media -sass-debug-info {
@@ -27204,10 +27256,12 @@ body {
   }
 }
 
-.page__content__offer--create .offer__source__link .edit-in-place__input {
+.page__content__offer--create .offer__source__link {
   font-weight: normal;
-  height: 150%;
-  padding: 2.625px 5.25px;
+  margin-left: 5.25px;
+  max-width: -webkit-calc(100% - 11em - 5.25px);
+  max-width: calc(100% - 11em - 5.25px);
+  min-width: 4em;
 }
 
 @media -sass-debug-info {
@@ -27216,7 +27270,71 @@ body {
   }
 
   line {
-    font-family: \00003212;
+    font-family: \00003210;
+  }
+}
+
+.page__content__offer--create .offer__source__link.edit-in-place--active {
+  min-width: 32em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003214;
+  }
+}
+
+.page__content__offer--create .offer__source__link .edit-in-place__input {
+  bottom: -5.25px;
+  font-weight: normal;
+  padding: 5.25px;
+  top: -5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003221;
+  }
+}
+
+.page__content__offer--create .offer__source__link .edit-in-place__label {
+  margin-bottom: 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003225;
+  }
+}
+
+.page__content__offer--create .offer__source__link .edit-in-place__value {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003236;
   }
 }
 
@@ -27230,7 +27348,7 @@ body {
   }
 
   line {
-    font-family: \00003215;
+    font-family: \00003239;
   }
 }
 
@@ -27245,7 +27363,7 @@ body {
   }
 
   line {
-    font-family: \00003220;
+    font-family: \00003244;
   }
 }
 
@@ -27259,12 +27377,41 @@ body {
   }
 
   line {
-    font-family: \00003224;
+    font-family: \00003248;
   }
 }
 
 .page__content__offer--create .offer__tags .select2-input {
   min-width: 5em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003254;
+  }
+}
+
+.page__content__offer--create .offer__submit {
+  margin-top: 21px;
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003258;
+  }
+}
+
+.page__content__offer--create .offer__submit > button {
+  display: inline-block;
 }
 
 @media -sass-debug-info {
