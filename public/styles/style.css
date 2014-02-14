@@ -20775,10 +20775,18 @@ a.hyperlink:visited {
 .search--main .search__submit > .button--primary,
 .search .search__submit > .image-picker__adder__form__input__button--apply,
 .search--main .search__submit > .image-picker__adder__form__input__button--apply,
-.search .page__content__offer--create .offer__submit.search__submit > button,
-.page__content__offer--create .search .offer__submit.search__submit > button,
-.search--main .page__content__offer--create .offer__submit.search__submit > button,
-.page__content__offer--create .search--main .offer__submit.search__submit > button,
+.search .page__content__offer--create .offer--create__form .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form .search .offer__submit.search__submit > button,
+.search--main .page__content__offer--create .offer--create__form .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form .search--main .offer__submit.search__submit > button,
+.search .page__content__offer--create .offer--create__form--template .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form--template .search .offer__submit.search__submit > button,
+.search--main .page__content__offer--create .offer--create__form--template .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form--template .search--main .offer__submit.search__submit > button,
+.search .page__content__offer--create .offer--create__form--details .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form--details .search .offer__submit.search__submit > button,
+.search--main .page__content__offer--create .offer--create__form--details .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form--details .search--main .offer__submit.search__submit > button,
 .search .search__submit > .button--secondary,
 .search--main .search__submit > .button--secondary,
 .search .search__submit > .image-picker__adder__form__input__button--cancel,
@@ -20938,7 +20946,9 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__order__button,
 .button--primary,
 .image-picker__adder__form__input__button--apply,
-.page__content__offer--create .offer__submit > button,
+.page__content__offer--create .offer--create__form .offer__submit > button,
+.page__content__offer--create .offer--create__form--template .offer__submit > button,
+.page__content__offer--create .offer--create__form--details .offer__submit > button,
 .button--secondary,
 .image-picker__adder__form__input__button--cancel,
 .button--ico,
@@ -20992,7 +21002,9 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__order__button:focus,
 .button--primary:focus,
 .image-picker__adder__form__input__button--apply:focus,
-.page__content__offer--create .offer__submit > button:focus,
+.page__content__offer--create .offer--create__form .offer__submit > button:focus,
+.page__content__offer--create .offer--create__form--template .offer__submit > button:focus,
+.page__content__offer--create .offer--create__form--details .offer__submit > button:focus,
 .button--secondary:focus,
 .image-picker__adder__form__input__button--cancel:focus,
 .button--ico:focus,
@@ -21039,13 +21051,15 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__order__button,
 .button--primary,
 .image-picker__adder__form__input__button--apply,
-.page__content__offer--create .offer__submit > button {
+.page__content__offer--create .offer--create__form .offer__submit > button,
+.page__content__offer--create .offer--create__form--template .offer__submit > button,
+.page__content__offer--create .offer--create__form--details .offer__submit > button {
   background-color: #aa1e1e;
   border: 1px solid #aa1e1e;
   border-radius: 0.4em;
   color: #eaeaea;
-  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -21074,7 +21088,9 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__order__button:disabled,
 .button--primary:disabled,
 .image-picker__adder__form__input__button--apply:disabled,
-.page__content__offer--create .offer__submit > button:disabled {
+.page__content__offer--create .offer--create__form .offer__submit > button:disabled,
+.page__content__offer--create .offer--create__form--template .offer__submit > button:disabled,
+.page__content__offer--create .offer--create__form--details .offer__submit > button:disabled {
   background-color: #b95c5c;
 }
 
@@ -21090,8 +21106,8 @@ a.hyperlink:visited {
 
 .button--secondary,
 .image-picker__adder__form__input__button--cancel {
-  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -21749,8 +21765,8 @@ a.hyperlink:visited {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-box-shadow: 0 0 0 4096px rgba(77, 77, 77, 0.7), 0 0 200px rgba(77, 77, 77, 0.7), 0 0 100px rgba(77, 77, 77, 0.7), 0 0 50px rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0 4096px rgba(77, 77, 77, 0.7), 0 0 200px rgba(77, 77, 77, 0.7), 0 0 100px rgba(77, 77, 77, 0.7), 0 0 50px rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0 4096px rgba(40, 40, 40, 0.7), 0 0 200px rgba(40, 40, 40, 0.7), 0 0 100px rgba(40, 40, 40, 0.7), 0 0 50px rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0 4096px rgba(40, 40, 40, 0.7), 0 0 200px rgba(40, 40, 40, 0.7), 0 0 100px rgba(40, 40, 40, 0.7), 0 0 50px rgba(40, 40, 40, 0.7);
   position: fixed;
   -webkit-transition: opacity .3s ease-out;
   transition: opacity .3s ease-out;
@@ -21808,7 +21824,7 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__pictures__picture--preview,
 .page__content__offer .offer__pictures__picture,
 .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .image-picker__images__image {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image {
   cursor: pointer;
 }
 
@@ -21828,7 +21844,7 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__pictures__picture--preview > img,
 .page__content__offer .offer__pictures__picture > img,
 .page__content__offer--create .offer__pictures__picture > img,
-.page__content__offer--create .offer__pictures .image-picker__images__image > img {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image > img {
   height: 100%;
   width: auto;
 }
@@ -21917,7 +21933,7 @@ a.hyperlink:visited {
 .photo-gallery--inline .page__content__offer--create .offer__pictures__picture,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__picture,
 .page__content__offer--create .offer__pictures .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .image-picker__images__image {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image {
   display: inline-block;
   height: 100%;
   line-height: 21px;
@@ -21952,7 +21968,7 @@ a.hyperlink:visited {
 .photo-gallery--inline .page__content__offer--create .offer__pictures__picture > img,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__picture > img,
 .page__content__offer--create .offer__pictures .offer__pictures__picture > img,
-.page__content__offer--create .offer__pictures .image-picker__images__image > img {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image > img {
   height: 100%;
   width: auto;
 }
@@ -22241,9 +22257,6 @@ a.hyperlink:visited {
   top: 0;
   bottom: 0;
   left: 0;
-  border: none;
-  -webkit-box-shadow: 0px 0px 1px 1px #000 inset;
-  box-shadow: 0px 0px 1px 1px #000 inset;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -22272,13 +22285,15 @@ a.hyperlink:visited {
 
 .tooltip,
 .tooltip--top,
-.page__content__offer--create .offer__description .edit-in-place:after,
-.page__content__offer--create .offer__description .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place--active:after,
 .tooltip--right,
-.page__content__offer--create .offer__header .edit-in-place:after,
-.page__content__offer--create .offer__header .edit-in-place--active:after,
-.page__content__offer--create .offer__source .edit-in-place:after,
-.page__content__offer--create .offer__source .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place--active:after,
 .page__content__offer--create .offer--create__form .edit-in-place:after,
 .page__content__offer--create .offer--create__form--template .edit-in-place:after,
 .page__content__offer--create .offer--create__form--details .edit-in-place:after,
@@ -22304,8 +22319,8 @@ a.hyperlink:visited {
 }
 
 .tooltip--top,
-.page__content__offer--create .offer__description .edit-in-place:after,
-.page__content__offer--create .offer__description .edit-in-place--active:after {
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place--active:after {
   bottom: 100%;
   left: 0;
   top: auto;
@@ -22323,12 +22338,12 @@ a.hyperlink:visited {
 }
 
 .tooltip--right,
-.page__content__offer--create .offer__header .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place:after,
 .page__content__offer--create .offer--create__form--template .offer__title .edit-in-place:after,
-.page__content__offer--create .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place--active:after,
 .page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active:after,
-.page__content__offer--create .offer__source .edit-in-place:after,
-.page__content__offer--create .offer__source .edit-in-place--active:after {
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place--active:after {
   bottom: auto;
   left: 100%;
   top: 50%;
@@ -23000,8 +23015,8 @@ body {
 
 .search--main {
   background-color: #FFF;
-  -webkit-box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0 5px rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0 5px rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0 5px rgba(40, 40, 40, 0.7);
   position: relative;
 }
 
@@ -23162,8 +23177,12 @@ body {
 .page__content__offer--create .search--main .search__submit > .offer__order__button,
 .search--main .search__submit > .button--primary,
 .search--main .search__submit > .image-picker__adder__form__input__button--apply,
-.search--main .page__content__offer--create .offer__submit.search__submit > button,
-.page__content__offer--create .search--main .offer__submit.search__submit > button,
+.search--main .page__content__offer--create .offer--create__form .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form .search--main .offer__submit.search__submit > button,
+.search--main .page__content__offer--create .offer--create__form--template .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form--template .search--main .offer__submit.search__submit > button,
+.search--main .page__content__offer--create .offer--create__form--details .offer__submit.search__submit > button,
+.page__content__offer--create .offer--create__form--details .search--main .offer__submit.search__submit > button,
 .search--main .search__submit > .button--secondary,
 .search--main .search__submit > .image-picker__adder__form__input__button--cancel,
 .search--main .search__submit > .button--ico,
@@ -23239,8 +23258,12 @@ body {
 .page__content__offer--create .search--main .search__submit > .offer__order__button:hover,
 .search--main .search__submit > .button--primary:hover,
 .search--main .search__submit > .image-picker__adder__form__input__button--apply:hover,
-.search--main .page__content__offer--create .offer__submit.search__submit > button:hover,
-.page__content__offer--create .search--main .offer__submit.search__submit > button:hover,
+.search--main .page__content__offer--create .offer--create__form .offer__submit.search__submit > button:hover,
+.page__content__offer--create .offer--create__form .search--main .offer__submit.search__submit > button:hover,
+.search--main .page__content__offer--create .offer--create__form--template .offer__submit.search__submit > button:hover,
+.page__content__offer--create .offer--create__form--template .search--main .offer__submit.search__submit > button:hover,
+.search--main .page__content__offer--create .offer--create__form--details .offer__submit.search__submit > button:hover,
+.page__content__offer--create .offer--create__form--details .search--main .offer__submit.search__submit > button:hover,
 .search--main .search__submit > .button--secondary:hover,
 .search--main .search__submit > .image-picker__adder__form__input__button--cancel:hover,
 .search--main .search__submit > .button--ico:hover,
@@ -24389,7 +24412,7 @@ body {
   z-index: 0;
   color: #eaeaea;
   background-color: #b40000;
-  border-color: rgba(77, 77, 77, 0.7);
+  border-color: rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -24449,8 +24472,8 @@ body {
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
   background-color: #d40000;
-  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -24468,7 +24491,7 @@ body {
   z-index: 0;
   color: #eaeaea;
   background-color: #aa1e1e;
-  border-color: rgba(77, 77, 77, 0.7);
+  border-color: rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -24528,8 +24551,8 @@ body {
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
   background-color: #b72020;
-  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -24785,8 +24808,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  -webkit-box-shadow: 0 0 0.4rem 1px rgba(77, 77, 77, 0.7) inset;
-  box-shadow: 0 0 0.4rem 1px rgba(77, 77, 77, 0.7) inset;
+  -webkit-box-shadow: 0 0 0.4rem 1px rgba(40, 40, 40, 0.7) inset;
+  box-shadow: 0 0 0.4rem 1px rgba(40, 40, 40, 0.7) inset;
   z-index: 2;
 }
 
@@ -25312,7 +25335,7 @@ body {
   z-index: 0;
   color: #eaeaea;
   background-color: #b40000;
-  border-color: rgba(77, 77, 77, 0.7);
+  border-color: rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -25372,8 +25395,8 @@ body {
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
   background-color: #d40000;
-  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -25391,7 +25414,7 @@ body {
   z-index: 0;
   color: #eaeaea;
   background-color: #aa1e1e;
-  border-color: rgba(77, 77, 77, 0.7);
+  border-color: rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -25451,8 +25474,8 @@ body {
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
   background-color: #b72020;
-  -webkit-box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.25em rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.25em rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -25597,13 +25620,15 @@ body {
 
 .tooltip,
 .tooltip--top,
-.page__content__offer--create .offer__description .edit-in-place:after,
-.page__content__offer--create .offer__description .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place--active:after,
 .tooltip--right,
-.page__content__offer--create .offer__header .edit-in-place:after,
-.page__content__offer--create .offer__header .edit-in-place--active:after,
-.page__content__offer--create .offer__source .edit-in-place:after,
-.page__content__offer--create .offer__source .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place--active:after,
 .page__content__offer--create .offer--create__form .edit-in-place:after,
 .page__content__offer--create .offer--create__form--template .edit-in-place:after,
 .page__content__offer--create .offer--create__form--details .edit-in-place:after,
@@ -25611,16 +25636,94 @@ body {
 .page__content__offer--create .offer--create__form--template .edit-in-place--active:after,
 .page__content__offer--create .offer--create__form--details .edit-in-place--active:after {
   background-color: rgba(40, 40, 40, 0.9);
-  border: 1px solid rgba(77, 77, 77, 0.7);
+  border: 1px solid rgba(40, 40, 40, 0.7);
   border-radius: .4em;
-  -webkit-box-shadow: 0 0 0.1em rgba(77, 77, 77, 0.7);
-  box-shadow: 0 0 0.1em rgba(77, 77, 77, 0.7);
+  -webkit-box-shadow: 0 0 0.1em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.1em rgba(40, 40, 40, 0.7);
   color: #eaeaea;
   font-family: "Alegreya Sans", sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 21px;
   padding: 2.625px 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/inputs\.scss;
+  }
+
+  line {
+    font-family: \000031;
+  }
+}
+
+.input--default,
+.page__content__offer--create .offer--create__form > div > input,
+.page__content__offer--create .offer--create__form--template > div > input,
+.page__content__offer--create .offer--create__form--details > div > input,
+.page__content__offer--create .offer--create__form > div > textarea,
+.page__content__offer--create .offer--create__form--template > div > textarea,
+.page__content__offer--create .offer--create__form--details > div > textarea,
+.page__content__offer--create .offer--create__form .edit-in-place__input,
+.page__content__offer--create .offer--create__form--template .edit-in-place__input,
+.page__content__offer--create .offer--create__form--details .edit-in-place__input {
+  border: 1px solid rgba(40, 40, 40, 0.7);
+  border-radius: 0.4rem;
+  -webkit-box-shadow: 0px 0px 1px rgba(40, 40, 40, 0.7) inset;
+  box-shadow: 0px 0px 1px rgba(40, 40, 40, 0.7) inset;
+  color: #282828;
+  outline: none;
+  overflow: hidden;
+  padding: 5.25px 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/inputs\.scss;
+  }
+
+  line {
+    font-family: \0000313;
+  }
+}
+
+.input--default:focus,
+.page__content__offer--create .offer--create__form > div > input:focus,
+.page__content__offer--create .offer--create__form--template > div > input:focus,
+.page__content__offer--create .offer--create__form--details > div > input:focus,
+.page__content__offer--create .offer--create__form > div > textarea:focus,
+.page__content__offer--create .offer--create__form--template > div > textarea:focus,
+.page__content__offer--create .offer--create__form--details > div > textarea:focus,
+.page__content__offer--create .offer--create__form .edit-in-place__input:focus,
+.page__content__offer--create .offer--create__form--template .edit-in-place__input:focus,
+.page__content__offer--create .offer--create__form--details .edit-in-place__input:focus {
+  border-color: rgba(170, 30, 30, 0.7);
+  -webkit-box-shadow: 0px 0px 1px #aa1e1e inset;
+  box-shadow: 0px 0px 1px #aa1e1e inset;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/site-components\/inputs\.scss;
+  }
+
+  line {
+    font-family: \0000318;
+  }
+}
+
+.input--default[type="number"],
+.page__content__offer--create .offer--create__form > div > input[type="number"],
+.page__content__offer--create .offer--create__form--template > div > input[type="number"],
+.page__content__offer--create .offer--create__form--details > div > input[type="number"],
+.page__content__offer--create .offer--create__form > div > textarea[type="number"],
+.page__content__offer--create .offer--create__form--template > div > textarea[type="number"],
+.page__content__offer--create .offer--create__form--details > div > textarea[type="number"],
+.page__content__offer--create .offer--create__form [type="number"].edit-in-place__input,
+.page__content__offer--create .offer--create__form--template [type="number"].edit-in-place__input,
+.page__content__offer--create .offer--create__form--details [type="number"].edit-in-place__input {
+  width: 3em;
 }
 
 @media -sass-debug-info {
@@ -25737,7 +25840,7 @@ body {
   line-height: 1;
   margin-top: -10.5px;
   padding: 15.75px;
-  text-shadow: 0.05em 0 0.05em #eaeaea, 0 0.05em 0.05em #eaeaea, 0 0 0.05em rgba(77, 77, 77, 0.7);
+  text-shadow: 0.05em 0 0.05em #eaeaea, 0 0.05em 0.05em #eaeaea, 0 0 0.05em rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -25792,7 +25895,7 @@ body {
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
   border: none;
-  border-bottom: 1px solid rgba(77, 77, 77, 0.7);
+  border-bottom: 1px solid rgba(40, 40, 40, 0.7);
   border-top: 3px solid #eaeaea;
   height: 100px;
   z-index: 0;
@@ -25816,9 +25919,9 @@ body {
   left: 0;
   right: 0;
   top: -2px;
-  background-image: -webkit-gradient(linear, bottom left, top left, from(rgba(77, 77, 77, 0.7)), to(transparent));
-  background-image: -webkit-linear-gradient(bottom, rgba(77, 77, 77, 0.7), transparent);
-  background-image: linear-gradient(to top, rgba(77, 77, 77, 0.7), transparent);
+  background-image: -webkit-gradient(linear, bottom left, top left, from(rgba(40, 40, 40, 0.7)), to(transparent));
+  background-image: -webkit-linear-gradient(bottom, rgba(40, 40, 40, 0.7), transparent);
+  background-image: linear-gradient(to top, rgba(40, 40, 40, 0.7), transparent);
   top: -webkit-calc(100% - 2px + 1px);
   top: calc(100% - 2px + 1px);
 }
@@ -25841,9 +25944,9 @@ body {
   left: 0;
   right: 0;
   bottom: -2px;
-  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(77, 77, 77, 0.7)), to(transparent));
-  background-image: -webkit-linear-gradient(top, rgba(77, 77, 77, 0.7), transparent);
-  background-image: linear-gradient(to bottom, rgba(77, 77, 77, 0.7), transparent);
+  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(40, 40, 40, 0.7)), to(transparent));
+  background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.7), transparent);
+  background-image: linear-gradient(to bottom, rgba(40, 40, 40, 0.7), transparent);
   bottom: -webkit-calc(100% - 2px);
   bottom: calc(100% - 2px);
 }
@@ -25890,7 +25993,7 @@ body {
 
 .page__content__offer .offer__pictures__wrapper:before,
 .page__content__offer--create .offer__pictures__wrapper:before,
-.page__content__offer--create .offer__pictures .image-picker__images:before {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:before {
   display: inline-block;
   content: "";
   position: absolute;
@@ -25914,7 +26017,7 @@ body {
 
 .page__content__offer .offer__pictures__wrapper:after,
 .page__content__offer--create .offer__pictures__wrapper:after,
-.page__content__offer--create .offer__pictures .image-picker__images:after {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:after {
   display: inline-block;
   content: "";
   position: absolute;
@@ -25938,10 +26041,10 @@ body {
 
 .page__content__offer .offer__pictures__wrapper:before,
 .page__content__offer--create .offer__pictures__wrapper:before,
-.page__content__offer--create .offer__pictures .image-picker__images:before,
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:before,
 .page__content__offer .offer__pictures__wrapper:after,
 .page__content__offer--create .offer__pictures__wrapper:after,
-.page__content__offer--create .offer__pictures .image-picker__images:after {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:after {
   width: 0.4rem;
   z-index: 1;
 }
@@ -25958,7 +26061,7 @@ body {
 
 .page__content__offer .offer__pictures__picture,
 .page__content__offer--create .offer__pictures__picture,
-.page__content__offer--create .offer__pictures .image-picker__images__image {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image {
   position: relative;
 }
 
@@ -25974,7 +26077,7 @@ body {
 
 .page__content__offer .offer__pictures__picture:after,
 .page__content__offer--create .offer__pictures__picture:after,
-.page__content__offer--create .offer__pictures .image-picker__images__image:after {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image:after {
   display: inline-block;
   content: "";
   position: absolute;
@@ -25982,8 +26085,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  -webkit-box-shadow: 0 0 0.2em 1px rgba(77, 77, 77, 0.7) inset;
-  box-shadow: 0 0 0.2em 1px rgba(77, 77, 77, 0.7) inset;
+  -webkit-box-shadow: 0 0 0.2em 1px rgba(40, 40, 40, 0.7) inset;
+  box-shadow: 0 0 0.2em 1px rgba(40, 40, 40, 0.7) inset;
 }
 
 @media -sass-debug-info {
@@ -25998,7 +26101,7 @@ body {
 
 .page__content__offer .offer__pictures__picture > img,
 .page__content__offer--create .offer__pictures__picture > img,
-.page__content__offer--create .offer__pictures .image-picker__images__image > img {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image > img {
   display: block;
   height: 15rem;
 }
@@ -26207,7 +26310,8 @@ body {
 }
 
 .page__content__offer .offer__content,
-.page__content__offer--create .offer__content {
+.page__content__offer--create .offer__content,
+.page__content__offer--create .offer--create__form--details {
   font-size: 0;
   background-color: white;
   border: 1px solid #c8c8c8;
@@ -26215,6 +26319,7 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin-bottom: 21px;
   padding: 21px;
   position: relative;
 }
@@ -26230,7 +26335,8 @@ body {
 }
 
 .page__content__offer .offer__content > *,
-.page__content__offer--create .offer__content > * {
+.page__content__offer--create .offer__content > *,
+.page__content__offer--create .offer--create__form--details > * {
   font-size: 14px;
 }
 
@@ -26240,7 +26346,7 @@ body {
   }
 
   line {
-    font-family: \0000323;
+    font-family: \0000324;
   }
 }
 
@@ -26259,7 +26365,7 @@ body {
   }
 
   line {
-    font-family: \0000329;
+    font-family: \0000330;
   }
 }
 
@@ -26275,7 +26381,7 @@ body {
   }
 
   line {
-    font-family: \0000334;
+    font-family: \0000335;
   }
 }
 
@@ -26290,7 +26396,7 @@ body {
   }
 
   line {
-    font-family: \0000338;
+    font-family: \0000339;
   }
 }
 
@@ -26306,7 +26412,7 @@ body {
   }
 
   line {
-    font-family: \0000342;
+    font-family: \0000343;
   }
 }
 
@@ -26322,7 +26428,7 @@ body {
   }
 
   line {
-    font-family: \0000349;
+    font-family: \0000350;
   }
 }
 
@@ -26344,7 +26450,7 @@ body {
   }
 
   line {
-    font-family: \0000361;
+    font-family: \0000362;
   }
 }
 
@@ -26359,7 +26465,7 @@ body {
   }
 
   line {
-    font-family: \0000365;
+    font-family: \0000366;
   }
 }
 
@@ -26376,7 +26482,7 @@ body {
   }
 
   line {
-    font-family: \0000370;
+    font-family: \0000371;
   }
 }
 
@@ -26415,7 +26521,7 @@ body {
   }
 
   line {
-    font-family: \0000385;
+    font-family: \0000386;
   }
 }
 
@@ -26440,7 +26546,7 @@ body {
   }
 
   line {
-    font-family: \0000396;
+    font-family: \0000397;
   }
 }
 
@@ -26458,7 +26564,7 @@ body {
   }
 
   line {
-    font-family: \00003101;
+    font-family: \00003102;
   }
 }
 
@@ -26473,7 +26579,7 @@ body {
   }
 
   line {
-    font-family: \00003105;
+    font-family: \00003106;
   }
 }
 
@@ -26488,7 +26594,7 @@ body {
   }
 
   line {
-    font-family: \00003110;
+    font-family: \00003111;
   }
 }
 
@@ -26531,7 +26637,7 @@ body {
   }
 
   line {
-    font-family: \00003124;
+    font-family: \00003125;
   }
 }
 
@@ -26546,7 +26652,7 @@ body {
   }
 
   line {
-    font-family: \00003128;
+    font-family: \00003129;
   }
 }
 
@@ -26561,7 +26667,7 @@ body {
   }
 
   line {
-    font-family: \00003134;
+    font-family: \00003135;
   }
 }
 
@@ -26580,7 +26686,7 @@ body {
   }
 
   line {
-    font-family: \00003140;
+    font-family: \00003141;
   }
 }
 
@@ -26599,7 +26705,7 @@ body {
   }
 
   line {
-    font-family: \00003146;
+    font-family: \00003147;
   }
 }
 
@@ -26618,7 +26724,7 @@ body {
   }
 
   line {
-    font-family: \00003150;
+    font-family: \00003151;
   }
 }
 
@@ -26633,7 +26739,7 @@ body {
   }
 
   line {
-    font-family: \00003153;
+    font-family: \00003154;
   }
 }
 
@@ -26649,7 +26755,7 @@ body {
   }
 
   line {
-    font-family: \00003159;
+    font-family: \00003160;
   }
 }
 
@@ -26665,7 +26771,7 @@ body {
   }
 
   line {
-    font-family: \00003164;
+    font-family: \00003165;
   }
 }
 
@@ -26681,14 +26787,14 @@ body {
   }
 
   line {
-    font-family: \00003173;
+    font-family: \00003174;
   }
 }
 
 .page__content__offer .offer__comments__comment .comment__header__author__avatar:before,
 .page__content__offer--create .offer__comments__comment .comment__header__author__avatar:before {
-  -webkit-box-shadow: 0 0 0.4rem 0.1rem rgba(77, 77, 77, 0.7) inset;
-  box-shadow: 0 0 0.4rem 0.1rem rgba(77, 77, 77, 0.7) inset;
+  -webkit-box-shadow: 0 0 0.4rem 0.1rem rgba(40, 40, 40, 0.7) inset;
+  box-shadow: 0 0 0.4rem 0.1rem rgba(40, 40, 40, 0.7) inset;
 }
 
 @media -sass-debug-info {
@@ -26697,7 +26803,7 @@ body {
   }
 
   line {
-    font-family: \00003178;
+    font-family: \00003179;
   }
 }
 
@@ -26712,7 +26818,7 @@ body {
   }
 
   line {
-    font-family: \00003181;
+    font-family: \00003182;
   }
 }
 
@@ -26727,7 +26833,7 @@ body {
   }
 
   line {
-    font-family: \00003184;
+    font-family: \00003185;
   }
 }
 
@@ -26838,7 +26944,7 @@ body {
   }
 
   line {
-    font-family: \0000324;
+    font-family: \0000327;
   }
 }
 
@@ -26871,7 +26977,7 @@ body {
   }
 
   line {
-    font-family: \0000340;
+    font-family: \0000343;
   }
 }
 
@@ -26892,7 +26998,7 @@ body {
   }
 
   line {
-    font-family: \0000345;
+    font-family: \0000348;
   }
 }
 
@@ -26915,7 +27021,7 @@ body {
   }
 
   line {
-    font-family: \0000356;
+    font-family: \0000359;
   }
 }
 
@@ -26923,7 +27029,7 @@ body {
 .page__content__offer--create .offer--create__form--template .edit-in-place--active > label,
 .page__content__offer--create .offer--create__form--details .edit-in-place--active > label {
   background-color: #aa1e1e;
-  border: 1px solid rgba(77, 77, 77, 0.7);
+  border: 1px solid rgba(40, 40, 40, 0.7);
   border-bottom: none;
   border-radius: .4em .4em 0 0;
   color: white;
@@ -26936,19 +27042,14 @@ body {
   }
 
   line {
-    font-family: \0000366;
+    font-family: \0000370;
   }
 }
 
 .page__content__offer--create .offer--create__form .edit-in-place__input,
 .page__content__offer--create .offer--create__form--template .edit-in-place__input,
 .page__content__offer--create .offer--create__form--details .edit-in-place__input {
-  border: 1px solid rgba(77, 77, 77, 0.7);
-  border-radius: .4rem;
   border-top-left-radius: 0;
-  -webkit-box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
-  box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.7) inset;
-  color: #282828;
 }
 
 @media -sass-debug-info {
@@ -26957,7 +27058,7 @@ body {
   }
 
   line {
-    font-family: \0000374;
+    font-family: \0000375;
   }
 }
 
@@ -26973,7 +27074,40 @@ body {
   }
 
   line {
-    font-family: \0000386;
+    font-family: \0000380;
+  }
+}
+
+.page__content__offer--create .offer--create__form .offer__submit,
+.page__content__offer--create .offer--create__form--template .offer__submit,
+.page__content__offer--create .offer--create__form--details .offer__submit {
+  margin-top: 21px;
+  text-align: center;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000384;
+  }
+}
+
+.page__content__offer--create .offer--create__form .offer__submit > button,
+.page__content__offer--create .offer--create__form--template .offer__submit > button,
+.page__content__offer--create .offer--create__form--details .offer__submit > button {
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \0000399;
   }
 }
 
@@ -26990,13 +27124,13 @@ body {
   }
 
   line {
-    font-family: \0000397;
+    font-family: \00003108;
   }
 }
 
-.page__content__offer--create .offer__header .edit-in-place,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place,
 .page__content__offer--create .offer--create__form--template .offer__title .edit-in-place,
-.page__content__offer--create .offer__header .edit-in-place--active,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place--active,
 .page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active {
   max-width: -webkit-calc(100% - 42px);
   max-width: calc(100% - 42px);
@@ -27009,13 +27143,13 @@ body {
   }
 
   line {
-    font-family: \00003101;
+    font-family: \00003112;
   }
 }
 
-.page__content__offer--create .offer__header .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place:after,
 .page__content__offer--create .offer--create__form--template .offer__title .edit-in-place:after,
-.page__content__offer--create .offer__header .edit-in-place--active:after,
+.page__content__offer--create .offer--create__form--template .offer__header .edit-in-place--active:after,
 .page__content__offer--create .offer--create__form--template .offer__title .edit-in-place--active:after {
   margin-left: 5.25px;
 }
@@ -27026,11 +27160,11 @@ body {
   }
 
   line {
-    font-family: \00003112;
+    font-family: \00003123;
   }
 }
 
-.page__content__offer--create .offer__pictures {
+.page__content__offer--create .offer--create__form--template .offer__pictures {
   max-width: 100%;
   overflow: hidden;
   position: relative;
@@ -27044,11 +27178,11 @@ body {
   }
 
   line {
-    font-family: \00003119;
+    font-family: \00003130;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__images {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images {
   position: relative;
 }
 
@@ -27058,11 +27192,11 @@ body {
   }
 
   line {
-    font-family: \00003125;
+    font-family: \00003136;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__images__list {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__list {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -27076,11 +27210,11 @@ body {
   }
 
   line {
-    font-family: \00003130;
+    font-family: \00003141;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__images__list.ps-container .ps-scrollbar-x-rail {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__list.ps-container .ps-scrollbar-x-rail {
   margin-left: 0.4rem;
 }
 
@@ -27090,11 +27224,11 @@ body {
   }
 
   line {
-    font-family: \00003141;
+    font-family: \00003152;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__adder--active {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__adder--active {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -27108,11 +27242,11 @@ body {
   }
 
   line {
-    font-family: \00003147;
+    font-family: \00003158;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__adder__form {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__adder__form {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -27126,11 +27260,11 @@ body {
   }
 
   line {
-    font-family: \00003153;
+    font-family: \00003164;
   }
 }
 
-.page__content__offer--create .offer__pictures .image-picker__adder__form__preview {
+.page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__adder__form__preview {
   max-width: 15rem;
 }
 
@@ -27140,44 +27274,14 @@ body {
   }
 
   line {
-    font-family: \00003159;
+    font-family: \00003170;
   }
 }
 
-.page__content__offer--create .offer__description {
+.page__content__offer--create .offer--create__form--template .offer__description {
   margin-left: -10.5px;
   margin-right: -10.5px;
   margin-top: 0;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \00003167;
-  }
-}
-
-.page__content__offer--create .offer__description .edit-in-place:after,
-.page__content__offer--create .offer__description .edit-in-place--active:after {
-  margin-bottom: 5.25px;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
-  }
-
-  line {
-    font-family: \00003173;
-  }
-}
-
-.page__content__offer--create .offer__description .edit-in-place__input {
-  overflow: hidden;
-  resize: none;
 }
 
 @media -sass-debug-info {
@@ -27190,7 +27294,37 @@ body {
   }
 }
 
-.page__content__offer--create .offer__description__paragraph {
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place--active:after {
+  margin-left: 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003184;
+  }
+}
+
+.page__content__offer--create .offer--create__form--template .offer__description .edit-in-place__input {
+  overflow: hidden;
+  resize: none;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003189;
+  }
+}
+
+.page__content__offer--create .offer--create__form--template .offer__description__paragraph {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -27207,11 +27341,11 @@ body {
   }
 
   line {
-    font-family: \00003188;
+    font-family: \00003200;
   }
 }
 
-.page__content__offer--create .offer__source {
+.page__content__offer--create .offer--create__form--template .offer__source {
   color: inherit;
   margin: 10.5px 0;
 }
@@ -27222,12 +27356,12 @@ body {
   }
 
   line {
-    font-family: \00003193;
+    font-family: \00003205;
   }
 }
 
-.page__content__offer--create .offer__source .edit-in-place:after,
-.page__content__offer--create .offer__source .edit-in-place--active:after {
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place:after,
+.page__content__offer--create .offer--create__form--template .offer__source .edit-in-place--active:after {
   margin-left: 5.25px;
 }
 
@@ -27237,13 +27371,13 @@ body {
   }
 
   line {
-    font-family: \00003200;
+    font-family: \00003212;
   }
 }
 
-.page__content__offer--create .offer__source__label {
+.page__content__offer--create .offer--create__form--template .offer__source__label {
   display: inline-block;
-  min-width: 10em;
+  max-width: 6.5em;
 }
 
 @media -sass-debug-info {
@@ -27252,15 +27386,15 @@ body {
   }
 
   line {
-    font-family: \00003204;
+    font-family: \00003216;
   }
 }
 
-.page__content__offer--create .offer__source__link {
+.page__content__offer--create .offer--create__form--template .offer__source__link {
   font-weight: normal;
   margin-left: 5.25px;
-  max-width: -webkit-calc(100% - 11em - 5.25px);
-  max-width: calc(100% - 11em - 5.25px);
+  max-width: -webkit-calc(100% - 6.5em - 5.25px);
+  max-width: calc(100% - 6.5em - 5.25px);
   min-width: 4em;
 }
 
@@ -27270,11 +27404,11 @@ body {
   }
 
   line {
-    font-family: \00003210;
+    font-family: \00003222;
   }
 }
 
-.page__content__offer--create .offer__source__link.edit-in-place--active {
+.page__content__offer--create .offer--create__form--template .offer__source__link.edit-in-place--active {
   min-width: 32em;
 }
 
@@ -27284,11 +27418,11 @@ body {
   }
 
   line {
-    font-family: \00003214;
+    font-family: \00003226;
   }
 }
 
-.page__content__offer--create .offer__source__link .edit-in-place__input {
+.page__content__offer--create .offer--create__form--template .offer__source__link .edit-in-place__input {
   bottom: -5.25px;
   font-weight: normal;
   padding: 5.25px;
@@ -27301,11 +27435,11 @@ body {
   }
 
   line {
-    font-family: \00003221;
+    font-family: \00003233;
   }
 }
 
-.page__content__offer--create .offer__source__link .edit-in-place__label {
+.page__content__offer--create .offer--create__form--template .offer__source__link .edit-in-place__label {
   margin-bottom: 5.25px;
 }
 
@@ -27315,11 +27449,11 @@ body {
   }
 
   line {
-    font-family: \00003225;
+    font-family: \00003237;
   }
 }
 
-.page__content__offer--create .offer__source__link .edit-in-place__value {
+.page__content__offer--create .offer--create__form--template .offer__source__link .edit-in-place__value {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -27334,11 +27468,11 @@ body {
   }
 
   line {
-    font-family: \00003236;
+    font-family: \00003248;
   }
 }
 
-.page__content__offer--create .offer__tags {
+.page__content__offer--create .offer--create__form--template .offer__tags {
   margin: 10.5px 0;
 }
 
@@ -27348,13 +27482,14 @@ body {
   }
 
   line {
-    font-family: \00003239;
+    font-family: \00003251;
   }
 }
 
-.page__content__offer--create .offer__tags label {
+.page__content__offer--create .offer--create__form--template .offer__tags label {
   display: inline-block;
   margin-right: 5.25px;
+  max-width: 6.5em;
 }
 
 @media -sass-debug-info {
@@ -27363,11 +27498,11 @@ body {
   }
 
   line {
-    font-family: \00003244;
+    font-family: \00003257;
   }
 }
 
-.page__content__offer--create .offer__tags .select2-container {
+.page__content__offer--create .offer--create__form--template .offer__tags .select2-container {
   min-width: 15em;
 }
 
@@ -27377,11 +27512,11 @@ body {
   }
 
   line {
-    font-family: \00003248;
+    font-family: \00003261;
   }
 }
 
-.page__content__offer--create .offer__tags .select2-input {
+.page__content__offer--create .offer--create__form--template .offer__tags .select2-input {
   min-width: 5em;
 }
 
@@ -27391,13 +27526,12 @@ body {
   }
 
   line {
-    font-family: \00003254;
+    font-family: \00003270;
   }
 }
 
-.page__content__offer--create .offer__submit {
-  margin-top: 21px;
-  text-align: center;
+.page__content__offer--create .offer--create__form--details > div {
+  margin: 10.5px 0;
 }
 
 @media -sass-debug-info {
@@ -27406,12 +27540,41 @@ body {
   }
 
   line {
-    font-family: \00003258;
+    font-family: \00003273;
   }
 }
 
-.page__content__offer--create .offer__submit > button {
+.page__content__offer--create .offer--create__form--details > div:first-child {
+  margin-top: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003277;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div:last-child {
+  margin-bottom: 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003281;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div > label {
   display: inline-block;
+  margin-right: 5.25px;
 }
 
 @media -sass-debug-info {

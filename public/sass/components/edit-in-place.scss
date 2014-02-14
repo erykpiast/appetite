@@ -33,8 +33,6 @@
 	.edit-in-place__input {
 		@include scut-absolute(0 n 0 0);
 
-		border: none;
-		box-shadow: 0px 0px 1px 1px #000 inset;
 		box-sizing: border-box;
 		cursor: auto;
 		font: inherit;

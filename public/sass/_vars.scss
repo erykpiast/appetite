@@ -115,7 +115,8 @@ $c-bg-acc-light: rgb(255, 255, 255);
 $c-bg-links: $c-bg-light;
 $c-bg-def: $c-bg-light;
 
-$c-shadow-dark: rgba(77, 77, 77, 0.7);
+$c-shadow-dark: rgba($c-fg-def, 0.7);
+$c-shadow-acc: rgba($c-fg-acc, 0.7);
 
 $c-adblock-dark: rgba(180, 0, 0, 1);
 $c-adblock-light: rgba(212, 0, 0, 1);

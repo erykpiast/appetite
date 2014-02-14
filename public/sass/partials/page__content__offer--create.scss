@@ -16,8 +16,11 @@
     @include parent-width();
 
     .offer--create__form {
-        .form__field {
-           
+        & > div {
+            & > input,
+            & > textarea {
+                @extend .input--default;
+            }
         }
 
         .edit-in-place {
@@ -63,19 +66,29 @@
                 padding: 0 $quarter-spacing-unit;
             }
         }
+
             .edit-in-place__input {
-                border: 1px solid $c-shadow-dark {
-                    radius: .4rem;
-                    top-left-radius: 0;
-                };
-                box-shadow: 0px 0px 1px $c-shadow-dark inset;
-                color: $c-fg-def;
+                @extend .input--default;
+
+                border-top-left-radius: 0;
 
                 &:focus ~ label {
                     display: block;
                 }
             }
+
+        .offer__submit {
+            margin-top: $base-spacing-unit;
+            text-align: center;
+
+            & > button {
+                @extend .button--primary;
+                
+                display: inline-block;
+            }
+        }
     }
+
     .offer--create__form--template,
     .offer--create__form--details {
         @extend .offer--create__form;
@@ -90,175 +103,187 @@
             min-width: 4em;
             overflow: visible;
         }
-    }
 
+        .offer__header {
+            .edit-in-place {
+                max-width: calc(100% - #{2 * $base-spacing-unit});
+                min-width: 14.5em;
 
-    .offer__header {
-        .edit-in-place {
-            max-width: calc(100% - #{2 * $base-spacing-unit});
-            min-width: 14.5em;
+                &:after {
+                    @extend .tooltip--right;
 
-            &:after {
-                @extend .tooltip--right;
-
-                margin-left: $quarter-spacing-unit;
+                    margin-left: $quarter-spacing-unit;
+                }
             }
         }
-    }
 
 
-    $add-button-size: 15rem;
-    $images-overflow-mask-width: .4rem;
-    .offer__pictures {
-        max-width: 100%;
-        overflow: hidden;
-        position: relative;
-        white-space: initial;
-        width: auto;
-
-        .image-picker__images {
-            @extend .offer__pictures__wrapper;
-
+        $add-button-size: 15rem;
+        $images-overflow-mask-width: .4rem;
+        .offer__pictures {
+            max-width: 100%;
+            overflow: hidden;
             position: relative;
-        }
+            white-space: initial;
+            width: auto;
 
-        .image-picker__images__list {
-            box-sizing: border-box;
-            padding: 0 $images-overflow-mask-width;
-            white-space: nowrap;
+            .image-picker__images {
+                @extend .offer__pictures__wrapper;
 
-            &.ps-container .ps-scrollbar-x-rail {
-                margin-left: $images-overflow-mask-width;
-            }
-        }
-        .image-picker__images__image {
-            @extend .offer__pictures__picture;
-        }
-            .image-picker__adder {
-                
+                position: relative;
             }
 
-            .image-picker__adder--active {
+            .image-picker__images__list {
                 box-sizing: border-box;
-                padding-right: $images-overflow-mask-width;
+                padding: 0 $images-overflow-mask-width;
+                white-space: nowrap;
+
+                &.ps-container .ps-scrollbar-x-rail {
+                    margin-left: $images-overflow-mask-width;
+                }
+            }
+            .image-picker__images__image {
+                @extend .offer__pictures__picture;
+            }
+                .image-picker__adder {
+                    
+                }
+
+                .image-picker__adder--active {
+                    box-sizing: border-box;
+                    padding-right: $images-overflow-mask-width;
+                    width: 100%;
+                }
+
+                    .image-picker__adder__form {
+                        box-sizing: border-box;
+                        padding-left: $images-overflow-mask-width;
+                        width: 100%;
+                    }
+
+                        .image-picker__adder__form__preview {
+                            max-width: $add-button-size;
+                        }
+        }
+
+
+        .offer__description {
+            margin: {
+                left: -$half-spacing-unit;
+                right: -$half-spacing-unit;
+                top: 0;
+            };
+
+            .edit-in-place {
+                &:after {
+                    @extend .tooltip--top;
+
+                    margin-left: $half-spacing-unit;
+                }
+            }
+                .edit-in-place__input {
+                    overflow: hidden;
+                    resize: none;
+                }
+        }
+            .offer__description__paragraph {
+                box-sizing: border-box;
+                margin-top: $quarter-spacing-unit;
+                max-width: none;
+                min-height: 2.5 * $base-line-height;
+                padding: $quarter-spacing-unit $half-spacing-unit;
                 width: 100%;
             }
 
-                .image-picker__adder__form {
-                    box-sizing: border-box;
-                    padding-left: $images-overflow-mask-width;
-                    width: 100%;
+
+        $label-maxWidth: 6.5em;
+        .offer__source {
+            color: inherit;
+            margin: $half-spacing-unit 0;
+
+            .edit-in-place {
+                &:after {
+                    @extend .tooltip--right;
+
+                    margin-left: $quarter-spacing-unit;
                 }
-
-                    .image-picker__adder__form__preview {
-                        max-width: $add-button-size;
-                    }
-    }
-
-
-    .offer__description {
-        margin: {
-            left: -$half-spacing-unit;
-            right: -$half-spacing-unit;
-            top: 0;
-        };
-
-        .edit-in-place {
-            &:after {
-                @extend .tooltip--top;
-
-                margin-bottom: $quarter-spacing-unit;
             }
         }
-            .edit-in-place__input {
-                overflow: hidden;
-                resize: none;
+            .offer__source__label {
+                display: inline-block;
+                max-width: $label-maxWidth;
             }
-    }
-        .offer__description__paragraph {
-            box-sizing: border-box;
-            margin-top: $quarter-spacing-unit;
-            max-width: none;
-            min-height: 2.5 * $base-line-height;
-            padding: $quarter-spacing-unit $half-spacing-unit;
-            width: 100%;
-        }
-
-
-    .offer__source {
-        color: inherit;
-        margin: $half-spacing-unit 0;
-
-        .edit-in-place {
-            &:after {
-                @extend .tooltip--right;
-
+            .offer__source__link {
+                font-weight: normal;
                 margin-left: $quarter-spacing-unit;
+                max-width: calc(100% - #{$label-maxWidth} - #{$quarter-spacing-unit});
+                min-width: 4em;
+
+                &.edit-in-place--active {
+                    min-width: 32em;
+                }
+
+                    .edit-in-place__input {
+                        bottom: -$quarter-spacing-unit;
+                        font-weight: normal;
+                        padding: $quarter-spacing-unit;
+                        top: -$quarter-spacing-unit;
+                    }
+
+                    .edit-in-place__label {
+                        margin-bottom: $quarter-spacing-unit;
+                    }
+
+                    .edit-in-place__value {
+                        display: inline-block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        width: 100%;
+                        white-space: nowrap;
+                        vertical-align: bottom;
+                    }
+            }
+
+
+        .offer__tags {
+            margin: $half-spacing-unit 0;
+
+            label {
+                display: inline-block;
+                margin-right: $quarter-spacing-unit;
+                max-width: $label-maxWidth;
+            }
+
+            .select2-container {
+                min-width: 15em;
+            }
+
+            .select2-input {
+                min-width: 5em;
             }
         }
-    }
-        .offer__source__label {
-            display: inline-block;
-            min-width: 10em;
-        }
-        .offer__source__link {
-            font-weight: normal;
-            margin-left: $quarter-spacing-unit;
-            max-width: calc(100% - 11em - #{$quarter-spacing-unit});
-            min-width: 4em;
+    } // << .offer--create__form--template
 
-            &.edit-in-place--active {
-                min-width: 32em;
+    .offer--create__form--details {
+        @extend .offer__content;
+
+        & > div {
+            margin: $half-spacing-unit 0;
+
+            &:first-child {
+                margin-top: 0;
             }
 
-                .edit-in-place__input {
-                    bottom: -$quarter-spacing-unit;
-                    font-weight: normal;
-                    padding: $quarter-spacing-unit;
-                    top: -$quarter-spacing-unit;
-                }
+            &:last-child {
+                margin-bottom: 0;
+            }
 
-                .edit-in-place__label {
-                    margin-bottom: $quarter-spacing-unit;
-                }
-
-                .edit-in-place__value {
-                    display: inline-block;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    width: 100%;
-                    white-space: nowrap;
-                    vertical-align: bottom;
-                }
-        }
-
-
-    .offer__tags {
-        margin: $half-spacing-unit 0;
-
-        label {
-            display: inline-block;
-            margin-right: $quarter-spacing-unit;
-        }
-
-        .select2-container {
-            min-width: 15em;
-        }
-
-        .select2-input {
-            min-width: 5em;
-        }
-    }
-
-
-    .offer__submit {
-        margin-top: $base-spacing-unit;
-        text-align: center;
-
-        & > button {
-            @extend .button--primary;
-            
-            display: inline-block;
+            & > label {
+                display: inline-block;
+                margin: {
+                    right: $quarter-spacing-unit;
+                };
+            }
         }
     }
 }

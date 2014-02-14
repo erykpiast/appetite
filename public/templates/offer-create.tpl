@@ -39,25 +39,23 @@
                 </div>
 
                 <div class="offer__tags">
-                    <p class="form__field">
-                        <label for="offer__tags">{{ i18n.offer.create.tags }}</label>
-                        <input
-                            id="offer__tags"
-                            type="text"
-                            value=""
-                            placeholder="{{ i18n.offer.create.example.tags }}"
-                            ng-model="offer.template.tags"
-                            ui-select2="{
-                                multiple: true,
-                                simple_tags: true,
-                                maximumSelectionSize: 5,
-                                tags: [ ]
-                            }" />
-                    </p>
+                    <label for="offer__tags">{{ i18n.offer.create.tags }}</label>
+                    <input
+                        id="offer__tags"
+                        type="text"
+                        value=""
+                        placeholder="{{ i18n.offer.create.example.tags }}"
+                        ng-model="offer.template.tags"
+                        ui-select2="{
+                            multiple: true,
+                            simple_tags: true,
+                            maximumSelectionSize: 5,
+                            tags: [ ]
+                        }" />
                 </div>
 
                 <div class="offer__source">
-                    <span class="offer__source__label">{{ i18n.offer.recipeFrom }}</span>
+                    <span class="offer__source__label">{{ i18n.offer.create.recipe }}</span>
                     <a  class="offer__source__link form__field"
                         app-edit-in-place="offer.template.recipe"
                         placeholder="{{ i18n.offer.create.example.recipe }}"
@@ -91,11 +89,11 @@
                     placeholder="{{ i18n.offer.create.example.place }}" 
                     ng-model="offer.details.place"
                     ng-required="true"
-                    ng-minlength="2"
-                    ng-maxlength="20" />
+                    ng-maxlength="20"
+                    maxlenght="20" />
             </div>
 
-    		<div class="offer__start-end">
+    		<div class="offer__start">
             	<label for="offer__start">{{ i18n.offer.create.start }}</label>
             	<input 
                     id="offer__start"  
@@ -114,7 +112,9 @@
                         showOtherMonths: true,
                         selectOtherMonths: true
                     }" />
+            </div>
 
+            <div class="offer__end">
             	<label for="offer__end">{{ i18n.offer.create.end }}</label>
             	<input 
                     id="offer__end"
@@ -135,13 +135,44 @@
                     }" />
             </div>
 
-            <button 
-                class="offer__submit" 
-                type="submit"
-                ng-click="startOffer()" 
-                ng-disabled="!(formOffer.$valid && formTemplate.$valid)">
-                {{ i18n.offer.create.startOffer }}
-            </button>
+            <div class="offer__price">
+                <label for="offer__price">{{ i18n.offer.create.price }}</label>
+                <input 
+                    id="offer__price" 
+                    type="number" 
+                    value="" 
+                    placeholder="{{ i18n.offer.create.example.price }}" 
+                    ng-model="offer.details.price"
+                    ng-required="true"
+                    ng-maxlength="20"
+                    maxlenght="20" />
+            </div>
+
+            <div class="offer__amount">
+                <label for="offer__amount">{{ i18n.offer.create.amount }}</label>
+                <input 
+                    id="offer__price" 
+                    type="number" 
+                    value="" 
+                    placeholder="{{ i18n.offer.create.example.amount }}" 
+                    ng-model="offer.details.amount"
+                    ng-required="true"
+                    ng-maxlength="20"
+                    maxlenght="20" />
+
+                <select>
+                    <option></option>
+                </select>
+            </div>
+
+            <div class="offer__submit">
+                <button 
+                    type="submit"
+                    ng-click="startOffer()" 
+                    ng-disabled="!offer.template.tags.length || !offer.template.pictures.length || offerTemplate.$pristine || offerTemplate.$invalid || offerDetails.$invalid">
+                    {{ i18n.offer.create.startOffer }}
+                </button>
+            </div>
         </div>
     </div>
     	
