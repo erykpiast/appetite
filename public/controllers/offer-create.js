@@ -32,7 +32,9 @@ define(['libs/angular'], function(angular) {
                 details: {
                     endAt: new Date(Date.now() + (7 * 24 * 60 * 60 * 1000)),
                     place: '',
-                    startAt: new Date(Date.now())
+                    startAt: new Date(Date.now()),
+                    amount: 1,
+                    price: 1
                 },
                 template: {
                     description: '',

@@ -142,10 +142,15 @@
                     type="number" 
                     value="" 
                     placeholder="{{ i18n.offer.create.example.price }}" 
+                    ui-spinner="{
+                        min: 1,
+                        max: 500
+                    }"
                     ng-model="offer.details.price"
                     ng-required="true"
-                    ng-maxlength="20"
-                    maxlenght="20" />
+                    size="3" />
+
+                    {{ offer.details.price }}
             </div>
 
             <div class="offer__amount">
@@ -155,10 +160,14 @@
                     type="number" 
                     value="" 
                     placeholder="{{ i18n.offer.create.example.amount }}" 
+                    ui-spinner="{
+                        min: 1,
+                        max: 999
+                    }"
                     ng-model="offer.details.amount"
-                    ng-required="true"
-                    ng-maxlength="20"
-                    maxlenght="20" />
+                    ng-required="true" />
+
+                    {{ offer.details.amount }}
 
                 <select>
                     <option></option>

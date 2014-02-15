@@ -284,6 +284,29 @@
                     right: $quarter-spacing-unit;
                 };
             }
+
+            & > .ui-spinner {
+                @extend .input--default;
+
+                padding-right: 22px; // input margin read from jQuery UI CSS
+                width: 1.75em;
+
+                &, // reset dumb jQueryUI styles
+                & > input {
+                    font: {
+                        family: inherit;
+                        size: $base-font-size;
+                    };
+                }
+
+                & > input {
+                    display: block;
+                    margin: 0;
+                    outline: none;
+                    // transform: translateY( #{-$base-font-size / 2} );
+                    width: 100%;
+                }
+            }
         }
     }
 }

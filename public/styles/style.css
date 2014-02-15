@@ -25667,7 +25667,8 @@ body {
 .page__content__offer--create .offer--create__form--details > div > textarea,
 .page__content__offer--create .offer--create__form .edit-in-place__input,
 .page__content__offer--create .offer--create__form--template .edit-in-place__input,
-.page__content__offer--create .offer--create__form--details .edit-in-place__input {
+.page__content__offer--create .offer--create__form--details .edit-in-place__input,
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner {
   border: 1px solid rgba(40, 40, 40, 0.7);
   border-radius: 0.4rem;
   -webkit-box-shadow: 0px 0px 1px rgba(40, 40, 40, 0.7) inset;
@@ -25697,7 +25698,8 @@ body {
 .page__content__offer--create .offer--create__form--details > div > textarea:focus,
 .page__content__offer--create .offer--create__form .edit-in-place__input:focus,
 .page__content__offer--create .offer--create__form--template .edit-in-place__input:focus,
-.page__content__offer--create .offer--create__form--details .edit-in-place__input:focus {
+.page__content__offer--create .offer--create__form--details .edit-in-place__input:focus,
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner:focus {
   border-color: rgba(170, 30, 30, 0.7);
   -webkit-box-shadow: 0px 0px 1px #aa1e1e inset;
   box-shadow: 0px 0px 1px #aa1e1e inset;
@@ -25722,7 +25724,8 @@ body {
 .page__content__offer--create .offer--create__form--details > div > textarea[type="number"],
 .page__content__offer--create .offer--create__form [type="number"].edit-in-place__input,
 .page__content__offer--create .offer--create__form--template [type="number"].edit-in-place__input,
-.page__content__offer--create .offer--create__form--details [type="number"].edit-in-place__input {
+.page__content__offer--create .offer--create__form--details [type="number"].edit-in-place__input,
+.page__content__offer--create .offer--create__form--details > div > [type="number"].ui-spinner {
   width: 3em;
 }
 
@@ -27575,6 +27578,54 @@ body {
 .page__content__offer--create .offer--create__form--details > div > label {
   display: inline-block;
   margin-right: 5.25px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003288;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner {
+  padding-right: 22px;
+  width: 1.75em;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003295;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner,
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner > input {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003302;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner > input {
+  display: block;
+  margin: 0;
+  outline: none;
+  width: 100%;
 }
 
 @media -sass-debug-info {
