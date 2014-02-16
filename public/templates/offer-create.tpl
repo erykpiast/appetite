@@ -146,11 +146,9 @@
                         min: 1,
                         max: 500
                     }"
-                    ng-model="offer.details.price"
+                    ng-model="offer.details.price.value"
                     ng-required="true"
                     size="3" />
-
-                    {{ offer.details.price }}
             </div>
 
             <div class="offer__amount">
@@ -164,13 +162,12 @@
                         min: 1,
                         max: 999
                     }"
-                    ng-model="offer.details.amount"
-                    ng-required="true" />
-
-                    {{ offer.details.amount }}
-
-                <select>
-                    <option></option>
+                    ng-model="offer.details.amount.value"
+                    ng-required="true"
+                    size="3" />
+                <select
+                    ng-model="offer.details.amount.unit"
+                    ng-options="o.value as o.label for o in amountUnits">
                 </select>
             </div>
 

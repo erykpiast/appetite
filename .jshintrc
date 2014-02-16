@@ -1,27 +1,33 @@
 {
-  "globals": {
+    "globals": {
+    /* some useful functions >> */
         "$require": true,
         "extend": true,
         "parseInt0": true,
         "parseFloat0": true,
-        "_": true,
+    /* << some useful functions */
+        "_": true, // Underscore
+    /* Jasmine >> */
         "describe": true,
         "it": true,
         "expect": true,
-        "spyOn": true,
+    /* << Jasmine */
+    /* RequireJS >> */
         "define": true,
         "require": true,
         "requirejs": true
+    /* << RequireJS */
     },
-    "white": false,
-    "indent": false,
     "regexdash": true,
     "browser": true,
     "sub": true,
     "curly": true,
+    "camelcase": true,
     "eqeqeq": true,
     "forin": true,
+    "newcap": true,
     "immed": true,
+    "indent": false,
     "latedef": "nofunc",
     "noarg": true,
     "plusplus": false,
@@ -42,10 +48,11 @@
     "esnext": false,
     "evil": false,
     "funcscope": false,
-    "smarttabs": true,
+    "smarttabs": false,
     "shadow": true,
     "supernew": true,
     "devel": true,
     "node": true,
-    "jquery": true
+    "jquery": true,
+    "white": false
 }

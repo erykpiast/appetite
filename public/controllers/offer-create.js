@@ -28,22 +28,12 @@ define(['libs/angular'], function(angular) {
         }
 
         angular.extend($scope, {
-            offer: {
-                details: {
-                    endAt: new Date(Date.now() + (7 * 24 * 60 * 60 * 1000)),
-                    place: '',
-                    startAt: new Date(Date.now()),
-                    amount: 1,
-                    price: 1
-                },
-                template: {
-                    description: '',
-                    recipe: '',
-                    tags: [],
-                    title: '',
-                    pictures: []
-                }
-            },
+            amountUnits: ['piece', 'gram', 'kilogram', 'liter', 'centimeter'].map(function(key) {
+                return {
+                    value: key,
+                    label: $rootScope.i18n.offer.amountUnits[key]
+                };
+            }),
             submitTemplate: function() {
                 _submitTemplate().then(function() {
                     $rootScope.goTo('index');
@@ -70,6 +60,30 @@ define(['libs/angular'], function(angular) {
                 return new Date($scope.offer.details.startAt.getTime() + (14 * 24 * 60 * 60 * 1000));
             }
         });
+
+        $scope.offer = {
+            details: {
+                endAt: new Date(Date.now() + (7 * 24 * 60 * 60 * 1000)),
+                place: '',
+                startAt: new Date(Date.now()),
+                amount: {
+                    value: 1,
+                    unit: $scope.amountUnits[0].value
+                },
+                price: {
+                    value: 1,
+                    currency: 'PLN'
+                }
+            },
+            template: {
+                description: '',
+                recipe: '',
+                tags: [],
+                title: '',
+                pictures: []
+            }
+        };
+
     };
 
 });

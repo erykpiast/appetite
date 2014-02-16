@@ -25671,8 +25671,8 @@ body {
 .page__content__offer--create .offer--create__form--details > div > .ui-spinner {
   border: 1px solid rgba(40, 40, 40, 0.7);
   border-radius: 0.4rem;
-  -webkit-box-shadow: 0px 0px 1px rgba(40, 40, 40, 0.7) inset;
-  box-shadow: 0px 0px 1px rgba(40, 40, 40, 0.7) inset;
+  -webkit-box-shadow: 0 0 1px rgba(40, 40, 40, 0.7) inset;
+  box-shadow: 0 0 1px rgba(40, 40, 40, 0.7) inset;
   color: #282828;
   outline: none;
   overflow: hidden;
@@ -25700,9 +25700,8 @@ body {
 .page__content__offer--create .offer--create__form--template .edit-in-place__input:focus,
 .page__content__offer--create .offer--create__form--details .edit-in-place__input:focus,
 .page__content__offer--create .offer--create__form--details > div > .ui-spinner:focus {
-  border-color: rgba(170, 30, 30, 0.7);
-  -webkit-box-shadow: 0px 0px 1px #aa1e1e inset;
-  box-shadow: 0px 0px 1px #aa1e1e inset;
+  -webkit-box-shadow: 0 0 1px rgba(40, 40, 40, 0.7) inset, 0 0 3px rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 1px rgba(40, 40, 40, 0.7) inset, 0 0 3px rgba(40, 40, 40, 0.7);
 }
 
 @media -sass-debug-info {
@@ -25711,7 +25710,7 @@ body {
   }
 
   line {
-    font-family: \0000318;
+    font-family: \0000317;
   }
 }
 

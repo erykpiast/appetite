@@ -1,0 +1,14 @@
+{
+    "globals": {
+    /* Jasmine >> */
+        "describe": true,
+        "it": true,
+        "expect": true,
+    /* << Jasmine */
+    /* RequireJS >> */
+        "define": true,
+        "require": true,
+        "requirejs": true
+    /* << RequireJS */
+    }
+}
