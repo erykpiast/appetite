@@ -85,8 +85,8 @@ define([], function() {
         function _request(url, conf, tests) {
             conf = (conf || {});
            
-            var successCallback = conf.success = jasmine.createSpy();
-            var errorCallback = conf.error = jasmine.createSpy();
+            var successCallback = conf.success = jasmine.createSpy('successCallback');
+            var errorCallback = conf.error = jasmine.createSpy('errorCallback');
             
             waitsFor(function() {
                 return (successCallback.callCount > 0) || (errorCallback.callCount > 0);
@@ -115,6 +115,8 @@ define([], function() {
        return exports;
     })('//' + serviceDomain + '/rest', {
         notFound: 404,
+        notPermitted: 401,
+        wrongData: 400,
         ok: 200,
         created: 201
     }, 20 * 1000, !!'log');  

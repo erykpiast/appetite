@@ -23,11 +23,35 @@ module.exports = function(sequelize, DataTypes) {
 				isDate: true
 			}
 		},
-		type: {
+		type: { // TODO: remove it and create separate request entity
 			type: DataTypes.ENUM,
             values: [ 'offer', 'request', 'unknown' ],
 			allowNull: false,
 			defaultValue: 'unknown'
+		},
+		amount: {
+			type: DataTypes.INTEGER(5).UNSIGNED,
+			allowNull: false,
+			defaultValue: 1,
+			validate: {
+				min: 1,
+				max: 999
+			}
+		},
+		unit: {
+			type: DataTypes.ENUM,
+			values: [ 'piece', 'centimeter', 'gram', 'kilogram', 'liter' ],
+			allowNull: false,
+			defaultValue: 'piece'	
+		},
+		price: {
+			type: DataTypes.FLOAT.UNSIGNED,
+			allowNull: false,
+			defaultValue: 1.0,
+			validate: {
+				min: 1,
+				max: 500.0
+			}
 		}
 		// template - foreign key from OfferTemplate
 		// place - foreign key from Place

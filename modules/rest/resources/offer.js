@@ -2,9 +2,9 @@ var moment = $require('moment'),
     locate = $require('/modules/locate'),
     Errors = $require('/modules/errors'),
     restrict = $require('/modules/rest/restrict')({
-        public: [ 'id', 'type', 'place', 'template', 'startAt', 'endAt', 'started', 'ended' ],
+        public: [ 'id', 'type', 'place', 'template', 'startAt', 'endAt', 'started', 'ended', 'price', 'amount', 'unit' ],
         placePublic: [ 'id', 'serviceId' ],
-        create: [ 'type', 'startAt', 'endAt' ],
+        create: [ 'type', 'price', 'amount', 'unit', 'startAt', 'endAt' ],
         update: [ 'startAt', 'endAt' ],
         search: [ 'id', 'deletedAt' ],
         searchAll: [ 'deletedAt' ]
@@ -206,21 +206,23 @@ function update(params, authData, proto) {
 
         if(!offer) {
             throw new Errors.NotFound();    
-        } else if(user.id !== offer.AuthorId) {
+        } else if((user.id !== offer.AuthorId) || offer.started) {
             throw new Errors.Authentication();
-        } else if(offer.started) {
-            throw new Errors.WrongData();
         } else {
             var newAttrs = restrict.update(proto);
-            
-            var res = _setTimestamps(newAttrs, proto);
-            if(!res) {
+
+            if(!Object.keys(newAttrs).length) {
                 throw new Errors.WrongData();
+            } else {
+                var res = _setTimestamps(newAttrs, proto);
+                if(!res) {
+                    throw new Errors.WrongData();
+                }
+                
+                extend(offer, newAttrs);
+                
+                return offer.save(Object.keys(newAttrs));
             }
-            
-            extend(offer, newAttrs);
-            
-            return offer.save(Object.keys(newAttrs));
         }
     },
     Errors.report('Internal', 'DATABASE')

@@ -11,7 +11,10 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
             },
             proto = {
                 'place' : 'p1',
-                'type' : 'offer'
+                'type' : 'offer',
+                'price': 100,
+                'amount': 750,
+                'unit': 'gram'
             },
             currentRest = '/offer',
             user,
@@ -85,6 +88,9 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
                             id: response.place.id,
                             serviceId: proto.place
                         },
+                        price: proto.price,
+                        amount: proto.amount,
+                        unit: proto.unit,
                         author: user.id,
                         startAt: (new Date(0)).toISOString(),
                         endAt: (new Date(0)).toISOString(),
@@ -115,9 +121,28 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
                     expect(status).toEqual(rest.codes.ok);
                });
         });
+
+
+        it('should be UPDATE rest doesn\'t allows to change some offer entry properties', function() {
+            
+            rest.update(currentRest + '/' + proto.id, {
+                    price: 200,
+                    amount: 500
+                }, function(successCallback, errorCallback) {
+                    expect(errorCallback).toHaveBeenCalled();
+                    expect(successCallback).not.toHaveBeenCalled();
+
+                    var response = errorCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+                    expect(response.msg).toBeDefined();
+    
+                    var status = errorCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.wrongData);
+               });
+        });
     
         
-        it('should be UPDATE rest allows change offer entry properties', function() {
+        it('should be UPDATE rest allows to change offer start and end time ONCE', function() {
             
             var startDate, endDate;
             rest.update(currentRest + '/' + proto.id, {
@@ -142,6 +167,25 @@ define([ 'libs/jquery', 'libs/jquery-cookie', 'mods/rest' ], function($, undefin
                     expect(status).toEqual(rest.codes.ok);
                });
         });
+
+
+        it('should be UPDATE rest doesn\'t allows to change offer start and end time again', function() {
+            
+            rest.update(currentRest + '/' + proto.id, {
+                    startAt: startDate = Date.now() + 5000,
+                    endAt: endDate = Date.now() + (3 * 24 * 60 * 60 * 1000)
+                }, function(successCallback, errorCallback) {
+                    expect(errorCallback).toHaveBeenCalled();
+                    expect(successCallback).not.toHaveBeenCalled();
+
+                    var response = errorCallback.mostRecentCall.args[0];
+                    expect(response).toBeDefined();
+                    expect(response.msg).toBeDefined();
+    
+                    var status = errorCallback.mostRecentCall.args[1];
+                    expect(status).toEqual(rest.codes.notPermitted);
+               });
+        });        
         
         
         it('should be GET rest with returns first offer entry', function() { 
