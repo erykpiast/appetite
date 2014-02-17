@@ -25668,7 +25668,8 @@ body {
 .page__content__offer--create .offer--create__form .edit-in-place__input,
 .page__content__offer--create .offer--create__form--template .edit-in-place__input,
 .page__content__offer--create .offer--create__form--details .edit-in-place__input,
-.page__content__offer--create .offer--create__form--details > div > .ui-spinner {
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner,
+.page__content__offer--create .offer--create__form--details > div > select {
   border: 1px solid rgba(40, 40, 40, 0.7);
   border-radius: 0.4rem;
   -webkit-box-shadow: 0 0 1px rgba(40, 40, 40, 0.7) inset;
@@ -25699,7 +25700,8 @@ body {
 .page__content__offer--create .offer--create__form .edit-in-place__input:focus,
 .page__content__offer--create .offer--create__form--template .edit-in-place__input:focus,
 .page__content__offer--create .offer--create__form--details .edit-in-place__input:focus,
-.page__content__offer--create .offer--create__form--details > div > .ui-spinner:focus {
+.page__content__offer--create .offer--create__form--details > div > .ui-spinner:focus,
+.page__content__offer--create .offer--create__form--details > div > select:focus {
   -webkit-box-shadow: 0 0 1px rgba(40, 40, 40, 0.7) inset, 0 0 3px rgba(40, 40, 40, 0.7);
   box-shadow: 0 0 1px rgba(40, 40, 40, 0.7) inset, 0 0 3px rgba(40, 40, 40, 0.7);
 }
@@ -25724,7 +25726,8 @@ body {
 .page__content__offer--create .offer--create__form [type="number"].edit-in-place__input,
 .page__content__offer--create .offer--create__form--template [type="number"].edit-in-place__input,
 .page__content__offer--create .offer--create__form--details [type="number"].edit-in-place__input,
-.page__content__offer--create .offer--create__form--details > div > [type="number"].ui-spinner {
+.page__content__offer--create .offer--create__form--details > div > [type="number"].ui-spinner,
+.page__content__offer--create .offer--create__form--details > div > select[type="number"] {
   width: 3em;
 }
 
@@ -27533,7 +27536,22 @@ body {
 }
 
 .page__content__offer--create .offer--create__form--details > div {
+  font-size: 0;
   margin: 10.5px 0;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/utils\/scut-extensions\.scss;
+  }
+
+  line {
+    font-family: \0000350;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div > * {
+  font-size: 14px;
 }
 
 @media -sass-debug-info {
@@ -27542,7 +27560,7 @@ body {
   }
 
   line {
-    font-family: \00003273;
+    font-family: \00003275;
   }
 }
 
@@ -27556,7 +27574,7 @@ body {
   }
 
   line {
-    font-family: \00003277;
+    font-family: \00003279;
   }
 }
 
@@ -27570,13 +27588,15 @@ body {
   }
 
   line {
-    font-family: \00003281;
+    font-family: \00003283;
   }
 }
 
 .page__content__offer--create .offer--create__form--details > div > label {
   display: inline-block;
-  margin-right: 5.25px;
+  margin-right: 2.625px;
+  text-align: right;
+  width: 50%;
 }
 
 @media -sass-debug-info {
@@ -27585,7 +27605,21 @@ body {
   }
 
   line {
-    font-family: \00003288;
+    font-family: \00003290;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div > label + * {
+  margin-left: 2.625px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003294;
   }
 }
 
@@ -27600,7 +27634,7 @@ body {
   }
 
   line {
-    font-family: \00003295;
+    font-family: \00003301;
   }
 }
 
@@ -27616,7 +27650,7 @@ body {
   }
 
   line {
-    font-family: \00003302;
+    font-family: \00003308;
   }
 }
 
@@ -27625,6 +27659,54 @@ body {
   margin: 0;
   outline: none;
   width: 100%;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003317;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details > div > select {
+  background-color: transparent;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003325;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details .offer__amount > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer--create\.scss;
+  }
+
+  line {
+    font-family: \00003330;
+  }
+}
+
+.page__content__offer--create .offer--create__form--details .offer__amount__unit {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 17px;
+  margin-left: 5.25px;
+  width: 3em;
 }
 
 @media -sass-debug-info {

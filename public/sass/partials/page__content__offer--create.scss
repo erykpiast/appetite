@@ -268,6 +268,8 @@
         @extend .offer__content;
 
         & > div {
+            @include scut-inline-container();
+            
             margin: $half-spacing-unit 0;
 
             &:first-child {
@@ -280,9 +282,13 @@
 
             & > label {
                 display: inline-block;
-                margin: {
-                    right: $quarter-spacing-unit;
-                };
+                margin-right: ($quarter-spacing-unit / 2);
+                text-align: right;
+                width: 50%;
+            }
+
+            & > label + * {
+                margin-left: ($quarter-spacing-unit / 2);
             }
 
             & > .ui-spinner {
@@ -307,6 +313,25 @@
                     width: 100%;
                 }
             }
+
+            & > select {
+                @extend .input--default;
+
+                background-color: transparent;
+            }
         }
+
+        .offer__amount {
+            & > * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+            .offer__amount__unit {
+                box-sizing: content-box;
+                height: 17px; // height of input calculated in browser; no idea how to apply it to select (default height make it 2px higher than input with the same styles)
+                margin-left: $quarter-spacing-unit;
+                width: 3em;
+            }
     }
 }

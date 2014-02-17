@@ -135,6 +135,29 @@
                     }" />
             </div>
 
+            <div class="offer__amount">
+                <label for="offer__amount">{{ i18n.offer.create.amount }}</label>
+                <input
+                    class="offer__amount__value"
+                    id="offer__price" 
+                    type="number" 
+                    value="" 
+                    placeholder="{{ i18n.offer.create.example.amount }}" 
+                    ui-spinner="{
+                        min: 1,
+                        max: 999
+                    }"
+                    ng-model="offer.details.amount.value"
+                    ng-required="true"
+                    size="3" />
+                    
+                <select
+                    class="offer__amount__unit"
+                    ng-model="offer.details.amount.unit"
+                    ng-options="o.value as o.label for o in amountUnits">
+                </select>
+            </div>
+
             <div class="offer__price">
                 <label for="offer__price">{{ i18n.offer.create.price }}</label>
                 <input 
@@ -149,26 +172,6 @@
                     ng-model="offer.details.price.value"
                     ng-required="true"
                     size="3" />
-            </div>
-
-            <div class="offer__amount">
-                <label for="offer__amount">{{ i18n.offer.create.amount }}</label>
-                <input 
-                    id="offer__price" 
-                    type="number" 
-                    value="" 
-                    placeholder="{{ i18n.offer.create.example.amount }}" 
-                    ui-spinner="{
-                        min: 1,
-                        max: 999
-                    }"
-                    ng-model="offer.details.amount.value"
-                    ng-required="true"
-                    size="3" />
-                <select
-                    ng-model="offer.details.amount.unit"
-                    ng-options="o.value as o.label for o in amountUnits">
-                </select>
             </div>
 
             <div class="offer__submit">
