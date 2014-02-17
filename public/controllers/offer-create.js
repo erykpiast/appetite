@@ -1,14 +1,6 @@
 define(['libs/angular'], function(angular) {
     'use strict';
 
-    function _getTags(str) {
-        return str.split(',').map(function(tag) {
-            return tag.trim();
-        }).filter(function(tag) {
-            return tag.length > 0;
-        });
-    }
-
     return function($rootScope, $scope, $q, rest) {
 
         function _submitTemplate() {
@@ -16,7 +8,7 @@ define(['libs/angular'], function(angular) {
                 t = $scope.offer.template;
 
             rest.offerTemplate.create(angular.extend({}, t, {
-                tags: _getTags(t.tags),
+                tags: t.tags,
                 pictures: t.pictures.length ? t.pictures : null
             })).$promise.then(function(res) {
                 console.log('template', res.data);
@@ -78,7 +70,7 @@ define(['libs/angular'], function(angular) {
             template: {
                 description: '',
                 recipe: '',
-                tags: [],
+                tags: [ ],
                 title: '',
                 pictures: []
             }

@@ -48,7 +48,7 @@
                         ng-model="offer.template.tags"
                         ui-select2="{
                             multiple: true,
-                            simple_tags: true,
+                            simpleTags: true,
                             maximumSelectionSize: 5,
                             tags: [ ]
                         }" />
@@ -150,7 +150,7 @@
                     ng-model="offer.details.amount.value"
                     ng-required="true"
                     size="3" />
-                    
+
                 <select
                     class="offer__amount__unit"
                     ng-model="offer.details.amount.unit"
