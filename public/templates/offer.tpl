@@ -1,35 +1,50 @@
-<section class="page__part--offer offer grid">
+<section class="page__content__offer offer">
 
-	<header class="page__part__header">
-        <h2>{{ offer.template.title }}</h2>
-    </header>
+    <div class="page__content__column--left">
+        <header class="offer__header">
+            <h2 ng-bind="offer.template.title"></h2>
+        </header>
 
-    <div class="page__part__content four-fifths">
-		<app-gallery model="offer.template.pictures"></app-gallery>
 
-        <div class="offer__description text-block">
-        	<p>{{ offer.template.description }}</p>
+        <div class="offer__content">
+            <div class="offer__pictures">
+                <app-gallery model="offer.template.pictures"></app-gallery>
+            </div>
 
-            <p>{{ i18n.offer.remainingTime }}: <time datetime="{{ offer.endAt | date:'yyyy-MM-ddTHH:mm:ssZ' }}">{{ offer.endAt | forNow:'vi u' }}</time>
+            <div class="offer__order">
+                <p class="offer__order__details">
+                    <span class="offer__order__details__amount"
+                        ng-bind="offer.amount"></span>
+                    –
+                    <strong class="offer__order__details__amount"
+                        ng-bind="offer.price"></strong>
+                </p>
+                <button class="offer__order__button"
+                    ui-sref=".order({ step: 1 })"
+                    ng-bind="i18n.offer.order"></button>
+            </div>
+
+            <p  class="offer__description"
+                ng-bind="offer.template.description"
+                ></p>
+
+            <ul class="offer__tags">
+                <li class="offer__tags__tag"
+                    ng-repeat="tag in offer.template.tags">
+                    <a  ui-shref="tags.details({ id: tag.id })"
+                        ng-bind="tag.text"></a>
+                </li>
+            </ul>
+
+            <p class="offer__source">
+                <span class="offer__source__label"
+                    ui-sref="recipes.details({ id: offer.template.recipe.id })"
+                    ng-bind="i18n.offer.recipeFrom"></span>
+                <a class="offer__source__link"
+                    ng-bind="offer.template.recipe.domain"></a>
             </p>
-
-        	<p>{{ i18n.offer.recipeFrom }}: <a ng-href="{{ offer.template.recipe.url }}">{{ offer.template.recipe.domain }}</a>
-            </p>
-        </div>
-        
-        <ul class="offer__comments no-bullets">
-            <li class="offer__comment" ng-repeat="comment in offer.comments">
-                <app-comments model="comment" show-owner-features="showOwnerFeatures()" show-user-features="showUserFeatures()" response-accept-handler="acceptResponse(response)"></app-comments>
-            </li>
-        </ul>
-
-        <div class="offer__comments__add" ng-if="showUserFeatures()">
-            <app-add-comment on-submit="addComment(comment)" on-response="response(comment)" show-owner-features="showOwnerFeatures()"></app-add-comment>
+            
         </div>
     </div>
-
-    <aside class="page__part__aside one-fifth">
-        <app-offer-author model="offer.author"></app-offer-author>
-    </aside>
-
+        
 </section>

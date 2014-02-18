@@ -1,7 +1,7 @@
 <section class="page__content__offer--create offer">
 
     <div class="page__content__column--left">
-        <div  ng-form="offerTemplate" class="offer--create__form--template">
+        <div ng-form="offerTemplate" class="offer--create__form--template">
             <header class="offer__header">
             	<h2 class="form__field"
                     app-edit-in-place="offer.template.title"

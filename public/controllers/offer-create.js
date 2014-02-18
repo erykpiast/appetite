@@ -1,7 +1,7 @@
 define(['libs/angular'], function(angular) {
     'use strict';
 
-    return function($rootScope, $scope, $q, rest) {
+    return function($rootScope, $scope, $q, $state, rest, i18n) {
 
         function _submitTemplate() {
             var deferred = $q.defer(),
@@ -23,12 +23,12 @@ define(['libs/angular'], function(angular) {
             amountUnits: ['piece', 'gram', 'kilogram', 'liter', 'centimeter'].map(function(key) {
                 return {
                     value: key,
-                    label: $rootScope.i18n.offer.amountUnits[key]
+                    label: i18n.offer.amountUnits[key]
                 };
             }),
             submitTemplate: function() {
-                _submitTemplate().then(function() {
-                    $rootScope.goTo('index');
+                _submitTemplate().then(function(res) {
+                    $state.go('template.details', { id: res.id });
                 });
             },
             startOffer: function() {
@@ -42,9 +42,7 @@ define(['libs/angular'], function(angular) {
                         startAt: d.startAt,
                         endAt: d.endAt
                     }).$promise.then(function(res) {
-                        console.log('offer', res.data);
-
-                        $rootScope.goTo('index');
+                        $state.go('offer.details', { id: res.id });
                     });
                 });
             },

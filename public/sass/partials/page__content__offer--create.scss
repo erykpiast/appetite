@@ -215,7 +215,6 @@
             }
             .offer__source__link {
                 font-weight: normal;
-                margin-left: $quarter-spacing-unit;
                 max-width: calc(100% - #{$label-maxWidth} - #{$quarter-spacing-unit});
                 min-width: 4em;
 
