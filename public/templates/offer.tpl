@@ -14,14 +14,15 @@
             <div class="offer__order">
                 <p class="offer__order__details">
                     <span class="offer__order__details__amount"
-                        ng-bind="offer.amount"></span>
+                        ng-bind="offer.amount && offer.unit && formatAmount(offer.amount, offer.unit)"></span>
                     –
-                    <strong class="offer__order__details__amount"
-                        ng-bind="offer.price"></strong>
+                    <strong class="offer__order__details__amount">
+                        {{ offer.price }} {{ i18n.offer.order.currency }}
+                    </strong>
                 </p>
                 <button class="offer__order__button"
                     ui-sref=".order({ step: 1 })"
-                    ng-bind="i18n.offer.order"></button>
+                    ng-bind="i18n.offer.order.doOrder"></button>
             </div>
 
             <p  class="offer__description"

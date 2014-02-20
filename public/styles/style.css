@@ -21824,6 +21824,8 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__pictures__picture--preview,
 .page__content__offer .offer__pictures__picture,
 .page__content__offer--create .offer__pictures__picture,
+.page__content__offer .photo-gallery__photo,
+.page__content__offer--create .photo-gallery__photo,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image {
   cursor: pointer;
 }
@@ -21844,6 +21846,8 @@ a.hyperlink:visited {
 .page__content__offer--create .offer__pictures__picture--preview > img,
 .page__content__offer .offer__pictures__picture > img,
 .page__content__offer--create .offer__pictures__picture > img,
+.page__content__offer .photo-gallery__photo > img,
+.page__content__offer--create .photo-gallery__photo > img,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image > img {
   height: 100%;
   width: auto;
@@ -21916,8 +21920,6 @@ a.hyperlink:visited {
 }
 
 .photo-gallery--inline .photo-gallery__photo,
-.page__content__offer .offer__pictures .photo-gallery__photo,
-.page__content__offer--create .offer__pictures .photo-gallery__photo,
 .photo-gallery--inline .photo-gallery__photo--fullscreen,
 .page__content__offer .offer__pictures .photo-gallery__photo--fullscreen,
 .page__content__offer--create .offer__pictures .photo-gallery__photo--fullscreen,
@@ -21933,6 +21935,8 @@ a.hyperlink:visited {
 .photo-gallery--inline .page__content__offer--create .offer__pictures__picture,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__picture,
 .page__content__offer--create .offer__pictures .offer__pictures__picture,
+.page__content__offer .offer__pictures .photo-gallery__photo,
+.page__content__offer--create .offer__pictures .photo-gallery__photo,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image {
   display: inline-block;
   height: 100%;
@@ -21951,8 +21955,6 @@ a.hyperlink:visited {
 }
 
 .photo-gallery--inline .photo-gallery__photo > img,
-.page__content__offer .offer__pictures .photo-gallery__photo > img,
-.page__content__offer--create .offer__pictures .photo-gallery__photo > img,
 .photo-gallery--inline .photo-gallery__photo--fullscreen > img,
 .page__content__offer .offer__pictures .photo-gallery__photo--fullscreen > img,
 .page__content__offer--create .offer__pictures .photo-gallery__photo--fullscreen > img,
@@ -21968,6 +21970,8 @@ a.hyperlink:visited {
 .photo-gallery--inline .page__content__offer--create .offer__pictures__picture > img,
 .page__content__offer--create .photo-gallery--inline .offer__pictures__picture > img,
 .page__content__offer--create .offer__pictures .offer__pictures__picture > img,
+.page__content__offer .offer__pictures .photo-gallery__photo > img,
+.page__content__offer--create .offer__pictures .photo-gallery__photo > img,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image > img {
   height: 100%;
   width: auto;
@@ -25998,6 +26002,12 @@ body {
 
 .page__content__offer .offer__pictures__wrapper:before,
 .page__content__offer--create .offer__pictures__wrapper:before,
+.page__content__offer .photo-gallery:before,
+.page__content__offer--create .photo-gallery:before,
+.page__content__offer .photo-gallery--inline:before,
+.page__content__offer--create .photo-gallery--inline:before,
+.page__content__offer .offer__pictures:before,
+.page__content__offer--create .offer__pictures:before,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:before {
   display: inline-block;
   content: "";
@@ -26022,6 +26032,12 @@ body {
 
 .page__content__offer .offer__pictures__wrapper:after,
 .page__content__offer--create .offer__pictures__wrapper:after,
+.page__content__offer .photo-gallery:after,
+.page__content__offer--create .photo-gallery:after,
+.page__content__offer .photo-gallery--inline:after,
+.page__content__offer--create .photo-gallery--inline:after,
+.page__content__offer .offer__pictures:after,
+.page__content__offer--create .offer__pictures:after,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:after {
   display: inline-block;
   content: "";
@@ -26046,9 +26062,21 @@ body {
 
 .page__content__offer .offer__pictures__wrapper:before,
 .page__content__offer--create .offer__pictures__wrapper:before,
+.page__content__offer .photo-gallery:before,
+.page__content__offer--create .photo-gallery:before,
+.page__content__offer .photo-gallery--inline:before,
+.page__content__offer--create .photo-gallery--inline:before,
+.page__content__offer .offer__pictures:before,
+.page__content__offer--create .offer__pictures:before,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:before,
 .page__content__offer .offer__pictures__wrapper:after,
 .page__content__offer--create .offer__pictures__wrapper:after,
+.page__content__offer .photo-gallery:after,
+.page__content__offer--create .photo-gallery:after,
+.page__content__offer .photo-gallery--inline:after,
+.page__content__offer--create .photo-gallery--inline:after,
+.page__content__offer .offer__pictures:after,
+.page__content__offer--create .offer__pictures:after,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images:after {
   width: 0.4rem;
   z-index: 1;
@@ -26064,6 +26092,12 @@ body {
   }
 }
 
+.page__content__offer .photo-gallery__photo,
+.page__content__offer--create .photo-gallery__photo,
+.page__content__offer .photo-gallery__photo--fullscreen,
+.page__content__offer--create .photo-gallery__photo--fullscreen,
+.page__content__offer .offer__pictures__picture--preview,
+.page__content__offer--create .offer__pictures__picture--preview,
 .page__content__offer .offer__pictures__picture,
 .page__content__offer--create .offer__pictures__picture,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image {
@@ -26080,6 +26114,12 @@ body {
   }
 }
 
+.page__content__offer .photo-gallery__photo:after,
+.page__content__offer--create .photo-gallery__photo:after,
+.page__content__offer .photo-gallery__photo--fullscreen:after,
+.page__content__offer--create .photo-gallery__photo--fullscreen:after,
+.page__content__offer .offer__pictures__picture--preview:after,
+.page__content__offer--create .offer__pictures__picture--preview:after,
 .page__content__offer .offer__pictures__picture:after,
 .page__content__offer--create .offer__pictures__picture:after,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image:after {
@@ -26104,6 +26144,12 @@ body {
   }
 }
 
+.page__content__offer .photo-gallery__photo > img,
+.page__content__offer--create .photo-gallery__photo > img,
+.page__content__offer .photo-gallery__photo--fullscreen > img,
+.page__content__offer--create .photo-gallery__photo--fullscreen > img,
+.page__content__offer .offer__pictures__picture--preview > img,
+.page__content__offer--create .offer__pictures__picture--preview > img,
 .page__content__offer .offer__pictures__picture > img,
 .page__content__offer--create .offer__pictures__picture > img,
 .page__content__offer--create .offer--create__form--template .offer__pictures .image-picker__images__image > img {
@@ -26370,7 +26416,7 @@ body {
   }
 
   line {
-    font-family: \0000330;
+    font-family: \0000342;
   }
 }
 
@@ -26386,7 +26432,7 @@ body {
   }
 
   line {
-    font-family: \0000335;
+    font-family: \0000347;
   }
 }
 
@@ -26401,7 +26447,94 @@ body {
   }
 
   line {
-    font-family: \0000339;
+    font-family: \0000352;
+  }
+}
+
+.page__content__offer .offer__tags,
+.page__content__offer--create .offer__tags {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/scut-0\.6\.0\/dist\/_scut\.scss;
+  }
+
+  line {
+    font-family: \00003707;
+  }
+}
+
+.page__content__offer .offer__tags > li,
+.page__content__offer--create .offer__tags > li {
+  display: inline-block;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
+  }
+
+  line {
+    font-family: \0000357;
+  }
+}
+
+.page__content__offer .offer__tags__tag,
+.page__content__offer--create .offer__tags__tag {
+  margin-right: 10.5px;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
+  }
+
+  line {
+    font-family: \0000360;
+  }
+}
+
+.page__content__offer .offer__tags__tag > a,
+.page__content__offer--create .offer__tags__tag > a {
+  -webkit-box-shadow: 0 0 0.2em rgba(40, 40, 40, 0.7);
+  box-shadow: 0 0 0.2em rgba(40, 40, 40, 0.7);
+  border-radius: .4em;
+  padding: 2.625px 5.25px;
+  -webkit-transition: background-color .2s linear, color 0s linear .1s;
+  transition: background-color .2s linear, color 0s linear .1s;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
+  }
+
+  line {
+    font-family: \0000366;
+  }
+}
+
+.page__content__offer .offer__tags__tag > a:hover,
+.page__content__offer--create .offer__tags__tag > a:hover {
+  background-color: #aa1e1e;
+  color: #eaeaea;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s ease-out 0.4s, color 0s ease-out 0.4s;
+  transition: background-color 0.2s ease-out 0.4s, color 0s ease-out 0.4s;
+}
+
+@media -sass-debug-info {
+  filename {
+    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
+  }
+
+  line {
+    font-family: \0000376;
   }
 }
 
@@ -26417,7 +26550,7 @@ body {
   }
 
   line {
-    font-family: \0000343;
+    font-family: \0000380;
   }
 }
 
@@ -26434,7 +26567,7 @@ body {
   }
 
   line {
-    font-family: \0000351;
+    font-family: \0000388;
   }
 }
 
@@ -26456,7 +26589,7 @@ body {
   }
 
   line {
-    font-family: \0000363;
+    font-family: \00003100;
   }
 }
 
@@ -26471,7 +26604,7 @@ body {
   }
 
   line {
-    font-family: \0000367;
+    font-family: \00003104;
   }
 }
 
@@ -26488,7 +26621,7 @@ body {
   }
 
   line {
-    font-family: \0000372;
+    font-family: \00003109;
   }
 }
 
@@ -26527,7 +26660,7 @@ body {
   }
 
   line {
-    font-family: \0000387;
+    font-family: \00003124;
   }
 }
 
@@ -26552,7 +26685,7 @@ body {
   }
 
   line {
-    font-family: \0000398;
+    font-family: \00003135;
   }
 }
 
@@ -26570,7 +26703,7 @@ body {
   }
 
   line {
-    font-family: \00003103;
+    font-family: \00003140;
   }
 }
 
@@ -26585,7 +26718,7 @@ body {
   }
 
   line {
-    font-family: \00003107;
+    font-family: \00003144;
   }
 }
 
@@ -26600,7 +26733,7 @@ body {
   }
 
   line {
-    font-family: \00003112;
+    font-family: \00003149;
   }
 }
 
@@ -26643,7 +26776,7 @@ body {
   }
 
   line {
-    font-family: \00003126;
+    font-family: \00003163;
   }
 }
 
@@ -26658,7 +26791,7 @@ body {
   }
 
   line {
-    font-family: \00003130;
+    font-family: \00003167;
   }
 }
 
@@ -26673,7 +26806,7 @@ body {
   }
 
   line {
-    font-family: \00003136;
+    font-family: \00003173;
   }
 }
 
@@ -26692,7 +26825,7 @@ body {
   }
 
   line {
-    font-family: \00003142;
+    font-family: \00003179;
   }
 }
 
@@ -26711,7 +26844,7 @@ body {
   }
 
   line {
-    font-family: \00003148;
+    font-family: \00003185;
   }
 }
 
@@ -26730,7 +26863,7 @@ body {
   }
 
   line {
-    font-family: \00003152;
+    font-family: \00003189;
   }
 }
 
@@ -26745,7 +26878,7 @@ body {
   }
 
   line {
-    font-family: \00003155;
+    font-family: \00003192;
   }
 }
 
@@ -26761,7 +26894,7 @@ body {
   }
 
   line {
-    font-family: \00003161;
+    font-family: \00003198;
   }
 }
 
@@ -26777,7 +26910,7 @@ body {
   }
 
   line {
-    font-family: \00003166;
+    font-family: \00003203;
   }
 }
 
@@ -26793,7 +26926,7 @@ body {
   }
 
   line {
-    font-family: \00003175;
+    font-family: \00003212;
   }
 }
 
@@ -26809,7 +26942,7 @@ body {
   }
 
   line {
-    font-family: \00003180;
+    font-family: \00003217;
   }
 }
 
@@ -26824,27 +26957,13 @@ body {
   }
 
   line {
-    font-family: \00003183;
-  }
-}
-
-.page__content__offer .offer__order__price,
-.page__content__offer--create .offer__order__price {
-  margin-bottom: 10.5px;
-}
-
-@media -sass-debug-info {
-  filename {
-    font-family: file\:\/\/\/var\/www\/appetite\/public\/sass\/partials\/page__content__offer\.scss;
-  }
-
-  line {
-    font-family: \00003186;
+    font-family: \00003220;
   }
 }
 
 .page__content__offer .offer__order__button,
 .page__content__offer--create .offer__order__button {
+  margin-top: 10.5px;
   position: relative;
   z-index: 0;
   display: inline-block;

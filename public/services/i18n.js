@@ -44,6 +44,18 @@ function(angular, module) {
                 kilogram: 'kg',
                 liter: 'l'
             },
+            order: {
+                amountUnits: {
+                    valuePlaceholder: '#',
+                    centimeter: 'Forma ⌀# cm',
+                    piece: '# szt.',
+                    gram: '# g',
+                    kilogram: '# kg',
+                    liter: '# l'
+                },
+                currency: 'zł',
+                doOrder: 'Zamawiam!'
+            },
             comment: {
                 answerPrelude: 'To jest odpowiedź na komentarz użytkownika',
                 answerTo: 'Odpowiedz na komentarz',

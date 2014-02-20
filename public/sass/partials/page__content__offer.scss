@@ -27,6 +27,18 @@
 		width: 50%;
 	}
 
+
+	.photo-gallery {
+		@extend .offer__pictures__wrapper;
+	}
+		.photo-gallery__wrapper {
+			// @extend .offer__pictures__wrapper;
+		}
+			.photo-gallery__photo {
+				@extend .offer__pictures__picture;
+			}
+
+
 	.offer__description {
 		background-color: $c-bg-acc-light;
 		margin-top: $half-spacing-unit;
@@ -35,6 +47,31 @@
 	    .offer__description__paragraph {
 		    margin-top: $half-spacing-unit;
 		}
+
+
+	.offer__tags {
+		@include scut-list-inline();
+
+		margin-top: $half-spacing-unit;
+	}
+		.offer__tags__tag {
+			margin-right: $half-spacing-unit;
+
+			& > a {
+				box-shadow: 0 0 .2em $c-shadow-dark;
+				border-radius: .4em;		
+				padding: ($quarter-spacing-unit / 2) $quarter-spacing-unit;
+				transition: background-color .2s linear, color 0s linear .1s;
+
+				&:hover {
+					background-color: $c-fg-acc;
+					color: $c-bg-def;
+					cursor: pointer;
+					transition: background-color .2s ease-out $response-delay, color 0s ease-out $response-delay;
+				}
+			}
+		}
+
 	
 	.offer__source {
 		color: $c-fg-def-light;
@@ -180,12 +217,11 @@
 	.offer__order {
 		text-align: center;
 	}
-		.offer__order__price {
-			margin-bottom: $half-spacing-unit;
-		}
 		.offer__order__button {
 			@extend .button--call-to-action;
 			@extend .button--ico--order;
+
+			margin-top: $half-spacing-unit;
 
 			@include hover-effect--expand() {
 				background-color: $c-fg-acc-light;
