@@ -106,20 +106,23 @@
 		position: relative;
 	}
 	.image-picker__images__image {
-	    &:before {
+		position: relative;
+
+	    @include scut-before() {
 	    	@extend .button--ico--trash:before;
 
 	    	@include scut-absolute(0 0 0 0);
 
 	    	border: none;
 	    	font-size: 300%;
-	    	line-height: 500%; // naive verical centering
+	    	line-height: 500%; // naive vertical centering
 	    	margin: 0;
 	    	opacity: 0;
 	    	padding: 0;
 	    	text-align: center;
 	    	text-shadow: 0 0 .4em $c-bg-acc-light;
 	    	transition: opacity .1s linear;
+	    	z-index: 1
 	    }
 
 	    &:hover:before {

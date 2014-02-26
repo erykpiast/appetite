@@ -8,7 +8,17 @@
 
         <div class="offer__content">
             <div class="offer__pictures">
-                <app-gallery model="offer.template.pictures"></app-gallery>
+                <div class="offer__pictures__wrapper">
+                    <ul class="offer__pictures__list"
+                        perfect-scrollbar="{
+                            suppressScrollY: true,
+                            useBothWheelAxes: true
+                        }">
+                        <li class="offer__pictures__picture" ng-repeat="picture in offer.template.pictures">
+                            <img ng-src="/static/images/{{ picture.filename }}" alt="" />
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="offer__order">
@@ -46,6 +56,14 @@
             </p>
             
         </div>
+
+        <section class="offer__comments">
+            <header class="offer__comments__header">
+                <h3>{{ i18n.comments.header }}</h3>
+            </header>
+
+            <app-comments model="offer.comments"></app-comments>
+        </section>
     </div>
         
 </section>

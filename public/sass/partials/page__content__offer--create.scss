@@ -122,48 +122,38 @@
         $images-overflow-mask-width: .4rem;
         .offer__pictures {
             max-width: 100%;
-            overflow: hidden;
-            position: relative;
             white-space: initial;
             width: auto;
 
             .image-picker__images {
                 @extend .offer__pictures__wrapper;
-
-                position: relative;
             }
 
             .image-picker__images__list {
-                box-sizing: border-box;
-                padding: 0 $images-overflow-mask-width;
-                white-space: nowrap;
-
-                &.ps-container .ps-scrollbar-x-rail {
-                    margin-left: $images-overflow-mask-width;
-                }
+                @extend .offer__pictures__list;
             }
-            .image-picker__images__image {
-                @extend .offer__pictures__picture;
-            }
-                .image-picker__adder {
-                    
+                .image-picker__images__image {
+                    @extend .offer__pictures__picture;
                 }
+                    .image-picker__adder {
+                        
+                    }
 
-                .image-picker__adder--active {
-                    box-sizing: border-box;
-                    padding-right: $images-overflow-mask-width;
-                    width: 100%;
-                }
-
-                    .image-picker__adder__form {
+                    .image-picker__adder--active {
                         box-sizing: border-box;
-                        padding-left: $images-overflow-mask-width;
+                        padding-right: $images-overflow-mask-width;
                         width: 100%;
                     }
 
-                        .image-picker__adder__form__preview {
-                            max-width: $add-button-size;
+                        .image-picker__adder__form {
+                            box-sizing: border-box;
+                            padding-left: $images-overflow-mask-width;
+                            width: 100%;
                         }
+
+                            .image-picker__adder__form__preview {
+                                max-width: $add-button-size;
+                            }
         }
 
 

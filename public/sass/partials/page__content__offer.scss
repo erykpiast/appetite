@@ -1,4 +1,5 @@
 @import "./page__content__offer__pictures.scss";
+@import "./page__content__offer__comments.scss";
 
 .page__content__offer {
 
@@ -26,17 +27,6 @@
 		vertical-align: middle;
 		width: 50%;
 	}
-
-
-	.photo-gallery {
-		@extend .offer__pictures__wrapper;
-	}
-		.photo-gallery__wrapper {
-			// @extend .offer__pictures__wrapper;
-		}
-			.photo-gallery__photo {
-				@extend .offer__pictures__picture;
-			}
 
 
 	.offer__description {
@@ -95,124 +85,6 @@
 	        };
 	        transform: translateY( 0.15em );
 	    }
-
-
-	.offer__comments {
-		margin: $base-spacing-unit * 2 0;
-	}
-
-		.offer__comments__header {
-			margin-bottom: $quarter-spacing-unit;
-			overflow: hidden;
-			position: relative;
-
-			&:before {
-				top: 50%;
-			}
-
-			@include scut-before() {
-				background-color: $c-fg-acc;
-				display: block;
-				height: $rpx;
-				left: 0;
-				margin-top: -($rpx / 2);
-				position: absolute;
-				right: 0;
-				z-index: 0;
-			}
-
-			h3 {
-				background-color: $c-bg-light;
-				color: $c-fg-acc;
-				display: inline-block;
-				margin-left: $base-spacing-unit;
-				padding: 0 $quarter-spacing-unit;
-				position: relative;
-				z-index: 1;
-			}
-		}
-
-		.offer__comments__list {
-			@include scut-list-unstyled();
-
-			margin-left: $base-spacing-unit;
-
-			.offer__comments__list {
-				margin-left: $base-spacing-unit * 3.5;				
-			}
-		}
-			.offer__comments__comment {
-				$border-radius: .4rem;
-
-				margin-top: $base-spacing-unit;
-
-				.comment {
-					@include scut-before() {
-						@include scut-absolute(0 0 n (2 * $base-spacing-unit));
-
-						background-color: $c-bg-dark;
-						height: .2rem;
-						z-index: 1;
-					}
-
-					overflow: hidden;
-					position: relative;
-				}
-
-				.comment--offer-author-comment {
-					&:before {
-						background-color: $c-fg-acc;
-					}
-					
-					.comment__header__author__name {
-						color: $c-fg-acc;
-					}
-				}
-
-				.comment,
-				.comment__header {
-					border-top-right-radius: $border-radius;
-				}
-					
-				.comment__header,
-				.comment__header:before,
-				.comment__content {
-					background-color: $c-bg-acc-light;
-				}
-
-				.comment__header,
-				.comment__header:before,
-				.comment__content {
-					border-color: $c-bg-dark;
-				}
-
-				.comment__header__time {
-					color: $c-fg-def-light;
-
-					&:before {
-						content: "‧";
-						margin: 0 $quarter-spacing-unit;
-					}
-				}
-
-				.comment__content {
-					border-radius: 0 0 $border-radius $border-radius;
-					padding-bottom: $half-spacing-unit;
-				}
-
-				.comment__header__author {
-					position: relative;
-					z-index: 1;
-				}
-
-				.comment__header__author__name {
-					@extend strong;	
-				}
-
-				.comment__header__author__avatar:before {
-					box-shadow: 0 0 .4rem .1rem $c-shadow-dark inset;
-				}
-			}
 
 	.offer__order {
 		text-align: center;
