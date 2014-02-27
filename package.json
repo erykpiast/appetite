@@ -40,7 +40,8 @@
     "grunt-node-inspector": "~0.1.1",
     "grunt-shell": "~0.5.0",
     "grunt-concurrent": "~0.4.2",
-    "grunt-contrib-copy": "~0.5.0"
+    "grunt-contrib-copy": "~0.5.0",
+    "load-grunt-tasks": "^0.4.0"
   },
   "description": "appetite ========",
   "main": "Gruntfile.js",
