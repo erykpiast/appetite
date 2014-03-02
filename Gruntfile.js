@@ -15,30 +15,56 @@ module.exports = function(grunt) {
             'css-assets': {
                 files: [{
                         expand: true,
+                        cwd: '<%= conf.webapp %>/styles/images',
+                        src: '**/*.{png,gif,webp,jpg}',
+                        dest: '<%= conf.target.webapp %>/styles/images'
+                    },{
+                        expand: true,
+                        cwd: '<%= conf.webapp %>/styles/fonts',
+                        src: '**/*.{woff,ttf,css}',
+                        dest: '<%= conf.target.webapp %>/styles/fonts'
+                    },{
+                        expand: true,
                         flatten: true,
                         cwd: '<%= conf.webapp %>',
-                        src: [ 'bower_components/jquery-ui/themes/base/images/*' ],
+                        src: 'bower_components/jquery-ui/themes/base/images/*',
                         dest: '<%= conf.target.webapp %>/styles/images'
                     },{
                         expand: true,
                         flatten: true,
                         cwd: '<%= conf.webapp %>',
-                        src: [ 'bower_components/select2/*.{png,gif}' ],
+                        src: 'bower_components/select2/*.{png,gif}',
                         dest: '<%= conf.target.webapp %>/styles/'
                     }]
+            },
+            html: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= conf.webapp %>',
+                    src: 'index.html',
+                    dest: '<%= conf.target.webapp %>'
+                }]
+            },
+            images: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= conf.webapp %>/images',
+                    src: [ '**/*.{png,webp,jpg}' ],
+                    dest: '<%= conf.target.webapp %>/images'
+                }]
             },
             js: {
                 files: [{
                     expand: true,
                     cwd: '<%= conf.webapp %>',
-                    src: '{bower_components,libs,modules,controllers,directives,filters,services,templates,fake-rest}/**/*.{js,tpl,json}',
+                    src: [ 'app.js', '{bower_components,libs,modules,controllers,directives,filters,services,templates,fake-rest}/**/*.{js,tpl,json}' ],
                     dest: '<%= conf.target.webapp %>'
                 }]
             },
             server: {
                 files: [{
                     expand: true,
-                    src: '{node_modules,libs,config,routes,modules}/**/*.{js,json}',
+                    src: [ '{node_modules,libs,config,routes,modules}/**/*.{js,json,types}', './app.js' ],
                     dest: '<%= conf.target.server %>'
                 }]
             }
@@ -46,11 +72,9 @@ module.exports = function(grunt) {
         compass: {
             dev: {
                 options: {
-                    basePath: '<%= conf.webapp %>',
-                    sassDir: 'sass',
-                    cssDir: 'styles',
-                    imagesDir: 'styles/images',
-                    specify: 'style.scss',
+                    sassDir: '<%= conf.webapp %>/styles',
+                    cssDir: '<%= conf.target.webapp %>/styles',
+                    specify: '<%= conf.webapp %>/styles/style.scss',
                     require: [ 'compass', 'compass-inuit', 'scut', 'font-awesome-sass', 'sass-css-importer' ],
                     force: true,
                     relativeAssets: true,
@@ -64,7 +88,8 @@ module.exports = function(grunt) {
                 map: true
             },
             dev: {
-                src: '<%= conf.target.webapp %>/styles/**/*.css'
+                src: '<%= conf.target.webapp %>/styles/style.css',
+                dest: '<%= conf.target.webapp %>/styles/style.css'
             },
             mockup: {
                 src: '<%= conf.target.mockup %>/styles/style.css'
@@ -103,7 +128,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: [
-                    '<%= conf.webapp %>/sass/**/*.scss',
+                    '<%= conf.webapp %>/styles/**/*.scss',
                     '<%= conf.webapp %>/bower_components/**/*.{scss,css}'
                 ],
                 tasks: [ 'build:dev:css' ]
@@ -128,24 +153,44 @@ module.exports = function(grunt) {
                 tasks: [ 'karma:integration:run' ]
             }
         },
+        clean: {
+            target: [ 'target' ]
+        },
         build: {
             dev: {
+                options: {
+                    concurrent: true,
+                    logConcurrentOutput: true
+                },
                 server: [ 'copy:server' ],
-                js: [ 'copy:js' ],
-                css: [ 'compass:dev', 'copy:css-assets', 'autoprefixer:dev' ]
+                webapp: {
+                    options: {
+                        concurrent: true
+                    },
+                    html: [ 'copy:html' ],
+                    images: [ 'copy:images' ],
+                    js: [ 'copy:js' ],
+                    css: [ 'compass:dev', 'copy:css-assets', 'autoprefixer:dev' ]
+                }
             }
+        },
+        start: {
+            server: [ 'develop:server' ],
+            webapp: [ 'http-server:webapp' ]
         }
     });
 
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('start-server', [ 'develop:server' ]);
-    grunt.registerTask('start-webapp', [ 'http-server:webapp' ]);
+    var nestedTask = require('grunt-nestedtasksrunner')(grunt);
+
+    grunt.registerMultiTask('start', nestedTask);
+    grunt.registerMultiTask('build', nestedTask);
 
     grunt.registerTask('default', [
+        'clean:target',
         'build:dev',
-        'start-server',
-        'start-webapp',
+        'start',
         'watch'
     ]);
     

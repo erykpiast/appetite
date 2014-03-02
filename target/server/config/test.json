@@ -1,0 +1,8 @@
+{
+	"database" : {
+		"name" : "appetite-test",
+		"username" : "appetite-test",
+		"password" : "appetite-test",
+		"recreate" : true
+	}
+}
