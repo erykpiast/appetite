@@ -5,7 +5,10 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         conf: {
             webapp: 'public',
-            mockup: 'mockup-v1',
+            port: {
+                server: 3000,
+                webapp: 8080
+            },
             target: {
                 server: 'target/server',
                 webapp: 'target/public'
@@ -90,24 +93,30 @@ module.exports = function(grunt) {
             dev: {
                 src: '<%= conf.target.webapp %>/styles/style.css',
                 dest: '<%= conf.target.webapp %>/styles/style.css'
-            },
-            mockup: {
-                src: '<%= conf.target.mockup %>/styles/style.css'
             }
         },
         develop: {
             server: {
-                file: '<%= conf.target.server %>/app.js'
+                file: '<%= conf.target.server %>/app.js',
+                env: { NODE_ENV: 'development', PORT: '<%= conf.port.server %>' } 
             }
         },
         'http-server': {
             webapp: {
                 root: '<%= conf.target.webapp %>',
-                port: 8080,
+                port: '<%= conf.port.webapp %>',
                 host: '0.0.0.0',
                 cache: 0,
                 autoIndex: true,
                 defaultExt: 'html'
+            }
+        },
+        shell: {
+            killServer: {
+                command: 'lsof -i:<%= conf.port.server %> -t | xargs kill'
+            },
+            killWebapp: {
+                command: 'lsof -i:<%= conf.port.webapp %> -t | xargs kill'
             }
         },
         karma: {
@@ -120,28 +129,31 @@ module.exports = function(grunt) {
                 livereload: false
             },
             server: {
+                options: {
+                    spawn: false
+                },
                 files: [
                     'app.js',
                     '{node_modules,libs,config,routes,modules}/**/*.{js,json}'
                 ],
-                tasks: [ 'build:server' ]
+                tasks: [ 'build:dev:server', 'start:server' ]
             },
             css: {
                 files: [
                     '<%= conf.webapp %>/styles/**/*.scss',
                     '<%= conf.webapp %>/bower_components/**/*.{scss,css}'
                 ],
-                tasks: [ 'build:dev:css' ]
+                tasks: [ 'build:dev:webapp:css' ]
             },
             scripts: {
                 files: [
                     '<%= conf.webapp %>/index.html',
                     '<%= conf.webapp %>/{bower_components,libs,modules,controllers,directives,filters,services,templates,fake-rest}/**/*.{js,tpl,json}'
                 ],
-                tasks: [ 'build:dev:js' ]
+                tasks: [ 'build:dev:webapp:js' ]
             },
             livereload: {
-                files: [ '<%= conf.target.webapp %>/**/*' ],
+                files: [ '<%= conf.target.webapp %>/**' ],
                 options: {
                     livereload: true
                 }
@@ -177,7 +189,11 @@ module.exports = function(grunt) {
         start: {
             server: [ 'develop:server' ],
             webapp: [ 'http-server:webapp' ]
-        }
+        },
+        stop: {
+            server: [ 'shell:killServer' ],
+            webapp: [ 'shell:killWebapp' ]
+        },
     });
 
     require('load-grunt-tasks')(grunt);
@@ -185,11 +201,13 @@ module.exports = function(grunt) {
     var nestedTask = require('grunt-nestedtasksrunner')(grunt);
 
     grunt.registerMultiTask('start', nestedTask);
+    grunt.registerMultiTask('stop', nestedTask);
     grunt.registerMultiTask('build', nestedTask);
 
     grunt.registerTask('default', [
         'clean:target',
         'build:dev',
+        'stop',
         'start',
         'watch'
     ]);
