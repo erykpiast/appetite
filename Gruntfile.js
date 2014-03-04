@@ -134,7 +134,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     'app.js',
-                    '{node_modules,libs,config,routes,modules}/**/*.{js,json}'
+                    '/{node_modules,libs,config,routes,modules}/**/*.{js,json}'
                 ],
                 tasks: [ 'build:dev:server', 'start:server' ]
             },
