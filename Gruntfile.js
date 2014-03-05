@@ -95,12 +95,6 @@ module.exports = function(grunt) {
                 dest: '<%= conf.target.webapp %>/styles/style.css'
             }
         },
-        develop: {
-            server: {
-                file: '<%= conf.target.server %>/app.js',
-                env: { NODE_ENV: 'development', PORT: '<%= conf.port.server %>' } 
-            }
-        },
         'http-server': {
             webapp: {
                 root: '<%= conf.target.webapp %>',
@@ -112,11 +106,42 @@ module.exports = function(grunt) {
             }
         },
         shell: {
-            killServer: {
+            startRestServer: {
+                command: 'node app.js',
+                options: {
+                    stdout: true,
+                    stderr: true,
+                    execOptions: {
+                        cwd: '<%= conf.target.server %>',
+                        env: { NODE_ENV: 'devel', PORT: '<%= conf.port.server %>' }
+                    }
+                }
+            },
+            killRestServer: {
                 command: 'lsof -i:<%= conf.port.server %> -t | xargs kill'
             },
-            killWebapp: {
+            killWebappServer: {
                 command: 'lsof -i:<%= conf.port.webapp %> -t | xargs kill'
+            }
+        },
+        concurrent: {
+            options: {
+                logConcurrentOutput: true
+            },
+            restServer: {
+                options: {
+                    waitFor: false
+                },
+                tasks: [ 'shell:startRestServer' ]
+            },
+            webappServer: {
+                options: {
+                    waitFor: false
+                },
+                tasks: [ 'http-server:webapp' ]
+            },
+            watchAll: {
+                tasks: [ 'watch' ]  
             }
         },
         karma: {
@@ -136,7 +161,7 @@ module.exports = function(grunt) {
                     'app.js',
                     '/{node_modules,libs,config,routes,modules}/**/*.{js,json}'
                 ],
-                tasks: [ 'build:dev:server', 'start:server' ]
+                tasks: [ 'build:dev:server', 'stop:server', 'start:server' ]
             },
             css: {
                 files: [
@@ -187,13 +212,14 @@ module.exports = function(grunt) {
             }
         },
         start: {
-            server: [ 'develop:server' ],
-            webapp: [ 'http-server:webapp' ]
+            server: [ 'concurrent:restServer' ],
+            webapp: [ 'concurrent:webappServer' ]
         },
         stop: {
-            server: [ 'shell:killServer' ],
-            webapp: [ 'shell:killWebapp' ]
+            server: [ 'shell:killRestServer' ],
+            webapp: [ 'shell:killWebappServer' ]
         },
+        watchAll: [ 'concurrent:watchAll' ]
     });
 
     require('load-grunt-tasks')(grunt);
@@ -203,13 +229,14 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('start', nestedTask);
     grunt.registerMultiTask('stop', nestedTask);
     grunt.registerMultiTask('build', nestedTask);
+    grunt.registerMultiTask('watchAll', nestedTask);
 
     grunt.registerTask('default', [
         'clean:target',
         'build:dev',
         'stop',
         'start',
-        'watch'
+        'watchAll'
     ]);
     
     grunt.registerTask('test', [
