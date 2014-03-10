@@ -1,7 +1,7 @@
 <section class="page__part--user user grid">
 
 	<header class="page__part__header">
-		<img class="user__avatar" ng-src="/static/images/{{ user.avatar.filename }}" height="300px" />
+		<img class="user__avatar" ng-src="/images/{{ user.avatar.filename }}" height="300px" />
         <h2>{{ user.fullName }}</h2>
         <a class="user__site" ng-href="{{ user.site }}">{{ user.site | formatUrl:'domain' }}</a>
     </header>

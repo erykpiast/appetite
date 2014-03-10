@@ -2,11 +2,14 @@ define(['libs/angular', './module'],
 function(angular, module) {
 
     module.value('i18n', {
-        addComment: {
-            header: 'Dodaj komentarz',
-            placeholder: 'Twój komentarz',
-            submit: 'Dodaj komentarz',
-            response: 'Odpowiedz na ofertę'
+        comments: {
+            add: {
+                header: 'Dodaj komentarz',
+                placeholder: 'Twój komentarz',
+                submit: 'Dodaj komentarz',
+                response: 'Odpowiedz na ofertę'
+            },
+            header: 'Komentarze'
         },
         common: {
             ago: 'temu',
@@ -14,7 +17,7 @@ function(angular, module) {
             cancel: 'Anuluj',
             lastestOffers: 'Ostatnie oferty',
             signLong: 'Zaloguj używając',
-            unsignLong: 'Wyloguj - odłącz konto'
+            unsignLong: 'Wyloguj – odłącz konto'
         },
         dates: {
             dayNames: ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'],
@@ -43,6 +46,18 @@ function(angular, module) {
                 gram: 'g',
                 kilogram: 'kg',
                 liter: 'l'
+            },
+            order: {
+                amountUnits: {
+                    valuePlaceholder: '#',
+                    centimeter: 'Forma ⌀# cm',
+                    piece: '# szt.',
+                    gram: '# g',
+                    kilogram: '# kg',
+                    liter: '# l'
+                },
+                currency: 'zł',
+                doOrder: 'Zamawiam!'
             },
             comment: {
                 answerPrelude: 'To jest odpowiedź na komentarz użytkownika',

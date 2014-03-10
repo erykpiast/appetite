@@ -54,5 +54,7 @@
     "devel": true,
     "node": true,
     "jquery": true,
-    "white": false
+    "white": false,
+    "laxbreak": true,
+    "validthis": true
 }

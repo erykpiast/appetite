@@ -1,0 +1,132 @@
+.image-picker,
+.image-picker__adder,
+.image-picker__adder__add-next,
+.image-picker__adder__form,
+.image-picker__adder__form > fieldset,
+.image-picker__images,
+.image-picker__image {
+    height: 100%;   
+}
+
+.image-picker {
+	display: table;
+
+	& > * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.image-picker__header {
+    display: none;
+}
+
+.image-picker__adder {
+}
+.image-picker__adder--active {
+	@extend .image-picker__adder;
+
+	position: relative;
+}
+
+	.image-picker__adder__form {
+		position: relative;
+		width: 100%;
+
+	    & > fieldset {
+	        border: none;
+	        width: 100%;
+
+	        & > legend {
+	        	@extend h4;
+	        }
+	    }
+	}
+		.image-picker__adder__form__preview {
+			@include scut-absolute(0 0 n n);
+
+			max-height: 100%;
+		}
+
+		.image-picker__adder__form__input {
+			margin-top: $base-spacing-unit;
+			text-align: center;
+
+			&, & > label, & > input {
+				display: inline-block;
+				margin-bottom: $half-spacing-unit; 
+			}
+
+			& > input {
+				box-sizing: border-box;
+				width: 100%;
+			}
+		}
+			.image-picker__adder__form__input__button {
+				display: inline-block;
+				margin-right: $half-spacing-unit;
+				vertical-align: middle;
+			}
+			.image-picker__adder__form__input__button--apply,
+			.image-picker__adder__form__input__button--cancel {
+				@extend .image-picker__adder__form__input__button;
+			}
+			.image-picker__adder__form__input__button--apply {
+				@extend .button--primary;
+			}
+			.image-picker__adder__form__input__button--cancel {
+				@extend .button--secondary;
+			}
+
+	.image-picker__adder__add-next {
+		@extend .button--empty;
+		@extend .button--ico--add;
+		
+    	@include scut-size(10rem);
+    	@include hover-effect--expand() {
+    		background-color: $c-bg-acc-light;
+    	};
+
+		border-radius: 5%;
+    	margin: 2.5rem;
+    	overflow: hidden;
+
+		&:before {
+			display: block;
+			font-size: 300%;
+			margin-bottom: $quarter-spacing-unit;
+		}
+	}
+
+.image-picker__images {
+	overflow: hidden;
+}
+	.image-picker__images__list {
+		overflow: hidden;
+		position: relative;
+	}
+	.image-picker__images__image {
+		position: relative;
+
+	    @include scut-before() {
+	    	@extend .button--ico--trash:before;
+
+	    	@include scut-absolute(0 0 0 0);
+
+	    	border: none;
+	    	font-size: 300%;
+	    	line-height: 500%; // naive vertical centering
+	    	margin: 0;
+	    	opacity: 0;
+	    	padding: 0;
+	    	text-align: center;
+	    	text-shadow: 0 0 .4em $c-bg-acc-light;
+	    	transition: opacity .1s linear;
+	    	z-index: 1
+	    }
+
+	    &:hover:before {
+	    	opacity: 1;
+	    	transition: opacity .3s ease-out $response-delay;
+	    }
+	}

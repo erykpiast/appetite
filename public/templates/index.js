@@ -2,7 +2,7 @@
     
     var templates = [ 'header', 'footer',
         'test', 'main', 'offers', 'offer', 'offer-create', 'user',
-        'offer-thumbnail', 'offer-author', 'comment', 'gallery', 'add-comment', 'image-picker', 'login', 'current-user' ];
+        'offer-thumbnail', 'offer-author', 'comment', 'add-comment', 'image-picker', 'login', 'current-user' ];
     
     define([ 'libs/underscore' ].concat(templates.map(function(template) {
         return 'text!templates/' + template + '.tpl';

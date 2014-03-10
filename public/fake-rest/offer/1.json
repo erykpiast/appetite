@@ -36,6 +36,9 @@
             "text": "tres-leches"
         }]
     },
+    "price": "55",
+    "amount": "24",
+    "unit": "centimeter",
     "startAt": "2013-10-27T19:28:10.398Z",
     "endAt": "2013-11-11T12:18:29.442Z",
     "author": 2

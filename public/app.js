@@ -1,7 +1,7 @@
 'use strict';
 
 requirejs.config({
-    baseUrl: '/static',
+    baseUrl: '/',
     waitSeconds: 60,
     paths: {
         'text': 'bower_components/requirejs-text/text',

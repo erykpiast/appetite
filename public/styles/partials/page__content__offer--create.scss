@@ -1,0 +1,326 @@
+.page__content__offer--create {
+    @extend .page__content__offer;
+
+    // to offer title label be visible
+    &,
+    .offer__header {
+        overflow: visible;
+    }
+
+    @mixin parent-width() {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    @include parent-width();
+
+    .offer--create__form {
+        & > div {
+            & > input,
+            & > textarea {
+                @extend .input--default;
+            }
+        }
+
+        .edit-in-place {
+            & > label {
+                @include scut-absolute(n n 100% 0);
+
+                color: $c-fg-def;
+                display: none;
+                font: {
+                    family: $content-font;
+                    size: $base-font-size;
+                    weight: normal;
+                };
+                padding: 0 inherit;
+                pointer-events: none;
+                user-select: none;
+                z-index: 1;
+            }
+            
+            &:not(.edit-in-place--active):hover:after {
+                opacity: 1;
+                transition: opacity .3s ease-out $response-delay;
+            }
+
+            &:after {
+                @extend .tooltip;
+                
+                content: attr(data-title);
+                opacity: 0;
+                transition: opacity .3s linear 0;
+                min-width: 9em;
+            }
+        }
+
+        .edit-in-place--active {
+            & > label {
+                background-color: $c-fg-acc;
+                border: 1px solid $c-shadow-dark {
+                    bottom: none;
+                    radius: .4em .4em 0 0;
+                };
+                color: $c-bg-acc-light;
+                padding: 0 $quarter-spacing-unit;
+            }
+        }
+
+            .edit-in-place__input {
+                @extend .input--default;
+
+                border-top-left-radius: 0;
+
+                &:focus ~ label {
+                    display: block;
+                }
+            }
+
+        .offer__submit {
+            margin-top: $base-spacing-unit;
+            text-align: center;
+
+            & > button {
+                @extend .button--primary;
+                
+                display: inline-block;
+            }
+        }
+    }
+
+    .offer--create__form--template,
+    .offer--create__form--details {
+        @extend .offer--create__form;
+    }
+
+    .offer--create__form--template {
+
+        .offer__title {
+            @extend .offer__header;
+
+            max-width: calc(100% - #{2 * $base-spacing-unit});
+            min-width: 4em;
+            overflow: visible;
+        }
+
+        .offer__header {
+            .edit-in-place {
+                max-width: calc(100% - #{2 * $base-spacing-unit});
+                min-width: 14.5em;
+
+                &:after {
+                    @extend .tooltip--right;
+
+                    margin-left: $quarter-spacing-unit;
+                }
+            }
+        }
+
+
+        $add-button-size: 15rem;
+        $images-overflow-mask-width: .4rem;
+        .offer__pictures {
+            max-width: 100%;
+            white-space: initial;
+            width: auto;
+
+            .image-picker__images {
+                @extend .offer__pictures__wrapper;
+            }
+
+            .image-picker__images__list {
+                @extend .offer__pictures__list;
+            }
+                .image-picker__images__image {
+                    @extend .offer__pictures__picture;
+                }
+                    .image-picker__adder {
+                        
+                    }
+
+                    .image-picker__adder--active {
+                        box-sizing: border-box;
+                        padding-right: $images-overflow-mask-width;
+                        width: 100%;
+                    }
+
+                        .image-picker__adder__form {
+                            box-sizing: border-box;
+                            padding-left: $images-overflow-mask-width;
+                            width: 100%;
+                        }
+
+                            .image-picker__adder__form__preview {
+                                max-width: $add-button-size;
+                            }
+        }
+
+
+        .offer__description {
+            margin: {
+                left: -$half-spacing-unit;
+                right: -$half-spacing-unit;
+                top: 0;
+            };
+
+            .edit-in-place {
+                &:after {
+                    @extend .tooltip--top;
+
+                    margin-left: $half-spacing-unit;
+                }
+            }
+                .edit-in-place__input {
+                    overflow: hidden;
+                    resize: none;
+                }
+        }
+            .offer__description__paragraph {
+                box-sizing: border-box;
+                margin-top: $quarter-spacing-unit;
+                max-width: none;
+                min-height: 2.5 * $base-line-height;
+                padding: $quarter-spacing-unit $half-spacing-unit;
+                width: 100%;
+            }
+
+
+        $label-maxWidth: 6.5em;
+        .offer__source {
+            color: inherit;
+            margin: $half-spacing-unit 0;
+
+            .edit-in-place {
+                &:after {
+                    @extend .tooltip--right;
+
+                    margin-left: $quarter-spacing-unit;
+                }
+            }
+        }
+            .offer__source__label {
+                display: inline-block;
+                max-width: $label-maxWidth;
+            }
+            .offer__source__link {
+                font-weight: normal;
+                max-width: calc(100% - #{$label-maxWidth} - #{$quarter-spacing-unit});
+                min-width: 4em;
+
+                &.edit-in-place--active {
+                    min-width: 32em;
+                }
+
+                    .edit-in-place__input {
+                        bottom: -$quarter-spacing-unit;
+                        font-weight: normal;
+                        padding: $quarter-spacing-unit;
+                        top: -$quarter-spacing-unit;
+                    }
+
+                    .edit-in-place__label {
+                        margin-bottom: $quarter-spacing-unit;
+                    }
+
+                    .edit-in-place__value {
+                        display: inline-block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        width: 100%;
+                        white-space: nowrap;
+                        vertical-align: bottom;
+                    }
+            }
+
+
+        .offer__tags {
+            margin: $half-spacing-unit 0;
+
+            label {
+                display: inline-block;
+                margin-right: $quarter-spacing-unit;
+                max-width: $label-maxWidth;
+            }
+
+            .select2-container {
+                min-width: 15em;
+            }
+
+            .select2-input {
+                min-width: 5em;
+            }
+        }
+    } // << .offer--create__form--template
+
+    .offer--create__form--details {
+        @extend .offer__content;
+
+        & > div {
+            @include scut-inline-container();
+            
+            margin: $half-spacing-unit 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            & > label {
+                display: inline-block;
+                margin-right: ($quarter-spacing-unit / 2);
+                text-align: right;
+                width: 50%;
+            }
+
+            & > label + * {
+                margin-left: ($quarter-spacing-unit / 2);
+            }
+
+            & > .ui-spinner {
+                @extend .input--default;
+
+                padding-right: 22px; // input margin read from jQuery UI CSS
+                width: 1.75em;
+
+                &, // reset dumb jQueryUI styles
+                & > input {
+                    font: {
+                        family: inherit;
+                        size: $base-font-size;
+                    };
+                }
+
+                & > input {
+                    display: block;
+                    margin: 0;
+                    outline: none;
+                    // transform: translateY( #{-$base-font-size / 2} );
+                    width: 100%;
+                }
+            }
+
+            & > select {
+                @extend .input--default;
+
+                background-color: transparent;
+            }
+        }
+
+        .offer__amount {
+            & > * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+            .offer__amount__unit {
+                box-sizing: content-box;
+                height: 17px; // height of input calculated in browser; no idea how to apply it to select (default height make it 2px higher than input with the same styles)
+                margin-left: $quarter-spacing-unit;
+                width: 3em;
+            }
+    }
+}

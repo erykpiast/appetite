@@ -52,7 +52,7 @@ define([ 'libs/angular' ], function(angular) {
 	}
 
 
-	return function($rootScope, $scope, $stateParams, rest, authData) {
+	return function($rootScope, $scope, $stateParams, rest, authData, i18n) {
 		$scope.users = users;
 		$scope.offer = {
 			comments: [ ]
@@ -95,9 +95,15 @@ define([ 'libs/angular' ], function(angular) {
 			},
 			acceptResponse: function(response) {
 				rest.response.update({ id: response.id }, { accepted: true })
-					.$promise.then(function(res) {
+					.$promise.then(function() {
 						response.accepted = true;
 					});	
+			},
+			formatAmount: function(value, unit) {
+				var labels = i18n.offer.order.amountUnits,
+					valuePlaceholder = i18n.offer.order.amountUnits.valuePlaceholder;
+
+				return labels[unit].replace(valuePlaceholder, value);
 			}
 		});
 

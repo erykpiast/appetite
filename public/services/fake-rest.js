@@ -4,7 +4,7 @@ function(angular, undefined, module) {
     module
     .factory('fakeRest', function($resource) {
         function _rest(path) {
-            return '/static/fake-rest/' + path.replace(/^\//, '');
+            return '/fake-rest/' + path.replace(/^\//, '');
         }
         
         return {

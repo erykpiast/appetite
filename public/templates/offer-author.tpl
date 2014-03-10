@@ -3,7 +3,7 @@
 	<header class="offer-author__header">
 		<h3 class="offer-author__name">{{ author.fullName }}</h3>
 
-		<img ng-src="/static/images/{{ author.avatar.filename }}" />
+		<img ng-src="/images/{{ author.avatar.filename }}" />
 	</header>
 
 </section>
