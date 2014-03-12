@@ -8,12 +8,30 @@
         <link rel="stylesheet" href="/styles/style.css"/>
         
         <script type="text/javascript">
+            (function(w, d, f, s, t, b, g, c, k, m, u, e, n, r, o, a) {
+                if (!w.WebSocket || !w.MutationObserver) return;
+                n = d.createElement("script");
+                n.async = 1;
+                n.src = u.replace(/#/, e);
+                d.head.appendChild(n);
+                o = Date.now();
+                a = ~~(new RegExp("(?:" + c + e + m + "=)([^;]+)").exec(d.cookie) || w[s] && w[s].getItem(c + e + m)) < o;
+                r = new RegExp("(?:" + c + e + k + "=)([^;]+)").exec(d.cookie) || w[s] && w[s].getItem(c + e + k);
+                w[g] = {
+                    experimentId: e,
+                    recordingId: r && !a ? r[1] : (f() * 1e17)[t](36)[b](0, 5) + o[t](36)[b](1, 8) + (f() * 1e17)[t](36)[b](6, 11)
+                };
+            })(window, document, Math.random, "localStorage", "toString", "substr", "-.NUVR", "NUVR_", "rid", "end", "https://usabilitytools.com/nuvr-tracker/#/tracker.js", 81206);
+        </script>
+        
+        <script type="text/javascript">
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
           ga('create', 'UA-46817166-1', 'mamapetytna.pl');
+          ga('set', 'dimension1', window['-.NUVR'].experimentId + ':' + window['-.NUVR'].recordingId);
           ga('require', 'linkid', 'linkid.js');
           ga('send', 'pageview');
 
