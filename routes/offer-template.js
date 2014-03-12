@@ -1,10 +1,10 @@
-var restUrl = $require('config').restUrl;
+var restRoot = $require('config').restRoot;
 
 module.exports = function(app) {
 	var rest = app.get('rest').OfferTemplate;
 
 	app
-		.post(restUrl + '/offer-template', function(req, res) {
+		.post(restRoot + '/offer-template', function(req, res) {
 			rest.create(res.locals.authData, req.body).then(
 				function(template) {
 					if(!template.existed) {
@@ -21,7 +21,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/offer-template/:id', function(req, res) {
+		.get(restRoot + '/offer-template/:id', function(req, res) {
 			rest.retrieve(req.params, res.locals.authData).then(
 				function(template) {
 					res.json(template.resource);
@@ -34,7 +34,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.put(restUrl + '/offer-template/:id', function(req, res) {
+		.put(restRoot + '/offer-template/:id', function(req, res) {
 			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
 				function(template) {
 					res.json(template.resource);
@@ -47,7 +47,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.delete(restUrl + '/offer-template/:id', function(req, res) {
+		.delete(restRoot + '/offer-template/:id', function(req, res) {
 			rest.destroy({ id: req.params.id }, res.locals.authData).then(
 				function(template) {
 					res.json(template.resource);

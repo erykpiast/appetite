@@ -1,8 +1,8 @@
-var restUrl = $require('config').restUrl;
+var restRoot = $require('config').restRoot;
 
 module.exports = function(app) {
 	var exports = {
-			path: restUrl
+			root: restRoot
 		};
 
 	$require('fs').readdir(__dirname + '/resources', function(err, files) {

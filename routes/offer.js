@@ -1,10 +1,10 @@
-var restUrl = $require('config').restUrl;
+var restRoot = $require('config').restRoot;
 
 module.exports = function(app) {
 	var rest = app.get('rest').Offer;
 
 	app
-		.post(restUrl + '/offer', function(req, res) {
+		.post(restRoot + '/offer', function(req, res) {
 			rest.create(res.locals.authData, req.body).then(
 				function(offer) {
 					if(!offer.existed) {
@@ -21,7 +21,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/offer/:id', function(req, res) {
+		.get(restRoot + '/offer/:id', function(req, res) {
 			rest.retrieve({ id: req.params.id }, res.locals.authData).then(
 				function(offer) {
 					res.json(offer.resource);
@@ -34,7 +34,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/offer', function(req, res) {
+		.get(restRoot + '/offer', function(req, res) {
 			rest.retrieveAll({ limit: req.query.limit, offset: req.query.offset }, res.locals.authData).then(
 				function(offer) {
 					res.json(offer.resource);
@@ -47,7 +47,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.put(restUrl + '/offer/:id', function(req, res) {
+		.put(restRoot + '/offer/:id', function(req, res) {
 			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
 				function(offer) {
 					res.json(offer.resource);
@@ -60,7 +60,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.delete(restUrl + '/offer/:id', function(req, res) {
+		.delete(restRoot + '/offer/:id', function(req, res) {
 			rest.destroy({ id: req.params.id }, res.locals.authData).then(
 				function(offer) {
 					res.json(offer.resource);

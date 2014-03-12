@@ -1,10 +1,10 @@
-var restUrl = $require('config').restUrl;
+var restRoot = $require('config').restRoot;
 
 module.exports = function(app) {
 	var rest = app.get('rest').Tag;
 
 	app
-		.post(restUrl + '/tag', function(req, res) {
+		.post(restRoot + '/tag', function(req, res) {
 			rest.create(res.locals.authData, req.body).then(
 				function(tag) {
 					if(!tag.existed) {
@@ -21,7 +21,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/tag/:id', function(req, res) {
+		.get(restRoot + '/tag/:id', function(req, res) {
 			rest.retrieve({ id: req.params.id }, res.locals.authData).then(
 				function(tag) {
 					res.json(tag.resource);
@@ -34,7 +34,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/tag', function(req, res) {
+		.get(restRoot + '/tag', function(req, res) {
 			rest.retrieveAll({ limit: req.query.limit, offset: req.query.offset }, res.locals.authData).then(
 				function(tag) {
 					res.json(tag.resource);
@@ -47,7 +47,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.put(restUrl + '/tag/:id', function(req, res) {
+		.put(restRoot + '/tag/:id', function(req, res) {
 			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
 				function(tag) {
 					res.json(tag.resource);
@@ -60,7 +60,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.delete(restUrl + '/tag/:id', function(req, res) {
+		.delete(restRoot + '/tag/:id', function(req, res) {
 			rest.destroy({ id: req.params.id }, res.locals.authData).then(
 				function(tag) {
 					res.json(tag.resource);

@@ -1,10 +1,10 @@
-var restUrl = $require('config').restUrl;
+var restRoot = $require('config').restRoot;
 
 module.exports = function(app) {
 	var rest = app.get('rest').Comment;
 
 	app
-		.post(restUrl + '/comment', function(req, res) {
+		.post(restRoot + '/comment', function(req, res) {
 			rest.create(res.locals.authData, req.body).then(
 				function(comment) {
 					if(!comment.existed) {
@@ -21,7 +21,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/comment/:id', function(req, res) {
+		.get(restRoot + '/comment/:id', function(req, res) {
 			rest.retrieve(req.params, res.locals.authData).then(
 				function(comment) {
 					res.json(comment.resource);
@@ -34,7 +34,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.put(restUrl + '/comment/:id', function(req, res) {
+		.put(restRoot + '/comment/:id', function(req, res) {
 			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
 				function(comment) {
 					res.json(comment.resource);
@@ -47,7 +47,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.delete(restUrl + '/comment/:id', function(req, res) {
+		.delete(restRoot + '/comment/:id', function(req, res) {
 			rest.destroy({ id: req.params.id }, res.locals.authData).then(
 				function(comment) {
 					res.json(comment.resource);
@@ -60,7 +60,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/offer/:offerId/comments', function(req, res) {
+		.get(restRoot + '/offer/:offerId/comments', function(req, res) {
 			rest.retrieveAllForOffer(extend({ }, req.params, req.query), res.locals.authData).then(
 				function(comment) {
 					res.json(comment.resource);

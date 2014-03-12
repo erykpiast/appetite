@@ -17,5 +17,5 @@
 			"secret" : "7WxgEkdzrQkHNW4eL2rMKuHL"
 		}
 	},
-	"restUrl" : "/rest"
+	"restRoot" : "/rest"
 }

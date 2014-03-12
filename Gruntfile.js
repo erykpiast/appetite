@@ -95,53 +95,28 @@ module.exports = function(grunt) {
                 dest: '<%= conf.target.webapp %>/styles/style.css'
             }
         },
-        'http-server': {
-            webapp: {
-                root: '<%= conf.target.webapp %>',
-                port: '<%= conf.port.webapp %>',
-                host: '0.0.0.0',
-                cache: 0,
-                autoIndex: true,
-                defaultExt: 'html'
-            }
-        },
         shell: {
-            startRestServer: {
+            options: {
+                stdout: true,
+                stderr: true,
+                async: true
+            },
+            restServer: {
                 command: 'node app.js',
                 options: {
-                    stdout: true,
-                    stderr: true,
                     execOptions: {
                         cwd: '<%= conf.target.server %>',
                         env: { NODE_ENV: 'devel', PORT: '<%= conf.port.server %>' }
                     }
                 }
             },
-            killRestServer: {
-                command: 'lsof -i:<%= conf.port.server %> -t | xargs kill'
-            },
-            killWebappServer: {
-                command: 'lsof -i:<%= conf.port.webapp %> -t | xargs kill'
-            }
-        },
-        concurrent: {
-            options: {
-                logConcurrentOutput: true
-            },
-            restServer: {
-                options: {
-                    waitFor: false
-                },
-                tasks: [ 'shell:startRestServer' ]
-            },
             webappServer: {
+                command: 'http-server -p <%= conf.port.webapp %> -c-11',
                 options: {
-                    waitFor: false
-                },
-                tasks: [ 'http-server:webapp' ]
-            },
-            watchAll: {
-                tasks: [ 'watch' ]  
+                    execOptions: {
+                        cwd: '<%= conf.target.webapp %>'
+                    }
+                }
             }
         },
         karma: {
@@ -154,12 +129,9 @@ module.exports = function(grunt) {
                 livereload: false
             },
             server: {
-                options: {
-                    spawn: false
-                },
                 files: [
                     'app.js',
-                    '/{node_modules,libs,config,routes,modules}/**/*.{js,json}'
+                    '{node_modules,libs,config,routes,modules}/**/*.{js,json}'
                 ],
                 tasks: [ 'build:dev:server', 'stop:server', 'start:server' ]
             },
@@ -199,27 +171,26 @@ module.exports = function(grunt) {
                     concurrent: true,
                     logConcurrentOutput: true
                 },
-                server: [ 'copy:server' ],
+                server: [ 'newer:copy:server' ],
                 webapp: {
                     options: {
                         concurrent: true
                     },
-                    html: [ 'copy:html' ],
-                    images: [ 'copy:images' ],
-                    js: [ 'copy:js' ],
-                    css: [ 'compass:dev', 'copy:css-assets', 'autoprefixer:dev' ]
+                    html: [ 'newer:copy:html' ],
+                    images: [ 'newer:copy:images' ],
+                    js: [ 'newer:copy:js' ],
+                    css: [ 'compass:dev', 'newer:copy:css-assets', 'newer:autoprefixer:dev' ]
                 }
             }
         },
         start: {
-            server: [ 'concurrent:restServer' ],
-            webapp: [ 'concurrent:webappServer' ]
+            server: [ 'shell:restServer' ],
+            webapp: [ 'shell:webappServer' ]
         },
         stop: {
-            server: [ 'shell:killRestServer' ],
-            webapp: [ 'shell:killWebappServer' ]
-        },
-        watchAll: [ 'concurrent:watchAll' ]
+            server: [ 'shell:restServer:kill' ],
+            webapp: [ 'shell:webappServer:kill' ]
+        }
     });
 
     require('load-grunt-tasks')(grunt);
@@ -229,14 +200,12 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('start', nestedTask);
     grunt.registerMultiTask('stop', nestedTask);
     grunt.registerMultiTask('build', nestedTask);
-    grunt.registerMultiTask('watchAll', nestedTask);
 
     grunt.registerTask('default', [
-        'clean:target',
+        // 'clean:target',
         'build:dev',
-        'stop',
         'start',
-        'watchAll'
+        'watch'
     ]);
     
     grunt.registerTask('test', [

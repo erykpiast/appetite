@@ -1,10 +1,10 @@
-var restUrl = $require('config').restUrl;
+var restRoot = $require('config').restRoot;
 
 module.exports = function(app) {
 	var rest = app.get('rest').User;
 
 	app
-		.post(restUrl + '/user', function(req, res) {
+		.post(restRoot + '/user', function(req, res) {
 			rest.create(res.locals.authData, req.body).then(
 				function(user) {
 					if(!user.existed) {
@@ -21,9 +21,10 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.get(restUrl + '/user/:id', function(req, res) {
+		.get(restRoot + '/user/:id', function(req, res) {
 			rest.retrieve({ id: req.params.id }, res.locals.authData).then(
 				function(user) {
+					res.header('Access-Control-Allow-Origin', '*');
 					res.json(user.resource);
 				},
 				function(err) {
@@ -34,7 +35,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.put(restUrl + '/user/:id', function(req, res) {
+		.put(restRoot + '/user/:id', function(req, res) {
 			rest.update({ id: req.params.id }, res.locals.authData, req.body).then(
 				function(user) {
 					res.json(user.resource);
@@ -47,7 +48,7 @@ module.exports = function(app) {
 						});
 				});
 		})
-		.delete(restUrl + '/user/:id', function(req, res) {
+		.delete(restRoot + '/user/:id', function(req, res) {
 			rest.destroy({ id: req.params.id }, res.locals.authData).then(
 				function(user) {
 					res.json(user.resource);

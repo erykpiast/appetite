@@ -8,7 +8,8 @@
             'image-picker',
             'login',
             'current-user',
-            'edit-in-place'
+            'edit-in-place',
+            'tree'
             ].map(function(f) { return './' + f; }),
            function() { }
     );

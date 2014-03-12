@@ -34,16 +34,16 @@
 			}
 		}
 
-		.offer__comments__list {
+		.comments {
 			@include scut-list-unstyled();
 
 			margin-left: $base-spacing-unit;
 
-			.offer__comments__list {
+			.comments {
 				margin-left: $base-spacing-unit * 3.5;				
 			}
 		}
-			.offer__comments__comment {
+			.comments__comment {
 				$border-radius: .4rem;
 
 				margin-top: $base-spacing-unit;

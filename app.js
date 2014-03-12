@@ -9,23 +9,17 @@ $require('/libs/std');
 // << defining global modules
 
 
-var express = $require('express'),
-    http = $require('http'),
-    path = $require('path');
-
-var appDir = (__dirname + '/public');
+var express = $require('express');
+var expressParams = require('express-params');
 
 var app = express();
+expressParams.extend(app);
 
 app
 .configure(function() {
     app
         .use(express.bodyParser())
         .use(express.cookieParser())
-        .use('/static', express.static(appDir))
-        .get('/', function(req, res) {
-            res.sendfile('index.html', { root: appDir });
-        })
         .set('root', __dirname)
         .set('port', process.env.PORT || 3000)
         .set('db', $require('/modules/db')) // make db connection once
@@ -40,6 +34,4 @@ app
 });
 
 
-http.createServer(app).listen(app.get('port'), function() {
-    console.log("Express server listening on port " + app.get('port'));
-});
+app.listen(app.get('port'));
