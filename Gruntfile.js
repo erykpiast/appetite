@@ -131,21 +131,22 @@ module.exports = function(grunt) {
             server: {
                 files: [
                     'app.js',
-                    '{node_modules,libs,config,routes,modules}/**/*.{js,json}'
+                    '{libs,config,routes,modules}/**/*.{js,json}'
+                    // '{node_modules,libs,config,routes,modules}/**/*.{js,json}'
                 ],
                 tasks: [ 'build:dev:server', 'stop:server', 'start:server' ]
             },
             css: {
                 files: [
-                    '<%= conf.webapp %>/styles/**/*.scss',
-                    '<%= conf.webapp %>/bower_components/**/*.{scss,css}'
+                    '<%= conf.webapp %>/styles/**/*.scss'
+                    // '<%= conf.webapp %>/bower_components/**/*.{scss,css}'
                 ],
                 tasks: [ 'build:dev:webapp:css' ]
             },
             scripts: {
                 files: [
                     '<%= conf.webapp %>/index.html',
-                    '<%= conf.webapp %>/{bower_components,libs,modules,controllers,directives,filters,services,templates,fake-rest}/**/*.{js,tpl,json}'
+                    '<%= conf.webapp %>/{libs,modules,controllers,directives,filters,services,templates,fake-rest}/**/*.{js,tpl,json}'
                 ],
                 tasks: [ 'build:dev:webapp:js' ]
             },
