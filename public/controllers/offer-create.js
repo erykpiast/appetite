@@ -70,10 +70,10 @@ define(['libs/angular'], function(angular) {
                 recipe: '',
                 tags: [ ],
                 title: '',
-                pictures: [
+                pictures: [/*
                     'http://www.mojewypieki.com/img/images/najlepsze_ciasto_marchewkowe_1_80_small.jpg',
                     'http://www.mojewypieki.com/img/images/walewska_2_467_small.jpg'
-                ]
+                */]
             }
         };
 

@@ -2,30 +2,28 @@ var _ = $require('/libs/underscore');
 var cors = $require('cors');
 
 module.exports = function(app) {
-	var exports = { };
+    var exports = { };
 
     var restPath = app.get('rest').root;
 
     app
-    .options('*', cors({
-        origin: 'http://localhost:8080'
-    }))
-    .use(app.router)
     .param('id', /^\d+$/)
-    .post(restPath, app.get('auth').middleware)
-    .put(restPath, app.get('auth').middleware)
-    .delete(restPath, app.get('auth').middleware);
+    .use(cors())
+    .post(restPath + '/*', app.get('auth').middleware)
+    .put(restPath + '/*', app.get('auth').middleware)
+    .delete(restPath + '/*', app.get('auth').middleware)
+    .use(app.router);
 
-	$require('fs').readdir(__dirname + '/', function(err, files) {
-		files.filter(function(filename){
-			return (/.js$/).test(filename) && ([ 'index.js' ].indexOf(filename) === -1);
-		})
-		.forEach(function(filename) {
-			var routename = _.capitalize(_.camelize(filename)).slice(0, -3); // actual-request.js -> ActualRequest
+    $require('fs').readdir(__dirname + '/', function(err, files) {
+        files.filter(function(filename){
+            return (/.js$/).test(filename) && ([ 'index.js' ].indexOf(filename) === -1);
+        })
+        .forEach(function(filename) {
+            var routename = _.capitalize(_.camelize(filename)).slice(0, -3); // actual-request.js -> ActualRequest
 
-			exports[routename] = $require(__dirname + '/' + filename)(app);
-		});
-	});
+            exports[routename] = $require(__dirname + '/' + filename)(app);
+        });
+    });
 
-	return exports;
+    return exports;
 };

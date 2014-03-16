@@ -4,7 +4,7 @@ function(angular, undefined, module) {
     module
     .factory('nodeRest', function($resource) {
         function _rest(path) {
-            return 'http://localhost:3000/rest/' + path.replace(/^\//, '');
+            return window.location.origin + '/rest/' + path.replace(/^\//, '');
         }
         
         return {

@@ -122,9 +122,6 @@ define(['libs/angular', 'modules/auth',
             })
             .run(function($rootScope, $state, i18n) {
 
-                var __newVar__20131119171903013692 = $rootScope;
-                __newVar__20131119171903013692.i18n = i18n;
-
                 $rootScope.goTo = function(state, params) {
                     $state.transitionTo(state, params, {
                         location: true,
@@ -132,9 +129,11 @@ define(['libs/angular', 'modules/auth',
                         relative: $state.$current,
                         notify: true
                     });
-                }
+                };
 
                 $rootScope.urlRegExp = String._urlRegExp;
+
+                $rootScope.i18n = i18n;
             });
 
         return angular.module('appetite');

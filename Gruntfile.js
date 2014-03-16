@@ -102,7 +102,7 @@ module.exports = function(grunt) {
                 async: true
             },
             restServer: {
-                command: 'node app.js',
+                command: 'node --debug app.js',
                 options: {
                     execOptions: {
                         cwd: '<%= conf.target.server %>',
@@ -211,8 +211,7 @@ module.exports = function(grunt) {
     
     grunt.registerTask('test', [
         'build:dev',
-        'start-server',
-        'start-webapp',
+        'start',
         'karma:integration'
     ]);
 };

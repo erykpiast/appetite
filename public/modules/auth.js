@@ -13,7 +13,7 @@ function(angular, undefined, _) {
         },
         autoLogin: true,
         facebook: {
-            id: '467246670041226'
+            id: '593866150698621'
         }
     })
     .factory('authData', function($rootScope, $cookieStore, authConfig) {

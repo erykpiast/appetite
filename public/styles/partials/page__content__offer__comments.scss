@@ -34,16 +34,16 @@
 			}
 		}
 
-		.comments {
+		.offer__comments__list {
 			@include scut-list-unstyled();
 
 			margin-left: $base-spacing-unit;
 
-			.comments {
+			.offer__comments__list {
 				margin-left: $base-spacing-unit * 3.5;				
 			}
 		}
-			.comments__comment {
+			.offer__comments__comment {
 				$border-radius: .4rem;
 
 				margin-top: $base-spacing-unit;
@@ -66,7 +66,7 @@
 						background-color: $c-fg-acc;
 					}
 					
-					.comment__header__author__name {
+					.comment__author__name {
 						color: $c-fg-acc;
 					}
 				}
@@ -102,16 +102,16 @@
 					padding-bottom: $half-spacing-unit;
 				}
 
-				.comment__header__author {
+				.comment__author {
 					position: relative;
 					z-index: 1;
 				}
 
-				.comment__header__author__name {
+				.comment__author__name {
 					@extend strong;	
 				}
 
-				.comment__header__author__avatar:before {
+				.comment__author__avatar:before {
 					box-shadow: 0 0 .4rem .1rem $c-shadow-dark inset;
 				}
 			}

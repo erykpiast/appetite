@@ -353,7 +353,7 @@ module.exports = function(app) {
     Image = DB.Image;
     Tag = DB.Tag;
     resourceTypes = [ 'image/jpeg', 'image/png' ];
-    resourcePath = app.get('root') + '/public/images';
+    resourcePath = app.get('uploadsDir');
 
     return {
         create: create,

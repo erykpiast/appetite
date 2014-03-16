@@ -8,7 +8,7 @@ global._ = $require('/libs/underscore');
 $require('/libs/std');
 // << defining global modules
 
-
+var path = $require('path');
 var express = $require('express');
 var expressParams = require('express-params');
 
@@ -21,6 +21,7 @@ app
         .use(express.bodyParser())
         .use(express.cookieParser())
         .set('root', __dirname)
+        .set('uploadsDir', path.resolve('../public/images'))
         .set('port', process.env.PORT || 3000)
         .set('db', $require('/modules/db')) // make db connection once
         .set('auth', $require('/modules/auth')(app))

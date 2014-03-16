@@ -62,7 +62,13 @@
                 <h3>{{ i18n.comments.header }}</h3>
             </header>
 
-            <app-comments model="offer.comments"></app-comments>
+            <app-comments
+                model="offer.comments"
+                show-owner-features="showOwnerFeatures()"
+                show-user-features="showUserFeatures()"
+                list-class-name="offer__comments__list"
+                list-element-class-name="offer__comments__comment">
+            </app-comments>
         </section>
     </div>
         

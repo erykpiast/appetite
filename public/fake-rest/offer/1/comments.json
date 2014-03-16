@@ -1,6 +1,6 @@
 [{
 	"id": 1,
-	"author": 2,
+	"author": 1,
 	"content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, explicabo, fugit itaque sequi nisi hic ipsam alias sit praesentium perferendis ipsa quisquam. Incidunt, veniam, eveniet porro velit aspernatur impedit aliquam?",
 	"createdAt": "1382121448082",
 	"updatedAt": "1382121448082",
@@ -41,7 +41,7 @@
 	"offer": 1
 }, {
 	"id": 5,
-	"author": 2,
+	"author": 1,
 	"content": "Hhic alias sit porro...",
 	"createdAt": "1383621648082",
 	"updatedAt": "1383621648082",

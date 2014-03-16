@@ -41,11 +41,11 @@
         position: relative;
     }
     
-        .comment__header__author {
+        .comment__author {
             position: relative;
         }
 
-            .comment__header__author__avatar {
+            .comment__author__avatar {
                 @include scut-absolute((-$v-margin * 2 - $border-width) n n (-$avatar-size - $h-margin + $border-width));
 
                 border-radius: 50% 0 0 50%;
@@ -74,7 +74,7 @@
                 }
             }
 
-            .comment__header__author__name {
+            .comment__author__name {
                 
             }
 

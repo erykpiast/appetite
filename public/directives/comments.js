@@ -10,8 +10,7 @@ function(angular, module, templates) {
             scope: {
                 comment: '=model',
                 showOwnerFeatures: '&',
-                showUserFeatures: '&',
-                responseAcceptHandler: '&'
+                showUserFeatures: '&'
             },
             link: function(scope, $element) {
                 angular.extend(scope, {
@@ -34,13 +33,23 @@ function(angular, module, templates) {
             restrict: 'E',
             scope: {
                 comments: '=model',
+                listClassName: '@',
+                listElementClassName: '@',
                 showOwnerFeatures: '&',
-                showUserFeatures: '&',
-                responseAcceptHandler: '&'
+                showUserFeatures: '&'
             },
-            link: function(scope, $element) {
-                scope.rootComment = {
-                    children: scope.comments
+            compile: function(tElement, tAttrs) {
+                var contents = tElement.contents().remove(),
+                    compiledContents;
+
+                return function(scope, iElement, iAttrs, ctrl) {
+                    if(!compiledContents) {
+                        compiledContents = $compile(contents);
+                    }
+
+                    compiledContents(scope, function(clone, scope) {
+                        iElement.html(clone);
+                    });
                 };
             }
         };
