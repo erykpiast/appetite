@@ -105,6 +105,14 @@
 	}
 }
 
+.button--ico--reply {
+	@extend .button--ico;
+
+	&:before {
+		@extend .fa-reply;
+	}
+}
+
 .button--ico--search {
 	@extend .button--ico;
 

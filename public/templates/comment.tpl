@@ -43,7 +43,7 @@
 
 	<div class="comment__nav">
 		<button
-			class="comment__answer"
+			class="comment__nav__answer"
 			ng-if="showUserFeatures()"
 			ng-click="answerTo(comment)">
 			{{ i18n.offer.comment.answerTo }}

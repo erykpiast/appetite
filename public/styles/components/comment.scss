@@ -9,14 +9,16 @@
     position: relative;
 
     .comment__header,
-    .comment__content {
+    .comment__content,
+    .comment__nav {
         margin-left: $avatar-size;
         padding: $v-margin $h-margin;
     }
 
     .comment__header,
     .comment__header:before,
-    .comment__content {
+    .comment__content,
+    .comment__nav {
         border: $border-width solid;
     }
 
@@ -42,7 +44,9 @@
     }
     
         .comment__author {
+            display: inline-block;
             position: relative;
+            z-index: 1;
         }
 
             .comment__author__avatar {
@@ -78,7 +82,20 @@
                 
             }
 
+        .comment__time {
+            display: inline-block;
+
+            &:before {
+                content: "‧";
+            }
+        }
+
     .comment__content {
+        border-bottom: none;
+    }
+
+    .comment__content,
+    .comment__nav {
         border-top: none;
     }
 }

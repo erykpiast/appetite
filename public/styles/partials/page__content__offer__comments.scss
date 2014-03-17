@@ -78,41 +78,40 @@
 					
 				.comment__header,
 				.comment__header:before,
-				.comment__content {
+				.comment__content,
+				.comment__nav {
 					background-color: $c-bg-acc-light;
-				}
-
-				.comment__header,
-				.comment__header:before,
-				.comment__content {
 					border-color: $c-bg-dark;
 				}
 
-				.comment__header__time {
+				.comment__author {
+					
+				}
+					.comment__author__name {
+						@extend strong;	
+					}
+
+					.comment__author__avatar:before {
+						box-shadow: 0 0 .4rem .1rem $c-shadow-dark inset;
+					}
+
+				.comment__time {
 					color: $c-fg-def-light;
 
 					&:before {
-						content: "‧";
 						margin: 0 $quarter-spacing-unit;
 					}
 				}
 
-				.comment__content {
+				.comment__nav {
 					border-radius: 0 0 $border-radius $border-radius;
-					padding-bottom: $half-spacing-unit;
+					padding: {
+						bottom: $half-spacing-unit;
+						top: $half-spacing-unit;
+					};
 				}
-
-				.comment__author {
-					position: relative;
-					z-index: 1;
-				}
-
-				.comment__author__name {
-					@extend strong;	
-				}
-
-				.comment__author__avatar:before {
-					box-shadow: 0 0 .4rem .1rem $c-shadow-dark inset;
-				}
+					.comment__nav__answer {
+						@extend .button--ico--reply;
+					}
 			}
 }
