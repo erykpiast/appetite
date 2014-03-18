@@ -105,13 +105,17 @@
 
 				.comment__nav {
 					border-radius: 0 0 $border-radius $border-radius;
+					height: $base-spacing-unit * 1.25 + 2px;
 					padding: {
-						bottom: $half-spacing-unit;
-						top: $half-spacing-unit;
+						bottom: 0;
+						top: $quarter-spacing-unit;
 					};
 				}
 					.comment__nav__answer {
 						@extend .button--ico--reply;
+						@extend .button--secondary;
+
+						@include scut-absolute(0 0 n n);
 					}
 			}
 }
