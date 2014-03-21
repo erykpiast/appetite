@@ -9,6 +9,7 @@ function(angular, module, templates) {
             restrict: 'E',
             scope: {
                 comment: '=model',
+                onAnswer: '&',
                 showOwnerFeatures: '&',
                 showUserFeatures: '&'
             },
@@ -17,7 +18,9 @@ function(angular, module, templates) {
                     goTo: $rootScope.goTo,
                     i18n: $rootScope.i18n,
                     answerTo: function(comment) {
-                        $rootScope.$broadcast('comment.answerTo', comment);
+                        scope.onAnswer({
+                            comment: comment
+                        });
                     }
                 });
             }
@@ -33,6 +36,7 @@ function(angular, module, templates) {
             restrict: 'E',
             scope: {
                 comments: '=model',
+                onAnswer: '&',
                 listClassName: '@',
                 listElementClassName: '@',
                 showOwnerFeatures: '&',
@@ -42,7 +46,7 @@ function(angular, module, templates) {
                 var contents = tElement.contents().remove(),
                     compiledContents;
 
-                return function(scope, iElement, iAttrs, ctrl) {
+                return function(scope, iElement, iAttrs) {
                     if(!compiledContents) {
                         compiledContents = $compile(contents);
                     }
@@ -50,6 +54,12 @@ function(angular, module, templates) {
                     compiledContents(scope, function(clone, scope) {
                         iElement.html(clone);
                     });
+
+                    scope.answerTo = function(comment) {
+                        scope.onAnswer({
+                            comment: comment
+                        });
+                    };
                 };
             }
         };

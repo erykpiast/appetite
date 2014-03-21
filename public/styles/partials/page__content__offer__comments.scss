@@ -110,7 +110,7 @@
 
 				}
 					.comment__nav__answer {
-						@include hover-effect--show-text($base-line-height, $base-font-size * 12);
+						@include hover-effect--show-text($base-font-size, $base-font-size * 12, $base-line-height);
 
 						&:not(:hover) {
 							color: $c-fg-def-light;

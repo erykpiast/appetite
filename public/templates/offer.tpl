@@ -64,11 +64,19 @@
 
             <app-comments
                 model="offer.comments"
+                on-answer="setParentOfNewComment(comment)"
                 show-owner-features="showOwnerFeatures()"
                 show-user-features="showUserFeatures()"
                 list-class-name="offer__comments__list"
                 list-element-class-name="offer__comments__comment">
             </app-comments>
+
+            <app-add-offer-comment 
+                on-comment="addComment(comment)"
+                on-response="response(comment)"
+                comment-parent="newCommentParent"
+                show-owner-features="showOwnerFeatures()">
+            </app-add-offer-comment>
         </section>
     </div>
         

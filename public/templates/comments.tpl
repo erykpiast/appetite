@@ -3,15 +3,16 @@
     	ng-repeat="comment in comments">
     	<app-comment
     		model="comment"
-    		class-names="classNames"
+            on-answer="answerTo(comment)"
     		show-owner-features="showOwnerFeatures()"
             show-user-features="showUserFeatures()">
     	</app-comment>
         <app-comments
         	model="offer.comments"
+            on-answer="answerTo(comment)"
             show-owner-features="showOwnerFeatures()"
             show-user-features="showUserFeatures()"
-            list-class-name="istClassName"
+            list-class-name="listClassName"
             list-element-class-name="listElementClassName">
           </app-comments>
     </li>

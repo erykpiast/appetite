@@ -3,11 +3,13 @@ function(angular, module) {
 
     module.value('i18n', {
         comments: {
+            answerTo: 'Odpowiedz na komentarz',
             add: {
+                answerPrelude: 'To jest odpowiedź na komentarz użytkownika',
+                clearAnswer: 'Anuluj',
                 header: 'Dodaj komentarz',
                 placeholder: 'Twój komentarz',
-                submit: 'Dodaj komentarz',
-                response: 'Odpowiedz na ofertę'
+                submit: 'Dodaj komentarz'
             },
             header: 'Komentarze'
         },
@@ -59,12 +61,6 @@ function(angular, module) {
                 currency: 'zł',
                 doOrder: 'Zamawiam!'
             },
-            comment: {
-                answerPrelude: 'To jest odpowiedź na komentarz użytkownika',
-                answerTo: 'Odpowiedz na komentarz',
-                clearAnswer: 'Skomentuj ofertę',
-                discardConfirmation: 'Jesteś w trakcie edycji komentarza. Czy chcesz skasować wpisany tekst przed rozpoczęciem odpowiadania na post?'
-            },
             create: {
                 amount: 'Ilość',
                 clickToEdit: 'Kliknij, aby edytować',
@@ -90,7 +86,8 @@ function(angular, module) {
                 title: 'Tytuł oferty'
             },
             recipeFrom: 'Przepis pochodzi z serwisu ',
-            remainingTime: 'Czas do końca'
+            remainingTime: 'Czas do końca',
+            response: 'Odpowiedz na ofertę'
         },
         user: {
             currentOffers: 'Bieżące oferty użytkownika'

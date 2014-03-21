@@ -68,10 +68,13 @@ define([ 'libs/angular' ], function(angular) {
 			};
 
 		angular.extend($scope, {
-			addComment: function(comment) {
-				angular.extend(comment, {
+			newCommentParent: { comment: undefined }, 
+			addComment: function(commentContent) {
+				var comment = {
+					content: commentContent,
+					parent: $scope.newCommentParent.comment.id,
 					offer: $scope.offer.id
-				});
+				};
 
 				rest.comment.create(comment)
 					.$promise.then(function(res) {
@@ -92,6 +95,9 @@ define([ 'libs/angular' ], function(angular) {
 			showOwnerFeatures: function() {
 				return ($scope.offer && $scope.offer.author && ((
                     authData && authData.userInfo && authData.userInfo.id) === $scope.offer.author.id));
+			},
+			setParentOfNewComment: function(parent) {
+				$scope.newCommentParent.comment = parent;
 			},
 			acceptResponse: function(response) {
 				rest.response.update({ id: response.id }, { accepted: true })

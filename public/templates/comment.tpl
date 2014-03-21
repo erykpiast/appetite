@@ -46,7 +46,7 @@
 			class="comment__nav__answer button--plain button--ico--reply"
 			ng-if="showUserFeatures()"
 			ng-click="answerTo(comment)">
-			<span class="wrapper">{{ i18n.offer.comment.answerTo }}</span>
+			<span class="wrapper">{{ i18n.comments.answerTo }}</span>
 		</button>
 	</div>
 </section>

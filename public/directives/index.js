@@ -5,6 +5,7 @@
             'offer-author',
             'comments',
             'add-comment',
+            'add-offer-comment',
             'image-picker',
             'login',
             'current-user',
