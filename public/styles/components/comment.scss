@@ -9,16 +9,14 @@
     position: relative;
 
     .comment__header,
-    .comment__content,
-    .comment__nav {
+    .comment__content {
         margin-left: $avatar-size;
         padding: $v-margin $h-margin;
     }
 
     .comment__header,
     .comment__header:before,
-    .comment__content,
-    .comment__nav {
+    .comment__content {
         border: $border-width solid;
     }
 
@@ -91,13 +89,22 @@
         }
 
     .comment__content {
-        border-bottom: none;
+        border: {
+            top: none;
+            bottom-left-radius: .4rem;
+            bottom-right-radius: .4rem;
+        };
+        padding-bottom: $half-spacing-unit;
     }
 
-    .comment__content,
     .comment__nav {
-        border-top: none;
+        @include scut-absolute(1px $h-margin n n);
+
+        padding-top: $half-spacing-unit;
     }
+        .comment__nav__answer {
+            display: inline-block;
+        }
 }
 
 .comment--offer-author-comment {

@@ -78,10 +78,13 @@
 					
 				.comment__header,
 				.comment__header:before,
-				.comment__content,
-				.comment__nav {
+				.comment__content {
 					background-color: $c-bg-acc-light;
 					border-color: $c-bg-dark;
+				}
+
+				.comment__content {
+					
 				}
 
 				.comment__author {
@@ -104,18 +107,14 @@
 				}
 
 				.comment__nav {
-					border-radius: 0 0 $border-radius $border-radius;
-					height: $base-spacing-unit * 1.25 + 2px;
-					padding: {
-						bottom: 0;
-						top: $quarter-spacing-unit;
-					};
+
 				}
 					.comment__nav__answer {
-						@extend .button--ico--reply;
-						@extend .button--secondary;
+						@include hover-effect--show-text($base-line-height, $base-font-size * 12);
 
-						@include scut-absolute(0 0 n n);
+						&:not(:hover) {
+							color: $c-fg-def-light;
+						}
 					}
 			}
 }

@@ -13,6 +13,7 @@
     }
 }
 
+
 .button--call-to-action,
 .button--primary {
     @extend .button;
@@ -28,9 +29,46 @@
     padding: $half-spacing-unit $base-spacing-unit;
 }
 
+
 .button--secondary {
+    @extend .button;
+
     border-color: $c-bg-dark;
 }
+
+
+.button--plain {
+    @extend .button;
+
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    transition: color .1s linear;
+
+    &.button--ico:before {
+        border-right: none;
+        margin-right: $quarter-spacing-unit;
+        padding-right: 0;
+    }
+
+    &:hover {
+        color: $c-fg-acc;
+        transition: color .2s ease-out $response-delay;
+    }
+}
+
+
+.button--empty {
+    @extend .button;
+
+    &.button--ico:before {
+        border-right: none;
+        margin-right: 0;
+        padding-right: 0;
+    }
+}
+
 
 .button--ico {
     @extend .button;
@@ -43,6 +81,16 @@
         };
         margin-right: $half-spacing-unit;
         padding-right: $half-spacing-unit;
+    }
+}
+
+.button--ico--add {
+    @extend .button--ico;
+
+    &:before {
+        @extend .fa-plus;
+
+        line-height: 0.85;
     }
 }
 
@@ -126,11 +174,11 @@
     }
 }
 
-.button--empty {
-    &.button--ico:before {
-        border-right: none;
-        margin-right: 0;
-        padding-right: 0;
+.button--ico--trash {
+    @extend .button--ico;
+
+    &:before {
+        @extend .fa-trash-o;
     }
 }
 
@@ -170,5 +218,24 @@
         transition: color .2s ease-out;
         
         @content;
+    }
+}
+
+
+@mixin hover-effect--show-text($initialWidth, $targetWidth, $height: $initialWidth) {
+    height: $height;
+    overflow: hidden;
+    text-align: right;
+    transition: width .1s linear;
+    width: $initialWidth;
+    white-space: nowrap;
+
+    .wrapper {
+        position: relative;
+    }
+
+    &:hover {
+        transition: width .2s ease-out $response-delay;
+        width: $targetWidth;
     }
 }
