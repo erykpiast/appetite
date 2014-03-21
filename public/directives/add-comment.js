@@ -25,6 +25,8 @@ function(angular, module, templates) {
                             scope.addHandler({
                                 comment: scope.comment.content
                             });
+
+                            scope.clearAnswer();
                         }
                     },
                     clearAnswer: function() {

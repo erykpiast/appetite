@@ -72,7 +72,7 @@ define([ 'libs/angular' ], function(angular) {
 			addComment: function(commentContent) {
 				var comment = {
 					content: commentContent,
-					parent: $scope.newCommentParent.comment.id,
+					parent: $scope.newCommentParent.comment && $scope.newCommentParent.comment.id,
 					offer: $scope.offer.id
 				};
 
