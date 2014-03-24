@@ -54,7 +54,6 @@
 @import "components/image-picker.scss";
 
 // Site-specific components
-@import "site-components/footer.scss";
 @import "site-components/main-search.scss";
 @import "site-components/offer-thumbnail.scss";
 @import "site-components/offers.scss";
@@ -63,10 +62,13 @@
 @import "site-components/welcome.scss";
 @import "site-components/tooltips.scss";
 @import "site-components/inputs.scss";
+@import "site-components/add-comment.scss";
+@import "site-components/add-offer-comment.scss";
 
 // Partials
 @import "partials/header.scss";
 @import "partials/content.scss";
+@import "partials/footer.scss";
 @import "partials/page__content__offer.scss";
 @import "partials/page__content__offer--create.scss";
 
