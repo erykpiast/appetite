@@ -1,4 +1,7 @@
-<div class="add-offer-comment" ng-class="className">
+<div class="{{ className }}" ng-class="{
+		'add-offer-comment': !active,
+		'add-offer-comment--active': active
+	}">
 	<app-add-comment
 		comment="comment"
 		comment-parent="commentParent"

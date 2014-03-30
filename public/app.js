@@ -19,7 +19,8 @@ requirejs.config({
         'libs/angular-ui-date': 'bower_components/angular-ui-date/src/date',
         'libs/angular-ui-select2': 'bower_components/angular-ui-select2/src/select2',
         'libs/angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router',
-        'libs/angular-perfect-scrollbar': 'bower_components/angular-perfect-scrollbar/angular-perfect-scrollbar'
+        'libs/angular-perfect-scrollbar': 'bower_components/angular-perfect-scrollbar/angular-perfect-scrollbar',
+        'libs/angular-elastic': 'bower_components/angular-elastic/elastic',
     },
     packages: [
         'modules',
@@ -66,6 +67,9 @@ requirejs.config({
         },
         'libs/angular-perfect-scrollbar': {
             deps: [ 'libs/angular', 'libs/jquery-perfect-scrollbar' ]
+        },
+        'libs/angular-elastic': {
+            deps: [ 'libs/angular' ]
         },
         'libs/jquery': {
             exports: 'jQuery'

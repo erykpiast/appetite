@@ -146,6 +146,7 @@ module.exports = function(grunt) {
             scripts: {
                 files: [
                     '<%= conf.webapp %>/index.html',
+                    '<%= conf.webapp %>/app.js',
                     '<%= conf.webapp %>/{libs,modules,controllers,directives,filters,services,templates,fake-rest}/**/*.{js,tpl,json}'
                 ],
                 tasks: [ 'build:dev:webapp:js' ]

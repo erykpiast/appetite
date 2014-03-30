@@ -1,16 +1,16 @@
 define(['libs/angular', 'libs/angular-i18n', 'modules/auth',
-        'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui', 'libs/angular-ui-router', 'libs/angular-ui-date', 'libs/angular-ui-select2', 'libs/angular-perfect-scrollbar',
+        'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui', 'libs/angular-ui-router', 'libs/angular-ui-date', 'libs/angular-ui-select2', 'libs/angular-perfect-scrollbar', 'libs/angular-elastic',
         'controllers', 'templates',
         'directives', 'services', 'filters'
     ],
     function(angular, _angularI18N, auth,
-        _angularResource, _cookieStore, _angularUi, _angularUiRouter, _angularUiDate, _angularUiSelect2, _angularPerfectScrollbar,
+        _angularResource, _cookieStore, _angularUi, _angularUiRouter, _angularUiDate, _angularUiSelect2, _angularPerfectScrollbar, _angularElastic, 
         controllers, templates,
         _directives, _services, _filters) {
 
         'use scrict';
 
-        angular.module('appetite', ['ngResource', 'ngCookies', 'ui.router', 'ui.directives', 'ui.date', 'ui.select2', 'perfect-scrollbar', 'auth',
+        angular.module('appetite', ['ngResource', 'ngCookies', 'ui.router', 'ui.directives', 'ui.date', 'ui.select2', 'perfect-scrollbar', 'monospaced.elastic', 'auth',
             'appetite.filters', 'appetite.directives', 'appetite.services'
         ])
             .config(function($stateProvider, $urlRouterProvider, $locationProvider, $cookieStoreProvider) {

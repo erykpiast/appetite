@@ -2,24 +2,6 @@
 	<fieldset>
 		<legend>{{ i18n.comments.add.header }}</legend>
 
-		<p class="add-comment__answer-prelude" ng-if="!!commentParent.comment">
-			{{ i18n.comments.add.answerPrelude }}
-
-			<strong class="add-comment__answer-prelude__parent-author">
-				{{ commentParent.comment.author.fullName }}
-			</strong>
-			<br/>
-			<span class="add-comment__answer-prelude__parent-content">
-				{{ commentParent.comment.content }}
-			</span>
-
-			<button
-				class="add-comment__answer-prelude__clear"
-				ng-click="clearAnswer()">
-				{{ i18n.comments.add.clearAnswer }}
-			</button>
-		</p>
-
 		<div class="add-comment__header">
 			<div class="add-comment__author">
 				<div class="add-comment__author__avatar">
@@ -35,7 +17,8 @@
 
 			<time
 				class="add-comment__time"
-				datetime="{{ currentTime | date:'yyyy-MM-ddTHH:mm:ssZ' }}">
+				datetime="{{ currentTime | date:'yyyy-MM-ddTHH:mm:ssZ' }}"
+				ng-if="active">
 				{{ currentTime | date:'EEEE, dd MMMM yyyy HH:mm:ss' }}
 			</time>
 		</div>
@@ -44,6 +27,7 @@
 			<textarea
 				class="add-comment__input"
 				ng-model="comment.content"
+				msd-elastic="\n"
 				placeholder="{{ i18n.comments.add.placeholder }}">
 			</textarea>
 

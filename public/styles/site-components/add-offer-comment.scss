@@ -1,16 +1,55 @@
 .add-offer-comment {
+	$avatar-size: 5.2 * $base-font-size;
+	$border-width: 1px;
 
-	.add-comment__extension,
-	.add-comment__submit {
+	.add-comment__submit,
+	.add-comment__extension {
 		display: inline-block;
 		margin: {
-			bottom: $base-spacing-unit;
+			bottom: $half-spacing-unit;
 			top: $base-spacing-unit;
 		};
 		vertical-align: middle;
 	}
 
-	
+	&:not(.add-offer-comment--active) {
+		.add-comment__time,
+		.add-comment__input,
+		.add-comment__author__name {
+			display: none;
+		}
+
+		.add-comment__header {
+			height: 0;
+			padding: 0;
+		}
+
+		.add-comment__author {
+			position: static;
+		}
+
+		.add-comment__author__avatar {
+			left: (-$avatar-size + $border-width);
+			top: (-$border-width);
+			z-index: 2;
+		}
+
+		.add-comment__content {
+			border-left: none;
+			padding: {
+				bottom: 0;
+				top: 0;
+			};
+		}
+
+		.add-comment__extension {
+			margin: {
+				bottom: $half-spacing-unit;
+				top: $half-spacing-unit;
+			};
+		}
+	}
+
 	&__response {
 		@extend .button--primary;
 	}
@@ -20,4 +59,8 @@
 
 		margin-left: $half-spacing-unit;
 	}
+}
+
+.add-offer-comment--active {
+	@extend .add-offer-comment;
 }

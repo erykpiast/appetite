@@ -21,18 +21,33 @@ function(angular, module, templates) {
                 scope.i18n = $rootScope.i18n;
 
                 angular.extend(scope, {
+                    active: false,
                     comment: {
                         content: ''
                     },
+                    activate: function() {
+                        scope.active = true;
+                    },
+                    deactivate: function() {
+                        scope.active = false;
+                    },
                     addComment: function(comment) {
-                        scope.commentHandler({
-                            comment: comment
-                        });
+                        if(scope.active) {
+                            scope.commentHandler({
+                                comment: comment
+                            });
+                        } else {
+                            scope.activate();
+                        }
                     },
                     addResponse: function() {
-                        scope.responseHandler({
-                            comment: scope.comment
-                        });
+                        if(scope.active) {
+                            scope.responseHandler({
+                                comment: scope.comment
+                            });
+                        } else {
+                            scope.activate();
+                        }
                     }
                 });
             }

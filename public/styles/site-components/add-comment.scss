@@ -31,7 +31,10 @@
 	.add-comment__input {
 		box-sizing: border-box;
 		display: block;
+		max-height: calc(#{5 * $base-line-height} + .3em);
+		padding: .15em;
 		resize: vertical;
+		transition: height .2s ease-out;
 		width: 100%;
 	}
 
