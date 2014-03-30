@@ -3,10 +3,6 @@
 	overflow: hidden;
 	position: relative;
 
-	&:before {
-		top: 50%;
-	}
-
 	@include scut-before() {
 		background-color: $c-fg-acc;
 		display: block;
@@ -15,6 +11,7 @@
 		margin-top: -($rpx / 2);
 		position: absolute;
 		right: 0;
+		top: 50%;
 		z-index: 0;
 	}
 

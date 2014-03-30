@@ -71,11 +71,13 @@
                 list-element-class-name="offer__comments__comment">
             </app-comments>
 
-            <app-add-offer-comment 
+            <app-add-offer-comment
+                class="offer__comments__add"
                 on-comment="addComment(comment)"
                 on-response="response(comment)"
                 comment-parent="newCommentParent"
-                show-owner-features="showOwnerFeatures()">
+                show-owner-features="showOwnerFeatures()"
+                author="currentUser">
             </app-add-offer-comment>
         </section>
     </div>

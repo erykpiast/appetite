@@ -1,3 +1,23 @@
 .add-offer-comment {
+
+	.add-comment__extension,
+	.add-comment__submit {
+		display: inline-block;
+		margin: {
+			bottom: $base-spacing-unit;
+			top: $base-spacing-unit;
+		};
+		vertical-align: middle;
+	}
+
 	
+	&__response {
+		@extend .button--primary;
+	}
+
+	.add-comment__submit {
+		@extend .button--secondary;
+
+		margin-left: $half-spacing-unit;
+	}
 }

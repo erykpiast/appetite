@@ -3,10 +3,17 @@
     $v-margin: $quarter-spacing-unit;
     $h-margin: $quarter-spacing-unit * 3;
     $border-width: 1px;
+    $border-radius: .4rem;
 
     box-sizing: border-box;
     min-height: $avatar-size;
+    overflow: hidden;
     position: relative;
+
+    &,
+    .comment__header {
+        border-top-right-radius: $border-radius;
+    }
 
     .comment__header,
     .comment__content {
@@ -17,7 +24,8 @@
     .comment__header,
     .comment__header:before,
     .comment__content {
-        border: $border-width solid;
+        background-color: $c-bg-acc-light;
+        border: $border-width solid $c-bg-dark;
     }
 
     .comment__header {
@@ -30,7 +38,18 @@
                 left: none;
                 right: none;
             }
+
+            z-index: 0;
         }
+
+        @include scut-after() {
+            @include scut-absolute(0 0 n (-$avatar-size/2));
+
+            background-color: $c-bg-dark;
+            height: .2rem;
+            z-index: 1;
+        }
+
 
         border: {
             bottom: none;
@@ -44,9 +63,8 @@
         .comment__author {
             display: inline-block;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
-
             .comment__author__avatar {
                 @include scut-absolute((-$v-margin * 2 - $border-width) n n (-$avatar-size - $h-margin + $border-width));
 
@@ -72,19 +90,22 @@
                         radius: $avatar-size/2;
                         bottom-right-radius: 0;
                     };
+                    box-shadow: 0 0 .4rem .1rem $c-shadow-dark inset;
                     z-index: 1;
                 }
             }
 
             .comment__author__name {
-                
+                @extend strong; 
             }
 
         .comment__time {
+            color: $c-fg-def-light;
             display: inline-block;
 
             &:before {
                 content: "‧";
+                margin: 0 $quarter-spacing-unit;
             }
         }
 
@@ -103,7 +124,13 @@
         padding-top: $half-spacing-unit;
     }
         .comment__nav__answer {
+            @include hover-effect--show-text($base-font-size, $base-font-size * 12, $base-line-height);
+
             display: inline-block;
+
+            &:not(:hover) {
+                color: $c-fg-def-light;
+            }
         }
 }
 

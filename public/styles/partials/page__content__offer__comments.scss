@@ -1,3 +1,5 @@
+@import "./page__content__offer__comments__add.scss";
+
 .page__content__offer  {
 	.offer__comments {
 		margin: $base-spacing-unit * 2 0;
@@ -43,78 +45,19 @@
 				margin-left: $base-spacing-unit * 3.5;				
 			}
 		}
+			
+			
 			.offer__comments__comment {
-				$border-radius: .4rem;
-
 				margin-top: $base-spacing-unit;
+			}
 
-				.comment {
-					@include scut-before() {
-						@include scut-absolute(0 0 n (2 * $base-spacing-unit));
-
-						background-color: $c-bg-dark;
-						height: .2rem;
-						z-index: 1;
-					}
-
-					overflow: hidden;
-					position: relative;
+			.comment--offer-author-comment {
+				.comment__header:after {
+					background-color: $c-fg-acc;
 				}
-
-				.comment--offer-author-comment {
-					&:before {
-						background-color: $c-fg-acc;
-					}
-					
-					.comment__author__name {
-						color: $c-fg-acc;
-					}
+				
+				.comment__author__name {
+					color: $c-fg-acc;
 				}
-
-				.comment,
-				.comment__header {
-					border-top-right-radius: $border-radius;
-				}
-					
-				.comment__header,
-				.comment__header:before,
-				.comment__content {
-					background-color: $c-bg-acc-light;
-					border-color: $c-bg-dark;
-				}
-
-				.comment__content {
-					
-				}
-
-				.comment__author {
-					
-				}
-					.comment__author__name {
-						@extend strong;	
-					}
-
-					.comment__author__avatar:before {
-						box-shadow: 0 0 .4rem .1rem $c-shadow-dark inset;
-					}
-
-				.comment__time {
-					color: $c-fg-def-light;
-
-					&:before {
-						margin: 0 $quarter-spacing-unit;
-					}
-				}
-
-				.comment__nav {
-
-				}
-					.comment__nav__answer {
-						@include hover-effect--show-text($base-font-size, $base-font-size * 12, $base-line-height);
-
-						&:not(:hover) {
-							color: $c-fg-def-light;
-						}
-					}
 			}
 }

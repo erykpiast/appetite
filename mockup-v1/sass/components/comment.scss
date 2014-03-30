@@ -7,7 +7,7 @@
     box-sizing: border-box;
     min-height: $avatar-size;
     position: relative;
-
+}
     .comment__header,
     .comment__content {
         margin-left: $avatar-size;
@@ -81,7 +81,6 @@
     .comment__content {
         border-top: none;
     }
-}
 
 .comment--offer-author-comment {
     @extend .comment;

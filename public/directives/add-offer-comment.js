@@ -12,7 +12,9 @@ function(angular, module, templates) {
                 commentHandler: '&onComment',
                 responseHandler: '&onResponse',
                 commentParent: '=',
-                showOwnerFeatures: '&'
+                showOwnerFeatures: '&',
+                author: '=',
+                className: '@class'
             },
             link: function(scope, $element, attrs) {
                 scope.goTo = $rootScope.goTo;

@@ -20,19 +20,41 @@
 			</button>
 		</p>
 
-		<textarea
-			class="add-comment__input"
-			ng-model="comment.content"
-			placeholder="{{ i18n.comments.add.placeholder }}">
-		</textarea>
+		<div class="add-comment__header">
+			<div class="add-comment__author">
+				<div class="add-comment__author__avatar">
+					<img
+						ng-src="/images/{{ author.userInfo.avatar.filename }}"
+						height="40"
+						width="40" />
+				</div>
+				<span class="add-comment__author__name">
+					{{ author.userInfo.fullName }}
+				</span>
+			</div>
 
-		<button
-			class="add-comment__submit"
-			ng-click="addComment()">
-			{{ i18n.comments.add.submit }}
-		</button>
+			<time
+				class="add-comment__time"
+				datetime="{{ currentTime | date:'yyyy-MM-ddTHH:mm:ssZ' }}">
+				{{ currentTime | date:'EEEE, dd MMMM yyyy HH:mm:ss' }}
+			</time>
+		</div>
 
-		<div class="add-comment__extension" ng-transclude></div>
+		<div class="add-comment__content">
+			<textarea
+				class="add-comment__input"
+				ng-model="comment.content"
+				placeholder="{{ i18n.comments.add.placeholder }}">
+			</textarea>
+
+			<div class="add-comment__extension" ng-transclude></div>
+
+			<button
+				class="add-comment__submit"
+				ng-click="addComment()">
+				{{ i18n.comments.add.submit }}
+			</button>
+		</div>
 
 	</fieldset>
 </form>

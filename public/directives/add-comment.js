@@ -3,7 +3,7 @@ function(angular, module, templates) {
     'use strict';
 
     module
-    .directive('appAddComment', function($rootScope) {
+    .directive('appAddComment', function($rootScope, $interval) {
         return {
             template: templates.addComment,
             replace: true,
@@ -13,7 +13,8 @@ function(angular, module, templates) {
                 comment: '=',
                 commentParent: '=',
                 addHandler: '&onSubmit',
-                clearHandler: '&onCancel'
+                clearHandler: '&onCancel',
+                author: '='
             },
             link: function(scope, $element) {
                 scope.goTo = $rootScope.goTo;
@@ -34,6 +35,10 @@ function(angular, module, templates) {
                         scope.commentParent.comment = undefined;
                     }
                 });
+
+                $interval(function() {
+                    scope.currentTime = Date.now();
+                }, 1000);
             }
         };
     });

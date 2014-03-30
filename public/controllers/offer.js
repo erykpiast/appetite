@@ -68,7 +68,8 @@ define([ 'libs/angular' ], function(angular) {
 			};
 
 		angular.extend($scope, {
-			newCommentParent: { comment: undefined }, 
+			newCommentParent: { comment: undefined },
+			currentUser: authData,
 			addComment: function(commentContent) {
 				var comment = {
 					content: commentContent,

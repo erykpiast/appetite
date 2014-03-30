@@ -11,6 +11,7 @@ requirejs.config({
         'libs/jquery-select2': 'bower_components/select2/select2',
         'libs/jquery-perfect-scrollbar': 'bower_components/angular-perfect-scrollbar/perfect-scrollbar',
         'libs/angular': 'bower_components/angular/angular',
+        'libs/angular-i18n': 'bower_components/angular-i18n/angular-locale_pl-pl',
         'libs/angular-resource': 'bower_components/angular-resource/angular-resource',
         'libs/angular-sanitize': 'bower_components/angular-sanitize/angular-sanitize',
         'libs/angular-cookies': 'bower_components/angular-cookies/angular-cookies',
@@ -38,6 +39,9 @@ requirejs.config({
         'libs/angular': {
             deps: [ 'libs/jquery' ],
             exports: 'angular'
+        },
+        'libs/angular-i18n': {
+            deps: [ 'libs/angular' ],
         },
         'libs/angular-resource': {
             deps: [ 'libs/angular' ]

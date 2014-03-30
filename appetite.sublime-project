@@ -25,7 +25,8 @@
 				"icons",
 				".sass-cache",
 				".crt",
-				".tmp"
+				".tmp",
+				"mockup-v1"
 			],
 			"name": "Appetite",
 			"path": "/var/www/appetite"

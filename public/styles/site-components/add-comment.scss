@@ -1,3 +1,68 @@
 .add-comment {
-	
+	@extend .comment;
+
+	border: none;
+	text-align: center;
+
+	&:before {
+		// content: none;
+		top: auto;
+	}
+
+	& > fieldset {
+		@include header-with-line("legend");
+
+		border: none;
+		padding: 0;
+
+		&:before {
+			top: $h3-size / 2;
+		}
+
+		& > legend {
+			@extend h3;
+
+			color: $c-fg-acc;
+			font-weight: bold;
+			text-align: left;
+		}
+	}
 }
+	.add-comment__input {
+		box-sizing: border-box;
+		display: block;
+		resize: vertical;
+		width: 100%;
+	}
+
+	.add-comment__submit {
+		display: inline-block;
+		margin-top: $base-spacing-unit;
+	}
+
+	.add-comment__header {
+		@extend .comment__header;
+		
+		margin-top: $base-spacing-unit;
+		text-align: left;
+	}
+
+	.add-comment__author {
+		@extend .comment__author;
+	}
+		.add-comment__author__avatar {
+			@extend .comment__author__avatar;
+		}
+
+		.add-comment__author__name {
+			@extend .comment__author__name;
+		}
+
+	.add-comment__time {
+		@extend .comment__time;
+	}
+
+	.add-comment__content {
+		@extend .comment__content;
+	}
+
