@@ -10,6 +10,7 @@ requirejs.config({
         'libs/jquery-cookie': 'bower_components/jquery.cookie/jquery.cookie',
         'libs/jquery-select2': 'bower_components/select2/select2',
         'libs/jquery-perfect-scrollbar': 'bower_components/angular-perfect-scrollbar/perfect-scrollbar',
+        'libs/jquery-waypoints': 'bower_components/jquery-waypoints/waypoints',
         'libs/angular': 'bower_components/angular/angular',
         'libs/angular-i18n': 'bower_components/angular-i18n/angular-locale_pl-pl',
         'libs/angular-resource': 'bower_components/angular-resource/angular-resource',
@@ -84,6 +85,9 @@ requirejs.config({
             deps: [ 'libs/jquery' ]
         },
         'libs/jquery-perfect-scrollbar': {
+            deps: [ 'libs/jquery' ]
+        },
+        'libs/jquery-waypoints': {
             deps: [ 'libs/jquery' ]
         },
         'libs/facebook': {

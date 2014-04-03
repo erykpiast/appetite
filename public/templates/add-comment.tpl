@@ -17,8 +17,7 @@
 
 			<time
 				class="add-comment__time"
-				datetime="{{ currentTime | date:'yyyy-MM-ddTHH:mm:ssZ' }}"
-				ng-if="active">
+				datetime="{{ currentTime | date:'yyyy-MM-ddTHH:mm:ssZ' }}">
 				{{ currentTime | date:'EEEE, dd MMMM yyyy HH:mm:ss' }}
 			</time>
 		</div>
@@ -26,9 +25,10 @@
 		<div class="add-comment__content">
 			<textarea
 				class="add-comment__input"
+				name="addCommentInput"
 				ng-model="comment.content"
 				msd-elastic="\n"
-				placeholder="{{ i18n.comments.add.placeholder }}">
+				placeholder="{{ inputPlaceholder.text || i18n.comments.add.placeholder }}">
 			</textarea>
 
 			<div class="add-comment__extension" ng-transclude></div>
@@ -37,6 +37,12 @@
 				class="add-comment__submit"
 				ng-click="addComment()">
 				{{ i18n.comments.add.submit }}
+			</button>
+
+			<button
+				class="add-comment__cancel"
+				ng-click="cancel()">
+				{{ i18n.common.cancel }}
 			</button>
 		</div>
 

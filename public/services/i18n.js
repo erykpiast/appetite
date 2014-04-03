@@ -88,7 +88,10 @@ function(angular, module) {
                 },
                 recipeFrom: 'Przepis pochodzi z serwisu ',
                 remainingTime: 'Czas do końca',
-                response: 'Odpowiedz na ofertę'
+                response: {
+                    action: 'Zamów',
+                    inputPlaceholder: 'Komentarz do zamówienia (widoczny dla innych użytkowników, opcjonalny)'  
+                } 
             },
             user: {
                 currentOffers: 'Bieżące oferty użytkownika'

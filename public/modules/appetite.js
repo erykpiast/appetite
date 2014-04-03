@@ -1,10 +1,10 @@
 define(['libs/angular', 'libs/angular-i18n', 'modules/auth',
-        'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui', 'libs/angular-ui-router', 'libs/angular-ui-date', 'libs/angular-ui-select2', 'libs/angular-perfect-scrollbar', 'libs/angular-elastic',
+        'libs/angular-resource', 'libs/cookie-store', 'libs/angular-ui', 'libs/angular-ui-router', 'libs/angular-ui-date', 'libs/angular-ui-select2', 'libs/angular-perfect-scrollbar', 'libs/jquery-waypoints', 'libs/angular-elastic',
         'controllers', 'templates',
         'directives', 'services', 'filters'
     ],
     function(angular, _angularI18N, auth,
-        _angularResource, _cookieStore, _angularUi, _angularUiRouter, _angularUiDate, _angularUiSelect2, _angularPerfectScrollbar, _angularElastic, 
+        _angularResource, _cookieStore, _angularUi, _angularUiRouter, _angularUiDate, _angularUiSelect2, _angularPerfectScrollbar, _jqueryWaypoints, _angularElastic, 
         controllers, templates,
         _directives, _services, _filters) {
 

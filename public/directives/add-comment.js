@@ -13,8 +13,10 @@ function(angular, module, templates) {
                 comment: '=',
                 commentParent: '=',
                 addHandler: '&onSubmit',
-                clearHandler: '&onCancel',
-                author: '='
+                clickHandler: '&onSubmitTry',
+                cancelHandler: '&onCancel',
+                author: '=',
+                inputPlaceholder: '='
             },
             link: function(scope, $element) {
                 scope.goTo = $rootScope.goTo;
@@ -22,6 +24,8 @@ function(angular, module, templates) {
 
                 angular.extend(scope, {
                     addComment: function() {
+                        scope.clickHandler();
+
                         if(scope.comment.content.length) {
                             scope.addHandler({
                                 comment: scope.comment.content
@@ -29,6 +33,11 @@ function(angular, module, templates) {
 
                             scope.clearAnswer();
                         }
+                    },
+                    cancel: function() {
+                        scope.cancelHandler();
+
+                        scope.clearAnswer();
                     },
                     clearAnswer: function() {
                         scope.comment.content = '';

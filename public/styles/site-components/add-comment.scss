@@ -38,7 +38,8 @@
 		width: 100%;
 	}
 
-	.add-comment__submit {
+	.add-comment__submit,
+	.add-comment__cancel {
 		display: inline-block;
 		margin-top: $base-spacing-unit;
 	}

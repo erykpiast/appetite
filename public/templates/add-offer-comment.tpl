@@ -1,18 +1,27 @@
 <div class="{{ className }}" ng-class="{
-		'add-offer-comment': !active,
-		'add-offer-comment--active': active
+		'add-offer-comment': activeMode !== 'response',
+		'add-offer-comment--response': activeMode === 'response',
+		'active': activeMode
+	}"
+	ui-jq="waypoint"
+	ui-options="handleScroll, {
+		enabled: false,
+		offset: '100%'
 	}">
 	<app-add-comment
 		comment="comment"
 		comment-parent="commentParent"
 		on-submit="addComment(comment)"
+		on-submit-try="activeMode = 'comment'"
+		on-cancel="cancel()"
 		show-owner-features="showOwnerFeatures()"
+		input-placeholder="inputPlaceholder"
 		author="author">
 		<button
 			class="add-offer-comment__response"
 			ng-if="!comment.parent && !showOwnerFeatures()"
 			ng-click="addResponse()">
-			{{ i18n.offer.response }}
+			{{ i18n.offer.response.action }}
 		</button>
 	</app-add-comment>
 </div>

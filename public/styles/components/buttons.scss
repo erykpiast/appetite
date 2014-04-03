@@ -77,10 +77,17 @@
         @extend .fa;
 
         border: none {
-            right: 1px solid $c-bg-light;
+            right: 1px solid $c-fg-def;
         };
         margin-right: $half-spacing-unit;
         padding-right: $half-spacing-unit;
+    }
+
+    &.button--primary,
+    &.button--call-to-action {
+        &:before {
+            border-right-color: $c-bg-light;
+        }
     }
 }
 
@@ -99,6 +106,14 @@
 
     &:before {
         @extend .fa-times;
+    }
+}
+
+.button--ico--comment {
+    @extend .button--ico;
+
+    &:before {
+        @extend .fa-comment;
     }
 }
 

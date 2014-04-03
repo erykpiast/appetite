@@ -3,6 +3,7 @@
 	$border-width: 1px;
 
 	.add-comment__submit,
+	.add-comment__cancel,
 	.add-comment__extension {
 		display: inline-block;
 		margin: {
@@ -12,9 +13,22 @@
 		vertical-align: middle;
 	}
 
-	&:not(.add-offer-comment--active) {
+	&.active {
+		.add-offer-comment__response {
+			display: none;
+		}
+
+		.add-comment__submit {
+			@extend .button--primary;
+
+			display: inline-block;
+		}
+	}
+
+	&:not(.active) {
 		.add-comment__time,
 		.add-comment__input,
+		.add-comment__cancel,
 		.add-comment__author__name {
 			display: none;
 		}
@@ -36,31 +50,53 @@
 
 		.add-comment__content {
 			border-left: none;
+			line-height: $avatar-size;
+			min-height: $avatar-size;
 			padding: {
 				bottom: 0;
 				top: 0;
 			};
 		}
 
+		.add-comment__submit,
+		.add-comment__cancel,
 		.add-comment__extension {
+			line-height: $base-line-height;
 			margin: {
-				bottom: $half-spacing-unit;
-				top: $half-spacing-unit;
+				bottom: 0;
+				top: 0;
 			};
 		}
 	}
 
+
 	&__response {
 		@extend .button--primary;
+		@extend .button--ico--order;
 	}
 
-	.add-comment__submit {
+	.add-comment__submit, 
+	.add-comment__cancel {
 		@extend .button--secondary;
 
 		margin-left: $half-spacing-unit;
 	}
+
+	.add-comment__submit {
+		@extend .button--ico--comment;
+	}
 }
 
-.add-offer-comment--active {
+.add-offer-comment--response {
 	@extend .add-offer-comment;
+
+	&.active {
+		.add-comment__submit {
+			display: none;
+		}
+
+		.add-offer-comment__response {
+			display: inline-block;
+		}
+	}
 }

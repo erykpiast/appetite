@@ -21,35 +21,56 @@ function(angular, module, templates) {
                 scope.i18n = $rootScope.i18n;
 
                 angular.extend(scope, {
-                    active: false,
+                    activeMode: false,
+                    inputPlaceholder: {
+                        text: ''
+                    },
                     comment: {
                         content: ''
                     },
-                    activate: function() {
-                        scope.active = true;
+                    activate: function(mode) {
+                        scope.activeMode = mode;
+
+                        if(mode === 'response') {
+                            scope.inputPlaceholder.text = scope.i18n.offer.response.inputPlaceholder;
+                        }
                     },
                     deactivate: function() {
-                        scope.active = false;
+                        scope.activeMode = null;
+
+                        scope.inputPlaceholder.text = '';
                     },
                     addComment: function(comment) {
-                        if(scope.active) {
+                        if(scope.activeMode) {
                             scope.commentHandler({
                                 comment: comment
                             });
                         } else {
-                            scope.activate();
+                            scope.activate('comment');
                         }
                     },
                     addResponse: function() {
-                        if(scope.active) {
+                        if(scope.activeMode) {
                             scope.responseHandler({
                                 comment: scope.comment
                             });
                         } else {
-                            scope.activate();
+                            scope.activate('response');
                         }
+                    },
+                    cancel: function() {
+                        scope.deactivate();
                     }
                 });
+
+                scope.$on('appAddOfferComment.activate', function(e, mode) {
+                    scope.activate(mode);
+                });
+            },
+            controller: function($scope) {
+                $scope.handleScroll = function(direction) {
+                    console.log(direction);
+                };
             }
         };
     });

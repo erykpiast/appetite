@@ -31,7 +31,7 @@
                     </strong>
                 </p>
                 <button class="offer__order__button"
-                    ui-sref=".order({ step: 1 })"
+                    ng-click="order()"
                     ng-bind="i18n.offer.order.doOrder"></button>
             </div>
 

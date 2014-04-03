@@ -111,6 +111,9 @@ define([ 'libs/angular' ], function(angular) {
 					valuePlaceholder = i18n.offer.order.amountUnits.valuePlaceholder;
 
 				return labels[unit].replace(valuePlaceholder, value);
+			},
+			order: function() {
+				$scope.$broadcast('appAddOfferComment.activate', 'response');
 			}
 		});
 
