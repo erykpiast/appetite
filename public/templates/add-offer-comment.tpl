@@ -2,11 +2,6 @@
 		'add-offer-comment': activeMode !== 'response',
 		'add-offer-comment--response': activeMode === 'response',
 		'active': activeMode
-	}"
-	ui-jq="waypoint"
-	ui-options="handleScroll, {
-		enabled: false,
-		offset: '100%'
 	}">
 	<app-add-comment
 		comment="comment"

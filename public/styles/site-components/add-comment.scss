@@ -28,6 +28,18 @@
 		}
 	}
 }
+	.add-comment__wrapper {
+		overflow: auto;
+
+		&:not(.fixed) {
+			.add-comment__header {
+				&, &:before {
+					// box-shadow: 0 -.1em 0 .2em $c-bg-dark;
+				}
+			}
+		}
+	}
+
 	.add-comment__input {
 		box-sizing: border-box;
 		display: block;
@@ -49,6 +61,10 @@
 		
 		margin-top: $base-spacing-unit;
 		text-align: left;
+
+		&:after {
+			background-color: $c-fg-acc;
+		}
 	}
 
 	.add-comment__author {

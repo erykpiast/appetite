@@ -10,7 +10,8 @@
             'login',
             'current-user',
             'edit-in-place',
-            'tree'
+            'tree',
+            'fixed'
             ].map(function(f) { return './' + f; }),
            function() { }
     );

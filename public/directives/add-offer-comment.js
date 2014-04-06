@@ -16,11 +16,11 @@ function(angular, module, templates) {
                 author: '=',
                 className: '@class'
             },
-            link: function(scope, $element, attrs) {
-                scope.goTo = $rootScope.goTo;
-                scope.i18n = $rootScope.i18n;
+            link: function($scope, $element) {
+                $scope.goTo = $rootScope.goTo;
+                $scope.i18n = $rootScope.i18n;
 
-                angular.extend(scope, {
+                angular.extend($scope, {
                     activeMode: false,
                     inputPlaceholder: {
                         text: ''
@@ -29,48 +29,51 @@ function(angular, module, templates) {
                         content: ''
                     },
                     activate: function(mode) {
-                        scope.activeMode = mode;
+                        $scope.activeMode = mode;
 
                         if(mode === 'response') {
-                            scope.inputPlaceholder.text = scope.i18n.offer.response.inputPlaceholder;
+                            $scope.inputPlaceholder.text = $scope.i18n.offer.response.inputPlaceholder;
                         }
+
+                        $scope.$broadcast('appFixed.recalculate');
                     },
                     deactivate: function() {
-                        scope.activeMode = null;
+                        $scope.activeMode = null;
 
-                        scope.inputPlaceholder.text = '';
+                        $scope.inputPlaceholder.text = '';
+
+                        $scope.$broadcast('appFixed.recalculate');
                     },
                     addComment: function(comment) {
-                        if(scope.activeMode) {
-                            scope.commentHandler({
+                        if($scope.activeMode) {
+                            $scope.commentHandler({
                                 comment: comment
                             });
+
+                            $scope.deactivate();
                         } else {
-                            scope.activate('comment');
+                            $scope.activate('comment');
                         }
                     },
                     addResponse: function() {
-                        if(scope.activeMode) {
-                            scope.responseHandler({
-                                comment: scope.comment
+                        if($scope.activeMode) {
+                            $scope.responseHandler({
+                                comment: $scope.comment
                             });
+
+                            $scope.deactivate();
                         } else {
-                            scope.activate('response');
+                            $scope.activate('response');
                         }
                     },
                     cancel: function() {
-                        scope.deactivate();
+                        $scope.deactivate();
                     }
                 });
 
-                scope.$on('appAddOfferComment.activate', function(e, mode) {
-                    scope.activate(mode);
+                $scope.$on('appAddOfferComment.activate', function(e, mode) {
+                    $scope.activate(mode);
                 });
-            },
-            controller: function($scope) {
-                $scope.handleScroll = function(direction) {
-                    console.log(direction);
-                };
             }
         };
     });

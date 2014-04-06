@@ -29,6 +29,13 @@
     }
 
     .comment__header {
+        border: {
+            bottom: none;
+            left: none;
+        };
+        padding-top: $v-margin * 2;
+        position: relative;
+
         @include scut-before() {
             @include scut-size($avatar-size/2 $avatar-size/2);
             @include scut-absolute((-$border-width) n n (-$avatar-size/2));
@@ -50,14 +57,9 @@
             z-index: 1;
         }
 
-
-        border: {
-            bottom: none;
-            left: none;
-            top-right-radius: .4rem;
-        };
-        padding-top: $v-margin * 2;
-        position: relative;
+        &, &:after {
+            border-top-right-radius: .4rem;
+        }
     }
     
         .comment__author {
