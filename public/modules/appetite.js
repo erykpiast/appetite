@@ -62,12 +62,11 @@ define(['libs/angular', 'libs/angular-i18n', 'modules/auth',
                             'content@': {
                                 template: templates.offer,
                                 controller: controllers.offer
+                            },
+                            'sidebar@': {
+                                template: templates.offerSidebar,
+                                controller: controllers.offerSidebar
                             }
-                            /*,
-                        'sidebar@': {
-                            template: templates.sidebarOffer,
-                            controller: controllers.sidebarOffer
-                        }*/
                         }, common)
                     })
                     .state('offer.create', {

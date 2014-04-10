@@ -89,6 +89,14 @@
             border-right-color: $c-bg-light;
         }
     }
+
+    &.button--empty {
+        &:before {
+            border-right: none;
+            margin-right: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 .button--ico--add {

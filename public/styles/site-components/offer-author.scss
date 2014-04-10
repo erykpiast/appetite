@@ -30,6 +30,10 @@
         overflow: hidden;
         padding: $base-spacing-unit;
         background: $c-bg-acc-light;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
     
         .offer__author__avatar {

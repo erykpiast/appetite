@@ -3,7 +3,7 @@ function(angular, module, templates) {
     'use strict';
 
     module
-    .directive('appAddOfferComment', function($rootScope) {
+    .directive('appAddOfferComment', function($rootScope, $timeout) {
         return {
             template: templates.addOfferComment,
             replace: true,
@@ -35,14 +35,18 @@ function(angular, module, templates) {
                             $scope.inputPlaceholder.text = $scope.i18n.offer.response.inputPlaceholder;
                         }
 
-                        $scope.$broadcast('appFixed.recalculate');
+                        $timeout(function() { // after rendering
+                            $scope.$broadcast('appFixed.recalculate');
+                        }, 0);
                     },
                     deactivate: function() {
                         $scope.activeMode = null;
 
                         $scope.inputPlaceholder.text = '';
 
-                        $scope.$broadcast('appFixed.recalculate');
+                        $timeout(function() { // after rendering
+                            $scope.$broadcast('appFixed.recalculate');
+                        }, 0);
                     },
                     addComment: function(comment) {
                         if($scope.activeMode) {

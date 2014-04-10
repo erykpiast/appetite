@@ -2,7 +2,7 @@
 
     define([ 
             'offer-thumbnail',
-            'offer-author',
+            'offer__author',
             'comments',
             'add-comment',
             'add-offer-comment',

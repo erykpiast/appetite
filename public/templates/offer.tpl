@@ -2,9 +2,8 @@
 
     <div class="page__content__column--left">
         <header class="offer__header">
-            <h2 ng-bind="offer.template.title"></h2>
+            <h2>{{ offer.template.title }}</h2>
         </header>
-
 
         <div class="offer__content">
             <div class="offer__pictures">
@@ -54,7 +53,6 @@
                 <a class="offer__source__link"
                     ng-bind="offer.template.recipe.domain"></a>
             </p>
-            
         </div>
 
         <section class="offer__comments">

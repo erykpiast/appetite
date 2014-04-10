@@ -14,7 +14,7 @@
 	}
 
 	&.active {
-		min-height: 186px;
+		min-height: 282px; // hard-calculated when input field has max height
 
 		.add-offer-comment__response {
 			display: none;

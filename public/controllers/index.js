@@ -2,7 +2,7 @@
     
     var controllers = [ 'header', 'footer',
         'test', 'main',
-        'offers', 'offer', 'offer-create',
+        'offers', 'offer', 'offer__sidebar', 'offer-create',
         'user' ];
     
     define([ 'libs/underscore' ].concat(controllers.map(function(controller) {

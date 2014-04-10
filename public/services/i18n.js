@@ -50,6 +50,9 @@ function(angular, module) {
                     kilogram: 'kg',
                     liter: 'l'
                 },
+                author: {
+                    header: 'Autor oferty'
+                },
                 order: {
                     amountUnits: {
                         valuePlaceholder: '#',

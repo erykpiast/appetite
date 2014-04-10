@@ -66,24 +66,6 @@ function(angular, module) {
                         $scope.recalculate();
                     }
                 });
-
-                // wait for rendering full screen etc.
-                // naive, but how can I handle that?
-                $timeout(function() {
-                    $scope.recalculate();
-                }, 500);
-                
-
-                // var lastContainerTop = $scope.$container.offset().top;
-                // $interval(function() {
-                //     var currentContainerTop = $scope.$container.offset().top;
-
-                //     if(lastContainerTop !== currentContainerTop) {
-                //         lastContainerTop = currentContainerTop;
-
-                //         $scope.recalculate();
-                //     }
-                // }, 500);
             }
         };
     });

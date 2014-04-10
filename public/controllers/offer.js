@@ -1,7 +1,8 @@
 define([ 'libs/angular' ], function(angular) {
 	'use strict';
 
-	var relatedEntities = { }, users = [ ];
+	var relatedEntities = { },
+		users = [ ]; // TO DO: memory leak, fix
 
 	function retrieveAuthorInfo(rest, entity) {
 		if(!entity.author) {
@@ -52,8 +53,8 @@ define([ 'libs/angular' ], function(angular) {
 	}
 
 
-	return function($rootScope, $scope, $stateParams, rest, authData, i18n) {
-		$scope.users = users;
+	return function($rootScope, $scope, $stateParams, $timeout, rest, authData, i18n) {
+		$rootScope.users = users;
 		$scope.offer = {
 			comments: [ ]
 		};
@@ -129,6 +130,10 @@ define([ 'libs/angular' ], function(angular) {
 						commentsBuffer.append(res);
 
 						res.forEach(_addComment);
+
+						$timeout(function() { // comments are not rendered yet...
+							$scope.$broadcast('appFixed.recalculate');
+						}, 0);
 					});
 			});
 	};
